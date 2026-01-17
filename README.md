@@ -1,6 +1,13 @@
 # 🍎 Leeo's App Portfolio
 
+[![Dashboard](https://img.shields.io/badge/📊_Live_Dashboard-보기-blue?style=for-the-badge)](https://hyunholee.github.io/app-portfolio/)
+[![Stats](https://img.shields.io/badge/📈_Statistics-보기-green?style=for-the-badge)](./STATS.md)
+
+> 🌐 **실시간 대시보드**: 어디서든 브라우저로 포트폴리오 현황을 확인하세요
+
 23개 iOS 앱을 체계적으로 관리하기 위한 포트폴리오 허브입니다.
+
+---
 
 ## 📊 현황 요약
 
@@ -20,14 +27,70 @@
 ```
 app-portfolio/
 ├── README.md
+├── AUTOMATION-GUIDE.md         # 🆕 자동화 시스템 가이드
 ├── portfolio-summary.json      # 전체 포트폴리오 요약
 ├── apps/                       # 앱별 상세 정보
 │   ├── clip-keyboard.json
 │   ├── double-reminder.json
 │   └── ...
+├── scripts/                    # 🆕 자동화 스크립트
+│   ├── claude-update-task.sh
+│   ├── claude-weekly-report.sh
+│   ├── claude-release.sh
+│   ├── claude-priority-analysis.sh
+│   ├── claude-app-status.sh
+│   ├── validate-portfolio.py
+│   ├── generate-dashboard.py
+│   └── open-dashboard.sh
+├── prompts/                    # 🆕 프롬프트 템플릿
+│   ├── deploy-checklist.txt
+│   ├── bug-investigation.txt
+│   ├── feature-planning.txt
+│   └── code-review.txt
+├── dashboard/                  # 🆕 시각적 대시보드
+│   └── index.html
 ├── reports/                    # 주간/월간 리포트
 └── CLAUDE-GUIDE.md            # Claude 사용 가이드
 ```
+
+## 🚀 빠른 시작
+
+> 🎯 **처음이신가요?** [QUICK-START.md](QUICK-START.md)를 먼저 읽어보세요! (5분)
+
+### 📊 대시보드 보기 (추천!)
+```bash
+./scripts/open-dashboard.sh
+```
+브라우저에서 모든 앱의 상태를 한눈에 확인하세요.
+
+### ⚡ 자주 사용하는 명령어
+
+**태스크 업데이트**
+```bash
+./scripts/claude-update-task.sh "앱이름" "태스크명" "done"
+```
+
+**우선순위 분석**
+```bash
+./scripts/claude-priority-analysis.sh
+```
+
+**주간 리포트 생성**
+```bash
+./scripts/claude-weekly-report.sh
+```
+
+**앱 상태 조회**
+```bash
+./scripts/claude-app-status.sh "앱이름"
+```
+
+**릴리스 노트 생성**
+```bash
+./scripts/claude-release.sh "앱이름" "버전"
+```
+
+더 자세한 사용법은 [AUTOMATION-GUIDE.md](AUTOMATION-GUIDE.md)를 참고하세요.
 
 ## 🤖 Claude와 함께 사용하기
 
@@ -64,6 +127,25 @@ app-portfolio/
 - **medium**: 안정적인 운영 중, 점진적 개선
 - **low**: 장기 계획 또는 실험적 프로젝트
 
+## ✨ 자동화 기능
+
+- ✅ **Git Hook 검증**: 커밋 전 자동으로 데이터 무결성 검증
+- 📊 **시각적 대시보드**: HTML 기반 실시간 현황 대시보드
+- 🤖 **Claude 자동화**: 태스크 업데이트, 리포트 생성 등 자동화
+- 📝 **프롬프트 템플릿**: 배포, 버그 조사, 기획 등 재사용 가능한 템플릿
+- 🔍 **데이터 검증**: Python 기반 자동 검증 시스템
+
+## 📚 문서
+
+### 시작하기
+- [QUICK-START.md](QUICK-START.md) - ⚡ 5분 빠른 시작 가이드
+- [GITHUB-PAGES-SETUP.md](GITHUB-PAGES-SETUP.md) - 🌐 온라인 대시보드 설정
+
+### 상세 가이드
+- [AUTOMATION-GUIDE.md](AUTOMATION-GUIDE.md) - 🤖 자동화 시스템 전체 가이드
+- [CLAUDE-GUIDE.md](CLAUDE-GUIDE.md) - 📝 Claude 데이터 관리 가이드
+- [STATS.md](STATS.md) - 📊 실시간 통계 페이지
+
 ---
 
-*마지막 업데이트: 2025-01-17*
+*마지막 업데이트: 2026-01-17*

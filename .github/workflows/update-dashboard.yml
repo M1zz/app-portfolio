@@ -1,0 +1,42 @@
+name: Update Portfolio Dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/*.json'
+      - 'portfolio-summary.json'
+  workflow_dispatch:  # 수동 실행 가능
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate Dashboard
+        run: |
+          python3 scripts/generate-dashboard.py
+
+      - name: Copy dashboard to docs
+        run: |
+          mkdir -p docs
+          cp dashboard/index.html docs/index.html
+
+      - name: Generate README badges
+        run: |
+          python3 scripts/generate-badges.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add docs/index.html
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update dashboard [skip ci]" && git push)
