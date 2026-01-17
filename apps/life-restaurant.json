@@ -1,0 +1,84 @@
+{
+  "name": "인생 맛집",
+  "nameEn": "Life Restaurant",
+  "bundleId": "com.leeo.liferestaurant",
+  "currentVersion": "1.0.0",
+  "status": "active",
+  "priority": "high",
+  "minimumOS": "16.0",
+  "sharedModules": [],
+  "appStoreId": "",
+  "githubRepo": "leeo/life-restaurant",
+  "stats": {
+    "totalTasks": 9,
+    "done": 2,
+    "inProgress": 1,
+    "notStarted": 6
+  },
+  "nextTasks": [
+    "앱 배포",
+    "진짜 맛 있다는 것은",
+    "사람들 추가하기"
+  ],
+  "recentlyCompleted": [
+    "앱 구상하기",
+    "방문 횟수"
+  ],
+  "allTasks": [
+    {
+      "name": "앱 구상하기",
+      "status": "done",
+      "targetDate": "November 23, 2025",
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "앱 배포",
+      "status": "in-progress",
+      "targetDate": "December 2, 2025",
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "방문 횟수",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "진짜 맛 있다는 것은",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "사람들 추가하기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "검색은 카카오 API",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "특정 위치에 들어가면 알림을 주는 것",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "도형 은 절반으로 보여야지",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "친구에게 리스트 공유할 수 있게하기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    }
+  ],
+  "notes": ""
+}

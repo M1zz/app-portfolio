@@ -1,0 +1,57 @@
+{
+  "name": "돈꼬마트",
+  "nameEn": "Donkko Mart",
+  "bundleId": "com.leeo.donkkomart",
+  "currentVersion": "1.1.0",
+  "status": "active",
+  "priority": "medium",
+  "minimumOS": "16.0",
+  "sharedModules": [],
+  "appStoreId": "",
+  "githubRepo": "leeo/donkko-mart",
+  "stats": {
+    "totalTasks": 5,
+    "done": 5,
+    "inProgress": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "recentlyCompleted": [
+    "사용성 개선",
+    "나의 마트 추가하는 경험 개선",
+    "위젯 화면 개선"
+  ],
+  "allTasks": [
+    {
+      "name": "사용성 개선",
+      "status": "done",
+      "targetDate": "November 24, 2025",
+      "targetVersion": "1.0.13"
+    },
+    {
+      "name": "나의 마트 추가하는 경험 개선",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.1.0"
+    },
+    {
+      "name": "위젯 화면 개선",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.1.0"
+    },
+    {
+      "name": "개발자 소통화면",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.1.0"
+    },
+    {
+      "name": "1.0.13 배포",
+      "status": "done",
+      "targetDate": "November 24, 2025",
+      "targetVersion": "1.0.13"
+    }
+  ],
+  "notes": ""
+}

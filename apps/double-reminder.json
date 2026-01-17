@@ -1,0 +1,115 @@
+{
+  "name": "두 번 알림",
+  "nameEn": "Double Reminder",
+  "bundleId": "com.leeo.doublereminder",
+  "currentVersion": "1.0.5",
+  "status": "active",
+  "priority": "high",
+  "minimumOS": "16.0",
+  "sharedModules": [],
+  "appStoreId": "",
+  "githubRepo": "leeo/double-reminder",
+  "stats": {
+    "totalTasks": 14,
+    "done": 10,
+    "inProgress": 1,
+    "notStarted": 3
+  },
+  "nextTasks": [
+    "1.0.5 배포",
+    "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
+    "접근성 개선"
+  ],
+  "recentlyCompleted": [
+    "UI 개선작업",
+    "예비알림 마크 개선",
+    "워치 사용성 개선"
+  ],
+  "allTasks": [
+    {
+      "name": "UI 개선작업",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.4"
+    },
+    {
+      "name": "예비알림 마크 개선",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.4"
+    },
+    {
+      "name": "워치 사용성 개선",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.4"
+    },
+    {
+      "name": "사용자가 사용할 수 있는 테스트 모드",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.0.5"
+    },
+    {
+      "name": "온보딩 개선",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.4"
+    },
+    {
+      "name": "각각 알림마다 노티 레이블 넣기",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.0.5"
+    },
+    {
+      "name": "다음 알림까지 남은 시간 보여주기",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "사용자가 사용했던 타이머의 기록 남기기와 빠른 타이머 그리고 그 레이블링",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.0.5"
+    },
+    {
+      "name": "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "접근성 개선",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "권한 거부 되었을 때 다시 하는 법 혹은 부작용 안내",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "사용자 사운드 커스터마이징",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "1.0.4 배포",
+      "status": "done",
+      "targetDate": "November 25, 2025",
+      "targetVersion": "1.0.4"
+    },
+    {
+      "name": "1.0.5 배포",
+      "status": "in-progress",
+      "targetDate": null,
+      "targetVersion": null
+    }
+  ],
+  "notes": ""
+}

@@ -1,0 +1,31 @@
+{
+  "name": "쿨타임",
+  "nameEn": "Cooltime",
+  "bundleId": "com.leeo.cooltime",
+  "currentVersion": "1.0.0",
+  "status": "planning",
+  "priority": "medium",
+  "minimumOS": "16.0",
+  "sharedModules": [],
+  "appStoreId": "",
+  "githubRepo": "leeo/cooltime",
+  "stats": {
+    "totalTasks": 1,
+    "done": 0,
+    "inProgress": 0,
+    "notStarted": 1
+  },
+  "nextTasks": [
+    "앱 구상하기"
+  ],
+  "recentlyCompleted": [],
+  "allTasks": [
+    {
+      "name": "앱 구상하기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    }
+  ],
+  "notes": ""
+}

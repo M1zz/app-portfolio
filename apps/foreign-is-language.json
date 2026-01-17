@@ -1,0 +1,46 @@
+{
+  "name": "외국어는 언어다",
+  "nameEn": "Foreign Is Language",
+  "bundleId": "com.leeo.foreignislanguage",
+  "currentVersion": "1.0.0",
+  "status": "active",
+  "priority": "high",
+  "minimumOS": "16.0",
+  "sharedModules": [],
+  "appStoreId": "",
+  "githubRepo": "leeo/foreign-is-language",
+  "stats": {
+    "totalTasks": 3,
+    "done": 2,
+    "inProgress": 1,
+    "notStarted": 0
+  },
+  "nextTasks": [
+    "기본 대화들 추가해주기"
+  ],
+  "recentlyCompleted": [
+    "앱 구상하기",
+    "대화 가져오기"
+  ],
+  "allTasks": [
+    {
+      "name": "앱 구상하기",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "대화 가져오기",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "기본 대화들 추가해주기",
+      "status": "in-progress",
+      "targetDate": null,
+      "targetVersion": null
+    }
+  ],
+  "notes": ""
+}

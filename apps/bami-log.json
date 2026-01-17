@@ -1,0 +1,31 @@
+{
+  "name": "바미로그",
+  "nameEn": "Bami Log",
+  "bundleId": "com.leeo.bamilog",
+  "currentVersion": "1.1.0",
+  "status": "planning",
+  "priority": "medium",
+  "minimumOS": "16.0",
+  "sharedModules": [],
+  "appStoreId": "",
+  "githubRepo": "leeo/bami-log",
+  "stats": {
+    "totalTasks": 1,
+    "done": 0,
+    "inProgress": 0,
+    "notStarted": 1
+  },
+  "nextTasks": [
+    "진통기록 + 호흡을 도와주는 것 추가"
+  ],
+  "recentlyCompleted": [],
+  "allTasks": [
+    {
+      "name": "진통기록 + 호흡을 도와주는 것 추가",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": "1.1.0"
+    }
+  ],
+  "notes": ""
+}

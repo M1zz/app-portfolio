@@ -1,0 +1,88 @@
+{
+  "name": "세끼",
+  "nameEn": "Three Meals",
+  "bundleId": "com.leeo.threemeals",
+  "currentVersion": "1.0.3",
+  "status": "active",
+  "priority": "high",
+  "minimumOS": "16.0",
+  "sharedModules": [],
+  "appStoreId": "",
+  "githubRepo": "leeo/three-meals",
+  "stats": {
+    "totalTasks": 10,
+    "done": 0,
+    "inProgress": 2,
+    "notStarted": 8
+  },
+  "nextTasks": [
+    "식단 피드백 작성기능 추가",
+    "간식 감추는 설정",
+    "설정 바로반응",
+    "[BUG] 식단 분석 후 이미지가 깨지는 버그 수정"
+  ],
+  "recentlyCompleted": [],
+  "allTasks": [
+    {
+      "name": "설정 바로반응",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": "1.0.3"
+    },
+    {
+      "name": "식단 피드백 작성기능 추가",
+      "status": "in-progress",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "[BUG] 식단 분석 후 이미지가 깨지는 버그 수정",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "이미 가지고 있는 추출한 재료로 줄 수 있는 정보",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "좀 더 나은 운동 디자인으로 바꾸기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "유저가 달 성할 수 있는 목표와 앱의 목표 명확하게 하기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "추출한 식단을 바탕으로 이런거 먹으면 좋아 추천하기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "사실은 오해하고있을 식단에 대한 정보와 팁",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "사용자의 식단분석 보이기 감추기 토글 설정 + 이미지 작아지지 않게하기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "간식 감추는 설정",
+      "status": "in-progress",
+      "targetDate": null,
+      "targetVersion": null
+    }
+  ],
+  "notes": ""
+}

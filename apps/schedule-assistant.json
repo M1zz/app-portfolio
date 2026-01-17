@@ -1,0 +1,45 @@
+{
+  "name": "일정비서",
+  "nameEn": "Schedule Assistant",
+  "bundleId": "com.leeo.scheduleassistant",
+  "currentVersion": "1.0.0",
+  "status": "active",
+  "priority": "high",
+  "minimumOS": "16.0",
+  "sharedModules": [],
+  "appStoreId": "",
+  "githubRepo": "leeo/schedule-assistant",
+  "stats": {
+    "totalTasks": 3,
+    "done": 0,
+    "inProgress": 2,
+    "notStarted": 1
+  },
+  "nextTasks": [
+    "앱 기획하기",
+    "너 이거 다 했어? 라고 물어봐주기",
+    "앱 배포 1.0.0 일정비서"
+  ],
+  "recentlyCompleted": [],
+  "allTasks": [
+    {
+      "name": "앱 기획하기",
+      "status": "in-progress",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "너 이거 다 했어? 라고 물어봐주기",
+      "status": "in-progress",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "name": "앱 배포 1.0.0 일정비서",
+      "status": "not-started",
+      "targetDate": "December 17, 2025 → December 21, 2025",
+      "targetVersion": null
+    }
+  ],
+  "notes": ""
+}
