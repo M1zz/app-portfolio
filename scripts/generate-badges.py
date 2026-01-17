@@ -43,7 +43,7 @@ def generate_badges():
 ![Tasks Done](https://img.shields.io/badge/Tasks_Done-{total_done}/{total_tasks}-{progress_color}?style=for-the-badge)
 ![In Progress](https://img.shields.io/badge/In_Progress-{total_in_progress}-orange?style=for-the-badge)
 
-> 🌐 **[라이브 대시보드 보기 →](https://[YOUR-USERNAME].github.io/app-portfolio/)**
+> 🌐 **[라이브 대시보드 보기 →](https://M1zz.github.io/app-portfolio/)**
 
 """
 
@@ -95,7 +95,7 @@ def generate_badges():
     print(f"✅ 통계 페이지 생성: {output_file}")
     print("\n📋 README.md에 다음을 추가하세요:")
     print("\n```markdown")
-    print("[![Dashboard](https://img.shields.io/badge/📊_Dashboard-보기-blue?style=for-the-badge)](https://[YOUR-USERNAME].github.io/app-portfolio/)")
+    print("[![Dashboard](https://img.shields.io/badge/📊_Dashboard-보기-blue?style=for-the-badge)](https://M1zz.github.io/app-portfolio/)")
     print("\n자세한 통계는 [STATS.md](STATS.md)를 확인하세요.")
     print("```")
 

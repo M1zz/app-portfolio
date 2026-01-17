@@ -8,7 +8,7 @@
 ![Tasks Done](https://img.shields.io/badge/Tasks_Done-44/127-orange?style=for-the-badge)
 ![In Progress](https://img.shields.io/badge/In_Progress-13-orange?style=for-the-badge)
 
-> 🌐 **[라이브 대시보드 보기 →](https://[YOUR-USERNAME].github.io/app-portfolio/)**
+> 🌐 **[라이브 대시보드 보기 →](https://M1zz.github.io/app-portfolio/)**
 
 
 ## 📈 상세 현황

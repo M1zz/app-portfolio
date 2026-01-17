@@ -27,7 +27,7 @@ git push origin main
 약 1-2분 후 다음 URL에서 대시보드를 볼 수 있습니다:
 
 ```
-https://[YOUR-USERNAME].github.io/app-portfolio/
+https://M1zz.github.io/app-portfolio/
 ```
 
 예시:
@@ -62,7 +62,7 @@ https://[YOUR-USERNAME].github.io/app-portfolio/
 ```markdown
 # 🍎 Leeo's App Portfolio
 
-[![Dashboard](https://img.shields.io/badge/📊_Live_Dashboard-보기-blue?style=for-the-badge)](https://[YOUR-USERNAME].github.io/app-portfolio/)
+[![Dashboard](https://img.shields.io/badge/📊_Live_Dashboard-보기-blue?style=for-the-badge)](https://M1zz.github.io/app-portfolio/)
 [![Stats](https://img.shields.io/badge/📈_Statistics-보기-green?style=for-the-badge)](./STATS.md)
 
 > 🌐 **실시간 대시보드**: 어디서든 브라우저로 포트폴리오 현황 확인
@@ -70,7 +70,7 @@ https://[YOUR-USERNAME].github.io/app-portfolio/
 자세한 통계는 [STATS.md](STATS.md)를 확인하세요.
 ```
 
-`[YOUR-USERNAME]`을 본인의 GitHub 유저네임으로 변경하세요.
+`M1zz`을 본인의 GitHub 유저네임으로 변경하세요.
 
 ---
 
@@ -120,7 +120,7 @@ GitHub에서 바로 볼 수 있는 통계 페이지가 자동 생성됩니다:
 - 상세 현황 테이블
 - 우선순위 높은 앱 목록
 
-링크: `https://github.com/[YOUR-USERNAME]/app-portfolio/blob/main/STATS.md`
+링크: `https://github.com/M1zz/app-portfolio/blob/main/STATS.md`
 
 ### 2. 모바일 최적화
 대시보드는 반응형으로 제작되어 모바일에서도 깔끔하게 보입니다.

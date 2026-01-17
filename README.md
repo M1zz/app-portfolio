@@ -1,6 +1,6 @@
 # 🍎 Leeo's App Portfolio
 
-[![Dashboard](https://img.shields.io/badge/📊_Live_Dashboard-보기-blue?style=for-the-badge)](https://hyunholee.github.io/app-portfolio/)
+[![Dashboard](https://img.shields.io/badge/📊_Live_Dashboard-보기-blue?style=for-the-badge)](https://M1zz.github.io/app-portfolio/)
 [![Stats](https://img.shields.io/badge/📈_Statistics-보기-green?style=for-the-badge)](./STATS.md)
 
 > 🌐 **실시간 대시보드**: 어디서든 브라우저로 포트폴리오 현황을 확인하세요
