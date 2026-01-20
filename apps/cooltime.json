@@ -1,31 +1,37 @@
 {
-  "name": "쿨타임",
-  "nameEn": "Cooltime",
-  "bundleId": "com.leeo.cooltime",
-  "currentVersion": "1.0.0",
-  "status": "planning",
-  "priority": "medium",
-  "minimumOS": "16.0",
-  "sharedModules": [],
-  "appStoreId": "",
-  "githubRepo": "leeo/cooltime",
-  "stats": {
-    "totalTasks": 1,
-    "done": 0,
-    "inProgress": 0,
-    "notStarted": 1
-  },
-  "nextTasks": [
-    "앱 구상하기"
+  "recentlyCompleted" : [
+
   ],
-  "recentlyCompleted": [],
-  "allTasks": [
+  "priority" : "medium",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/us\/app\/쿨타임\/id6755988507",
+  "localProjectPath" : "..\/Cooltime",
+  "name" : "쿨타임",
+  "appStoreId" : "",
+  "bundleId" : "com.leeo.cooltime",
+  "currentVersion" : "1.0.0",
+  "sharedModules" : [
+
+  ],
+  "githubRepo" : "https:\/\/github.com\/M1zz\/Cooltime",
+  "minimumOS" : "16.0",
+  "stats" : {
+    "done" : 0,
+    "notStarted" : 1,
+    "inProgress" : 0,
+    "totalTasks" : 1
+  },
+  "allTasks" : [
     {
-      "name": "앱 구상하기",
-      "status": "not-started",
-      "targetDate": null,
-      "targetVersion": null
+      "status" : "not-started",
+      "name" : "앱 구상하기",
+      "targetDate" : null,
+      "targetVersion" : null
     }
   ],
-  "notes": ""
+  "nextTasks" : [
+    "앱 구상하기"
+  ],
+  "nameEn" : "Cooltime",
+  "notes" : "",
+  "status" : "planning"
 }

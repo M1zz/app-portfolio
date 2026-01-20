@@ -276,9 +276,10 @@ class PortfolioService: ObservableObject {
                 let data = try Data(contentsOf: file)
 
                 if let feedbacks = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
+                    // "처리 전" 또는 "제안 완료" 상태의 피드백 카운트
                     let activeFeedbacks = feedbacks.filter { feedback in
                         if let status = feedback["status"] as? String {
-                            return status == "대기" || status == "처리중"
+                            return status == "처리 전" || status == "제안 완료"
                         }
                         return false
                     }
@@ -422,15 +423,26 @@ class PortfolioService: ObservableObject {
             return false
         }
 
+        // 파일 모니터 일시 중지
+        fileMonitor?.suspend()
+
         do {
+            // 파일 삭제
             try fileManager.removeItem(at: jsonFile)
             print("✅ 앱 삭제 완료: \(appName)")
 
-            // 포트폴리오 다시 로드
-            loadPortfolio()
+            // UI에서 앱 제거
+            DispatchQueue.main.async {
+                self.apps.removeAll { $0.name == appName }
+                // 파일 모니터 재개
+                self.fileMonitor?.resume()
+            }
+
             return true
         } catch {
             print("❌ 앱 삭제 실패: \(error)")
+            // 파일 모니터 재개
+            fileMonitor?.resume()
             return false
         }
     }

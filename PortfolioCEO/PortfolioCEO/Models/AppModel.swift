@@ -32,12 +32,12 @@ struct AppModel: Identifiable, Codable, Hashable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        // id는 name을 사용
         self.name = try container.decode(String.self, forKey: .name)
-        self.id = name
-
         self.nameEn = try container.decode(String.self, forKey: .nameEn)
         self.bundleId = try container.decode(String.self, forKey: .bundleId)
+
+        // id는 bundleId를 사용 (고유성 보장)
+        self.id = bundleId
         self.currentVersion = try container.decode(String.self, forKey: .currentVersion)
         self.status = try container.decode(AppStatus.self, forKey: .status)
         self.priority = try container.decode(Priority.self, forKey: .priority)

@@ -20,22 +20,18 @@
     }
   ],
   "minimumOS" : "16.0",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/pixel-meme\/id6449769987",
-  "sharedModules" : [
-
-  ],
+  "appStoreUrl" : "https://apps.apple.com/kr/app/pixel-meme/id6449769987",
+  "sharedModules" : [],
   "notes" : "",
   "appStoreId" : "",
   "priority" : "medium",
-  "recentlyCompleted" : [
-
-  ],
+  "recentlyCompleted" : [],
   "bundleId" : "com.leeo.pixelmimi",
   "nextTasks" : [
     "사용성 개선",
     "이걸 돈 받으려면 뭘 제공할지 고민하기"
   ],
-  "localProjectPath" : "..\/PixelMe",
+  "localProjectPath" : "../PixelMe",
   "name" : "픽셀 미미",
   "currentVersion" : "1.0.3",
   "stats" : {
@@ -45,6 +41,6 @@
     "totalTasks" : 3
   },
   "nameEn" : "Pixel Mimi",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/PixelMe",
+  "githubRepo" : "https://github.com/M1zz/PixelMe",
   "status" : "planning"
 }

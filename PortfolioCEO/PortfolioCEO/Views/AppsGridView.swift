@@ -4,8 +4,9 @@ import SwiftUI
 
 enum AppWorkflowFilter: String, CaseIterable {
     case all = "전체"
+    case notDeployed = "미배포"
     case needsFeedback = "피드백 필요"
-    case analyzing = "분석중"
+    case pendingProposal = "기획 제안 대기"
     case deciding = "의사결정"
     case testing = "테스트 중"
     case deployed = "배포완료"
@@ -13,19 +14,21 @@ enum AppWorkflowFilter: String, CaseIterable {
     var color: Color {
         switch self {
         case .all: return .gray
-        case .needsFeedback: return .orange
-        case .analyzing: return .blue
-        case .deciding: return .purple
-        case .testing: return .yellow
-        case .deployed: return .green
+        case .notDeployed: return .red
+        case .needsFeedback: return .blue        // 피드백: 파랑
+        case .pendingProposal: return .blue      // 피드백: 파랑
+        case .deciding: return .yellow           // 의사결정: 노랑
+        case .testing: return .orange            // 테스트: 주황
+        case .deployed: return .green            // 배포: 초록
         }
     }
 
     var icon: String {
         switch self {
         case .all: return "square.grid.2x2"
+        case .notDeployed: return "icloud.slash"
         case .needsFeedback: return "exclamationmark.bubble"
-        case .analyzing: return "bubble.left.and.bubble.right"
+        case .pendingProposal: return "lightbulb"
         case .deciding: return "checkmark.circle"
         case .testing: return "testtube.2"
         case .deployed: return "checkmark.seal.fill"
@@ -37,7 +40,7 @@ struct AppsGridView: View {
     @EnvironmentObject var portfolio: PortfolioService
     @State private var selectedFilter: AppWorkflowFilter = .all
     @State private var showingAddAppSheet = false
-    @State private var appToDelete: AppModel?
+    @State private var appNameToDelete: String?
     @State private var showingDeleteConfirmation = false
 
     var body: some View {
@@ -58,7 +61,7 @@ struct AppsGridView: View {
                             .buttonStyle(.plain)
                             .contextMenu {
                                 Button(role: .destructive) {
-                                    appToDelete = app
+                                    appNameToDelete = app.name
                                     showingDeleteConfirmation = true
                                 } label: {
                                     Label("앱 삭제", systemImage: "trash")
@@ -86,17 +89,17 @@ struct AppsGridView: View {
         }
         .alert("앱 삭제", isPresented: $showingDeleteConfirmation) {
             Button("취소", role: .cancel) {
-                appToDelete = nil
+                appNameToDelete = nil
             }
             Button("삭제", role: .destructive) {
-                if let app = appToDelete {
-                    _ = portfolio.deleteApp(appName: app.name)
-                    appToDelete = nil
+                if let appName = appNameToDelete {
+                    _ = portfolio.deleteApp(appName: appName)
+                    appNameToDelete = nil
                 }
             }
         } message: {
-            if let app = appToDelete {
-                Text("'\(app.name)' 앱을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.")
+            if let appName = appNameToDelete {
+                Text("'\(appName)' 앱을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.")
             }
         }
         .onAppear {
@@ -111,6 +114,12 @@ struct AppsGridView: View {
         case .all:
             apps = portfolio.apps
 
+        case .notDeployed:
+            apps = portfolio.apps.filter { app in
+                // App Store URL이 없거나 비어있는 앱 (미배포)
+                app.appStoreUrl == nil || app.appStoreUrl?.isEmpty == true
+            }
+
         case .needsFeedback:
             apps = portfolio.apps.filter { app in
                 let folder = portfolio.getFolderName(for: app.name)
@@ -118,11 +127,12 @@ struct AppsGridView: View {
                 return status.currentStage == .ready
             }
 
-        case .analyzing:
+        case .pendingProposal:
+            // 피드백이 있고 의사결정이 없는 앱 (기획 제안 대기)
             apps = portfolio.apps.filter { app in
                 let folder = portfolio.getFolderName(for: app.name)
                 guard let status = portfolio.appWorkflowStatus[folder] else { return false }
-                return status.currentStage == .feedback
+                return status.feedbackCount > 0 && status.pendingDecisionCount == 0
             }
 
         case .deciding:
@@ -362,6 +372,11 @@ struct WorkflowFilterBar: View {
         case .all:
             return portfolio.apps.count
 
+        case .notDeployed:
+            return portfolio.apps.filter { app in
+                app.appStoreUrl == nil || app.appStoreUrl?.isEmpty == true
+            }.count
+
         case .needsFeedback:
             return portfolio.apps.filter { app in
                 let folder = portfolio.getFolderName(for: app.name)
@@ -369,11 +384,11 @@ struct WorkflowFilterBar: View {
                 return status.currentStage == .ready
             }.count
 
-        case .analyzing:
+        case .pendingProposal:
             return portfolio.apps.filter { app in
                 let folder = portfolio.getFolderName(for: app.name)
                 guard let status = portfolio.appWorkflowStatus[folder] else { return false }
-                return status.currentStage == .feedback
+                return status.feedbackCount > 0 && status.pendingDecisionCount == 0
             }.count
 
         case .deciding:
@@ -547,38 +562,45 @@ struct EnhancedAppCard: View {
                         .foregroundColor(.secondary)
                 }
 
-                // 작업 진행률
-                if app.stats.totalTasks > 0 {
-                    VStack(alignment: .leading, spacing: 4) {
-                        HStack {
-                            Text("작업 진행")
+                // 진행 상태 (피드백, 의사결정, 태스크 분리)
+                HStack(spacing: 12) {
+                    // 피드백 상태 (파랑)
+                    if let status = workflowStatus, status.feedbackCount > 0 {
+                        HStack(spacing: 4) {
+                            Image(systemName: "bubble.left.fill")
                                 .font(.caption2)
-                                .foregroundColor(.secondary)
+                            Text("\(status.feedbackCount)")
+                                .font(.caption2)
+                                .fontWeight(.medium)
+                        }
+                        .foregroundColor(.blue)
+                    }
 
-                            Spacer()
+                    // 의사결정 상태 (노랑)
+                    if let status = workflowStatus, status.pendingDecisionCount > 0 {
+                        HStack(spacing: 4) {
+                            Image(systemName: "lightbulb.fill")
+                                .font(.caption2)
+                            Text("\(status.pendingDecisionCount)")
+                                .font(.caption2)
+                                .fontWeight(.medium)
+                        }
+                        .foregroundColor(.yellow)
+                    }
 
+                    // 태스크 상태 (보라)
+                    if app.stats.totalTasks > 0 {
+                        HStack(spacing: 4) {
+                            Image(systemName: "checklist")
+                                .font(.caption2)
                             Text("\(app.stats.done)/\(app.stats.totalTasks)")
                                 .font(.caption2)
                                 .fontWeight(.medium)
-                                .foregroundColor(app.progressColor)
                         }
-
-                        GeometryReader { geometry in
-                            ZStack(alignment: .leading) {
-                                RoundedRectangle(cornerRadius: 2)
-                                    .fill(Color.gray.opacity(0.2))
-                                    .frame(height: 4)
-
-                                RoundedRectangle(cornerRadius: 2)
-                                    .fill(app.progressColor)
-                                    .frame(
-                                        width: geometry.size.width * (app.completionRate / 100),
-                                        height: 4
-                                    )
-                            }
-                        }
-                        .frame(height: 4)
+                        .foregroundColor(.purple)
                     }
+
+                    Spacer()
                 }
 
                 // 프로젝트 정보 상태 (100%가 아닐 때만 표시)
