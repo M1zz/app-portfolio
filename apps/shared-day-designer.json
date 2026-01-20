@@ -1,46 +1,50 @@
 {
-  "name": "공유일 설계자",
-  "nameEn": "Shared Day Designer",
-  "bundleId": "com.leeo.shareddaydesigner",
-  "currentVersion": "1.0.0",
-  "status": "active",
-  "priority": "medium",
-  "minimumOS": "16.0",
-  "sharedModules": [],
-  "appStoreId": "",
-  "githubRepo": "leeo/shared-day-designer",
-  "stats": {
-    "totalTasks": 3,
-    "done": 2,
-    "inProgress": 0,
-    "notStarted": 1
-  },
-  "nextTasks": [
+  "sharedModules" : [
+
+  ],
+  "nameEn" : "Shared Day Designer",
+  "nextTasks" : [
     "위젯 버그"
   ],
-  "recentlyCompleted": [
+  "currentVersion" : "1.0.0",
+  "localProjectPath" : "..\/LeaveWise",
+  "allTasks" : [
+    {
+      "status" : "done",
+      "name" : "앱 구상하기",
+      "targetDate" : null,
+      "targetVersion" : "1.0.0"
+    },
+    {
+      "status" : "done",
+      "name" : "앱 배포하기",
+      "targetDate" : "December 2, 2025",
+      "targetVersion" : "1.0.0"
+    },
+    {
+      "status" : "not-started",
+      "name" : "위젯 버그",
+      "targetDate" : null,
+      "targetVersion" : null
+    }
+  ],
+  "bundleId" : "com.leeo.shareddaydesigner",
+  "priority" : "medium",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/LeaveWise",
+  "stats" : {
+    "done" : 2,
+    "notStarted" : 1,
+    "inProgress" : 0,
+    "totalTasks" : 3
+  },
+  "recentlyCompleted" : [
     "앱 구상하기",
     "앱 배포하기"
   ],
-  "allTasks": [
-    {
-      "name": "앱 구상하기",
-      "status": "done",
-      "targetDate": null,
-      "targetVersion": "1.0.0"
-    },
-    {
-      "name": "앱 배포하기",
-      "status": "done",
-      "targetDate": "December 2, 2025",
-      "targetVersion": "1.0.0"
-    },
-    {
-      "name": "위젯 버그",
-      "status": "not-started",
-      "targetDate": null,
-      "targetVersion": null
-    }
-  ],
-  "notes": ""
+  "name" : "공유일 설계자",
+  "status" : "active",
+  "minimumOS" : "16.0",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/휴가-플래너\/id6755983135",
+  "appStoreId" : "",
+  "notes" : ""
 }

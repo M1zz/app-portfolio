@@ -1,78 +1,82 @@
 {
-  "name": "욕망의 무지개",
-  "nameEn": "Rainbow Of Desire",
-  "bundleId": "com.leeo.rainbowofdesire",
-  "currentVersion": "1.0.2",
-  "status": "active",
-  "priority": "high",
-  "minimumOS": "16.0",
-  "sharedModules": [],
-  "appStoreId": "",
-  "githubRepo": "leeo/rainbow-of-desire",
-  "stats": {
-    "totalTasks": 8,
-    "done": 6,
-    "inProgress": 1,
-    "notStarted": 1
-  },
-  "nextTasks": [
+  "sharedModules" : [
+
+  ],
+  "nextTasks" : [
     "인스타 소개 + 글쓰기",
     "욕망의 무지개 업데이트"
   ],
-  "recentlyCompleted": [
+  "nameEn" : "Rainbow Of Desire",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/욕망의-무지개\/id6755280882",
+  "localProjectPath" : "..\/ScheduleDensity",
+  "notes" : "",
+  "recentlyCompleted" : [
     "특정 날짜만 제외하는 기능",
     "클라우드 킷 적용해서 데이터 동기화",
     "일정관리 리스트로 하기"
   ],
-  "allTasks": [
+  "status" : "active",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/ScheduleDensity",
+  "minimumOS" : "16.0",
+  "allTasks" : [
     {
-      "name": "특정 날짜만 제외하는 기능",
-      "status": "done",
-      "targetDate": null,
-      "targetVersion": "1.0.2"
+      "status" : "done",
+      "name" : "특정 날짜만 제외하는 기능",
+      "targetDate" : null,
+      "targetVersion" : "1.0.2"
     },
     {
-      "name": "클라우드 킷 적용해서 데이터 동기화",
-      "status": "done",
-      "targetDate": null,
-      "targetVersion": "1.0.1"
+      "status" : "done",
+      "name" : "클라우드 킷 적용해서 데이터 동기화",
+      "targetDate" : null,
+      "targetVersion" : "1.0.1"
     },
     {
-      "name": "일정관리 리스트로 하기",
-      "status": "done",
-      "targetDate": null,
-      "targetVersion": "1.0.1"
+      "status" : "done",
+      "name" : "일정관리 리스트로 하기",
+      "targetDate" : null,
+      "targetVersion" : "1.0.1"
     },
     {
-      "name": "캘린더를 불러오는 실험",
-      "status": "done",
-      "targetDate": null,
-      "targetVersion": "1.0.2"
+      "status" : "done",
+      "name" : "캘린더를 불러오는 실험",
+      "targetDate" : null,
+      "targetVersion" : "1.0.2"
     },
     {
-      "name": "일정 패턴 다양하게 시각화 필요",
-      "status": "done",
-      "targetDate": null,
-      "targetVersion": "1.0.2"
+      "status" : "done",
+      "name" : "일정 패턴 다양하게 시각화 필요",
+      "targetDate" : null,
+      "targetVersion" : "1.0.2"
     },
     {
-      "name": "매일 계속되는 것, 시작점과 끝점이 없는것 만들기",
-      "status": "done",
-      "targetDate": null,
-      "targetVersion": null
+      "status" : "done",
+      "name" : "매일 계속되는 것, 시작점과 끝점이 없는것 만들기",
+      "targetDate" : null,
+      "targetVersion" : null
     },
     {
-      "name": "인스타 소개 + 글쓰기",
-      "status": "in-progress",
-      "targetDate": "December 14, 2025",
-      "targetVersion": null
+      "status" : "in-progress",
+      "name" : "인스타 소개 + 글쓰기",
+      "targetDate" : "December 14, 2025",
+      "targetVersion" : null
     },
     {
-      "name": "욕망의 무지개 업데이트",
-      "status": "not-started",
-      "targetDate": "December 17, 2025 → December 21, 2025",
-      "targetVersion": null
+      "status" : "not-started",
+      "name" : "욕망의 무지개 업데이트",
+      "targetDate" : "December 17, 2025 → December 21, 2025",
+      "targetVersion" : null
     }
   ],
-  "notes": ""
+  "currentVersion" : "1.0.2",
+  "appStoreId" : "",
+  "bundleId" : "com.leeo.rainbowofdesire",
+  "stats" : {
+    "done" : 6,
+    "notStarted" : 1,
+    "inProgress" : 1,
+    "totalTasks" : 8
+  },
+  "name" : "욕망의 무지개",
+  "priority" : "high"
 }

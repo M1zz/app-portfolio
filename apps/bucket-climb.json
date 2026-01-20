@@ -1,0 +1,114 @@
+{
+  "nameEn" : "Bucket Climb",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/BucketClimb",
+  "currentVersion" : "1.0.0",
+  "nextTasks" : [
+    "다중 사진 첨부 기능 구현",
+    "카테고리 시스템 개선",
+    "앱 로딩 성능 최적화"
+  ],
+  "sharedModules" : [
+
+  ],
+  "stats" : {
+    "done" : 2,
+    "notStarted" : 3,
+    "inProgress" : 3,
+    "totalTasks" : 8
+  },
+  "notes" : "버킷리스트 관리 앱. 사용자들이 다중 사진 첨부와 세분화된 카테고리를 원하고 있으며, 로딩 성능 이슈가 있음. 위젯과 소셜 기능에 대한 니즈도 확인됨.",
+  "name" : "꿈을 찾아서",
+  "bundleId" : "com.leeo.bucketclimb",
+  "priority" : "high",
+  "allTasks" : [
+    {
+      "status" : "done",
+      "name" : "기본 버킷리스트 CRUD",
+      "targetDate" : null,
+      "targetVersion" : "1.0.0"
+    },
+    {
+      "status" : "done",
+      "name" : "사진 첨부 기능 (단일)",
+      "targetDate" : null,
+      "targetVersion" : "1.0.0"
+    },
+    {
+      "status" : "in-progress",
+      "name" : "다중 사진 첨부 기능 구현",
+      "targetDate" : "2026-02-15",
+      "targetVersion" : "1.1.0"
+    },
+    {
+      "status" : "in-progress",
+      "name" : "카테고리 시스템 개선",
+      "targetDate" : "2026-02-15",
+      "targetVersion" : "1.1.0"
+    },
+    {
+      "status" : "in-progress",
+      "name" : "앱 로딩 성능 최적화",
+      "targetDate" : "2026-02-20",
+      "targetVersion" : "1.1.0"
+    },
+    {
+      "status" : "not-started",
+      "name" : "위젯 랜덤 버킷리스트 표시",
+      "targetDate" : "2026-03-01",
+      "targetVersion" : "1.2.0"
+    },
+    {
+      "status" : "not-started",
+      "name" : "소셜 공유 기능",
+      "targetDate" : "2026-03-15",
+      "targetVersion" : "1.2.0"
+    },
+    {
+      "status" : "not-started",
+      "name" : "통계 대시보드",
+      "targetDate" : "2026-03-15",
+      "targetVersion" : "1.2.0"
+    }
+  ],
+  "appStoreId" : null,
+  "recentlyCompleted" : [
+    "기본 버킷리스트 CRUD",
+    "사진 첨부 기능 (단일)"
+  ],
+  "localProjectPath" : "..\/BucketClimb",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/꿈을-찾아서\/id6755934506",
+  "status" : "active",
+  "team" : {
+    "development" : [
+      {
+        "isLead" : true,
+        "id" : "dev-001",
+        "contact" : "@hyunholee",
+        "name" : "이현호",
+        "role" : "iOS Developer",
+        "responsibility" : "iOS 앱 전체 개발, SwiftUI 구현"
+      }
+    ],
+    "planning" : [
+      {
+        "isLead" : true,
+        "id" : "pm-001",
+        "contact" : "@hyunholee",
+        "name" : "이현호",
+        "role" : "Product Manager",
+        "responsibility" : "기능 기획, 우선순위 결정, 사용자 피드백 분석"
+      }
+    ],
+    "design" : [
+      {
+        "isLead" : true,
+        "id" : "design-001",
+        "contact" : "@hyunholee",
+        "name" : "이현호",
+        "role" : "UI\/UX Designer",
+        "responsibility" : "디자인 시스템, UI 컴포넌트, 사용자 경험 개선"
+      }
+    ]
+  },
+  "minimumOS" : "iOS 15.0"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "두 번 알림 (Double Reminder)",
+  "description": "iOS 앱 개발 프로젝트",
+  "version": "1.0.0",
+  "context": [
+    "architecture.md",
+    "conventions.md",
+    "decisions-log.md",
+    "context.md",
+    "../shared/design-system.md",
+    "../shared/coding-standards.md"
+  ],
+  "customInstructions": "SwiftUI 기반 iOS 앱. 공통 디자인 시스템과 코딩 표준을 준수합니다."
+}

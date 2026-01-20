@@ -2,10 +2,12 @@
 
 [![Dashboard](https://img.shields.io/badge/📊_Live_Dashboard-보기-blue?style=for-the-badge)](https://M1zz.github.io/app-portfolio/)
 [![Stats](https://img.shields.io/badge/📈_Statistics-보기-green?style=for-the-badge)](./STATS.md)
+[![CEO Mode](https://img.shields.io/badge/👔_CEO_Mode-활성화-purple?style=for-the-badge)](./CEO-QUICK-START.md)
 
 > 🌐 **실시간 대시보드**: 어디서든 브라우저로 포트폴리오 현황을 확인하세요
+> 👔 **CEO 모드**: 보고받고 의사결정만 하세요. 실행은 자동입니다.
 
-23개 iOS 앱을 체계적으로 관리하기 위한 포트폴리오 허브입니다.
+23개 iOS 앱을 각각 하나의 회사처럼 운영하는 포트폴리오 허브입니다.
 
 ---
 
@@ -28,12 +30,19 @@
 app-portfolio/
 ├── README.md
 ├── AUTOMATION-GUIDE.md         # 🆕 자동화 시스템 가이드
+├── SOURCE-CODE-GUIDE.md        # 🔗 소스코드 연동 가이드
 ├── portfolio-summary.json      # 전체 포트폴리오 요약
 ├── apps/                       # 앱별 상세 정보
 │   ├── clip-keyboard.json
 │   ├── double-reminder.json
 │   └── ...
+├── claude-projects/            # 🆕 앱별 Claude 프로젝트 (팀)
+│   ├── shared/                 # 공통 리소스
+│   ├── rapport-map/            # 각 앱의 전용 프로젝트
+│   ├── clip-keyboard/
+│   └── ...
 ├── scripts/                    # 🆕 자동화 스크립트
+│   ├── link-source-code.sh     # 🔗 소스코드 연결
 │   ├── claude-update-task.sh
 │   ├── claude-weekly-report.sh
 │   ├── claude-release.sh
@@ -55,13 +64,25 @@ app-portfolio/
 
 ## 🚀 빠른 시작
 
-> 🎯 **처음이신가요?** [QUICK-START.md](QUICK-START.md)를 먼저 읽어보세요! (5분)
+### 👔 CEO 모드 (추천!)
+```bash
+# CEO 시스템 초기화 (최초 1회)
+./scripts/ceo-system-init.sh
 
-### 📊 대시보드 보기 (추천!)
+# 매일 아침 루틴 (5분)
+./scripts/ceo-morning-routine.sh
+```
+**보고 받고 의사결정만 하세요. 실행은 Claude가 자동으로 합니다.**
+자세한 내용: [CEO-QUICK-START.md](CEO-QUICK-START.md)
+
+### 📊 대시보드 보기
 ```bash
 ./scripts/open-dashboard.sh
 ```
 브라우저에서 모든 앱의 상태를 한눈에 확인하세요.
+
+> 🎯 **일반 사용자:** [QUICK-START.md](QUICK-START.md)
+> 👔 **CEO 모드:** [CEO-QUICK-START.md](CEO-QUICK-START.md)
 
 ### ⚡ 자주 사용하는 명령어
 
@@ -137,13 +158,19 @@ app-portfolio/
 
 ## 📚 문서
 
-### 시작하기
+### 🎯 운영 모드
+- [CEO-QUICK-START.md](CEO-QUICK-START.md) - 👔 **CEO 모드 빠른 시작 (추천!)**
+- [CEO-OPERATION-SYSTEM.md](CEO-OPERATION-SYSTEM.md) - 👔 CEO 운영 시스템 전체 가이드
+
+### 🚀 시작하기
 - [QUICK-START.md](QUICK-START.md) - ⚡ 5분 빠른 시작 가이드
 - [GITHUB-PAGES-SETUP.md](GITHUB-PAGES-SETUP.md) - 🌐 온라인 대시보드 설정
 
-### 상세 가이드
+### 📖 상세 가이드
+- [SOURCE-CODE-GUIDE.md](SOURCE-CODE-GUIDE.md) - 🔗 **소스코드 연동 가이드 (신규!)**
 - [AUTOMATION-GUIDE.md](AUTOMATION-GUIDE.md) - 🤖 자동화 시스템 전체 가이드
 - [CLAUDE-GUIDE.md](CLAUDE-GUIDE.md) - 📝 Claude 데이터 관리 가이드
+- [CLAUDE-PROJECT-SETUP.md](CLAUDE-PROJECT-SETUP.md) - 🏗️ Claude 프로젝트 구조
 - [STATS.md](STATS.md) - 📊 실시간 통계 페이지
 
 ---

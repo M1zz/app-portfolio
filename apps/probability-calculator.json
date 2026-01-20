@@ -1,39 +1,43 @@
 {
-  "name": "확률계산기",
-  "nameEn": "Probability Calculator",
-  "bundleId": "com.leeo.probabilitycalculator",
-  "currentVersion": "1.0.0",
-  "status": "planning",
-  "priority": "medium",
-  "minimumOS": "16.0",
-  "sharedModules": [],
-  "appStoreId": "",
-  "githubRepo": "leeo/probability-calculator",
-  "stats": {
-    "totalTasks": 2,
-    "done": 1,
-    "inProgress": 0,
-    "notStarted": 1
-  },
-  "nextTasks": [
-    "앱 재 배포시도"
-  ],
-  "recentlyCompleted": [
-    "앱 구성하기"
-  ],
-  "allTasks": [
+  "allTasks" : [
     {
-      "name": "앱 구성하기",
-      "status": "done",
-      "targetDate": "November 23, 2025",
-      "targetVersion": "1.0.0"
+      "status" : "done",
+      "name" : "앱 구성하기",
+      "targetDate" : "November 23, 2025",
+      "targetVersion" : "1.0.0"
     },
     {
-      "name": "앱 재 배포시도",
-      "status": "not-started",
-      "targetDate": "November 25, 2025",
-      "targetVersion": "1.0.0"
+      "status" : "not-started",
+      "name" : "앱 재 배포시도",
+      "targetDate" : "November 25, 2025",
+      "targetVersion" : "1.0.0"
     }
   ],
-  "notes": ""
+  "minimumOS" : "16.0",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/확률계산기\/id6755651803",
+  "sharedModules" : [
+
+  ],
+  "notes" : "",
+  "appStoreId" : "",
+  "priority" : "medium",
+  "recentlyCompleted" : [
+    "앱 구성하기"
+  ],
+  "bundleId" : "com.leeo.probabilitycalculator",
+  "nextTasks" : [
+    "앱 재 배포시도"
+  ],
+  "localProjectPath" : "..\/LottoChecker",
+  "name" : "확률계산기",
+  "currentVersion" : "1.0.0",
+  "stats" : {
+    "done" : 1,
+    "notStarted" : 1,
+    "inProgress" : 0,
+    "totalTasks" : 2
+  },
+  "nameEn" : "Probability Calculator",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/LottoChecker",
+  "status" : "planning"
 }
