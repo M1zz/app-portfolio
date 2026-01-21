@@ -15,19 +15,38 @@ class PortfolioService: ObservableObject {
     private var fileMonitor: DispatchSourceFileSystemObject?
     private let fileManager = FileManager.default
 
-    // 포트폴리오 디렉토리 경로 (실제 프로젝트 폴더)
+    // 포트폴리오 디렉토리 경로
     private var portfolioPath: URL {
-        let home = fileManager.homeDirectoryForCurrentUser
-        let projectPath = home
-            .appendingPathComponent("Documents/workspace/code/app-portfolio")
-
-        // 초기화 시 필요한 폴더 생성
-        let appsDir = projectPath.appendingPathComponent("apps")
-        if !fileManager.fileExists(atPath: appsDir.path) {
-            try? fileManager.createDirectory(at: appsDir, withIntermediateDirectories: true)
-            print("📁 apps 폴더 생성: \(appsDir.path)")
+        // 1. 사용자 설정 경로 확인 (Settings에서 설정)
+        if let savedPath = UserDefaults.standard.string(forKey: "portfolioPath"),
+           !savedPath.isEmpty {
+            let expandedPath = NSString(string: savedPath).expandingTildeInPath
+            let userPath = URL(fileURLWithPath: expandedPath)
+            let userAppsDir = userPath.appendingPathComponent("apps")
+            if fileManager.fileExists(atPath: userAppsDir.path) {
+                print("📂 사용자 설정 경로 사용: \(userPath.path)")
+                return userPath
+            }
         }
-        return projectPath
+
+        // 2. 소스 파일 기준 상대 경로 시도
+        let sourceFile = URL(fileURLWithPath: #file)
+        let relativePath = sourceFile
+            .deletingLastPathComponent()  // Services
+            .deletingLastPathComponent()  // PortfolioCEO (inner)
+            .deletingLastPathComponent()  // PortfolioCEO (outer)
+
+        let relativeAppsDir = relativePath.appendingPathComponent("apps")
+        if fileManager.fileExists(atPath: relativeAppsDir.path) {
+            print("📂 상대 경로 사용: \(relativePath.path)")
+            return relativePath
+        }
+
+        // 3. Fallback: 홈 디렉토리 기반 절대 경로
+        let home = fileManager.homeDirectoryForCurrentUser
+        let absolutePath = home.appendingPathComponent("Documents/code/app-portfolio")
+        print("📂 절대 경로 사용: \(absolutePath.path)")
+        return absolutePath
     }
 
     private var appsDirectory: URL {

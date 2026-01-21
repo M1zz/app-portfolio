@@ -79,10 +79,13 @@ struct SettingsView: View {
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
         panel.allowsMultipleSelection = false
+        panel.message = "apps 폴더가 있는 포트폴리오 디렉토리를 선택하세요"
 
         if panel.runModal() == .OK {
             if let url = panel.url {
                 portfolioPath = url.path
+                // 경로 변경 후 포트폴리오 다시 로드
+                portfolioService.loadPortfolio()
             }
         }
     }
