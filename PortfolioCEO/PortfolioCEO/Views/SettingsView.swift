@@ -5,17 +5,36 @@ struct SettingsView: View {
     @AppStorage("enableNotifications") private var enableNotifications = true
     @AppStorage("dailyBriefingTime") private var dailyBriefingTime = 9
 
-    // iCloud 서비스는 iCloudSyncService.swift 파일이 프로젝트에 추가되면 활성화됩니다
-    // @StateObject private var iCloudService = iCloudSyncService.shared
     @EnvironmentObject var portfolioService: PortfolioService
 
     @State private var showingSyncAlert = false
     @State private var syncAlertMessage = ""
     @State private var isSyncing = false
     @State private var iCloudEnabled = false
+    @State private var isTestingCLI = false
+    @State private var cliTestResult: String?
 
     var body: some View {
         Form {
+            Section("Claude CLI") {
+                HStack {
+                    Button(isTestingCLI ? "테스트 중..." : "CLI 연결 테스트") {
+                        testCLIConnection()
+                    }
+                    .disabled(isTestingCLI)
+
+                    if let result = cliTestResult {
+                        Text(result)
+                            .font(.caption)
+                            .foregroundColor(result.contains("성공") ? .green : .red)
+                    }
+                }
+
+                Text("Claude Code Max 구독이 필요합니다. API 크레딧은 필요하지 않습니다.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+
             Section("포트폴리오") {
                 TextField("경로", text: $portfolioPath)
                     .textFieldStyle(.roundedBorder)
@@ -71,7 +90,7 @@ struct SettingsView: View {
         }
         .formStyle(.grouped)
         .padding()
-        .frame(width: 500, height: 450)
+        .frame(width: 500, height: 500)
     }
 
     func selectFolder() {
@@ -86,6 +105,19 @@ struct SettingsView: View {
                 portfolioPath = url.path
                 // 경로 변경 후 포트폴리오 다시 로드
                 portfolioService.loadPortfolio()
+            }
+        }
+    }
+
+    func testCLIConnection() {
+        isTestingCLI = true
+        cliTestResult = nil
+
+        Task {
+            let result = await AIService.shared.testClaudeCLI()
+            await MainActor.run {
+                isTestingCLI = false
+                cliTestResult = result ? "연결 성공" : "CLI를 찾을 수 없음"
             }
         }
     }

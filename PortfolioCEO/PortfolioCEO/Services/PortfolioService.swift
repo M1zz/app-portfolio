@@ -274,13 +274,27 @@ class PortfolioService: ObservableObject {
         return mapping[appName] ?? appName.lowercased()
     }
 
+    private var feedbackDirectory: URL {
+        // 1. portfolioPath 내의 project-notes 폴더 확인
+        let inProjectPath = portfolioPath.appendingPathComponent("project-notes")
+        if fileManager.fileExists(atPath: inProjectPath.path) {
+            return inProjectPath
+        }
+
+        // 2. Fallback: 홈 디렉토리의 project-notes
+        let homePath = fileManager.homeDirectoryForCurrentUser
+            .appendingPathComponent("Documents/project-notes")
+        return homePath
+    }
+
     private func loadFeedbackCounts() -> [String: Int] {
         var counts: [String: Int] = [:]
 
-        let notesDirectory = fileManager.homeDirectoryForCurrentUser
-            .appendingPathComponent("Documents/project-notes")
+        let notesDirectory = feedbackDirectory
+        print("📝 피드백 경로: \(notesDirectory.path)")
 
         guard fileManager.fileExists(atPath: notesDirectory.path) else {
+            print("⚠️ 피드백 폴더 없음")
             return counts
         }
 
@@ -472,6 +486,7 @@ class PortfolioService: ObservableObject {
         appName: String,
         newName: String? = nil,
         newNameEn: String? = nil,
+        currentVersion: String? = nil,
         localProjectPath: String?,
         githubRepo: String?,
         appStoreUrl: String?,
@@ -496,6 +511,9 @@ class PortfolioService: ObservableObject {
             }
             if let newNameEn = newNameEn, !newNameEn.isEmpty {
                 json["nameEn"] = newNameEn
+            }
+            if let currentVersion = currentVersion, !currentVersion.isEmpty {
+                json["currentVersion"] = currentVersion
             }
             if let localProjectPath = localProjectPath, !localProjectPath.isEmpty {
                 json["localProjectPath"] = localProjectPath

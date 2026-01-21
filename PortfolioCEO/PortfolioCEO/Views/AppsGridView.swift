@@ -15,10 +15,10 @@ enum AppWorkflowFilter: String, CaseIterable {
         switch self {
         case .all: return .gray
         case .notDeployed: return .red
-        case .needsFeedback: return .blue        // 피드백: 파랑
-        case .pendingProposal: return .blue      // 피드백: 파랑
-        case .deciding: return .yellow           // 의사결정: 노랑
-        case .testing: return .orange            // 테스트: 주황
+        case .needsFeedback: return .orange      // 피드백 필요: 주황
+        case .pendingProposal: return .blue      // 기획 제안 대기: 파랑
+        case .deciding: return .purple           // 의사결정: 보라
+        case .testing: return .yellow            // 테스트: 노랑
         case .deployed: return .green            // 배포: 초록
         }
     }

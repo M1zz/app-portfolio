@@ -28,7 +28,7 @@ struct PortfolioCEOApp: App {
                 .environmentObject(portfolioService)
                 .environmentObject(notificationService)
                 .environmentObject(decisionQueueService)
-                .frame(minWidth: 1200, minHeight: 800)
+                .frame(minWidth: 800, minHeight: 600)
                 .onAppear {
                     // 앱 시작 시 데이터 로드
                     portfolioService.loadPortfolio()

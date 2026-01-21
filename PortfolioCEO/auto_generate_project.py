@@ -66,11 +66,8 @@ def main():
     # PBXFileReference 섹션
     file_refs_section = ""
     for f in swift_files:
-        # 파일이 서브디렉토리에 있으면 전체 경로 사용
-        if '/' in f:
-            file_refs_section += f"\t\t{file_uuids[f]} /* {os.path.basename(f)} */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = \"{f}\"; sourceTree = \"<group>\"; }};\n"
-        else:
-            file_refs_section += f"\t\t{file_uuids[f]} /* {os.path.basename(f)} */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = \"{os.path.basename(f)}\"; sourceTree = \"<group>\"; }};\n"
+        # 파일 이름만 사용 (그룹에서 상대 경로 처리)
+        file_refs_section += f"\t\t{file_uuids[f]} /* {os.path.basename(f)} */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = \"{os.path.basename(f)}\"; sourceTree = \"<group>\"; }};\n"
 
     file_refs_section += f"\t\t{assets_uuid} /* Assets.xcassets */ = {{isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = \"<group>\"; }};\n"
     file_refs_section += f"\t\t{entitlements_uuid} /* PortfolioCEO.entitlements */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PortfolioCEO.entitlements; sourceTree = \"<group>\"; }};\n"

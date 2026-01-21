@@ -5,10 +5,12 @@ struct ContentView: View {
     @State private var selectedTab: Tab = .dashboard
     @State private var searchText = ""
     @State private var showingSearch = false
+    @State private var showingAIAssistant = false
 
     enum Tab {
         case dashboard
         case apps
+        case aiAssistant
     }
 
     var body: some View {
@@ -25,6 +27,11 @@ struct ContentView: View {
                 }
                 .tag(Tab.apps)
 
+                Button(action: { selectedTab = .aiAssistant }) {
+                    Label("AI 어시스턴트", systemImage: "sparkles")
+                }
+                .tag(Tab.aiAssistant)
+
                 Divider()
 
                 Section("우선순위 높음") {
@@ -37,13 +44,6 @@ struct ContentView: View {
             }
             .listStyle(.sidebar)
             .frame(minWidth: 250)
-            .toolbar {
-                ToolbarItem(placement: .navigation) {
-                    Button(action: {}) {
-                        Label("사이드바", systemImage: "sidebar.left")
-                    }
-                }
-            }
             .searchable(text: $searchText, prompt: "앱 검색 (⌘K)")
 
         } detail: {
@@ -54,6 +54,8 @@ struct ContentView: View {
                     DashboardView()
                 case .apps:
                     AppsGridView()
+                case .aiAssistant:
+                    AIAssistantView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -89,6 +91,7 @@ extension ContentView.Tab {
         switch self {
         case .dashboard: return "Portfolio Dashboard"
         case .apps: return "전체 앱"
+        case .aiAssistant: return "AI 어시스턴트"
         }
     }
 }

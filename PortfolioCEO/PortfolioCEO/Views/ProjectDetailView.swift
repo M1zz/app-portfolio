@@ -420,6 +420,7 @@ struct ProjectEditSheet: View {
 
     @State private var projectName: String = ""
     @State private var projectNameEn: String = ""
+    @State private var currentVersion: String = ""
     @State private var localProjectPath: String = ""
     @State private var githubRepo: String = ""
     @State private var appStoreUrl: String = ""
@@ -443,6 +444,14 @@ struct ProjectEditSheet: View {
                             .font(.caption)
                             .foregroundColor(.secondary)
                         TextField("예: Bucket Climb", text: $projectNameEn)
+                            .textFieldStyle(.roundedBorder)
+                    }
+
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("현재 버전")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        TextField("예: 1.2.0", text: $currentVersion)
                             .textFieldStyle(.roundedBorder)
                     }
                 }
@@ -509,6 +518,7 @@ struct ProjectEditSheet: View {
     private func loadCurrentInfo() {
         projectName = app.name
         projectNameEn = app.nameEn
+        currentVersion = app.currentVersion
         localProjectPath = app.localProjectPath ?? ""
         githubRepo = app.githubRepo ?? ""
         appStoreUrl = app.appStoreUrl ?? ""
@@ -525,6 +535,7 @@ struct ProjectEditSheet: View {
             appName: app.name,
             newName: projectName.isEmpty ? nil : projectName,
             newNameEn: projectNameEn.isEmpty ? nil : projectNameEn,
+            currentVersion: currentVersion.isEmpty ? nil : currentVersion,
             localProjectPath: localProjectPath.isEmpty ? nil : localProjectPath,
             githubRepo: githubRepo.isEmpty ? nil : githubRepo,
             appStoreUrl: appStoreUrl.isEmpty ? nil : appStoreUrl,
