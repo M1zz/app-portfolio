@@ -517,6 +517,15 @@ struct EnhancedAppCard: View {
         }
     }
 
+    /// 최근 2주 이내에 업데이트 되었는지 확인
+    private var isRecentlyUpdated: Bool {
+        guard let modDate = portfolio.appFileModificationDates[app.bundleId] else {
+            return false
+        }
+        let twoWeeksAgo = Calendar.current.date(byAdding: .day, value: -14, to: Date()) ?? Date()
+        return modDate > twoWeeksAgo
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             // 상단: 워크플로우 상태 바
@@ -554,6 +563,17 @@ struct EnhancedAppCard: View {
                     Text(app.name)
                         .font(.headline)
                         .foregroundColor(.primary)
+
+                    // 최근 2주 업데이트 뱃지
+                    if isRecentlyUpdated {
+                        Text("UPDATE")
+                            .font(.system(size: 9, weight: .bold))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.green)
+                            .cornerRadius(4)
+                    }
 
                     Spacer()
 

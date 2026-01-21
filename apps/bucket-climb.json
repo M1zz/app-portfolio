@@ -1,25 +1,56 @@
 {
-  "nameEn" : "Bucket Climb",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/BucketClimb",
-  "currentVersion" : "1.0.0",
   "nextTasks" : [
     "다중 사진 첨부 기능 구현",
     "카테고리 시스템 개선",
     "앱 로딩 성능 최적화"
   ],
+  "minimumOS" : "iOS 15.0",
   "sharedModules" : [
 
   ],
+  "githubRepo" : "https:\/\/github.com\/M1zz\/BucketClimb",
+  "team" : {
+    "development" : [
+      {
+        "responsibility" : "iOS 앱 전체 개발, SwiftUI 구현",
+        "id" : "dev-001",
+        "contact" : "@hyunholee",
+        "name" : "이현호",
+        "role" : "iOS Developer",
+        "isLead" : true
+      }
+    ],
+    "planning" : [
+      {
+        "responsibility" : "기능 기획, 우선순위 결정, 사용자 피드백 분석",
+        "id" : "pm-001",
+        "contact" : "@hyunholee",
+        "name" : "이현호",
+        "role" : "Product Manager",
+        "isLead" : true
+      }
+    ],
+    "design" : [
+      {
+        "responsibility" : "디자인 시스템, UI 컴포넌트, 사용자 경험 개선",
+        "id" : "design-001",
+        "contact" : "@hyunholee",
+        "name" : "이현호",
+        "role" : "UI\/UX Designer",
+        "isLead" : true
+      }
+    ]
+  },
   "stats" : {
     "done" : 2,
     "notStarted" : 3,
     "inProgress" : 3,
     "totalTasks" : 8
   },
-  "notes" : "버킷리스트 관리 앱. 사용자들이 다중 사진 첨부와 세분화된 카테고리를 원하고 있으며, 로딩 성능 이슈가 있음. 위젯과 소셜 기능에 대한 니즈도 확인됨.",
-  "name" : "꿈을 찾아서",
   "bundleId" : "com.leeo.bucketclimb",
-  "priority" : "high",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/꿈을-찾아서\/id6755934506",
+  "name" : "꿈을 찾아서",
+  "notes" : "버킷리스트 관리 앱. 사용자들이 다중 사진 첨부와 세분화된 카테고리를 원하고 있으며, 로딩 성능 이슈가 있음. 위젯과 소셜 기능에 대한 니즈도 확인됨.",
   "allTasks" : [
     {
       "status" : "done",
@@ -70,45 +101,14 @@
       "targetVersion" : "1.2.0"
     }
   ],
+  "localProjectPath" : "..\/BucketClimb",
   "appStoreId" : null,
+  "currentVersion" : "1.0",
+  "status" : "active",
+  "nameEn" : "Bucket Climb",
+  "priority" : "high",
   "recentlyCompleted" : [
     "기본 버킷리스트 CRUD",
     "사진 첨부 기능 (단일)"
-  ],
-  "localProjectPath" : "..\/BucketClimb",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/꿈을-찾아서\/id6755934506",
-  "status" : "active",
-  "team" : {
-    "development" : [
-      {
-        "isLead" : true,
-        "id" : "dev-001",
-        "contact" : "@hyunholee",
-        "name" : "이현호",
-        "role" : "iOS Developer",
-        "responsibility" : "iOS 앱 전체 개발, SwiftUI 구현"
-      }
-    ],
-    "planning" : [
-      {
-        "isLead" : true,
-        "id" : "pm-001",
-        "contact" : "@hyunholee",
-        "name" : "이현호",
-        "role" : "Product Manager",
-        "responsibility" : "기능 기획, 우선순위 결정, 사용자 피드백 분석"
-      }
-    ],
-    "design" : [
-      {
-        "isLead" : true,
-        "id" : "design-001",
-        "contact" : "@hyunholee",
-        "name" : "이현호",
-        "role" : "UI\/UX Designer",
-        "responsibility" : "디자인 시스템, UI 컴포넌트, 사용자 경험 개선"
-      }
-    ]
-  },
-  "minimumOS" : "iOS 15.0"
+  ]
 }

@@ -20,32 +20,32 @@
     }
   ],
   "minimumOS" : "16.0",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/일정-비서\/id6756593712",
-  "sharedModules" : [
-
-  ],
-  "notes" : "",
-  "appStoreId" : "",
-  "priority" : "high",
-  "recentlyCompleted" : [
-
-  ],
-  "bundleId" : "com.leeo.scheduleassistant",
   "nextTasks" : [
     "앱 기획하기",
     "너 이거 다 했어? 라고 물어봐주기",
     "앱 배포 1.0.0 일정비서"
   ],
-  "localProjectPath" : "..\/WeekAheadTodo",
+  "notes" : "",
   "name" : "일정비서",
-  "currentVersion" : "1.0.0",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/WeekAheadTodo",
+  "bundleId" : "com.leeo.scheduleassistant",
+  "localProjectPath" : "..\/WeekAheadTodo",
+  "status" : "active",
+  "appStoreId" : "",
+  "priority" : "high",
+  "nameEn" : "Schedule Assistant",
+  "recentlyCompleted" : [
+
+  ],
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/일정-비서\/id6756593712",
+  "currentVersion" : "1.0",
+  "sharedModules" : [
+
+  ],
   "stats" : {
     "done" : 0,
     "notStarted" : 1,
     "inProgress" : 2,
     "totalTasks" : 3
-  },
-  "nameEn" : "Schedule Assistant",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/WeekAheadTodo",
-  "status" : "active"
+  }
 }

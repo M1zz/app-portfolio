@@ -1,10 +1,4 @@
 {
-  "githubRepo" : "https:\/\/github.com\/M1zz\/RapportMap",
-  "notes" : "",
-  "bundleId" : "com.leeo.rapportmap",
-  "priority" : "high",
-  "localProjectPath" : "..\/RapportMap",
-  "currentVersion" : "1.0.2",
   "allTasks" : [
     {
       "status" : "in-progress",
@@ -109,28 +103,34 @@
       "targetVersion" : null
     }
   ],
+  "minimumOS" : "16.0",
   "nextTasks" : [
     "멘티들과 했던 행동들에 사진으로 기억할 수 있도록 돕기",
     "클라우드 백업기능",
     "기록에 태그를 남기고 태그로 필터링 해서 볼 수 있도록 하기",
     "멘토링이나 어떤 특정 태그처럼 속성 중에 멘토링 케이스를 추가할 수 있었으면 좋겠음"
   ],
+  "notes" : "",
   "name" : "라포 맵",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/RapportMap",
+  "bundleId" : "com.leeo.rapportmap",
+  "localProjectPath" : "..\/RapportMap",
+  "status" : "active",
+  "appStoreId" : "",
+  "priority" : "high",
+  "nameEn" : "Rapport Map",
+  "recentlyCompleted" : [
+    "데이터를 마구 던지면 저장해주는 메모 기능"
+  ],
+  "currentVersion" : "1.0.1",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/라포맵\/id6754888089",
+  "sharedModules" : [
+
+  ],
   "stats" : {
     "done" : 1,
     "notStarted" : 14,
     "inProgress" : 2,
     "totalTasks" : 17
-  },
-  "nameEn" : "Rapport Map",
-  "appStoreId" : "",
-  "sharedModules" : [
-
-  ],
-  "recentlyCompleted" : [
-    "데이터를 마구 던지면 저장해주는 메모 기능"
-  ],
-  "minimumOS" : "16.0",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/라포맵\/id6754888089",
-  "status" : "active"
+  }
 }

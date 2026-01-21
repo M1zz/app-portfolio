@@ -16,6 +16,9 @@ struct DashboardView: View {
                 // 프로젝트 정보 입력 필요 알림 (최우선)
                 MissingInfoAlertCard()
 
+                // 버전 변경 감지 알림
+                VersionChangesAlertCard()
+
                 // 전체 앱 개수 요약
                 TotalAppsCard()
 
@@ -29,6 +32,9 @@ struct DashboardView: View {
                 if !riskyApps.isEmpty {
                     RiskAlertsCard(apps: riskyApps)
                 }
+
+                // iCloud 동기화 (하단 배치)
+                iCloudSyncCard()
             }
             .padding()
         }
@@ -175,6 +181,123 @@ struct MissingInfoAlertCard: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.red.opacity(0.3), lineWidth: 2)
         )
+    }
+}
+
+// MARK: - Version Changes Alert Card
+struct VersionChangesAlertCard: View {
+    @EnvironmentObject var portfolio: PortfolioService
+    @State private var isUpdating = false
+
+    var body: some View {
+        ZStack {
+            if !portfolio.versionChanges.isEmpty {
+                alertCard
+            }
+        }
+    }
+
+    private var alertCard: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            // 헤더
+            HStack(spacing: 12) {
+                Image(systemName: "arrow.up.circle.fill")
+                    .font(.title2)
+                    .foregroundColor(.blue)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("🔄 버전 변경 감지")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                    Text("\(portfolio.versionChanges.count)개 앱의 버전이 프로젝트에서 변경되었습니다")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
+
+                Button(action: updateAllVersions) {
+                    HStack(spacing: 6) {
+                        if isUpdating {
+                            ProgressView()
+                                .scaleEffect(0.7)
+                        } else {
+                            Image(systemName: "arrow.clockwise")
+                        }
+                        Text("모두 업데이트")
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                }
+                .buttonStyle(.plain)
+                .disabled(isUpdating)
+            }
+
+            Divider()
+
+            // 변경된 앱 목록
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(portfolio.versionChanges) { change in
+                    HStack(spacing: 12) {
+                        Image(systemName: "app.fill")
+                            .foregroundColor(.blue)
+
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(change.appName)
+                                .font(.body)
+                                .fontWeight(.medium)
+
+                            HStack(spacing: 4) {
+                                Text(change.currentVersion)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .strikethrough()
+
+                                Image(systemName: "arrow.right")
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+
+                                Text(change.detectedVersion)
+                                    .font(.caption)
+                                    .foregroundColor(.blue)
+                                    .fontWeight(.semibold)
+                            }
+                        }
+
+                        Spacer()
+
+                        Button(action: {
+                            portfolio.updateVersionFromProject(appName: change.appName)
+                        }) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    .padding(12)
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(8)
+                }
+            }
+        }
+        .padding()
+        .background(Color.blue.opacity(0.05))
+        .cornerRadius(12)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.blue.opacity(0.3), lineWidth: 2)
+        )
+    }
+
+    private func updateAllVersions() {
+        isUpdating = true
+        portfolio.updateAllVersionsFromProjects()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            isUpdating = false
+        }
     }
 }
 
@@ -1231,6 +1354,175 @@ struct AppWorkflowItem: View {
         case .ready: return .orange
         case .feedback: return .blue
         case .decision: return .purple
+        }
+    }
+}
+
+// MARK: - iCloud Sync Card
+
+struct iCloudSyncCard: View {
+    @EnvironmentObject var portfolio: PortfolioService
+    @StateObject private var cloudKitService = CloudKitSyncService.shared
+    @State private var isSyncing = false
+    @State private var syncStatus: SyncStatusType = .idle
+
+    enum SyncStatusType {
+        case idle
+        case syncing
+        case success
+        case error(String)
+
+        var color: Color {
+            switch self {
+            case .idle: return .secondary
+            case .syncing: return .blue
+            case .success: return .green
+            case .error: return .red
+            }
+        }
+
+        var icon: String {
+            switch self {
+            case .idle: return "icloud"
+            case .syncing: return "icloud.and.arrow.up"
+            case .success: return "checkmark.icloud.fill"
+            case .error: return "exclamationmark.icloud.fill"
+            }
+        }
+
+        var description: String {
+            switch self {
+            case .idle: return "대기 중"
+            case .syncing: return "동기화 중..."
+            case .success: return "동기화 완료"
+            case .error(let msg): return "오류: \(msg)"
+            }
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            // 헤더
+            HStack {
+                Image(systemName: syncStatus.icon)
+                    .font(.title2)
+                    .foregroundColor(syncStatus.color)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("iOS 앱 동기화")
+                        .font(.headline)
+
+                    Text(syncStatus.description)
+                        .font(.caption)
+                        .foregroundColor(syncStatus.color)
+                }
+
+                Spacer()
+
+                // 동기화 버튼
+                Button(action: syncNow) {
+                    HStack(spacing: 6) {
+                        if isSyncing {
+                            ProgressView()
+                                .scaleEffect(0.7)
+                        } else {
+                            Image(systemName: "arrow.triangle.2.circlepath")
+                        }
+                        Text(isSyncing ? "동기화 중" : "지금 동기화")
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                }
+                .buttonStyle(.plain)
+                .disabled(isSyncing)
+            }
+
+            Divider()
+
+            // 동기화 정보
+            HStack(spacing: 20) {
+                // 앱 개수
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("동기화 대상")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    HStack(spacing: 4) {
+                        Image(systemName: "app.fill")
+                            .foregroundColor(.blue)
+                        Text("\(portfolio.apps.count)개 앱")
+                            .font(.body)
+                            .fontWeight(.medium)
+                    }
+                }
+
+                Spacer()
+
+                // 마지막 동기화 시간
+                VStack(alignment: .trailing, spacing: 4) {
+                    Text("마지막 동기화")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    if let lastSync = cloudKitService.lastSyncDate {
+                        Text(lastSync, style: .relative)
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                    } else {
+                        Text("아직 안함")
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+
+            // CloudKit 상태
+            HStack(spacing: 8) {
+                Image(systemName: cloudKitService.isCloudKitAvailable ? "checkmark.circle.fill" : "xmark.circle.fill")
+                    .foregroundColor(cloudKitService.isCloudKitAvailable ? .green : .red)
+
+                Text(cloudKitService.isCloudKitAvailable ? "CloudKit 연결됨" : "CloudKit 연결 안됨")
+                    .font(.caption)
+                    .foregroundColor(cloudKitService.isCloudKitAvailable ? .green : .red)
+
+                Spacer()
+
+                Text("CEOfeedback 앱과 동기화됩니다")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding(8)
+            .background(Color(NSColor.controlBackgroundColor).opacity(0.5))
+            .cornerRadius(6)
+        }
+        .padding()
+        .background(Color(NSColor.controlBackgroundColor))
+        .cornerRadius(12)
+    }
+
+    private func syncNow() {
+        isSyncing = true
+        syncStatus = .syncing
+
+        // CloudKit 동기화 실행
+        portfolio.syncToiCloud()
+
+        // 비동기 완료 대기
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            isSyncing = false
+            if let error = cloudKitService.syncError {
+                syncStatus = .error(error)
+            } else {
+                syncStatus = .success
+            }
+
+            // 3초 후 상태 초기화
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                if case .success = syncStatus {
+                    syncStatus = .idle
+                }
+            }
         }
     }
 }

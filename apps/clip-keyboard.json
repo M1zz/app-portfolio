@@ -146,33 +146,33 @@
     }
   ],
   "minimumOS" : "16.0",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/클립-키보드\/id1543660502",
-  "sharedModules" : [
-
+  "nextTasks" : [
+    "기본 템플릿 제공해주기",
+    "에러처리를 실제로 구현"
   ],
   "notes" : "",
+  "name" : "클립키보드",
+  "githubRepo" : "https:\/\/github.com\/Code-Ward\/Token-memo",
+  "bundleId" : "com.leeo.clipkeyboard",
+  "localProjectPath" : "..\/Token-memo",
+  "status" : "planning",
   "appStoreId" : "",
   "priority" : "low",
+  "nameEn" : "Clip Keyboard",
   "recentlyCompleted" : [
     "템플릿 기능 추가",
     "아이 클라우드로 메모 동기화",
     "백업 복원 하는 기능"
   ],
-  "bundleId" : "com.leeo.clipkeyboard",
-  "nextTasks" : [
-    "기본 템플릿 제공해주기",
-    "에러처리를 실제로 구현"
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/클립-키보드\/id1543660502",
+  "currentVersion" : "3.0.2",
+  "sharedModules" : [
+
   ],
-  "localProjectPath" : "..\/Token-memo",
-  "name" : "클립키보드",
-  "currentVersion" : "3.0.1",
   "stats" : {
     "done" : 11,
     "notStarted" : 13,
     "inProgress" : 0,
     "totalTasks" : 24
-  },
-  "nameEn" : "Clip Keyboard",
-  "githubRepo" : "https:\/\/github.com\/Code-Ward\/Token-memo",
-  "status" : "planning"
+  }
 }

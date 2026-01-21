@@ -4,15 +4,20 @@ struct SettingsView: View {
     @AppStorage("portfolioPath") private var portfolioPath = "~/Documents/workspace/code/app-portfolio"
     @AppStorage("enableNotifications") private var enableNotifications = true
     @AppStorage("dailyBriefingTime") private var dailyBriefingTime = 9
+    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = true
 
     @EnvironmentObject var portfolioService: PortfolioService
 
     @State private var showingSyncAlert = false
     @State private var syncAlertMessage = ""
     @State private var isSyncing = false
-    @State private var iCloudEnabled = false
     @State private var isTestingCLI = false
     @State private var cliTestResult: String?
+    @State private var lastSyncTime: Date?
+    @State private var showingDeleteConfirmation = false
+    @State private var isDeleting = false
+
+    @StateObject private var cloudKitService = CloudKitSyncService.shared
 
     var body: some View {
         Form {
@@ -44,34 +49,75 @@ struct SettingsView: View {
                 }
             }
 
-            Section("iCloud 동기화") {
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        Image(systemName: "info.circle.fill")
-                            .foregroundColor(.blue)
-                        Text("iCloud 동기화 준비 중")
+            Section("iCloud 동기화 (iOS 앱 연동)") {
+                // iCloud 연결 상태
+                HStack {
+                    Image(systemName: isICloudAvailable ? "checkmark.icloud.fill" : "xmark.icloud.fill")
+                        .foregroundColor(isICloudAvailable ? .green : .red)
+                    Text(isICloudAvailable ? "iCloud 연결됨" : "iCloud에 로그인되지 않음")
+                        .foregroundColor(isICloudAvailable ? .primary : .red)
+                    Spacer()
+                }
+
+                // 동기화 활성화 토글
+                Toggle("자동 동기화", isOn: $iCloudSyncEnabled)
+                    .disabled(!isICloudAvailable)
+
+                // 마지막 동기화 시간
+                HStack {
+                    Text("마지막 동기화")
+                        .foregroundColor(.secondary)
+                    Spacer()
+                    if let lastSync = lastSyncTime {
+                        Text(lastSync, style: .relative)
+                            .foregroundColor(.secondary)
+                    } else {
+                        Text("없음")
                             .foregroundColor(.secondary)
                     }
+                }
 
-                    Text("iCloud 동기화 기능을 사용하려면 다음 단계를 완료하세요:")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("1. Xcode에서 Apple Developer 계정 로그인")
-                            .font(.caption2)
-                        Text("2. Signing & Capabilities에서 iCloud 추가")
-                            .font(.caption2)
-                        Text("3. iCloud_Setup_Guide.md 파일 참고")
-                            .font(.caption2)
-                            .foregroundColor(.blue)
+                // 동기화 버튼들
+                HStack(spacing: 12) {
+                    // 지금 동기화
+                    Button(action: syncNow) {
+                        HStack {
+                            if isSyncing {
+                                ProgressView()
+                                    .scaleEffect(0.7)
+                            } else {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+                            }
+                            Text(isSyncing ? "동기화 중..." : "지금 동기화")
+                        }
                     }
-                    .padding(.leading, 8)
+                    .disabled(!isICloudAvailable || isSyncing)
 
-                    Text("iCloud를 사용하면 모든 기기에서 프로젝트 데이터가 자동으로 동기화됩니다.")
+                    Spacer()
+
+                    // 동기화 데이터 삭제
+                    Button(role: .destructive, action: { showingDeleteConfirmation = true }) {
+                        HStack {
+                            if isDeleting {
+                                ProgressView()
+                                    .scaleEffect(0.7)
+                            } else {
+                                Image(systemName: "trash")
+                            }
+                            Text("데이터 삭제")
+                        }
+                    }
+                    .disabled(!isICloudAvailable || isDeleting)
+                }
+
+                // 동기화 정보
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("동기화 대상: \(portfolioService.apps.count)개 앱")
                         .font(.caption)
                         .foregroundColor(.secondary)
-                        .padding(.top, 4)
+                    Text("CEOfeedback iOS 앱과 데이터가 동기화됩니다.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
             }
 
@@ -90,7 +136,61 @@ struct SettingsView: View {
         }
         .formStyle(.grouped)
         .padding()
-        .frame(width: 500, height: 500)
+        .frame(width: 500, height: 600)
+        .onAppear {
+            checkLastSyncTime()
+        }
+        .alert("동기화 데이터 삭제", isPresented: $showingDeleteConfirmation) {
+            Button("취소", role: .cancel) {}
+            Button("삭제", role: .destructive) {
+                deleteSyncData()
+            }
+        } message: {
+            Text("iCloud의 동기화 데이터를 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
+        }
+        .alert("동기화", isPresented: $showingSyncAlert) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text(syncAlertMessage)
+        }
+    }
+
+    private var isICloudAvailable: Bool {
+        cloudKitService.isCloudKitAvailable
+    }
+
+    private func checkLastSyncTime() {
+        lastSyncTime = cloudKitService.lastSyncDate
+    }
+
+    private func syncNow() {
+        isSyncing = true
+        portfolioService.syncToiCloud()
+
+        // CloudKit은 비동기이므로 상태 업데이트
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            isSyncing = false
+            lastSyncTime = Date()
+            syncAlertMessage = cloudKitService.syncError ?? "동기화가 완료되었습니다."
+            showingSyncAlert = true
+        }
+    }
+
+    private func deleteSyncData() {
+        isDeleting = true
+
+        CloudKitSyncService.shared.deleteAllData { success, error in
+            DispatchQueue.main.async {
+                isDeleting = false
+                if success {
+                    lastSyncTime = nil
+                    syncAlertMessage = "동기화 데이터가 삭제되었습니다."
+                } else {
+                    syncAlertMessage = "삭제 실패: \(error ?? "알 수 없는 오류")"
+                }
+                showingSyncAlert = true
+            }
+        }
     }
 
     func selectFolder() {

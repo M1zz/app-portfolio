@@ -11,6 +11,19 @@ class PortfolioService: ObservableObject {
     @Published var isLoading = false
     @Published var error: Error?
     @Published var lastUpdated: Date?
+    @Published var appFileModificationDates: [String: Date] = [:]  // bundleId -> 파일 수정 날짜
+
+    // 버전 변경 감지
+    @Published var versionChanges: [VersionChange] = []
+    private var isUpdatingVersions = false  // 버전 업데이트 중 플래그
+
+    struct VersionChange: Identifiable {
+        let id = UUID()
+        let appName: String
+        let appFolder: String
+        let currentVersion: String   // JSON에 저장된 버전
+        let detectedVersion: String  // 프로젝트에서 감지된 버전
+    }
 
     private var fileMonitor: DispatchSourceFileSystemObject?
     private let fileManager = FileManager.default
@@ -89,6 +102,14 @@ class PortfolioService: ObservableObject {
                     self.apps = apps
                     self.lastUpdated = Date()
                     self.isLoading = false
+
+                    // 버전 변경 자동 체크 (업데이트 중이 아닐 때만)
+                    if !self.isUpdatingVersions {
+                        self.checkVersionChanges()
+                    }
+
+                    // iCloud 동기화 (iOS 앱용)
+                    self.syncToiCloud()
                 }
 
                 print("✅ 포트폴리오 로드 완료: \(apps.count)개 앱")
@@ -109,24 +130,37 @@ class PortfolioService: ObservableObject {
 
         let jsonFiles = try fileManager.contentsOfDirectory(
             at: appsDirectory,
-            includingPropertiesForKeys: nil
+            includingPropertiesForKeys: [.contentModificationDateKey]
         ).filter { $0.pathExtension == "json" }
 
         print("📄 발견된 JSON 파일 수: \(jsonFiles.count)")
 
         var loadedApps: [AppModel] = []
         var failedFiles: [String] = []
+        var modificationDates: [String: Date] = [:]
 
         for file in jsonFiles {
             do {
                 let data = try Data(contentsOf: file)
                 let app = try JSONDecoder().decode(AppModel.self, from: data)
                 loadedApps.append(app)
+
+                // 파일 수정 날짜 저장
+                if let attributes = try? fileManager.attributesOfItem(atPath: file.path),
+                   let modDate = attributes[.modificationDate] as? Date {
+                    modificationDates[app.bundleId] = modDate
+                }
+
                 print("  ✅ \(file.lastPathComponent) -> \(app.name)")
             } catch {
                 failedFiles.append(file.lastPathComponent)
                 print("  ❌ \(file.lastPathComponent): \(error)")
             }
+        }
+
+        // 메인 스레드에서 수정 날짜 업데이트
+        DispatchQueue.main.async {
+            self.appFileModificationDates = modificationDates
         }
 
         if !failedFiles.isEmpty {
@@ -438,6 +472,10 @@ class PortfolioService: ObservableObject {
 
             // 포트폴리오 다시 로드 (파일 모니터가 자동으로 처리하지만 즉시 반영을 위해)
             loadPortfolio()
+
+            // 대시보드 동기화를 위해 summary 업데이트
+            updateSummary()
+
             return true
         } catch {
             print("❌ 앱 생성 실패: \(error)")
@@ -470,6 +508,9 @@ class PortfolioService: ObservableObject {
                 // 파일 모니터 재개
                 self.fileMonitor?.resume()
             }
+
+            // 대시보드 동기화를 위해 summary 업데이트
+            updateSummary()
 
             return true
         } catch {
@@ -537,6 +578,9 @@ class PortfolioService: ObservableObject {
             // 4. 포트폴리오 다시 로드
             loadPortfolio()
 
+            // 5. 대시보드 동기화를 위해 summary 업데이트
+            updateSummary()
+
         } catch {
             print("❌ 프로젝트 정보 저장 실패: \(error)")
         }
@@ -553,6 +597,105 @@ class PortfolioService: ObservableObject {
             print("📊 브리핑 생성 시작...")
         } catch {
             print("❌ 브리핑 생성 실패: \(error)")
+        }
+    }
+
+    // MARK: - CloudKit Sync (iOS 앱 동기화)
+
+    /// iOS 앱과 동기화를 위해 CloudKit에 앱 데이터 저장
+    func syncToiCloud() {
+        // AppModel을 AppSummary로 변환
+        let appSummaries: [AppSummary] = apps.map { app in
+            AppSummary(
+                name: app.name,
+                nameEn: app.nameEn,
+                bundleId: app.bundleId,
+                currentVersion: app.currentVersion,
+                status: app.status.rawValue,
+                priority: app.priority.rawValue,
+                stats: AppSummary.TaskStatsSummary(
+                    totalTasks: app.stats.totalTasks,
+                    done: app.stats.done,
+                    inProgress: app.stats.inProgress,
+                    notStarted: app.stats.notStarted
+                ),
+                nextTasks: Array(app.nextTasks.prefix(5))
+            )
+        }
+
+        // CloudKit에 저장
+        CloudKitSyncService.shared.saveApps(appSummaries) { success, error in
+            if success {
+                print("☁️ CloudKit 동기화 완료: \(appSummaries.count)개 앱")
+            } else {
+                print("❌ CloudKit 동기화 실패: \(error ?? "알 수 없는 오류")")
+            }
+        }
+    }
+
+    // MARK: - Summary Update (대시보드 동기화)
+
+    /// portfolio-summary.json 업데이트 (대시보드와 동기화)
+    func updateSummary() {
+        Task {
+            do {
+                let apps = try loadAllApps()
+
+                // 통계 계산
+                let activeCount = apps.filter { $0.status == .active }.count
+                let planningCount = apps.filter { $0.status == .planning }.count
+                let highPriorityCount = apps.filter { $0.priority == .high }.count
+
+                let totalTasks = apps.reduce(0) { $0 + $1.stats.totalTasks }
+                let totalDone = apps.reduce(0) { $0 + $1.stats.done }
+                let totalInProgress = apps.reduce(0) { $0 + $1.stats.inProgress }
+                let totalNotStarted = apps.reduce(0) { $0 + $1.stats.notStarted }
+
+                // 앱 요약 생성
+                let appsSummary: [[String: Any]] = apps.map { app in
+                    [
+                        "name": app.name,
+                        "nameEn": app.nameEn,
+                        "file": "\(getFolderName(for: app.name)).json",
+                        "currentVersion": app.currentVersion,
+                        "status": app.status.rawValue,
+                        "priority": app.priority.rawValue,
+                        "stats": [
+                            "totalTasks": app.stats.totalTasks,
+                            "done": app.stats.done,
+                            "inProgress": app.stats.inProgress,
+                            "notStarted": app.stats.notStarted
+                        ],
+                        "nextTasks": Array(app.nextTasks.prefix(2))
+                    ]
+                }
+
+                // Summary JSON 생성
+                let formatter = ISO8601DateFormatter()
+                let summary: [String: Any] = [
+                    "lastUpdated": formatter.string(from: Date()),
+                    "totalApps": apps.count,
+                    "overview": [
+                        "active": activeCount,
+                        "planning": planningCount,
+                        "highPriority": highPriorityCount,
+                        "totalTasks": totalTasks,
+                        "totalDone": totalDone,
+                        "totalInProgress": totalInProgress,
+                        "totalNotStarted": totalNotStarted
+                    ],
+                    "apps": appsSummary
+                ]
+
+                // 파일 저장
+                let jsonData = try JSONSerialization.data(withJSONObject: summary, options: [.prettyPrinted, .sortedKeys])
+                try jsonData.write(to: summaryFile)
+
+                print("✅ portfolio-summary.json 업데이트 완료")
+
+            } catch {
+                print("❌ Summary 업데이트 실패: \(error)")
+            }
         }
     }
 
@@ -573,6 +716,197 @@ class PortfolioService: ObservableObject {
             if let error = error {
                 print("❌ 터미널 실행 실패: \(error)")
             }
+        }
+    }
+
+    // MARK: - Version Detection (프로젝트 버전 자동 감지)
+
+    /// 모든 앱의 버전 변경 확인
+    func checkVersionChanges() {
+        var changes: [VersionChange] = []
+
+        for app in apps {
+            guard let localPath = app.localProjectPath, !localPath.isEmpty else { continue }
+
+            if let detectedVersion = detectProjectVersion(localPath: localPath),
+               detectedVersion != app.currentVersion {
+                let appFolder = getFolderName(for: app.name)
+                changes.append(VersionChange(
+                    appName: app.name,
+                    appFolder: appFolder,
+                    currentVersion: app.currentVersion,
+                    detectedVersion: detectedVersion
+                ))
+                print("🔄 버전 변경 감지: \(app.name) \(app.currentVersion) → \(detectedVersion)")
+            }
+        }
+
+        DispatchQueue.main.async {
+            self.versionChanges = changes
+        }
+
+        if changes.isEmpty {
+            print("✅ 모든 앱 버전이 최신 상태입니다")
+        } else {
+            print("⚠️ \(changes.count)개 앱의 버전이 변경되었습니다")
+        }
+    }
+
+    /// 로컬 프로젝트에서 버전 감지
+    func detectProjectVersion(localPath: String) -> String? {
+        // 상대 경로를 절대 경로로 변환
+        let absolutePath: URL
+        if localPath.hasPrefix("../") {
+            absolutePath = portfolioPath.appendingPathComponent(localPath)
+        } else if localPath.hasPrefix("/") {
+            absolutePath = URL(fileURLWithPath: localPath)
+        } else {
+            absolutePath = portfolioPath.appendingPathComponent(localPath)
+        }
+
+        // .xcodeproj 폴더 찾기
+        do {
+            let contents = try fileManager.contentsOfDirectory(
+                at: absolutePath,
+                includingPropertiesForKeys: nil
+            )
+
+            for item in contents {
+                if item.pathExtension == "xcodeproj" {
+                    let pbxprojPath = item.appendingPathComponent("project.pbxproj")
+                    if let version = extractMarketingVersion(from: pbxprojPath) {
+                        return version
+                    }
+                }
+            }
+        } catch {
+            print("❌ 프로젝트 폴더 접근 실패: \(absolutePath.path) - \(error)")
+        }
+
+        return nil
+    }
+
+    /// project.pbxproj에서 MARKETING_VERSION 추출
+    private func extractMarketingVersion(from pbxprojPath: URL) -> String? {
+        guard let content = try? String(contentsOf: pbxprojPath, encoding: .utf8) else {
+            return nil
+        }
+
+        // MARKETING_VERSION = X.X.X; 패턴 찾기
+        let pattern = "MARKETING_VERSION\\s*=\\s*([0-9]+\\.[0-9]+\\.?[0-9]*)\\s*;"
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
+            return nil
+        }
+
+        let range = NSRange(content.startIndex..., in: content)
+        if let match = regex.firstMatch(in: content, options: [], range: range) {
+            if let versionRange = Range(match.range(at: 1), in: content) {
+                return String(content[versionRange])
+            }
+        }
+
+        return nil
+    }
+
+    /// 앱 이름으로 실제 JSON 파일 경로 찾기
+    private func findJsonFile(for appName: String) -> URL? {
+        // 1. 먼저 매핑 테이블 시도
+        let appFolder = getFolderName(for: appName)
+        let mappedFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+        if fileManager.fileExists(atPath: mappedFile.path) {
+            return mappedFile
+        }
+
+        // 2. 매핑에 없으면 apps/ 디렉토리에서 name 필드로 검색
+        do {
+            let jsonFiles = try fileManager.contentsOfDirectory(
+                at: appsDirectory,
+                includingPropertiesForKeys: nil
+            ).filter { $0.pathExtension == "json" }
+
+            for file in jsonFiles {
+                if let data = try? Data(contentsOf: file),
+                   let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let name = json["name"] as? String,
+                   name == appName {
+                    print("📂 JSON 파일 발견: \(file.lastPathComponent) for \(appName)")
+                    return file
+                }
+            }
+        } catch {
+            print("❌ JSON 파일 검색 실패: \(error)")
+        }
+
+        print("⚠️ JSON 파일을 찾을 수 없음: \(appName)")
+        return nil
+    }
+
+    /// 특정 앱의 버전을 프로젝트에서 감지된 버전으로 업데이트
+    func updateVersionFromProject(appName: String, skipReload: Bool = false) {
+        guard let app = apps.first(where: { $0.name == appName }),
+              let localPath = app.localProjectPath,
+              let detectedVersion = detectProjectVersion(localPath: localPath) else {
+            print("❌ 버전 감지 실패: \(appName)")
+            return
+        }
+
+        // 실제 JSON 파일 찾기
+        guard let jsonFile = findJsonFile(for: appName) else {
+            print("❌ JSON 파일을 찾을 수 없음: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as! [String: Any]
+
+            json["currentVersion"] = detectedVersion
+
+            let updatedData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            try updatedData.write(to: jsonFile)
+
+            print("✅ 버전 업데이트 완료: \(appName) → \(detectedVersion)")
+
+            // 버전 변경 목록에서 제거
+            DispatchQueue.main.async {
+                self.versionChanges.removeAll { $0.appName == appName }
+            }
+
+            // 일괄 업데이트가 아닌 경우에만 리로드
+            if !skipReload {
+                loadPortfolio()
+                updateSummary()
+            }
+
+        } catch {
+            print("❌ 버전 업데이트 실패: \(error)")
+        }
+    }
+
+    /// 모든 변경된 버전 일괄 업데이트
+    func updateAllVersionsFromProjects() {
+        // 업데이트 시작 플래그
+        isUpdatingVersions = true
+
+        // 먼저 현재 변경 목록 복사 (루프 중 변경 방지)
+        let changesToUpdate = versionChanges
+
+        // 버전 변경 목록 먼저 초기화
+        DispatchQueue.main.async {
+            self.versionChanges.removeAll()
+        }
+
+        for change in changesToUpdate {
+            updateVersionFromProject(appName: change.appName, skipReload: true)
+        }
+
+        // 모든 업데이트 완료 후 한 번만 리로드
+        loadPortfolio()
+        updateSummary()
+
+        // 약간의 딜레이 후 플래그 해제 (loadPortfolio 비동기 완료 대기)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.isUpdatingVersions = false
         }
     }
 }

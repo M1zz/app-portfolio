@@ -1,23 +1,4 @@
 {
-  "sharedModules" : [
-
-  ],
-  "nextTasks" : [
-    "인스타 소개 + 글쓰기",
-    "욕망의 무지개 업데이트"
-  ],
-  "nameEn" : "Rainbow Of Desire",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/욕망의-무지개\/id6755280882",
-  "localProjectPath" : "..\/ScheduleDensity",
-  "notes" : "",
-  "recentlyCompleted" : [
-    "특정 날짜만 제외하는 기능",
-    "클라우드 킷 적용해서 데이터 동기화",
-    "일정관리 리스트로 하기"
-  ],
-  "status" : "active",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/ScheduleDensity",
-  "minimumOS" : "16.0",
   "allTasks" : [
     {
       "status" : "done",
@@ -68,15 +49,34 @@
       "targetVersion" : null
     }
   ],
-  "currentVersion" : "1.0.2",
-  "appStoreId" : "",
+  "minimumOS" : "16.0",
+  "nextTasks" : [
+    "인스타 소개 + 글쓰기",
+    "욕망의 무지개 업데이트"
+  ],
+  "notes" : "",
+  "name" : "욕망의 무지개",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/ScheduleDensity",
   "bundleId" : "com.leeo.rainbowofdesire",
+  "localProjectPath" : "..\/ScheduleDensity",
+  "status" : "active",
+  "appStoreId" : "",
+  "priority" : "high",
+  "nameEn" : "Rainbow Of Desire",
+  "recentlyCompleted" : [
+    "특정 날짜만 제외하는 기능",
+    "클라우드 킷 적용해서 데이터 동기화",
+    "일정관리 리스트로 하기"
+  ],
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/욕망의-무지개\/id6755280882",
+  "currentVersion" : "1.0.1",
+  "sharedModules" : [
+
+  ],
   "stats" : {
     "done" : 6,
     "notStarted" : 1,
     "inProgress" : 1,
     "totalTasks" : 8
-  },
-  "name" : "욕망의 무지개",
-  "priority" : "high"
+  }
 }

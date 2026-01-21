@@ -5,23 +5,29 @@
     "inProgress" : 1,
     "totalTasks" : 9
   },
-  "notes" : "",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/RestaurantMap",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/인생-맛집\/id6755934548",
-  "name" : "인생 맛집",
-  "bundleId" : "com.leeo.liferestaurant",
-  "sharedModules" : [
-
-  ],
-  "priority" : "high",
-  "status" : "active",
-  "currentVersion" : "1.0.0",
-  "nameEn" : "Life Restaurant",
   "minimumOS" : "16.0",
+  "nextTasks" : [
+    "앱 배포",
+    "진짜 맛 있다는 것은",
+    "사람들 추가하기"
+  ],
+  "notes" : "",
+  "name" : "인생 맛집",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/RestaurantMap",
+  "bundleId" : "com.leeo.liferestaurant",
+  "localProjectPath" : "..\/RestaurantMap",
+  "status" : "active",
   "appStoreId" : "",
+  "priority" : "high",
+  "nameEn" : "Life Restaurant",
   "recentlyCompleted" : [
     "앱 구상하기",
     "방문 횟수"
+  ],
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/인생-맛집\/id6755934548",
+  "currentVersion" : "1.0",
+  "sharedModules" : [
+
   ],
   "allTasks" : [
     {
@@ -78,11 +84,5 @@
       "targetDate" : null,
       "targetVersion" : null
     }
-  ],
-  "localProjectPath" : "..\/RestaurantMap",
-  "nextTasks" : [
-    "앱 배포",
-    "진짜 맛 있다는 것은",
-    "사람들 추가하기"
   ]
 }
