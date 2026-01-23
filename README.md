@@ -1,8 +1,8 @@
 # 🍎 Leeo's App Portfolio
 
 [![Dashboard](https://img.shields.io/badge/📊_Live_Dashboard-보기-blue?style=for-the-badge)](https://M1zz.github.io/app-portfolio/)
-[![Stats](https://img.shields.io/badge/📈_Statistics-보기-green?style=for-the-badge)](./STATS.md)
-[![CEO Mode](https://img.shields.io/badge/👔_CEO_Mode-활성화-purple?style=for-the-badge)](./CEO-QUICK-START.md)
+[![Stats](https://img.shields.io/badge/📈_Statistics-보기-green?style=for-the-badge)](./docs/STATS.md)
+[![CEO Mode](https://img.shields.io/badge/👔_CEO_Mode-활성화-purple?style=for-the-badge)](./docs/CEO-QUICK-START.md)
 
 > 🌐 **실시간 대시보드**: 어디서든 브라우저로 포트폴리오 현황을 확인하세요
 > 👔 **CEO 모드**: 보고받고 의사결정만 하세요. 실행은 자동입니다.
@@ -29,37 +29,35 @@
 ```
 app-portfolio/
 ├── README.md
-├── AUTOMATION-GUIDE.md         # 🆕 자동화 시스템 가이드
-├── SOURCE-CODE-GUIDE.md        # 🔗 소스코드 연동 가이드
-├── portfolio-summary.json      # 전체 포트폴리오 요약
-├── apps/                       # 앱별 상세 정보
+├── visualization/              # 📊 시각화 웹 대시보드
+│   └── index.html             # 실시간 포트폴리오 대시보드
+├── apps/                       # 📱 앱별 메타데이터 및 관리 정보
 │   ├── clip-keyboard.json
 │   ├── double-reminder.json
 │   └── ...
-├── claude-projects/            # 🆕 앱별 Claude 프로젝트 (팀)
-│   ├── shared/                 # 공통 리소스
-│   ├── rapport-map/            # 각 앱의 전용 프로젝트
-│   ├── clip-keyboard/
+├── data/                       # 📦 JSON 데이터 파일들
+│   ├── portfolio-summary.json  # 전체 포트폴리오 요약
+│   ├── app-name-mapping.json   # 앱 이름 매핑
+│   ├── decisions-queue.json    # CEO 의사결정 대기열
+│   └── requests-queue.json     # 요청 관리
+├── docs/                       # 📚 문서 및 가이드
+│   ├── CEO-QUICK-START.md     # CEO 모드 빠른 시작
+│   ├── AUTOMATION-GUIDE.md    # 자동화 가이드
+│   ├── SOURCE-CODE-GUIDE.md   # 소스코드 연동
 │   └── ...
-├── scripts/                    # 🆕 자동화 스크립트
-│   ├── link-source-code.sh     # 🔗 소스코드 연결
+├── projects/                   # 💻 실제 앱 프로젝트 코드
+│   └── PortfolioCEO/          # iOS 앱 프로젝트
+├── claude-projects/            # 🤖 앱별 Claude 프로젝트
+│   ├── shared/                 # 공통 리소스
+│   ├── rapport-map/
+│   └── ...
+├── scripts/                    # ⚙️ 자동화 스크립트
+│   ├── link-source-code.sh
 │   ├── claude-update-task.sh
-│   ├── claude-weekly-report.sh
-│   ├── claude-release.sh
-│   ├── claude-priority-analysis.sh
-│   ├── claude-app-status.sh
-│   ├── validate-portfolio.py
-│   ├── generate-dashboard.py
-│   └── open-dashboard.sh
-├── prompts/                    # 🆕 프롬프트 템플릿
-│   ├── deploy-checklist.txt
-│   ├── bug-investigation.txt
-│   ├── feature-planning.txt
-│   └── code-review.txt
-├── dashboard/                  # 🆕 시각적 대시보드
-│   └── index.html
-├── reports/                    # 주간/월간 리포트
-└── CLAUDE-GUIDE.md            # Claude 사용 가이드
+│   └── ...
+└── prompts/                    # 📝 프롬프트 템플릿
+    ├── deploy-checklist.txt
+    └── ...
 ```
 
 ## 🚀 빠른 시작
@@ -73,7 +71,7 @@ app-portfolio/
 ./scripts/ceo-morning-routine.sh
 ```
 **보고 받고 의사결정만 하세요. 실행은 Claude가 자동으로 합니다.**
-자세한 내용: [CEO-QUICK-START.md](CEO-QUICK-START.md)
+자세한 내용: [CEO-QUICK-START.md](docs/CEO-QUICK-START.md)
 
 ### 📊 대시보드 보기
 ```bash
@@ -81,8 +79,8 @@ app-portfolio/
 ```
 브라우저에서 모든 앱의 상태를 한눈에 확인하세요.
 
-> 🎯 **일반 사용자:** [QUICK-START.md](QUICK-START.md)
-> 👔 **CEO 모드:** [CEO-QUICK-START.md](CEO-QUICK-START.md)
+> 🎯 **일반 사용자:** [QUICK-START.md](docs/QUICK-START.md)
+> 👔 **CEO 모드:** [CEO-QUICK-START.md](docs/CEO-QUICK-START.md)
 
 ### ⚡ 자주 사용하는 명령어
 
@@ -111,7 +109,7 @@ app-portfolio/
 ./scripts/claude-release.sh "앱이름" "버전"
 ```
 
-더 자세한 사용법은 [AUTOMATION-GUIDE.md](AUTOMATION-GUIDE.md)를 참고하세요.
+더 자세한 사용법은 [AUTOMATION-GUIDE.md](docs/AUTOMATION-GUIDE.md)를 참고하세요.
 
 ## 🤖 Claude와 함께 사용하기
 
@@ -159,20 +157,20 @@ app-portfolio/
 ## 📚 문서
 
 ### 🎯 운영 모드
-- [CEO-QUICK-START.md](CEO-QUICK-START.md) - 👔 **CEO 모드 빠른 시작 (추천!)**
-- [CEO-OPERATION-SYSTEM.md](CEO-OPERATION-SYSTEM.md) - 👔 CEO 운영 시스템 전체 가이드
+- [CEO-QUICK-START.md](docs/CEO-QUICK-START.md) - 👔 **CEO 모드 빠른 시작 (추천!)**
+- [CEO-OPERATION-SYSTEM.md](docs/CEO-OPERATION-SYSTEM.md) - 👔 CEO 운영 시스템 전체 가이드
 
 ### 🚀 시작하기
-- [QUICK-START.md](QUICK-START.md) - ⚡ 5분 빠른 시작 가이드
-- [GITHUB-PAGES-SETUP.md](GITHUB-PAGES-SETUP.md) - 🌐 온라인 대시보드 설정
+- [QUICK-START.md](docs/QUICK-START.md) - ⚡ 5분 빠른 시작 가이드
+- [GITHUB-PAGES-SETUP.md](docs/GITHUB-PAGES-SETUP.md) - 🌐 온라인 대시보드 설정
 
 ### 📖 상세 가이드
-- [SOURCE-CODE-GUIDE.md](SOURCE-CODE-GUIDE.md) - 🔗 **소스코드 연동 가이드 (신규!)**
-- [AUTOMATION-GUIDE.md](AUTOMATION-GUIDE.md) - 🤖 자동화 시스템 전체 가이드
-- [CLAUDE-GUIDE.md](CLAUDE-GUIDE.md) - 📝 Claude 데이터 관리 가이드
-- [CLAUDE-PROJECT-SETUP.md](CLAUDE-PROJECT-SETUP.md) - 🏗️ Claude 프로젝트 구조
-- [STATS.md](STATS.md) - 📊 실시간 통계 페이지
+- [SOURCE-CODE-GUIDE.md](docs/SOURCE-CODE-GUIDE.md) - 🔗 **소스코드 연동 가이드 (신규!)**
+- [AUTOMATION-GUIDE.md](docs/AUTOMATION-GUIDE.md) - 🤖 자동화 시스템 전체 가이드
+- [CLAUDE-GUIDE.md](docs/CLAUDE-GUIDE.md) - 📝 Claude 데이터 관리 가이드
+- [CLAUDE-PROJECT-SETUP.md](docs/CLAUDE-PROJECT-SETUP.md) - 🏗️ Claude 프로젝트 구조
+- [STATS.md](docs/STATS.md) - 📊 실시간 통계 페이지
 
 ---
 
-*마지막 업데이트: 2026-01-17*
+*마지막 업데이트: 2026-01-23*
