@@ -40,6 +40,8 @@
 		D409F3748A464953B28EEE95 /* BriefingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D98082493F4976B6BB2C7D /* BriefingView.swift */; };
 		F23E60EC85194CA498EC1ADD /* AppsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C5AF2F3F2A42928FAE8D5A /* AppsGridView.swift */; };
 		F39AC2D9CE52491D871B90CE /* AppDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DC853E07094AADB3FE1B00 /* AppDetailService.swift */; };
+		CAT01FILT01CAT01FILT01CAT /* CategoryFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */; };
+		CAT01MGMT01CAT01MGMT01CAT /* CategoryManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		F4945DB31C604E1B9471D5BD /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
 		F7D98082493F4976B6BB2C7D /* BriefingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefingView.swift; sourceTree = "<group>"; };
 		FF0E96244821439BB167AA75 /* PlanningDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningDocumentView.swift; sourceTree = "<group>"; };
+		CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterBar.swift; sourceTree = "<group>"; };
+		CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -145,6 +149,8 @@
 				BB7DB667A005421CB439158F /* AppDetailFormView.swift */,
 				A2C5AF2F3F2A42928FAE8D5A /* AppsGridView.swift */,
 				F7D98082493F4976B6BB2C7D /* BriefingView.swift */,
+				CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */,
+				CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */,
 				5DF9BA5DAF514310881D7116 /* DashboardView.swift */,
 				36DC6169110F41FC84EC88D9 /* DecisionCenterView.swift */,
 				FF0E96244821439BB167AA75 /* PlanningDocumentView.swift */,
@@ -321,6 +327,8 @@
 				47DF4FFBFC59463EB4E0318B /* ProjectDetailView.swift in Sources */,
 				2A5702AA5605448BBFE373B4 /* QuickSearchView.swift in Sources */,
 				86595EE0D43A47DDB899B21E /* SettingsView.swift in Sources */,
+				CAT01FILT01CAT01FILT01CAT /* CategoryFilterBar.swift in Sources */,
+				CAT01MGMT01CAT01MGMT01CAT /* CategoryManagementView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

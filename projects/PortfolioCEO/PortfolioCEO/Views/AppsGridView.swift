@@ -117,7 +117,7 @@ struct AppsGridView: View {
     }
 
     private var filteredApps: [AppModel] {
-        let apps: [AppModel]
+        var apps: [AppModel]
 
         switch selectedFilter {
         case .all:
