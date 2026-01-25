@@ -146,7 +146,7 @@
     }
   ],
   "appStoreId" : "",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/클립-키보드\/id1543660502",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/app\/클립-키보드\/id1543660502",
   "bundleId" : "com.leeo.clipkeyboard",
   "categories" : [
     "다국어지원"
@@ -162,6 +162,11 @@
     "에러처리를 실제로 구현"
   ],
   "notes" : "",
+  "price" : {
+    "isFree" : false,
+    "krw" : 5500,
+    "usd" : 3.9900000000000002
+  },
   "priority" : "low",
   "recentlyCompleted" : [
     "템플릿 기능 추가",
