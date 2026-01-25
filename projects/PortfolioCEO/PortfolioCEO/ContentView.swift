@@ -10,6 +10,7 @@ struct ContentView: View {
     enum Tab {
         case dashboard
         case apps
+        case kanban
         case aiAssistant
     }
 
@@ -26,6 +27,11 @@ struct ContentView: View {
                     Label("전체 앱", systemImage: "square.grid.2x2.fill")
                 }
                 .tag(Tab.apps)
+
+                Button(action: { selectedTab = .kanban }) {
+                    Label("칸반 보드", systemImage: "rectangle.split.3x1")
+                }
+                .tag(Tab.kanban)
 
                 Button(action: { selectedTab = .aiAssistant }) {
                     Label("AI 어시스턴트", systemImage: "sparkles")
@@ -54,6 +60,8 @@ struct ContentView: View {
                     DashboardView()
                 case .apps:
                     AppsGridView()
+                case .kanban:
+                    KanbanView()
                 case .aiAssistant:
                     AIAssistantView()
                 }
@@ -91,6 +99,7 @@ extension ContentView.Tab {
         switch self {
         case .dashboard: return "Portfolio Dashboard"
         case .apps: return "전체 앱"
+        case .kanban: return "칸반 보드"
         case .aiAssistant: return "AI 어시스턴트"
         }
     }

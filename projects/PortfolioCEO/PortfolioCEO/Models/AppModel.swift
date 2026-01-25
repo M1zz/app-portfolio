@@ -22,12 +22,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let notes: String?
     let team: TeamInfo?
     let categories: [String]?
+    let price: AppPrice?  // 앱 가격 정보
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price
     }
 
     init(from decoder: Decoder) throws {
@@ -54,6 +55,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
         self.team = try container.decodeIfPresent(TeamInfo.self, forKey: .team)
         self.categories = try container.decodeIfPresent([String].self, forKey: .categories)
+        self.price = try container.decodeIfPresent(AppPrice.self, forKey: .price)
     }
 }
 
@@ -394,6 +396,54 @@ enum WorkflowStage: String {
     case ready = "준비"
     case feedback = "피드백"
     case decision = "의사결정"
+}
+
+// MARK: - Price Models
+
+struct AppPrice: Codable, Hashable {
+    var usd: Double?      // 달러 가격
+    var krw: Int?         // 원화 가격
+    var isFree: Bool      // 무료 앱 여부
+
+    init(usd: Double? = nil, krw: Int? = nil, isFree: Bool = true) {
+        self.usd = usd
+        self.krw = krw
+        self.isFree = isFree
+    }
+
+    var displayPrice: String {
+        if isFree {
+            return "무료"
+        }
+
+        var parts: [String] = []
+        if let usd = usd {
+            parts.append("$\(String(format: "%.2f", usd))")
+        }
+        if let krw = krw {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            if let formatted = formatter.string(from: NSNumber(value: krw)) {
+                parts.append("₩\(formatted)")
+            }
+        }
+
+        return parts.isEmpty ? "가격 미정" : parts.joined(separator: " / ")
+    }
+
+    var usdDisplay: String {
+        if isFree { return "무료" }
+        guard let usd = usd else { return "-" }
+        return "$\(String(format: "%.2f", usd))"
+    }
+
+    var krwDisplay: String {
+        if isFree { return "무료" }
+        guard let krw = krw else { return "-" }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return "₩\(formatter.string(from: NSNumber(value: krw)) ?? "\(krw)")"
+    }
 }
 
 // MARK: - Team Models

@@ -426,7 +426,8 @@ class PortfolioService: ObservableObject {
         minimumOS: String? = nil,
         localProjectPath: String? = nil,
         githubRepo: String? = nil,
-        appStoreUrl: String? = nil
+        appStoreUrl: String? = nil,
+        price: AppPrice? = nil
     ) -> Bool {
         let appFolder = getFolderName(for: name)
         let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
@@ -470,6 +471,18 @@ class PortfolioService: ObservableObject {
         }
         if let appStoreUrl = appStoreUrl, !appStoreUrl.isEmpty {
             json["appStoreUrl"] = appStoreUrl
+        }
+
+        // 가격 정보 추가
+        if let price = price {
+            var priceDict: [String: Any] = ["isFree": price.isFree]
+            if let usd = price.usd {
+                priceDict["usd"] = usd
+            }
+            if let krw = price.krw {
+                priceDict["krw"] = krw
+            }
+            json["price"] = priceDict
         }
 
         do {
@@ -1031,6 +1044,42 @@ class PortfolioService: ObservableObject {
             loadPortfolio()
         } catch {
             print("❌ 앱 카테고리 업데이트 실패: \(error)")
+        }
+    }
+
+    // MARK: - Update App Price
+
+    func updateAppPrice(appName: String, price: AppPrice) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            // 가격 정보를 딕셔너리로 변환
+            var priceDict: [String: Any] = ["isFree": price.isFree]
+            if let usd = price.usd {
+                priceDict["usd"] = usd
+            }
+            if let krw = price.krw {
+                priceDict["krw"] = krw
+            }
+            json["price"] = priceDict
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 앱 가격 업데이트 완료: \(appName) - \(price.displayPrice)")
+
+            // 포트폴리오 다시 로드
+            loadPortfolio()
+        } catch {
+            print("❌ 앱 가격 업데이트 실패: \(error)")
         }
     }
 }

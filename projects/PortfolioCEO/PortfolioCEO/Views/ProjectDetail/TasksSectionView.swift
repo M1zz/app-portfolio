@@ -1,8 +1,21 @@
 import SwiftUI
 
+enum TaskViewMode: String, CaseIterable {
+    case list = "목록"
+    case kanban = "칸반"
+
+    var icon: String {
+        switch self {
+        case .list: return "list.bullet"
+        case .kanban: return "rectangle.split.3x1"
+        }
+    }
+}
+
 struct TasksSectionView: View {
     let app: AppModel
     @State private var showCompletedTasks = false
+    @State private var viewMode: TaskViewMode = .list
 
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -15,6 +28,18 @@ struct TasksSectionView: View {
                     Text("태스크")
                         .font(.title2)
                         .bold()
+
+                    Spacer()
+
+                    // 뷰 모드 선택
+                    Picker("", selection: $viewMode) {
+                        ForEach(TaskViewMode.allCases, id: \.self) { mode in
+                            Label(mode.rawValue, systemImage: mode.icon)
+                                .tag(mode)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .frame(width: 150)
                 }
                 Text("프로젝트 작업을 관리하고 진행 상황을 추적합니다")
                     .font(.body)
@@ -49,82 +74,91 @@ struct TasksSectionView: View {
 
             Divider()
 
-            // 태스크 목록 헤더
-            HStack {
-                Text(showCompletedTasks ? "전체 태스크" : "진행 중 태스크")
-                    .font(.headline)
+            // 태스크 목록 헤더 (목록 모드일 때만)
+            if viewMode == .list {
+                HStack {
+                    Text(showCompletedTasks ? "전체 태스크" : "진행 중 태스크")
+                        .font(.headline)
 
-                Spacer()
+                    Spacer()
 
-                Button(action: {
-                    showCompletedTasks.toggle()
-                }) {
-                    HStack(spacing: 4) {
-                        Image(systemName: showCompletedTasks ? "eye.slash" : "eye")
-                        Text(showCompletedTasks ? "완료 숨기기" : "완료 보기 (\(app.stats.done))")
+                    Button(action: {
+                        showCompletedTasks.toggle()
+                    }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: showCompletedTasks ? "eye.slash" : "eye")
+                            Text(showCompletedTasks ? "완료 숨기기" : "완료 보기 (\(app.stats.done))")
+                        }
+                        .font(.caption)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(Color.green.opacity(0.2))
+                        .foregroundColor(.green)
+                        .cornerRadius(8)
                     }
-                    .font(.caption)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(Color.green.opacity(0.2))
-                    .foregroundColor(.green)
-                    .cornerRadius(8)
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
             }
 
-            // 태스크 목록
-            if activeTasks.isEmpty && completedTasks.isEmpty {
-                VStack(spacing: 16) {
-                    Image(systemName: "list.bullet.clipboard")
-                        .font(.system(size: 48))
-                        .foregroundColor(.secondary)
-                    Text("태스크가 없습니다")
-                        .font(.headline)
-                    Text("태스크는 프로젝트 JSON 파일에서 관리됩니다")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(40)
+            // 뷰 모드에 따라 다른 표시
+            if viewMode == .kanban {
+                // 칸반 뷰
+                AppKanbanView(app: app)
+                    .frame(minHeight: 400)
             } else {
-                VStack(alignment: .leading, spacing: 12) {
-                    // 진행 중 태스크
-                    if !activeTasks.isEmpty {
-                        ForEach(activeTasks) { task in
-                            TaskRowView(task: task)
-                        }
-                    }
-
-                    // 완료된 태스크 (토글로 표시/숨김)
-                    if showCompletedTasks && !completedTasks.isEmpty {
-                        Divider()
-                            .padding(.vertical, 8)
-
-                        Text("완료된 태스크 (\(completedTasks.count))")
-                            .font(.subheadline)
+                // 목록 뷰
+                if activeTasks.isEmpty && completedTasks.isEmpty {
+                    VStack(spacing: 16) {
+                        Image(systemName: "list.bullet.clipboard")
+                            .font(.system(size: 48))
                             .foregroundColor(.secondary)
-
-                        ForEach(completedTasks) { task in
-                            TaskRowView(task: task)
-                                .opacity(0.6)
-                        }
+                        Text("태스크가 없습니다")
+                            .font(.headline)
+                        Text("태스크는 프로젝트 JSON 파일에서 관리됩니다")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
-
-                    // 진행 중 태스크가 없을 때
-                    if activeTasks.isEmpty && !showCompletedTasks {
-                        VStack(spacing: 12) {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.system(size: 40))
-                                .foregroundColor(.green)
-                            Text("모든 태스크를 완료했습니다!")
-                                .font(.headline)
-                            Text("완료된 태스크를 보려면 '완료 보기' 버튼을 누르세요")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity)
+                    .padding(40)
+                } else {
+                    VStack(alignment: .leading, spacing: 12) {
+                        // 진행 중 태스크
+                        if !activeTasks.isEmpty {
+                            ForEach(activeTasks) { task in
+                                TaskRowView(task: task)
+                            }
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(40)
+
+                        // 완료된 태스크 (토글로 표시/숨김)
+                        if showCompletedTasks && !completedTasks.isEmpty {
+                            Divider()
+                                .padding(.vertical, 8)
+
+                            Text("완료된 태스크 (\(completedTasks.count))")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+
+                            ForEach(completedTasks) { task in
+                                TaskRowView(task: task)
+                                    .opacity(0.6)
+                            }
+                        }
+
+                        // 진행 중 태스크가 없을 때
+                        if activeTasks.isEmpty && !showCompletedTasks {
+                            VStack(spacing: 12) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 40))
+                                    .foregroundColor(.green)
+                                Text("모든 태스크를 완료했습니다!")
+                                    .font(.headline)
+                                Text("완료된 태스크를 보려면 '완료 보기' 버튼을 누르세요")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(40)
+                        }
                     }
                 }
             }

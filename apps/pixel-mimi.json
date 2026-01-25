@@ -1,50 +1,53 @@
 {
   "allTasks" : [
     {
-      "status" : "not-started",
       "name" : "사용성 개선",
+      "status" : "not-started",
       "targetDate" : null,
       "targetVersion" : "1.0.3"
     },
     {
-      "status" : "not-started",
       "name" : "이걸 돈 받으려면 뭘 제공할지 고민하기",
+      "status" : "not-started",
       "targetDate" : null,
       "targetVersion" : null
     },
     {
-      "status" : "not-started",
       "name" : "앱 유료화",
+      "status" : "not-started",
       "targetDate" : "November 25, 2025",
       "targetVersion" : "1.0.3"
     }
   ],
+  "appStoreId" : "",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/pixel-meme\/id6449769987",
+  "bundleId" : "com.leeo.pixelmimi",
+  "categories" : [
+    "다국어지원"
+  ],
+  "currentVersion" : "1.0.4",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/PixelMe",
+  "localProjectPath" : "..\/PixelMe",
   "minimumOS" : "16.0",
+  "name" : "픽셀 미미",
+  "nameEn" : "Pixel Mimi",
   "nextTasks" : [
     "사용성 개선",
     "이걸 돈 받으려면 뭘 제공할지 고민하기"
   ],
   "notes" : "",
-  "name" : "픽셀 미미",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/PixelMe",
-  "bundleId" : "com.leeo.pixelmimi",
-  "localProjectPath" : "..\/PixelMe",
-  "status" : "planning",
-  "appStoreId" : "",
   "priority" : "medium",
-  "nameEn" : "Pixel Mimi",
   "recentlyCompleted" : [
 
   ],
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/pixel-meme\/id6449769987",
-  "currentVersion" : "1.0.4",
   "sharedModules" : [
 
   ],
   "stats" : {
     "done" : 0,
-    "notStarted" : 3,
     "inProgress" : 0,
+    "notStarted" : 3,
     "totalTasks" : 3
-  }
+  },
+  "status" : "planning"
 }

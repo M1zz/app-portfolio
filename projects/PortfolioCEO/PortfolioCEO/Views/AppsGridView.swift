@@ -59,7 +59,7 @@ struct AppsGridView: View {
                         )
                     }
 
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 300))], spacing: 20) {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 220))], spacing: 16) {
                         ForEach(filteredApps) { app in
                             NavigationLink(destination: AppDetailView(app: app)
                                 .environmentObject(portfolio)
@@ -237,6 +237,11 @@ struct AddAppSheet: View {
     @State private var githubRepo = ""
     @State private var appStoreUrl = ""
 
+    // 가격 정보
+    @State private var isFreeApp = true
+    @State private var priceUSD = ""
+    @State private var priceKRW = ""
+
     @State private var showingError = false
     @State private var errorMessage = ""
 
@@ -274,6 +279,34 @@ struct AddAppSheet: View {
                         ForEach([Priority.high, .medium, .low], id: \.self) { priority in
                             Text(priority.displayName).tag(priority)
                         }
+                    }
+                }
+
+                Section("가격 정보") {
+                    Toggle("무료 앱", isOn: $isFreeApp)
+
+                    if !isFreeApp {
+                        LabeledContent("USD 가격") {
+                            HStack {
+                                Text("$")
+                                    .foregroundColor(.secondary)
+                                TextField("0.99", text: $priceUSD)
+                                    .textFieldStyle(.roundedBorder)
+                            }
+                        }
+
+                        LabeledContent("KRW 가격") {
+                            HStack {
+                                Text("₩")
+                                    .foregroundColor(.secondary)
+                                TextField("1500", text: $priceKRW)
+                                    .textFieldStyle(.roundedBorder)
+                            }
+                        }
+
+                        Text("App Store에 표시되는 가격을 입력하세요")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
                 }
 
@@ -329,6 +362,16 @@ struct AddAppSheet: View {
     }
 
     private func createApp() {
+        // 가격 정보 생성
+        var price: AppPrice? = nil
+        if !isFreeApp {
+            let usd = Double(priceUSD)
+            let krw = Int(priceKRW)
+            price = AppPrice(usd: usd, krw: krw, isFree: false)
+        } else {
+            price = AppPrice(isFree: true)
+        }
+
         let success = portfolio.createApp(
             name: name,
             nameEn: nameEn,
@@ -339,7 +382,8 @@ struct AddAppSheet: View {
             minimumOS: minimumOS.isEmpty ? nil : minimumOS,
             localProjectPath: localProjectPath.isEmpty ? nil : localProjectPath,
             githubRepo: githubRepo.isEmpty ? nil : githubRepo,
-            appStoreUrl: appStoreUrl.isEmpty ? nil : appStoreUrl
+            appStoreUrl: appStoreUrl.isEmpty ? nil : appStoreUrl,
+            price: price
         )
 
         if success {
@@ -571,6 +615,17 @@ struct EnhancedAppCard: View {
                         .foregroundColor(.primary)
 
                     Spacer()
+
+                    // 가격 표시
+                    if let price = app.price {
+                        Text(price.displayPrice)
+                            .font(.caption)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(price.isFree ? Color.green.opacity(0.2) : Color.blue.opacity(0.2))
+                            .foregroundColor(price.isFree ? .green : .blue)
+                            .cornerRadius(4)
+                    }
 
                     Text("v\(app.currentVersion)")
                         .font(.caption)

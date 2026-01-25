@@ -42,6 +42,7 @@
 		F39AC2D9CE52491D871B90CE /* AppDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DC853E07094AADB3FE1B00 /* AppDetailService.swift */; };
 		CAT01FILT01CAT01FILT01CAT /* CategoryFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */; };
 		CAT01MGMT01CAT01MGMT01CAT /* CategoryManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */; };
+		KAN01VIEW01KAN01VIEW01KAN /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = KAN02VIEW02KAN02VIEW02KAN /* KanbanView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		FF0E96244821439BB167AA75 /* PlanningDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningDocumentView.swift; sourceTree = "<group>"; };
 		CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterBar.swift; sourceTree = "<group>"; };
 		CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagementView.swift; sourceTree = "<group>"; };
+		KAN02VIEW02KAN02VIEW02KAN /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -153,6 +155,7 @@
 				CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */,
 				5DF9BA5DAF514310881D7116 /* DashboardView.swift */,
 				36DC6169110F41FC84EC88D9 /* DecisionCenterView.swift */,
+				KAN02VIEW02KAN02VIEW02KAN /* KanbanView.swift */,
 				FF0E96244821439BB167AA75 /* PlanningDocumentView.swift */,
 				EAFA0EA0442B4D2C9C96BAA6 /* ProjectDetailView.swift */,
 				D34AEECB2F15482E855C1336 /* QuickSearchView.swift */,
@@ -329,6 +332,7 @@
 				86595EE0D43A47DDB899B21E /* SettingsView.swift in Sources */,
 				CAT01FILT01CAT01FILT01CAT /* CategoryFilterBar.swift in Sources */,
 				CAT01MGMT01CAT01MGMT01CAT /* CategoryManagementView.swift in Sources */,
+				KAN01VIEW01KAN01VIEW01KAN /* KanbanView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +434,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,7 +483,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

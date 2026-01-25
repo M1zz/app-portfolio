@@ -89,6 +89,13 @@ struct AppDetailView: View {
                         .font(.caption)
                         .foregroundColor(app.statusColor)
 
+                    // 가격 정보 표시
+                    if let price = app.price {
+                        Label(price.displayPrice, systemImage: price.isFree ? "gift.fill" : "dollarsign.circle.fill")
+                            .font(.caption)
+                            .foregroundColor(price.isFree ? .green : .blue)
+                    }
+
                     if let detail = appDetail {
                         Label(detail.techStack.platforms.joined(separator: ", "), systemImage: "iphone")
                             .font(.caption)
@@ -111,9 +118,14 @@ struct AppDetailView: View {
                     }
                 }
 
-                // 카테고리 편집 버튼
-                CategoryEditButton(app: app)
-                    .environmentObject(portfolioService)
+                // 카테고리 및 가격 편집 버튼
+                HStack(spacing: 8) {
+                    CategoryEditButton(app: app)
+                        .environmentObject(portfolioService)
+
+                    PriceEditButton(app: app)
+                        .environmentObject(portfolioService)
+                }
             }
 
             Spacer()
@@ -308,5 +320,133 @@ struct CategorySelectorView: View {
             appName: app.name,
             categories: Array(selectedCategories)
         )
+    }
+}
+
+// MARK: - Price Edit Button
+
+struct PriceEditButton: View {
+    let app: AppModel
+    @EnvironmentObject var portfolioService: PortfolioService
+    @State private var showingPriceEditor = false
+
+    var body: some View {
+        Button(action: {
+            showingPriceEditor = true
+        }) {
+            Label("가격", systemImage: "dollarsign.circle")
+                .font(.caption)
+        }
+        .buttonStyle(.bordered)
+        .controlSize(.small)
+        .popover(isPresented: $showingPriceEditor) {
+            PriceEditorView(app: app)
+                .environmentObject(portfolioService)
+                .frame(width: 320, height: 300)
+        }
+    }
+}
+
+// MARK: - Price Editor View
+
+struct PriceEditorView: View {
+    let app: AppModel
+    @EnvironmentObject var portfolioService: PortfolioService
+    @Environment(\.dismiss) var dismiss
+
+    @State private var isFree: Bool = true
+    @State private var priceUSD: String = ""
+    @State private var priceKRW: String = ""
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("가격 설정")
+                .font(.headline)
+                .padding(.horizontal)
+                .padding(.top)
+
+            Divider()
+
+            VStack(alignment: .leading, spacing: 16) {
+                Toggle("무료 앱", isOn: $isFree)
+
+                if !isFree {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("USD 가격")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+
+                        HStack {
+                            Text("$")
+                                .foregroundColor(.secondary)
+                            TextField("0.99", text: $priceUSD)
+                                .textFieldStyle(.roundedBorder)
+                        }
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("KRW 가격")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+
+                        HStack {
+                            Text("₩")
+                                .foregroundColor(.secondary)
+                            TextField("1500", text: $priceKRW)
+                                .textFieldStyle(.roundedBorder)
+                        }
+                    }
+
+                    Text("App Store에 표시되는 가격을 입력하세요")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .padding(.horizontal)
+
+            Spacer()
+
+            Divider()
+
+            HStack {
+                Button("취소") {
+                    dismiss()
+                }
+                .keyboardShortcut(.cancelAction)
+
+                Spacer()
+
+                Button("저장") {
+                    savePrice()
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+        }
+        .onAppear {
+            loadCurrentPrice()
+        }
+    }
+
+    private func loadCurrentPrice() {
+        if let price = app.price {
+            isFree = price.isFree
+            if let usd = price.usd {
+                priceUSD = String(format: "%.2f", usd)
+            }
+            if let krw = price.krw {
+                priceKRW = String(krw)
+            }
+        }
+    }
+
+    private func savePrice() {
+        let usd = Double(priceUSD)
+        let krw = Int(priceKRW)
+        let price = AppPrice(usd: usd, krw: krw, isFree: isFree)
+
+        portfolioService.updateAppPrice(appName: app.name, price: price)
     }
 }

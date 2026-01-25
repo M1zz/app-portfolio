@@ -1,178 +1,181 @@
 {
   "allTasks" : [
     {
-      "status" : "done",
       "name" : "템플릿 기능 추가",
+      "status" : "done",
       "targetDate" : "November 28, 2025",
       "targetVersion" : "3.0.0"
     },
     {
-      "status" : "done",
       "name" : "아이 클라우드로 메모 동기화",
+      "status" : "done",
       "targetDate" : "November 28, 2025",
       "targetVersion" : "3.0.0"
     },
     {
-      "status" : "done",
       "name" : "백업 복원 하는 기능",
+      "status" : "done",
       "targetDate" : "November 28, 2025",
       "targetVersion" : "3.0.0"
     },
     {
-      "status" : "done",
       "name" : "faceID로 보안",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "status" : "not-started",
-      "name" : "기본 템플릿 제공해주기",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "status" : "not-started",
-      "name" : "에러처리를 실제로 구현",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "status" : "not-started",
-      "name" : "검색 기능 강화",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "status" : "not-started",
-      "name" : "위젯 기능추가",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
       "status" : "done",
+      "targetDate" : null,
+      "targetVersion" : null
+    },
+    {
+      "name" : "기본 템플릿 제공해주기",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
+    },
+    {
+      "name" : "에러처리를 실제로 구현",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
+    },
+    {
+      "name" : "검색 기능 강화",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
+    },
+    {
+      "name" : "위젯 기능추가",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
+    },
+    {
       "name" : "카테고리 관리",
+      "status" : "done",
       "targetDate" : null,
       "targetVersion" : "3.0.0"
     },
     {
-      "status" : "done",
       "name" : "맥 OS에서 동작하게 하기",
+      "status" : "done",
       "targetDate" : "November 29, 2025",
       "targetVersion" : "1.0.0"
     },
     {
-      "status" : "not-started",
       "name" : "다국어 지원",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
       "status" : "not-started",
-      "name" : "AI로 글 쓰는 시간을 줄여주는 것 고민 템플릿 + AI",
       "targetDate" : null,
       "targetVersion" : null
     },
     {
-      "status" : "done",
+      "name" : "AI로 글 쓰는 시간을 줄여주는 것 고민 템플릿 + AI",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
+    },
+    {
       "name" : "민감한 정보 관리하는 레퍼찾기",
+      "status" : "done",
       "targetDate" : "December 11, 2025",
       "targetVersion" : "3.0.0"
     },
     {
-      "status" : "not-started",
       "name" : "단축어와 어떻게 같이 쓸지 고민",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
       "status" : "not-started",
-      "name" : "통계 관리",
       "targetDate" : null,
       "targetVersion" : null
     },
     {
-      "status" : "done",
+      "name" : "통계 관리",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
+    },
+    {
       "name" : "영상 찍어서 인스타에 소개하기",
+      "status" : "done",
       "targetDate" : null,
       "targetVersion" : "3.0.0"
     },
     {
-      "status" : "done",
       "name" : "링크드 인에 글쓰기",
+      "status" : "done",
       "targetDate" : "December 10, 2025",
       "targetVersion" : null
     },
     {
-      "status" : "done",
       "name" : "붙여넣기 안내 설정 도와주기",
+      "status" : "done",
       "targetDate" : "December 11, 2025",
       "targetVersion" : "3.0.0"
     },
     {
-      "status" : "not-started",
       "name" : "[MacOS] CRUD 그리고 설정 페이지 구현",
+      "status" : "not-started",
       "targetDate" : null,
       "targetVersion" : null
     },
     {
-      "status" : "done",
       "name" : "맥 오에스 배포하기",
+      "status" : "done",
       "targetDate" : "December 7, 2025",
       "targetVersion" : "1.0.0"
     },
     {
-      "status" : "not-started",
       "name" : "사용자가 쓸 수 있는 기본 키보드",
+      "status" : "not-started",
       "targetDate" : null,
       "targetVersion" : null
     },
     {
-      "status" : "not-started",
       "name" : "저장된 값 중 어떤게 붙여넣기 될지 설정",
+      "status" : "not-started",
       "targetDate" : null,
       "targetVersion" : null
     },
     {
-      "status" : "not-started",
       "name" : "글로벌 시장",
+      "status" : "not-started",
       "targetDate" : null,
       "targetVersion" : null
     },
     {
-      "status" : "not-started",
       "name" : "클립키보드 다국어지원",
+      "status" : "not-started",
       "targetDate" : "December 17, 2025 → December 21, 2025",
       "targetVersion" : "3.0.1"
     }
   ],
+  "appStoreId" : "",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/클립-키보드\/id1543660502",
+  "bundleId" : "com.leeo.clipkeyboard",
+  "categories" : [
+    "다국어지원"
+  ],
+  "currentVersion" : "3.0.2",
+  "githubRepo" : "https:\/\/github.com\/Code-Ward\/Token-memo",
+  "localProjectPath" : "..\/Token-memo",
   "minimumOS" : "16.0",
+  "name" : "클립키보드",
+  "nameEn" : "Clip Keyboard",
   "nextTasks" : [
     "기본 템플릿 제공해주기",
     "에러처리를 실제로 구현"
   ],
   "notes" : "",
-  "name" : "클립키보드",
-  "githubRepo" : "https:\/\/github.com\/Code-Ward\/Token-memo",
-  "bundleId" : "com.leeo.clipkeyboard",
-  "localProjectPath" : "..\/Token-memo",
-  "status" : "planning",
-  "appStoreId" : "",
   "priority" : "low",
-  "nameEn" : "Clip Keyboard",
   "recentlyCompleted" : [
     "템플릿 기능 추가",
     "아이 클라우드로 메모 동기화",
     "백업 복원 하는 기능"
   ],
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/클립-키보드\/id1543660502",
-  "currentVersion" : "3.0.2",
   "sharedModules" : [
 
   ],
   "stats" : {
     "done" : 11,
-    "notStarted" : 13,
     "inProgress" : 0,
+    "notStarted" : 13,
     "totalTasks" : 24
-  }
+  },
+  "status" : "planning"
 }
