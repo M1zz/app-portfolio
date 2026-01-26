@@ -1,6 +1,25 @@
 {
   "apps" : [
     {
+      "currentVersion" : "1.0.0",
+      "file" : "ecdesigner.json",
+      "name" : "ecDesigner",
+      "nameEn" : "ecDesigner",
+      "nextTasks" : [
+        "사이드바 단순화 (우클릭 메뉴)",
+        "헤더 아이콘 정리 (엘립시스 메뉴)",
+        "마일스톤 > EC 계층 구조"
+      ],
+      "priority" : "high",
+      "stats" : {
+        "done" : 0,
+        "inProgress" : 0,
+        "notStarted" : 6,
+        "totalTasks" : 6
+      },
+      "status" : "active"
+    },
+    {
       "currentVersion" : "1.0.1",
       "file" : "rainbow-of-desire.json",
       "name" : "욕망의 무지개",
@@ -318,15 +337,15 @@
       "status" : "planning"
     }
   ],
-  "lastUpdated" : "2026-01-25T15:09:42Z",
+  "lastUpdated" : "2026-01-26T14:35:00Z",
   "overview" : {
-    "active" : 10,
-    "highPriority" : 8,
+    "active" : 11,
+    "highPriority" : 9,
     "planning" : 8,
     "totalDone" : 44,
     "totalInProgress" : 13,
-    "totalNotStarted" : 62,
-    "totalTasks" : 119
+    "totalNotStarted" : 68,
+    "totalTasks" : 125
   },
-  "totalApps" : 18
+  "totalApps" : 19
 }

@@ -32,6 +32,12 @@
       "folder": "double-reminder",
       "bundleId": "com.leeo.doublereminder"
     },
+    "ecDesigner": {
+      "nameEn": "ecDesigner",
+      "folder": "ecDesigner",
+      "bundleId": "com.leeo.ecDesigner",
+      "sourcePath": "../ecDesigner"
+    },
     "잘 싸워보세": {
       "nameEn": "Fight Well",
       "folder": "fight-well",
