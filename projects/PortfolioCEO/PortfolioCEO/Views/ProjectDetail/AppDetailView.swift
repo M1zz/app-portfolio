@@ -118,13 +118,18 @@ struct AppDetailView: View {
                     }
                 }
 
-                // 카테고리 및 가격 편집 버튼
+                // 카테고리, 가격 편집 및 링크 버튼
                 HStack(spacing: 8) {
                     CategoryEditButton(app: app)
                         .environmentObject(portfolioService)
 
                     PriceEditButton(app: app)
                         .environmentObject(portfolioService)
+
+                    // App Store 링크 복사 버튼
+                    if let appStoreUrl = app.appStoreUrl, !appStoreUrl.isEmpty {
+                        AppStoreLinkButton(url: appStoreUrl)
+                    }
                 }
             }
 
@@ -448,5 +453,43 @@ struct PriceEditorView: View {
         let price = AppPrice(usd: usd, krw: krw, isFree: isFree)
 
         portfolioService.updateAppPrice(appName: app.name, price: price)
+    }
+}
+
+// MARK: - App Store Link Button
+
+struct AppStoreLinkButton: View {
+    let url: String
+    @State private var showCopied = false
+
+    var body: some View {
+        Button(action: {
+            copyToClipboard()
+        }) {
+            HStack(spacing: 4) {
+                Image(systemName: showCopied ? "checkmark" : "link")
+                Text(showCopied ? "복사됨" : "App Store")
+            }
+            .font(.caption)
+        }
+        .buttonStyle(.bordered)
+        .controlSize(.small)
+        .tint(showCopied ? .green : .blue)
+    }
+
+    private func copyToClipboard() {
+        let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
+        pasteboard.setString(url, forType: .string)
+
+        withAnimation {
+            showCopied = true
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation {
+                showCopied = false
+            }
+        }
     }
 }

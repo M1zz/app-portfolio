@@ -113,6 +113,11 @@
     "접근성 개선"
   ],
   "notes" : "",
+  "price" : {
+    "isFree" : false,
+    "krw" : 5500,
+    "usd" : 3.9900000000000002
+  },
   "priority" : "high",
   "recentlyCompleted" : [
     "UI 개선작업",

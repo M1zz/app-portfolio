@@ -36,6 +36,11 @@
     "이걸 돈 받으려면 뭘 제공할지 고민하기"
   ],
   "notes" : "",
+  "price" : {
+    "isFree" : false,
+    "krw" : 5500,
+    "usd" : 3.9900000000000002
+  },
   "priority" : "medium",
   "recentlyCompleted" : [
 
