@@ -57,11 +57,24 @@ class PortfolioService: ObservableObject {
             return relativePath
         }
 
-        // 3. Fallback: 홈 디렉토리 기반 절대 경로
+        // 3. Fallback: 홈 디렉토리 기반 절대 경로 (여러 경로 시도)
         let home = fileManager.homeDirectoryForCurrentUser
-        let absolutePath = home.appendingPathComponent("Documents/code/app-portfolio")
-        print("📂 절대 경로 사용: \(absolutePath.path)")
-        return absolutePath
+        let possiblePaths = [
+            home.appendingPathComponent("Documents/workspace/code/app-portfolio"),
+            home.appendingPathComponent("Documents/code/app-portfolio")
+        ]
+
+        for path in possiblePaths {
+            let appsDir = path.appendingPathComponent("apps")
+            if fileManager.fileExists(atPath: appsDir.path) {
+                print("📂 절대 경로 사용: \(path.path)")
+                return path
+            }
+        }
+
+        // 기본값 (첫 번째 경로)
+        print("📂 기본 경로 사용: \(possiblePaths[0].path)")
+        return possiblePaths[0]
     }
 
     private var appsDirectory: URL {
@@ -89,8 +102,10 @@ class PortfolioService: ObservableObject {
     // MARK: - Public Methods
 
     func loadPortfolio() {
-        isLoading = true
-        error = nil
+        DispatchQueue.main.async {
+            self.isLoading = true
+            self.error = nil
+        }
 
         Task {
             do {
@@ -350,10 +365,14 @@ class PortfolioService: ObservableObject {
                 let data = try Data(contentsOf: file)
 
                 if let feedbacks = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
-                    // "처리 전" 또는 "제안 완료" 상태의 피드백 카운트
+                    // 활성 상태의 피드백 카운트 (처리 완료가 아닌 모든 피드백)
+                    let activeStatuses = [
+                        "처리 전", "피드백 필요", "대기", "pending",
+                        "제안 완료", "분석중", "처리중", "의사결정", "테스트 중", "proposed"
+                    ]
                     let activeFeedbacks = feedbacks.filter { feedback in
                         if let status = feedback["status"] as? String {
-                            return status == "처리 전" || status == "제안 완료"
+                            return activeStatuses.contains(status)
                         }
                         return false
                     }

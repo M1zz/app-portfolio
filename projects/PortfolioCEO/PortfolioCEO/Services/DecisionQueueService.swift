@@ -10,10 +10,27 @@ class DecisionQueueService: ObservableObject {
     @Published var isLoading = false
 
     private let fileManager = FileManager.default
-    private var queueFileURL: URL {
+
+    private var basePath: URL {
         let home = fileManager.homeDirectoryForCurrentUser
-        return home
-            .appendingPathComponent("Documents/code/app-portfolio/data")
+        let possiblePaths = [
+            home.appendingPathComponent("Documents/workspace/code/app-portfolio"),
+            home.appendingPathComponent("Documents/code/app-portfolio")
+        ]
+
+        for path in possiblePaths {
+            let dataDir = path.appendingPathComponent("data")
+            if fileManager.fileExists(atPath: dataDir.path) {
+                return path
+            }
+        }
+
+        return possiblePaths[0]
+    }
+
+    private var queueFileURL: URL {
+        return basePath
+            .appendingPathComponent("data")
             .appendingPathComponent("decisions-queue.json")
     }
 
@@ -145,8 +162,7 @@ class DecisionQueueService: ObservableObject {
             return
         }
 
-        let home = fileManager.homeDirectoryForCurrentUser
-        let notesDir = home.appendingPathComponent("Documents/code/app-portfolio/project-notes")
+        let notesDir = basePath.appendingPathComponent("project-notes")
 
         // 앱 폴더 이름 가져오기
         let appFolder = decision.appFolder
@@ -192,8 +208,7 @@ class DecisionQueueService: ObservableObject {
             return
         }
 
-        let home = fileManager.homeDirectoryForCurrentUser
-        let appsDir = home.appendingPathComponent("Documents/code/app-portfolio/apps")
+        let appsDir = basePath.appendingPathComponent("apps")
         let appFolder = decision.appFolder
         let appFilePath = appsDir.appendingPathComponent("\(appFolder).json")
 

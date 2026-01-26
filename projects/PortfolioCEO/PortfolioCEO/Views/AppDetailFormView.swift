@@ -158,7 +158,7 @@ struct AppDetailFormView: View {
                 Text("새 앱 추가").tag(InputMode.newApp)
             }
             .pickerStyle(.segmented)
-            .onChange(of: inputMode) { _ in
+            .onChange(of: inputMode) { _, _ in
                 clearForm()
             }
 
@@ -183,7 +183,7 @@ struct AppDetailFormView: View {
                     Text("\(app.name) (\(app.nameEn))").tag(app as AppModel?)
                 }
             }
-            .onChange(of: selectedApp) { newApp in
+            .onChange(of: selectedApp) { _, newApp in
                 loadSelectedApp(newApp)
             }
 

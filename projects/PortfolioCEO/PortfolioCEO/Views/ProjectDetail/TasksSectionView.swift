@@ -300,7 +300,7 @@ struct TaskRowView: View {
                     .padding()
                     .background(Color.purple.opacity(0.1))
                     .cornerRadius(8)
-                    .onChange(of: hasBranchStartLabel) { newValue in
+                    .onChange(of: hasBranchStartLabel) { _, newValue in
                         updateBranchStartLabel(enabled: newValue)
                     }
 

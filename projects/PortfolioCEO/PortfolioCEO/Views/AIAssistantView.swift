@@ -109,7 +109,7 @@ struct AIAssistantView: View {
         } message: {
             Text(errorMessage)
         }
-        .onChange(of: selectedFeature) { _ in
+        .onChange(of: selectedFeature) { _, _ in
             result = ""
         }
     }
@@ -140,7 +140,7 @@ struct AIAssistantView: View {
             Button(action: analyzeFeedback) {
                 HStack {
                     Image(systemName: "sparkles")
-                    Text("분석하기")
+                    Text("수행하기")
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -151,6 +151,48 @@ struct AIAssistantView: View {
             .buttonStyle(.plain)
             .disabled(selectedApp == nil || feedbackInput.isEmpty || aiService.isProcessing)
         }
+        .onChange(of: selectedApp) { _, newApp in
+            // 앱 선택 시 피드백 자동 로드
+            if let app = newApp {
+                loadFeedbackForApp(app)
+            } else {
+                feedbackInput = ""
+            }
+        }
+    }
+
+    // 선택된 앱의 피드백 로드
+    private func loadFeedbackForApp(_ app: AppModel) {
+        let fileManager = FileManager.default
+        let home = fileManager.homeDirectoryForCurrentUser
+
+        let possiblePaths = [
+            home.appendingPathComponent("Documents/workspace/code/app-portfolio/project-notes"),
+            home.appendingPathComponent("Documents/code/app-portfolio/project-notes")
+        ]
+
+        let folderName = portfolioService.getFolderName(for: app.name)
+
+        for basePath in possiblePaths {
+            let filePath = basePath.appendingPathComponent("\(folderName).json")
+
+            if fileManager.fileExists(atPath: filePath.path),
+               let data = try? Data(contentsOf: filePath) {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+
+                if let notes = try? decoder.decode([ProjectNote].self, from: data) {
+                    // pending 또는 proposed 상태의 피드백만 로드
+                    let activeNotes = notes.filter { $0.status == .pending || $0.status == .proposed }
+                    feedbackInput = activeNotes.map { $0.content }.joined(separator: "\n")
+                    print("✅ \(app.name) 피드백 \(activeNotes.count)개 로드됨")
+                    return
+                }
+            }
+        }
+
+        feedbackInput = ""
+        print("⚠️ \(app.name) 피드백 파일 없음")
     }
 
     // MARK: - Task Generation View

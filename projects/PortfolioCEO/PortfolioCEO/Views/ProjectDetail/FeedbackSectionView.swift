@@ -168,14 +168,29 @@ struct FeedbackSectionView: View {
     private func loadNotes() {
         let fileManager = FileManager.default
         let home = fileManager.homeDirectoryForCurrentUser
-        let notesDir = home.appendingPathComponent("Documents/code/app-portfolio/project-notes")
 
-        if !fileManager.fileExists(atPath: notesDir.path) {
-            try? fileManager.createDirectory(at: notesDir, withIntermediateDirectories: true)
+        // 여러 경로 시도 (우선순위 순)
+        let possiblePaths = [
+            home.appendingPathComponent("Documents/workspace/code/app-portfolio/project-notes"),
+            home.appendingPathComponent("Documents/code/app-portfolio/project-notes")
+        ]
+
+        var notesDir: URL?
+        for path in possiblePaths {
+            if fileManager.fileExists(atPath: path.path) {
+                notesDir = path
+                break
+            }
+        }
+
+        // 없으면 첫 번째 경로 생성
+        if notesDir == nil {
+            notesDir = possiblePaths[0]
+            try? fileManager.createDirectory(at: notesDir!, withIntermediateDirectories: true)
         }
 
         let folderName = getFolderName(for: app.name)
-        let filePath = notesDir.appendingPathComponent("\(folderName).json")
+        let filePath = notesDir!.appendingPathComponent("\(folderName).json")
 
         print("📥 [FeedbackSection] 피드백 로드 시도: \(filePath.path)")
 
@@ -196,10 +211,28 @@ struct FeedbackSectionView: View {
     private func saveNotes() {
         let fileManager = FileManager.default
         let home = fileManager.homeDirectoryForCurrentUser
-        let notesDir = home.appendingPathComponent("Documents/code/app-portfolio/project-notes")
+
+        // 여러 경로 시도 (우선순위 순)
+        let possiblePaths = [
+            home.appendingPathComponent("Documents/workspace/code/app-portfolio/project-notes"),
+            home.appendingPathComponent("Documents/code/app-portfolio/project-notes")
+        ]
+
+        var notesDir: URL?
+        for path in possiblePaths {
+            if fileManager.fileExists(atPath: path.path) {
+                notesDir = path
+                break
+            }
+        }
+
+        // 없으면 첫 번째 경로 사용
+        if notesDir == nil {
+            notesDir = possiblePaths[0]
+        }
 
         let folderName = getFolderName(for: app.name)
-        let filePath = notesDir.appendingPathComponent("\(folderName).json")
+        let filePath = notesDir!.appendingPathComponent("\(folderName).json")
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]

@@ -17,8 +17,6 @@
 		404AD762BC0E42879CB98C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 385DC54D719445BEAC58C12E /* Assets.xcassets */; };
 		47DF4FFBFC59463EB4E0318B /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA0EA0442B4D2C9C96BAA6 /* ProjectDetailView.swift */; };
 		4B42E660BAD14A739221DC5D /* iCloudSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B607E30D87A42F89909EADE /* iCloudSyncService.swift */; };
-		CK01SYNC01CK01SYNC01CK01 /* CloudKitSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CK02SYNC02CK02SYNC02CK02 /* CloudKitSyncService.swift */; };
-		SM01SHAR01SM01SHAR01SM01 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM02SHAR02SM02SHAR02SM02 /* SharedModels.swift */; };
 		4FBEB555A9A0498DBDCB50FE /* AIAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A0284ECAD47D4A3BF4D71 /* AIAssistantView.swift */; };
 		55EF1934A35C40DBB35C1275 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470988EAFA8471EB0958B0D /* Portfolio.swift */; };
 		7CDCA3D1D2C84E93BBD7E565 /* DecisionCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC6169110F41FC84EC88D9 /* DecisionCenterView.swift */; };
@@ -37,12 +35,14 @@
 		B6B685F1DC4C4AFE8A9078EA /* PortfolioCEOApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FEB389A2F44CE483094D5F /* PortfolioCEOApp.swift */; };
 		B98F46BE2E144C7291A0465E /* PlanningDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0E96244821439BB167AA75 /* PlanningDocumentView.swift */; };
 		C31E6627726843F6B53D0D8C /* DecisionQueueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A80F8A8DA46A69FF93AD4 /* DecisionQueueService.swift */; };
+		CAT01FILT01CAT01FILT01CAT /* CategoryFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */; };
+		CAT01MGMT01CAT01MGMT01CAT /* CategoryManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */; };
+		CK01SYNC01CK01SYNC01CK01 /* CloudKitSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CK02SYNC02CK02SYNC02CK02 /* CloudKitSyncService.swift */; };
 		D409F3748A464953B28EEE95 /* BriefingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D98082493F4976B6BB2C7D /* BriefingView.swift */; };
 		F23E60EC85194CA498EC1ADD /* AppsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C5AF2F3F2A42928FAE8D5A /* AppsGridView.swift */; };
 		F39AC2D9CE52491D871B90CE /* AppDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DC853E07094AADB3FE1B00 /* AppDetailService.swift */; };
-		CAT01FILT01CAT01FILT01CAT /* CategoryFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */; };
-		CAT01MGMT01CAT01MGMT01CAT /* CategoryManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */; };
 		KAN01VIEW01KAN01VIEW01KAN /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = KAN02VIEW02KAN02VIEW02KAN /* KanbanView.swift */; };
+		SM01SHAR01SM01SHAR01SM01 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM02SHAR02SM02SHAR02SM02 /* SharedModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,8 +52,6 @@
 		1A851C0C756B4A36A1ECEA15 /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
 		28FEB389A2F44CE483094D5F /* PortfolioCEOApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCEOApp.swift; sourceTree = "<group>"; };
 		2B607E30D87A42F89909EADE /* iCloudSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudSyncService.swift; sourceTree = "<group>"; };
-		CK02SYNC02CK02SYNC02CK02 /* CloudKitSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncService.swift; sourceTree = "<group>"; };
-		SM02SHAR02SM02SHAR02SM02 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
 		36DC6169110F41FC84EC88D9 /* DecisionCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionCenterView.swift; sourceTree = "<group>"; };
 		385DC54D719445BEAC58C12E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4470988EAFA8471EB0958B0D /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
@@ -73,6 +71,9 @@
 		BBB00005BBBB0005BBBB0005 /* DeploymentSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeploymentSectionView.swift; sourceTree = "<group>"; };
 		BBB00006BBBB0006BBBB0006 /* TestingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSectionView.swift; sourceTree = "<group>"; };
 		C82CF0F1759349C78578E63F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterBar.swift; sourceTree = "<group>"; };
+		CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagementView.swift; sourceTree = "<group>"; };
+		CK02SYNC02CK02SYNC02CK02 /* CloudKitSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncService.swift; sourceTree = "<group>"; };
 		D15645BD83F84EBCA0697A1C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D34AEECB2F15482E855C1336 /* QuickSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSearchView.swift; sourceTree = "<group>"; };
 		D3F8ED9726E74F9ABA93F4B7 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -82,9 +83,8 @@
 		F4945DB31C604E1B9471D5BD /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
 		F7D98082493F4976B6BB2C7D /* BriefingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefingView.swift; sourceTree = "<group>"; };
 		FF0E96244821439BB167AA75 /* PlanningDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningDocumentView.swift; sourceTree = "<group>"; };
-		CAT02FILT02CAT02FILT02CAT /* CategoryFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterBar.swift; sourceTree = "<group>"; };
-		CAT02MGMT02CAT02MGMT02CAT /* CategoryManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagementView.swift; sourceTree = "<group>"; };
 		KAN02VIEW02KAN02VIEW02KAN /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
+		SM02SHAR02SM02SHAR02SM02 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -365,6 +365,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PortfolioCEO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -392,6 +393,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PortfolioCEO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

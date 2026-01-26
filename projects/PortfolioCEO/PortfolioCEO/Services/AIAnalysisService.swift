@@ -147,21 +147,27 @@ class AIAnalysisService {
 
     private func loadNotes(for appName: String) -> [ProjectNote] {
         let fileManager = FileManager.default
-        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let notesDir = documentsPath.appendingPathComponent("project-notes")
+        let home = fileManager.homeDirectoryForCurrentUser
 
-        let folderName = appName
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "-")
-        let filePath = notesDir.appendingPathComponent("\(folderName).json")
+        let possiblePaths = [
+            home.appendingPathComponent("Documents/workspace/code/app-portfolio/project-notes"),
+            home.appendingPathComponent("Documents/code/app-portfolio/project-notes")
+        ]
 
-        guard let data = try? Data(contentsOf: filePath) else { return [] }
+        let folderName = PortfolioService.shared.getFolderName(for: appName)
 
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
+        for basePath in possiblePaths {
+            let filePath = basePath.appendingPathComponent("\(folderName).json")
 
-        if let loaded = try? decoder.decode([ProjectNote].self, from: data) {
-            return loaded
+            if fileManager.fileExists(atPath: filePath.path),
+               let data = try? Data(contentsOf: filePath) {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+
+                if let loaded = try? decoder.decode([ProjectNote].self, from: data) {
+                    return loaded
+                }
+            }
         }
 
         return []

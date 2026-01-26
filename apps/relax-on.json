@@ -1,37 +1,40 @@
 {
   "allTasks" : [
     {
-      "status" : "not-started",
       "name" : "기존의 사용성 개선  → 4.0.0",
+      "status" : "not-started",
       "targetDate" : null,
       "targetVersion" : "4.0.0"
     }
   ],
-  "minimumOS" : "16.0",
+  "appStoreId" : "",
   "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/relax-on-수면-백색-소음-자연의-소리\/id1626715109",
-  "sharedModules" : [
-
+  "bundleId" : "com.leeo.relaxon",
+  "categories" : [
+    "다국어지원"
+  ],
+  "currentVersion" : "4.0.0",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/RelaxOn",
+  "localProjectPath" : "..\/RelaxOn",
+  "minimumOS" : "16.0",
+  "name" : "릴렉스 온",
+  "nameEn" : "Relax On",
+  "nextTasks" : [
+    "기존의 사용성 개선  → 4.0.0"
   ],
   "notes" : "",
-  "appStoreId" : "",
   "priority" : "medium",
   "recentlyCompleted" : [
 
   ],
-  "bundleId" : "com.leeo.relaxon",
-  "nextTasks" : [
-    "기존의 사용성 개선  → 4.0.0"
+  "sharedModules" : [
+
   ],
-  "localProjectPath" : "..\/RelaxOn",
-  "name" : "릴렉스 온",
-  "currentVersion" : "4.0.0",
   "stats" : {
     "done" : 0,
-    "notStarted" : 1,
     "inProgress" : 0,
+    "notStarted" : 1,
     "totalTasks" : 1
   },
-  "nameEn" : "Relax On",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/RelaxOn",
   "status" : "planning"
 }

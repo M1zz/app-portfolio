@@ -94,7 +94,7 @@ struct MissingInfoAlertCard: View {
                     }
             }
         }
-        .onChange(of: showingProjectInfo) { newValue in
+        .onChange(of: showingProjectInfo) { _, newValue in
             print("🔄 [MissingInfoAlert] showingProjectInfo 변경: \(newValue)")
             if !newValue {
                 print("  → 시트가 닫혔습니다")
