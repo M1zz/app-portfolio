@@ -495,6 +495,7 @@ struct PlanningSectionView: View {
             "내마음에저장": "save-in-my-heart",
             "일정비서": "schedule-assistant",
             "공유일 설계자": "shared-day-designer",
+            "휴가 플래너": "shared-day-designer",
             "속삭": "whisper"
         ]
         return mapping[appName] ?? appName.lowercased().replacingOccurrences(of: " ", with: "-")
