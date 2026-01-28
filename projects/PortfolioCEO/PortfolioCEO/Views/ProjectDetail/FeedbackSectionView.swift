@@ -96,7 +96,18 @@ struct FeedbackSectionView: View {
                 .padding(40)
             } else {
                 VStack(spacing: 12) {
-                    ForEach(notes.sorted { $0.createdAt > $1.createdAt }) { note in
+                    ForEach(notes.sorted { note1, note2 in
+                        // 상태별 우선순위: pending > proposed > completed
+                        let status1Priority = statusPriority(note1.status)
+                        let status2Priority = statusPriority(note2.status)
+
+                        if status1Priority != status2Priority {
+                            return status1Priority < status2Priority
+                        }
+
+                        // 같은 상태면 날짜 기준 (최신순)
+                        return note1.createdAt > note2.createdAt
+                    }) { note in
                         if let index = notes.firstIndex(where: { $0.id == note.id }) {
                             NoteCard(note: $notes[index], onDelete: {
                                 deleteNote(note)
@@ -114,6 +125,14 @@ struct FeedbackSectionView: View {
     }
 
     // MARK: - Actions
+
+    private func statusPriority(_ status: NoteStatus) -> Int {
+        switch status {
+        case .pending: return 0      // 처리 전 - 가장 먼저
+        case .proposed: return 1     // 제안 완료 - 두 번째
+        case .completed: return 2    // 처리 완료 - 가장 나중
+        }
+    }
 
     private func getFolderName(for appName: String) -> String {
         let mapping: [String: String] = [
