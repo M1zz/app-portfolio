@@ -258,6 +258,7 @@ struct CategoryEditButton: View {
 struct CategorySelectorView: View {
     let app: AppModel
     @EnvironmentObject var portfolioService: PortfolioService
+    @Environment(\.dismiss) var dismiss
     @State private var selectedCategories: Set<String> = []
 
     var body: some View {
@@ -302,7 +303,7 @@ struct CategorySelectorView: View {
 
                 HStack {
                     Button("취소") {
-                        loadCurrentCategories()
+                        dismiss()
                     }
                     .keyboardShortcut(.cancelAction)
 
@@ -310,6 +311,7 @@ struct CategorySelectorView: View {
 
                     Button("저장") {
                         saveCategories()
+                        dismiss()
                     }
                     .keyboardShortcut(.defaultAction)
                     .buttonStyle(.borderedProminent)
