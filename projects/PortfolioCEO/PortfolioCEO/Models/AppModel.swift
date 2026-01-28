@@ -29,12 +29,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let appStoreMetadata: AppStoreMetadata?  // 앱스토어 메타데이터
     let screenshots: ScreenshotInfo?  // 스크린샷 정보
     let deploymentReminder: DeploymentReminder?  // 배포 알림 설정
+    let buildAutomation: BuildAutomation?  // 빌드 자동화 설정
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata, screenshots, deploymentReminder
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata, screenshots, deploymentReminder, buildAutomation
     }
 
     init(from decoder: Decoder) throws {
@@ -68,6 +69,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.appStoreMetadata = try container.decodeIfPresent(AppStoreMetadata.self, forKey: .appStoreMetadata)
         self.screenshots = try container.decodeIfPresent(ScreenshotInfo.self, forKey: .screenshots)
         self.deploymentReminder = try container.decodeIfPresent(DeploymentReminder.self, forKey: .deploymentReminder)
+        self.buildAutomation = try container.decodeIfPresent(BuildAutomation.self, forKey: .buildAutomation)
     }
 }
 
@@ -779,5 +781,83 @@ struct ChecklistItem: Identifiable, Codable, Hashable {
             ChecklistItem(title: "App Store 심사 제출"),
             ChecklistItem(title: "최종 검토")
         ]
+    }
+}
+
+// MARK: - Build Automation Models
+
+struct BuildAutomation: Codable, Hashable {
+    var buildNumber: Int
+    var autoincrementEnabled: Bool
+    var xcodeProjectPath: String?
+    var buildScripts: [BuildScript]
+    var lastBuildDate: Date?
+
+    init(buildNumber: Int = 1, autoincrementEnabled: Bool = false, xcodeProjectPath: String? = nil, buildScripts: [BuildScript] = [], lastBuildDate: Date? = nil) {
+        self.buildNumber = buildNumber
+        self.autoincrementEnabled = autoincrementEnabled
+        self.xcodeProjectPath = xcodeProjectPath
+        self.buildScripts = buildScripts
+        self.lastBuildDate = lastBuildDate
+    }
+
+    var hasRecentBuild: Bool {
+        guard let lastBuild = lastBuildDate else { return false }
+        let daysSince = Calendar.current.dateComponents([.day], from: lastBuild, to: Date()).day ?? 0
+        return daysSince < 7
+    }
+}
+
+struct BuildScript: Identifiable, Codable, Hashable {
+    let id: String
+    var name: String
+    var script: String
+    var phase: BuildPhase
+    var enabled: Bool
+
+    init(id: String = UUID().uuidString, name: String, script: String, phase: BuildPhase, enabled: Bool = true) {
+        self.id = id
+        self.name = name
+        self.script = script
+        self.phase = phase
+        self.enabled = enabled
+    }
+
+    static func defaultScripts() -> [BuildScript] {
+        [
+            BuildScript(
+                name: "빌드 번호 자동 증가",
+                script: """
+                # 빌드 번호 자동 증가
+                buildNumber=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${INFOPLIST_FILE}")
+                buildNumber=$(($buildNumber + 1))
+                /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "${INFOPLIST_FILE}"
+                echo "Build number: $buildNumber"
+                """,
+                phase: .preBuild
+            ),
+            BuildScript(
+                name: "빌드 완료 알림",
+                script: """
+                # 빌드 완료 알림
+                osascript -e 'display notification "빌드가 완료되었습니다." with title "Xcode"'
+                """,
+                phase: .postBuild
+            )
+        ]
+    }
+}
+
+enum BuildPhase: String, Codable, CaseIterable {
+    case preBuild = "빌드 전"
+    case postBuild = "빌드 후"
+
+    var description: String {
+        switch self {
+        case .preBuild:
+            return "Xcode 빌드 시작 전에 실행됩니다"
+        case .postBuild:
+            return "Xcode 빌드 완료 후에 실행됩니다"
+        }
     }
 }

@@ -1589,4 +1589,89 @@ class PortfolioService: ObservableObject {
             print("❌ 배포 알림 설정 업데이트 실패: \(error)")
         }
     }
+
+    // MARK: - Build Automation Management
+
+    func updateBuildAutomation(appName: String, automation: BuildAutomation) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var automationDict: [String: Any] = [
+                "buildNumber": automation.buildNumber,
+                "autoincrementEnabled": automation.autoincrementEnabled
+            ]
+            if let xcodeProjectPath = automation.xcodeProjectPath {
+                automationDict["xcodeProjectPath"] = xcodeProjectPath
+            }
+            if let lastBuildDate = automation.lastBuildDate {
+                automationDict["lastBuildDate"] = ISO8601DateFormatter().string(from: lastBuildDate)
+            }
+
+            // 빌드 스크립트 직렬화
+            var scriptsArray: [[String: Any]] = []
+            for script in automation.buildScripts {
+                scriptsArray.append([
+                    "id": script.id,
+                    "name": script.name,
+                    "script": script.script,
+                    "phase": script.phase.rawValue,
+                    "enabled": script.enabled
+                ])
+            }
+            automationDict["buildScripts"] = scriptsArray
+
+            json["buildAutomation"] = automationDict
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 빌드 자동화 설정 업데이트 완료: \(appName)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 빌드 자동화 설정 업데이트 실패: \(error)")
+        }
+    }
+
+    func addBuildScript(appName: String, script: BuildScript) {
+        guard let app = apps.first(where: { $0.name == appName }) else { return }
+        var automation = app.buildAutomation ?? BuildAutomation()
+        automation.buildScripts.append(script)
+        updateBuildAutomation(appName: appName, automation: automation)
+    }
+
+    func updateBuildScript(appName: String, script: BuildScript) {
+        guard let app = apps.first(where: { $0.name == appName }),
+              var automation = app.buildAutomation,
+              let index = automation.buildScripts.firstIndex(where: { $0.id == script.id }) else {
+            return
+        }
+        automation.buildScripts[index] = script
+        updateBuildAutomation(appName: appName, automation: automation)
+    }
+
+    func deleteBuildScript(appName: String, scriptId: String) {
+        guard let app = apps.first(where: { $0.name == appName }),
+              var automation = app.buildAutomation else {
+            return
+        }
+        automation.buildScripts.removeAll { $0.id == scriptId }
+        updateBuildAutomation(appName: appName, automation: automation)
+    }
+
+    func incrementBuildNumber(appName: String) {
+        guard let app = apps.first(where: { $0.name == appName }) else { return }
+        var automation = app.buildAutomation ?? BuildAutomation()
+        automation.buildNumber += 1
+        automation.lastBuildDate = Date()
+        updateBuildAutomation(appName: appName, automation: automation)
+    }
 }

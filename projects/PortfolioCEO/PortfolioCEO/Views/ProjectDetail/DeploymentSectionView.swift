@@ -8,6 +8,7 @@ struct DeploymentSectionView: View {
     @State private var showingMetadataEditor = false
     @State private var showingScreenshotManager = false
     @State private var showingReminderEditor = false
+    @State private var showingBuildAutomationEditor = false
 
     private var currentChecklist: DeploymentChecklist? {
         app.deploymentChecklists?.first { $0.version == app.currentVersion }
@@ -259,6 +260,142 @@ struct DeploymentSectionView: View {
 
             Divider()
 
+            // 빌드 자동화
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Text("빌드 자동화")
+                        .font(.headline)
+
+                    Spacer()
+
+                    Button(action: { showingBuildAutomationEditor = true }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "gear")
+                            Text("설정")
+                        }
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.orange.opacity(0.2))
+                        .foregroundColor(.orange)
+                        .cornerRadius(6)
+                    }
+                    .buttonStyle(.plain)
+                }
+
+                if let automation = app.buildAutomation {
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack(spacing: 20) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("빌드 번호")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                Text("\(automation.buildNumber)")
+                                    .font(.title3)
+                                    .bold()
+                            }
+
+                            Divider()
+                                .frame(height: 40)
+
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("자동 증가")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                Text(automation.autoincrementEnabled ? "활성화" : "비활성화")
+                                    .font(.body)
+                                    .foregroundColor(automation.autoincrementEnabled ? .green : .secondary)
+                            }
+
+                            if let lastBuild = automation.lastBuildDate {
+                                Divider()
+                                    .frame(height: 40)
+
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("마지막 빌드")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                    Text(formatDate(lastBuild))
+                                        .font(.body)
+                                }
+                            }
+                        }
+                        .padding()
+                        .background(Color.orange.opacity(0.05))
+                        .cornerRadius(8)
+
+                        if !automation.buildScripts.isEmpty {
+                            Text("빌드 스크립트")
+                                .font(.subheadline)
+                                .bold()
+
+                            VStack(spacing: 8) {
+                                ForEach(automation.buildScripts) { script in
+                                    HStack {
+                                        Image(systemName: script.enabled ? "checkmark.circle.fill" : "circle")
+                                            .foregroundColor(script.enabled ? .green : .gray)
+                                        Text(script.name)
+                                            .font(.body)
+                                        Spacer()
+                                        Text(script.phase.rawValue)
+                                            .font(.caption)
+                                            .padding(.horizontal, 8)
+                                            .padding(.vertical, 4)
+                                            .background(Color.orange.opacity(0.2))
+                                            .foregroundColor(.orange)
+                                            .cornerRadius(4)
+                                    }
+                                    .padding()
+                                    .background(Color(NSColor.controlBackgroundColor))
+                                    .cornerRadius(8)
+                                }
+                            }
+                        }
+
+                        Button(action: {
+                            portfolioService.incrementBuildNumber(appName: app.name)
+                        }) {
+                            HStack {
+                                Image(systemName: "plus.circle.fill")
+                                Text("빌드 번호 증가")
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.orange.opacity(0.2))
+                            .foregroundColor(.orange)
+                            .cornerRadius(8)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                } else {
+                    VStack(spacing: 16) {
+                        Image(systemName: "hammer.circle")
+                            .font(.system(size: 32))
+                            .foregroundColor(.secondary)
+                        Text("빌드 자동화가 설정되지 않았습니다")
+                            .font(.subheadline)
+                        Button(action: { showingBuildAutomationEditor = true }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "plus.circle.fill")
+                                Text("설정 시작")
+                            }
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Color.orange.opacity(0.2))
+                            .foregroundColor(.orange)
+                            .cornerRadius(8)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(20)
+                    .background(Color(NSColor.controlBackgroundColor))
+                    .cornerRadius(12)
+                }
+            }
+
+            Divider()
+
             // 배포 체크리스트
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
@@ -368,9 +505,19 @@ struct DeploymentSectionView: View {
             DeploymentReminderEditorView(app: app)
                 .environmentObject(portfolioService)
         }
+        .sheet(isPresented: $showingBuildAutomationEditor) {
+            BuildAutomationEditorView(app: app)
+                .environmentObject(portfolioService)
+        }
     }
 
     // MARK: - Actions
+
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.string(from: date)
+    }
 
     private func versionCompare(_ v1: String, _ v2: String) -> Bool {
         let parts1 = v1.split(separator: ".").compactMap { Int($0) }
@@ -1814,5 +1961,370 @@ struct DeploymentReminderEditorView: View {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: Date(), to: date)
         return components.day
+    }
+}
+
+// MARK: - Build Automation Editor
+
+struct BuildAutomationEditorView: View {
+    let app: AppModel
+    @EnvironmentObject var portfolioService: PortfolioService
+    @Environment(\.dismiss) var dismiss
+
+    @State private var buildNumber: Int = 1
+    @State private var autoincrementEnabled: Bool = false
+    @State private var xcodeProjectPath: String = ""
+    @State private var buildScripts: [BuildScript] = []
+    @State private var showingScriptEditor = false
+    @State private var editingScript: BuildScript?
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // 헤더
+            HStack {
+                Text("빌드 자동화 설정")
+                    .font(.headline)
+
+                Spacer()
+
+                Button("취소") {
+                    dismiss()
+                }
+            }
+            .padding()
+
+            Divider()
+
+            // 입력 폼
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    // 빌드 번호
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("빌드 번호")
+                            .font(.subheadline)
+                            .bold()
+
+                        HStack {
+                            Stepper(value: $buildNumber, in: 1...99999) {
+                                Text("\(buildNumber)")
+                                    .font(.title3)
+                                    .bold()
+                            }
+                        }
+
+                        Text("현재 빌드 번호입니다")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Divider()
+
+                    // 자동 증가
+                    VStack(alignment: .leading, spacing: 8) {
+                        Toggle("빌드 번호 자동 증가", isOn: $autoincrementEnabled)
+                            .font(.subheadline)
+                            .bold()
+
+                        Text("활성화하면 빌드할 때마다 빌드 번호가 자동으로 증가합니다")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Divider()
+
+                    // Xcode 프로젝트 경로
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Xcode 프로젝트 경로 (선택)")
+                            .font(.subheadline)
+                            .bold()
+
+                        TextField("/path/to/Project.xcodeproj", text: $xcodeProjectPath)
+                            .textFieldStyle(.roundedBorder)
+
+                        Text("프로젝트 파일(.xcodeproj) 또는 워크스페이스(.xcworkspace) 경로")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Divider()
+
+                    // 빌드 스크립트
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("빌드 스크립트")
+                                .font(.subheadline)
+                                .bold()
+
+                            Spacer()
+
+                            Button(action: {
+                                editingScript = nil
+                                showingScriptEditor = true
+                            }) {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "plus.circle.fill")
+                                    Text("추가")
+                                }
+                                .font(.caption)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.blue.opacity(0.2))
+                                .foregroundColor(.blue)
+                                .cornerRadius(6)
+                            }
+                            .buttonStyle(.plain)
+                        }
+
+                        if buildScripts.isEmpty {
+                            VStack(spacing: 12) {
+                                Image(systemName: "doc.text")
+                                    .font(.system(size: 32))
+                                    .foregroundColor(.secondary)
+                                Text("빌드 스크립트가 없습니다")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+
+                                Button(action: {
+                                    buildScripts = BuildScript.defaultScripts()
+                                }) {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "wand.and.stars")
+                                        Text("기본 스크립트 추가")
+                                    }
+                                    .font(.caption)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 6)
+                                    .background(Color.purple.opacity(0.2))
+                                    .foregroundColor(.purple)
+                                    .cornerRadius(6)
+                                }
+                                .buttonStyle(.plain)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(20)
+                            .background(Color(NSColor.controlBackgroundColor))
+                            .cornerRadius(8)
+                        } else {
+                            VStack(spacing: 8) {
+                                ForEach($buildScripts) { $script in
+                                    HStack {
+                                        Button(action: {
+                                            script.enabled.toggle()
+                                        }) {
+                                            Image(systemName: script.enabled ? "checkmark.circle.fill" : "circle")
+                                                .font(.title3)
+                                                .foregroundColor(script.enabled ? .green : .gray)
+                                        }
+                                        .buttonStyle(.plain)
+
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text(script.name)
+                                                .font(.body)
+                                            Text(script.phase.rawValue)
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                        }
+
+                                        Spacer()
+
+                                        Button(action: {
+                                            editingScript = script
+                                            showingScriptEditor = true
+                                        }) {
+                                            Image(systemName: "pencil.circle.fill")
+                                                .foregroundColor(.blue)
+                                        }
+                                        .buttonStyle(.plain)
+
+                                        Button(action: {
+                                            buildScripts.removeAll { $0.id == script.id }
+                                        }) {
+                                            Image(systemName: "trash.circle.fill")
+                                                .foregroundColor(.red)
+                                        }
+                                        .buttonStyle(.plain)
+                                    }
+                                    .padding()
+                                    .background(script.enabled ? Color.green.opacity(0.05) : Color(NSColor.controlBackgroundColor))
+                                    .cornerRadius(8)
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding()
+            }
+
+            Divider()
+
+            // 하단 버튼
+            HStack {
+                Spacer()
+
+                Button("저장") {
+                    saveAutomation()
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+        }
+        .frame(width: 600, height: 700)
+        .sheet(isPresented: $showingScriptEditor) {
+            BuildScriptEditorView(
+                script: editingScript,
+                onSave: { script in
+                    if let index = buildScripts.firstIndex(where: { $0.id == script.id }) {
+                        buildScripts[index] = script
+                    } else {
+                        buildScripts.append(script)
+                    }
+                }
+            )
+        }
+        .onAppear {
+            loadAutomation()
+        }
+    }
+
+    private func loadAutomation() {
+        if let automation = app.buildAutomation {
+            buildNumber = automation.buildNumber
+            autoincrementEnabled = automation.autoincrementEnabled
+            xcodeProjectPath = automation.xcodeProjectPath ?? ""
+            buildScripts = automation.buildScripts
+        }
+    }
+
+    private func saveAutomation() {
+        let automation = BuildAutomation(
+            buildNumber: buildNumber,
+            autoincrementEnabled: autoincrementEnabled,
+            xcodeProjectPath: xcodeProjectPath.isEmpty ? nil : xcodeProjectPath,
+            buildScripts: buildScripts,
+            lastBuildDate: app.buildAutomation?.lastBuildDate
+        )
+
+        portfolioService.updateBuildAutomation(appName: app.name, automation: automation)
+    }
+}
+
+// MARK: - Build Script Editor
+
+struct BuildScriptEditorView: View {
+    let script: BuildScript?
+    let onSave: (BuildScript) -> Void
+
+    @Environment(\.dismiss) var dismiss
+
+    @State private var name: String = ""
+    @State private var scriptContent: String = ""
+    @State private var phase: BuildPhase = .preBuild
+    @State private var enabled: Bool = true
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // 헤더
+            HStack {
+                Text(script == nil ? "새 빌드 스크립트" : "빌드 스크립트 편집")
+                    .font(.headline)
+
+                Spacer()
+
+                Button("취소") {
+                    dismiss()
+                }
+            }
+            .padding()
+
+            Divider()
+
+            // 입력 폼
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("스크립트 이름")
+                            .font(.subheadline)
+                            .bold()
+                        TextField("예: 빌드 번호 자동 증가", text: $name)
+                            .textFieldStyle(.roundedBorder)
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("실행 단계")
+                            .font(.subheadline)
+                            .bold()
+                        Picker("", selection: $phase) {
+                            ForEach(BuildPhase.allCases, id: \.self) { phase in
+                                Text(phase.rawValue)
+                                    .tag(phase)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+
+                        Text(phase.description)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("스크립트")
+                            .font(.subheadline)
+                            .bold()
+
+                        TextEditor(text: $scriptContent)
+                            .frame(minHeight: 200)
+                            .font(.system(.body, design: .monospaced))
+                            .padding(8)
+                            .background(Color(NSColor.textBackgroundColor))
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            )
+
+                        Text("Bash 쉘 스크립트를 입력하세요")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Toggle("활성화", isOn: $enabled)
+                }
+                .padding()
+            }
+
+            Divider()
+
+            // 하단 버튼
+            HStack {
+                Spacer()
+
+                Button("저장") {
+                    let newScript = BuildScript(
+                        id: script?.id ?? UUID().uuidString,
+                        name: name,
+                        script: scriptContent,
+                        phase: phase,
+                        enabled: enabled
+                    )
+                    onSave(newScript)
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+                .buttonStyle(.borderedProminent)
+                .disabled(name.isEmpty || scriptContent.isEmpty)
+            }
+            .padding()
+        }
+        .frame(width: 600, height: 600)
+        .onAppear {
+            if let script = script {
+                name = script.name
+                scriptContent = script.script
+                phase = script.phase
+                enabled = script.enabled
+            }
+        }
     }
 }
