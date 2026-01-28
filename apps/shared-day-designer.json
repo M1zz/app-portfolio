@@ -1,6 +1,10 @@
 {
   "localProjectPath" : "..\/LeaveWise",
-  "minimumOS" : "16.0",
+  "nextTasks" : [
+    "위젯 버그"
+  ],
+  "nameEn" : "Shared Day Designer",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/LeaveWise",
   "allTasks" : [
     {
       "status" : "done",
@@ -21,30 +25,26 @@
       "targetVersion" : null
     }
   ],
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/휴가-플래너\/id6755983135",
   "notes" : "",
-  "nameEn" : "Shared Day Designer",
-  "nextTasks" : [
-    "위젯 버그"
-  ],
-  "priority" : "medium",
+  "currentVersion" : "1.0.1",
   "sharedModules" : [
 
   ],
-  "githubRepo" : "https:\/\/github.com\/M1zz\/LeaveWise",
-  "recentlyCompleted" : [
-    "앱 구상하기",
-    "앱 배포하기"
-  ],
-  "name" : "공유일 설계자",
   "stats" : {
     "done" : 2,
     "notStarted" : 1,
     "inProgress" : 0,
     "totalTasks" : 3
   },
-  "bundleId" : "com.leeo.shareddaydesigner",
-  "currentVersion" : "1.0.1",
   "status" : "active",
-  "appStoreId" : ""
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/휴가-플래너\/id6755983135",
+  "recentlyCompleted" : [
+    "앱 구상하기",
+    "앱 배포하기"
+  ],
+  "minimumOS" : "16.0",
+  "priority" : "medium",
+  "bundleId" : "com.leeo.shareddaydesigner",
+  "appStoreId" : "",
+  "name" : "휴가 플래너"
 }

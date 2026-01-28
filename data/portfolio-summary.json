@@ -179,8 +179,8 @@
     },
     {
       "currentVersion" : "1.0.1",
-      "file" : "shared-day-designer.json",
-      "name" : "공유일 설계자",
+      "file" : "휴가 플래너.json",
+      "name" : "휴가 플래너",
       "nameEn" : "Shared Day Designer",
       "nextTasks" : [
         "위젯 버그"
@@ -317,33 +317,32 @@
       "status" : "planning"
     },
     {
-      "currentVersion" : "3.0.2",
+      "currentVersion" : "3.0.3",
       "file" : "clip-keyboard.json",
       "name" : "클립키보드",
       "nameEn" : "Clip Keyboard",
       "nextTasks" : [
-        "기본 템플릿 제공해주기",
-        "에러처리를 실제로 구현"
+
       ],
       "priority" : "low",
       "stats" : {
-        "done" : 11,
+        "done" : 16,
         "inProgress" : 0,
-        "notStarted" : 13,
-        "totalTasks" : 24
+        "notStarted" : 0,
+        "totalTasks" : 16
       },
       "status" : "planning"
     }
   ],
-  "lastUpdated" : "2026-01-28T14:21:03Z",
+  "lastUpdated" : "2026-01-28T16:04:00Z",
   "overview" : {
     "active" : 11,
     "highPriority" : 9,
     "planning" : 8,
-    "totalDone" : 50,
+    "totalDone" : 55,
     "totalInProgress" : 13,
-    "totalNotStarted" : 62,
-    "totalTasks" : 125
+    "totalNotStarted" : 49,
+    "totalTasks" : 117
   },
   "totalApps" : 19
 }
