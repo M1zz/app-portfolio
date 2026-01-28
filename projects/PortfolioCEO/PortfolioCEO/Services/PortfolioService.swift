@@ -1225,6 +1225,122 @@ class PortfolioService: ObservableObject {
         }
     }
 
+    // MARK: - Task Management
+
+    /// 태스크 업데이트
+    func updateTask(appName: String, taskName: String, newTask: AppTask) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            // allTasks 배열 가져오기
+            guard var allTasks = json["allTasks"] as? [[String: Any]] else {
+                print("❌ allTasks를 찾을 수 없습니다")
+                return
+            }
+
+            // 태스크 찾아서 업데이트
+            if let index = allTasks.firstIndex(where: { ($0["name"] as? String) == taskName }) {
+                var taskDict = allTasks[index]
+                taskDict["name"] = newTask.name
+                taskDict["status"] = newTask.status.rawValue
+                taskDict["targetDate"] = newTask.targetDate
+                taskDict["targetVersion"] = newTask.targetVersion
+                taskDict["labels"] = newTask.labels
+                allTasks[index] = taskDict
+
+                json["allTasks"] = allTasks
+
+                // stats 업데이트
+                updateStatsInJson(&json, allTasks: allTasks)
+
+                // 저장
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+                try jsonData.write(to: jsonFile)
+                print("✅ 태스크 업데이트 완료: \(taskName) -> \(newTask.name)")
+
+                loadPortfolio()
+            } else {
+                print("❌ 태스크를 찾을 수 없습니다: \(taskName)")
+            }
+        } catch {
+            print("❌ 태스크 업데이트 실패: \(error)")
+        }
+    }
+
+    /// 태스크 삭제
+    func deleteTask(appName: String, taskName: String) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            // allTasks 배열 가져오기
+            guard var allTasks = json["allTasks"] as? [[String: Any]] else {
+                print("❌ allTasks를 찾을 수 없습니다")
+                return
+            }
+
+            // 태스크 삭제
+            allTasks.removeAll { ($0["name"] as? String) == taskName }
+            json["allTasks"] = allTasks
+
+            // stats 업데이트
+            updateStatsInJson(&json, allTasks: allTasks)
+
+            // nextTasks에서도 제거
+            if var nextTasks = json["nextTasks"] as? [String] {
+                nextTasks.removeAll { $0 == taskName }
+                json["nextTasks"] = nextTasks
+            }
+
+            // recentlyCompleted에서도 제거
+            if var recentlyCompleted = json["recentlyCompleted"] as? [String] {
+                recentlyCompleted.removeAll { $0 == taskName }
+                json["recentlyCompleted"] = recentlyCompleted
+            }
+
+            // 저장
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 태스크 삭제 완료: \(taskName)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 태스크 삭제 실패: \(error)")
+        }
+    }
+
+    /// stats 업데이트 헬퍼
+    private func updateStatsInJson(_ json: inout [String: Any], allTasks: [[String: Any]]) {
+        let totalTasks = allTasks.count
+        let done = allTasks.filter { ($0["status"] as? String) == "done" }.count
+        let inProgress = allTasks.filter { ($0["status"] as? String) == "in-progress" }.count
+        let notStarted = allTasks.filter { ($0["status"] as? String) == "not-started" }.count
+
+        json["stats"] = [
+            "totalTasks": totalTasks,
+            "done": done,
+            "inProgress": inProgress,
+            "notStarted": notStarted
+        ]
+    }
+
     // MARK: - Deployment Checklist Management
 
     func addDeploymentChecklist(appName: String, checklist: DeploymentChecklist) {

@@ -1,5 +1,107 @@
 import SwiftUI
 
+// MARK: - Task Edit Sheet
+
+struct TaskEditSheet: View {
+    let app: AppModel
+    let task: AppTask
+    let onSave: (AppTask) -> Void
+
+    @Environment(\.dismiss) var dismiss
+
+    @State private var taskName: String
+    @State private var selectedStatus: TaskStatus
+    @State private var targetDate: String
+    @State private var targetVersion: String
+    @State private var labelsText: String
+
+    init(app: AppModel, task: AppTask, onSave: @escaping (AppTask) -> Void) {
+        self.app = app
+        self.task = task
+        self.onSave = onSave
+
+        _taskName = State(initialValue: task.name)
+        _selectedStatus = State(initialValue: task.status)
+        _targetDate = State(initialValue: task.targetDate ?? "")
+        _targetVersion = State(initialValue: task.targetVersion ?? "")
+        _labelsText = State(initialValue: task.labels?.joined(separator: ", ") ?? "")
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("기본 정보") {
+                    HStack {
+                        Text("앱")
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        Text(app.name)
+                    }
+
+                    TextField("태스크 이름", text: $taskName)
+                }
+
+                Section("상태") {
+                    Picker("상태", selection: $selectedStatus) {
+                        Text("대기").tag(TaskStatus.notStarted)
+                        Text("진행 중").tag(TaskStatus.inProgress)
+                        Text("완료").tag(TaskStatus.done)
+                    }
+                    .pickerStyle(.segmented)
+                }
+
+                Section("목표") {
+                    TextField("목표 날짜 (예: December 31, 2026)", text: $targetDate)
+                        .help("날짜를 입력하거나 비워둘 수 있습니다")
+
+                    TextField("목표 버전 (예: 1.0.0)", text: $targetVersion)
+                        .help("버전을 입력하거나 비워둘 수 있습니다")
+                }
+
+                Section("라벨") {
+                    TextField("라벨 (쉼표로 구분)", text: $labelsText)
+                        .help("예: 긴급, 버그, 기능")
+                }
+            }
+            .formStyle(.grouped)
+            .navigationTitle("태스크 편집")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("취소") {
+                        dismiss()
+                    }
+                }
+
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("저장") {
+                        saveTask()
+                    }
+                    .disabled(taskName.isEmpty)
+                }
+            }
+        }
+        .frame(width: 500, height: 500)
+    }
+
+    private func saveTask() {
+        let labels = labelsText
+            .split(separator: ",")
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty }
+
+        let updatedTask = AppTask(
+            name: taskName,
+            status: selectedStatus,
+            targetDate: targetDate.isEmpty ? nil : targetDate,
+            targetVersion: targetVersion.isEmpty ? nil : targetVersion,
+            labels: labels.isEmpty ? nil : labels
+        )
+
+        onSave(updatedTask)
+        dismiss()
+    }
+}
+
 // MARK: - Kanban Column Type
 
 enum KanbanColumn: String, CaseIterable {
@@ -133,6 +235,7 @@ struct KanbanView: View {
                                 tasks: tasksFor(column: column),
                                 showAppName: selectedApp == nil
                             )
+                            .environmentObject(portfolio)
                         }
                     }
                 }
@@ -194,6 +297,7 @@ struct KanbanColumnView: View {
     let column: KanbanColumn
     let tasks: [KanbanTaskItem]
     let showAppName: Bool
+    @EnvironmentObject var portfolio: PortfolioService
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -228,6 +332,7 @@ struct KanbanColumnView: View {
                     } else {
                         ForEach(tasks) { item in
                             KanbanTaskCard(item: item, showAppName: showAppName)
+                                .environmentObject(portfolio)
                         }
                     }
                 }
@@ -245,6 +350,9 @@ struct KanbanColumnView: View {
 struct KanbanTaskCard: View {
     let item: KanbanTaskItem
     let showAppName: Bool
+    @State private var showEditSheet = false
+    @State private var showDeleteAlert = false
+    @EnvironmentObject var portfolio: PortfolioService
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -310,6 +418,40 @@ struct KanbanTaskCard: View {
             RoundedRectangle(cornerRadius: 8)
                 .strokeBorder(item.column.color.opacity(0.3), lineWidth: 1)
         )
+        .contentShape(Rectangle())
+        .onTapGesture {
+            showEditSheet = true
+        }
+        .contextMenu {
+            Button {
+                showEditSheet = true
+            } label: {
+                Label("편집", systemImage: "pencil")
+            }
+
+            Button(role: .destructive) {
+                showDeleteAlert = true
+            } label: {
+                Label("삭제", systemImage: "trash")
+            }
+        }
+        .sheet(isPresented: $showEditSheet) {
+            TaskEditSheet(
+                app: item.app,
+                task: item.task,
+                onSave: { updatedTask in
+                    portfolio.updateTask(appName: item.app.name, taskName: item.task.name, newTask: updatedTask)
+                }
+            )
+        }
+        .alert("태스크 삭제", isPresented: $showDeleteAlert) {
+            Button("취소", role: .cancel) {}
+            Button("삭제", role: .destructive) {
+                portfolio.deleteTask(appName: item.app.name, taskName: item.task.name)
+            }
+        } message: {
+            Text("'\(item.task.name)' 태스크를 삭제하시겠습니까?")
+        }
     }
 
     private func labelColor(for label: String) -> Color {
@@ -328,6 +470,7 @@ struct KanbanTaskCard: View {
 struct AppKanbanView: View {
     let app: AppModel
     @State private var showCompleted = false
+    @EnvironmentObject var portfolio: PortfolioService
 
     private var tasks: [KanbanTaskItem] {
         app.allTasks.map { KanbanTaskItem(task: $0, app: app) }
@@ -371,6 +514,7 @@ struct AppKanbanView: View {
                                 tasks: tasksFor(column: column),
                                 showAppName: false
                             )
+                            .environmentObject(portfolio)
                         }
                     }
                 }
