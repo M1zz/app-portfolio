@@ -1224,4 +1224,132 @@ class PortfolioService: ObservableObject {
             print("❌ 릴리스 노트 삭제 실패: \(error)")
         }
     }
+
+    // MARK: - Deployment Checklist Management
+
+    func addDeploymentChecklist(appName: String, checklist: DeploymentChecklist) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var checklists = json["deploymentChecklists"] as? [[String: Any]] ?? []
+
+            let checklistDict: [String: Any] = [
+                "id": checklist.id,
+                "version": checklist.version,
+                "items": checklist.items.map { item in
+                    var itemDict: [String: Any] = [
+                        "id": item.id,
+                        "title": item.title,
+                        "isCompleted": item.isCompleted
+                    ]
+                    if let completedAt = item.completedAt {
+                        itemDict["completedAt"] = ISO8601DateFormatter().string(from: completedAt)
+                    }
+                    if let notes = item.notes {
+                        itemDict["notes"] = notes
+                    }
+                    return itemDict
+                },
+                "createdAt": ISO8601DateFormatter().string(from: checklist.createdAt)
+            ]
+            checklists.append(checklistDict)
+            json["deploymentChecklists"] = checklists
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 배포 체크리스트 추가 완료: \(appName) - v\(checklist.version)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 배포 체크리스트 추가 실패: \(error)")
+        }
+    }
+
+    func updateDeploymentChecklist(appName: String, checklist: DeploymentChecklist) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var checklists = json["deploymentChecklists"] as? [[String: Any]] ?? []
+
+            if let index = checklists.firstIndex(where: { ($0["id"] as? String) == checklist.id }) {
+                var checklistDict: [String: Any] = [
+                    "id": checklist.id,
+                    "version": checklist.version,
+                    "items": checklist.items.map { item in
+                        var itemDict: [String: Any] = [
+                            "id": item.id,
+                            "title": item.title,
+                            "isCompleted": item.isCompleted
+                        ]
+                        if let completedAt = item.completedAt {
+                            itemDict["completedAt"] = ISO8601DateFormatter().string(from: completedAt)
+                        }
+                        if let notes = item.notes {
+                            itemDict["notes"] = notes
+                        }
+                        return itemDict
+                    },
+                    "createdAt": ISO8601DateFormatter().string(from: checklist.createdAt)
+                ]
+                if let completedAt = checklist.completedAt {
+                    checklistDict["completedAt"] = ISO8601DateFormatter().string(from: completedAt)
+                }
+                checklists[index] = checklistDict
+                json["deploymentChecklists"] = checklists
+
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+                try jsonData.write(to: jsonFile)
+                print("✅ 배포 체크리스트 업데이트 완료: \(appName) - v\(checklist.version)")
+
+                loadPortfolio()
+            }
+        } catch {
+            print("❌ 배포 체크리스트 업데이트 실패: \(error)")
+        }
+    }
+
+    func deleteDeploymentChecklist(appName: String, checklistId: String) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var checklists = json["deploymentChecklists"] as? [[String: Any]] ?? []
+            checklists.removeAll { ($0["id"] as? String) == checklistId }
+            json["deploymentChecklists"] = checklists
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 배포 체크리스트 삭제 완료: \(appName)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 배포 체크리스트 삭제 실패: \(error)")
+        }
+    }
 }

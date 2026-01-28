@@ -24,12 +24,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let categories: [String]?
     let price: AppPrice?  // 앱 가격 정보
     let releaseNotes: [ReleaseNote]?  // 릴리스 노트
+    let deploymentChecklists: [DeploymentChecklist]?  // 배포 체크리스트
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists
     }
 
     init(from decoder: Decoder) throws {
@@ -58,6 +59,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.categories = try container.decodeIfPresent([String].self, forKey: .categories)
         self.price = try container.decodeIfPresent(AppPrice.self, forKey: .price)
         self.releaseNotes = try container.decodeIfPresent([ReleaseNote].self, forKey: .releaseNotes)
+        self.deploymentChecklists = try container.decodeIfPresent([DeploymentChecklist].self, forKey: .deploymentChecklists)
     }
 }
 
@@ -551,5 +553,64 @@ struct ReleaseNote: Identifiable, Codable, Hashable {
         self.date = date
         self.notesKo = notesKo
         self.notesEn = notesEn
+    }
+}
+
+// MARK: - Deployment Checklist Models
+
+struct DeploymentChecklist: Identifiable, Codable, Hashable {
+    let id: String
+    let version: String
+    var items: [ChecklistItem]
+    let createdAt: Date
+    var completedAt: Date?
+
+    init(id: String = UUID().uuidString, version: String, items: [ChecklistItem] = [], createdAt: Date = Date(), completedAt: Date? = nil) {
+        self.id = id
+        self.version = version
+        self.items = items
+        self.createdAt = createdAt
+        self.completedAt = completedAt
+    }
+
+    var isCompleted: Bool {
+        !items.isEmpty && items.allSatisfy { $0.isCompleted }
+    }
+
+    var progress: Double {
+        guard !items.isEmpty else { return 0 }
+        let completedCount = items.filter { $0.isCompleted }.count
+        return Double(completedCount) / Double(items.count)
+    }
+}
+
+struct ChecklistItem: Identifiable, Codable, Hashable {
+    let id: String
+    var title: String
+    var isCompleted: Bool
+    var completedAt: Date?
+    var notes: String?
+
+    init(id: String = UUID().uuidString, title: String, isCompleted: Bool = false, completedAt: Date? = nil, notes: String? = nil) {
+        self.id = id
+        self.title = title
+        self.isCompleted = isCompleted
+        self.completedAt = completedAt
+        self.notes = notes
+    }
+
+    static func defaultItems() -> [ChecklistItem] {
+        [
+            ChecklistItem(title: "버전 번호 업데이트"),
+            ChecklistItem(title: "빌드 번호 증가"),
+            ChecklistItem(title: "릴리스 노트 작성 (한글/영문)"),
+            ChecklistItem(title: "스크린샷 업데이트"),
+            ChecklistItem(title: "앱스토어 설명 업데이트"),
+            ChecklistItem(title: "TestFlight 업로드"),
+            ChecklistItem(title: "내부 테스트 완료"),
+            ChecklistItem(title: "베타 테스트 완료"),
+            ChecklistItem(title: "App Store 심사 제출"),
+            ChecklistItem(title: "최종 검토")
+        ]
     }
 }
