@@ -1352,4 +1352,115 @@ class PortfolioService: ObservableObject {
             print("❌ 배포 체크리스트 삭제 실패: \(error)")
         }
     }
+
+    // MARK: - Version History Management
+
+    func addVersionHistory(appName: String, history: VersionHistory) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var histories = json["versionHistory"] as? [[String: Any]] ?? []
+
+            var historyDict: [String: Any] = [
+                "id": history.id,
+                "version": history.version,
+                "status": history.status.rawValue,
+                "changelog": history.changelog
+            ]
+            if let releaseDate = history.releaseDate {
+                historyDict["releaseDate"] = ISO8601DateFormatter().string(from: releaseDate)
+            }
+            if let appStoreUrl = history.appStoreUrl {
+                historyDict["appStoreUrl"] = appStoreUrl
+            }
+            histories.append(historyDict)
+            json["versionHistory"] = histories
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 버전 히스토리 추가 완료: \(appName) - v\(history.version)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 버전 히스토리 추가 실패: \(error)")
+        }
+    }
+
+    func updateVersionHistory(appName: String, history: VersionHistory) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var histories = json["versionHistory"] as? [[String: Any]] ?? []
+
+            if let index = histories.firstIndex(where: { ($0["id"] as? String) == history.id }) {
+                var historyDict: [String: Any] = [
+                    "id": history.id,
+                    "version": history.version,
+                    "status": history.status.rawValue,
+                    "changelog": history.changelog
+                ]
+                if let releaseDate = history.releaseDate {
+                    historyDict["releaseDate"] = ISO8601DateFormatter().string(from: releaseDate)
+                }
+                if let appStoreUrl = history.appStoreUrl {
+                    historyDict["appStoreUrl"] = appStoreUrl
+                }
+                histories[index] = historyDict
+                json["versionHistory"] = histories
+
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+                try jsonData.write(to: jsonFile)
+                print("✅ 버전 히스토리 업데이트 완료: \(appName) - v\(history.version)")
+
+                loadPortfolio()
+            }
+        } catch {
+            print("❌ 버전 히스토리 업데이트 실패: \(error)")
+        }
+    }
+
+    func deleteVersionHistory(appName: String, historyId: String) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var histories = json["versionHistory"] as? [[String: Any]] ?? []
+            histories.removeAll { ($0["id"] as? String) == historyId }
+            json["versionHistory"] = histories
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 버전 히스토리 삭제 완료: \(appName)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 버전 히스토리 삭제 실패: \(error)")
+        }
+    }
 }

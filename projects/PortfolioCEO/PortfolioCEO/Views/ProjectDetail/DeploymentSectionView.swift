@@ -4,6 +4,7 @@ struct DeploymentSectionView: View {
     let app: AppModel
     @EnvironmentObject var portfolioService: PortfolioService
     @State private var showingChecklistManager = false
+    @State private var showingVersionHistory = false
 
     private var currentChecklist: DeploymentChecklist? {
         app.deploymentChecklists?.first { $0.version == app.currentVersion }
@@ -64,8 +65,26 @@ struct DeploymentSectionView: View {
 
             // 버전 정보
             VStack(alignment: .leading, spacing: 12) {
-                Text("배포 버전 정보")
-                    .font(.headline)
+                HStack {
+                    Text("배포 버전 정보")
+                        .font(.headline)
+
+                    Spacer()
+
+                    Button(action: { showingVersionHistory = true }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "clock.arrow.circlepath")
+                            Text("히스토리")
+                        }
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.purple.opacity(0.2))
+                        .foregroundColor(.purple)
+                        .cornerRadius(6)
+                    }
+                    .buttonStyle(.plain)
+                }
 
                 HStack(spacing: 16) {
                     VStack(alignment: .leading, spacing: 4) {
@@ -75,6 +94,24 @@ struct DeploymentSectionView: View {
                         Text("v\(app.currentVersion)")
                             .font(.title3)
                             .bold()
+                    }
+
+                    Divider()
+                        .frame(height: 40)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("배포된 버전")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        if let history = app.versionHistory, !history.isEmpty {
+                            Text("\(history.filter { $0.status == .released }.count)개")
+                                .font(.title3)
+                                .foregroundColor(.green)
+                        } else {
+                            Text("0개")
+                                .font(.title3)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 .padding()
@@ -177,6 +214,10 @@ struct DeploymentSectionView: View {
         }
         .sheet(isPresented: $showingChecklistManager) {
             ChecklistManagerView(app: app)
+                .environmentObject(portfolioService)
+        }
+        .sheet(isPresented: $showingVersionHistory) {
+            VersionHistoryView(app: app)
                 .environmentObject(portfolioService)
         }
     }
@@ -660,5 +701,370 @@ struct VersionGroupCard: View {
         .padding()
         .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
+    }
+}
+
+// MARK: - Version History View
+
+struct VersionHistoryView: View {
+    let app: AppModel
+    @EnvironmentObject var portfolioService: PortfolioService
+    @Environment(\.dismiss) var dismiss
+
+    @State private var showingAddHistory = false
+    @State private var selectedHistory: VersionHistory?
+    @State private var showingEditHistory = false
+
+    private var sortedHistory: [VersionHistory] {
+        (app.versionHistory ?? []).sorted { h1, h2 in
+            compareVersions(h1.version, h2.version) > 0
+        }
+    }
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // 헤더
+            HStack {
+                Text("버전 히스토리")
+                    .font(.headline)
+
+                Spacer()
+
+                Button("닫기") {
+                    dismiss()
+                }
+            }
+            .padding()
+
+            Divider()
+
+            // 히스토리 목록
+            ScrollView {
+                VStack(spacing: 20) {
+                    if sortedHistory.isEmpty {
+                        VStack(spacing: 16) {
+                            Image(systemName: "clock.arrow.circlepath")
+                                .font(.system(size: 48))
+                                .foregroundColor(.secondary)
+                            Text("버전 히스토리가 없습니다")
+                                .font(.headline)
+                            Text("버전별 배포 이력을 기록하여 관리하세요")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(40)
+                    } else {
+                        // 타임라인
+                        VStack(alignment: .leading, spacing: 0) {
+                            ForEach(sortedHistory.indices, id: \.self) { index in
+                                VersionHistoryCard(
+                                    history: sortedHistory[index],
+                                    isLast: index == sortedHistory.count - 1,
+                                    onEdit: {
+                                        selectedHistory = sortedHistory[index]
+                                        showingEditHistory = true
+                                    },
+                                    onDelete: {
+                                        portfolioService.deleteVersionHistory(appName: app.name, historyId: sortedHistory[index].id)
+                                    }
+                                )
+                            }
+                        }
+                    }
+                }
+                .padding()
+            }
+
+            Divider()
+
+            // 하단 버튼
+            HStack {
+                Spacer()
+
+                Button(action: { showingAddHistory = true }) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "plus.circle.fill")
+                        Text("버전 추가")
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+        }
+        .frame(width: 700, height: 600)
+        .sheet(isPresented: $showingAddHistory) {
+            VersionHistoryEditorView(app: app, existingHistory: nil)
+                .environmentObject(portfolioService)
+        }
+        .sheet(isPresented: $showingEditHistory) {
+            if let history = selectedHistory {
+                VersionHistoryEditorView(app: app, existingHistory: history)
+                    .environmentObject(portfolioService)
+            }
+        }
+    }
+
+    private func compareVersions(_ v1: String, _ v2: String) -> Int {
+        let parts1 = v1.split(separator: ".").compactMap { Int($0) }
+        let parts2 = v2.split(separator: ".").compactMap { Int($0) }
+
+        for i in 0..<max(parts1.count, parts2.count) {
+            let part1 = i < parts1.count ? parts1[i] : 0
+            let part2 = i < parts2.count ? parts2[i] : 0
+
+            if part1 != part2 {
+                return part1 - part2
+            }
+        }
+        return 0
+    }
+}
+
+// MARK: - Version History Card
+
+struct VersionHistoryCard: View {
+    let history: VersionHistory
+    let isLast: Bool
+    let onEdit: () -> Void
+    let onDelete: () -> Void
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 16) {
+            // 타임라인 아이콘
+            VStack(spacing: 0) {
+                Image(systemName: history.status.icon)
+                    .font(.system(size: 20))
+                    .foregroundColor(history.status.color)
+                    .frame(width: 40, height: 40)
+                    .background(Circle().fill(history.status.color.opacity(0.2)))
+
+                if !isLast {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(width: 2)
+                        .padding(.vertical, 8)
+                }
+            }
+
+            // 버전 정보
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Text("v\(history.version)")
+                        .font(.title3)
+                        .bold()
+
+                    Text(history.status.rawValue)
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(history.status.color.opacity(0.2))
+                        .foregroundColor(history.status.color)
+                        .cornerRadius(6)
+
+                    Spacer()
+
+                    if let releaseDate = history.releaseDate {
+                        Text(formatDate(releaseDate))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Button(action: onEdit) {
+                        Image(systemName: "pencil.circle.fill")
+                            .foregroundColor(.blue)
+                    }
+                    .buttonStyle(.plain)
+
+                    Button(action: onDelete) {
+                        Image(systemName: "trash.circle.fill")
+                            .foregroundColor(.red)
+                    }
+                    .buttonStyle(.plain)
+                }
+
+                if !history.changelog.isEmpty {
+                    Text(history.changelog)
+                        .font(.body)
+                        .foregroundColor(.primary)
+                        .padding(12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color(NSColor.controlBackgroundColor))
+                        .cornerRadius(8)
+                }
+
+                if let appStoreUrl = history.appStoreUrl, !appStoreUrl.isEmpty {
+                    Link(destination: URL(string: appStoreUrl)!) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "link")
+                            Text("App Store 링크")
+                        }
+                        .font(.caption)
+                        .foregroundColor(.blue)
+                    }
+                }
+            }
+            .padding(.bottom, isLast ? 0 : 20)
+        }
+    }
+
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.string(from: date)
+    }
+}
+
+// MARK: - Version History Editor
+
+struct VersionHistoryEditorView: View {
+    let app: AppModel
+    let existingHistory: VersionHistory?
+
+    @EnvironmentObject var portfolioService: PortfolioService
+    @Environment(\.dismiss) var dismiss
+
+    @State private var version: String = ""
+    @State private var status: DeploymentStatus = .preparing
+    @State private var releaseDate: Date = Date()
+    @State private var changelog: String = ""
+    @State private var appStoreUrl: String = ""
+    @State private var hasReleaseDate = false
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // 헤더
+            HStack {
+                Text(existingHistory == nil ? "새 버전 추가" : "버전 히스토리 편집")
+                    .font(.headline)
+
+                Spacer()
+
+                Button("취소") {
+                    dismiss()
+                }
+            }
+            .padding()
+
+            Divider()
+
+            // 입력 폼
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("버전")
+                            .font(.subheadline)
+                            .bold()
+                        TextField("1.0.0", text: $version)
+                            .textFieldStyle(.roundedBorder)
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("상태")
+                            .font(.subheadline)
+                            .bold()
+                        Picker("", selection: $status) {
+                            ForEach(DeploymentStatus.allCases, id: \.self) { status in
+                                HStack {
+                                    Image(systemName: status.icon)
+                                    Text(status.rawValue)
+                                }
+                                .tag(status)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                    }
+
+                    Toggle("배포일 설정", isOn: $hasReleaseDate)
+
+                    if hasReleaseDate {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("배포일")
+                                .font(.subheadline)
+                                .bold()
+                            DatePicker("", selection: $releaseDate, displayedComponents: .date)
+                                .labelsHidden()
+                        }
+                    }
+
+                    Divider()
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("변경사항")
+                            .font(.subheadline)
+                            .bold()
+
+                        TextEditor(text: $changelog)
+                            .frame(minHeight: 150)
+                            .padding(8)
+                            .background(Color(NSColor.textBackgroundColor))
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            )
+
+                        Text("주요 변경사항을 요약하여 작성하세요")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("App Store URL (선택)")
+                            .font(.subheadline)
+                            .bold()
+                        TextField("https://apps.apple.com/...", text: $appStoreUrl)
+                            .textFieldStyle(.roundedBorder)
+                    }
+                }
+                .padding()
+            }
+
+            Divider()
+
+            // 하단 버튼
+            HStack {
+                Spacer()
+
+                Button("저장") {
+                    saveHistory()
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+                .buttonStyle(.borderedProminent)
+                .disabled(version.isEmpty)
+            }
+            .padding()
+        }
+        .frame(width: 600, height: 650)
+        .onAppear {
+            if let history = existingHistory {
+                version = history.version
+                status = history.status
+                releaseDate = history.releaseDate ?? Date()
+                hasReleaseDate = history.releaseDate != nil
+                changelog = history.changelog
+                appStoreUrl = history.appStoreUrl ?? ""
+            } else {
+                version = app.currentVersion
+            }
+        }
+    }
+
+    private func saveHistory() {
+        let history = VersionHistory(
+            id: existingHistory?.id ?? UUID().uuidString,
+            version: version,
+            releaseDate: hasReleaseDate ? releaseDate : nil,
+            status: status,
+            changelog: changelog,
+            appStoreUrl: appStoreUrl.isEmpty ? nil : appStoreUrl
+        )
+
+        if existingHistory != nil {
+            portfolioService.updateVersionHistory(appName: app.name, history: history)
+        } else {
+            portfolioService.addVersionHistory(appName: app.name, history: history)
+        }
     }
 }

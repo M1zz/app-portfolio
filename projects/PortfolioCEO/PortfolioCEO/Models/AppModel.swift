@@ -25,12 +25,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let price: AppPrice?  // 앱 가격 정보
     let releaseNotes: [ReleaseNote]?  // 릴리스 노트
     let deploymentChecklists: [DeploymentChecklist]?  // 배포 체크리스트
+    let versionHistory: [VersionHistory]?  // 버전 히스토리
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory
     }
 
     init(from decoder: Decoder) throws {
@@ -60,6 +61,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.price = try container.decodeIfPresent(AppPrice.self, forKey: .price)
         self.releaseNotes = try container.decodeIfPresent([ReleaseNote].self, forKey: .releaseNotes)
         self.deploymentChecklists = try container.decodeIfPresent([DeploymentChecklist].self, forKey: .deploymentChecklists)
+        self.versionHistory = try container.decodeIfPresent([VersionHistory].self, forKey: .versionHistory)
     }
 }
 
@@ -553,6 +555,51 @@ struct ReleaseNote: Identifiable, Codable, Hashable {
         self.date = date
         self.notesKo = notesKo
         self.notesEn = notesEn
+    }
+}
+
+// MARK: - Version History Models
+
+enum DeploymentStatus: String, Codable, CaseIterable {
+    case preparing = "준비중"
+    case testflight = "TestFlight"
+    case review = "심사중"
+    case released = "배포완료"
+
+    var color: Color {
+        switch self {
+        case .preparing: return .orange
+        case .testflight: return .blue
+        case .review: return .purple
+        case .released: return .green
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .preparing: return "wrench.and.screwdriver"
+        case .testflight: return "airplane"
+        case .review: return "hourglass"
+        case .released: return "checkmark.circle.fill"
+        }
+    }
+}
+
+struct VersionHistory: Identifiable, Codable, Hashable {
+    let id: String
+    let version: String
+    let releaseDate: Date?
+    var status: DeploymentStatus
+    var changelog: String
+    var appStoreUrl: String?
+
+    init(id: String = UUID().uuidString, version: String, releaseDate: Date? = nil, status: DeploymentStatus = .preparing, changelog: String = "", appStoreUrl: String? = nil) {
+        self.id = id
+        self.version = version
+        self.releaseDate = releaseDate
+        self.status = status
+        self.changelog = changelog
+        self.appStoreUrl = appStoreUrl
     }
 }
 
