@@ -26,9 +26,9 @@
     },
     {
       "name" : "기본 템플릿 제공해주기",
-      "status" : "not-started",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status" : "done",
+      "targetDate" : "January 28, 2026",
+      "targetVersion" : "3.0.3"
     },
     {
       "name" : "에러처리를 실제로 구현",
@@ -206,17 +206,17 @@
   },
   "priority" : "low",
   "recentlyCompleted" : [
+    "기본 템플릿 제공해주기",
     "키보드 표시명 중복 제거",
-    "템플릿 기능 추가",
-    "아이 클라우드로 메모 동기화"
+    "템플릿 기능 추가"
   ],
   "sharedModules" : [
 
   ],
   "stats" : {
-    "done" : 12,
+    "done" : 13,
     "inProgress" : 0,
-    "notStarted" : 16,
+    "notStarted" : 15,
     "totalTasks" : 28
   },
   "status" : "planning"
