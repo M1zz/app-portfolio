@@ -1640,19 +1640,6 @@ struct CompletedDecisionHistoryCard: View {
 
                         // 상태 배지들
                         HStack(spacing: 6) {
-                            // 의사결정 완료
-                            HStack(spacing: 4) {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .font(.caption2)
-                                Text("의사결정 완료")
-                                    .font(.caption2)
-                            }
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 3)
-                            .background(Color.green.opacity(0.2))
-                            .foregroundColor(.green)
-                            .cornerRadius(6)
-
                             // 태스크 생성 완료 배지
                             if tasksCreated {
                                 HStack(spacing: 4) {
@@ -1667,6 +1654,19 @@ struct CompletedDecisionHistoryCard: View {
                                 .foregroundColor(.blue)
                                 .cornerRadius(6)
                             }
+
+                            // 의사결정 완료
+                            HStack(spacing: 4) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.caption2)
+                                Text("의사결정 완료")
+                                    .font(.caption2)
+                            }
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 3)
+                            .background(Color.green.opacity(0.2))
+                            .foregroundColor(.green)
+                            .cornerRadius(6)
                         }
 
                         if let selectedOptionId = decision.decision,
