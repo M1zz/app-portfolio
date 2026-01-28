@@ -7,6 +7,7 @@ struct DeploymentSectionView: View {
     @State private var showingVersionHistory = false
     @State private var showingMetadataEditor = false
     @State private var showingScreenshotManager = false
+    @State private var showingReminderEditor = false
 
     private var currentChecklist: DeploymentChecklist? {
         app.deploymentChecklists?.first { $0.version == app.currentVersion }
@@ -153,6 +154,111 @@ struct DeploymentSectionView: View {
 
             Divider()
 
+            // 배포 알림 설정
+            VStack(alignment: .leading, spacing: 12) {
+                Text("배포 알림 설정")
+                    .font(.headline)
+
+                if let reminder = app.deploymentReminder {
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Image(systemName: reminder.enabled ? "bell.fill" : "bell.slash")
+                                .foregroundColor(reminder.enabled ? .blue : .secondary)
+                            Text(reminder.enabled ? "알림 활성화" : "알림 비활성화")
+                                .font(.subheadline)
+
+                            Spacer()
+
+                            Button(action: { showingReminderEditor = true }) {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "gear")
+                                    Text("설정")
+                                }
+                                .font(.caption)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.gray.opacity(0.2))
+                                .foregroundColor(.gray)
+                                .cornerRadius(6)
+                            }
+                            .buttonStyle(.plain)
+                        }
+
+                        if reminder.enabled {
+                            HStack(spacing: 20) {
+                                if let days = reminder.daysSinceLastDeployment {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("마지막 배포")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                        Text("\(days)일 전")
+                                            .font(.body)
+                                            .foregroundColor(days >= reminder.reminderDays ? .red : .primary)
+                                    }
+                                }
+
+                                if let days = reminder.daysUntilNextPlanned, days > 0 {
+                                    Divider()
+                                        .frame(height: 30)
+
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("다음 배포 예정")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                        Text("\(days)일 후")
+                                            .font(.body)
+                                            .foregroundColor(.blue)
+                                    }
+                                }
+                            }
+                            .padding()
+                            .background(reminder.shouldRemind ? Color.red.opacity(0.1) : Color(NSColor.controlBackgroundColor))
+                            .cornerRadius(8)
+
+                            if reminder.shouldRemind {
+                                HStack(spacing: 8) {
+                                    Image(systemName: "exclamationmark.triangle.fill")
+                                        .foregroundColor(.orange)
+                                    Text("배포를 고려해보세요")
+                                        .font(.subheadline)
+                                        .foregroundColor(.orange)
+                                }
+                                .padding(12)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Color.orange.opacity(0.1))
+                                .cornerRadius(8)
+                            }
+                        }
+                    }
+                } else {
+                    VStack(spacing: 16) {
+                        Image(systemName: "bell.badge")
+                            .font(.system(size: 32))
+                            .foregroundColor(.secondary)
+                        Text("배포 알림이 설정되지 않았습니다")
+                            .font(.subheadline)
+                        Button(action: { showingReminderEditor = true }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "plus.circle.fill")
+                                Text("알림 설정")
+                            }
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Color.blue.opacity(0.2))
+                            .foregroundColor(.blue)
+                            .cornerRadius(8)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(20)
+                    .background(Color(NSColor.controlBackgroundColor))
+                    .cornerRadius(12)
+                }
+            }
+
+            Divider()
+
             // 배포 체크리스트
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
@@ -256,6 +362,10 @@ struct DeploymentSectionView: View {
         }
         .sheet(isPresented: $showingScreenshotManager) {
             ScreenshotManagerView(app: app)
+                .environmentObject(portfolioService)
+        }
+        .sheet(isPresented: $showingReminderEditor) {
+            DeploymentReminderEditorView(app: app)
                 .environmentObject(portfolioService)
         }
     }
@@ -1496,5 +1606,213 @@ struct ScreenshotManagerView: View {
     private func openInFinder() {
         let url = URL(fileURLWithPath: folderPath)
         NSWorkspace.shared.open(url)
+    }
+}
+
+// MARK: - Deployment Reminder Editor
+
+struct DeploymentReminderEditorView: View {
+    let app: AppModel
+    @EnvironmentObject var portfolioService: PortfolioService
+    @Environment(\.dismiss) var dismiss
+
+    @State private var enabled: Bool = false
+    @State private var reminderDays: Int = 30
+    @State private var updateCycle: UpdateCycle = .monthly
+    @State private var hasLastDeploymentDate = false
+    @State private var lastDeploymentDate: Date = Date()
+    @State private var hasNextPlannedDate = false
+    @State private var nextPlannedDate: Date = Date()
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // 헤더
+            HStack {
+                Text("배포 알림 설정")
+                    .font(.headline)
+
+                Spacer()
+
+                Button("취소") {
+                    dismiss()
+                }
+            }
+            .padding()
+
+            Divider()
+
+            // 입력 폼
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    Toggle("배포 알림 활성화", isOn: $enabled)
+                        .font(.headline)
+
+                    if enabled {
+                        Divider()
+
+                        // 알림 주기
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("알림 주기")
+                                .font(.subheadline)
+                                .bold()
+
+                            HStack {
+                                Stepper(value: $reminderDays, in: 1...365) {
+                                    Text("\(reminderDays)일마다 알림")
+                                        .font(.body)
+                                }
+                            }
+
+                            Text("마지막 배포 이후 \(reminderDays)일이 지나면 알림이 표시됩니다")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+
+                        Divider()
+
+                        // 업데이트 주기
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("업데이트 주기")
+                                .font(.subheadline)
+                                .bold()
+
+                            Picker("", selection: $updateCycle) {
+                                ForEach(UpdateCycle.allCases, id: \.self) { cycle in
+                                    Text(cycle.rawValue)
+                                        .tag(cycle)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+
+                            if updateCycle != .adhoc {
+                                Text("\(updateCycle.days)일 주기로 업데이트")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            } else {
+                                Text("비정기 업데이트")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+
+                        Divider()
+
+                        // 마지막 배포일
+                        VStack(alignment: .leading, spacing: 8) {
+                            Toggle("마지막 배포일 설정", isOn: $hasLastDeploymentDate)
+
+                            if hasLastDeploymentDate {
+                                DatePicker(
+                                    "배포일",
+                                    selection: $lastDeploymentDate,
+                                    displayedComponents: .date
+                                )
+                                .datePickerStyle(.compact)
+
+                                if let days = daysSince(lastDeploymentDate) {
+                                    Text("\(days)일 전")
+                                        .font(.caption)
+                                        .foregroundColor(days >= reminderDays ? .red : .secondary)
+                                }
+                            }
+                        }
+
+                        Divider()
+
+                        // 다음 배포 예정일
+                        VStack(alignment: .leading, spacing: 8) {
+                            Toggle("다음 배포 예정일 설정", isOn: $hasNextPlannedDate)
+
+                            if hasNextPlannedDate {
+                                DatePicker(
+                                    "예정일",
+                                    selection: $nextPlannedDate,
+                                    displayedComponents: .date
+                                )
+                                .datePickerStyle(.compact)
+
+                                if let days = daysUntil(nextPlannedDate) {
+                                    if days > 0 {
+                                        Text("\(days)일 후")
+                                            .font(.caption)
+                                            .foregroundColor(.blue)
+                                    } else if days == 0 {
+                                        Text("오늘")
+                                            .font(.caption)
+                                            .foregroundColor(.orange)
+                                    } else {
+                                        Text("\(abs(days))일 지남")
+                                            .font(.caption)
+                                            .foregroundColor(.red)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding()
+            }
+
+            Divider()
+
+            // 하단 버튼
+            HStack {
+                Spacer()
+
+                Button("저장") {
+                    saveReminder()
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+        }
+        .frame(width: 500, height: 600)
+        .onAppear {
+            loadReminder()
+        }
+    }
+
+    private func loadReminder() {
+        if let reminder = app.deploymentReminder {
+            enabled = reminder.enabled
+            reminderDays = reminder.reminderDays
+            updateCycle = reminder.updateCycle
+
+            if let date = reminder.lastDeploymentDate {
+                hasLastDeploymentDate = true
+                lastDeploymentDate = date
+            }
+
+            if let date = reminder.nextPlannedDate {
+                hasNextPlannedDate = true
+                nextPlannedDate = date
+            }
+        }
+    }
+
+    private func saveReminder() {
+        let reminder = DeploymentReminder(
+            enabled: enabled,
+            reminderDays: reminderDays,
+            lastDeploymentDate: hasLastDeploymentDate ? lastDeploymentDate : nil,
+            nextPlannedDate: hasNextPlannedDate ? nextPlannedDate : nil,
+            updateCycle: updateCycle
+        )
+
+        portfolioService.updateDeploymentReminder(appName: app.name, reminder: reminder)
+    }
+
+    private func daysSince(_ date: Date) -> Int? {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: date, to: Date())
+        return components.day
+    }
+
+    private func daysUntil(_ date: Date) -> Int? {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: Date(), to: date)
+        return components.day
     }
 }

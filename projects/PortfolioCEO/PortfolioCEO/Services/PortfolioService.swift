@@ -1551,4 +1551,42 @@ class PortfolioService: ObservableObject {
             print("❌ 스크린샷 정보 업데이트 실패: \(error)")
         }
     }
+
+    // MARK: - Deployment Reminder Management
+
+    func updateDeploymentReminder(appName: String, reminder: DeploymentReminder) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var reminderDict: [String: Any] = [
+                "enabled": reminder.enabled,
+                "reminderDays": reminder.reminderDays,
+                "updateCycle": reminder.updateCycle.rawValue
+            ]
+            if let lastDeploymentDate = reminder.lastDeploymentDate {
+                reminderDict["lastDeploymentDate"] = ISO8601DateFormatter().string(from: lastDeploymentDate)
+            }
+            if let nextPlannedDate = reminder.nextPlannedDate {
+                reminderDict["nextPlannedDate"] = ISO8601DateFormatter().string(from: nextPlannedDate)
+            }
+            json["deploymentReminder"] = reminderDict
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 배포 알림 설정 업데이트 완료: \(appName)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 배포 알림 설정 업데이트 실패: \(error)")
+        }
+    }
 }

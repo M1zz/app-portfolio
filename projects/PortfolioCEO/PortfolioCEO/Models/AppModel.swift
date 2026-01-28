@@ -28,12 +28,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let versionHistory: [VersionHistory]?  // 버전 히스토리
     let appStoreMetadata: AppStoreMetadata?  // 앱스토어 메타데이터
     let screenshots: ScreenshotInfo?  // 스크린샷 정보
+    let deploymentReminder: DeploymentReminder?  // 배포 알림 설정
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata, screenshots
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata, screenshots, deploymentReminder
     }
 
     init(from decoder: Decoder) throws {
@@ -66,6 +67,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.versionHistory = try container.decodeIfPresent([VersionHistory].self, forKey: .versionHistory)
         self.appStoreMetadata = try container.decodeIfPresent(AppStoreMetadata.self, forKey: .appStoreMetadata)
         self.screenshots = try container.decodeIfPresent(ScreenshotInfo.self, forKey: .screenshots)
+        self.deploymentReminder = try container.decodeIfPresent(DeploymentReminder.self, forKey: .deploymentReminder)
     }
 }
 
@@ -559,6 +561,58 @@ struct ReleaseNote: Identifiable, Codable, Hashable {
         self.date = date
         self.notesKo = notesKo
         self.notesEn = notesEn
+    }
+}
+
+// MARK: - Deployment Reminder Models
+
+struct DeploymentReminder: Codable, Hashable {
+    var enabled: Bool
+    var reminderDays: Int  // N일마다 알림
+    var lastDeploymentDate: Date?
+    var nextPlannedDate: Date?
+    var updateCycle: UpdateCycle
+
+    init(enabled: Bool = false, reminderDays: Int = 30, lastDeploymentDate: Date? = nil, nextPlannedDate: Date? = nil, updateCycle: UpdateCycle = .monthly) {
+        self.enabled = enabled
+        self.reminderDays = reminderDays
+        self.lastDeploymentDate = lastDeploymentDate
+        self.nextPlannedDate = nextPlannedDate
+        self.updateCycle = updateCycle
+    }
+
+    var daysSinceLastDeployment: Int? {
+        guard let lastDate = lastDeploymentDate else { return nil }
+        return Calendar.current.dateComponents([.day], from: lastDate, to: Date()).day
+    }
+
+    var daysUntilNextPlanned: Int? {
+        guard let nextDate = nextPlannedDate else { return nil }
+        return Calendar.current.dateComponents([.day], from: Date(), to: nextDate).day
+    }
+
+    var shouldRemind: Bool {
+        guard enabled else { return false }
+        guard let days = daysSinceLastDeployment else { return false }
+        return days >= reminderDays
+    }
+}
+
+enum UpdateCycle: String, Codable, CaseIterable {
+    case weekly = "주간"
+    case biweekly = "격주"
+    case monthly = "월간"
+    case quarterly = "분기별"
+    case adhoc = "비정기"
+
+    var days: Int {
+        switch self {
+        case .weekly: return 7
+        case .biweekly: return 14
+        case .monthly: return 30
+        case .quarterly: return 90
+        case .adhoc: return 0
+        }
     }
 }
 
