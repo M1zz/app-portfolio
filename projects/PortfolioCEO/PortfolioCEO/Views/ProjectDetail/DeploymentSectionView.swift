@@ -5,6 +5,7 @@ struct DeploymentSectionView: View {
     @EnvironmentObject var portfolioService: PortfolioService
     @State private var showingChecklistManager = false
     @State private var showingVersionHistory = false
+    @State private var showingMetadataEditor = false
 
     private var currentChecklist: DeploymentChecklist? {
         app.deploymentChecklists?.first { $0.version == app.currentVersion }
@@ -70,6 +71,20 @@ struct DeploymentSectionView: View {
                         .font(.headline)
 
                     Spacer()
+
+                    Button(action: { showingMetadataEditor = true }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "info.circle")
+                            Text("앱스토어 정보")
+                        }
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.blue.opacity(0.2))
+                        .foregroundColor(.blue)
+                        .cornerRadius(6)
+                    }
+                    .buttonStyle(.plain)
 
                     Button(action: { showingVersionHistory = true }) {
                         HStack(spacing: 4) {
@@ -218,6 +233,10 @@ struct DeploymentSectionView: View {
         }
         .sheet(isPresented: $showingVersionHistory) {
             VersionHistoryView(app: app)
+                .environmentObject(portfolioService)
+        }
+        .sheet(isPresented: $showingMetadataEditor) {
+            AppStoreMetadataEditorView(app: app)
                 .environmentObject(portfolioService)
         }
     }
@@ -1066,5 +1085,225 @@ struct VersionHistoryEditorView: View {
         } else {
             portfolioService.addVersionHistory(appName: app.name, history: history)
         }
+    }
+}
+
+// MARK: - App Store Metadata Editor
+
+struct AppStoreMetadataEditorView: View {
+    let app: AppModel
+    @EnvironmentObject var portfolioService: PortfolioService
+    @Environment(\.dismiss) var dismiss
+
+    @State private var descriptionKo: String = ""
+    @State private var descriptionEn: String = ""
+    @State private var keywords: String = ""
+    @State private var promotionalText: String = ""
+    @State private var supportUrl: String = ""
+    @State private var privacyUrl: String = ""
+    @State private var ageRating: String = ""
+    @State private var primaryCategory: String = ""
+    @State private var secondaryCategory: String = ""
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // 헤더
+            HStack {
+                Text("App Store 메타데이터")
+                    .font(.headline)
+
+                Spacer()
+
+                Button("취소") {
+                    dismiss()
+                }
+            }
+            .padding()
+
+            Divider()
+
+            // 입력 폼
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    // 앱 설명
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("앱 설명 (한글)")
+                            .font(.subheadline)
+                            .bold()
+
+                        TextEditor(text: $descriptionKo)
+                            .frame(minHeight: 100)
+                            .padding(8)
+                            .background(Color(NSColor.textBackgroundColor))
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            )
+
+                        Text("최대 4000자")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("App Description (English)")
+                            .font(.subheadline)
+                            .bold()
+
+                        TextEditor(text: $descriptionEn)
+                            .frame(minHeight: 100)
+                            .padding(8)
+                            .background(Color(NSColor.textBackgroundColor))
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            )
+
+                        Text("Maximum 4000 characters")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Divider()
+
+                    // 키워드
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("키워드")
+                            .font(.subheadline)
+                            .bold()
+
+                        TextField("키워드1, 키워드2, 키워드3", text: $keywords)
+                            .textFieldStyle(.roundedBorder)
+
+                        Text("쉼표로 구분하여 입력 (최대 100자)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    // 프로모션 텍스트
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("프로모션 텍스트")
+                            .font(.subheadline)
+                            .bold()
+
+                        TextEditor(text: $promotionalText)
+                            .frame(minHeight: 60)
+                            .padding(8)
+                            .background(Color(NSColor.textBackgroundColor))
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            )
+
+                        Text("앱 스토어 검색 결과 상단에 표시되는 텍스트 (최대 170자)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Divider()
+
+                    // URL들
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("지원 URL")
+                            .font(.subheadline)
+                            .bold()
+                        TextField("https://...", text: $supportUrl)
+                            .textFieldStyle(.roundedBorder)
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("개인정보 처리방침 URL")
+                            .font(.subheadline)
+                            .bold()
+                        TextField("https://...", text: $privacyUrl)
+                            .textFieldStyle(.roundedBorder)
+                    }
+
+                    Divider()
+
+                    // 연령 등급 및 카테고리
+                    HStack(spacing: 20) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("연령 등급")
+                                .font(.subheadline)
+                                .bold()
+                            TextField("4+", text: $ageRating)
+                                .textFieldStyle(.roundedBorder)
+                        }
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("기본 카테고리")
+                                .font(.subheadline)
+                                .bold()
+                            TextField("유틸리티", text: $primaryCategory)
+                                .textFieldStyle(.roundedBorder)
+                        }
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("보조 카테고리")
+                                .font(.subheadline)
+                                .bold()
+                            TextField("생산성", text: $secondaryCategory)
+                                .textFieldStyle(.roundedBorder)
+                        }
+                    }
+                }
+                .padding()
+            }
+
+            Divider()
+
+            // 하단 버튼
+            HStack {
+                Spacer()
+
+                Button("저장") {
+                    saveMetadata()
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+        }
+        .frame(width: 700, height: 700)
+        .onAppear {
+            loadMetadata()
+        }
+    }
+
+    private func loadMetadata() {
+        if let metadata = app.appStoreMetadata {
+            descriptionKo = metadata.descriptionKo
+            descriptionEn = metadata.descriptionEn
+            keywords = metadata.keywords.joined(separator: ", ")
+            promotionalText = metadata.promotionalText
+            supportUrl = metadata.supportUrl ?? ""
+            privacyUrl = metadata.privacyUrl ?? ""
+            ageRating = metadata.ageRating ?? ""
+            primaryCategory = metadata.primaryCategory ?? ""
+            secondaryCategory = metadata.secondaryCategory ?? ""
+        }
+    }
+
+    private func saveMetadata() {
+        let keywordArray = keywords.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+
+        let metadata = AppStoreMetadata(
+            descriptionKo: descriptionKo,
+            descriptionEn: descriptionEn,
+            keywords: keywordArray,
+            promotionalText: promotionalText,
+            supportUrl: supportUrl.isEmpty ? nil : supportUrl,
+            privacyUrl: privacyUrl.isEmpty ? nil : privacyUrl,
+            ageRating: ageRating.isEmpty ? nil : ageRating,
+            primaryCategory: primaryCategory.isEmpty ? nil : primaryCategory,
+            secondaryCategory: secondaryCategory.isEmpty ? nil : secondaryCategory
+        )
+
+        portfolioService.updateAppStoreMetadata(appName: app.name, metadata: metadata)
     }
 }

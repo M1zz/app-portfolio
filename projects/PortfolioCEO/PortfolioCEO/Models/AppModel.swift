@@ -26,12 +26,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let releaseNotes: [ReleaseNote]?  // 릴리스 노트
     let deploymentChecklists: [DeploymentChecklist]?  // 배포 체크리스트
     let versionHistory: [VersionHistory]?  // 버전 히스토리
+    let appStoreMetadata: AppStoreMetadata?  // 앱스토어 메타데이터
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata
     }
 
     init(from decoder: Decoder) throws {
@@ -62,6 +63,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.releaseNotes = try container.decodeIfPresent([ReleaseNote].self, forKey: .releaseNotes)
         self.deploymentChecklists = try container.decodeIfPresent([DeploymentChecklist].self, forKey: .deploymentChecklists)
         self.versionHistory = try container.decodeIfPresent([VersionHistory].self, forKey: .versionHistory)
+        self.appStoreMetadata = try container.decodeIfPresent(AppStoreMetadata.self, forKey: .appStoreMetadata)
     }
 }
 
@@ -555,6 +557,32 @@ struct ReleaseNote: Identifiable, Codable, Hashable {
         self.date = date
         self.notesKo = notesKo
         self.notesEn = notesEn
+    }
+}
+
+// MARK: - App Store Metadata Models
+
+struct AppStoreMetadata: Codable, Hashable {
+    var descriptionKo: String
+    var descriptionEn: String
+    var keywords: [String]
+    var promotionalText: String
+    var supportUrl: String?
+    var privacyUrl: String?
+    var ageRating: String?
+    var primaryCategory: String?
+    var secondaryCategory: String?
+
+    init(descriptionKo: String = "", descriptionEn: String = "", keywords: [String] = [], promotionalText: String = "", supportUrl: String? = nil, privacyUrl: String? = nil, ageRating: String? = nil, primaryCategory: String? = nil, secondaryCategory: String? = nil) {
+        self.descriptionKo = descriptionKo
+        self.descriptionEn = descriptionEn
+        self.keywords = keywords
+        self.promotionalText = promotionalText
+        self.supportUrl = supportUrl
+        self.privacyUrl = privacyUrl
+        self.ageRating = ageRating
+        self.primaryCategory = primaryCategory
+        self.secondaryCategory = secondaryCategory
     }
 }
 

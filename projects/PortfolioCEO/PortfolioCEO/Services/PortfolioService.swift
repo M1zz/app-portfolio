@@ -1463,4 +1463,52 @@ class PortfolioService: ObservableObject {
             print("❌ 버전 히스토리 삭제 실패: \(error)")
         }
     }
+
+    // MARK: - App Store Metadata Management
+
+    func updateAppStoreMetadata(appName: String, metadata: AppStoreMetadata) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var metadataDict: [String: Any] = [
+                "descriptionKo": metadata.descriptionKo,
+                "descriptionEn": metadata.descriptionEn,
+                "keywords": metadata.keywords,
+                "promotionalText": metadata.promotionalText
+            ]
+            if let supportUrl = metadata.supportUrl {
+                metadataDict["supportUrl"] = supportUrl
+            }
+            if let privacyUrl = metadata.privacyUrl {
+                metadataDict["privacyUrl"] = privacyUrl
+            }
+            if let ageRating = metadata.ageRating {
+                metadataDict["ageRating"] = ageRating
+            }
+            if let primaryCategory = metadata.primaryCategory {
+                metadataDict["primaryCategory"] = primaryCategory
+            }
+            if let secondaryCategory = metadata.secondaryCategory {
+                metadataDict["secondaryCategory"] = secondaryCategory
+            }
+            json["appStoreMetadata"] = metadataDict
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 앱스토어 메타데이터 업데이트 완료: \(appName)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 앱스토어 메타데이터 업데이트 실패: \(error)")
+        }
+    }
 }
