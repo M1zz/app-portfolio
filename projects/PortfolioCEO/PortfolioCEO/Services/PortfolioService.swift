@@ -1083,11 +1083,26 @@ class PortfolioService: ObservableObject {
 
             // 가격 정보를 딕셔너리로 변환
             var priceDict: [String: Any] = ["isFree": price.isFree]
+            if let model = price.pricingModel {
+                priceDict["pricingModel"] = model.rawValue
+            }
             if let usd = price.usd {
                 priceDict["usd"] = usd
             }
             if let krw = price.krw {
                 priceDict["krw"] = krw
+            }
+            if let monthlyUSD = price.monthlyUSD {
+                priceDict["monthlyUSD"] = monthlyUSD
+            }
+            if let monthlyKRW = price.monthlyKRW {
+                priceDict["monthlyKRW"] = monthlyKRW
+            }
+            if let yearlyUSD = price.yearlyUSD {
+                priceDict["yearlyUSD"] = yearlyUSD
+            }
+            if let yearlyKRW = price.yearlyKRW {
+                priceDict["yearlyKRW"] = yearlyKRW
             }
             json["price"] = priceDict
 
@@ -1099,6 +1114,114 @@ class PortfolioService: ObservableObject {
             loadPortfolio()
         } catch {
             print("❌ 앱 가격 업데이트 실패: \(error)")
+        }
+    }
+
+    // MARK: - Release Notes Management
+
+    func addReleaseNote(appName: String, releaseNote: ReleaseNote) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            // 기존 릴리스 노트 가져오기
+            var releaseNotes = json["releaseNotes"] as? [[String: Any]] ?? []
+
+            // 새 릴리스 노트 추가
+            let noteDict: [String: Any] = [
+                "id": releaseNote.id,
+                "version": releaseNote.version,
+                "date": ISO8601DateFormatter().string(from: releaseNote.date),
+                "notesKo": releaseNote.notesKo,
+                "notesEn": releaseNote.notesEn
+            ]
+            releaseNotes.append(noteDict)
+            json["releaseNotes"] = releaseNotes
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 릴리스 노트 추가 완료: \(appName) - v\(releaseNote.version)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 릴리스 노트 추가 실패: \(error)")
+        }
+    }
+
+    func updateReleaseNote(appName: String, releaseNote: ReleaseNote) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            // 기존 릴리스 노트 가져오기
+            var releaseNotes = json["releaseNotes"] as? [[String: Any]] ?? []
+
+            // 해당 ID의 릴리스 노트 찾아서 업데이트
+            if let index = releaseNotes.firstIndex(where: { ($0["id"] as? String) == releaseNote.id }) {
+                let noteDict: [String: Any] = [
+                    "id": releaseNote.id,
+                    "version": releaseNote.version,
+                    "date": ISO8601DateFormatter().string(from: releaseNote.date),
+                    "notesKo": releaseNote.notesKo,
+                    "notesEn": releaseNote.notesEn
+                ]
+                releaseNotes[index] = noteDict
+                json["releaseNotes"] = releaseNotes
+
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+                try jsonData.write(to: jsonFile)
+                print("✅ 릴리스 노트 업데이트 완료: \(appName) - v\(releaseNote.version)")
+
+                loadPortfolio()
+            }
+        } catch {
+            print("❌ 릴리스 노트 업데이트 실패: \(error)")
+        }
+    }
+
+    func deleteReleaseNote(appName: String, releaseNoteId: String) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            // 기존 릴리스 노트 가져오기
+            var releaseNotes = json["releaseNotes"] as? [[String: Any]] ?? []
+
+            // 해당 ID의 릴리스 노트 삭제
+            releaseNotes.removeAll { ($0["id"] as? String) == releaseNoteId }
+            json["releaseNotes"] = releaseNotes
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 릴리스 노트 삭제 완료: \(appName)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 릴리스 노트 삭제 실패: \(error)")
         }
     }
 }

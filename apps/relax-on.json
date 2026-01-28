@@ -13,7 +13,7 @@
   "categories" : [
     "다국어지원"
   ],
-  "currentVersion" : "4.0.0",
+  "currentVersion" : "4.0.1",
   "githubRepo" : "https:\/\/github.com\/M1zz\/RelaxOn",
   "localProjectPath" : "..\/RelaxOn",
   "minimumOS" : "16.0",
@@ -23,6 +23,12 @@
     "기존의 사용성 개선  → 4.0.0"
   ],
   "notes" : "",
+  "price" : {
+    "isFree" : false,
+    "monthlyKRW" : 1100,
+    "monthlyUSD" : 0.98999999999999999,
+    "pricingModel" : "subscription"
+  },
   "priority" : "medium",
   "recentlyCompleted" : [
 

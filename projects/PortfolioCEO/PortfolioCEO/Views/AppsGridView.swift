@@ -36,13 +36,28 @@ enum AppWorkflowFilter: String, CaseIterable {
     }
 }
 
+enum AppSortOption: String, CaseIterable {
+    case name = "이름순"
+    case version = "버전순"
+    case priceLow = "가격 낮은순"
+    case priceHigh = "가격 높은순"
+    case priority = "우선순위"
+    case feedback = "피드백 많은순"
+}
+
 struct AppsGridView: View {
     @EnvironmentObject var portfolio: PortfolioService
-    @State private var selectedFilter: AppWorkflowFilter = .all
-    @State private var selectedCategory: String? = nil
+    @AppStorage("selectedFilter") private var selectedFilter: AppWorkflowFilter = .all
+    @AppStorage("selectedCategory") private var selectedCategoryStorage: String = ""
+    @AppStorage("selectedSort") private var selectedSort: AppSortOption = .feedback
     @State private var showingAddAppSheet = false
     @State private var appNameToDelete: String?
     @State private var showingDeleteConfirmation = false
+
+    private var selectedCategory: String? {
+        get { selectedCategoryStorage.isEmpty ? nil : selectedCategoryStorage }
+        set { selectedCategoryStorage = newValue ?? "" }
+    }
 
     var body: some View {
         NavigationStack {
@@ -54,10 +69,31 @@ struct AppsGridView: View {
                     // 카테고리 필터
                     if !portfolio.availableCategories.isEmpty {
                         CategoryFilterBar(
-                            selectedCategory: $selectedCategory,
+                            selectedCategory: Binding(
+                                get: { selectedCategory },
+                                set: { selectedCategoryStorage = $0 ?? "" }
+                            ),
                             categories: portfolio.availableCategories
                         )
                     }
+
+                    // 정렬 옵션
+                    HStack {
+                        Text("정렬:")
+                            .foregroundColor(.secondary)
+                            .font(.subheadline)
+
+                        Picker("정렬", selection: $selectedSort) {
+                            ForEach(AppSortOption.allCases, id: \.self) { option in
+                                Text(option.rawValue).tag(option)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .frame(width: 150)
+
+                        Spacer()
+                    }
+                    .padding(.horizontal)
 
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 220))], spacing: 16) {
                         ForEach(filteredApps) { app in
@@ -175,24 +211,12 @@ struct AppsGridView: View {
             }
         }
 
-        // Sort by: 1) feedback count (descending), 2) name
-        return apps.sorted { app1, app2 in
-            let folder1 = portfolio.getFolderName(for: app1.name)
-            let folder2 = portfolio.getFolderName(for: app2.name)
-
-            let feedbackCount1 = portfolio.appWorkflowStatus[folder1]?.feedbackCount ?? 0
-            let feedbackCount2 = portfolio.appWorkflowStatus[folder2]?.feedbackCount ?? 0
-
-            if feedbackCount1 != feedbackCount2 {
-                return feedbackCount1 > feedbackCount2  // More feedback first
-            }
-
-            return app1.name < app2.name  // Alphabetical order
-        }
+        // 정렬 적용
+        return sortApps(apps, by: selectedSort)
     }
 
     private func calculateProjectCompletion(for app: AppModel) -> Int {
-        var totalFields: Double = 7
+        let totalFields: Double = 7
         var filledFields: Double = 3  // name, bundleId, currentVersion
 
         if app.minimumOS != nil && !app.minimumOS!.isEmpty { filledFields += 1 }
@@ -217,6 +241,69 @@ struct AppsGridView: View {
         }
         return 0  // Versions are equal
     }
+
+    private func sortApps(_ apps: [AppModel], by sortOption: AppSortOption) -> [AppModel] {
+        switch sortOption {
+        case .name:
+            return apps.sorted { $0.name < $1.name }
+
+        case .version:
+            return apps.sorted { app1, app2 in
+                compareVersions(app1.currentVersion, app2.currentVersion) > 0
+            }
+
+        case .priceLow:
+            return apps.sorted { app1, app2 in
+                let price1 = getPriceValue(app1.price)
+                let price2 = getPriceValue(app2.price)
+                return price1 < price2
+            }
+
+        case .priceHigh:
+            return apps.sorted { app1, app2 in
+                let price1 = getPriceValue(app1.price)
+                let price2 = getPriceValue(app2.price)
+                return price1 > price2
+            }
+
+        case .priority:
+            return apps.sorted { app1, app2 in
+                if app1.priority != app2.priority {
+                    // High < Medium < Low 순서로 정렬
+                    return app1.priority.rawValue < app2.priority.rawValue
+                }
+                return app1.name < app2.name
+            }
+
+        case .feedback:
+            return apps.sorted { app1, app2 in
+                let folder1 = portfolio.getFolderName(for: app1.name)
+                let folder2 = portfolio.getFolderName(for: app2.name)
+
+                let feedbackCount1 = portfolio.appWorkflowStatus[folder1]?.feedbackCount ?? 0
+                let feedbackCount2 = portfolio.appWorkflowStatus[folder2]?.feedbackCount ?? 0
+
+                if feedbackCount1 != feedbackCount2 {
+                    return feedbackCount1 > feedbackCount2
+                }
+                return app1.name < app2.name
+            }
+        }
+    }
+
+    private func getPriceValue(_ price: AppPrice?) -> Double {
+        guard let price = price else { return 0 }
+
+        switch price.resolvedPricingModel {
+        case .free:
+            return 0
+        case .oneTime:
+            return price.krw.map { Double($0) } ?? price.usd ?? 0
+        case .subscription:
+            // 연간 가격을 기준으로 비교
+            return price.yearlyKRW.map { Double($0) } ?? price.yearlyUSD.map { $0 * 1300 } ?? 0
+        }
+    }
 }
 
 // MARK: - Add App Sheet
@@ -238,9 +325,13 @@ struct AddAppSheet: View {
     @State private var appStoreUrl = ""
 
     // 가격 정보
-    @State private var isFreeApp = true
+    @State private var selectedPricingModel: PricingModel = .free
     @State private var priceUSD = ""
     @State private var priceKRW = ""
+    @State private var monthlyUSD = ""
+    @State private var monthlyKRW = ""
+    @State private var yearlyUSD = ""
+    @State private var yearlyKRW = ""
 
     @State private var showingError = false
     @State private var errorMessage = ""
@@ -283,9 +374,13 @@ struct AddAppSheet: View {
                 }
 
                 Section("가격 정보") {
-                    Toggle("무료 앱", isOn: $isFreeApp)
+                    Picker("가격 모델", selection: $selectedPricingModel) {
+                        ForEach(PricingModel.allCases, id: \.self) { model in
+                            Text(model.displayName).tag(model)
+                        }
+                    }
 
-                    if !isFreeApp {
+                    if selectedPricingModel == .oneTime {
                         LabeledContent("USD 가격") {
                             HStack {
                                 Text("$")
@@ -305,6 +400,48 @@ struct AddAppSheet: View {
                         }
 
                         Text("App Store에 표시되는 가격을 입력하세요")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    if selectedPricingModel == .subscription {
+                        LabeledContent("월간 USD") {
+                            HStack {
+                                Text("$")
+                                    .foregroundColor(.secondary)
+                                TextField("2.99", text: $monthlyUSD)
+                                    .textFieldStyle(.roundedBorder)
+                            }
+                        }
+
+                        LabeledContent("월간 KRW") {
+                            HStack {
+                                Text("₩")
+                                    .foregroundColor(.secondary)
+                                TextField("3900", text: $monthlyKRW)
+                                    .textFieldStyle(.roundedBorder)
+                            }
+                        }
+
+                        LabeledContent("연간 USD") {
+                            HStack {
+                                Text("$")
+                                    .foregroundColor(.secondary)
+                                TextField("29.99", text: $yearlyUSD)
+                                    .textFieldStyle(.roundedBorder)
+                            }
+                        }
+
+                        LabeledContent("연간 KRW") {
+                            HStack {
+                                Text("₩")
+                                    .foregroundColor(.secondary)
+                                TextField("29000", text: $yearlyKRW)
+                                    .textFieldStyle(.roundedBorder)
+                            }
+                        }
+
+                        Text("App Store에 표시되는 구독 가격을 입력하세요")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -364,12 +501,20 @@ struct AddAppSheet: View {
     private func createApp() {
         // 가격 정보 생성
         var price: AppPrice? = nil
-        if !isFreeApp {
-            let usd = Double(priceUSD)
-            let krw = Int(priceKRW)
-            price = AppPrice(usd: usd, krw: krw, isFree: false)
-        } else {
-            price = AppPrice(isFree: true)
+        switch selectedPricingModel {
+        case .free:
+            price = AppPrice(isFree: true, pricingModel: .free)
+        case .oneTime:
+            price = AppPrice(
+                usd: Double(priceUSD), krw: Int(priceKRW),
+                isFree: false, pricingModel: .oneTime
+            )
+        case .subscription:
+            price = AppPrice(
+                isFree: false, pricingModel: .subscription,
+                monthlyUSD: Double(monthlyUSD), monthlyKRW: Int(monthlyKRW),
+                yearlyUSD: Double(yearlyUSD), yearlyKRW: Int(yearlyKRW)
+            )
         }
 
         let success = portfolio.createApp(
@@ -622,8 +767,8 @@ struct EnhancedAppCard: View {
                             .font(.caption)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
-                            .background(price.isFree ? Color.green.opacity(0.2) : Color.blue.opacity(0.2))
-                            .foregroundColor(price.isFree ? .green : .blue)
+                            .background(priceBackgroundColor(for: price))
+                            .foregroundColor(priceForegroundColor(for: price))
                             .cornerRadius(4)
                     }
 
@@ -727,7 +872,7 @@ struct EnhancedAppCard: View {
     }
 
     private func calculateProjectCompletion() -> Int {
-        var totalFields: Double = 7
+        let totalFields: Double = 7
         var filledFields: Double = 3  // name, bundleId, currentVersion
 
         if app.minimumOS != nil { filledFields += 1 }
@@ -736,5 +881,21 @@ struct EnhancedAppCard: View {
         if app.appStoreUrl != nil { filledFields += 1 }
 
         return Int((filledFields / totalFields) * 100)
+    }
+
+    private func priceBackgroundColor(for price: AppPrice) -> Color {
+        switch price.resolvedPricingModel {
+        case .free: return Color.green.opacity(0.2)
+        case .oneTime: return Color.blue.opacity(0.2)
+        case .subscription: return Color.orange.opacity(0.2)
+        }
+    }
+
+    private func priceForegroundColor(for price: AppPrice) -> Color {
+        switch price.resolvedPricingModel {
+        case .free: return .green
+        case .oneTime: return .blue
+        case .subscription: return .orange
+        }
     }
 }

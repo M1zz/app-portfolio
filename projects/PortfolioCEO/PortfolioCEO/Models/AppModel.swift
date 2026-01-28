@@ -23,12 +23,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let team: TeamInfo?
     let categories: [String]?
     let price: AppPrice?  // 앱 가격 정보
+    let releaseNotes: [ReleaseNote]?  // 릴리스 노트
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes
     }
 
     init(from decoder: Decoder) throws {
@@ -56,6 +57,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.team = try container.decodeIfPresent(TeamInfo.self, forKey: .team)
         self.categories = try container.decodeIfPresent([String].self, forKey: .categories)
         self.price = try container.decodeIfPresent(AppPrice.self, forKey: .price)
+        self.releaseNotes = try container.decodeIfPresent([ReleaseNote].self, forKey: .releaseNotes)
     }
 }
 
@@ -400,45 +402,93 @@ enum WorkflowStage: String {
 
 // MARK: - Price Models
 
-struct AppPrice: Codable, Hashable {
-    var usd: Double?      // 달러 가격
-    var krw: Int?         // 원화 가격
-    var isFree: Bool      // 무료 앱 여부
+enum PricingModel: String, Codable, Hashable, CaseIterable {
+    case free = "free"
+    case oneTime = "oneTime"
+    case subscription = "subscription"
 
-    init(usd: Double? = nil, krw: Int? = nil, isFree: Bool = true) {
+    var displayName: String {
+        switch self {
+        case .free: return "무료"
+        case .oneTime: return "일회성 결제"
+        case .subscription: return "구독"
+        }
+    }
+}
+
+struct AppPrice: Codable, Hashable {
+    var usd: Double?          // 일회성 달러 가격
+    var krw: Int?             // 일회성 원화 가격
+    var isFree: Bool          // 무료 앱 여부 (하위 호환)
+    var pricingModel: PricingModel?  // 가격 모델
+    var monthlyUSD: Double?   // 구독 월간 달러
+    var monthlyKRW: Int?      // 구독 월간 원화
+    var yearlyUSD: Double?    // 구독 연간 달러
+    var yearlyKRW: Int?       // 구독 연간 원화
+
+    init(usd: Double? = nil, krw: Int? = nil, isFree: Bool = true,
+         pricingModel: PricingModel? = nil,
+         monthlyUSD: Double? = nil, monthlyKRW: Int? = nil,
+         yearlyUSD: Double? = nil, yearlyKRW: Int? = nil) {
         self.usd = usd
         self.krw = krw
         self.isFree = isFree
+        self.pricingModel = pricingModel
+        self.monthlyUSD = monthlyUSD
+        self.monthlyKRW = monthlyKRW
+        self.yearlyUSD = yearlyUSD
+        self.yearlyKRW = yearlyKRW
+    }
+
+    /// 실제 가격 모델 (하위 호환: pricingModel이 nil이면 isFree로 판단)
+    var resolvedPricingModel: PricingModel {
+        if let model = pricingModel { return model }
+        return isFree ? .free : .oneTime
     }
 
     var displayPrice: String {
-        if isFree {
+        switch resolvedPricingModel {
+        case .free:
             return "무료"
-        }
-
-        var parts: [String] = []
-        if let usd = usd {
-            parts.append("$\(String(format: "%.2f", usd))")
-        }
-        if let krw = krw {
+        case .oneTime:
+            var parts: [String] = []
+            if let usd = usd {
+                parts.append("$\(String(format: "%.2f", usd))")
+            }
+            if let krw = krw {
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal
+                if let formatted = formatter.string(from: NSNumber(value: krw)) {
+                    parts.append("₩\(formatted)")
+                }
+            }
+            return parts.isEmpty ? "가격 미정" : parts.joined(separator: " / ")
+        case .subscription:
             let formatter = NumberFormatter()
             formatter.numberStyle = .decimal
-            if let formatted = formatter.string(from: NSNumber(value: krw)) {
-                parts.append("₩\(formatted)")
+            var parts: [String] = []
+            if let mkrw = monthlyKRW, let formatted = formatter.string(from: NSNumber(value: mkrw)) {
+                parts.append("월 ₩\(formatted)")
+            } else if let musd = monthlyUSD {
+                parts.append("월 $\(String(format: "%.2f", musd))")
             }
+            if let ykrw = yearlyKRW, let formatted = formatter.string(from: NSNumber(value: ykrw)) {
+                parts.append("연 ₩\(formatted)")
+            } else if let yusd = yearlyUSD {
+                parts.append("연 $\(String(format: "%.2f", yusd))")
+            }
+            return parts.isEmpty ? "구독 (가격 미정)" : parts.joined(separator: " / ")
         }
-
-        return parts.isEmpty ? "가격 미정" : parts.joined(separator: " / ")
     }
 
     var usdDisplay: String {
-        if isFree { return "무료" }
+        if resolvedPricingModel == .free { return "무료" }
         guard let usd = usd else { return "-" }
         return "$\(String(format: "%.2f", usd))"
     }
 
     var krwDisplay: String {
-        if isFree { return "무료" }
+        if resolvedPricingModel == .free { return "무료" }
         guard let krw = krw else { return "-" }
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -483,5 +533,23 @@ struct TeamMember: Identifiable, Codable, Hashable {
         self.responsibility = responsibility
         self.isLead = isLead
         self.contact = contact
+    }
+}
+
+// MARK: - Release Note Models
+
+struct ReleaseNote: Identifiable, Codable, Hashable {
+    let id: String
+    let version: String
+    let date: Date
+    var notesKo: String
+    var notesEn: String
+
+    init(id: String = UUID().uuidString, version: String, date: Date = Date(), notesKo: String = "", notesEn: String = "") {
+        self.id = id
+        self.version = version
+        self.date = date
+        self.notesKo = notesKo
+        self.notesEn = notesEn
     }
 }
