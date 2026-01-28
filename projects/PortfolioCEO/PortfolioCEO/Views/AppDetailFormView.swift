@@ -678,15 +678,8 @@ struct AppDetailFormView: View {
         appName = app.name
         appNameEn = app.nameEn
 
-        // app-name-mapping.json에서 폴더명 가져오기
-        guard let folder = getFolderName(for: app.name) else {
-            print("⚠️ [AppDetailFormView] 폴더명을 찾을 수 없음: \(app.name)")
-            appFolder = app.nameEn.lowercased().replacingOccurrences(of: " ", with: "-")
-            clearDetailFields()
-            isEditingExistingData = false
-            return
-        }
-
+        // 폴더명 가져오기
+        let folder = portfolioService.getFolderName(for: app.name)
         appFolder = folder
         print("📂 [AppDetailFormView] 앱 선택: \(app.name) -> \(folder)")
 
@@ -744,7 +737,7 @@ struct AppDetailFormView: View {
         if inputMode == .existingApp, let app = selectedApp {
             finalAppName = app.name
             finalAppNameEn = app.nameEn
-            finalAppFolder = getFolderName(for: app.name) ?? appFolder
+            finalAppFolder = portfolioService.getFolderName(for: app.name)
         } else {
             finalAppName = appName
             finalAppNameEn = appNameEn
@@ -804,22 +797,6 @@ struct AppDetailFormView: View {
         } else {
             print("❌ [AppDetailFormView] 파일 저장 실패: \(folder)")
         }
-    }
-
-    private func getFolderName(for appName: String) -> String? {
-        let fileManager = FileManager.default
-        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let mappingPath = documentsPath.appendingPathComponent("app-name-mapping.json")
-
-        guard let data = try? Data(contentsOf: mappingPath),
-              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let apps = json["apps"] as? [String: [String: String]],
-              let appInfo = apps[appName],
-              let folder = appInfo["folder"] else {
-            return nil
-        }
-
-        return folder
     }
 
     private func updateAppNameMapping(name: String, nameEn: String, folder: String) {

@@ -8,10 +8,8 @@ struct AppDetailView: View {
     @State private var selectedSection: DetailSection = .feedback
 
     var appDetail: AppDetailInfo? {
-        if let folder = getFolderName(for: app.name) {
-            return detailService.loadDetail(for: folder)
-        }
-        return nil
+        let folder = portfolioService.getFolderName(for: app.name)
+        return detailService.loadDetail(for: folder)
     }
 
     var body: some View {
@@ -175,25 +173,6 @@ struct AppDetailView: View {
         )
     }
 
-    // MARK: - Helper
-
-    private func getFolderName(for appName: String) -> String? {
-        let fileManager = FileManager.default
-        let home = fileManager.homeDirectoryForCurrentUser
-        let mappingPath = home
-            .appendingPathComponent("Documents/code/app-portfolio/data")
-            .appendingPathComponent("app-name-mapping.json")
-
-        guard let data = try? Data(contentsOf: mappingPath),
-              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let apps = json["apps"] as? [String: [String: String]],
-              let appInfo = apps[appName],
-              let folder = appInfo["folder"] else {
-            return nil
-        }
-
-        return folder
-    }
 }
 
 // MARK: - Detail Section Enum

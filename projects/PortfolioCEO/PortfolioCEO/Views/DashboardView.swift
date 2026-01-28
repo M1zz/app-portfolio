@@ -874,7 +874,7 @@ struct WorkflowStatusCard: View {
                     ForEach(portfolio.apps) { app in
                         AppWorkflowItem(
                             app: app,
-                            status: portfolio.appWorkflowStatus[getFolderName(for: app)]
+                            status: portfolio.appWorkflowStatus[portfolio.getFolderName(for: app.name)]
                         )
                     }
                 }
@@ -886,39 +886,6 @@ struct WorkflowStatusCard: View {
         .cornerRadius(12)
     }
 
-    private func getFolderName(for app: AppModel) -> String {
-        // app.name에서 폴더명 추론 또는 매핑 사용
-        let mapping: [String: String] = [
-            "클립키보드": "clip-keyboard",
-            "나만의 버킷": "my-bucket",
-            "버킷 클라임": "bucket-climb",
-            "데일리 트래커": "daily-tracker",
-            "포트폴리오 CEO": "portfolioceo",
-            "바미로그": "bami-log",
-            "쿨타임": "cooltime",
-            "오늘의 주접": "daily-compliment",
-            "돈꼬마트": "donkko-mart",
-            "두 번 알림": "double-reminder",
-            "잘 싸워보세": "fight-well",
-            "외국어는 언어다": "foreign-is-language",
-            "인생 맛집": "life-restaurant",
-            "세끼": "three-meals",
-            "픽셀 미미": "pixel-mimi",
-            "포항 어드벤쳐": "pohang-adventure",
-            "확률계산기": "probability-calculator",
-            "퀴즈": "quiz",
-            "욕망의 무지개": "rainbow-of-desire",
-            "라포 맵": "rapport-map",
-            "리바운드 저널": "rebound-journal",
-            "릴렉스 온": "relax-on",
-            "내마음에저장": "save-in-my-heart",
-            "일정비서": "schedule-assistant",
-            "공유일 설계자": "shared-day-designer",
-            "휴가 플래너": "shared-day-designer",
-            "속삭": "whisper"
-        ]
-        return mapping[app.name] ?? app.name.lowercased()
-    }
 }
 
 struct StageCard: View {

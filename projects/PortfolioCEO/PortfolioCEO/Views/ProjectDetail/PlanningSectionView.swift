@@ -3,6 +3,7 @@ import SwiftUI
 struct PlanningSectionView: View {
     let app: AppModel
     @EnvironmentObject var decisionQueueService: DecisionQueueService
+    @EnvironmentObject var portfolioService: PortfolioService
     @State private var suggestions: [PlanningFeature] = []
     @State private var decisions: [PlanningDecisionRecord] = []
     @State private var planningDocuments: [PlanningDocument] = []
@@ -435,7 +436,7 @@ struct PlanningSectionView: View {
                 options: .skipsHiddenFiles
             )
 
-            let appFolderName = getFolderName(for: app.name)
+            let appFolderName = portfolioService.getFolderName(for: app.name)
             let matchingFiles = files.filter { file in
                 let filename = file.lastPathComponent
                 return filename.hasSuffix(".md") &&
@@ -468,39 +469,6 @@ struct PlanningSectionView: View {
         }
     }
 
-    private func getFolderName(for appName: String) -> String {
-        let mapping: [String: String] = [
-            "클립키보드": "clip-keyboard",
-            "나만의 버킷": "my-bucket",
-            "버킷 클라임": "bucket-climb",
-            "데일리 트래커": "daily-tracker",
-            "포트폴리오 CEO": "portfolioceo",
-            "바미로그": "bami-log",
-            "쿨타임": "cooltime",
-            "오늘의 주접": "daily-compliment",
-            "돈꼬마트": "donkko-mart",
-            "두 번 알림": "double-reminder",
-            "잘 싸워보세": "fight-well",
-            "외국어는 언어다": "foreign-is-language",
-            "인생 맛집": "life-restaurant",
-            "세끼": "three-meals",
-            "픽셀 미미": "pixel-mimi",
-            "포항 어드벤쳐": "pohang-adventure",
-            "확률계산기": "probability-calculator",
-            "퀴즈": "quiz",
-            "욕망의 무지개": "rainbow-of-desire",
-            "라포 맵": "rapport-map",
-            "리바운드 저널": "rebound-journal",
-            "릴렉스 온": "relax-on",
-            "내마음에저장": "save-in-my-heart",
-            "일정비서": "schedule-assistant",
-            "공유일 설계자": "shared-day-designer",
-            "휴가 플래너": "shared-day-designer",
-            "속삭": "whisper"
-        ]
-        return mapping[appName] ?? appName.lowercased().replacingOccurrences(of: " ", with: "-")
-    }
-
     private func extractTitle(from markdown: String) -> String? {
         // 첫 번째 # 제목을 찾음
         let lines = markdown.components(separatedBy: .newlines)
@@ -524,7 +492,7 @@ struct PlanningSectionView: View {
         // 피드백 내용 정리
         let feedbackContent = notes.map { "- \($0.content)" }.joined(separator: "\n")
 
-        let appFolder = getFolderName(for: app.name)
+        let appFolder = portfolioService.getFolderName(for: app.name)
         let fileManager = FileManager.default
         let home = fileManager.homeDirectoryForCurrentUser
         let planningDocsDir = home.appendingPathComponent("Documents/planning-documents")
@@ -674,7 +642,7 @@ struct PlanningSectionView: View {
         }
 
         // 앱 폴더 이름 가져오기
-        let appFolder = getFolderName(for: app.name)
+        let appFolder = portfolioService.getFolderName(for: app.name)
         let fileManager = FileManager.default
         let home = fileManager.homeDirectoryForCurrentUser
         let appsDir = home.appendingPathComponent("Documents/code/app-portfolio/apps")
