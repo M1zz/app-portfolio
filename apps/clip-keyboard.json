@@ -143,6 +143,42 @@
       "status" : "not-started",
       "targetDate" : "December 17, 2025 → December 21, 2025",
       "targetVersion" : "3.0.1"
+    },
+    {
+      "name" : "iCloud 백업 오류 수정 (Error saving record)",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : "3.0.3",
+      "priority" : "critical",
+      "estimatedTime" : "3-5일",
+      "decisionId" : "dec-clipkeyboard-003"
+    },
+    {
+      "name" : "키보드 표시명 중복 제거",
+      "status" : "done",
+      "targetDate" : "January 28, 2026",
+      "targetVersion" : "3.0.3",
+      "priority" : "high",
+      "estimatedTime" : "30분",
+      "decisionId" : "dec-clipkeyboard-004"
+    },
+    {
+      "name" : "키보드 레이아웃 열 개수 설정 기능",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : "3.1.0",
+      "priority" : "high",
+      "estimatedTime" : "3-4일",
+      "decisionId" : "dec-clipkeyboard-005"
+    },
+    {
+      "name" : "버튼 높이/글자 크기 슬라이더 조정 기능",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : "3.1.0",
+      "priority" : "medium",
+      "estimatedTime" : "4-5일",
+      "decisionId" : "dec-clipkeyboard-006"
     }
   ],
   "appStoreId" : "",
@@ -158,7 +194,8 @@
   "name" : "클립키보드",
   "nameEn" : "Clip Keyboard",
   "nextTasks" : [
-    "기본 템플릿 제공해주기",
+    "iCloud 백업 오류 수정 (Error saving record)",
+    "키보드 표시명 중복 제거",
     "에러처리를 실제로 구현"
   ],
   "notes" : "",
@@ -169,18 +206,18 @@
   },
   "priority" : "low",
   "recentlyCompleted" : [
+    "키보드 표시명 중복 제거",
     "템플릿 기능 추가",
-    "아이 클라우드로 메모 동기화",
-    "백업 복원 하는 기능"
+    "아이 클라우드로 메모 동기화"
   ],
   "sharedModules" : [
 
   ],
   "stats" : {
-    "done" : 11,
+    "done" : 12,
     "inProgress" : 0,
-    "notStarted" : 13,
-    "totalTasks" : 24
+    "notStarted" : 16,
+    "totalTasks" : 28
   },
   "status" : "planning"
 }
