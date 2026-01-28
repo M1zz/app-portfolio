@@ -299,6 +299,12 @@ class PortfolioService: ObservableObject {
     }
 
     func getFolderName(for appName: String) -> String {
+        // 1. 앱 목록에서 folderId 찾기
+        if let app = apps.first(where: { $0.name == appName }), let folderId = app.folderId {
+            return folderId
+        }
+
+        // 2. 폴백: 하드코딩된 매핑 (하위 호환성)
         let mapping: [String: String] = [
             "클립키보드": "clip-keyboard",
             "나만의 버킷": "my-bucket",
@@ -328,6 +334,8 @@ class PortfolioService: ObservableObject {
             "휴가 플래너": "shared-day-designer",
             "속삭": "whisper"
         ]
+
+        // 3. 최종 폴백: 소문자 변환
         return mapping[appName] ?? appName.lowercased()
     }
 

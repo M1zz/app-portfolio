@@ -1,43 +1,42 @@
 {
-  "allTasks" : [
+  "allTasks": [
     {
-      "status" : "done",
-      "name" : "1.0.10 배포",
-      "targetDate" : "December 1, 2025",
-      "targetVersion" : "1.0.10"
+      "status": "done",
+      "name": "1.0.10 배포",
+      "targetDate": "December 1, 2025",
+      "targetVersion": "1.0.10"
     },
     {
-      "status" : "in-progress",
-      "name" : "머지 컨플릭트 PR",
-      "targetDate" : null,
-      "targetVersion" : "1.0.11"
+      "status": "in-progress",
+      "name": "머지 컨플릭트 PR",
+      "targetDate": null,
+      "targetVersion": "1.0.11"
     }
   ],
-  "minimumOS" : "16.0",
-  "nextTasks" : [
+  "minimumOS": "16.0",
+  "nextTasks": [
     "머지 컨플릭트 PR"
   ],
-  "notes" : "",
-  "name" : "리바운드 저널",
-  "githubRepo" : "https:\/\/github.com\/Code-Ward\/Rebound-Journal",
-  "bundleId" : "com.leeo.reboundjournal",
-  "localProjectPath" : "..\/Rebound-Journal",
-  "status" : "active",
-  "appStoreId" : "",
-  "priority" : "high",
-  "nameEn" : "Rebound Journal",
-  "recentlyCompleted" : [
+  "notes": "",
+  "name": "리바운드 저널",
+  "githubRepo": "https://github.com/Code-Ward/Rebound-Journal",
+  "bundleId": "com.leeo.reboundjournal",
+  "localProjectPath": "../Rebound-Journal",
+  "status": "active",
+  "appStoreId": "",
+  "priority": "high",
+  "nameEn": "Rebound Journal",
+  "recentlyCompleted": [
     "1.0.10 배포"
   ],
-  "currentVersion" : "1.0.10",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/리바운드-저널\/id6450388408",
-  "sharedModules" : [
-
-  ],
-  "stats" : {
-    "done" : 1,
-    "notStarted" : 0,
-    "inProgress" : 1,
-    "totalTasks" : 2
-  }
+  "currentVersion": "1.0.10",
+  "appStoreUrl": "https://apps.apple.com/kr/app/리바운드-저널/id6450388408",
+  "sharedModules": [],
+  "stats": {
+    "done": 1,
+    "notStarted": 0,
+    "inProgress": 1,
+    "totalTasks": 2
+  },
+  "folderId": "rebound-journal"
 }

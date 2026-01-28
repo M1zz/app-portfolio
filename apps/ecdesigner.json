@@ -1,61 +1,77 @@
 {
-  "allTasks" : [
+  "allTasks": [
     {
-      "name" : "사이드바-캔버스 분리",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null,
-      "labels" : ["UI/UX", "high"]
+      "name": "사이드바-캔버스 분리",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "UI/UX",
+        "high"
+      ]
     },
     {
-      "name" : "Tips 영역 하단 분리",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null,
-      "labels" : ["UI/UX"]
+      "name": "Tips 영역 하단 분리",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "UI/UX"
+      ]
     },
     {
-      "name" : "흰 배경 + 스냅그리드",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null,
-      "labels" : ["UI/UX"]
+      "name": "흰 배경 + 스냅그리드",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "UI/UX"
+      ]
     },
     {
-      "name" : "헤더 아이콘 정리 (엘립시스 메뉴)",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null,
-      "labels" : ["UI/UX", "high"]
+      "name": "헤더 아이콘 정리 (엘립시스 메뉴)",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "UI/UX",
+        "high"
+      ]
     },
     {
-      "name" : "사이드바 단순화 (우클릭 메뉴)",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null,
-      "labels" : ["UI/UX", "high"]
+      "name": "사이드바 단순화 (우클릭 메뉴)",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "UI/UX",
+        "high"
+      ]
     },
     {
-      "name" : "마일스톤 > EC 계층 구조",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null,
-      "labels" : ["아키텍처", "high"]
+      "name": "마일스톤 > EC 계층 구조",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "아키텍처",
+        "high"
+      ]
     }
   ],
-  "bundleId" : "com.leeo.ecDesigner",
-  "currentVersion" : "1.0.0",
-  "githubRepo" : "https://github.com/M1zz/ecDesigner",
-  "localProjectPath" : "../ecDesigner",
-  "name" : "ecDesigner",
-  "nameEn" : "ecDesigner",
-  "nextTasks" : [],
-  "notes" : "",
-  "price" : {
-    "isFree" : true
+  "bundleId": "com.leeo.ecDesigner",
+  "currentVersion": "1.0.0",
+  "githubRepo": "https://github.com/M1zz/ecDesigner",
+  "localProjectPath": "../ecDesigner",
+  "name": "ecDesigner",
+  "nameEn": "ecDesigner",
+  "nextTasks": [],
+  "notes": "",
+  "price": {
+    "isFree": true
   },
-  "priority" : "high",
-  "recentlyCompleted" : [
+  "priority": "high",
+  "recentlyCompleted": [
     "흰 배경 + 스냅그리드",
     "Tips 영역 하단 분리",
     "헤더 아이콘 정리 (엘립시스 메뉴)",
@@ -63,34 +79,34 @@
     "사이드바-캔버스 분리",
     "마일스톤 > EC 계층 구조"
   ],
-  "sharedModules" : [],
-  "stats" : {
-    "done" : 6,
-    "inProgress" : 0,
-    "notStarted" : 0,
-    "totalTasks" : 6
+  "sharedModules": [],
+  "stats": {
+    "done": 6,
+    "inProgress": 0,
+    "notStarted": 0,
+    "totalTasks": 6
   },
-  "status" : "active",
-  "testChecklist" : [
+  "status": "active",
+  "testChecklist": [
     {
-      "category" : "캔버스 배경",
-      "items" : [
+      "category": "캔버스 배경",
+      "items": [
         "캔버스 배경이 흰색으로 표시되는지 확인",
         "노드 드래그 시 8pt 단위로 스냅되는지 확인",
         "마일스톤 드래그 시 8pt 단위로 스냅되는지 확인"
       ]
     },
     {
-      "category" : "Tips 영역",
-      "items" : [
+      "category": "Tips 영역",
+      "items": [
         "캔버스 하단에 Tips 영역이 표시되는지 확인",
         "X 버튼 클릭 시 Tips가 사라지는지 확인",
         "연결 모드 진입 시 Tips 메시지가 변경되는지 확인"
       ]
     },
     {
-      "category" : "헤더 엘립시스 메뉴",
-      "items" : [
+      "category": "헤더 엘립시스 메뉴",
+      "items": [
         "헤더 우측에 ... 메뉴 버튼이 있는지 확인",
         "챌린지 정보 수정 메뉴가 작동하는지 확인",
         "Import > CSV 가져오기가 작동하는지 확인",
@@ -100,8 +116,8 @@
       ]
     },
     {
-      "category" : "우클릭 컨텍스트 메뉴",
-      "items" : [
+      "category": "우클릭 컨텍스트 메뉴",
+      "items": [
         "사이드바에서 우클릭 > 마일스톤 추가가 작동하는지 확인",
         "사이드바에서 우클릭 > EC 추가가 작동하는지 확인",
         "캔버스에서 우클릭 > 마일스톤 추가가 클릭 위치에 생성되는지 확인",
@@ -110,15 +126,15 @@
       ]
     },
     {
-      "category" : "사이드바-캔버스 분리",
-      "items" : [
+      "category": "사이드바-캔버스 분리",
+      "items": [
         "사이드바와 캔버스 사이에 구분선이 보이는지 확인",
         "사이드바 배경색이 캔버스와 다르게 표시되는지 확인"
       ]
     },
     {
-      "category" : "마일스톤-EC 계층 구조",
-      "items" : [
+      "category": "마일스톤-EC 계층 구조",
+      "items": [
         "사이드바에 마일스톤이 트리 형태로 표시되는지 확인",
         "마일스톤 옆 화살표로 접기/펼치기가 되는지 확인",
         "마일스톤 하위에 연결된 EC들이 표시되는지 확인",
@@ -128,5 +144,6 @@
         "EC 클릭 시 편집 창이 열리는지 확인"
       ]
     }
-  ]
+  ],
+  "folderId": "ecdesigner"
 }

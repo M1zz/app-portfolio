@@ -1,51 +1,48 @@
 {
-  "allTasks" : [
+  "allTasks": [
     {
-      "status" : "in-progress",
-      "name" : "앱 기획하기",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "in-progress",
+      "name": "앱 기획하기",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "in-progress",
-      "name" : "너 이거 다 했어? 라고 물어봐주기",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "in-progress",
+      "name": "너 이거 다 했어? 라고 물어봐주기",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "not-started",
-      "name" : "앱 배포 1.0.0 일정비서",
-      "targetDate" : "December 17, 2025 → December 21, 2025",
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "앱 배포 1.0.0 일정비서",
+      "targetDate": "December 17, 2025 → December 21, 2025",
+      "targetVersion": null
     }
   ],
-  "minimumOS" : "16.0",
-  "nextTasks" : [
+  "minimumOS": "16.0",
+  "nextTasks": [
     "앱 기획하기",
     "너 이거 다 했어? 라고 물어봐주기",
     "앱 배포 1.0.0 일정비서"
   ],
-  "notes" : "",
-  "name" : "일정비서",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/WeekAheadTodo",
-  "bundleId" : "com.leeo.scheduleassistant",
-  "localProjectPath" : "..\/WeekAheadTodo",
-  "status" : "active",
-  "appStoreId" : "",
-  "priority" : "high",
-  "nameEn" : "Schedule Assistant",
-  "recentlyCompleted" : [
-
-  ],
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/일정-비서\/id6756593712",
-  "currentVersion" : "1.0",
-  "sharedModules" : [
-
-  ],
-  "stats" : {
-    "done" : 0,
-    "notStarted" : 1,
-    "inProgress" : 2,
-    "totalTasks" : 3
-  }
+  "notes": "",
+  "name": "일정비서",
+  "githubRepo": "https://github.com/M1zz/WeekAheadTodo",
+  "bundleId": "com.leeo.scheduleassistant",
+  "localProjectPath": "../WeekAheadTodo",
+  "status": "active",
+  "appStoreId": "",
+  "priority": "high",
+  "nameEn": "Schedule Assistant",
+  "recentlyCompleted": [],
+  "appStoreUrl": "https://apps.apple.com/kr/app/일정-비서/id6756593712",
+  "currentVersion": "1.0",
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "notStarted": 1,
+    "inProgress": 2,
+    "totalTasks": 3
+  },
+  "folderId": "schedule-assistant"
 }

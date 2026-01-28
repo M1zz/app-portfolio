@@ -1,57 +1,56 @@
 {
-  "bundleId" : "com.leeo.quiz",
-  "status" : "planning",
-  "nameEn" : "Quiz",
-  "currentVersion" : "1.0.5",
-  "localProjectPath" : "..\/Level1Kuiz",
-  "nextTasks" : [
+  "bundleId": "com.leeo.quiz",
+  "status": "planning",
+  "nameEn": "Quiz",
+  "currentVersion": "1.0.5",
+  "localProjectPath": "../Level1Kuiz",
+  "nextTasks": [
     "이걸 어떻게 하면 돈 벌지 고민",
     "캐싱으로 문제 저장 및 API 최소화"
   ],
-  "recentlyCompleted" : [
+  "recentlyCompleted": [
     "사용성 개선",
     "1.0.5 배포"
   ],
-  "name" : "퀴즈",
-  "stats" : {
-    "done" : 2,
-    "notStarted" : 2,
-    "inProgress" : 0,
-    "totalTasks" : 4
+  "name": "퀴즈",
+  "stats": {
+    "done": 2,
+    "notStarted": 2,
+    "inProgress": 0,
+    "totalTasks": 4
   },
-  "sharedModules" : [
-
-  ],
-  "appStoreId" : "",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/us\/app\/kuiz\/id1659279011",
-  "priority" : "medium",
-  "allTasks" : [
+  "sharedModules": [],
+  "appStoreId": "",
+  "appStoreUrl": "https://apps.apple.com/us/app/kuiz/id1659279011",
+  "priority": "medium",
+  "allTasks": [
     {
-      "status" : "done",
-      "name" : "사용성 개선",
-      "targetDate" : "November 24, 2025",
-      "targetVersion" : "1.0.5"
+      "status": "done",
+      "name": "사용성 개선",
+      "targetDate": "November 24, 2025",
+      "targetVersion": "1.0.5"
     },
     {
-      "status" : "not-started",
-      "name" : "이걸 어떻게 하면 돈 벌지 고민",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "이걸 어떻게 하면 돈 벌지 고민",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "done",
-      "name" : "1.0.5 배포",
-      "targetDate" : "November 24, 2025",
-      "targetVersion" : "1.0.5"
+      "status": "done",
+      "name": "1.0.5 배포",
+      "targetDate": "November 24, 2025",
+      "targetVersion": "1.0.5"
     },
     {
-      "status" : "not-started",
-      "name" : "캐싱으로 문제 저장 및 API 최소화",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "캐싱으로 문제 저장 및 API 최소화",
+      "targetDate": null,
+      "targetVersion": null
     }
   ],
-  "githubRepo" : "https:\/\/github.com\/Swift-Coding-Club\/Level1Kuiz",
-  "notes" : "",
-  "minimumOS" : "16.0"
+  "githubRepo": "https://github.com/Swift-Coding-Club/Level1Kuiz",
+  "notes": "",
+  "minimumOS": "16.0",
+  "folderId": "quiz"
 }

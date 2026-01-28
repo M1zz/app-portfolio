@@ -7,6 +7,7 @@ struct AppModel: Identifiable, Codable, Hashable {
     let name: String
     let nameEn: String
     let bundleId: String
+    let folderId: String?  // JSON 파일명 (예: clip-keyboard)
     let currentVersion: String
     let status: AppStatus
     let priority: Priority
@@ -32,7 +33,7 @@ struct AppModel: Identifiable, Codable, Hashable {
     let buildAutomation: BuildAutomation?  // 빌드 자동화 설정
 
     enum CodingKeys: String, CodingKey {
-        case name, nameEn, bundleId, currentVersion
+        case name, nameEn, bundleId, folderId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
         case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata, screenshots, deploymentReminder, buildAutomation
@@ -44,6 +45,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.name = try container.decode(String.self, forKey: .name)
         self.nameEn = try container.decode(String.self, forKey: .nameEn)
         self.bundleId = try container.decode(String.self, forKey: .bundleId)
+        self.folderId = try container.decodeIfPresent(String.self, forKey: .folderId)
 
         // id는 bundleId를 사용 (고유성 보장)
         self.id = bundleId

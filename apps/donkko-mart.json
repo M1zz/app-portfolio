@@ -1,63 +1,60 @@
 {
-  "allTasks" : [
+  "allTasks": [
     {
-      "status" : "done",
-      "name" : "사용성 개선",
-      "targetDate" : "November 24, 2025",
-      "targetVersion" : "1.0.13"
+      "status": "done",
+      "name": "사용성 개선",
+      "targetDate": "November 24, 2025",
+      "targetVersion": "1.0.13"
     },
     {
-      "status" : "done",
-      "name" : "나의 마트 추가하는 경험 개선",
-      "targetDate" : "December 3, 2025",
-      "targetVersion" : "1.1.0"
+      "status": "done",
+      "name": "나의 마트 추가하는 경험 개선",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.1.0"
     },
     {
-      "status" : "done",
-      "name" : "위젯 화면 개선",
-      "targetDate" : "December 3, 2025",
-      "targetVersion" : "1.1.0"
+      "status": "done",
+      "name": "위젯 화면 개선",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.1.0"
     },
     {
-      "status" : "done",
-      "name" : "개발자 소통화면",
-      "targetDate" : "December 3, 2025",
-      "targetVersion" : "1.1.0"
+      "status": "done",
+      "name": "개발자 소통화면",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.1.0"
     },
     {
-      "status" : "done",
-      "name" : "1.0.13 배포",
-      "targetDate" : "November 24, 2025",
-      "targetVersion" : "1.0.13"
+      "status": "done",
+      "name": "1.0.13 배포",
+      "targetDate": "November 24, 2025",
+      "targetVersion": "1.0.13"
     }
   ],
-  "minimumOS" : "16.0",
-  "nextTasks" : [
-
-  ],
-  "notes" : "",
-  "name" : "돈꼬마트",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/DontGoMart",
-  "bundleId" : "com.leeo.donkkomart",
-  "localProjectPath" : "..\/DontGoMart",
-  "status" : "active",
-  "appStoreId" : "",
-  "priority" : "medium",
-  "nameEn" : "Donkko Mart",
-  "recentlyCompleted" : [
+  "minimumOS": "16.0",
+  "nextTasks": [],
+  "notes": "",
+  "name": "돈꼬마트",
+  "githubRepo": "https://github.com/M1zz/DontGoMart",
+  "bundleId": "com.leeo.donkkomart",
+  "localProjectPath": "../DontGoMart",
+  "status": "active",
+  "appStoreId": "",
+  "priority": "medium",
+  "nameEn": "Donkko Mart",
+  "recentlyCompleted": [
     "사용성 개선",
     "나의 마트 추가하는 경험 개선",
     "위젯 화면 개선"
   ],
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/돈꼬마트\/id6450387984",
-  "currentVersion" : "1.0.13",
-  "sharedModules" : [
-
-  ],
-  "stats" : {
-    "done" : 5,
-    "notStarted" : 0,
-    "inProgress" : 0,
-    "totalTasks" : 5
-  }
+  "appStoreUrl": "https://apps.apple.com/kr/app/돈꼬마트/id6450387984",
+  "currentVersion": "1.0.13",
+  "sharedModules": [],
+  "stats": {
+    "done": 5,
+    "notStarted": 0,
+    "inProgress": 0,
+    "totalTasks": 5
+  },
+  "folderId": "donkko-mart"
 }

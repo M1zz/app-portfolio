@@ -1,37 +1,34 @@
 {
-  "stats" : {
-    "done" : 0,
-    "notStarted" : 1,
-    "inProgress" : 0,
-    "totalTasks" : 1
+  "stats": {
+    "done": 0,
+    "notStarted": 1,
+    "inProgress": 0,
+    "totalTasks": 1
   },
-  "minimumOS" : "16.0",
-  "nextTasks" : [
+  "minimumOS": "16.0",
+  "nextTasks": [
     "진통기록 + 호흡을 도와주는 것 추가"
   ],
-  "notes" : "",
-  "name" : "바미로그",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/BamiLog",
-  "bundleId" : "com.leeo.bamilog",
-  "localProjectPath" : "..\/BamiLog",
-  "status" : "planning",
-  "appStoreId" : "",
-  "priority" : "medium",
-  "nameEn" : "Bami Log",
-  "recentlyCompleted" : [
-
-  ],
-  "appStoreUrl" : "https:\/\/apps.apple.com\/us\/app\/바미로그\/id1662257034",
-  "currentVersion" : "1.0.5",
-  "sharedModules" : [
-
-  ],
-  "allTasks" : [
+  "notes": "",
+  "name": "바미로그",
+  "githubRepo": "https://github.com/M1zz/BamiLog",
+  "bundleId": "com.leeo.bamilog",
+  "localProjectPath": "../BamiLog",
+  "status": "planning",
+  "appStoreId": "",
+  "priority": "medium",
+  "nameEn": "Bami Log",
+  "recentlyCompleted": [],
+  "appStoreUrl": "https://apps.apple.com/us/app/바미로그/id1662257034",
+  "currentVersion": "1.0.5",
+  "sharedModules": [],
+  "allTasks": [
     {
-      "status" : "not-started",
-      "name" : "진통기록 + 호흡을 도와주는 것 추가",
-      "targetDate" : null,
-      "targetVersion" : "1.1.0"
+      "status": "not-started",
+      "name": "진통기록 + 호흡을 도와주는 것 추가",
+      "targetDate": null,
+      "targetVersion": "1.1.0"
     }
-  ]
+  ],
+  "folderId": "bami-log"
 }

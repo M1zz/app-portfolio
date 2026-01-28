@@ -1,94 +1,91 @@
 {
-  "stats" : {
-    "done" : 0,
-    "notStarted" : 8,
-    "inProgress" : 2,
-    "totalTasks" : 10
+  "stats": {
+    "done": 0,
+    "notStarted": 8,
+    "inProgress": 2,
+    "totalTasks": 10
   },
-  "notes" : "",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/RoutineCamera",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/세끼\/id6755164924",
-  "name" : "세끼",
-  "bundleId" : "com.leeo.threemeals",
-  "sharedModules" : [
-
-  ],
-  "priority" : "high",
-  "status" : "active",
-  "currentVersion" : "1.0.3",
-  "nameEn" : "Three Meals",
-  "minimumOS" : "16.0",
-  "appStoreId" : "",
-  "recentlyCompleted" : [
-
-  ],
-  "allTasks" : [
+  "notes": "",
+  "githubRepo": "https://github.com/M1zz/RoutineCamera",
+  "appStoreUrl": "https://apps.apple.com/kr/app/세끼/id6755164924",
+  "name": "세끼",
+  "bundleId": "com.leeo.threemeals",
+  "sharedModules": [],
+  "priority": "high",
+  "status": "active",
+  "currentVersion": "1.0.3",
+  "nameEn": "Three Meals",
+  "minimumOS": "16.0",
+  "appStoreId": "",
+  "recentlyCompleted": [],
+  "allTasks": [
     {
-      "status" : "not-started",
-      "name" : "설정 바로반응",
-      "targetDate" : null,
-      "targetVersion" : "1.0.3"
+      "status": "not-started",
+      "name": "설정 바로반응",
+      "targetDate": null,
+      "targetVersion": "1.0.3"
     },
     {
-      "status" : "in-progress",
-      "name" : "식단 피드백 작성기능 추가",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "in-progress",
+      "name": "식단 피드백 작성기능 추가",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "not-started",
-      "name" : "[BUG] 식단 분석 후 이미지가 깨지는 버그 수정",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "[BUG] 식단 분석 후 이미지가 깨지는 버그 수정",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "not-started",
-      "name" : "이미 가지고 있는 추출한 재료로 줄 수 있는 정보",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "이미 가지고 있는 추출한 재료로 줄 수 있는 정보",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "not-started",
-      "name" : "좀 더 나은 운동 디자인으로 바꾸기",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "좀 더 나은 운동 디자인으로 바꾸기",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "not-started",
-      "name" : "유저가 달 성할 수 있는 목표와 앱의 목표 명확하게 하기",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "유저가 달 성할 수 있는 목표와 앱의 목표 명확하게 하기",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "not-started",
-      "name" : "추출한 식단을 바탕으로 이런거 먹으면 좋아 추천하기",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "추출한 식단을 바탕으로 이런거 먹으면 좋아 추천하기",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "not-started",
-      "name" : "사실은 오해하고있을 식단에 대한 정보와 팁",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "사실은 오해하고있을 식단에 대한 정보와 팁",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "not-started",
-      "name" : "사용자의 식단분석 보이기 감추기 토글 설정 + 이미지 작아지지 않게하기",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "not-started",
+      "name": "사용자의 식단분석 보이기 감추기 토글 설정 + 이미지 작아지지 않게하기",
+      "targetDate": null,
+      "targetVersion": null
     },
     {
-      "status" : "in-progress",
-      "name" : "간식 감추는 설정",
-      "targetDate" : null,
-      "targetVersion" : null
+      "status": "in-progress",
+      "name": "간식 감추는 설정",
+      "targetDate": null,
+      "targetVersion": null
     }
   ],
-  "localProjectPath" : "..\/RoutineCamera",
-  "nextTasks" : [
+  "localProjectPath": "../RoutineCamera",
+  "nextTasks": [
     "식단 피드백 작성기능 추가",
     "간식 감추는 설정",
     "설정 바로반응",
     "[BUG] 식단 분석 후 이미지가 깨지는 버그 수정"
-  ]
+  ],
+  "folderId": "three-meals"
 }
