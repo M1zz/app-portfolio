@@ -58,11 +58,29 @@
 3. **열 개수 설정 기능 구현** - 주요 UX 개선
 4. **버튼 크기 프리셋 구현** - 추가 UX 개선
 
+### 태스크 생성 완료 (2026-01-28 23:45)
+
+**생성된 태스크 (apps/clip-keyboard.json에 추가)**:
+1. ✅ iCloud 백업 오류 수정 (Error saving record) - v3.0.3, critical
+2. ✅ 키보드 표시명 중복 제거 - v3.0.3, high
+3. ✅ 키보드 레이아웃 열 개수 설정 기능 - v3.1.0, high
+4. ✅ 버튼 높이/글자 크기 슬라이더 조정 기능 - v3.1.0, medium
+
+**의사결정 상태**:
+- decisions-queue.json에 4개 의사결정 추가
+- 모든 의사결정에 relatedTask 연결 완료
+- pendingDecisions에 유지 (구현 시작 전)
+
+**앱 통계 업데이트**:
+- totalTasks: 24 → 28
+- notStarted: 13 → 17
+- nextTasks에 최우선 3개 태스크 배치
+
 ### 다음 액션
 - [ ] iCloud 오류 로그 수집 및 원인 분석
 - [ ] Info.plist 키보드 표시명 수정
 - [ ] 설정 화면 UI 디자인 검토
-- [ ] 구현 계획 수립
+- [ ] 구현 시작
 
 ---
 
