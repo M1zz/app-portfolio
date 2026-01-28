@@ -1511,4 +1511,44 @@ class PortfolioService: ObservableObject {
             print("❌ 앱스토어 메타데이터 업데이트 실패: \(error)")
         }
     }
+
+    // MARK: - Screenshot Management
+
+    func updateScreenshotInfo(appName: String, screenshots: ScreenshotInfo) {
+        let appFolder = getFolderName(for: appName)
+        let jsonFile = appsDirectory.appendingPathComponent("\(appFolder).json")
+
+        guard fileManager.fileExists(atPath: jsonFile.path) else {
+            print("❌ 앱 파일을 찾을 수 없습니다: \(appName)")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: jsonFile)
+            var json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+            var screenshotsDict: [String: Any] = [
+                "devices": screenshots.devices.map { device in
+                    [
+                        "id": device.id,
+                        "deviceType": device.deviceType,
+                        "isReady": device.isReady,
+                        "count": device.count
+                    ]
+                }
+            ]
+            if let folderPath = screenshots.folderPath {
+                screenshotsDict["folderPath"] = folderPath
+            }
+            json["screenshots"] = screenshotsDict
+
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
+            try jsonData.write(to: jsonFile)
+            print("✅ 스크린샷 정보 업데이트 완료: \(appName)")
+
+            loadPortfolio()
+        } catch {
+            print("❌ 스크린샷 정보 업데이트 실패: \(error)")
+        }
+    }
 }

@@ -6,6 +6,7 @@ struct DeploymentSectionView: View {
     @State private var showingChecklistManager = false
     @State private var showingVersionHistory = false
     @State private var showingMetadataEditor = false
+    @State private var showingScreenshotManager = false
 
     private var currentChecklist: DeploymentChecklist? {
         app.deploymentChecklists?.first { $0.version == app.currentVersion }
@@ -71,6 +72,20 @@ struct DeploymentSectionView: View {
                         .font(.headline)
 
                     Spacer()
+
+                    Button(action: { showingScreenshotManager = true }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "photo")
+                            Text("스크린샷")
+                        }
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.pink.opacity(0.2))
+                        .foregroundColor(.pink)
+                        .cornerRadius(6)
+                    }
+                    .buttonStyle(.plain)
 
                     Button(action: { showingMetadataEditor = true }) {
                         HStack(spacing: 4) {
@@ -237,6 +252,10 @@ struct DeploymentSectionView: View {
         }
         .sheet(isPresented: $showingMetadataEditor) {
             AppStoreMetadataEditorView(app: app)
+                .environmentObject(portfolioService)
+        }
+        .sheet(isPresented: $showingScreenshotManager) {
+            ScreenshotManagerView(app: app)
                 .environmentObject(portfolioService)
         }
     }
@@ -1305,5 +1324,177 @@ struct AppStoreMetadataEditorView: View {
         )
 
         portfolioService.updateAppStoreMetadata(appName: app.name, metadata: metadata)
+    }
+}
+
+// MARK: - Screenshot Manager
+
+struct ScreenshotManagerView: View {
+    let app: AppModel
+    @EnvironmentObject var portfolioService: PortfolioService
+    @Environment(\.dismiss) var dismiss
+
+    @State private var folderPath: String = ""
+    @State private var devices: [DeviceScreenshot] = DeviceScreenshot.defaultDevices()
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // 헤더
+            HStack {
+                Text("스크린샷 관리")
+                    .font(.headline)
+
+                Spacer()
+
+                Button("닫기") {
+                    dismiss()
+                }
+            }
+            .padding()
+
+            Divider()
+
+            // 입력 폼
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    // 폴더 경로
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("스크린샷 폴더 경로")
+                                .font(.subheadline)
+                                .bold()
+
+                            Spacer()
+
+                            if !folderPath.isEmpty {
+                                Button(action: openInFinder) {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "folder")
+                                        Text("Finder에서 열기")
+                                    }
+                                    .font(.caption)
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 4)
+                                    .background(Color.blue.opacity(0.2))
+                                    .foregroundColor(.blue)
+                                    .cornerRadius(6)
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+
+                        TextField("/Users/yourname/Screenshots", text: $folderPath)
+                            .textFieldStyle(.roundedBorder)
+
+                        Text("스크린샷이 저장된 폴더의 경로를 입력하세요")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Divider()
+
+                    // 디바이스별 체크리스트
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("디바이스별 스크린샷")
+                            .font(.subheadline)
+                            .bold()
+
+                        ForEach($devices) { $device in
+                            HStack {
+                                Button(action: {
+                                    device.isReady.toggle()
+                                }) {
+                                    Image(systemName: device.isReady ? "checkmark.circle.fill" : "circle")
+                                        .font(.title3)
+                                        .foregroundColor(device.isReady ? .green : .gray)
+                                }
+                                .buttonStyle(.plain)
+
+                                Text(device.deviceType)
+                                    .font(.body)
+
+                                Spacer()
+
+                                Stepper(value: $device.count, in: 0...10) {
+                                    Text("\(device.count)개")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                .frame(width: 120)
+                            }
+                            .padding()
+                            .background(device.isReady ? Color.green.opacity(0.05) : Color(NSColor.controlBackgroundColor))
+                            .cornerRadius(8)
+                        }
+
+                        // 진행률
+                        let readyCount = devices.filter { $0.isReady }.count
+                        let totalCount = devices.count
+                        let progress = Double(readyCount) / Double(totalCount)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                Text("\(readyCount)/\(totalCount) 완료")
+                                    .font(.subheadline)
+                                Spacer()
+                                Text("\(Int(progress * 100))%")
+                                    .font(.subheadline)
+                                    .foregroundColor(progress >= 1.0 ? .green : .secondary)
+                            }
+
+                            ProgressView(value: progress)
+                                .tint(progress >= 1.0 ? .green : .blue)
+                        }
+                        .padding(.top, 8)
+                    }
+
+                    if !folderPath.isEmpty {
+                        Text("💡 Finder에서 폴더를 열어 스크린샷을 확인하세요")
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                            .padding()
+                            .background(Color.blue.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                }
+                .padding()
+            }
+
+            Divider()
+
+            // 하단 버튼
+            HStack {
+                Spacer()
+
+                Button("저장") {
+                    saveScreenshotInfo()
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+        }
+        .frame(width: 600, height: 600)
+        .onAppear {
+            loadScreenshotInfo()
+        }
+    }
+
+    private func loadScreenshotInfo() {
+        if let screenshots = app.screenshots {
+            folderPath = screenshots.folderPath ?? ""
+            devices = screenshots.devices
+        }
+    }
+
+    private func saveScreenshotInfo() {
+        let info = ScreenshotInfo(folderPath: folderPath.isEmpty ? nil : folderPath, devices: devices)
+        portfolioService.updateScreenshotInfo(appName: app.name, screenshots: info)
+    }
+
+    private func openInFinder() {
+        let url = URL(fileURLWithPath: folderPath)
+        NSWorkspace.shared.open(url)
     }
 }

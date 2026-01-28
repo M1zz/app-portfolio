@@ -27,12 +27,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let deploymentChecklists: [DeploymentChecklist]?  // 배포 체크리스트
     let versionHistory: [VersionHistory]?  // 버전 히스토리
     let appStoreMetadata: AppStoreMetadata?  // 앱스토어 메타데이터
+    let screenshots: ScreenshotInfo?  // 스크린샷 정보
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata, screenshots
     }
 
     init(from decoder: Decoder) throws {
@@ -64,6 +65,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.deploymentChecklists = try container.decodeIfPresent([DeploymentChecklist].self, forKey: .deploymentChecklists)
         self.versionHistory = try container.decodeIfPresent([VersionHistory].self, forKey: .versionHistory)
         self.appStoreMetadata = try container.decodeIfPresent(AppStoreMetadata.self, forKey: .appStoreMetadata)
+        self.screenshots = try container.decodeIfPresent(ScreenshotInfo.self, forKey: .screenshots)
     }
 }
 
@@ -557,6 +559,42 @@ struct ReleaseNote: Identifiable, Codable, Hashable {
         self.date = date
         self.notesKo = notesKo
         self.notesEn = notesEn
+    }
+}
+
+// MARK: - Screenshot Models
+
+struct ScreenshotInfo: Codable, Hashable {
+    var folderPath: String?
+    var devices: [DeviceScreenshot]
+
+    init(folderPath: String? = nil, devices: [DeviceScreenshot] = DeviceScreenshot.defaultDevices()) {
+        self.folderPath = folderPath
+        self.devices = devices
+    }
+}
+
+struct DeviceScreenshot: Identifiable, Codable, Hashable {
+    let id: String
+    var deviceType: String
+    var isReady: Bool
+    var count: Int
+
+    init(id: String = UUID().uuidString, deviceType: String, isReady: Bool = false, count: Int = 0) {
+        self.id = id
+        self.deviceType = deviceType
+        self.isReady = isReady
+        self.count = count
+    }
+
+    static func defaultDevices() -> [DeviceScreenshot] {
+        [
+            DeviceScreenshot(deviceType: "6.7\" iPhone"),
+            DeviceScreenshot(deviceType: "6.5\" iPhone"),
+            DeviceScreenshot(deviceType: "5.5\" iPhone"),
+            DeviceScreenshot(deviceType: "12.9\" iPad Pro"),
+            DeviceScreenshot(deviceType: "11\" iPad Pro")
+        ]
     }
 }
 
