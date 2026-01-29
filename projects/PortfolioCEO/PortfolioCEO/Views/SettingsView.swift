@@ -41,12 +41,73 @@ struct SettingsView: View {
                     .foregroundColor(.secondary)
             }
 
-            Section("포트폴리오") {
-                TextField("경로", text: $portfolioPath)
+            Section("데이터 경로") {
+                // 현재 경로 상태
+                HStack {
+                    Image(systemName: portfolioService.isPathValid ? "checkmark.circle.fill" : "xmark.circle.fill")
+                        .foregroundColor(portfolioService.isPathValid ? .green : .red)
+                    Text(portfolioService.isPathValid ? "데이터 폴더 연결됨" : "데이터 폴더를 찾을 수 없음")
+                        .foregroundColor(portfolioService.isPathValid ? .primary : .red)
+                }
+
+                // 현재 사용 중인 경로
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("현재 경로:")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text(portfolioService.currentDataPath.path)
+                        .font(.system(.caption, design: .monospaced))
+                        .foregroundColor(.secondary)
+                        .textSelection(.enabled)
+                }
+
+                Divider()
+
+                // 경로 설정
+                TextField("경로 (~/로 시작 가능)", text: $portfolioPath)
                     .textFieldStyle(.roundedBorder)
 
-                Button("폴더 선택...") {
-                    selectFolder()
+                HStack(spacing: 12) {
+                    Button("폴더 선택...") {
+                        selectFolder()
+                    }
+
+                    Button("자동 감지") {
+                        autoDetectPath()
+                    }
+                    .disabled(portfolioService.isPathValid)
+                }
+
+                // 일반적인 경로 제안
+                if !portfolioService.isPathValid {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("사용 가능한 경로:")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        ForEach(portfolioService.allPossiblePaths.prefix(3), id: \.path) { path in
+                            let exists = FileManager.default.fileExists(atPath: path.appendingPathComponent("apps").path)
+                            Button(action: {
+                                portfolioPath = path.path
+                                portfolioService.loadPortfolio()
+                            }) {
+                                HStack {
+                                    Image(systemName: exists ? "folder.fill" : "folder")
+                                        .foregroundColor(exists ? .green : .gray)
+                                    Text(path.path.replacingOccurrences(of: FileManager.default.homeDirectoryForCurrentUser.path, with: "~"))
+                                        .font(.system(.caption, design: .monospaced))
+                                        .lineLimit(1)
+                                        .truncationMode(.middle)
+                                    if exists {
+                                        Text("✓")
+                                            .foregroundColor(.green)
+                                    }
+                                }
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                    .padding(.top, 4)
                 }
             }
 
@@ -238,6 +299,13 @@ struct SettingsView: View {
                 isTestingCLI = false
                 cliTestResult = result ? "연결 성공" : "CLI를 찾을 수 없음"
             }
+        }
+    }
+
+    func autoDetectPath() {
+        if let detected = portfolioService.autoDetectPath() {
+            portfolioPath = detected.path
+            portfolioService.loadPortfolio()
         }
     }
 }

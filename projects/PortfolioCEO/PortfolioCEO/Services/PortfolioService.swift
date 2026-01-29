@@ -29,6 +29,52 @@ class PortfolioService: ObservableObject {
     private var fileMonitor: DispatchSourceFileSystemObject?
     private let fileManager = FileManager.default
 
+    // MARK: - 경로 관리
+
+    /// 현재 사용 중인 데이터 경로 (외부에서 확인용)
+    var currentDataPath: URL {
+        portfolioPath
+    }
+
+    /// 경로가 유효한지 확인
+    var isPathValid: Bool {
+        fileManager.fileExists(atPath: appsDirectory.path)
+    }
+
+    /// 자동 경로 감지 시도
+    func autoDetectPath() -> URL? {
+        for path in allPossiblePaths {
+            if fileManager.fileExists(atPath: path.appendingPathComponent("apps").path) {
+                return path
+            }
+        }
+        return nil
+    }
+
+    /// 가능한 모든 경로 목록 (설정 화면에서 표시용)
+    var allPossiblePaths: [URL] {
+        var paths: [URL] = []
+        let home = fileManager.homeDirectoryForCurrentUser
+
+        // 1. CEO 프로젝트 내 Data 폴더 (개발 환경)
+        let sourceFile = URL(fileURLWithPath: #file)
+        let ceoDataPath = sourceFile
+            .deletingLastPathComponent()  // Services
+            .deletingLastPathComponent()  // PortfolioCEO
+            .appendingPathComponent("Data")
+        paths.append(ceoDataPath)
+
+        // 2. 일반적인 경로들
+        paths.append(contentsOf: [
+            home.appendingPathComponent("Documents/code/app-portfolio/projects/PortfolioCEO/PortfolioCEO/Data"),
+            home.appendingPathComponent("Documents/workspace/code/app-portfolio/projects/PortfolioCEO/PortfolioCEO/Data"),
+            home.appendingPathComponent("Developer/app-portfolio/projects/PortfolioCEO/PortfolioCEO/Data"),
+            home.appendingPathComponent("code/app-portfolio/projects/PortfolioCEO/PortfolioCEO/Data"),
+        ])
+
+        return paths
+    }
+
     // 포트폴리오 디렉토리 경로
     private var portfolioPath: URL {
         // 1. 사용자 설정 경로 확인 (Settings에서 설정)
@@ -36,45 +82,25 @@ class PortfolioService: ObservableObject {
            !savedPath.isEmpty {
             let expandedPath = NSString(string: savedPath).expandingTildeInPath
             let userPath = URL(fileURLWithPath: expandedPath)
-            let userAppsDir = userPath.appendingPathComponent("apps")
-            if fileManager.fileExists(atPath: userAppsDir.path) {
+
+            // Data 폴더 구조 확인 (신규)
+            let dataAppsDir = userPath.appendingPathComponent("apps")
+            if fileManager.fileExists(atPath: dataAppsDir.path) {
                 print("📂 사용자 설정 경로 사용: \(userPath.path)")
                 return userPath
             }
         }
 
-        // 2. 소스 파일 기준 상대 경로 시도
-        let sourceFile = URL(fileURLWithPath: #file)
-        let relativePath = sourceFile
-            .deletingLastPathComponent()  // Services
-            .deletingLastPathComponent()  // PortfolioCEO (inner)
-            .deletingLastPathComponent()  // PortfolioCEO (outer)
-            .deletingLastPathComponent()  // projects
-
-        let relativeAppsDir = relativePath.appendingPathComponent("apps")
-        if fileManager.fileExists(atPath: relativeAppsDir.path) {
-            print("📂 상대 경로 사용: \(relativePath.path)")
-            return relativePath
+        // 2. 자동 감지
+        if let detected = autoDetectPath() {
+            print("📂 자동 감지 경로 사용: \(detected.path)")
+            return detected
         }
 
-        // 3. Fallback: 홈 디렉토리 기반 절대 경로 (여러 경로 시도)
-        let home = fileManager.homeDirectoryForCurrentUser
-        let possiblePaths = [
-            home.appendingPathComponent("Documents/workspace/code/app-portfolio"),
-            home.appendingPathComponent("Documents/code/app-portfolio")
-        ]
-
-        for path in possiblePaths {
-            let appsDir = path.appendingPathComponent("apps")
-            if fileManager.fileExists(atPath: appsDir.path) {
-                print("📂 절대 경로 사용: \(path.path)")
-                return path
-            }
-        }
-
-        // 기본값 (첫 번째 경로)
-        print("📂 기본 경로 사용: \(possiblePaths[0].path)")
-        return possiblePaths[0]
+        // 3. 기본값 (첫 번째 가능한 경로)
+        let fallback = allPossiblePaths.first ?? fileManager.homeDirectoryForCurrentUser.appendingPathComponent("Documents/code/app-portfolio")
+        print("⚠️ 경로를 찾을 수 없음, 기본값 사용: \(fallback.path)")
+        return fallback
     }
 
     private var appsDirectory: URL {
