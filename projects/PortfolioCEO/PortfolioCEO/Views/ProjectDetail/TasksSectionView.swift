@@ -94,7 +94,7 @@ struct TasksSectionView: View {
                             Image(systemName: showCompletedTasks ? "eye.slash" : "eye")
                             Text(showCompletedTasks ? "완료 숨기기" : "완료 보기 (\(app.stats.done))")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
                         .background(Color.green.opacity(0.2))
@@ -120,7 +120,7 @@ struct TasksSectionView: View {
                         Text("태스크가 없습니다")
                             .font(.headline)
                         Text("태스크는 프로젝트 JSON 파일에서 관리됩니다")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                     .frame(maxWidth: .infinity)
@@ -158,7 +158,7 @@ struct TasksSectionView: View {
                                 Text("모든 태스크를 완료했습니다!")
                                     .font(.headline)
                                 Text("완료된 태스크를 보려면 '완료 보기' 버튼을 누르세요")
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                             }
                             .frame(maxWidth: .infinity)
@@ -187,7 +187,7 @@ struct TaskStatCard: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(title)
-                .font(.caption)
+                .font(.body)
                 .foregroundColor(.secondary)
             Text("\(count)")
                 .font(.system(size: 28, weight: .bold))
@@ -221,9 +221,9 @@ struct TaskRowView: View {
                         if let labels = task.labels, labels.contains("브랜치 시작") {
                             HStack(spacing: 4) {
                                 Image(systemName: "arrow.triangle.branch")
-                                    .font(.caption2)
+                                    .font(.body)
                                 Text("브랜치 시작")
-                                    .font(.caption2)
+                                    .font(.body)
                             }
                             .padding(.horizontal, 6)
                             .padding(.vertical, 3)
@@ -236,12 +236,12 @@ struct TaskRowView: View {
                     HStack(spacing: 12) {
                         if let targetDate = task.targetDate {
                             Label(targetDate, systemImage: "calendar")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
                         if let targetVersion = task.targetVersion {
                             Label("v\(targetVersion)", systemImage: "number.circle")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
 
@@ -249,7 +249,7 @@ struct TaskRowView: View {
                         if let labels = task.labels {
                             ForEach(labels.filter { $0 != "브랜치 시작" }, id: \.self) { label in
                                 Text(label)
-                                    .font(.caption2)
+                                    .font(.body)
                                     .padding(.horizontal, 6)
                                     .padding(.vertical, 2)
                                     .background(Color.gray.opacity(0.2))
@@ -277,7 +277,7 @@ struct TaskRowView: View {
                 HStack(spacing: 4) {
                     Image(systemName: task.status.icon)
                     Text(task.status.displayName)
-                        .font(.caption)
+                        .font(.body)
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
@@ -514,7 +514,7 @@ struct TaskVersionSheet: View {
                 }
 
                 Text("버전을 설정하면 배포 탭에서 버전별로 태스크를 그룹화해서 볼 수 있습니다")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
             .padding()
@@ -585,7 +585,7 @@ struct TaskCommitSheet: View {
                     )
 
                 Text("변경사항을 커밋하고 태스크를 완료 처리합니다")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
 

@@ -31,13 +31,13 @@ struct SettingsView: View {
 
                     if let result = cliTestResult {
                         Text(result)
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(result.contains("성공") ? .green : .red)
                     }
                 }
 
                 Text("Claude Code Max 구독이 필요합니다. API 크레딧은 필요하지 않습니다.")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
 
@@ -53,10 +53,10 @@ struct SettingsView: View {
                 // 현재 사용 중인 경로
                 VStack(alignment: .leading, spacing: 4) {
                     Text("현재 경로:")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                     Text(portfolioService.currentDataPath.path)
-                        .font(.system(.caption, design: .monospaced))
+                        .font(.system(.body, design: .monospaced))
                         .foregroundColor(.secondary)
                         .textSelection(.enabled)
                 }
@@ -82,7 +82,7 @@ struct SettingsView: View {
                 if !portfolioService.isPathValid {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("사용 가능한 경로:")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
 
                         ForEach(portfolioService.allPossiblePaths.prefix(3), id: \.path) { path in
@@ -95,7 +95,7 @@ struct SettingsView: View {
                                     Image(systemName: exists ? "folder.fill" : "folder")
                                         .foregroundColor(exists ? .green : .gray)
                                     Text(path.path.replacingOccurrences(of: FileManager.default.homeDirectoryForCurrentUser.path, with: "~"))
-                                        .font(.system(.caption, design: .monospaced))
+                                        .font(.system(.body, design: .monospaced))
                                         .lineLimit(1)
                                         .truncationMode(.middle)
                                     if exists {
@@ -189,10 +189,10 @@ struct SettingsView: View {
                 // 동기화 정보
                 VStack(alignment: .leading, spacing: 4) {
                     Text("동기화 대상: \(portfolioService.apps.count)개 앱")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                     Text("CEOfeedback iOS 앱과 데이터가 동기화됩니다.")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
             }

@@ -149,7 +149,7 @@ struct MissingInfoAlertCard: View {
                                 // 첫 번째 필수 피드백 메시지
                                 if let firstRequired = app.missingInfoFeedbacks.filter({ $0.severity == .required }).first {
                                     Text(firstRequired.message)
-                                        .font(.caption)
+                                        .font(.body)
                                         .foregroundColor(.red)
                                 }
                             }
@@ -168,7 +168,7 @@ struct MissingInfoAlertCard: View {
 
                 if appsWithMissingInfo.count > 5 {
                     Text("외 \(appsWithMissingInfo.count - 5)개 더 있음")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                         .padding(.leading, 12)
                 }
@@ -252,16 +252,16 @@ struct VersionChangesAlertCard: View {
 
                             HStack(spacing: 4) {
                                 Text(change.currentVersion)
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                                     .strikethrough()
 
                                 Image(systemName: "arrow.right")
-                                    .font(.caption2)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
 
                                 Text(change.detectedVersion)
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.blue)
                                     .fontWeight(.semibold)
                             }
@@ -331,7 +331,7 @@ struct KPICard: View {
                 Image(systemName: icon)
                     .foregroundColor(color)
                 Text(title)
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
 
@@ -340,7 +340,7 @@ struct KPICard: View {
                 .foregroundColor(color)
 
             Text(subtitle)
-                .font(.caption)
+                .font(.body)
                 .foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -386,7 +386,7 @@ struct AppProgressRow: View {
                 Spacer()
 
                 Text("\(Int(app.completionRate))%")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
 
@@ -395,7 +395,7 @@ struct AppProgressRow: View {
 
             if let nextTask = app.nextTasks.first {
                 Text("다음: \(nextTask)")
-                    .font(.caption2)
+                    .font(.body)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
             }
@@ -440,7 +440,7 @@ struct ProgressChartCard: View {
                     .frame(height: 200)
                 } else {
                     Text("차트는 macOS 14.0 이상에서 지원됩니다")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -449,7 +449,7 @@ struct ProgressChartCard: View {
                     LegendItem(color: .orange, label: "진행 중", value: overview.totalInProgress)
                     LegendItem(color: .gray, label: "대기", value: overview.totalNotStarted)
                 }
-                .font(.caption)
+                .font(.body)
             }
         }
         .padding()
@@ -483,7 +483,7 @@ struct RecentActivityCard: View {
                 .font(.headline)
 
             Text("여기에 최근 완료된 태스크들이 표시됩니다")
-                .font(.caption)
+                .font(.body)
                 .foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -512,7 +512,7 @@ struct RiskAlertsCard: View {
                         Text(app.name)
                             .fontWeight(.medium)
                         Text("진행률: \(Int(app.completionRate))% - 정체 중")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -552,7 +552,7 @@ struct AIFeedbackAnalysisCard: View {
                         Text("AI 피드백 분석")
                             .font(.headline)
                         Text("모든 프로젝트의 피드백을 분석하여 기능 제안을 생성합니다")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -589,7 +589,7 @@ struct AIFeedbackAnalysisCard: View {
                                         .font(.body)
                                         .fontWeight(.medium)
                                     Text("\(suggestions.count)개의 기능 제안 생성됨")
-                                        .font(.caption)
+                                        .font(.body)
                                         .foregroundColor(.secondary)
                                 }
 
@@ -599,7 +599,7 @@ struct AIFeedbackAnalysisCard: View {
                                     Image(systemName: "checkmark.circle.fill")
                                         .foregroundColor(.green)
                                     Text("\(suggestions.count)")
-                                        .font(.caption)
+                                        .font(.body)
                                         .fontWeight(.bold)
                                         .foregroundColor(.green)
                                 }
@@ -616,7 +616,7 @@ struct AIFeedbackAnalysisCard: View {
                     Image(systemName: "info.circle")
                         .foregroundColor(.blue)
                     Text("분석 버튼을 눌러 모든 프로젝트의 피드백을 분석하세요")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
                 .padding()
@@ -652,7 +652,7 @@ struct PlanningDocumentCard: View {
                         Text("기획서 생성")
                             .font(.headline)
                         Text("피드백을 바탕으로 마크다운 기획서를 자동 생성합니다")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -703,7 +703,7 @@ struct PlanningDocumentCard: View {
             HStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("포함 내용")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                     VStack(alignment: .leading, spacing: 2) {
                         FeatureBadge(icon: "bubble.left.fill", text: "피드백 분석")
@@ -717,13 +717,13 @@ struct PlanningDocumentCard: View {
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("출력 형식")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                     HStack(spacing: 8) {
                         Image(systemName: "doc.plaintext")
                             .foregroundColor(.purple)
                         Text("Markdown (.md)")
-                            .font(.caption)
+                            .font(.body)
                             .fontWeight(.medium)
                     }
                 }
@@ -745,10 +745,10 @@ struct FeatureBadge: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: icon)
-                .font(.caption2)
+                .font(.body)
                 .foregroundColor(.purple)
             Text(text)
-                .font(.caption2)
+                .font(.body)
         }
     }
 }
@@ -784,7 +784,7 @@ struct ProjectPickerPopover: View {
                                 Spacer()
 
                                 Text("v\(app.currentVersion)")
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                             }
                             .padding(.horizontal)
@@ -953,7 +953,7 @@ struct StageCard: View {
                     Image(systemName: icon)
                         .foregroundColor(color)
                     Text(stage)
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -964,7 +964,7 @@ struct StageCard: View {
                 // 앱 이름 리스트
                 if appsInThisStage.isEmpty {
                     Text("없음")
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.secondary)
                         .italic()
                 } else {
@@ -972,14 +972,14 @@ struct StageCard: View {
                         ForEach(appsInThisStage.prefix(3)) { app in
                             HStack(spacing: 4) {
                                 Text("• \(app.name)")
-                                    .font(.caption2)
+                                    .font(.body)
                                     .foregroundColor(.primary)
                                     .lineLimit(1)
 
                                 // 필수 정보 누락 표시
                                 if !app.hasRequiredInfo {
                                     Image(systemName: "exclamationmark.circle.fill")
-                                        .font(.caption2)
+                                        .font(.body)
                                         .foregroundColor(.red)
                                 }
                             }
@@ -987,7 +987,7 @@ struct StageCard: View {
 
                         if appsInThisStage.count > 3 {
                             Text("외 \(appsInThisStage.count - 3)개")
-                                .font(.caption2)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                                 .italic()
                         }
@@ -1076,7 +1076,7 @@ struct AppListSheet: View {
                                     let requiredFeedbacks = app.missingInfoFeedbacks.filter { $0.severity == .required }
                                     if !requiredFeedbacks.isEmpty {
                                         Text(requiredFeedbacks.first!.message)
-                                            .font(.caption)
+                                            .font(.body)
                                             .foregroundColor(.red)
                                     }
                                 }
@@ -1171,7 +1171,7 @@ struct ProjectInfoSheet: View {
                             TextField("예: ~/Projects/MyApp", text: $localProjectPath)
                                 .textFieldStyle(.roundedBorder)
                             Text("Xcode 프로젝트가 있는 폴더 경로를 입력하세요")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
 
@@ -1267,7 +1267,7 @@ struct AppWorkflowItem: View {
         VStack(alignment: .leading, spacing: 8) {
             // 앱 이름
             Text(app.name)
-                .font(.caption)
+                .font(.body)
                 .fontWeight(.medium)
                 .lineLimit(1)
 
@@ -1279,7 +1279,7 @@ struct AppWorkflowItem: View {
                         .frame(width: 6, height: 6)
 
                     Text(status.statusDescription)
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.secondary)
                         .lineLimit(1)
                 }
@@ -1288,25 +1288,25 @@ struct AppWorkflowItem: View {
                 HStack(spacing: 8) {
                     if status.feedbackCount > 0 {
                         Label("\(status.feedbackCount)", systemImage: "bubble.left.fill")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.blue)
                     }
 
                     if status.pendingDecisionCount > 0 {
                         Label("\(status.pendingDecisionCount)", systemImage: "checkmark.circle.fill")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.purple)
                     }
 
                     if status.feedbackCount == 0 && status.pendingDecisionCount == 0 {
                         Label("0", systemImage: "exclamationmark.triangle.fill")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.orange)
                     }
                 }
             } else {
                 Text("상태 없음")
-                    .font(.caption2)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
         }
@@ -1381,7 +1381,7 @@ struct iCloudSyncCard: View {
                         .font(.headline)
 
                     Text(syncStatus.description)
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(syncStatus.color)
                 }
 
@@ -1415,7 +1415,7 @@ struct iCloudSyncCard: View {
                 // 앱 개수
                 VStack(alignment: .leading, spacing: 4) {
                     Text("동기화 대상")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                     HStack(spacing: 4) {
                         Image(systemName: "app.fill")
@@ -1431,7 +1431,7 @@ struct iCloudSyncCard: View {
                 // 마지막 동기화 시간
                 VStack(alignment: .trailing, spacing: 4) {
                     Text("마지막 동기화")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                     if let lastSync = cloudKitService.lastSyncDate {
                         Text(lastSync, style: .relative)
@@ -1451,13 +1451,13 @@ struct iCloudSyncCard: View {
                     .foregroundColor(cloudKitService.isCloudKitAvailable ? .green : .red)
 
                 Text(cloudKitService.isCloudKitAvailable ? "CloudKit 연결됨" : "CloudKit 연결 안됨")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(cloudKitService.isCloudKitAvailable ? .green : .red)
 
                 Spacer()
 
                 Text("CEOfeedback 앱과 동기화됩니다")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
             .padding(8)

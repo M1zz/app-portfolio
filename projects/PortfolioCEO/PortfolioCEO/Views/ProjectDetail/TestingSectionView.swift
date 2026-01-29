@@ -118,7 +118,7 @@ struct TestingSectionView: View {
                     Text("테스트 케이스가 없습니다")
                         .font(.headline)
                     Text("테스트 추가 버튼을 눌러 테스트를 작성하세요")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity)
@@ -215,7 +215,7 @@ struct TestStatCard: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(title)
-                .font(.caption)
+                .font(.body)
                 .foregroundColor(.secondary)
             Text("\(count)")
                 .font(.system(size: 28, weight: .bold))
@@ -249,7 +249,7 @@ struct TestCaseCard: View {
                     }
 
                     Text(formatDate(testCase.createdAt))
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -258,7 +258,7 @@ struct TestCaseCard: View {
                 Button(action: onDelete) {
                     Image(systemName: "trash")
                         .foregroundColor(.red)
-                        .font(.caption)
+                        .font(.body)
                 }
                 .buttonStyle(.plain)
             }
@@ -305,10 +305,10 @@ struct TestCaseCard: View {
                         Image(systemName: testCase.status.icon)
                             .foregroundColor(testCase.status.color)
                         Text(testCase.status.rawValue)
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(testCase.status.color)
                         Image(systemName: "chevron.down")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(testCase.status.color)
                     }
                     .padding(.horizontal, 8)
@@ -326,9 +326,9 @@ struct TestCaseCard: View {
                 HStack(spacing: 4) {
                     Image(systemName: "clock.fill")
                         .foregroundColor(testCase.status.color)
-                        .font(.caption2)
+                        .font(.body)
                     Text("테스트: \(formatDate(testedAt))")
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(testCase.status.color)
                 }
             }

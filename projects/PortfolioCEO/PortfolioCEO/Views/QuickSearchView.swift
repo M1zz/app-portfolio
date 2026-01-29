@@ -56,14 +56,14 @@ struct QuickSearchView: View {
                                 Text(app.name)
                                     .font(.body)
                                 Text(app.nameEn)
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                             }
 
                             Spacer()
 
                             Text("\(Int(app.completionRate))%")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
                     }

@@ -15,7 +15,7 @@ struct PlanningDocumentView: View {
                         .font(.title2)
                         .bold()
                     Text("\(document.components(separatedBy: "\n").count) 줄")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 

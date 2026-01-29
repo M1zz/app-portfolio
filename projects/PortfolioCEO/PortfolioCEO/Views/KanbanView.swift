@@ -192,7 +192,7 @@ struct KanbanView: View {
                         .font(.title2)
                         .bold()
                     Text("전체 앱의 태스크를 한눈에 관리합니다")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -211,7 +211,7 @@ struct KanbanView: View {
                 // 완료 토글
                 Toggle(isOn: $showCompleted) {
                     Text("완료 표시")
-                        .font(.caption)
+                        .font(.body)
                 }
                 .toggleStyle(.switch)
                 .padding(.leading, 16)
@@ -264,7 +264,7 @@ struct CollapsedKanbanColumnView: View {
                 Text(column.rawValue)
                     .font(.headline)
                 Text("\(count)")
-                    .font(.caption)
+                    .font(.body)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 2)
                     .background(column.color.opacity(0.2))
@@ -277,7 +277,7 @@ struct CollapsedKanbanColumnView: View {
                     Image(systemName: "eye")
                         .font(.title3)
                     Text("펼치기")
-                        .font(.caption)
+                        .font(.body)
                 }
                 .foregroundColor(.secondary)
                 .frame(maxWidth: .infinity)
@@ -312,7 +312,7 @@ struct KanbanColumnView: View {
                     .font(.headline)
                 Spacer()
                 Text("\(tasks.count)")
-                    .font(.caption)
+                    .font(.body)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 2)
                     .background(column.color.opacity(0.2))
@@ -328,7 +328,7 @@ struct KanbanColumnView: View {
                 LazyVStack(spacing: 8) {
                     if tasks.isEmpty {
                         Text("태스크 없음")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 40)
@@ -366,7 +366,7 @@ struct KanbanTaskCard: View {
                         .fill(item.app.priorityColor)
                         .frame(width: 6, height: 6)
                     Text(item.app.name)
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
             }
@@ -380,13 +380,13 @@ struct KanbanTaskCard: View {
             HStack(spacing: 8) {
                 if let targetDate = item.task.targetDate {
                     Label(targetDate, systemImage: "calendar")
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
                 if let targetVersion = item.task.targetVersion {
                     Label("v\(targetVersion)", systemImage: "number.circle")
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -398,7 +398,7 @@ struct KanbanTaskCard: View {
                 HStack(spacing: 4) {
                     ForEach(labels.prefix(3), id: \.self) { label in
                         Text(label)
-                            .font(.caption2)
+                            .font(.body)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(labelColor(for: label).opacity(0.2))
@@ -408,7 +408,7 @@ struct KanbanTaskCard: View {
 
                     if labels.count > 3 {
                         Text("+\(labels.count - 3)")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -495,7 +495,7 @@ struct AppKanbanView: View {
                 // 완료 토글
                 Toggle(isOn: $showCompleted) {
                     Text("완료 표시")
-                        .font(.caption)
+                        .font(.body)
                 }
                 .toggleStyle(.switch)
             }

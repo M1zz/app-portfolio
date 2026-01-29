@@ -44,7 +44,7 @@ struct AIAssistantView: View {
                     .padding()
 
                 Text("Claude Code SDK")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.green)
                     .padding(.horizontal)
                     .padding(.bottom, 8)

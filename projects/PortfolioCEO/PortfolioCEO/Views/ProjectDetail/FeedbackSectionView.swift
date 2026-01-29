@@ -90,7 +90,7 @@ struct FeedbackSectionView: View {
                     Text("아직 메모가 없습니다")
                         .font(.headline)
                     Text("메모 추가 버튼을 눌러 피드백을 작성하세요")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity)
@@ -252,7 +252,7 @@ struct NoteCard: View {
                         .foregroundColor(.primary)
 
                     Text(formatDate(note.createdAt))
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -261,7 +261,7 @@ struct NoteCard: View {
                 Button(action: onDelete) {
                     Image(systemName: "trash")
                         .foregroundColor(.red)
-                        .font(.caption)
+                        .font(.body)
                 }
                 .buttonStyle(.plain)
             }
@@ -306,10 +306,10 @@ struct NoteCard: View {
                         Image(systemName: note.status.icon)
                             .foregroundColor(note.status.color)
                         Text(note.status.rawValue)
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(note.status.color)
                         Image(systemName: "chevron.down")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(note.status.color)
                     }
                     .padding(.horizontal, 8)
@@ -327,13 +327,13 @@ struct NoteCard: View {
                 HStack(spacing: 4) {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.green)
-                        .font(.caption2)
+                        .font(.body)
                     Text("처리 완료: \(formatDate(completedAt))")
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.green)
                     if let version = note.completedVersion {
                         Text("(v\(version))")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.green)
                     }
                 }

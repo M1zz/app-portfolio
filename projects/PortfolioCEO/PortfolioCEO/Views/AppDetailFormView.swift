@@ -117,7 +117,7 @@ struct AppDetailFormView: View {
 
                 VStack(alignment: .trailing, spacing: 4) {
                     Text("저장된 앱")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                     Text("\(detailService.appDetails.count)개")
                         .font(.title2)
@@ -165,7 +165,7 @@ struct AppDetailFormView: View {
             Text(inputMode == .existingApp
                 ? "기존 23개 앱 중 선택하여 상세 정보를 입력합니다"
                 : "완전히 새로운 앱의 모든 정보를 입력합니다")
-                .font(.caption)
+                .font(.body)
                 .foregroundColor(.secondary)
         }
     }
@@ -200,7 +200,7 @@ struct AppDetailFormView: View {
                         // 수정 중 표시
                         if isEditingExistingData {
                             Text("수정 중")
-                                .font(.caption)
+                                .font(.body)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
                                 .background(Color.orange.opacity(0.2))
@@ -209,7 +209,7 @@ struct AppDetailFormView: View {
                         }
 
                         Text("v\(app.currentVersion)")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -218,7 +218,7 @@ struct AppDetailFormView: View {
                         Spacer()
                         Text("우선순위: \(app.priority.displayName)")
                     }
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
                 }
                 .padding()
@@ -255,7 +255,7 @@ struct AppDetailFormView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     Text("선택사항")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.gray)
                 }
 
@@ -269,7 +269,7 @@ struct AppDetailFormView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     Text("선택사항 - 자동 생성됨")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.gray)
                 }
 
@@ -278,7 +278,7 @@ struct AppDetailFormView: View {
 
                 if !appFolder.isEmpty && !isValidFolderName(appFolder) {
                     Text("⚠️ 영문 소문자와 하이픈(-)만 사용하세요")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.red)
                 }
             }
@@ -306,7 +306,7 @@ struct AppDetailFormView: View {
                     .textFieldStyle(.roundedBorder)
 
                 Text("실제 소스 코드가 있는 경로를 입력하세요. 없으면 '없음'을 입력하세요.")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
 
@@ -316,7 +316,7 @@ struct AppDetailFormView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     Text("(선택사항)")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.gray)
                 }
 
@@ -326,7 +326,7 @@ struct AppDetailFormView: View {
                     .border(Color.gray.opacity(0.2), width: 1)
 
                 Text("이 앱이 무엇을 하는 앱인지 간단히 설명하세요.")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
         }
@@ -340,7 +340,7 @@ struct AppDetailFormView: View {
                 Text("2. 주요 기능")
                     .font(.headline)
                 Text("(선택사항)")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.gray)
             }
 
@@ -380,7 +380,7 @@ struct AppDetailFormView: View {
                 Text("3. 기술 스택")
                     .font(.headline)
                 Text("(선택사항)")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.gray)
             }
 
@@ -488,7 +488,7 @@ struct AppDetailFormView: View {
                 Text("4. 제약사항 / 주의사항")
                     .font(.headline)
                 Text("(선택사항)")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.gray)
             }
 
@@ -528,7 +528,7 @@ struct AppDetailFormView: View {
                 Text("5. 기타 메모")
                     .font(.headline)
                 Text("(선택사항)")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.gray)
             }
 
@@ -538,7 +538,7 @@ struct AppDetailFormView: View {
                 .border(Color.gray.opacity(0.2), width: 1)
 
             Text("추가로 알아야 할 사항이 있으면 자유롭게 작성하세요.")
-                .font(.caption)
+                .font(.body)
                 .foregroundColor(.secondary)
         }
     }
@@ -550,40 +550,40 @@ struct AppDetailFormView: View {
             if !canSave {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("⚠️ 필수 항목을 입력하세요:")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.red)
                         .fontWeight(.bold)
 
                     if inputMode == .existingApp {
                         if selectedApp == nil {
                             Text("  • 앱 선택")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.red)
                         }
                         if sourcePath.isEmpty {
                             Text("  • 프로젝트 경로")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.red)
                         }
                     } else {
                         if appName.isEmpty {
                             Text("  • 앱 이름")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.red)
                         }
                         if sourcePath.isEmpty {
                             Text("  • 프로젝트 경로")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.red)
                         }
                         if !appFolder.isEmpty && !isValidFolderName(appFolder) {
                             Text("  • 폴더명 형식 오류 (영문 소문자, 하이픈만)")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.red)
                         }
                         if sourcePath.isEmpty {
                             Text("  • 소스 코드 경로")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.red)
                         }
                     }

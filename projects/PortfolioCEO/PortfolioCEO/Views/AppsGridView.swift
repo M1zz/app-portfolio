@@ -400,7 +400,7 @@ struct AddAppSheet: View {
                         }
 
                         Text("App Store에 표시되는 가격을 입력하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -442,7 +442,7 @@ struct AddAppSheet: View {
                         }
 
                         Text("App Store에 표시되는 구독 가격을 입력하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -620,11 +620,11 @@ struct FilterChip: View {
         Button(action: onTap) {
             HStack(spacing: 6) {
                 Image(systemName: filter.icon)
-                    .font(.caption)
+                    .font(.body)
                 Text("\(count)")
                     .fontWeight(.semibold)
                 Text(filter.rawValue)
-                    .font(.caption)
+                    .font(.body)
             }
             .foregroundColor(isSelected ? .white : filter.color)
             .padding(.horizontal, 12)
@@ -653,13 +653,13 @@ struct AppCard: View {
                 Spacer()
 
                 Text("v\(app.currentVersion)")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
 
             HStack {
                 Text(app.status.displayName)
-                    .font(.caption)
+                    .font(.body)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .background(app.statusColor.opacity(0.2))
@@ -670,7 +670,7 @@ struct AppCard: View {
 
                 if app.stats.totalTasks > 0 {
                     Text("\(app.stats.done)/\(app.todoCount) 완료")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
             }
@@ -726,11 +726,11 @@ struct EnhancedAppCard: View {
             // 상단: 워크플로우 상태 바
             HStack(spacing: 6) {
                 Image(systemName: workflowStageIcon)
-                    .font(.caption2)
+                    .font(.body)
                     .foregroundColor(workflowStageColor)
 
                 Text(workflowStatus?.statusDescription ?? "대기")
-                    .font(.caption2)
+                    .font(.body)
                     .fontWeight(.medium)
                     .foregroundColor(workflowStageColor)
 
@@ -739,7 +739,7 @@ struct EnhancedAppCard: View {
                 // 필수 정보 누락 경고
                 if !app.hasRequiredInfo {
                     Image(systemName: "exclamationmark.triangle.fill")
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.red)
                 }
             }
@@ -764,7 +764,7 @@ struct EnhancedAppCard: View {
                     // 가격 표시
                     if let price = app.price {
                         Text(price.displayPrice)
-                            .font(.caption)
+                            .font(.body)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(priceBackgroundColor(for: price))
@@ -773,7 +773,7 @@ struct EnhancedAppCard: View {
                     }
 
                     Text("v\(app.currentVersion)")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -783,9 +783,9 @@ struct EnhancedAppCard: View {
                     if let status = workflowStatus, status.feedbackCount > 0 {
                         HStack(spacing: 4) {
                             Image(systemName: "bubble.left.fill")
-                                .font(.caption2)
+                                .font(.body)
                             Text("\(status.feedbackCount)")
-                                .font(.caption2)
+                                .font(.body)
                                 .fontWeight(.medium)
                         }
                         .foregroundColor(.blue)
@@ -795,9 +795,9 @@ struct EnhancedAppCard: View {
                     if let status = workflowStatus, status.pendingDecisionCount > 0 {
                         HStack(spacing: 4) {
                             Image(systemName: "lightbulb.fill")
-                                .font(.caption2)
+                                .font(.body)
                             Text("\(status.pendingDecisionCount)")
-                                .font(.caption2)
+                                .font(.body)
                                 .fontWeight(.medium)
                         }
                         .foregroundColor(.yellow)
@@ -807,9 +807,9 @@ struct EnhancedAppCard: View {
                     if app.stats.totalTasks > 0 {
                         HStack(spacing: 4) {
                             Image(systemName: "checklist")
-                                .font(.caption2)
+                                .font(.body)
                             Text("\(app.stats.done)/\(app.todoCount)")
-                                .font(.caption2)
+                                .font(.body)
                                 .fontWeight(.medium)
                         }
                         .foregroundColor(.purple)
@@ -823,11 +823,11 @@ struct EnhancedAppCard: View {
                 if completionPercent < 100 {
                     HStack(spacing: 8) {
                         Image(systemName: "folder.fill")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.orange)
 
                         Text("정보 \(completionPercent)%")
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.orange)
 
                         Spacer()
@@ -836,9 +836,9 @@ struct EnhancedAppCard: View {
                         if !app.nextTasks.isEmpty {
                             HStack(spacing: 4) {
                                 Image(systemName: "list.bullet")
-                                    .font(.caption2)
+                                    .font(.body)
                                 Text("\(app.nextTasks.count)개")
-                                    .font(.caption2)
+                                    .font(.body)
                             }
                             .foregroundColor(.secondary)
                         }
@@ -851,9 +851,9 @@ struct EnhancedAppCard: View {
                         if !app.nextTasks.isEmpty {
                             HStack(spacing: 4) {
                                 Image(systemName: "list.bullet")
-                                    .font(.caption2)
+                                    .font(.body)
                                 Text("\(app.nextTasks.count)개")
-                                    .font(.caption2)
+                                    .font(.body)
                             }
                             .foregroundColor(.secondary)
                         }

@@ -116,10 +116,10 @@ struct AppRowView: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(app.name)
-                    .font(.caption)
+                    .font(.body)
 
                 Text("\(app.stats.done)/\(app.stats.totalTasks)")
-                    .font(.caption2)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
         }

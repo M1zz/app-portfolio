@@ -39,7 +39,7 @@ struct PlanningSectionView: View {
 
                     if !appPendingDecisions.isEmpty {
                         Text("\(appPendingDecisions.count)개 대기 중")
-                            .font(.caption)
+                            .font(.body)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Color.orange.opacity(0.2))
@@ -72,7 +72,7 @@ struct PlanningSectionView: View {
                                 Image(systemName: "arrow.clockwise")
                                 Text("새로고침")
                             }
-                            .font(.caption)
+                            .font(.body)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Color.gray.opacity(0.2))
@@ -123,7 +123,7 @@ struct PlanningSectionView: View {
                         Spacer()
 
                         Text("\(appCompletedDecisions.count)개 완료")
-                            .font(.caption)
+                            .font(.body)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Color.green.opacity(0.2))
@@ -177,7 +177,7 @@ struct PlanningSectionView: View {
                         Text("아직 기획서가 없습니다")
                             .font(.headline)
                         Text("AI 기획서 생성 버튼을 눌러 피드백 기반 기획서를 만드세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                     }
@@ -220,7 +220,7 @@ struct PlanningSectionView: View {
                         Text("아직 기능 제안이 없습니다")
                             .font(.headline)
                         Text("AI 제안 생성 버튼을 눌러 기능을 제안받으세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                     .frame(maxWidth: .infinity)
@@ -737,7 +737,7 @@ struct PlanningFeatureCard: View {
                 // 상태 배지
                 HStack(spacing: 4) {
                     Text(suggestion.status.rawValue)
-                        .font(.caption)
+                        .font(.body)
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
@@ -748,7 +748,7 @@ struct PlanningFeatureCard: View {
 
             HStack(spacing: 12) {
                 Label("우선순위: \(suggestion.priority)", systemImage: "flag.fill")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.blue)
             }
 
@@ -809,14 +809,14 @@ struct DecisionRecordCard: View {
                 Image(systemName: decision.type.icon)
                     .foregroundColor(decision.type.color)
                 Text(decision.type.rawValue)
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(decision.type.color)
             }
             Text(decision.content)
                 .font(.body)
                 .lineLimit(2)
             Text(formatDate(decision.createdAt))
-                .font(.caption2)
+                .font(.body)
                 .foregroundColor(.secondary)
         }
         .padding()
@@ -955,13 +955,13 @@ struct PlanningOptionCard: View {
                     HStack(spacing: 12) {
                         if !option.period.isEmpty {
                             Label(option.period, systemImage: "clock")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
 
                         if !option.cost.isEmpty {
                             Label(option.cost, systemImage: "dollarsign.circle")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
                     }
@@ -971,7 +971,7 @@ struct PlanningOptionCard: View {
 
                 // 상태 배지
                 Text(option.status.label)
-                    .font(.caption)
+                    .font(.body)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .background(option.status.color.opacity(0.2))
@@ -1054,7 +1054,7 @@ struct GeneratedDocumentCard: View {
                         .foregroundColor(.primary)
 
                     Text(formatDate(document.createdAt))
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -1093,7 +1093,7 @@ struct GeneratedDocumentCard: View {
 
                 if options.isEmpty {
                     Text("옵션을 파싱하는 중...")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                         .padding(.vertical, 8)
                 } else {
@@ -1220,7 +1220,7 @@ struct MarkdownDocumentViewer: View {
                         .font(.title2)
                         .bold()
                     Text(formatDate(document.createdAt))
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
 
@@ -1326,7 +1326,7 @@ struct AppDecisionCard: View {
             // 요약 정보 (축소 시)
             if !isExpanded {
                 Text(decision.description)
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
                     .lineLimit(2)
 
@@ -1335,7 +1335,7 @@ struct AppDecisionCard: View {
                         Image(systemName: "sparkles")
                             .foregroundColor(.yellow)
                         Text("AI 추천: \(recommended.label)")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -1352,7 +1352,7 @@ struct AppDecisionCard: View {
                             .font(.subheadline)
                             .bold()
                         Text(decision.description)
-                            .font(.caption)
+                            .font(.body)
                     }
 
                     // 비즈니스 임팩트
@@ -1361,7 +1361,7 @@ struct AppDecisionCard: View {
                             .font(.subheadline)
                             .bold()
                         Text(decision.businessImpact)
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.orange)
                     }
 
@@ -1396,7 +1396,7 @@ struct AppDecisionCard: View {
                                     .bold()
                             }
                             Text(decision.aiReasoning)
-                                .font(.caption)
+                                .font(.body)
                                 .padding()
                                 .background(Color.yellow.opacity(0.1))
                                 .cornerRadius(8)
@@ -1463,7 +1463,7 @@ struct DecisionOptionCard: View {
 
                     if isRecommended {
                         Text("추천")
-                            .font(.caption2)
+                            .font(.body)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(Color.yellow)
@@ -1473,7 +1473,7 @@ struct DecisionOptionCard: View {
                     Spacer()
 
                     Text(option.estimatedTime)
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
 
                     if isSelected {
@@ -1486,14 +1486,14 @@ struct DecisionOptionCard: View {
                 }
 
                 Text(option.description)
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
 
                 // 장단점
                 HStack(alignment: .top, spacing: 16) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("장점")
-                            .font(.caption2)
+                            .font(.body)
                             .bold()
                             .foregroundColor(.green)
                         ForEach(option.pros, id: \.self) { pro in
@@ -1501,14 +1501,14 @@ struct DecisionOptionCard: View {
                                 Text("•")
                                 Text(pro)
                             }
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         }
                     }
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text("단점")
-                            .font(.caption2)
+                            .font(.body)
                             .bold()
                             .foregroundColor(.red)
                         ForEach(option.cons, id: \.self) { con in
@@ -1516,7 +1516,7 @@ struct DecisionOptionCard: View {
                                 Text("•")
                                 Text(con)
                             }
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         }
                     }
@@ -1539,7 +1539,7 @@ struct DecisionPriorityBadge: View {
 
     var body: some View {
         Text(priority.uppercased())
-            .font(.caption2)
+            .font(.body)
             .bold()
             .padding(.horizontal, 6)
             .padding(.vertical, 2)
@@ -1567,7 +1567,7 @@ struct DecisionUrgencyBadge: View {
             Image(systemName: urgencyIcon)
             Text(urgency.uppercased())
         }
-        .font(.caption2)
+        .font(.body)
         .padding(.horizontal, 6)
         .padding(.vertical, 2)
         .background(Color.gray.opacity(0.2))
@@ -1613,9 +1613,9 @@ struct CompletedDecisionHistoryCard: View {
                             if tasksCreated {
                                 HStack(spacing: 4) {
                                     Image(systemName: "list.bullet.circle.fill")
-                                        .font(.caption2)
+                                        .font(.body)
                                     Text("태스크 생성 완료")
-                                        .font(.caption2)
+                                        .font(.body)
                                 }
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 3)
@@ -1627,9 +1627,9 @@ struct CompletedDecisionHistoryCard: View {
                             // 의사결정 완료
                             HStack(spacing: 4) {
                                 Image(systemName: "checkmark.circle.fill")
-                                    .font(.caption2)
+                                    .font(.body)
                                 Text("의사결정 완료")
-                                    .font(.caption2)
+                                    .font(.body)
                             }
                             .padding(.horizontal, 8)
                             .padding(.vertical, 3)
@@ -1641,7 +1641,7 @@ struct CompletedDecisionHistoryCard: View {
                         if let selectedOptionId = decision.decision,
                            let selectedOption = decision.implementationOptions.first(where: { $0.id == selectedOptionId }) {
                             Text("선택: \(selectedOption.label)")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
                     }
@@ -1650,7 +1650,7 @@ struct CompletedDecisionHistoryCard: View {
 
                     Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                         .foregroundColor(.secondary)
-                        .font(.caption)
+                        .font(.body)
                 }
             }
             .buttonStyle(.plain)
@@ -1678,19 +1678,19 @@ struct CompletedDecisionHistoryCard: View {
                                     Spacer()
 
                                     Text(selectedOption.estimatedTime)
-                                        .font(.caption)
+                                        .font(.body)
                                         .foregroundColor(.secondary)
                                 }
 
                                 Text(selectedOption.description)
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
 
                                 // 구현 내용
                                 if let details = selectedOption.technicalDetails, !details.isEmpty {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("구현 내용")
-                                            .font(.caption2)
+                                            .font(.body)
                                             .bold()
                                             .foregroundColor(.blue)
 
@@ -1699,7 +1699,7 @@ struct CompletedDecisionHistoryCard: View {
                                                 Text("\(index + 1).")
                                                 Text(detail)
                                             }
-                                            .font(.caption2)
+                                            .font(.body)
                                             .foregroundColor(.secondary)
                                         }
                                     }
@@ -1713,10 +1713,10 @@ struct CompletedDecisionHistoryCard: View {
                         // 비즈니스 임팩트
                         VStack(alignment: .leading, spacing: 6) {
                             Text("비즈니스 임팩트")
-                                .font(.caption2)
+                                .font(.body)
                                 .bold()
                             Text(decision.businessImpact)
-                                .font(.caption2)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
                     }
@@ -1733,7 +1733,7 @@ struct CompletedDecisionHistoryCard: View {
                                 Image(systemName: "checklist")
                                 Text("태스크 생성하기")
                             }
-                            .font(.caption)
+                            .font(.body)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 6)
                             .background(Color.blue.opacity(0.1))
@@ -1749,7 +1749,7 @@ struct CompletedDecisionHistoryCard: View {
                             Image(systemName: "arrow.uturn.backward")
                             Text("의사결정 되돌리기")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 6)
                         .background(Color.orange.opacity(0.1))

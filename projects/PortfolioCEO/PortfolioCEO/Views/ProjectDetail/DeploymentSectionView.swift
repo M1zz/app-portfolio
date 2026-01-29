@@ -49,7 +49,7 @@ struct DeploymentSectionView: View {
                         Text("버전이 설정된 태스크가 없습니다")
                             .font(.headline)
                         Text("태스크 섹션에서 각 태스크에 배포 버전을 설정하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                     .frame(maxWidth: .infinity)
@@ -80,7 +80,7 @@ struct DeploymentSectionView: View {
                             Image(systemName: "photo")
                             Text("스크린샷")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.pink.opacity(0.2))
@@ -94,7 +94,7 @@ struct DeploymentSectionView: View {
                             Image(systemName: "info.circle")
                             Text("앱스토어 정보")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.blue.opacity(0.2))
@@ -108,7 +108,7 @@ struct DeploymentSectionView: View {
                             Image(systemName: "clock.arrow.circlepath")
                             Text("히스토리")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.purple.opacity(0.2))
@@ -121,7 +121,7 @@ struct DeploymentSectionView: View {
                 HStack(spacing: 16) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("현재 버전")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         Text("v\(app.currentVersion)")
                             .font(.title3)
@@ -133,7 +133,7 @@ struct DeploymentSectionView: View {
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text("배포된 버전")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         if let history = app.versionHistory, !history.isEmpty {
                             Text("\(history.filter { $0.status == .released }.count)개")
@@ -175,7 +175,7 @@ struct DeploymentSectionView: View {
                                     Image(systemName: "gear")
                                     Text("설정")
                                 }
-                                .font(.caption)
+                                .font(.body)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
                                 .background(Color.gray.opacity(0.2))
@@ -190,7 +190,7 @@ struct DeploymentSectionView: View {
                                 if let days = reminder.daysSinceLastDeployment {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("마지막 배포")
-                                            .font(.caption)
+                                            .font(.body)
                                             .foregroundColor(.secondary)
                                         Text("\(days)일 전")
                                             .font(.body)
@@ -204,7 +204,7 @@ struct DeploymentSectionView: View {
 
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("다음 배포 예정")
-                                            .font(.caption)
+                                            .font(.body)
                                             .foregroundColor(.secondary)
                                         Text("\(days)일 후")
                                             .font(.body)
@@ -273,7 +273,7 @@ struct DeploymentSectionView: View {
                             Image(systemName: "gear")
                             Text("설정")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.orange.opacity(0.2))
@@ -288,7 +288,7 @@ struct DeploymentSectionView: View {
                         HStack(spacing: 20) {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("빌드 번호")
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                                 Text("\(automation.buildNumber)")
                                     .font(.title3)
@@ -300,7 +300,7 @@ struct DeploymentSectionView: View {
 
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("자동 증가")
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                                 Text(automation.autoincrementEnabled ? "활성화" : "비활성화")
                                     .font(.body)
@@ -313,7 +313,7 @@ struct DeploymentSectionView: View {
 
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text("마지막 빌드")
-                                        .font(.caption)
+                                        .font(.body)
                                         .foregroundColor(.secondary)
                                     Text(formatDate(lastBuild))
                                         .font(.body)
@@ -338,7 +338,7 @@ struct DeploymentSectionView: View {
                                             .font(.body)
                                         Spacer()
                                         Text(script.phase.rawValue)
-                                            .font(.caption)
+                                            .font(.body)
                                             .padding(.horizontal, 8)
                                             .padding(.vertical, 4)
                                             .background(Color.orange.opacity(0.2))
@@ -406,7 +406,7 @@ struct DeploymentSectionView: View {
 
                     if let checklist = currentChecklist {
                         Text("\(checklist.items.filter { $0.isCompleted }.count)/\(checklist.items.count) 완료")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -415,7 +415,7 @@ struct DeploymentSectionView: View {
                             Image(systemName: "list.bullet.clipboard")
                             Text("관리")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.blue.opacity(0.2))
@@ -442,7 +442,7 @@ struct DeploymentSectionView: View {
                         ProgressView(value: checklist.progress)
                             .tint(.green)
                         Text(checklist.isCompleted ? "배포 준비 완료!" : "배포 준비 중...")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(checklist.isCompleted ? .green : .secondary)
                     }
 
@@ -590,7 +590,7 @@ struct ChecklistItemRow: View {
 
                 if let completedAt = item.completedAt {
                     Text("완료: \(formatDate(completedAt))")
-                        .font(.caption2)
+                        .font(.body)
                         .foregroundColor(.green)
                 }
             }
@@ -727,7 +727,7 @@ struct ChecklistCard: View {
                 Spacer()
 
                 Text(formatDate(checklist.createdAt))
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
 
                 Button(action: onDelete) {
@@ -759,10 +759,10 @@ struct ChecklistCard: View {
                 ForEach(checklist.items.prefix(3)) { item in
                     HStack(spacing: 8) {
                         Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(item.isCompleted ? .green : .gray)
                         Text(item.title)
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(item.isCompleted ? .secondary : .primary)
                             .strikethrough(item.isCompleted)
                     }
@@ -770,7 +770,7 @@ struct ChecklistCard: View {
 
                 if checklist.items.count > 3 {
                     Text("외 \(checklist.items.count - 3)개 항목...")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
             }
@@ -927,15 +927,15 @@ struct VersionGroupCard: View {
                             let progress = Double(completedCount) / Double(totalCount)
 
                             Text("\(totalCount)개 기능")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
 
                             Text("•")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
 
                             Text("\(completedCount)개 완료 (\(Int(progress * 100))%)")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(progress >= 1.0 ? .green : .secondary)
                         }
                     }
@@ -944,7 +944,7 @@ struct VersionGroupCard: View {
 
                     Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                         .foregroundColor(.secondary)
-                        .font(.caption)
+                        .font(.body)
                 }
             }
             .buttonStyle(.plain)
@@ -958,7 +958,7 @@ struct VersionGroupCard: View {
                         HStack(spacing: 8) {
                             Image(systemName: task.status.icon)
                                 .foregroundColor(task.status.color)
-                                .font(.caption)
+                                .font(.body)
 
                             Text(task.name)
                                 .font(.body)
@@ -968,7 +968,7 @@ struct VersionGroupCard: View {
                             Spacer()
 
                             Text(task.status.displayName)
-                                .font(.caption)
+                                .font(.body)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
                                 .background(task.status.color.opacity(0.2))
@@ -988,7 +988,7 @@ struct VersionGroupCard: View {
                     ProgressView(value: progress)
                         .tint(.blue)
                     Text(progress >= 1.0 ? "✓ 모든 기능 완료!" : "진행 중...")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(progress >= 1.0 ? .green : .secondary)
                 }
             }
@@ -1044,7 +1044,7 @@ struct VersionHistoryView: View {
                             Text("버전 히스토리가 없습니다")
                                 .font(.headline)
                             Text("버전별 배포 이력을 기록하여 관리하세요")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
                         .frame(maxWidth: .infinity)
@@ -1150,7 +1150,7 @@ struct VersionHistoryCard: View {
                         .bold()
 
                     Text(history.status.rawValue)
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(history.status.color.opacity(0.2))
@@ -1161,7 +1161,7 @@ struct VersionHistoryCard: View {
 
                     if let releaseDate = history.releaseDate {
                         Text(formatDate(releaseDate))
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -1194,7 +1194,7 @@ struct VersionHistoryCard: View {
                             Image(systemName: "link")
                             Text("App Store 링크")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.blue)
                     }
                 }
@@ -1300,7 +1300,7 @@ struct VersionHistoryEditorView: View {
                             )
 
                         Text("주요 변경사항을 요약하여 작성하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -1418,7 +1418,7 @@ struct AppStoreMetadataEditorView: View {
                             )
 
                         Text("최대 4000자")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -1438,7 +1438,7 @@ struct AppStoreMetadataEditorView: View {
                             )
 
                         Text("Maximum 4000 characters")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -1454,7 +1454,7 @@ struct AppStoreMetadataEditorView: View {
                             .textFieldStyle(.roundedBorder)
 
                         Text("쉼표로 구분하여 입력 (최대 100자)")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -1475,7 +1475,7 @@ struct AppStoreMetadataEditorView: View {
                             )
 
                         Text("앱 스토어 검색 결과 상단에 표시되는 텍스트 (최대 170자)")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -1629,7 +1629,7 @@ struct ScreenshotManagerView: View {
                                         Image(systemName: "folder")
                                         Text("Finder에서 열기")
                                     }
-                                    .font(.caption)
+                                    .font(.body)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
                                     .background(Color.blue.opacity(0.2))
@@ -1644,7 +1644,7 @@ struct ScreenshotManagerView: View {
                             .textFieldStyle(.roundedBorder)
 
                         Text("스크린샷이 저장된 폴더의 경로를 입력하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -1674,7 +1674,7 @@ struct ScreenshotManagerView: View {
 
                                 Stepper(value: $device.count, in: 0...10) {
                                     Text("\(device.count)개")
-                                        .font(.caption)
+                                        .font(.body)
                                         .foregroundColor(.secondary)
                                 }
                                 .frame(width: 120)
@@ -1707,7 +1707,7 @@ struct ScreenshotManagerView: View {
 
                     if !folderPath.isEmpty {
                         Text("💡 Finder에서 폴더를 열어 스크린샷을 확인하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.blue)
                             .padding()
                             .background(Color.blue.opacity(0.1))
@@ -1811,7 +1811,7 @@ struct DeploymentReminderEditorView: View {
                             }
 
                             Text("마지막 배포 이후 \(reminderDays)일이 지나면 알림이 표시됩니다")
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
                         }
 
@@ -1833,11 +1833,11 @@ struct DeploymentReminderEditorView: View {
 
                             if updateCycle != .adhoc {
                                 Text("\(updateCycle.days)일 주기로 업데이트")
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                             } else {
                                 Text("비정기 업데이트")
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                             }
                         }
@@ -1858,7 +1858,7 @@ struct DeploymentReminderEditorView: View {
 
                                 if let days = daysSince(lastDeploymentDate) {
                                     Text("\(days)일 전")
-                                        .font(.caption)
+                                        .font(.body)
                                         .foregroundColor(days >= reminderDays ? .red : .secondary)
                                 }
                             }
@@ -1881,15 +1881,15 @@ struct DeploymentReminderEditorView: View {
                                 if let days = daysUntil(nextPlannedDate) {
                                     if days > 0 {
                                         Text("\(days)일 후")
-                                            .font(.caption)
+                                            .font(.body)
                                             .foregroundColor(.blue)
                                     } else if days == 0 {
                                         Text("오늘")
-                                            .font(.caption)
+                                            .font(.body)
                                             .foregroundColor(.orange)
                                     } else {
                                         Text("\(abs(days))일 지남")
-                                            .font(.caption)
+                                            .font(.body)
                                             .foregroundColor(.red)
                                     }
                                 }
@@ -2013,7 +2013,7 @@ struct BuildAutomationEditorView: View {
                         }
 
                         Text("현재 빌드 번호입니다")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -2026,7 +2026,7 @@ struct BuildAutomationEditorView: View {
                             .bold()
 
                         Text("활성화하면 빌드할 때마다 빌드 번호가 자동으로 증가합니다")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -2042,7 +2042,7 @@ struct BuildAutomationEditorView: View {
                             .textFieldStyle(.roundedBorder)
 
                         Text("프로젝트 파일(.xcodeproj) 또는 워크스페이스(.xcworkspace) 경로")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -2065,7 +2065,7 @@ struct BuildAutomationEditorView: View {
                                     Image(systemName: "plus.circle.fill")
                                     Text("추가")
                                 }
-                                .font(.caption)
+                                .font(.body)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
                                 .background(Color.blue.opacity(0.2))
@@ -2081,7 +2081,7 @@ struct BuildAutomationEditorView: View {
                                     .font(.system(size: 32))
                                     .foregroundColor(.secondary)
                                 Text("빌드 스크립트가 없습니다")
-                                    .font(.caption)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
 
                                 Button(action: {
@@ -2091,7 +2091,7 @@ struct BuildAutomationEditorView: View {
                                         Image(systemName: "wand.and.stars")
                                         Text("기본 스크립트 추가")
                                     }
-                                    .font(.caption)
+                                    .font(.body)
                                     .padding(.horizontal, 12)
                                     .padding(.vertical, 6)
                                     .background(Color.purple.opacity(0.2))
@@ -2121,7 +2121,7 @@ struct BuildAutomationEditorView: View {
                                             Text(script.name)
                                                 .font(.body)
                                             Text(script.phase.rawValue)
-                                                .font(.caption)
+                                                .font(.body)
                                                 .foregroundColor(.secondary)
                                         }
 
@@ -2264,7 +2264,7 @@ struct BuildScriptEditorView: View {
                         .pickerStyle(.segmented)
 
                         Text(phase.description)
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -2285,7 +2285,7 @@ struct BuildScriptEditorView: View {
                             )
 
                         Text("Bash 쉘 스크립트를 입력하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 

@@ -45,7 +45,7 @@ struct DecisionCenterView: View {
                         Text("모든 의사결정이 완료되었습니다!")
                             .font(.headline)
                         Text("새로운 피드백을 작성하면 의사결정 항목이 생성됩니다")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                     .frame(maxWidth: .infinity)
@@ -116,7 +116,7 @@ struct DecisionCenterView: View {
                             .font(.headline)
 
                         Text("승인한 의사결정을 반영하여 태스크를 생성합니다")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
 
                         Button("승인된 결정 처리 및 태스크 생성") {
@@ -157,7 +157,7 @@ struct DecisionCard: View {
                     VStack(alignment: .leading, spacing: 4) {
                         HStack {
                             Text(decision.app)
-                                .font(.caption)
+                                .font(.body)
                                 .foregroundColor(.secondary)
 
                             Spacer()
@@ -182,7 +182,7 @@ struct DecisionCard: View {
             // 요약 정보 (항상 표시)
             if !isExpanded {
                 Text(decision.description)
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
                     .lineLimit(2)
 
@@ -191,7 +191,7 @@ struct DecisionCard: View {
                         Image(systemName: "sparkles")
                             .foregroundColor(.yellow)
                         Text("AI 추천: \(recommended.label)")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -208,7 +208,7 @@ struct DecisionCard: View {
                             .font(.subheadline)
                             .bold()
                         Text(decision.description)
-                            .font(.caption)
+                            .font(.body)
                     }
 
                     // 비즈니스 임팩트
@@ -217,7 +217,7 @@ struct DecisionCard: View {
                             .font(.subheadline)
                             .bold()
                         Text(decision.businessImpact)
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.orange)
                     }
 
@@ -252,7 +252,7 @@ struct DecisionCard: View {
                                     .bold()
                             }
                             Text(decision.aiReasoning)
-                                .font(.caption)
+                                .font(.body)
                                 .padding()
                                 .background(Color.yellow.opacity(0.1))
                                 .cornerRadius(8)
@@ -312,7 +312,7 @@ struct OptionCard: View {
 
                     if isRecommended {
                         Text("추천")
-                            .font(.caption2)
+                            .font(.body)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(Color.yellow)
@@ -322,7 +322,7 @@ struct OptionCard: View {
                     Spacer()
 
                     Text(option.estimatedTime)
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
 
                     if isSelected {
@@ -335,14 +335,14 @@ struct OptionCard: View {
                 }
 
                 Text(option.description)
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
 
                 // 장단점
                 HStack(alignment: .top, spacing: 16) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("장점")
-                            .font(.caption2)
+                            .font(.body)
                             .bold()
                             .foregroundColor(.green)
                         ForEach(option.pros, id: \.self) { pro in
@@ -350,14 +350,14 @@ struct OptionCard: View {
                                 Text("•")
                                 Text(pro)
                             }
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         }
                     }
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text("단점")
-                            .font(.caption2)
+                            .font(.body)
                             .bold()
                             .foregroundColor(.red)
                         ForEach(option.cons, id: \.self) { con in
@@ -365,7 +365,7 @@ struct OptionCard: View {
                                 Text("•")
                                 Text(con)
                             }
-                            .font(.caption2)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         }
                     }
@@ -388,7 +388,7 @@ struct PriorityBadge: View {
 
     var body: some View {
         Text(priority.uppercased())
-            .font(.caption2)
+            .font(.body)
             .bold()
             .padding(.horizontal, 6)
             .padding(.vertical, 2)
@@ -416,7 +416,7 @@ struct UrgencyBadge: View {
             Image(systemName: urgencyIcon)
             Text(urgency.uppercased())
         }
-        .font(.caption2)
+        .font(.body)
         .padding(.horizontal, 6)
         .padding(.vertical, 2)
         .background(Color.gray.opacity(0.2))
@@ -446,7 +446,7 @@ struct CompletedDecisionCard: View {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
                         Text(decision.app)
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
 
                         Spacer()
@@ -454,7 +454,7 @@ struct CompletedDecisionCard: View {
                         Image(systemName: "checkmark.circle.fill")
                             .foregroundColor(.green)
                         Text("승인됨")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.green)
                     }
 
@@ -485,7 +485,7 @@ struct CompletedDecisionCard: View {
                     .cornerRadius(8)
 
                     Text(selectedOption.description)
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
             }

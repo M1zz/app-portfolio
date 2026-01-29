@@ -83,23 +83,23 @@ struct AppDetailView: View {
 
                 HStack(spacing: 16) {
                     Label("v\(app.currentVersion)", systemImage: "number.circle")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
 
                     Label(app.status.displayName, systemImage: "circle.fill")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(app.statusColor)
 
                     // 가격 정보 표시
                     if let price = app.price {
                         Label(price.displayPrice, systemImage: price.isFree ? "gift.fill" : "dollarsign.circle.fill")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(price.isFree ? .green : .blue)
                     }
 
                     if let detail = appDetail {
                         Label(detail.techStack.platforms.joined(separator: ", "), systemImage: "iphone")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -109,7 +109,7 @@ struct AppDetailView: View {
                     HStack(spacing: 6) {
                         ForEach(categories.sorted(), id: \.self) { category in
                             Text(category)
-                                .font(.caption)
+                                .font(.body)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 3)
                                 .background(Color.blue.opacity(0.2))
@@ -220,7 +220,7 @@ struct CategoryEditButton: View {
             showingCategorySelector = true
         }) {
             Label("카테고리", systemImage: "tag")
-                .font(.caption)
+                .font(.body)
         }
         .buttonStyle(.bordered)
         .controlSize(.small)
@@ -252,7 +252,7 @@ struct CategorySelectorView: View {
                         .foregroundColor(.secondary)
 
                     Text("Settings에서 카테고리를 먼저 생성해주세요")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -327,7 +327,7 @@ struct PriceEditButton: View {
             showingPriceEditor = true
         }) {
             Label("가격", systemImage: "dollarsign.circle")
-                .font(.caption)
+                .font(.body)
         }
         .buttonStyle(.bordered)
         .controlSize(.small)
@@ -399,7 +399,7 @@ struct PriceEditorView: View {
                         }
 
                         Text("App Store에 표시되는 가격을 입력하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -447,7 +447,7 @@ struct PriceEditorView: View {
                         }
 
                         Text("App Store에 표시되는 구독 가격을 입력하세요")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -534,7 +534,7 @@ struct AppStoreLinkButton: View {
                 Image(systemName: showCopied ? "checkmark" : "link")
                 Text(showCopied ? "복사됨" : "App Store")
             }
-            .font(.caption)
+            .font(.body)
         }
         .buttonStyle(.bordered)
         .controlSize(.small)
@@ -619,7 +619,7 @@ struct ReleaseNotesView: View {
                     Text("릴리스 노트가 없습니다")
                         .font(.headline)
                     Text("새 릴리스 노트를 작성하여 버전별 변경사항을 관리하세요")
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                 }
@@ -699,7 +699,7 @@ struct ReleaseNoteCard: View {
                 Spacer()
 
                 Text(formatDate(note.date))
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
 
                 Button(action: onEdit) {
@@ -731,7 +731,7 @@ struct ReleaseNoteCard: View {
                             Image(systemName: showCopiedKo ? "checkmark" : "doc.on.doc")
                             Text(showCopiedKo ? "복사됨" : "복사")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.blue.opacity(0.2))
@@ -773,7 +773,7 @@ struct ReleaseNoteCard: View {
                             Image(systemName: showCopiedEn ? "checkmark" : "doc.on.doc")
                             Text(showCopiedEn ? "Copied" : "Copy")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.green.opacity(0.2))
@@ -902,7 +902,7 @@ struct ReleaseNoteEditorView: View {
                             )
 
                         Text("예시:\n• 새로운 기능 추가\n• 성능 개선\n• 버그 수정")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
 
@@ -925,7 +925,7 @@ struct ReleaseNoteEditorView: View {
                             )
 
                         Text("Example:\n• New features added\n• Performance improvements\n• Bug fixes")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                     }
                 }

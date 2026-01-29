@@ -73,11 +73,11 @@ struct ProjectDetailView: View {
             // 버전과 상태
             HStack(spacing: 12) {
                 Label("v\(app.currentVersion)", systemImage: "number.circle.fill")
-                    .font(.caption)
+                    .font(.body)
                     .foregroundColor(.secondary)
 
                 Text(app.status.displayName)
-                    .font(.caption)
+                    .font(.body)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 4)
                     .background(app.statusColor.opacity(0.2))
@@ -85,7 +85,7 @@ struct ProjectDetailView: View {
                     .cornerRadius(8)
 
                 Text(app.priority.displayName)
-                    .font(.caption)
+                    .font(.body)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 4)
                     .background(app.priorityColor.opacity(0.2))
@@ -125,7 +125,7 @@ struct ProjectDetailView: View {
             .frame(height: 12)
 
             Text(completionMessage)
-                .font(.caption)
+                .font(.body)
                 .foregroundColor(.secondary)
         }
         .padding()
@@ -169,13 +169,13 @@ struct ProjectDetailView: View {
                 if let modules = app.sharedModules, !modules.isEmpty {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("공유 모듈")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
 
                         FlowLayout(spacing: 6) {
                             ForEach(modules, id: \.self) { module in
                                 Text(module)
-                                    .font(.caption2)
+                                    .font(.body)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
                                     .background(Color.blue.opacity(0.1))
@@ -206,7 +206,7 @@ struct ProjectDetailView: View {
                             Image(systemName: "arrow.up.right.square")
                             Text("App Store에서 보기")
                         }
-                        .font(.caption)
+                        .font(.body)
                         .foregroundColor(.blue)
                     }
                 }
@@ -324,7 +324,7 @@ struct InfoRow: View {
                 if !isFilled {
                     Image(systemName: isCritical ? "exclamationmark.circle.fill" : "info.circle")
                         .foregroundColor(isCritical ? .red : .orange)
-                        .font(.caption)
+                        .font(.body)
                 }
 
                 Text(value)
@@ -433,7 +433,7 @@ struct ProjectEditSheet: View {
                 Section("기본 정보") {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("프로젝트 이름 (한글)")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         TextField("예: 버킷 클라임", text: $projectName)
                             .textFieldStyle(.roundedBorder)
@@ -441,7 +441,7 @@ struct ProjectEditSheet: View {
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text("프로젝트 이름 (영문)")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         TextField("예: Bucket Climb", text: $projectNameEn)
                             .textFieldStyle(.roundedBorder)
@@ -449,7 +449,7 @@ struct ProjectEditSheet: View {
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text("현재 버전")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         TextField("예: 1.2.0", text: $currentVersion)
                             .textFieldStyle(.roundedBorder)
@@ -459,7 +459,7 @@ struct ProjectEditSheet: View {
                 Section("프로젝트 정보") {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("로컬 프로젝트 경로")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         TextField("예: ~/Projects/MyApp", text: $localProjectPath)
                             .textFieldStyle(.roundedBorder)
@@ -467,7 +467,7 @@ struct ProjectEditSheet: View {
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text("GitHub 저장소")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         TextField("예: https://github.com/user/repo", text: $githubRepo)
                             .textFieldStyle(.roundedBorder)
@@ -477,7 +477,7 @@ struct ProjectEditSheet: View {
                 Section("App Store 정보") {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("App Store URL")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         TextField("예: https://apps.apple.com/app/id1234567890", text: $appStoreUrl)
                             .textFieldStyle(.roundedBorder)
@@ -485,7 +485,7 @@ struct ProjectEditSheet: View {
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text("최소 지원 OS")
-                            .font(.caption)
+                            .font(.body)
                             .foregroundColor(.secondary)
                         TextField("예: iOS 15.0", text: $minimumOS)
                             .textFieldStyle(.roundedBorder)
