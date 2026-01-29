@@ -241,6 +241,10 @@ struct TasksSectionView: View {
     private var activeTasks: [AppTask] {
         app.allTasks.filter { $0.status != .done }
     }
+
+    private var completedTasks: [AppTask] {
+        app.allTasks.filter { $0.status == .done }
+    }
 }
 
 struct TaskStatCard: View {
