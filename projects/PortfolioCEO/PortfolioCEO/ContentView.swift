@@ -11,6 +11,7 @@ struct ContentView: View {
         case dashboard
         case apps
         case kanban
+        case workflow
         case aiAssistant
     }
 
@@ -32,6 +33,11 @@ struct ContentView: View {
                     Label("칸반 보드", systemImage: "rectangle.split.3x1")
                 }
                 .tag(Tab.kanban)
+
+                Button(action: { selectedTab = .workflow }) {
+                    Label("워크플로우", systemImage: "timeline.selection")
+                }
+                .tag(Tab.workflow)
 
                 Button(action: { selectedTab = .aiAssistant }) {
                     Label("AI 어시스턴트", systemImage: "sparkles")
@@ -62,6 +68,8 @@ struct ContentView: View {
                     AppsGridView()
                 case .kanban:
                     KanbanView()
+                case .workflow:
+                    WorkflowTimelineView()
                 case .aiAssistant:
                     AIAssistantView()
                 }
@@ -101,6 +109,7 @@ extension ContentView.Tab {
         case .dashboard: return "Portfolio Dashboard"
         case .apps: return "전체 앱"
         case .kanban: return "칸반 보드"
+        case .workflow: return "워크플로우 타임라인"
         case .aiAssistant: return "AI 어시스턴트"
         }
     }
