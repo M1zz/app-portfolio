@@ -7,7 +7,21 @@ struct WorkflowTimelineView: View {
     @State private var timelineData: TimelineData = TimelineData()
     @State private var zoomLevel: Double = 1.0
 
-    // 필터 및 정렬
+    // 앱 카드 필터 및 정렬
+    @State private var appSortOrder: AppSortOrder = .default
+    @State private var showOnlyWithBottleneck: Bool = false
+    @State private var showOnlyWithSchedule: Bool = false
+    @State private var showOnlyHighPriority: Bool = false
+
+    enum AppSortOrder: String, CaseIterable {
+        case `default` = "기본"
+        case bottleneck = "병목 많은 순"
+        case inProgress = "진행중 많은 순"
+        case schedule = "일정 많은 순"
+        case priority = "우선순위 높은 순"
+    }
+
+    // 태스크 필터 및 정렬
     @State private var selectedStatuses: Set<TaskStatus> = [.done, .inProgress, .todo, .notStarted]
     @State private var showBottleneckOnly: Bool = false
     @State private var selectedVersion: String? = nil
@@ -21,12 +35,15 @@ struct WorkflowTimelineView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            // 앱 선택 필터/정렬 바
+            appFilterSortBar
+
             // 상단 컨트롤
             topControlBar
 
-            // 필터 및 정렬 바
+            // 태스크 필터 및 정렬 바
             if selectedApp != nil {
-                filterSortBar
+                taskFilterSortBar
                 Divider()
             }
 
@@ -65,6 +82,104 @@ struct WorkflowTimelineView: View {
         }
     }
 
+    // MARK: - App Filter and Sort Bar
+
+    private var appFilterSortBar: some View {
+        HStack(spacing: 16) {
+            Text("앱 선택")
+                .font(.headline)
+
+            Divider()
+                .frame(height: 20)
+
+            // 정렬
+            HStack(spacing: 8) {
+                Text("정렬:")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
+                Picker("앱 정렬", selection: $appSortOrder) {
+                    ForEach(AppSortOrder.allCases, id: \.self) { order in
+                        Text(order.rawValue).tag(order)
+                    }
+                }
+                .pickerStyle(.menu)
+                .frame(width: 140)
+            }
+
+            Divider()
+                .frame(height: 20)
+
+            // 필터
+            HStack(spacing: 8) {
+                Text("필터:")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
+                Toggle(isOn: $showOnlyWithBottleneck) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.caption2)
+                        Text("병목")
+                            .font(.caption)
+                    }
+                }
+                .toggleStyle(.button)
+                .tint(.red)
+
+                Toggle(isOn: $showOnlyWithSchedule) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "calendar")
+                            .font(.caption2)
+                        Text("일정")
+                            .font(.caption)
+                    }
+                }
+                .toggleStyle(.button)
+                .tint(.blue)
+
+                Toggle(isOn: $showOnlyHighPriority) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "star.fill")
+                            .font(.caption2)
+                        Text("우선순위")
+                            .font(.caption)
+                    }
+                }
+                .toggleStyle(.button)
+                .tint(.orange)
+            }
+
+            Spacer()
+
+            // 앱 카운트
+            Text("\(filteredAndSortedApps.count)개 앱")
+                .font(.caption)
+                .foregroundColor(.secondary)
+
+            // 초기화
+            if isAppFilterActive {
+                Button {
+                    appSortOrder = .default
+                    showOnlyWithBottleneck = false
+                    showOnlyWithSchedule = false
+                    showOnlyHighPriority = false
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.caption)
+                        Text("초기화")
+                            .font(.caption)
+                    }
+                }
+                .buttonStyle(.bordered)
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 10)
+        .background(Color.gray.opacity(0.08))
+    }
+
     // MARK: - Top Control Bar
 
     private var topControlBar: some View {
@@ -72,7 +187,7 @@ struct WorkflowTimelineView: View {
             // 앱 선택 가로 스크롤 카드
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(portfolioService.apps) { app in
+                    ForEach(filteredAndSortedApps) { app in
                         appCardView(for: app)
                             .onTapGesture {
                                 withAnimation(.easeInOut(duration: 0.2)) {
@@ -152,10 +267,18 @@ struct WorkflowTimelineView: View {
         }
     }
 
-    // MARK: - Filter and Sort Bar
+    // MARK: - Task Filter and Sort Bar
 
-    private var filterSortBar: some View {
+    private var taskFilterSortBar: some View {
         HStack(spacing: 16) {
+            Text("태스크 필터/정렬")
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(.secondary)
+
+            Divider()
+                .frame(height: 20)
+
             // 정렬
             HStack(spacing: 8) {
                 Text("정렬:")
@@ -236,21 +359,23 @@ struct WorkflowTimelineView: View {
 
             Spacer()
 
-            // 필터 초기화
-            Button {
-                selectedStatuses = [.done, .inProgress, .todo, .notStarted]
-                showBottleneckOnly = false
-                selectedVersion = nil
-                sortOrder = .date
-            } label: {
-                HStack(spacing: 4) {
-                    Image(systemName: "arrow.counterclockwise")
-                        .font(.caption)
-                    Text("초기화")
-                        .font(.caption)
+            // 태스크 필터 초기화
+            if isTaskFilterActive {
+                Button {
+                    selectedStatuses = [.done, .inProgress, .todo, .notStarted]
+                    showBottleneckOnly = false
+                    selectedVersion = nil
+                    sortOrder = .date
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.caption)
+                        Text("초기화")
+                            .font(.caption)
+                    }
                 }
+                .buttonStyle(.bordered)
             }
-            .buttonStyle(.bordered)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 10)
@@ -466,11 +591,11 @@ struct WorkflowTimelineView: View {
 
     private var emptyStateView: some View {
         VStack(spacing: 16) {
-            Image(systemName: isFilterActive ? "line.3.horizontal.decrease.circle" : "calendar.badge.exclamationmark")
+            Image(systemName: isTaskFilterActive ? "line.3.horizontal.decrease.circle" : "calendar.badge.exclamationmark")
                 .font(.system(size: 48))
                 .foregroundColor(.secondary)
 
-            if isFilterActive {
+            if isTaskFilterActive {
                 Text("필터 조건에 맞는 태스크가 없습니다")
                     .font(.title2)
                     .foregroundColor(.secondary)
@@ -505,8 +630,8 @@ struct WorkflowTimelineView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
-    /// 필터가 활성화되어 있는지 확인
-    private var isFilterActive: Bool {
+    /// 태스크 필터가 활성화되어 있는지 확인
+    private var isTaskFilterActive: Bool {
         selectedStatuses.count < 4 ||
         showBottleneckOnly ||
         selectedVersion != nil ||
@@ -515,12 +640,42 @@ struct WorkflowTimelineView: View {
 
     private var placeholderView: some View {
         VStack(spacing: 16) {
-            Image(systemName: "timeline.selection")
-                .font(.system(size: 48))
-                .foregroundColor(.secondary)
-            Text("앱을 선택하세요")
-                .font(.title2)
-                .foregroundColor(.secondary)
+            if filteredAndSortedApps.isEmpty {
+                // 필터로 인해 앱이 없음
+                Image(systemName: "line.3.horizontal.decrease.circle")
+                    .font(.system(size: 48))
+                    .foregroundColor(.secondary)
+                Text("필터 조건에 맞는 앱이 없습니다")
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+                Text("필터를 조정하거나 초기화 버튼을 눌러주세요")
+                    .font(.body)
+                    .foregroundColor(.secondary)
+
+                Button {
+                    appSortOrder = .default
+                    showOnlyWithBottleneck = false
+                    showOnlyWithSchedule = false
+                    showOnlyHighPriority = false
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "arrow.counterclockwise")
+                        Text("앱 필터 초기화")
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.top, 8)
+            } else {
+                // 앱은 있지만 선택 안 됨
+                Image(systemName: "timeline.selection")
+                    .font(.system(size: 48))
+                    .foregroundColor(.secondary)
+                Text("앱을 선택하세요")
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -639,5 +794,63 @@ struct WorkflowTimelineView: View {
     private func getUniqueVersions(from app: AppModel) -> [String] {
         let versions = Set(app.allTasks.compactMap { $0.targetVersion })
         return versions.sorted()
+    }
+
+    // MARK: - App Filtering and Sorting
+
+    /// 필터링 및 정렬된 앱 리스트
+    private var filteredAndSortedApps: [AppModel] {
+        var apps = portfolioService.apps
+
+        // 필터링
+        if showOnlyWithBottleneck {
+            apps = apps.filter { countBottlenecks(in: $0) > 0 }
+        }
+
+        if showOnlyWithSchedule {
+            apps = apps.filter { !$0.allTasks.filter({ $0.parsedTargetDate != nil }).isEmpty }
+        }
+
+        if showOnlyHighPriority {
+            apps = apps.filter { $0.priority == .high }
+        }
+
+        // 정렬
+        switch appSortOrder {
+        case .default:
+            // 기본 순서 유지
+            break
+
+        case .bottleneck:
+            apps.sort { countBottlenecks(in: $0) > countBottlenecks(in: $1) }
+
+        case .inProgress:
+            apps.sort { $0.stats.inProgress > $1.stats.inProgress }
+
+        case .schedule:
+            apps.sort {
+                let count1 = $0.allTasks.filter { $0.parsedTargetDate != nil }.count
+                let count2 = $1.allTasks.filter { $0.parsedTargetDate != nil }.count
+                return count1 > count2
+            }
+
+        case .priority:
+            let priorityOrder: [Priority: Int] = [.high: 0, .medium: 1, .low: 2]
+            apps.sort {
+                let order1 = priorityOrder[$0.priority] ?? 3
+                let order2 = priorityOrder[$1.priority] ?? 3
+                return order1 < order2
+            }
+        }
+
+        return apps
+    }
+
+    /// 앱 필터가 활성화되어 있는지 확인
+    private var isAppFilterActive: Bool {
+        appSortOrder != .default ||
+        showOnlyWithBottleneck ||
+        showOnlyWithSchedule ||
+        showOnlyHighPriority
     }
 }
