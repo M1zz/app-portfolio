@@ -669,7 +669,7 @@ struct AppCard: View {
                 Spacer()
 
                 if app.stats.totalTasks > 0 {
-                    Text("\(app.stats.done)/\(app.stats.totalTasks) 완료")
+                    Text("\(app.stats.done)/\(app.todoCount) 완료")
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -808,7 +808,7 @@ struct EnhancedAppCard: View {
                         HStack(spacing: 4) {
                             Image(systemName: "checklist")
                                 .font(.caption2)
-                            Text("\(app.stats.done)/\(app.stats.totalTasks)")
+                            Text("\(app.stats.done)/\(app.todoCount)")
                                 .font(.caption2)
                                 .fontWeight(.medium)
                         }

@@ -44,6 +44,7 @@ struct TaskEditSheet: View {
                 Section("상태") {
                     Picker("상태", selection: $selectedStatus) {
                         Text("대기").tag(TaskStatus.notStarted)
+                        Text("진행전").tag(TaskStatus.todo)
                         Text("진행 중").tag(TaskStatus.inProgress)
                         Text("완료").tag(TaskStatus.done)
                     }
@@ -142,12 +143,14 @@ struct KanbanTaskItem: Identifiable {
             return .done
         case .inProgress:
             return .inProgress
-        case .notStarted:
-            // 백로그: targetDate와 targetVersion이 모두 없는 것
-            if task.targetDate == nil && task.targetVersion == nil {
-                return .backlog
-            }
+        case .todo:
             return .todo
+        case .notStarted:
+            // 하위 호환: targetDate/targetVersion이 있으면 진행전
+            if task.targetDate != nil || task.targetVersion != nil {
+                return .todo
+            }
+            return .backlog
         }
     }
 }

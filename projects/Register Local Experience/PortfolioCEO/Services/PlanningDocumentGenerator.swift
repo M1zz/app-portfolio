@@ -143,7 +143,8 @@ class PlanningDocumentGenerator {
         document += "- **전체**: \(app.stats.totalTasks)개\n"
         document += "- **완료**: \(app.stats.done)개\n"
         document += "- **진행중**: \(app.stats.inProgress)개\n"
-        document += "- **대기**: \(app.stats.notStarted)개\n"
+        document += "- **진행전**: \(app.todoCount)개\n"
+        document += "- **대기**: \(app.backlogCount)개\n"
         document += "- **완료율**: \(Int(app.completionRate))%\n\n"
 
         document += "---\n\n"

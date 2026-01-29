@@ -66,8 +66,13 @@ struct TasksSectionView: View {
                     color: .orange
                 )
                 TaskStatCard(
+                    title: "진행전",
+                    count: app.todoCount,
+                    color: .blue
+                )
+                TaskStatCard(
                     title: "대기",
-                    count: app.stats.notStarted,
+                    count: app.backlogCount,
                     color: .gray
                 )
             }
@@ -646,6 +651,7 @@ extension TaskStatus {
         switch self {
         case .done: return "checkmark.circle.fill"
         case .inProgress: return "arrow.clockwise.circle.fill"
+        case .todo: return "circle.dashed"
         case .notStarted: return "circle"
         }
     }

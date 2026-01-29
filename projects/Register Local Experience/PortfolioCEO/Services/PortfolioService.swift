@@ -665,7 +665,8 @@ class PortfolioService: ObservableObject {
                     totalTasks: app.stats.totalTasks,
                     done: app.stats.done,
                     inProgress: app.stats.inProgress,
-                    notStarted: app.stats.notStarted
+                    todo: app.todoCount,
+                    notStarted: app.backlogCount
                 ),
                 nextTasks: Array(app.nextTasks.prefix(5))
             )
@@ -697,7 +698,8 @@ class PortfolioService: ObservableObject {
                 let totalTasks = apps.reduce(0) { $0 + $1.stats.totalTasks }
                 let totalDone = apps.reduce(0) { $0 + $1.stats.done }
                 let totalInProgress = apps.reduce(0) { $0 + $1.stats.inProgress }
-                let totalNotStarted = apps.reduce(0) { $0 + $1.stats.notStarted }
+                let totalTodo = apps.reduce(0) { $0 + $1.todoCount }
+                let totalNotStarted = apps.reduce(0) { $0 + $1.backlogCount }
 
                 // 앱 요약 생성
                 let appsSummary: [[String: Any]] = apps.map { app in
@@ -712,7 +714,8 @@ class PortfolioService: ObservableObject {
                             "totalTasks": app.stats.totalTasks,
                             "done": app.stats.done,
                             "inProgress": app.stats.inProgress,
-                            "notStarted": app.stats.notStarted
+                            "todo": app.todoCount,
+                            "notStarted": app.backlogCount
                         ],
                         "nextTasks": Array(app.nextTasks.prefix(2))
                     ]
@@ -730,6 +733,7 @@ class PortfolioService: ObservableObject {
                         "totalTasks": totalTasks,
                         "totalDone": totalDone,
                         "totalInProgress": totalInProgress,
+                        "totalTodo": totalTodo,
                         "totalNotStarted": totalNotStarted
                     ],
                     "apps": appsSummary

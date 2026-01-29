@@ -22,6 +22,7 @@ struct AppSummary: Identifiable, Codable {
         let totalTasks: Int
         let done: Int
         let inProgress: Int
+        let todo: Int
         let notStarted: Int
 
         var completionRate: Double {
@@ -29,10 +30,11 @@ struct AppSummary: Identifiable, Codable {
             return Double(done) / Double(totalTasks) * 100
         }
 
-        init(totalTasks: Int, done: Int, inProgress: Int, notStarted: Int) {
+        init(totalTasks: Int, done: Int, inProgress: Int, todo: Int = 0, notStarted: Int) {
             self.totalTasks = totalTasks
             self.done = done
             self.inProgress = inProgress
+            self.todo = todo
             self.notStarted = notStarted
         }
     }

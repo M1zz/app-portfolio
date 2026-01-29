@@ -1,58 +1,60 @@
 {
-  "allTasks": [
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/휴가-플래너\/id6755983135",
+  "priority" : "medium",
+  "status" : "active",
+  "price" : {
+    "pricingModel" : "oneTime",
+    "krw" : 4400,
+    "isFree" : false,
+    "usd" : 2.9900000000000002
+  },
+  "currentVersion" : "1.0.2",
+  "localProjectPath" : "..\/LeaveWise",
+  "nameEn" : "Shared Day Designer",
+  "folderId" : "shared-day-designer",
+  "minimumOS" : "16.0",
+  "allTasks" : [
     {
-      "name": "앱 구상하기",
-      "status": "done",
-      "targetDate": null,
-      "targetVersion": "1.0.0"
+      "status" : "done",
+      "name" : "앱 구상하기",
+      "targetDate" : null,
+      "targetVersion" : "1.0.0"
     },
     {
-      "name": "앱 배포하기",
-      "status": "done",
-      "targetDate": "December 2, 2025",
-      "targetVersion": "1.0.0"
+      "status" : "done",
+      "name" : "앱 배포하기",
+      "targetDate" : "December 2, 2025",
+      "targetVersion" : "1.0.0"
     },
     {
-      "name": "위젯 버그",
-      "status": "not-started",
-      "targetDate": null,
-      "targetVersion": null
+      "status" : "not-started",
+      "name" : "위젯 버그",
+      "targetDate" : null,
+      "targetVersion" : null
     }
   ],
-  "appStoreId": "",
-  "appStoreUrl": "https://apps.apple.com/kr/app/휴가-플래너/id6755983135",
-  "bundleId": "com.leeo.shareddaydesigner",
-  "categories": [
+  "categories" : [
     "다국어지원"
   ],
-  "currentVersion": "1.0.1",
-  "githubRepo": "https://github.com/M1zz/LeaveWise",
-  "localProjectPath": "../LeaveWise",
-  "minimumOS": "16.0",
-  "name": "휴가 플래너",
-  "nameEn": "Shared Day Designer",
-  "nextTasks": [
+  "appStoreId" : "",
+  "name" : "휴가 플래너",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/LeaveWise",
+  "bundleId" : "com.leeo.shareddaydesigner",
+  "stats" : {
+    "done" : 2,
+    "notStarted" : 1,
+    "inProgress" : 0,
+    "totalTasks" : 3
+  },
+  "nextTasks" : [
     "위젯 버그"
   ],
-  "notes": "",
-  "price": {
-    "isFree": false,
-    "krw": 4400,
-    "pricingModel": "oneTime",
-    "usd": 2.9900000000000002
-  },
-  "priority": "medium",
-  "recentlyCompleted": [
+  "sharedModules" : [
+
+  ],
+  "notes" : "",
+  "recentlyCompleted" : [
     "앱 구상하기",
     "앱 배포하기"
-  ],
-  "sharedModules": [],
-  "stats": {
-    "done": 2,
-    "inProgress": 0,
-    "notStarted": 1,
-    "totalTasks": 3
-  },
-  "status": "active",
-  "folderId": "shared-day-designer"
+  ]
 }

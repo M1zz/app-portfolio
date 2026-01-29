@@ -127,11 +127,21 @@ struct TaskStats: Codable, Hashable {
     let totalTasks: Int
     let done: Int
     let inProgress: Int
+    let todo: Int
     let notStarted: Int
 
     var completionRate: Double {
         guard totalTasks > 0 else { return 0 }
         return Double(done) / Double(totalTasks) * 100
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        totalTasks = try container.decode(Int.self, forKey: .totalTasks)
+        done = try container.decode(Int.self, forKey: .done)
+        inProgress = try container.decode(Int.self, forKey: .inProgress)
+        todo = try container.decodeIfPresent(Int.self, forKey: .todo) ?? 0
+        notStarted = try container.decode(Int.self, forKey: .notStarted)
     }
 }
 
@@ -168,12 +178,14 @@ struct AppTask: Identifiable, Codable, Hashable {
 enum TaskStatus: String, Codable {
     case done
     case inProgress = "in-progress"
+    case todo
     case notStarted = "not-started"
 
     var displayName: String {
         switch self {
         case .done: return "완료"
         case .inProgress: return "진행 중"
+        case .todo: return "진행전"
         case .notStarted: return "대기"
         }
     }
@@ -182,6 +194,7 @@ enum TaskStatus: String, Codable {
         switch self {
         case .done: return .green
         case .inProgress: return .orange
+        case .todo: return .blue
         case .notStarted: return .gray
         }
     }
@@ -191,6 +204,21 @@ enum TaskStatus: String, Codable {
 extension AppModel {
     var completionRate: Double {
         stats.completionRate
+    }
+
+    /// 진행전 태스크 수 (todo 상태 + 하위 호환: not-started 중 목표가 있는 태스크)
+    var todoCount: Int {
+        allTasks.filter { task in
+            task.status == .todo ||
+            (task.status == .notStarted && (task.targetDate != nil || task.targetVersion != nil))
+        }.count
+    }
+
+    /// 대기(백로그) 태스크 수
+    var backlogCount: Int {
+        allTasks.filter { task in
+            task.status == .notStarted && task.targetDate == nil && task.targetVersion == nil
+        }.count
     }
 
     var statusColor: Color {
