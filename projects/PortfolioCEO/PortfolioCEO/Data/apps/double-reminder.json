@@ -1,136 +1,139 @@
 {
-  "appStoreId": "",
-  "nameEn": "Double Reminder",
-  "githubRepo": "https://github.com/M1zz/toki",
-  "allTasks": [
+  "allTasks" : [
     {
-      "status": "done",
-      "name": "UI 개선작업",
-      "targetDate": null,
-      "targetVersion": "1.0.4"
+      "name" : "UI 개선작업",
+      "status" : "done",
+      "targetDate" : null,
+      "targetVersion" : "1.0.4"
     },
     {
-      "status": "done",
-      "name": "예비알림 마크 개선",
-      "targetDate": null,
-      "targetVersion": "1.0.4"
+      "name" : "예비알림 마크 개선",
+      "status" : "done",
+      "targetDate" : null,
+      "targetVersion" : "1.0.4"
     },
     {
-      "status": "done",
-      "name": "워치 사용성 개선",
-      "targetDate": null,
-      "targetVersion": "1.0.4"
+      "name" : "워치 사용성 개선",
+      "status" : "done",
+      "targetDate" : null,
+      "targetVersion" : "1.0.4"
     },
     {
-      "status": "done",
-      "name": "사용자가 사용할 수 있는 테스트 모드",
-      "targetDate": "December 3, 2025",
-      "targetVersion": "1.0.5"
+      "name" : "사용자가 사용할 수 있는 테스트 모드",
+      "status" : "done",
+      "targetDate" : "December 3, 2025",
+      "targetVersion" : "1.0.5"
     },
     {
-      "status": "done",
-      "name": "온보딩 개선",
-      "targetDate": null,
-      "targetVersion": "1.0.4"
+      "name" : "온보딩 개선",
+      "status" : "done",
+      "targetDate" : null,
+      "targetVersion" : "1.0.4"
     },
     {
-      "status": "done",
-      "name": "각각 알림마다 노티 레이블 넣기",
-      "targetDate": "December 3, 2025",
-      "targetVersion": "1.0.5"
+      "name" : "각각 알림마다 노티 레이블 넣기",
+      "status" : "done",
+      "targetDate" : "December 3, 2025",
+      "targetVersion" : "1.0.5"
     },
     {
-      "status": "done",
-      "name": "다음 알림까지 남은 시간 보여주기",
-      "targetDate": null,
-      "targetVersion": null
+      "name" : "다음 알림까지 남은 시간 보여주기",
+      "status" : "done",
+      "targetDate" : null,
+      "targetVersion" : null
     },
     {
-      "status": "done",
-      "name": "사용자가 사용했던 타이머의 기록 남기기와 빠른 타이머 그리고 그 레이블링",
-      "targetDate": "December 3, 2025",
-      "targetVersion": "1.0.5"
+      "name" : "사용자가 사용했던 타이머의 기록 남기기와 빠른 타이머 그리고 그 레이블링",
+      "status" : "done",
+      "targetDate" : "December 3, 2025",
+      "targetVersion" : "1.0.5"
     },
     {
-      "status": "not-started",
-      "name": "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
-      "targetDate": null,
-      "targetVersion": null
+      "name" : "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
     },
     {
-      "status": "not-started",
-      "name": "접근성 개선",
-      "targetDate": null,
-      "targetVersion": null
+      "name" : "접근성 개선",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
     },
     {
-      "status": "done",
-      "name": "권한 거부 되었을 때 다시 하는 법 혹은 부작용 안내",
-      "targetDate": null,
-      "targetVersion": null
+      "name" : "권한 거부 되었을 때 다시 하는 법 혹은 부작용 안내",
+      "status" : "done",
+      "targetDate" : null,
+      "targetVersion" : null
     },
     {
-      "status": "not-started",
-      "name": "사용자 사운드 커스터마이징",
-      "targetDate": null,
-      "targetVersion": null
+      "name" : "사용자 사운드 커스터마이징",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : null
     },
     {
-      "status": "done",
-      "name": "1.0.4 배포",
-      "targetDate": "November 25, 2025",
-      "targetVersion": "1.0.4"
+      "name" : "1.0.4 배포",
+      "status" : "done",
+      "targetDate" : "November 25, 2025",
+      "targetVersion" : "1.0.4"
     },
     {
-      "status": "in-progress",
-      "name": "1.0.5 배포",
-      "targetDate": null,
-      "targetVersion": null
+      "name" : "1.0.5 배포",
+      "status" : "in-progress",
+      "targetDate" : null,
+      "targetVersion" : null
     },
     {
-      "status": "not-started",
-      "targetVersion": "1.1.0",
-      "name": "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
-      "targetDate": null,
-      "labels": [
+      "labels" : [
         "브랜치 시작"
-      ]
+      ],
+      "name" : "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
+      "status" : "not-started",
+      "targetDate" : null,
+      "targetVersion" : "1.1.0"
     }
   ],
-  "currentVersion": "1.0.6",
-  "name": "두 번 알림",
-  "price": {
-    "isFree": false,
-    "krw": 5500,
-    "usd": 3.9900000000000002
-  },
-  "sharedModules": [],
-  "localProjectPath": "../toki",
-  "recentlyCompleted": [
-    "UI 개선작업",
-    "예비알림 마크 개선",
-    "워치 사용성 개선"
-  ],
-  "stats": {
-    "done": 10,
-    "notStarted": 4,
-    "inProgress": 1,
-    "totalTasks": 15
-  },
-  "minimumOS": "16.0",
-  "priority": "high",
-  "notes": "",
-  "status": "active",
-  "categories": [
+  "appStoreId" : "",
+  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/두번알림\/id6752551268",
+  "bundleId" : "com.leeo.doublereminder",
+  "categories" : [
+    "최근관심",
     "다국어지원"
   ],
-  "bundleId": "com.leeo.doublereminder",
-  "appStoreUrl": "https://apps.apple.com/kr/app/두번알림/id6752551268",
-  "nextTasks": [
+  "currentVersion" : "1.0.6",
+  "folderId" : "double-reminder",
+  "githubRepo" : "https:\/\/github.com\/M1zz\/toki",
+  "localProjectPath" : "..\/toki",
+  "minimumOS" : "16.0",
+  "name" : "두 번 알림",
+  "nameEn" : "Double Reminder",
+  "nextTasks" : [
     "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
     "1.0.5 배포",
     "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
     "접근성 개선"
   ],
-  "folderId": "double-reminder"
+  "notes" : "",
+  "price" : {
+    "isFree" : false,
+    "krw" : 5500,
+    "usd" : 3.9900000000000002
+  },
+  "priority" : "high",
+  "recentlyCompleted" : [
+    "UI 개선작업",
+    "예비알림 마크 개선",
+    "워치 사용성 개선"
+  ],
+  "sharedModules" : [
+
+  ],
+  "stats" : {
+    "done" : 10,
+    "inProgress" : 1,
+    "notStarted" : 4,
+    "totalTasks" : 15
+  },
+  "status" : "active"
 }

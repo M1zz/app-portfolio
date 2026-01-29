@@ -19,6 +19,13 @@
 		4B42E660BAD14A739221DC5D /* iCloudSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B607E30D87A42F89909EADE /* iCloudSyncService.swift */; };
 		4FBEB555A9A0498DBDCB50FE /* AIAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A0284ECAD47D4A3BF4D71 /* AIAssistantView.swift */; };
 		55EF1934A35C40DBB35C1275 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470988EAFA8471EB0958B0D /* Portfolio.swift */; };
+		587382B82F2BB4C30042ECA4 /* TimelineProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587382B42F2BB4C30042ECA4 /* TimelineProgressIndicator.swift */; };
+		587382B92F2BB4C30042ECA4 /* VersionMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587382B52F2BB4C30042ECA4 /* VersionMilestone.swift */; };
+		587382BA2F2BB4C30042ECA4 /* TimelineConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587382B12F2BB4C30042ECA4 /* TimelineConnector.swift */; };
+		587382BB2F2BB4C30042ECA4 /* WorkflowTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587382B62F2BB4C30042ECA4 /* WorkflowTimelineView.swift */; };
+		587382BC2F2BB4C30042ECA4 /* TimelineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587382B32F2BB4C30042ECA4 /* TimelineNode.swift */; };
+		587382BD2F2BB4C30042ECA4 /* TimelineModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587382B22F2BB4C30042ECA4 /* TimelineModels.swift */; };
+		587382BF2F2BB4CF0042ECA4 /* TimelineInferenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587382BE2F2BB4CF0042ECA4 /* TimelineInferenceEngine.swift */; };
 		7CDCA3D1D2C84E93BBD7E565 /* DecisionCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC6169110F41FC84EC88D9 /* DecisionCenterView.swift */; };
 		82B6AA5D0DAA40CA844CC91D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56081A84888B4093A57F4D74 /* ContentView.swift */; };
 		86595EE0D43A47DDB899B21E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15645BD83F84EBCA0697A1C /* SettingsView.swift */; };
@@ -58,6 +65,13 @@
 		4470988EAFA8471EB0958B0D /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		56081A84888B4093A57F4D74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		584ABA262F211368008AD1DB /* CEOfeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEOfeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		587382B12F2BB4C30042ECA4 /* TimelineConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineConnector.swift; sourceTree = "<group>"; };
+		587382B22F2BB4C30042ECA4 /* TimelineModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineModels.swift; sourceTree = "<group>"; };
+		587382B32F2BB4C30042ECA4 /* TimelineNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineNode.swift; sourceTree = "<group>"; };
+		587382B42F2BB4C30042ECA4 /* TimelineProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProgressIndicator.swift; sourceTree = "<group>"; };
+		587382B52F2BB4C30042ECA4 /* VersionMilestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionMilestone.swift; sourceTree = "<group>"; };
+		587382B62F2BB4C30042ECA4 /* WorkflowTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowTimelineView.swift; sourceTree = "<group>"; };
+		587382BE2F2BB4CF0042ECA4 /* TimelineInferenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineInferenceEngine.swift; sourceTree = "<group>"; };
 		5DF9BA5DAF514310881D7116 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		82C110029520489F9DA37E7C /* PortfolioCEO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioCEO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C2036A22F2B379A00AF1279 /* ProjectDiagnosticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDiagnosticsView.swift; sourceTree = "<group>"; };
@@ -128,9 +142,23 @@
 			path = PortfolioCEO;
 			sourceTree = "<group>";
 		};
+		587382B72F2BB4C30042ECA4 /* Workflow */ = {
+			isa = PBXGroup;
+			children = (
+				587382B12F2BB4C30042ECA4 /* TimelineConnector.swift */,
+				587382B22F2BB4C30042ECA4 /* TimelineModels.swift */,
+				587382B32F2BB4C30042ECA4 /* TimelineNode.swift */,
+				587382B42F2BB4C30042ECA4 /* TimelineProgressIndicator.swift */,
+				587382B52F2BB4C30042ECA4 /* VersionMilestone.swift */,
+				587382B62F2BB4C30042ECA4 /* WorkflowTimelineView.swift */,
+			);
+			path = Workflow;
+			sourceTree = "<group>";
+		};
 		C3EC6F3D1D57486B8675A546 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				587382BE2F2BB4CF0042ECA4 /* TimelineInferenceEngine.swift */,
 				DBF4B4A95E3E4C358A97790B /* AIAnalysisService.swift */,
 				F4945DB31C604E1B9471D5BD /* AIService.swift */,
 				15DC853E07094AADB3FE1B00 /* AppDetailService.swift */,
@@ -149,6 +177,7 @@
 		C4B2B6DD2A42418FAD56D5F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				587382B72F2BB4C30042ECA4 /* Workflow */,
 				CCC00001CCCC0001CCCC0001 /* ProjectDetail */,
 				B65A0284ECAD47D4A3BF4D71 /* AIAssistantView.swift */,
 				BB7DB667A005421CB439158F /* AppDetailFormView.swift */,
@@ -326,9 +355,16 @@
 				4FBEB555A9A0498DBDCB50FE /* AIAssistantView.swift in Sources */,
 				B428B22E09434AF4AFC338DC /* AppDetailFormView.swift in Sources */,
 				F23E60EC85194CA498EC1ADD /* AppsGridView.swift in Sources */,
+				587382B82F2BB4C30042ECA4 /* TimelineProgressIndicator.swift in Sources */,
+				587382B92F2BB4C30042ECA4 /* VersionMilestone.swift in Sources */,
+				587382BA2F2BB4C30042ECA4 /* TimelineConnector.swift in Sources */,
+				587382BB2F2BB4C30042ECA4 /* WorkflowTimelineView.swift in Sources */,
+				587382BC2F2BB4C30042ECA4 /* TimelineNode.swift in Sources */,
+				587382BD2F2BB4C30042ECA4 /* TimelineModels.swift in Sources */,
 				D409F3748A464953B28EEE95 /* BriefingView.swift in Sources */,
 				B25BDD227D8D4FF981DEE626 /* DashboardView.swift in Sources */,
 				7CDCA3D1D2C84E93BBD7E565 /* DecisionCenterView.swift in Sources */,
+				587382BF2F2BB4CF0042ECA4 /* TimelineInferenceEngine.swift in Sources */,
 				B98F46BE2E144C7291A0465E /* PlanningDocumentView.swift in Sources */,
 				47DF4FFBFC59463EB4E0318B /* ProjectDetailView.swift in Sources */,
 				2A5702AA5605448BBFE373B4 /* QuickSearchView.swift in Sources */,
