@@ -130,7 +130,7 @@ struct TasksSectionView: View {
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: showCompletedTasks ? "eye.slash" : "eye")
-                            Text(showCompletedTasks ? "완료 숨기기" : "완료 보기 (\(app.recentDoneCount))")
+                            Text(showCompletedTasks ? "완료 숨기기" : "완료 보기 (\(app.stats.done))")
                         }
                         .font(.body)
                         .padding(.horizontal, 12)

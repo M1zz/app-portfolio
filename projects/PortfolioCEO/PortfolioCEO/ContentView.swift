@@ -119,7 +119,7 @@ struct AppRowView: View {
                 Text(app.name)
                     .font(.body)
 
-                Text("\(app.recentDoneCount)/\(app.todoCount)")
+                Text("\(app.stats.done)/\(app.stats.totalTasks)")
                     .font(.body)
                     .foregroundColor(.secondary)
             }
