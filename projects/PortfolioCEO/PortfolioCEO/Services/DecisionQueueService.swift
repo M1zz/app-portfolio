@@ -12,20 +12,8 @@ class DecisionQueueService: ObservableObject {
     private let fileManager = FileManager.default
 
     private var basePath: URL {
-        let home = fileManager.homeDirectoryForCurrentUser
-        let possiblePaths = [
-            home.appendingPathComponent("Documents/workspace/code/app-portfolio"),
-            home.appendingPathComponent("Documents/code/app-portfolio")
-        ]
-
-        for path in possiblePaths {
-            let dataDir = path.appendingPathComponent("data")
-            if fileManager.fileExists(atPath: dataDir.path) {
-                return path
-            }
-        }
-
-        return possiblePaths[0]
+        // PortfolioService의 데이터 경로 사용
+        PortfolioService.shared.currentDataPath
     }
 
     private var queueFileURL: URL {

@@ -311,13 +311,8 @@ class PlanningDocumentGenerator {
     }
 
     private func loadNotes(for appName: String) -> [ProjectNote] {
-        let fileManager = FileManager.default
-        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let notesDir = documentsPath.appendingPathComponent("project-notes")
-
-        let folderName = appName
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "-")
+        let notesDir = PortfolioService.shared.projectNotesDirectory
+        let folderName = PortfolioService.shared.getFolderName(for: appName)
         let filePath = notesDir.appendingPathComponent("\(folderName).json")
 
         guard let data = try? Data(contentsOf: filePath) else { return [] }
@@ -333,13 +328,8 @@ class PlanningDocumentGenerator {
     }
 
     private func loadSuggestions(for appName: String) -> [PlanningFeature] {
-        let fileManager = FileManager.default
-        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let planningDir = documentsPath.appendingPathComponent("project-planning")
-
-        let folderName = appName
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "-")
+        let planningDir = PortfolioService.shared.planningDirectory
+        let folderName = PortfolioService.shared.getFolderName(for: appName)
         let filePath = planningDir.appendingPathComponent("\(folderName)-suggestions.json")
 
         guard let data = try? Data(contentsOf: filePath) else { return [] }

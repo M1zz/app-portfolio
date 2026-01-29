@@ -7,7 +7,61 @@ class AIService: ObservableObject {
     @Published var isProcessing = false
     @Published var lastError: String?
 
+    // 실시간 피드백용
+    @Published var currentPhase: String = ""
+    @Published var streamingOutput: String = ""
+    @Published var logMessages: [LogMessage] = []
+
+    struct LogMessage: Identifiable {
+        let id = UUID()
+        let timestamp: Date
+        let type: LogType
+        let message: String
+
+        enum LogType {
+            case info, progress, tool, result, error
+
+            var icon: String {
+                switch self {
+                case .info: return "info.circle"
+                case .progress: return "arrow.clockwise"
+                case .tool: return "hammer"
+                case .result: return "checkmark.circle"
+                case .error: return "exclamationmark.triangle"
+                }
+            }
+
+            var color: String {
+                switch self {
+                case .info: return "blue"
+                case .progress: return "orange"
+                case .tool: return "purple"
+                case .result: return "green"
+                case .error: return "red"
+                }
+            }
+        }
+    }
+
     private init() {}
+
+    private func addLog(_ message: String, type: LogMessage.LogType) {
+        Task { @MainActor in
+            self.logMessages.append(LogMessage(timestamp: Date(), type: type, message: message))
+            // 최대 100개 로그 유지
+            if self.logMessages.count > 100 {
+                self.logMessages.removeFirst()
+            }
+        }
+    }
+
+    private func clearLogs() {
+        Task { @MainActor in
+            self.logMessages.removeAll()
+            self.streamingOutput = ""
+            self.currentPhase = ""
+        }
+    }
 
     // MARK: - Claude Code SDK Integration
 
@@ -50,7 +104,7 @@ class AIService: ObservableObject {
         return nil
     }
 
-    /// Claude Code SDK를 통한 쿼리 실행
+    /// Claude Code SDK를 통한 쿼리 실행 (스트리밍 지원)
     /// - Parameters:
     ///   - prompt: 실행할 프롬프트
     ///   - allowedTools: 허용할 도구 목록 (nil이면 제한 없음)
@@ -60,14 +114,29 @@ class AIService: ObservableObject {
         prompt: String,
         allowedTools: [String]? = nil,
         maxTurns: Int? = nil,
-        outputFormat: OutputFormat = .text
+        outputFormat: OutputFormat = .streamJson
     ) async throws -> String {
-        await MainActor.run { isProcessing = true }
-        defer { Task { await MainActor.run { isProcessing = false } } }
+        clearLogs()
+        await MainActor.run {
+            isProcessing = true
+            currentPhase = "Claude CLI 검색 중..."
+        }
+        addLog("쿼리 시작", type: .info)
+
+        defer {
+            Task { @MainActor in
+                isProcessing = false
+                currentPhase = ""
+            }
+        }
 
         guard let claudePath = findClaudeCLI() else {
+            addLog("Claude CLI를 찾을 수 없습니다", type: .error)
             throw AIServiceError.claudeCLINotFound
         }
+
+        addLog("Claude CLI 발견: \(claudePath)", type: .info)
+        await MainActor.run { currentPhase = "Claude 실행 중..." }
 
         return try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
@@ -76,7 +145,7 @@ class AIService: ObservableObject {
 
                 var arguments = ["-p", prompt]
 
-                // 출력 형식 설정
+                // 스트리밍 JSON 형식 사용
                 arguments.append("--output-format")
                 arguments.append(outputFormat.rawValue)
 
@@ -93,37 +162,148 @@ class AIService: ObservableObject {
                 }
 
                 process.arguments = arguments
+                self.addLog("실행 명령: claude \(arguments.joined(separator: " ").prefix(100))...", type: .info)
 
                 let outputPipe = Pipe()
                 let errorPipe = Pipe()
                 process.standardOutput = outputPipe
                 process.standardError = errorPipe
 
+                // 스트리밍 출력 처리
+                var fullOutput = ""
+                var resultText = ""
+
+                outputPipe.fileHandleForReading.readabilityHandler = { [weak self] handle in
+                    let data = handle.availableData
+                    if data.isEmpty { return }
+
+                    if let line = String(data: data, encoding: .utf8) {
+                        fullOutput += line
+
+                        // stream-json 형식 파싱
+                        for jsonLine in line.components(separatedBy: .newlines) where !jsonLine.isEmpty {
+                            self?.parseStreamingJSON(jsonLine, resultText: &resultText)
+                        }
+                    }
+                }
+
                 do {
                     try process.run()
-                    process.waitUntilExit()
+                    self.addLog("프로세스 시작됨 (PID: \(process.processIdentifier))", type: .progress)
 
-                    let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+                    Task { @MainActor in
+                        self.currentPhase = "응답 생성 중..."
+                    }
+
+                    process.waitUntilExit()
+                    outputPipe.fileHandleForReading.readabilityHandler = nil
+
                     let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
 
                     if process.terminationStatus == 0 {
-                        var output = String(data: outputData, encoding: .utf8) ?? ""
+                        self.addLog("완료!", type: .result)
 
-                        // JSON 형식인 경우 결과 텍스트만 추출
-                        if outputFormat == .json {
-                            output = self.extractResultFromJSON(output) ?? output
-                        }
-
-                        continuation.resume(returning: output)
+                        // 최종 결과 추출
+                        let finalResult = resultText.isEmpty ? self.extractFinalResult(from: fullOutput) : resultText
+                        continuation.resume(returning: finalResult)
                     } else {
                         let errorMessage = String(data: errorData, encoding: .utf8) ?? "Unknown error"
+                        self.addLog("오류: \(errorMessage)", type: .error)
                         continuation.resume(throwing: AIServiceError.cliError(message: errorMessage))
                     }
                 } catch {
+                    self.addLog("실행 실패: \(error.localizedDescription)", type: .error)
                     continuation.resume(throwing: AIServiceError.cliError(message: error.localizedDescription))
                 }
             }
         }
+    }
+
+    /// 스트리밍 JSON 라인 파싱
+    private func parseStreamingJSON(_ jsonLine: String, resultText: inout String) {
+        guard let data = jsonLine.data(using: .utf8),
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            return
+        }
+
+        // 이벤트 타입 확인
+        if let type = json["type"] as? String {
+            switch type {
+            case "system":
+                if let message = json["message"] as? String {
+                    addLog("시스템: \(message)", type: .info)
+                    Task { @MainActor in
+                        self.currentPhase = message
+                    }
+                }
+
+            case "assistant":
+                // assistant 메시지의 content 추출
+                if let message = json["message"] as? [String: Any],
+                   let content = message["content"] as? [[String: Any]] {
+                    for block in content {
+                        if let text = block["text"] as? String {
+                            resultText = text
+                            Task { @MainActor in
+                                self.streamingOutput = text
+                            }
+                        }
+                    }
+                }
+
+            case "tool_use", "tool_result":
+                if let toolName = json["tool"] as? String ?? (json["name"] as? String) {
+                    addLog("도구 사용: \(toolName)", type: .tool)
+                    Task { @MainActor in
+                        self.currentPhase = "도구 실행 중: \(toolName)"
+                    }
+                }
+
+            case "result":
+                if let result = json["result"] as? String {
+                    resultText = result
+                    addLog("결과 수신 완료", type: .result)
+                }
+
+            case "error":
+                if let error = json["error"] as? String {
+                    addLog("오류: \(error)", type: .error)
+                }
+
+            default:
+                // 기타 이벤트 로깅
+                if let subtype = json["subtype"] as? String {
+                    Task { @MainActor in
+                        self.currentPhase = "\(type): \(subtype)"
+                    }
+                }
+            }
+        }
+    }
+
+    /// 전체 출력에서 최종 결과 추출
+    private func extractFinalResult(from output: String) -> String {
+        // 마지막 result 타입 JSON 찾기
+        let lines = output.components(separatedBy: .newlines).reversed()
+        for line in lines {
+            if let data = line.data(using: .utf8),
+               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                if let result = json["result"] as? String {
+                    return result
+                }
+                // assistant 메시지에서 텍스트 추출
+                if json["type"] as? String == "assistant",
+                   let message = json["message"] as? [String: Any],
+                   let content = message["content"] as? [[String: Any]] {
+                    for block in content {
+                        if let text = block["text"] as? String {
+                            return text
+                        }
+                    }
+                }
+            }
+        }
+        return output
     }
 
     /// JSON 출력에서 결과 텍스트 추출

@@ -76,6 +76,7 @@ struct ContentView: View {
                 } label: {
                     Label("새로고침", systemImage: "arrow.clockwise")
                 }
+                .keyboardShortcut("r", modifiers: .command)
             }
 
             ToolbarItem(placement: .primaryAction) {
@@ -118,7 +119,7 @@ struct AppRowView: View {
                 Text(app.name)
                     .font(.body)
 
-                Text("\(app.stats.done)/\(app.stats.totalTasks)")
+                Text("\(app.recentDoneCount)/\(app.todoCount)")
                     .font(.body)
                     .foregroundColor(.secondary)
             }

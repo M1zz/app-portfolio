@@ -114,7 +114,7 @@
   "name": "라포 맵",
   "githubRepo": "https://github.com/M1zz/RapportMap",
   "bundleId": "com.leeo.rapportmap",
-  "localProjectPath": "../RapportMap",
+  "localProjectPath": "../../../../../RapportMap",
   "status": "active",
   "appStoreId": "",
   "priority": "high",

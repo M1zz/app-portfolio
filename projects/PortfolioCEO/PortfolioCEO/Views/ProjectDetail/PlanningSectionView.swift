@@ -333,25 +333,19 @@ struct PlanningSectionView: View {
     }
 
     private func loadSuggestions() {
-        let fileManager = FileManager.default
-        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let planningDir = documentsPath.appendingPathComponent("project-planning")
-
-        if !fileManager.fileExists(atPath: planningDir.path) {
-            try? fileManager.createDirectory(at: planningDir, withIntermediateDirectories: true)
-        }
-
-        let folderName = app.name
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "-")
+        let planningDir = portfolioService.planningDirectory
+        let folderName = portfolioService.getFolderName(for: app.name)
         let suggestionsPath = planningDir.appendingPathComponent("\(folderName)-suggestions.json")
         let decisionsPath = planningDir.appendingPathComponent("\(folderName)-decisions.json")
+
+        print("📥 [PlanningSection] 제안 로드 시도: \(suggestionsPath.path)")
 
         // 제안 로드
         if let data = try? Data(contentsOf: suggestionsPath) {
             let decoder = JSONDecoder()
             if let loaded = try? decoder.decode([PlanningFeature].self, from: data) {
                 suggestions = loaded
+                print("✅ [PlanningSection] \(loaded.count)개 제안 로드 완료")
             }
         }
 
@@ -366,13 +360,8 @@ struct PlanningSectionView: View {
     }
 
     private func saveSuggestions() {
-        let fileManager = FileManager.default
-        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let planningDir = documentsPath.appendingPathComponent("project-planning")
-
-        let folderName = app.name
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "-")
+        let planningDir = portfolioService.planningDirectory
+        let folderName = portfolioService.getFolderName(for: app.name)
         let filePath = planningDir.appendingPathComponent("\(folderName)-suggestions.json")
 
         let encoder = JSONEncoder()
@@ -380,16 +369,12 @@ struct PlanningSectionView: View {
 
         guard let data = try? encoder.encode(suggestions) else { return }
         try? data.write(to: filePath, options: .atomic)
+        print("✅ [PlanningSection] 제안 저장 완료: \(filePath.path)")
     }
 
     private func saveDecisions() {
-        let fileManager = FileManager.default
-        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let planningDir = documentsPath.appendingPathComponent("project-planning")
-
-        let folderName = app.name
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "-")
+        let planningDir = portfolioService.planningDirectory
+        let folderName = portfolioService.getFolderName(for: app.name)
         let filePath = planningDir.appendingPathComponent("\(folderName)-decisions.json")
 
         let encoder = JSONEncoder()
@@ -401,14 +386,11 @@ struct PlanningSectionView: View {
     }
 
     private func loadNotes() -> [ProjectNote] {
-        let fileManager = FileManager.default
-        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let notesDir = documentsPath.appendingPathComponent("project-notes")
-
-        let folderName = app.name
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "-")
+        let notesDir = portfolioService.projectNotesDirectory
+        let folderName = portfolioService.getFolderName(for: app.name)
         let filePath = notesDir.appendingPathComponent("\(folderName).json")
+
+        print("📥 [PlanningSection] 노트 로드 시도: \(filePath.path)")
 
         guard let data = try? Data(contentsOf: filePath) else { return [] }
 

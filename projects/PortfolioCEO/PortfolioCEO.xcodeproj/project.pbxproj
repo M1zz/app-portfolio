@@ -22,6 +22,7 @@
 		7CDCA3D1D2C84E93BBD7E565 /* DecisionCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC6169110F41FC84EC88D9 /* DecisionCenterView.swift */; };
 		82B6AA5D0DAA40CA844CC91D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56081A84888B4093A57F4D74 /* ContentView.swift */; };
 		86595EE0D43A47DDB899B21E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15645BD83F84EBCA0697A1C /* SettingsView.swift */; };
+		9C2036A32F2B379A00AF1279 /* ProjectDiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2036A22F2B379A00AF1279 /* ProjectDiagnosticsView.swift */; };
 		AAA00001AAAA0001AAAA0001 /* AppDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00001BBBB0001BBBB0001 /* AppDetailView.swift */; };
 		AAA00002AAAA0002AAAA0002 /* TasksSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00002BBBB0002BBBB0002 /* TasksSectionView.swift */; };
 		AAA00003AAAA0003AAAA0003 /* FeedbackSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00003BBBB0003BBBB0003 /* FeedbackSectionView.swift */; };
@@ -59,6 +60,7 @@
 		584ABA262F211368008AD1DB /* CEOfeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEOfeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF9BA5DAF514310881D7116 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		82C110029520489F9DA37E7C /* PortfolioCEO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioCEO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C2036A22F2B379A00AF1279 /* ProjectDiagnosticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDiagnosticsView.swift; sourceTree = "<group>"; };
 		A08A80F8A8DA46A69FF93AD4 /* DecisionQueueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionQueueService.swift; sourceTree = "<group>"; };
 		A2C5AF2F3F2A42928FAE8D5A /* AppsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGridView.swift; sourceTree = "<group>"; };
 		AF33B6C7788541C3975B1873 /* PlanningDocumentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningDocumentGenerator.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		28F29B3C22E743DF909222F6 /* PortfolioCEO */ = {
 			isa = PBXGroup;
 			children = (
+				9C2036A22F2B379A00AF1279 /* ProjectDiagnosticsView.swift */,
 				56081A84888B4093A57F4D74 /* ContentView.swift */,
 				28FEB389A2F44CE483094D5F /* PortfolioCEOApp.swift */,
 				D7018DF35A35461BAD704D26 /* Models */,
@@ -331,6 +334,7 @@
 				2A5702AA5605448BBFE373B4 /* QuickSearchView.swift in Sources */,
 				86595EE0D43A47DDB899B21E /* SettingsView.swift in Sources */,
 				CAT01FILT01CAT01FILT01CAT /* CategoryFilterBar.swift in Sources */,
+				9C2036A32F2B379A00AF1279 /* ProjectDiagnosticsView.swift in Sources */,
 				CAT01MGMT01CAT01MGMT01CAT /* CategoryManagementView.swift in Sources */,
 				KAN01VIEW01KAN01VIEW01KAN /* KanbanView.swift in Sources */,
 			);

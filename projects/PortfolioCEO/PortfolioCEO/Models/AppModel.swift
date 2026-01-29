@@ -173,6 +173,34 @@ struct AppTask: Identifiable, Codable, Hashable {
         self.targetVersion = targetVersion
         self.labels = labels
     }
+
+    /// targetDate 문자열을 Date로 파싱 (ISO "2026-02-15" 또는 텍스트 "November 28, 2025" 형식 지원)
+    var parsedTargetDate: Date? {
+        guard let dateStr = targetDate else { return nil }
+
+        // ISO 형식: "2026-02-15"
+        let isoFormatter = DateFormatter()
+        isoFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = isoFormatter.date(from: dateStr) {
+            return date
+        }
+
+        // 텍스트 형식: "November 28, 2025"
+        let textFormatter = DateFormatter()
+        textFormatter.dateFormat = "MMMM d, yyyy"
+        textFormatter.locale = Locale(identifier: "en_US")
+        if let date = textFormatter.date(from: dateStr) {
+            return date
+        }
+
+        // 다른 텍스트 형식: "November 28, 2025" 변형들
+        textFormatter.dateFormat = "MMMM dd, yyyy"
+        if let date = textFormatter.date(from: dateStr) {
+            return date
+        }
+
+        return nil
+    }
 }
 
 enum TaskStatus: String, Codable {
@@ -220,6 +248,52 @@ extension AppModel {
             task.status == .notStarted && task.targetDate == nil && task.targetVersion == nil
         }.count
     }
+
+    /// 이번 빌드 완료 태스크 수 (currentVersion과 같은 targetVersion)
+    var currentBuildDoneCount: Int {
+        currentBuildDoneTasks.count
+    }
+
+    /// 이번 빌드 완료 태스크 목록
+    var currentBuildDoneTasks: [AppTask] {
+        allTasks.filter { task in
+            guard task.status == .done else { return false }
+            // targetVersion이 현재 버전과 같으면 이번 빌드 완료
+            if let targetVersion = task.targetVersion {
+                return targetVersion == currentVersion
+            }
+            // targetVersion 없으면 이번 빌드로 간주
+            return true
+        }
+    }
+
+    /// 이전 완료 태스크 수 (이전 버전의 완료 태스크)
+    var previousDoneCount: Int {
+        previousDoneTasks.count
+    }
+
+    /// 이전 완료 태스크 목록 (currentVersion보다 이전 targetVersion)
+    var previousDoneTasks: [AppTask] {
+        allTasks.filter { task in
+            guard task.status == .done else { return false }
+            guard let targetVersion = task.targetVersion else {
+                return false  // 버전 없으면 이전 완료 아님
+            }
+            // targetVersion이 현재 버전과 다르면 이전 완료
+            return targetVersion != currentVersion
+        }
+    }
+
+    /// 전체 완료 수 (필터 없음)
+    var totalDoneCount: Int {
+        allTasks.filter { $0.status == .done }.count
+    }
+
+    // 하위 호환성을 위한 별칭
+    var recentDoneCount: Int { currentBuildDoneCount }
+    var recentDoneTasks: [AppTask] { currentBuildDoneTasks }
+    var archivedDoneCount: Int { previousDoneCount }
+    var archivedDoneTasks: [AppTask] { previousDoneTasks }
 
     var statusColor: Color {
         status.color

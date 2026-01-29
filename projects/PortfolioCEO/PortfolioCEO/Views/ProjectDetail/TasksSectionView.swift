@@ -15,6 +15,7 @@ enum TaskViewMode: String, CaseIterable {
 struct TasksSectionView: View {
     let app: AppModel
     @State private var showCompletedTasks = false
+    @State private var showArchivedTasks = false  // 지난 완료 표시 여부
     @State private var viewMode: TaskViewMode = .list
 
     var body: some View {
@@ -49,15 +50,10 @@ struct TasksSectionView: View {
             Divider()
 
             // 태스크 통계
-            HStack(spacing: 16) {
-                TaskStatCard(
-                    title: "전체",
-                    count: app.stats.totalTasks,
-                    color: .purple
-                )
+            HStack(spacing: 12) {
                 TaskStatCard(
                     title: "완료",
-                    count: app.stats.done,
+                    count: app.recentDoneCount,
                     color: .green
                 )
                 TaskStatCard(
@@ -75,6 +71,19 @@ struct TasksSectionView: View {
                     count: app.backlogCount,
                     color: .gray
                 )
+
+                // 이전 버전 완료 (있을 경우에만 표시)
+                if app.previousDoneCount > 0 {
+                    Divider()
+                        .frame(height: 40)
+
+                    TaskStatCard(
+                        title: "이전완료",
+                        count: app.previousDoneCount,
+                        color: .secondary,
+                        subtitle: "제외됨"
+                    )
+                }
             }
 
             Divider()
@@ -87,12 +96,34 @@ struct TasksSectionView: View {
 
                     Spacer()
 
+                    // 이전 완료 토글 (완료 표시 중이고 이전 완료가 있을 때만)
+                    if showCompletedTasks && app.previousDoneCount > 0 {
+                        Button(action: {
+                            showArchivedTasks.toggle()
+                        }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: showArchivedTasks ? "clock.arrow.circlepath" : "clock")
+                                Text(showArchivedTasks ? "이전완료 숨기기" : "이전완료 (\(app.previousDoneCount))")
+                            }
+                            .font(.body)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Color.secondary.opacity(0.2))
+                            .foregroundColor(.secondary)
+                            .cornerRadius(8)
+                        }
+                        .buttonStyle(.plain)
+                    }
+
                     Button(action: {
                         showCompletedTasks.toggle()
+                        if !showCompletedTasks {
+                            showArchivedTasks = false
+                        }
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: showCompletedTasks ? "eye.slash" : "eye")
-                            Text(showCompletedTasks ? "완료 숨기기" : "완료 보기 (\(app.stats.done))")
+                            Text(showCompletedTasks ? "완료 숨기기" : "완료 보기 (\(app.recentDoneCount))")
                         }
                         .font(.body)
                         .padding(.horizontal, 12)
@@ -135,17 +166,54 @@ struct TasksSectionView: View {
                         }
 
                         // 완료된 태스크 (토글로 표시/숨김)
-                        if showCompletedTasks && !completedTasks.isEmpty {
-                            Divider()
-                                .padding(.vertical, 8)
+                        if showCompletedTasks {
+                            // 이번 빌드 완료 (v{currentVersion})
+                            if !app.currentBuildDoneTasks.isEmpty {
+                                Divider()
+                                    .padding(.vertical, 8)
 
-                            Text("완료된 태스크 (\(completedTasks.count))")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
+                                HStack {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(.green)
+                                    Text("이번 빌드 완료 - v\(app.currentVersion) (\(app.currentBuildDoneCount))")
+                                        .font(.subheadline)
+                                        .foregroundColor(.green)
+                                }
 
-                            ForEach(completedTasks) { task in
-                                TaskRowView(task: task)
-                                    .opacity(0.6)
+                                ForEach(app.currentBuildDoneTasks) { task in
+                                    TaskRowView(task: task)
+                                        .opacity(0.7)
+                                }
+                            }
+
+                            // 이전 버전 완료 (토글 활성화 시)
+                            if showArchivedTasks && !app.previousDoneTasks.isEmpty {
+                                Divider()
+                                    .padding(.vertical, 8)
+
+                                HStack {
+                                    Image(systemName: "clock")
+                                        .foregroundColor(.secondary)
+                                    Text("이전 버전 완료 (\(app.previousDoneCount)) - 카운트 제외")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
+
+                                ForEach(app.previousDoneTasks) { task in
+                                    HStack {
+                                        TaskRowView(task: task)
+                                        if let ver = task.targetVersion {
+                                            Text("v\(ver)")
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                                .padding(.horizontal, 6)
+                                                .padding(.vertical, 2)
+                                                .background(Color.secondary.opacity(0.2))
+                                                .cornerRadius(4)
+                                        }
+                                    }
+                                    .opacity(0.4)
+                                }
                             }
                         }
 
@@ -173,25 +241,27 @@ struct TasksSectionView: View {
     private var activeTasks: [AppTask] {
         app.allTasks.filter { $0.status != .done }
     }
-
-    private var completedTasks: [AppTask] {
-        app.allTasks.filter { $0.status == .done }
-    }
 }
 
 struct TaskStatCard: View {
     let title: String
     let count: Int
     let color: Color
+    var subtitle: String? = nil
 
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 4) {
             Text(title)
                 .font(.body)
                 .foregroundColor(.secondary)
             Text("\(count)")
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(color)
+            if let subtitle = subtitle {
+                Text(subtitle)
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
         }
         .frame(maxWidth: .infinity)
         .padding()

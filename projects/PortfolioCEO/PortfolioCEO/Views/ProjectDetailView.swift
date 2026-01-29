@@ -220,7 +220,7 @@ struct ProjectDetailView: View {
         SectionCard(title: "작업 통계", icon: "chart.bar.fill") {
             VStack(spacing: 12) {
                 StatsRow(label: "전체 작업", value: "\(app.stats.totalTasks)개")
-                StatsRow(label: "완료", value: "\(app.stats.done)개", color: .green)
+                StatsRow(label: "완료", value: "\(app.recentDoneCount)개", color: .green)
                 StatsRow(label: "진행중", value: "\(app.stats.inProgress)개", color: .orange)
                 StatsRow(label: "대기", value: "\(app.stats.notStarted)개", color: .gray)
 

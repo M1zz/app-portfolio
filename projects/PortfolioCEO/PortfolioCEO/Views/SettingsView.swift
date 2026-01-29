@@ -17,6 +17,7 @@ struct SettingsView: View {
     @State private var showingDeleteConfirmation = false
     @State private var isDeleting = false
     @State private var showingCategoryManagement = false
+    @State private var showingProjectDiagnostics = false
 
     @StateObject private var cloudKitService = CloudKitSyncService.shared
 
@@ -105,6 +106,50 @@ struct SettingsView: View {
                                 }
                             }
                             .buttonStyle(.plain)
+                        }
+                    }
+                    .padding(.top, 4)
+                }
+            }
+
+            Section("프로젝트 경로") {
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("로컬 프로젝트 연결 상태")
+                            .font(.body)
+                        Text("각 앱의 localProjectPath가 올바르게 설정되어 있는지 확인합니다")
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Spacer()
+
+                    Button("진단 실행...") {
+                        showingProjectDiagnostics = true
+                    }
+                    .buttonStyle(.bordered)
+                }
+
+                // 버전 변경 감지된 앱 표시
+                if !portfolioService.versionChanges.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundColor(.orange)
+                            Text("\(portfolioService.versionChanges.count)개 앱의 버전이 변경됨")
+                                .foregroundColor(.orange)
+                        }
+
+                        ForEach(portfolioService.versionChanges) { change in
+                            HStack {
+                                Text(change.appName)
+                                    .font(.body)
+                                Spacer()
+                                Text("\(change.currentVersion) → \(change.detectedVersion)")
+                                    .font(.system(.body, design: .monospaced))
+                                    .foregroundColor(.orange)
+                            }
+                            .padding(.leading, 24)
                         }
                     }
                     .padding(.top, 4)
@@ -212,9 +257,13 @@ struct SettingsView: View {
         }
         .formStyle(.grouped)
         .padding()
-        .frame(width: 500, height: 600)
+        .frame(width: 550, height: 700)
         .sheet(isPresented: $showingCategoryManagement) {
             CategoryManagementView()
+                .environmentObject(portfolioService)
+        }
+        .sheet(isPresented: $showingProjectDiagnostics) {
+            ProjectDiagnosticsView()
                 .environmentObject(portfolioService)
         }
         .onAppear {

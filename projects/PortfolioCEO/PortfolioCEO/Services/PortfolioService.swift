@@ -365,7 +365,8 @@ class PortfolioService: ObservableObject {
         return mapping[appName] ?? appName.lowercased()
     }
 
-    private var feedbackDirectory: URL {
+    /// 피드백/노트 폴더 경로 (외부에서 접근 가능)
+    var projectNotesDirectory: URL {
         // 1. portfolioPath 내의 project-notes 폴더 확인
         let inProjectPath = portfolioPath.appendingPathComponent("project-notes")
         if fileManager.fileExists(atPath: inProjectPath.path) {
@@ -376,6 +377,21 @@ class PortfolioService: ObservableObject {
         let homePath = fileManager.homeDirectoryForCurrentUser
             .appendingPathComponent("Documents/code/app-portfolio/project-notes")
         return homePath
+    }
+
+    /// 기획 제안 폴더 경로
+    var planningDirectory: URL {
+        let inProjectPath = portfolioPath.appendingPathComponent("project-planning")
+        if fileManager.fileExists(atPath: inProjectPath.path) {
+            return inProjectPath
+        }
+        // 폴더가 없으면 생성
+        try? fileManager.createDirectory(at: inProjectPath, withIntermediateDirectories: true)
+        return inProjectPath
+    }
+
+    private var feedbackDirectory: URL {
+        projectNotesDirectory
     }
 
     private func loadFeedbackCounts() -> [String: Int] {

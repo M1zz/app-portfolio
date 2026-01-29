@@ -70,10 +70,14 @@ struct AIAssistantView: View {
                     Spacer()
 
                     if aiService.isProcessing {
-                        ProgressView()
-                            .scaleEffect(0.8)
-                        Text("처리 중...")
-                            .foregroundColor(.secondary)
+                        HStack(spacing: 8) {
+                            ProgressView()
+                                .scaleEffect(0.8)
+                            Text(aiService.currentPhase.isEmpty ? "처리 중..." : aiService.currentPhase)
+                                .foregroundColor(.secondary)
+                                .font(.body)
+                                .lineLimit(1)
+                        }
                     }
                 }
                 .padding()
@@ -92,6 +96,11 @@ struct AIAssistantView: View {
                             feedbackAnalysisView
                         case .taskGeneration:
                             taskGenerationView
+                        }
+
+                        // 실시간 로그 표시 (처리 중일 때)
+                        if aiService.isProcessing || !aiService.logMessages.isEmpty {
+                            logPanelView
                         }
 
                         // 결과 표시
@@ -163,36 +172,29 @@ struct AIAssistantView: View {
 
     // 선택된 앱의 피드백 로드
     private func loadFeedbackForApp(_ app: AppModel) {
-        let fileManager = FileManager.default
-        let home = fileManager.homeDirectoryForCurrentUser
-
-        let possiblePaths = [
-            home.appendingPathComponent("Documents/workspace/code/app-portfolio/project-notes"),
-            home.appendingPathComponent("Documents/code/app-portfolio/project-notes")
-        ]
-
+        let notesDir = portfolioService.projectNotesDirectory
         let folderName = portfolioService.getFolderName(for: app.name)
+        let filePath = notesDir.appendingPathComponent("\(folderName).json")
 
-        for basePath in possiblePaths {
-            let filePath = basePath.appendingPathComponent("\(folderName).json")
+        print("📥 [AIAssistant] 피드백 로드 시도: \(filePath.path)")
 
-            if fileManager.fileExists(atPath: filePath.path),
-               let data = try? Data(contentsOf: filePath) {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-
-                if let notes = try? decoder.decode([ProjectNote].self, from: data) {
-                    // pending 또는 proposed 상태의 피드백만 로드
-                    let activeNotes = notes.filter { $0.status == .pending || $0.status == .proposed }
-                    feedbackInput = activeNotes.map { $0.content }.joined(separator: "\n")
-                    print("✅ \(app.name) 피드백 \(activeNotes.count)개 로드됨")
-                    return
-                }
-            }
+        guard let data = try? Data(contentsOf: filePath) else {
+            feedbackInput = ""
+            print("⚠️ \(app.name) 피드백 파일 없음")
+            return
         }
 
-        feedbackInput = ""
-        print("⚠️ \(app.name) 피드백 파일 없음")
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+
+        if let notes = try? decoder.decode([ProjectNote].self, from: data) {
+            // pending 또는 proposed 상태의 피드백만 로드
+            let activeNotes = notes.filter { $0.status == .pending || $0.status == .proposed }
+            feedbackInput = activeNotes.map { $0.content }.joined(separator: "\n")
+            print("✅ \(app.name) 피드백 \(activeNotes.count)개 로드됨")
+        } else {
+            feedbackInput = ""
+        }
     }
 
     // MARK: - Task Generation View
@@ -230,6 +232,122 @@ struct AIAssistantView: View {
             .buttonStyle(.plain)
             .disabled(selectedApp == nil || featureInput.isEmpty || aiService.isProcessing)
         }
+    }
+
+    // MARK: - Log Panel View
+
+    private var logPanelView: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: "terminal")
+                    .foregroundColor(.secondary)
+                Text("실행 로그")
+                    .font(.headline)
+
+                Spacer()
+
+                if aiService.isProcessing {
+                    HStack(spacing: 4) {
+                        Circle()
+                            .fill(Color.green)
+                            .frame(width: 8, height: 8)
+                        Text("실행 중")
+                            .font(.body)
+                            .foregroundColor(.green)
+                    }
+                }
+
+                Button(action: {
+                    // 로그 지우기
+                }) {
+                    Image(systemName: "trash")
+                        .foregroundColor(.secondary)
+                }
+                .buttonStyle(.plain)
+                .disabled(aiService.isProcessing)
+            }
+
+            // 로그 메시지 목록
+            ScrollViewReader { proxy in
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 4) {
+                        ForEach(aiService.logMessages) { log in
+                            HStack(alignment: .top, spacing: 8) {
+                                Image(systemName: log.type.icon)
+                                    .foregroundColor(colorForLogType(log.type))
+                                    .frame(width: 16)
+
+                                Text(formatTime(log.timestamp))
+                                    .font(.system(.body, design: .monospaced))
+                                    .foregroundColor(.secondary)
+                                    .frame(width: 70, alignment: .leading)
+
+                                Text(log.message)
+                                    .font(.system(.body, design: .monospaced))
+                                    .foregroundColor(colorForLogType(log.type))
+                                    .textSelection(.enabled)
+                            }
+                            .id(log.id)
+                        }
+                    }
+                    .padding(8)
+                }
+                .onChange(of: aiService.logMessages.count) { _, _ in
+                    if let lastLog = aiService.logMessages.last {
+                        withAnimation {
+                            proxy.scrollTo(lastLog.id, anchor: .bottom)
+                        }
+                    }
+                }
+            }
+            .frame(height: 150)
+            .background(Color(NSColor.textBackgroundColor))
+            .cornerRadius(8)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+            )
+
+            // 스트리밍 출력 미리보기 (있을 경우)
+            if !aiService.streamingOutput.isEmpty && aiService.isProcessing {
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Image(systemName: "text.bubble")
+                            .foregroundColor(.blue)
+                        Text("응답 미리보기")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Text(String(aiService.streamingOutput.suffix(500)))
+                        .font(.system(.body, design: .monospaced))
+                        .foregroundColor(.primary)
+                        .padding(8)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.blue.opacity(0.1))
+                        .cornerRadius(6)
+                }
+            }
+        }
+        .padding()
+        .background(Color(NSColor.controlBackgroundColor).opacity(0.5))
+        .cornerRadius(12)
+    }
+
+    private func colorForLogType(_ type: AIService.LogMessage.LogType) -> Color {
+        switch type {
+        case .info: return .blue
+        case .progress: return .orange
+        case .tool: return .purple
+        case .result: return .green
+        case .error: return .red
+        }
+    }
+
+    private func formatTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss"
+        return formatter.string(from: date)
     }
 
     // MARK: - Result View

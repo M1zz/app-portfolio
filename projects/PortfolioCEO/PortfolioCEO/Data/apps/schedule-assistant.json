@@ -29,7 +29,7 @@
   "name": "일정비서",
   "githubRepo": "https://github.com/M1zz/WeekAheadTodo",
   "bundleId": "com.leeo.scheduleassistant",
-  "localProjectPath": "../WeekAheadTodo",
+  "localProjectPath": "../../../../../WeekAheadTodo",
   "status": "active",
   "appStoreId": "",
   "priority": "high",

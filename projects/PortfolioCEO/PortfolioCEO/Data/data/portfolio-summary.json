@@ -13,6 +13,7 @@
         "done" : 6,
         "inProgress" : 0,
         "notStarted" : 0,
+        "todo" : 0,
         "totalTasks" : 6
       },
       "status" : "active"
@@ -30,7 +31,8 @@
       "stats" : {
         "done" : 6,
         "inProgress" : 1,
-        "notStarted" : 1,
+        "notStarted" : 0,
+        "todo" : 1,
         "totalTasks" : 8
       },
       "status" : "active"
@@ -48,7 +50,8 @@
       "stats" : {
         "done" : 10,
         "inProgress" : 1,
-        "notStarted" : 4,
+        "notStarted" : 3,
+        "todo" : 1,
         "totalTasks" : 15
       },
       "status" : "active"
@@ -66,6 +69,7 @@
         "done" : 1,
         "inProgress" : 1,
         "notStarted" : 0,
+        "todo" : 0,
         "totalTasks" : 2
       },
       "status" : "active"
@@ -83,7 +87,8 @@
       "stats" : {
         "done" : 2,
         "inProgress" : 3,
-        "notStarted" : 3,
+        "notStarted" : 0,
+        "todo" : 3,
         "totalTasks" : 8
       },
       "status" : "active"
@@ -102,6 +107,7 @@
         "done" : 2,
         "inProgress" : 1,
         "notStarted" : 6,
+        "todo" : 0,
         "totalTasks" : 9
       },
       "status" : "active"
@@ -120,6 +126,7 @@
         "done" : 1,
         "inProgress" : 2,
         "notStarted" : 14,
+        "todo" : 0,
         "totalTasks" : 17
       },
       "status" : "active"
@@ -137,7 +144,8 @@
       "stats" : {
         "done" : 0,
         "inProgress" : 2,
-        "notStarted" : 8,
+        "notStarted" : 7,
+        "todo" : 1,
         "totalTasks" : 10
       },
       "status" : "active"
@@ -155,13 +163,14 @@
       "stats" : {
         "done" : 0,
         "inProgress" : 2,
-        "notStarted" : 1,
+        "notStarted" : 0,
+        "todo" : 1,
         "totalTasks" : 3
       },
       "status" : "active"
     },
     {
-      "currentVersion" : "1.0.13",
+      "currentVersion" : "1.1.1",
       "file" : "donkko-mart.json",
       "name" : "돈꼬마트",
       "nameEn" : "Donkko Mart",
@@ -173,6 +182,7 @@
         "done" : 5,
         "inProgress" : 0,
         "notStarted" : 0,
+        "todo" : 0,
         "totalTasks" : 5
       },
       "status" : "active"
@@ -190,6 +200,7 @@
         "done" : 2,
         "inProgress" : 0,
         "notStarted" : 1,
+        "todo" : 0,
         "totalTasks" : 3
       },
       "status" : "active"
@@ -208,6 +219,7 @@
         "done" : 2,
         "inProgress" : 0,
         "notStarted" : 2,
+        "todo" : 0,
         "totalTasks" : 4
       },
       "status" : "planning"
@@ -224,7 +236,8 @@
       "stats" : {
         "done" : 1,
         "inProgress" : 0,
-        "notStarted" : 1,
+        "notStarted" : 0,
+        "todo" : 1,
         "totalTasks" : 2
       },
       "status" : "planning"
@@ -243,6 +256,7 @@
         "done" : 1,
         "inProgress" : 0,
         "notStarted" : 2,
+        "todo" : 0,
         "totalTasks" : 3
       },
       "status" : "planning"
@@ -260,6 +274,7 @@
         "done" : 0,
         "inProgress" : 0,
         "notStarted" : 1,
+        "todo" : 0,
         "totalTasks" : 1
       },
       "status" : "planning"
@@ -276,7 +291,8 @@
       "stats" : {
         "done" : 0,
         "inProgress" : 0,
-        "notStarted" : 1,
+        "notStarted" : 0,
+        "todo" : 1,
         "totalTasks" : 1
       },
       "status" : "planning"
@@ -294,7 +310,8 @@
       "stats" : {
         "done" : 0,
         "inProgress" : 0,
-        "notStarted" : 3,
+        "notStarted" : 1,
+        "todo" : 2,
         "totalTasks" : 3
       },
       "status" : "planning"
@@ -305,14 +322,15 @@
       "name" : "릴렉스 온",
       "nameEn" : "Relax On",
       "nextTasks" : [
-        "기존의 사용성 개선  → 4.0.0"
+
       ],
       "priority" : "medium",
       "stats" : {
         "done" : 0,
         "inProgress" : 0,
-        "notStarted" : 1,
-        "totalTasks" : 1
+        "notStarted" : 0,
+        "todo" : 0,
+        "totalTasks" : 0
       },
       "status" : "planning"
     },
@@ -329,20 +347,22 @@
         "done" : 16,
         "inProgress" : 0,
         "notStarted" : 0,
+        "todo" : 0,
         "totalTasks" : 16
       },
       "status" : "planning"
     }
   ],
-  "lastUpdated" : "2026-01-29T00:29:41Z",
+  "lastUpdated" : "2026-01-29T06:26:55Z",
   "overview" : {
     "active" : 11,
     "highPriority" : 9,
     "planning" : 8,
     "totalDone" : 55,
     "totalInProgress" : 13,
-    "totalNotStarted" : 49,
-    "totalTasks" : 117
+    "totalNotStarted" : 37,
+    "totalTasks" : 116,
+    "totalTodo" : 11
   },
   "totalApps" : 19
 }
