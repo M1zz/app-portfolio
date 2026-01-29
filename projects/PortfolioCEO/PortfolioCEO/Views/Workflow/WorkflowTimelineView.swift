@@ -7,6 +7,10 @@ struct WorkflowTimelineView: View {
     @State private var timelineData: TimelineData = TimelineData()
     @State private var zoomLevel: Double = 1.0
 
+    // 필터 바 표시/숨김
+    @State private var showAppFilters: Bool = true
+    @State private var showTaskFilters: Bool = true
+
     // 앱 카드 필터 및 정렬
     @State private var appSortOrder: AppSortOrder = .default
     @State private var showOnlyWithBottleneck: Bool = false
@@ -85,99 +89,139 @@ struct WorkflowTimelineView: View {
     // MARK: - App Filter and Sort Bar
 
     private var appFilterSortBar: some View {
-        HStack(spacing: 16) {
-            Text("앱 선택")
-                .font(.headline)
-
-            Divider()
-                .frame(height: 20)
-
-            // 정렬
-            HStack(spacing: 8) {
-                Text("정렬:")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                Picker("앱 정렬", selection: $appSortOrder) {
-                    ForEach(AppSortOrder.allCases, id: \.self) { order in
-                        Text(order.rawValue).tag(order)
-                    }
-                }
-                .pickerStyle(.menu)
-                .frame(width: 140)
-            }
-
-            Divider()
-                .frame(height: 20)
-
-            // 필터
-            HStack(spacing: 8) {
-                Text("필터:")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                Toggle(isOn: $showOnlyWithBottleneck) {
-                    HStack(spacing: 4) {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .font(.caption2)
-                        Text("병목")
-                            .font(.caption)
-                    }
-                }
-                .toggleStyle(.button)
-                .tint(.red)
-
-                Toggle(isOn: $showOnlyWithSchedule) {
-                    HStack(spacing: 4) {
-                        Image(systemName: "calendar")
-                            .font(.caption2)
-                        Text("일정")
-                            .font(.caption)
-                    }
-                }
-                .toggleStyle(.button)
-                .tint(.blue)
-
-                Toggle(isOn: $showOnlyHighPriority) {
-                    HStack(spacing: 4) {
-                        Image(systemName: "star.fill")
-                            .font(.caption2)
-                        Text("우선순위")
-                            .font(.caption)
-                    }
-                }
-                .toggleStyle(.button)
-                .tint(.orange)
-            }
-
-            Spacer()
-
-            // 앱 카운트
-            Text("\(filteredAndSortedApps.count)개 앱")
-                .font(.caption)
-                .foregroundColor(.secondary)
-
-            // 초기화
-            if isAppFilterActive {
+        VStack(spacing: 0) {
+            // 헤더 (항상 표시)
+            HStack(spacing: 12) {
                 Button {
-                    appSortOrder = .default
-                    showOnlyWithBottleneck = false
-                    showOnlyWithSchedule = false
-                    showOnlyHighPriority = false
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        showAppFilters.toggle()
+                    }
                 } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "arrow.counterclockwise")
+                    HStack(spacing: 8) {
+                        Image(systemName: showAppFilters ? "chevron.down" : "chevron.right")
                             .font(.caption)
-                        Text("초기화")
-                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text("앱 선택")
+                            .font(.headline)
                     }
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.plain)
+
+                if !showAppFilters {
+                    Text("\(filteredAndSortedApps.count)개 앱")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    if isAppFilterActive {
+                        Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                    }
+                }
+
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .background(Color.gray.opacity(0.08))
+            .contentShape(Rectangle())
+            .onTapGesture {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    showAppFilters.toggle()
+                }
+            }
+
+            // 필터/정렬 컨트롤 (접을 수 있음)
+            if showAppFilters {
+                HStack(spacing: 16) {
+                    // 정렬
+                    HStack(spacing: 8) {
+                        Text("정렬:")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Picker("앱 정렬", selection: $appSortOrder) {
+                            ForEach(AppSortOrder.allCases, id: \.self) { order in
+                                Text(order.rawValue).tag(order)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .frame(width: 140)
+                    }
+
+                    Divider()
+                        .frame(height: 20)
+
+                    // 필터
+                    HStack(spacing: 8) {
+                        Text("필터:")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Toggle(isOn: $showOnlyWithBottleneck) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .font(.caption2)
+                                Text("병목")
+                                    .font(.caption)
+                            }
+                        }
+                        .toggleStyle(.button)
+                        .tint(.red)
+
+                        Toggle(isOn: $showOnlyWithSchedule) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "calendar")
+                                    .font(.caption2)
+                                Text("일정")
+                                    .font(.caption)
+                            }
+                        }
+                        .toggleStyle(.button)
+                        .tint(.blue)
+
+                        Toggle(isOn: $showOnlyHighPriority) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "star.fill")
+                                    .font(.caption2)
+                                Text("우선순위")
+                                    .font(.caption)
+                            }
+                        }
+                        .toggleStyle(.button)
+                        .tint(.orange)
+                    }
+
+                    Spacer()
+
+                    // 앱 카운트
+                    Text("\(filteredAndSortedApps.count)개 앱")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    // 초기화
+                    if isAppFilterActive {
+                        Button {
+                            appSortOrder = .default
+                            showOnlyWithBottleneck = false
+                            showOnlyWithSchedule = false
+                            showOnlyHighPriority = false
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: "arrow.counterclockwise")
+                                    .font(.caption)
+                                Text("초기화")
+                                    .font(.caption)
+                            }
+                        }
+                        .buttonStyle(.bordered)
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(Color.gray.opacity(0.05))
             }
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 10)
-        .background(Color.gray.opacity(0.08))
     }
 
     // MARK: - Top Control Bar
@@ -270,116 +314,156 @@ struct WorkflowTimelineView: View {
     // MARK: - Task Filter and Sort Bar
 
     private var taskFilterSortBar: some View {
-        HStack(spacing: 16) {
-            Text("태스크 필터/정렬")
-                .font(.caption)
-                .fontWeight(.semibold)
-                .foregroundColor(.secondary)
-
-            Divider()
-                .frame(height: 20)
-
-            // 정렬
-            HStack(spacing: 8) {
-                Text("정렬:")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                Picker("정렬", selection: $sortOrder) {
-                    ForEach(SortOrder.allCases, id: \.self) { order in
-                        Text(order.rawValue).tag(order)
+        VStack(spacing: 0) {
+            // 헤더 (항상 표시)
+            HStack(spacing: 12) {
+                Button {
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        showTaskFilters.toggle()
+                    }
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: showTaskFilters ? "chevron.down" : "chevron.right")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text("태스크 필터/정렬")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
                     }
                 }
-                .pickerStyle(.segmented)
-                .frame(width: 200)
-            }
+                .buttonStyle(.plain)
 
-            Divider()
-                .frame(height: 20)
-
-            // 상태 필터
-            HStack(spacing: 8) {
-                Text("상태:")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                statusFilterButton(status: .done, label: "완료", color: .green)
-                statusFilterButton(status: .inProgress, label: "진행중", color: .orange)
-                statusFilterButton(status: .todo, label: "진행전", color: .blue)
-                statusFilterButton(status: .notStarted, label: "대기", color: .gray)
-            }
-
-            Divider()
-                .frame(height: 20)
-
-            // 병목 필터
-            Toggle(isOn: $showBottleneckOnly) {
-                HStack(spacing: 4) {
-                    Image(systemName: "exclamationmark.triangle.fill")
+                if !showTaskFilters {
+                    Text("\(timelineData.tasks.count)개 태스크")
                         .font(.caption)
-                        .foregroundColor(.red)
-                    Text("병목만")
-                        .font(.caption)
-                        .fontWeight(.medium)
+                        .foregroundColor(.secondary)
+
+                    if isTaskFilterActive {
+                        Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                    }
+                }
+
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+            .background(Color.gray.opacity(0.05))
+            .contentShape(Rectangle())
+            .onTapGesture {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    showTaskFilters.toggle()
                 }
             }
-            .toggleStyle(.button)
-            .tint(.red)
 
-            // 버전 필터
-            if let app = selectedApp {
-                let versions = getUniqueVersions(from: app)
-                if versions.count > 1 {
+            // 필터/정렬 컨트롤 (접을 수 있음)
+            if showTaskFilters {
+                HStack(spacing: 16) {
+                    // 정렬
+                    HStack(spacing: 8) {
+                        Text("정렬:")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Picker("정렬", selection: $sortOrder) {
+                            ForEach(SortOrder.allCases, id: \.self) { order in
+                                Text(order.rawValue).tag(order)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .frame(width: 200)
+                    }
+
                     Divider()
                         .frame(height: 20)
 
-                    Menu {
-                        Button("전체 버전") {
-                            selectedVersion = nil
+                    // 상태 필터
+                    HStack(spacing: 8) {
+                        Text("상태:")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        statusFilterButton(status: .done, label: "완료", color: .green)
+                        statusFilterButton(status: .inProgress, label: "진행중", color: .orange)
+                        statusFilterButton(status: .todo, label: "진행전", color: .blue)
+                        statusFilterButton(status: .notStarted, label: "대기", color: .gray)
+                    }
+
+                    Divider()
+                        .frame(height: 20)
+
+                    // 병목 필터
+                    Toggle(isOn: $showBottleneckOnly) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .font(.caption)
+                                .foregroundColor(.red)
+                            Text("병목만")
+                                .font(.caption)
+                                .fontWeight(.medium)
                         }
-                        Divider()
-                        ForEach(versions, id: \.self) { version in
-                            Button("v\(version)") {
-                                selectedVersion = version
+                    }
+                    .toggleStyle(.button)
+                    .tint(.red)
+
+                    // 버전 필터
+                    if let app = selectedApp {
+                        let versions = getUniqueVersions(from: app)
+                        if versions.count > 1 {
+                            Divider()
+                                .frame(height: 20)
+
+                            Menu {
+                                Button("전체 버전") {
+                                    selectedVersion = nil
+                                }
+                                Divider()
+                                ForEach(versions, id: \.self) { version in
+                                    Button("v\(version)") {
+                                        selectedVersion = version
+                                    }
+                                }
+                            } label: {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "number.circle")
+                                        .font(.caption)
+                                    Text(selectedVersion.map { "v\($0)" } ?? "전체 버전")
+                                        .font(.caption)
+                                    Image(systemName: "chevron.down")
+                                        .font(.caption2)
+                                }
+                                .foregroundColor(.secondary)
                             }
                         }
-                    } label: {
-                        HStack(spacing: 4) {
-                            Image(systemName: "number.circle")
-                                .font(.caption)
-                            Text(selectedVersion.map { "v\($0)" } ?? "전체 버전")
-                                .font(.caption)
-                            Image(systemName: "chevron.down")
-                                .font(.caption2)
+                    }
+
+                    Spacer()
+
+                    // 태스크 필터 초기화
+                    if isTaskFilterActive {
+                        Button {
+                            selectedStatuses = [.done, .inProgress, .todo, .notStarted]
+                            showBottleneckOnly = false
+                            selectedVersion = nil
+                            sortOrder = .date
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: "arrow.counterclockwise")
+                                    .font(.caption)
+                                Text("초기화")
+                                    .font(.caption)
+                            }
                         }
-                        .foregroundColor(.secondary)
+                        .buttonStyle(.bordered)
                     }
                 }
-            }
-
-            Spacer()
-
-            // 태스크 필터 초기화
-            if isTaskFilterActive {
-                Button {
-                    selectedStatuses = [.done, .inProgress, .todo, .notStarted]
-                    showBottleneckOnly = false
-                    selectedVersion = nil
-                    sortOrder = .date
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "arrow.counterclockwise")
-                            .font(.caption)
-                        Text("초기화")
-                            .font(.caption)
-                    }
-                }
-                .buttonStyle(.bordered)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(Color.gray.opacity(0.03))
             }
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 10)
-        .background(Color.gray.opacity(0.05))
     }
 
     private func statusFilterButton(status: TaskStatus, label: String, color: Color) -> some View {
