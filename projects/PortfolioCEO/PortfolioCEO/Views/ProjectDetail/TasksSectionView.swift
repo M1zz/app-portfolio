@@ -51,10 +51,35 @@ struct TasksSectionView: View {
 
             // 태스크 통계
             HStack(spacing: 12) {
+                // 완료 / 전체
+                VStack(spacing: 4) {
+                    Text("진행률")
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                    HStack(alignment: .firstTextBaseline, spacing: 4) {
+                        Text("\(app.stats.done)")
+                            .font(.system(size: 28, weight: .bold))
+                            .foregroundColor(.green)
+                        Text("/")
+                            .font(.title3)
+                            .foregroundColor(.secondary)
+                        Text("\(app.stats.totalTasks)")
+                            .font(.title3)
+                            .foregroundColor(.secondary)
+                    }
+                    Text("\(Int(Double(app.stats.done) / Double(max(app.stats.totalTasks, 1)) * 100))%")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.green.opacity(0.1))
+                .cornerRadius(12)
+
                 TaskStatCard(
-                    title: "완료",
-                    count: app.recentDoneCount,
-                    color: .green
+                    title: "진행전",
+                    count: app.stats.notStarted,
+                    color: .blue
                 )
                 TaskStatCard(
                     title: "진행중",
@@ -62,28 +87,10 @@ struct TasksSectionView: View {
                     color: .orange
                 )
                 TaskStatCard(
-                    title: "진행전",
-                    count: app.todoCount,
-                    color: .blue
+                    title: "완료",
+                    count: app.stats.done,
+                    color: .green
                 )
-                TaskStatCard(
-                    title: "대기",
-                    count: app.backlogCount,
-                    color: .gray
-                )
-
-                // 이전 버전 완료 (있을 경우에만 표시)
-                if app.previousDoneCount > 0 {
-                    Divider()
-                        .frame(height: 40)
-
-                    TaskStatCard(
-                        title: "이전완료",
-                        count: app.previousDoneCount,
-                        color: .secondary,
-                        subtitle: "제외됨"
-                    )
-                }
             }
 
             Divider()
