@@ -31,12 +31,13 @@ struct AppModel: Identifiable, Codable, Hashable {
     let screenshots: ScreenshotInfo?  // 스크린샷 정보
     let deploymentReminder: DeploymentReminder?  // 배포 알림 설정
     let buildAutomation: BuildAutomation?  // 빌드 자동화 설정
+    let vision: AppVision?  // 앱 비전 및 컨셉
 
     enum CodingKeys: String, CodingKey {
         case name, nameEn, bundleId, folderId, currentVersion
         case status, priority, minimumOS, sharedModules
         case appStoreUrl, githubRepo, localProjectPath, stats
-        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata, screenshots, deploymentReminder, buildAutomation
+        case nextTasks, recentlyCompleted, allTasks, notes, team, categories, price, releaseNotes, deploymentChecklists, versionHistory, appStoreMetadata, screenshots, deploymentReminder, buildAutomation, vision
     }
 
     init(from decoder: Decoder) throws {
@@ -72,6 +73,7 @@ struct AppModel: Identifiable, Codable, Hashable {
         self.screenshots = try container.decodeIfPresent(ScreenshotInfo.self, forKey: .screenshots)
         self.deploymentReminder = try container.decodeIfPresent(DeploymentReminder.self, forKey: .deploymentReminder)
         self.buildAutomation = try container.decodeIfPresent(BuildAutomation.self, forKey: .buildAutomation)
+        self.vision = try container.decodeIfPresent(AppVision.self, forKey: .vision)
     }
 }
 
@@ -145,6 +147,40 @@ struct TaskStats: Codable, Hashable {
     }
 }
 
+// MARK: - Feature Metadata
+struct FeatureMetadata: Codable, Hashable {
+    let description: String?        // 상세 설명
+    let category: String?           // 카테고리 (핵심기능, 보안, 커스터마이징 등)
+    let userValue: String?          // 사용자 가치
+    let technicalNotes: String?     // 기술 노트
+    let relatedTasks: [String]?     // 관련 태스크
+
+    // 추가 필드 (20년차 기획자 관점)
+    let usageScenario: String?      // 언제 사용하는가
+    let problemSolved: String?      // 어떤 문제 해결
+    let userBenefit: String?        // 구체적 이득
+
+    init(
+        description: String? = nil,
+        category: String? = nil,
+        userValue: String? = nil,
+        technicalNotes: String? = nil,
+        relatedTasks: [String]? = nil,
+        usageScenario: String? = nil,
+        problemSolved: String? = nil,
+        userBenefit: String? = nil
+    ) {
+        self.description = description
+        self.category = category
+        self.userValue = userValue
+        self.technicalNotes = technicalNotes
+        self.relatedTasks = relatedTasks
+        self.usageScenario = usageScenario
+        self.problemSolved = problemSolved
+        self.userBenefit = userBenefit
+    }
+}
+
 struct AppTask: Identifiable, Codable, Hashable {
     let id = UUID()
     let name: String
@@ -152,9 +188,10 @@ struct AppTask: Identifiable, Codable, Hashable {
     let targetDate: String?
     let targetVersion: String?
     var labels: [String]?
+    var featureMetadata: FeatureMetadata?
 
     enum CodingKeys: String, CodingKey {
-        case name, status, targetDate, targetVersion, labels
+        case name, status, targetDate, targetVersion, labels, featureMetadata
     }
 
     init(from decoder: Decoder) throws {
@@ -164,14 +201,16 @@ struct AppTask: Identifiable, Codable, Hashable {
         self.targetDate = try container.decodeIfPresent(String.self, forKey: .targetDate)
         self.targetVersion = try container.decodeIfPresent(String.self, forKey: .targetVersion)
         self.labels = try container.decodeIfPresent([String].self, forKey: .labels)
+        self.featureMetadata = try container.decodeIfPresent(FeatureMetadata.self, forKey: .featureMetadata)
     }
 
-    init(name: String, status: TaskStatus, targetDate: String? = nil, targetVersion: String? = nil, labels: [String]? = nil) {
+    init(name: String, status: TaskStatus, targetDate: String? = nil, targetVersion: String? = nil, labels: [String]? = nil, featureMetadata: FeatureMetadata? = nil) {
         self.name = name
         self.status = status
         self.targetDate = targetDate
         self.targetVersion = targetVersion
         self.labels = labels
+        self.featureMetadata = featureMetadata
     }
 
     /// targetDate 문자열을 Date로 파싱 (ISO "2026-02-15" 또는 텍스트 "November 28, 2025" 형식 지원)
@@ -317,6 +356,23 @@ extension AppModel {
         case .warning: return .orange
         case .critical: return .red
         }
+    }
+
+    /// 피쳐로 라벨링된 태스크만 필터
+    var features: [AppTask] {
+        allTasks.filter { $0.labels?.contains("feature") ?? false }
+    }
+
+    /// 카테고리별 피처 그룹핑
+    var featuresByCategory: [String: [AppTask]] {
+        Dictionary(grouping: features) {
+            $0.featureMetadata?.category ?? "기타"
+        }
+    }
+
+    /// 사용 가능한 모든 피처 카테고리
+    var featureCategories: [String] {
+        Array(Set(features.compactMap { $0.featureMetadata?.category })).sorted()
     }
 }
 
@@ -963,5 +1019,32 @@ enum BuildPhase: String, Codable, CaseIterable {
         case .postBuild:
             return "Xcode 빌드 완료 후에 실행됩니다"
         }
+    }
+}
+
+// MARK: - App Vision Models
+
+struct AppVision: Codable, Hashable {
+    var tagline: String?          // 한 줄 요약 (예: "원탭의 힘")
+    var coreValue: String?        // 핵심 가치 (예: "시간 절약을 숫자로 보여주는 성취감")
+    var targetUsers: String?      // 타겟 사용자 (예: "반복적인 텍스트를 자주 입력하는 직장인")
+    var uniqueSellingPoint: String?  // 차별화 포인트
+    var conceptDescription: String?  // 컨셉 상세 설명 (마크다운 지원)
+    var designPrinciples: [String]?  // 디자인 원칙들
+    var userExperienceGoals: [String]?  // 사용자 경험 목표
+    var lastUpdated: Date?
+
+    init(tagline: String? = nil, coreValue: String? = nil, targetUsers: String? = nil,
+         uniqueSellingPoint: String? = nil, conceptDescription: String? = nil,
+         designPrinciples: [String]? = nil, userExperienceGoals: [String]? = nil,
+         lastUpdated: Date? = nil) {
+        self.tagline = tagline
+        self.coreValue = coreValue
+        self.targetUsers = targetUsers
+        self.uniqueSellingPoint = uniqueSellingPoint
+        self.conceptDescription = conceptDescription
+        self.designPrinciples = designPrinciples
+        self.userExperienceGoals = userExperienceGoals
+        self.lastUpdated = lastUpdated
     }
 }

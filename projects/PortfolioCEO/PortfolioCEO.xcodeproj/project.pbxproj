@@ -51,6 +51,11 @@
 		F39AC2D9CE52491D871B90CE /* AppDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DC853E07094AADB3FE1B00 /* AppDetailService.swift */; };
 		KAN01VIEW01KAN01VIEW01KAN /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = KAN02VIEW02KAN02VIEW02KAN /* KanbanView.swift */; };
 		SM01SHAR01SM01SHAR01SM01 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM02SHAR02SM02SHAR02SM02 /* SharedModels.swift */; };
+		BEFE6A8DB9194A429D2308F6 /* FeatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6854BBDE274A16B156E368 /* FeatureListView.swift */; };
+		9E7D74234D574D05B21C5E56 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BB409700B4AF1825D3454 /* FeatureCardView.swift */; };
+		F1D3159E7AC74901B6D8FD05 /* FeatureCategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0A42E952548BCB8B808E1 /* FeatureCategorySection.swift */; };
+		E4B0452C432648348CB4EE30 /* FeatureDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4444F3EE284488AA8113A1 /* FeatureDetailSheet.swift */; };
+		38D8A0C517444821A59EE540 /* VisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0AF824571C4EDBB18B7343 /* VisionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +106,11 @@
 		FF0E96244821439BB167AA75 /* PlanningDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningDocumentView.swift; sourceTree = "<group>"; };
 		KAN02VIEW02KAN02VIEW02KAN /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
 		SM02SHAR02SM02SHAR02SM02 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
+		CF6854BBDE274A16B156E368 /* FeatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListView.swift; sourceTree = "<group>"; };
+		3E3BB409700B4AF1825D3454 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
+		80E0A42E952548BCB8B808E1 /* FeatureCategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCategorySection.swift; sourceTree = "<group>"; };
+		8D4444F3EE284488AA8113A1 /* FeatureDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureDetailSheet.swift; sourceTree = "<group>"; };
+		CA0AF824571C4EDBB18B7343 /* VisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -192,8 +202,29 @@
 				EAFA0EA0442B4D2C9C96BAA6 /* ProjectDetailView.swift */,
 				D34AEECB2F15482E855C1336 /* QuickSearchView.swift */,
 				D15645BD83F84EBCA0697A1C /* SettingsView.swift */,
+				B0B5AAC5D5794F109D488870 /* FeatureList */,
+				A330C692BD144F34A39BAE9C /* Vision */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A330C692BD144F34A39BAE9C /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				CA0AF824571C4EDBB18B7343 /* VisionView.swift */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
+		B0B5AAC5D5794F109D488870 /* FeatureList */ = {
+			isa = PBXGroup;
+			children = (
+				CF6854BBDE274A16B156E368 /* FeatureListView.swift */,
+				3E3BB409700B4AF1825D3454 /* FeatureCardView.swift */,
+				80E0A42E952548BCB8B808E1 /* FeatureCategorySection.swift */,
+				8D4444F3EE284488AA8113A1 /* FeatureDetailSheet.swift */,
+			);
+			path = FeatureList;
 			sourceTree = "<group>";
 		};
 		CCC00001CCCC0001CCCC0001 /* ProjectDetail */ = {
@@ -373,6 +404,11 @@
 				9C2036A32F2B379A00AF1279 /* ProjectDiagnosticsView.swift in Sources */,
 				CAT01MGMT01CAT01MGMT01CAT /* CategoryManagementView.swift in Sources */,
 				KAN01VIEW01KAN01VIEW01KAN /* KanbanView.swift in Sources */,
+				BEFE6A8DB9194A429D2308F6 /* FeatureListView.swift in Sources */,
+				9E7D74234D574D05B21C5E56 /* FeatureCardView.swift in Sources */,
+				F1D3159E7AC74901B6D8FD05 /* FeatureCategorySection.swift in Sources */,
+				E4B0452C432648348CB4EE30 /* FeatureDetailSheet.swift in Sources */,
+				38D8A0C517444821A59EE540 /* VisionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

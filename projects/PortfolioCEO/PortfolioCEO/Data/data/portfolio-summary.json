@@ -188,7 +188,7 @@
       "status" : "active"
     },
     {
-      "currentVersion" : "1.0.2",
+      "currentVersion" : "1.0.4",
       "file" : "shared-day-designer.json",
       "name" : "휴가 플래너",
       "nameEn" : "Shared Day Designer",
@@ -353,7 +353,7 @@
       "status" : "planning"
     }
   ],
-  "lastUpdated" : "2026-01-29T06:26:55Z",
+  "lastUpdated" : "2026-01-31T05:23:18Z",
   "overview" : {
     "active" : 11,
     "highPriority" : 9,

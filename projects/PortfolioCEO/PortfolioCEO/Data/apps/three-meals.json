@@ -3,7 +3,8 @@
     "done": 0,
     "notStarted": 8,
     "inProgress": 2,
-    "totalTasks": 10
+    "totalTasks": 10,
+    "todo": 0
   },
   "notes": "",
   "githubRepo": "https://github.com/M1zz/RoutineCamera",
@@ -23,13 +24,37 @@
       "status": "not-started",
       "name": "설정 바로반응",
       "targetDate": null,
-      "targetVersion": "1.0.3"
+      "targetVersion": "1.0.3",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "편의성 개선",
+        "description": "설정 변경 시 앱을 재시작하지 않고 즉시 반영됩니다",
+        "userValue": "설정을 바꾸고 바로 결과를 확인할 수 있어 편리합니다",
+        "technicalNotes": "Combine, 반응형 UI",
+        "usageScenario": "설정을 바꿨는데 앱을 재시작해야 할 때",
+        "problemSolved": "설정 변경 후 즉시 확인이 안 됨",
+        "userBenefit": "설정 변경 즉시 반영으로 빠른 확인"
+      }
     },
     {
       "status": "in-progress",
       "name": "식단 피드백 작성기능 추가",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "식사 기록",
+        "description": "먹은 음식에 대한 느낌이나 메모를 남길 수 있습니다",
+        "userValue": "식사 후 느낀 점을 기록하여 건강한 식습관을 만들어갈 수 있습니다",
+        "technicalNotes": "텍스트 에디터, 감정 태그 기능",
+        "usageScenario": "식사 후 어떤 느낌이었는지 메모하고 싶을 때",
+        "problemSolved": "사진만으로는 그 때의 느낌을 기억하기 어려움",
+        "userBenefit": "나중에 같은 메뉴를 먹을지 판단하는 근거 마련"
+      }
     },
     {
       "status": "not-started",
@@ -41,43 +66,127 @@
       "status": "not-started",
       "name": "이미 가지고 있는 추출한 재료로 줄 수 있는 정보",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "영양 분석",
+        "description": "식단에서 추출한 재료 정보를 바탕으로 영양 인사이트를 제공합니다",
+        "userValue": "내가 먹은 음식의 영양소를 이해하고 건강한 식습관을 만들 수 있습니다",
+        "technicalNotes": "영양소 DB, 데이터 분석",
+        "usageScenario": "내가 먹은 음식의 영양소가 궁금할 때",
+        "problemSolved": "식단 사진만 있고 영양 정보는 모름",
+        "userBenefit": "칼로리, 단백질 등 영양 정보 자동 분석"
+      }
     },
     {
       "status": "not-started",
       "name": "좀 더 나은 운동 디자인으로 바꾸기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "활동 기록",
+        "description": "운동 기록 화면을 더 보기 좋고 사용하기 편하게 개선합니다",
+        "userValue": "직관적인 인터페이스로 운동 기록을 즐겁게 할 수 있습니다",
+        "technicalNotes": "SwiftUI 리디자인, 애니메이션 개선",
+        "usageScenario": "운동 정보를 기록하고 싶을 때",
+        "problemSolved": "운동 화면이 직관적이지 않음",
+        "userBenefit": "쉽고 빠르게 운동 기록 완료"
+      }
     },
     {
       "status": "not-started",
       "name": "유저가 달 성할 수 있는 목표와 앱의 목표 명확하게 하기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "목표 관리",
+        "description": "사용자가 세운 목표와 앱의 가이드를 명확히 구분하여 표시합니다",
+        "userValue": "내 목표가 무엇인지 혼란 없이 집중할 수 있습니다",
+        "technicalNotes": "목표 UI 개선, 시각적 구분",
+        "usageScenario": "다이어트 목표를 세우고 진행 상황을 확인할 때",
+        "problemSolved": "내 목표와 앱 추천이 섞여서 혼란스러움",
+        "userBenefit": "내 목표에 집중하며 명확한 진행 상황 파악"
+      }
     },
     {
       "status": "not-started",
       "name": "추출한 식단을 바탕으로 이런거 먹으면 좋아 추천하기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "맞춤 추천",
+        "description": "부족한 영양소를 고려하여 음식을 추천합니다",
+        "userValue": "균형 잡힌 식단을 위해 무엇을 먹어야 할지 제안받을 수 있습니다",
+        "technicalNotes": "추천 알고리즘, 영양소 균형 계산",
+        "usageScenario": "부족한 영양소를 채우고 싶을 때",
+        "problemSolved": "무엇을 먹어야 균형잡힌 식단인지 모름",
+        "userBenefit": "AI 기반 식단 추천으로 건강한 선택"
+      }
     },
     {
       "status": "not-started",
       "name": "사실은 오해하고있을 식단에 대한 정보와 팁",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "건강 정보",
+        "description": "잘못된 식단 상식을 바로잡는 정보를 제공합니다",
+        "userValue": "건강한 식습관에 대한 올바른 지식을 얻을 수 있습니다",
+        "technicalNotes": "콘텐츠 DB, 팁 시스템",
+        "usageScenario": "잘못된 다이어트 상식을 가지고 있을 때",
+        "problemSolved": "인터넷의 잘못된 정보로 건강 악화",
+        "userBenefit": "전문가 검증된 식단 정보로 올바른 습관 형성"
+      }
     },
     {
       "status": "not-started",
       "name": "사용자의 식단분석 보이기 감추기 토글 설정 + 이미지 작아지지 않게하기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "화면 설정",
+        "description": "식단 분석 정보를 선택적으로 표시하거나 숨길 수 있습니다",
+        "userValue": "원하는 정보만 보며 화면을 깔끔하게 유지할 수 있습니다",
+        "technicalNotes": "토글 UI, 레이아웃 조정",
+        "usageScenario": "분석 정보 없이 사진만 크게 보고 싶을 때",
+        "problemSolved": "분석 정보가 화면을 차지해서 사진이 작음",
+        "userBenefit": "원하는 정보만 선택하여 깔끔한 화면"
+      }
     },
     {
       "status": "in-progress",
       "name": "간식 감추는 설정",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "화면 설정",
+        "description": "간식 기록을 메인 화면에서 숨길 수 있습니다",
+        "userValue": "식사 기록에만 집중하고 싶을 때 간식을 따로 관리할 수 있습니다",
+        "technicalNotes": "필터 설정, 데이터 필터링",
+        "usageScenario": "정식 식사만 관리하고 싶을 때",
+        "problemSolved": "간식까지 표시되어 식단이 복잡해 보임",
+        "userBenefit": "식사 중심으로 깔끔한 기록 관리"
+      }
     }
   ],
   "localProjectPath": "../RoutineCamera",
@@ -87,5 +196,57 @@
     "설정 바로반응",
     "[BUG] 식단 분석 후 이미지가 깨지는 버그 수정"
   ],
-  "folderId": "three-meals"
+  "folderId": "three-meals",
+  "vision": {
+    "tagline": "건강한 식습관의 시작",
+    "coreValue": "매일 먹는 음식을 기록하고 분석하여 건강한 식습관 만들기",
+    "targetUsers": "다이어트, 건강 관리에 관심 있는 사람들",
+    "uniqueSellingPoint": "사진 기반 식단 기록과 AI 분석으로 간편하게 관리",
+    "designPrinciples": [
+      "사진 중심 - 글보다 사진이 빠르고 정확",
+      "간편한 기록 - 복잡한 입력 최소화",
+      "긍정적 피드백 - 잘한 점 강조"
+    ],
+    "userExperienceGoals": [
+      "식사 후 10초 안에 기록",
+      "주간 식습관 한눈에 파악",
+      "동기부여되는 피드백"
+    ],
+    "potential": {
+      "marketSize": "건강/다이어트 앱 시장 - 한국만 1000만+ 잠재 사용자",
+      "targetExpansion": [
+        "다이어트 관심층 → 만성질환 관리 (당뇨, 고혈압)",
+        "개인 사용자 → 영양사-고객 연결 플랫폼",
+        "한국 → 아시아 (식단 문화가 유사한 일본, 중국)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 $9.99): AI 영양사, 맞춤 식단 추천, 상세 분석",
+          "영양사 연결 서비스 (건당 $29.99): 전문가 1:1 상담",
+          "식품 브랜드 제휴: 건강 식품 추천 커미션"
+        ]
+      },
+      "competitiveAdvantage": [
+        "사진 기반 자동 식단 분석 - 입력 부담 최소화",
+        "AI 영양소 추출 정확도",
+        "긍정적 피드백 중심 - 스트레스 없는 건강 관리"
+      ],
+      "expansionStrategy": [
+        "1단계: AI 정확도 개선 (95% 이상 영양소 인식률)",
+        "2단계: 커뮤니티 기능 추가 - 식단 공유 및 동기부여",
+        "3단계: 웨어러블 연동 (Apple Watch) - 운동과 식단 통합 관리",
+        "4단계: 영양사 마켓플레이스 오픈"
+      ],
+      "longTermVision": "아시아 1위 AI 영양 관리 플랫폼. 병원-환자 연결로 만성질환 관리 솔루션 제공. 3년 내 MAU 50만 달성.",
+      "risks": [
+        "AI 분석 오류로 인한 신뢰도 하락",
+        "의료 영역 진입 시 규제 이슈"
+      ],
+      "opportunities": [
+        "고령화 사회에서 건강 관리 수요 폭발적 증가",
+        "보험사와 제휴하여 건강 리워드 프로그램 가능"
+      ]
+    }
+  }
 }

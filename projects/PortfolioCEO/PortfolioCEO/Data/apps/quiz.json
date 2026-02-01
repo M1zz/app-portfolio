@@ -15,9 +15,10 @@
   "name": "퀴즈",
   "stats": {
     "done": 2,
-    "notStarted": 2,
     "inProgress": 0,
-    "totalTasks": 4
+    "todo": 10,
+    "notStarted": 4,
+    "totalTasks": 16
   },
   "sharedModules": [],
   "appStoreId": "",
@@ -46,11 +47,291 @@
       "status": "not-started",
       "name": "캐싱으로 문제 저장 및 API 최소화",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "오프라인 지원",
+        "description": "한번 받은 퀴즈 문제를 저장하여 오프라인에서도 풀 수 있습니다",
+        "userValue": "인터넷 없이도 퀴즈를 즐길 수 있고 로딩 시간이 줄어듭니다",
+        "technicalNotes": "CoreData 캐싱, 네트워크 요청 최적화",
+        "usageScenario": "인터넷이 없는 곳에서도 퀴즈를 풀고 싶을 때",
+        "problemSolved": "네트워크 없이는 앱 사용 불가",
+        "userBenefit": "한 번 받은 퀴즈는 오프라인에서도 가능"
+      }
+    },
+    {
+      "name": "퀴즈 플레이",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "재미있는 학습",
+        "description": "다양한 주제의 퀴즈를 풀고 점수를 획득할 수 있습니다",
+        "userValue": "재미있게 퀴즈를 풀며 새로운 지식을 배울 수 있습니다",
+        "technicalNotes": "퀴즈 엔진, 타이머, 점수 계산",
+        "usageScenario": "지루하지 않게 지식을 테스트하고 싶을 때",
+        "problemSolved": "단순 암기는 재미없고 지속하기 어려움",
+        "userBenefit": "게임처럼 즐기며 새로운 지식 습득"
+      }
+    },
+    {
+      "name": "퀴즈 생성",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "콘텐츠 제작",
+        "description": "나만의 퀴즈를 만들고 다른 사람과 공유할 수 있습니다",
+        "userValue": "내가 아는 지식을 퀴즈로 만들어 친구들과 나눌 수 있습니다",
+        "technicalNotes": "에디터, 이미지 첨부, 공유 기능",
+        "usageScenario": "내가 아는 지식을 퀴즈로 만들어 공유하고 싶을 때",
+        "problemSolved": "퀴즈 제작 도구가 복잡하거나 없음",
+        "userBenefit": "쉬운 에디터로 나만의 퀴즈 제작"
+      }
+    },
+    {
+      "name": "카테고리별 퀴즈",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "콘텐츠 다양성",
+        "description": "역사, 과학, 영화 등 다양한 카테고리의 퀴즈를 제공합니다",
+        "userValue": "관심 있는 주제의 퀴즈를 선택해서 풀 수 있습니다",
+        "technicalNotes": "카테고리 필터, 퀴즈 DB",
+        "usageScenario": "영화에 대한 퀴즈만 풀고 싶을 때",
+        "problemSolved": "모든 주제가 섞여 있어서 원하는 것 찾기 어려움",
+        "userBenefit": "관심 분야 집중 학습"
+      }
+    },
+    {
+      "name": "난이도 선택",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "맞춤 경험",
+        "description": "초급, 중급, 고급 난이도를 선택할 수 있습니다",
+        "userValue": "내 수준에 맞는 문제를 풀어 적절한 도전감을 느낄 수 있습니다",
+        "technicalNotes": "난이도 태그, 필터링",
+        "usageScenario": "너무 어렵거나 쉬운 문제는 재미없을 때",
+        "problemSolved": "문제가 너무 쉽거나 어려워서 흥미 상실",
+        "userBenefit": "내 수준에 딱 맞는 도전"
+      }
+    },
+    {
+      "name": "타이머 챌린지",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "재미있는 학습",
+        "description": "제한 시간 내에 문제를 풀어 긴장감을 더합니다",
+        "userValue": "시간 압박으로 더 집중하고 긴장감 있게 즐길 수 있습니다",
+        "technicalNotes": "카운트다운 타이머",
+        "usageScenario": "친구와 누가 더 빨리 푸나 경쟁할 때",
+        "problemSolved": "시간 제한 없으면 긴장감 부족",
+        "userBenefit": "스릴 있는 퀴즈 경험"
+      }
+    },
+    {
+      "name": "성적 통계",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "진행 추적",
+        "description": "정답률, 카테고리별 강약점 등을 그래프로 보여줍니다",
+        "userValue": "어떤 분야가 약한지 파악하고 집중 학습할 수 있습니다",
+        "technicalNotes": "통계 분석, 차트",
+        "usageScenario": "내가 어떤 주제에 약한지 확인하고 싶을 때",
+        "problemSolved": "강약점을 모르고 무작정 풀기만 함",
+        "userBenefit": "데이터 기반 학습 전략"
+      }
+    },
+    {
+      "name": "친구와 대결",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "소셜",
+        "description": "친구를 초대하여 같은 퀴즈를 풀고 점수를 비교합니다",
+        "userValue": "혼자가 아닌 친구와 경쟁하며 더 재미있게 즐길 수 있습니다",
+        "technicalNotes": "멀티플레이어, 리더보드",
+        "usageScenario": "친구와 누가 더 똑똑한지 겨루고 싶을 때",
+        "problemSolved": "혼자 푸는 건 금방 지루함",
+        "userBenefit": "친구와 경쟁으로 동기 부여"
+      }
+    },
+    {
+      "name": "오답 노트",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "학습 효율",
+        "description": "틀린 문제만 모아서 다시 풀 수 있습니다",
+        "userValue": "약한 부분을 집중적으로 복습하여 실력을 키울 수 있습니다",
+        "technicalNotes": "오답 저장, 필터링",
+        "usageScenario": "시험 전 틀린 문제만 다시 보고 싶을 때",
+        "problemSolved": "같은 문제를 반복해서 틀림",
+        "userBenefit": "약점 집중 공략으로 빠른 향상"
+      }
+    },
+    {
+      "name": "일일 챌린지",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "습관 형성",
+        "description": "매일 새로운 퀴즈 세트가 제공되어 꾸준히 학습합니다",
+        "userValue": "매일 조금씩 풀며 지식을 쌓는 습관을 만들 수 있습니다",
+        "technicalNotes": "일일 퀴즈 생성, 스트릭 추적",
+        "usageScenario": "매일 조금씩 공부하고 싶을 때",
+        "problemSolved": "가끔 한 번씩만 하고 잊어버림",
+        "userBenefit": "일일 챌린지로 습관 형성"
+      }
+    },
+    {
+      "name": "힌트 시스템",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "학습 지원",
+        "description": "모르는 문제에 힌트를 사용할 수 있습니다",
+        "userValue": "완전히 모르는 문제도 힌트로 배울 기회를 얻습니다",
+        "technicalNotes": "힌트 DB, 포인트 차감",
+        "usageScenario": "어려운 문제를 그냥 넘기기 아까울 때",
+        "problemSolved": "모르면 그냥 틀리고 끝",
+        "userBenefit": "힌트로 학습 효과 증대"
+      }
+    },
+    {
+      "name": "해설 및 참고 자료",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "교육",
+        "description": "정답 후 자세한 해설과 추가 정보를 제공합니다",
+        "userValue": "정답만 알고 끝나는 게 아니라 배경 지식까지 습득합니다",
+        "technicalNotes": "해설 DB, 링크 연결",
+        "usageScenario": "왜 이게 정답인지 더 알고 싶을 때",
+        "problemSolved": "정답만 보고 이유는 모름",
+        "userBenefit": "깊이 있는 학습"
+      }
+    },
+    {
+      "name": "배지 및 업적",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "동기부여",
+        "description": "100문제 달성, 역사 마스터 등 업적을 달성하면 배지를 받습니다",
+        "userValue": "성취감을 느끼며 계속 퀴즈를 풀고 싶어집니다",
+        "technicalNotes": "업적 시스템, 배지 UI",
+        "usageScenario": "목표를 세우고 달성하고 싶을 때",
+        "problemSolved": "명확한 목표가 없어서 동기 부족",
+        "userBenefit": "배지 수집으로 지속 동기"
+      }
     }
   ],
   "githubRepo": "https://github.com/Swift-Coding-Club/Level1Kuiz",
   "notes": "",
   "minimumOS": "16.0",
-  "folderId": "quiz"
+  "folderId": "quiz",
+  "vision": {
+    "tagline": "지식을 게임처럼",
+    "coreValue": "퀴즈를 통한 재미있는 학습과 지식 테스트",
+    "targetUsers": "새로운 것을 배우고 싶은 사람, 지식을 테스트하고 싶은 사람",
+    "uniqueSellingPoint": "다양한 주제의 퀴즈를 직접 만들고 공유",
+    "designPrinciples": [
+      "게이미피케이션 - 점수, 레벨, 배지",
+      "다양성 - 여러 주제와 난이도",
+      "커뮤니티 - 사용자 생성 콘텐츠"
+    ],
+    "userExperienceGoals": [
+      "퀴즈 풀며 재미있게 학습",
+      "나만의 퀴즈 쉽게 만들기",
+      "친구와 점수 경쟁"
+    ],
+    "potential": {
+      "marketSize": "교육/게임 시장 - 전 연령층",
+      "targetExpansion": [
+        "개인 학습 → 기업 교육 (퀴즈 기반 트레이닝)",
+        "한국 → 글로벌 (다국어 퀴즈)",
+        "단순 퀴즈 → 인증 시험 준비"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 콘텐츠 (카테고리별 $2.99)",
+          "구독 모델 (월 $5.99): 무제한 퀴즈, 광고 제거",
+          "기업 라이선스: 직원 교육용 퀴즈 플랫폼"
+        ]
+      },
+      "competitiveAdvantage": [
+        "사용자 생성 콘텐츠 - 무한 확장",
+        "게이미피케이션 - 재미있는 학습",
+        "오프라인 지원 - 언제 어디서나"
+      ],
+      "expansionStrategy": [
+        "1단계: AI 퀴즈 생성 - 텍스트에서 자동 퀴즈 만들기",
+        "2단계: 멀티플레이어 - 친구와 실시간 대결",
+        "3단계: 인증 시험 대비 모드 (자격증, 공무원)",
+        "4단계: 기업 교육 플랫폼 B2B"
+      ],
+      "longTermVision": "재미있는 학습의 대명사. 사용자 생성 콘텐츠로 모든 주제 커버. 기업 교육 표준 도구.",
+      "risks": [
+        "Kahoot 등 기존 플랫폼과의 경쟁",
+        "콘텐츠 품질 관리 어려움"
+      ],
+      "opportunities": [
+        "에듀테크 시장 성장",
+        "기업의 직원 교육 투자 증가"
+      ]
+    }
+  }
 }

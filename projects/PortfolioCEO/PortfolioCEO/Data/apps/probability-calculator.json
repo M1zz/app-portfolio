@@ -11,6 +11,222 @@
       "name": "앱 재 배포시도",
       "targetDate": "November 25, 2025",
       "targetVersion": "1.0.0"
+    },
+    {
+      "name": "확률 계산기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "복잡한 계산",
+        "description": "조합, 순열, 조건부 확률 등을 계산할 수 있습니다",
+        "userValue": "복잡한 수식을 외우지 않아도 확률을 계산할 수 있습니다",
+        "technicalNotes": "확률 알고리즘, 입력 검증",
+        "usageScenario": "조합이나 순열 문제를 풀어야 하는데 계산이 복잡할 때",
+        "problemSolved": "수식을 외우지 못하거나 계산 실수",
+        "userBenefit": "숫자만 입력하면 정확한 확률 계산"
+      }
+    },
+    {
+      "name": "시각화 그래프",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "직관적 이해",
+        "description": "계산 결과를 차트와 그래프로 표현합니다",
+        "userValue": "숫자만으로는 이해하기 어려운 확률을 직관적으로 파악할 수 있습니다",
+        "technicalNotes": "차트 라이브러리, 애니메이션",
+        "usageScenario": "확률을 숫자로만 보면 감이 안 올 때",
+        "problemSolved": "추상적인 확률을 이해하기 어려움",
+        "userBenefit": "그래프로 확률을 시각적으로 이해"
+      }
+    },
+    {
+      "name": "실생활 확률 템플릿",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 시작",
+        "description": "로또, 가위바위보, 주사위 등 자주 쓰는 확률 계산 템플릿을 제공합니다",
+        "userValue": "복잡한 수식 입력 없이 바로 원하는 확률을 계산할 수 있습니다",
+        "technicalNotes": "사전 정의된 확률 모델, 파라미터 입력만",
+        "usageScenario": "로또 당첨 확률이 궁금할 때",
+        "problemSolved": "확률 문제를 수식으로 변환하기 어려움",
+        "userBenefit": "3탭으로 원하는 확률 즉시 계산"
+      }
+    },
+    {
+      "name": "계산 히스토리",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "기록 관리",
+        "description": "이전에 계산했던 확률들을 저장하고 다시 볼 수 있습니다",
+        "userValue": "같은 계산을 반복하지 않고 저장된 결과를 바로 확인할 수 있습니다",
+        "technicalNotes": "Core Data, 계산 결과 저장",
+        "usageScenario": "어제 계산했던 확률을 다시 확인하고 싶을 때",
+        "problemSolved": "같은 계산을 매번 다시 해야 함",
+        "userBenefit": "과거 계산 즉시 재사용"
+      }
+    },
+    {
+      "name": "여러 시나리오 비교",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "의사결정 지원",
+        "description": "여러 가지 경우의 확률을 나란히 비교할 수 있습니다",
+        "userValue": "A안과 B안 중 어느 것이 더 유리한지 확률로 비교하여 결정할 수 있습니다",
+        "technicalNotes": "멀티 계산기, 비교 뷰",
+        "usageScenario": "두 가지 선택지 중 확률적으로 유리한 것을 고를 때",
+        "problemSolved": "여러 경우를 따로 계산하고 기억해야 함",
+        "userBenefit": "한 화면에서 모든 시나리오 확률 비교"
+      }
+    },
+    {
+      "name": "확률 분포 그래프",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "직관적 이해",
+        "description": "정규분포, 이항분포 등 확률 분포를 그래프로 시각화합니다",
+        "userValue": "추상적인 분포 개념을 시각적으로 이해할 수 있습니다",
+        "technicalNotes": "통계 차트, 분포 계산 알고리즘",
+        "usageScenario": "통계 수업이나 연구에서 분포를 확인할 때",
+        "problemSolved": "분포 개념이 수식으로만 있어 이해 어려움",
+        "userBenefit": "그래프로 한눈에 분포 파악"
+      }
+    },
+    {
+      "name": "학습 모드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "교육",
+        "description": "확률 계산 과정을 단계별로 설명합니다",
+        "userValue": "결과뿐만 아니라 어떻게 계산되는지 배울 수 있습니다",
+        "technicalNotes": "단계별 풀이 로직, 설명 텍스트",
+        "usageScenario": "확률 수업을 듣거나 시험 준비할 때",
+        "problemSolved": "답만 알고 과정은 모름",
+        "userBenefit": "계산기이면서 동시에 학습 도구"
+      }
+    },
+    {
+      "name": "공유 및 내보내기",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "협업",
+        "description": "계산 결과를 이미지나 PDF로 저장하거나 공유할 수 있습니다",
+        "userValue": "보고서나 과제에 확률 계산 결과를 바로 첨부할 수 있습니다",
+        "technicalNotes": "이미지 렌더링, PDF 생성, Share Sheet",
+        "usageScenario": "과제나 보고서에 확률 계산을 포함해야 할 때",
+        "problemSolved": "스크린샷으로 찍어야 하는 번거로움",
+        "userBenefit": "깔끔한 형식으로 결과 공유"
+      }
+    },
+    {
+      "name": "단위 변환 도구",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "편의 기능",
+        "description": "확률을 백분율, 소수, 분수 등 다양한 형식으로 변환합니다",
+        "userValue": "상황에 맞는 표현 방식으로 확률을 이해하고 전달할 수 있습니다",
+        "technicalNotes": "수학 변환 함수",
+        "usageScenario": "확률을 다른 형식으로 표현해야 할 때",
+        "problemSolved": "소수를 백분율로 바꾸는 계산을 따로 해야 함",
+        "userBenefit": "모든 형식 동시 표시로 즉시 확인"
+      }
+    },
+    {
+      "name": "즐겨찾기 계산",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 접근",
+        "description": "자주 하는 계산을 즐겨찾기에 저장합니다",
+        "userValue": "반복적으로 하는 계산을 빠르게 다시 실행할 수 있습니다",
+        "technicalNotes": "북마크 시스템",
+        "usageScenario": "매주 같은 확률을 계산해야 할 때",
+        "problemSolved": "같은 값을 매번 다시 입력",
+        "userBenefit": "한 번의 탭으로 자주 쓰는 계산 실행"
+      }
+    },
+    {
+      "name": "다크 모드 지원",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "UI 개선",
+        "description": "시스템 설정에 따라 자동으로 다크 모드를 적용합니다",
+        "userValue": "밤에 사용할 때 눈의 피로를 줄일 수 있습니다",
+        "technicalNotes": "다크 모드 컬러셋, 자동 전환",
+        "usageScenario": "야간에 앱을 사용할 때",
+        "problemSolved": "밝은 화면이 눈부심",
+        "userBenefit": "어두운 환경에서 편안한 사용"
+      }
+    },
+    {
+      "name": "계산기 모드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "복잡한 계산",
+        "description": "확률 계산에 필요한 조합, 팩토리얼 등을 직접 계산할 수 있는 계산기를 제공합니다",
+        "userValue": "다른 계산기 앱을 열지 않고도 중간 계산을 할 수 있습니다",
+        "technicalNotes": "내장 계산기 엔진",
+        "usageScenario": "확률 계산 중 중간 값을 확인하고 싶을 때",
+        "problemSolved": "계산기 앱을 따로 열어야 함",
+        "userBenefit": "한 앱 안에서 모든 계산 완료"
+      }
     }
   ],
   "minimumOS": "16.0",
@@ -34,9 +250,62 @@
   "sharedModules": [],
   "stats": {
     "done": 1,
-    "notStarted": 1,
     "inProgress": 0,
-    "totalTasks": 2
+    "todo": 10,
+    "notStarted": 3,
+    "totalTasks": 14
   },
-  "folderId": "probability-calculator"
+  "folderId": "probability-calculator",
+  "vision": {
+    "tagline": "확률의 직관적 이해",
+    "coreValue": "복잡한 확률 계산을 시각화하여 쉽게 이해",
+    "targetUsers": "확률을 계산해야 하는 학생, 게이머, 의사결정자",
+    "uniqueSellingPoint": "수식이 아닌 시각적 표현으로 확률 계산",
+    "designPrinciples": [
+      "시각화 우선 - 숫자보다 그래프로",
+      "단계별 계산 - 과정을 보여주기",
+      "실전 예제 - 실생활 문제 적용"
+    ],
+    "userExperienceGoals": [
+      "확률 문제 입력 후 즉시 결과",
+      "시각적으로 이해하기 쉬운 표현",
+      "계산 과정 학습"
+    ],
+    "potential": {
+      "marketSize": "교육/학습 도구 - 학생, 게이머 수백만",
+      "targetExpansion": [
+        "학생 → 게이머 (확률 계산), 투자자 (리스크 분석)",
+        "단순 계산 → 시뮬레이션 및 시각화",
+        "한국 → 글로벌 (수학은 범용)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 $2.99): 고급 계산, 무제한 히스토리",
+          "교육 기관 라이선스: 학급 단위 구독",
+          "광고 모델: 교육 서비스 광고"
+        ]
+      },
+      "competitiveAdvantage": [
+        "시각화 - 추상적 확률을 직관적으로",
+        "단계별 풀이 - 학습 효과",
+        "실생활 예제 - 게임, 투자 등"
+      ],
+      "expansionStrategy": [
+        "1단계: 시뮬레이션 기능 - 몬테카를로 등",
+        "2단계: 게임 확률 특화 (가챠, 뽑기)",
+        "3단계: 투자 리스크 계산 도구 추가",
+        "4단계: 교육 플랫폼 연동"
+      ],
+      "longTermVision": "확률 학습의 필수 도구. 게이머의 확률 계산기. 투자 의사결정 보조 도구.",
+      "risks": [
+        "무료 온라인 계산기 많음",
+        "니치 시장으로 성장 한계"
+      ],
+      "opportunities": [
+        "게임 산업 성장 (가챠 확률 의무 공개)",
+        "데이터 기반 의사결정 트렌드"
+      ]
+    }
+  }
 }

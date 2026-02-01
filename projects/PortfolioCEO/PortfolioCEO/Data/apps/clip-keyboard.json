@@ -1,151 +1,349 @@
 {
-  "allTasks" : [
+  "allTasks": [
     {
-      "name" : "템플릿 기능 추가",
-      "status" : "done",
-      "targetDate" : "November 28, 2025",
-      "targetVersion" : "3.0.0"
+      "name": "템플릿 기능 추가",
+      "status": "done",
+      "targetDate": "November 28, 2025",
+      "targetVersion": "3.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 입력",
+        "description": "자주 사용하는 텍스트를 템플릿으로 저장하고 커스텀 키보드에서 빠르게 입력할 수 있습니다",
+        "userValue": "매번 반복해서 타이핑하는 이메일, 주소, 인사말 등을 한 번의 탭으로 입력하여 시간을 절약합니다",
+        "technicalNotes": "CoreData로 템플릿 저장, Custom Keyboard Extension 구현",
+        "usageScenario": "업무 중 자주 쓰는 문구를 매번 타이핑하는 상황",
+        "problemSolved": "반복적인 타이핑으로 인한 시간 낭비와 오타 발생",
+        "userBenefit": "한 번의 탭으로 긴 문장 입력, 일일 평균 5-10분 절약"
+      }
     },
     {
-      "name" : "아이 클라우드로 메모 동기화",
-      "status" : "done",
-      "targetDate" : "November 28, 2025",
-      "targetVersion" : "3.0.0"
+      "name": "아이 클라우드로 메모 동기화",
+      "status": "done",
+      "targetDate": "November 28, 2025",
+      "targetVersion": "3.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "기기 간 연동",
+        "description": "저장한 템플릿을 iCloud를 통해 모든 Apple 기기에서 자동으로 동기화합니다",
+        "userValue": "iPhone, iPad, Mac 어디서든 동일한 템플릿을 사용할 수 있어 기기 간 전환이 자유롭습니다",
+        "technicalNotes": "CloudKit 프레임워크 사용, 충돌 해결 로직 구현",
+        "usageScenario": "iPhone에서 저장한 템플릿을 iPad에서도 사용하고 싶을 때",
+        "problemSolved": "기기마다 템플릿을 따로 등록해야 하는 번거로움",
+        "userBenefit": "어떤 기기에서든 동일한 템플릿 사용 가능"
+      }
     },
     {
-      "name" : "백업 복원 하는 기능",
-      "status" : "done",
-      "targetDate" : "November 28, 2025",
-      "targetVersion" : "3.0.0"
+      "name": "백업 복원 하는 기능",
+      "status": "done",
+      "targetDate": "November 28, 2025",
+      "targetVersion": "3.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "데이터 안전",
+        "description": "템플릿 데이터를 백업하고 필요할 때 복원할 수 있습니다",
+        "userValue": "기기 변경이나 앱 재설치 시에도 템플릿을 잃어버리지 않고 안전하게 보관합니다",
+        "technicalNotes": "JSON 기반 백업 파일 생성 및 복원 기능",
+        "usageScenario": "새 아이폰으로 기기 변경 시",
+        "problemSolved": "템플릿을 새로 만들어야 하는 불편함",
+        "userBenefit": "한 번에 모든 템플릿 복원, 데이터 손실 걱정 없음"
+      }
     },
     {
-      "name" : "faceID로 보안",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null
+      "name": "faceID로 보안",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "데이터 안전",
+        "description": "Face ID 또는 Touch ID로 민감한 템플릿을 잠금 설정하여 보호할 수 있습니다",
+        "userValue": "비밀번호, 계좌번호 등 민감한 정보를 템플릿으로 저장해도 안전합니다",
+        "technicalNotes": "LocalAuthentication 프레임워크를 사용한 생체 인증",
+        "usageScenario": "비밀번호, 계좌번호 등 민감 정보를 템플릿으로 사용할 때",
+        "problemSolved": "남이 내 핸드폰을 봤을 때 민감 정보 노출 우려",
+        "userBenefit": "생체 인증으로 안전하게 민감 정보 관리"
+      }
     },
     {
-      "name" : "기본 템플릿 제공해주기",
-      "status" : "done",
-      "targetDate" : "January 28, 2026",
-      "targetVersion" : "3.0.3"
+      "name": "기본 템플릿 제공해주기",
+      "status": "done",
+      "targetDate": "January 28, 2026",
+      "targetVersion": "3.0.3",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시작 지원",
+        "description": "기타 관련 기능: 기본 템플릿 제공해주기",
+        "userValue": "앱 사용 경험 향상",
+        "technicalNotes": null,
+        "usageScenario": "앱을 처음 설치하고 어떤 템플릿을 만들지 모를 때",
+        "problemSolved": "빈 화면에서 시작하는 막막함",
+        "userBenefit": "바로 사용 가능한 예시 템플릿으로 빠른 시작"
+      }
     },
     {
-      "name" : "카테고리 관리",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : "3.0.0"
+      "name": "카테고리 관리",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "3.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "정리와 분류",
+        "description": "템플릿을 카테고리별로 분류하여 체계적으로 정리할 수 있습니다",
+        "userValue": "업무용, 개인용 등으로 나누어 필요한 템플릿을 빠르게 찾을 수 있습니다",
+        "technicalNotes": "계층적 카테고리 구조, 드래그 앤 드롭 재정렬",
+        "usageScenario": "템플릿이 많아져서 찾기 어려울 때",
+        "problemSolved": "원하는 템플릿을 찾는데 시간이 오래 걸림",
+        "userBenefit": "업무용, 개인용 등으로 분류하여 빠른 검색"
+      }
     },
     {
-      "name" : "맥 OS에서 동작하게 하기",
-      "status" : "done",
-      "targetDate" : "November 29, 2025",
-      "targetVersion" : "1.0.0"
+      "name": "맥 OS에서 동작하게 하기",
+      "status": "done",
+      "targetDate": "November 29, 2025",
+      "targetVersion": "1.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "플랫폼 확장",
+        "description": "macOS에서도 클립키보드를 사용할 수 있습니다",
+        "userValue": "iOS와 Mac을 넘나들며 일관된 템플릿 사용 경험을 할 수 있습니다",
+        "technicalNotes": "AppKit, Catalyst, iCloud 동기화",
+        "usageScenario": "맥북에서 작업할 때도 템플릿을 쓰고 싶을 때",
+        "problemSolved": "모바일에서만 사용 가능한 한계",
+        "userBenefit": "맥에서도 동일한 템플릿 사용으로 업무 효율 증대"
+      }
     },
     {
-      "name" : "민감한 정보 관리하는 레퍼찾기",
-      "status" : "done",
-      "targetDate" : "December 11, 2025",
-      "targetVersion" : "3.0.0"
+      "name": "민감한 정보 관리하는 레퍼찾기",
+      "status": "done",
+      "targetDate": "December 11, 2025",
+      "targetVersion": "3.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "핵심기능",
+        "description": "핵심기능 관련 기능: 민감한 정보 관리하는 레퍼찾기",
+        "userValue": "앱의 주요 기능을 활용하여 목표를 효율적으로 달성",
+        "technicalNotes": null
+      }
     },
     {
-      "name" : "영상 찍어서 인스타에 소개하기",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : "3.0.0"
+      "name": "영상 찍어서 인스타에 소개하기",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "3.0.0"
     },
     {
-      "name" : "링크드 인에 글쓰기",
-      "status" : "done",
-      "targetDate" : "December 10, 2025",
-      "targetVersion" : null
+      "name": "링크드 인에 글쓰기",
+      "status": "done",
+      "targetDate": "December 10, 2025",
+      "targetVersion": null
     },
     {
-      "name" : "붙여넣기 안내 설정 도와주기",
-      "status" : "done",
-      "targetDate" : "December 11, 2025",
-      "targetVersion" : "3.0.0"
+      "name": "붙여넣기 안내 설정 도와주기",
+      "status": "done",
+      "targetDate": "December 11, 2025",
+      "targetVersion": "3.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시작 지원",
+        "description": "키보드 붙여넣기 권한 설정 방법을 친절하게 안내합니다",
+        "userValue": "처음 사용하는 사람도 쉽게 설정하고 바로 사용할 수 있습니다",
+        "technicalNotes": "온보딩 플로우, 애니메이션 가이드",
+        "usageScenario": "키보드 권한 설정이 처음이라 방법을 모를 때",
+        "problemSolved": "설정 방법을 몰라 앱을 사용하지 못함",
+        "userBenefit": "친절한 가이드로 3분 안에 설정 완료"
+      }
     },
     {
-      "name" : "맥 오에스 배포하기",
-      "status" : "done",
-      "targetDate" : "December 7, 2025",
-      "targetVersion" : "1.0.0"
+      "name": "맥 오에스 배포하기",
+      "status": "done",
+      "targetDate": "December 7, 2025",
+      "targetVersion": "1.0.0"
     },
     {
-      "decisionId" : "dec-clipkeyboard-003",
-      "estimatedTime" : "3-5일",
-      "name" : "iCloud 백업 오류 수정 (Error saving record)",
-      "priority" : "critical",
-      "status" : "done",
-      "targetDate" : "January 29, 2026",
-      "targetVersion" : "3.0.3"
+      "decisionId": "dec-clipkeyboard-003",
+      "estimatedTime": "3-5일",
+      "name": "iCloud 백업 오류 수정 (Error saving record)",
+      "priority": "critical",
+      "status": "done",
+      "targetDate": "January 29, 2026",
+      "targetVersion": "3.0.3",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "핵심기능",
+        "description": "핵심기능 관련 기능: iCloud 백업 오류 수정 (Error saving record)",
+        "userValue": "앱의 주요 기능을 활용하여 목표를 효율적으로 달성",
+        "technicalNotes": null
+      }
     },
     {
-      "decisionId" : "dec-clipkeyboard-004",
-      "estimatedTime" : "30분",
-      "name" : "키보드 표시명 중복 제거",
-      "priority" : "high",
-      "status" : "done",
-      "targetDate" : "January 28, 2026",
-      "targetVersion" : "3.0.3"
+      "decisionId": "dec-clipkeyboard-004",
+      "estimatedTime": "30분",
+      "name": "키보드 표시명 중복 제거",
+      "priority": "high",
+      "status": "done",
+      "targetDate": "January 28, 2026",
+      "targetVersion": "3.0.3",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "편의성 개선",
+        "description": "키보드 설정에서 중복 표시명이 나타나지 않도록 개선합니다",
+        "userValue": "깔끔한 UI로 혼란 없이 키보드를 사용할 수 있습니다",
+        "technicalNotes": "키보드 익스텐션 메타데이터",
+        "usageScenario": "키보드 선택 메뉴에서 클립키보드가 여러 개 보일 때",
+        "problemSolved": "어떤 키보드를 선택해야 할지 혼란",
+        "userBenefit": "깔끔한 키보드 목록으로 빠른 선택"
+      }
     },
     {
-      "decisionId" : "dec-clipkeyboard-005",
-      "estimatedTime" : "3-4일",
-      "name" : "키보드 레이아웃 열 개수 설정 기능",
-      "priority" : "high",
-      "status" : "done",
-      "targetDate" : "January 29, 2026",
-      "targetVersion" : "3.1.0"
+      "decisionId": "dec-clipkeyboard-005",
+      "estimatedTime": "3-4일",
+      "name": "키보드 레이아웃 열 개수 설정 기능",
+      "priority": "high",
+      "status": "done",
+      "targetDate": "January 29, 2026",
+      "targetVersion": "3.1.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "커스터마이징",
+        "description": "키보드의 버튼 배열을 2열, 3열, 4열 등으로 자유롭게 조정할 수 있습니다",
+        "userValue": "화면 크기와 손가락 크기에 맞게 키보드를 최적화하여 더 편하게 사용합니다",
+        "technicalNotes": "UICollectionView 레이아웃 동적 조정, UserDefaults 저장"
+      }
     },
     {
-      "decisionId" : "dec-clipkeyboard-006",
-      "estimatedTime" : "4-5일",
-      "name" : "버튼 높이\/글자 크기 슬라이더 조정 기능",
-      "priority" : "medium",
-      "status" : "done",
-      "targetDate" : "January 29, 2026",
-      "targetVersion" : "3.1.0"
+      "decisionId": "dec-clipkeyboard-006",
+      "estimatedTime": "4-5일",
+      "name": "버튼 높이/글자 크기 슬라이더 조정 기능",
+      "priority": "medium",
+      "status": "done",
+      "targetDate": "January 29, 2026",
+      "targetVersion": "3.1.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "커스터마이징",
+        "description": "키보드 버튼의 크기와 글자 크기를 슬라이더로 세밀하게 조정할 수 있습니다",
+        "userValue": "시력이 안 좋거나 손가락이 큰 경우에도 편안하게 사용할 수 있도록 개인화합니다",
+        "technicalNotes": "동적 타이포그래피, 접근성 지원, Dynamic Type"
+      }
     }
   ],
-  "appStoreId" : "",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/app\/클립-키보드\/id1543660502",
-  "bundleId" : "com.leeo.clipkeyboard",
-  "categories" : [
+  "appStoreId": "",
+  "appStoreUrl": "https://apps.apple.com/app/클립-키보드/id1543660502",
+  "bundleId": "com.leeo.clipkeyboard",
+  "categories": [
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion" : "3.0.3",
-  "folderId" : "clip-keyboard",
-  "githubRepo" : "https:\/\/github.com\/Code-Ward\/Token-memo",
-  "localProjectPath" : "..\/Token-memo",
-  "minimumOS" : "16.0",
-  "name" : "클립키보드",
-  "nameEn" : "Clip Keyboard",
-  "nextTasks" : [
-
-  ],
-  "notes" : "",
-  "price" : {
-    "isFree" : false,
-    "krw" : 5500,
-    "usd" : 3.9900000000000002
+  "currentVersion": "3.0.3",
+  "folderId": "clip-keyboard",
+  "githubRepo": "https://github.com/Code-Ward/Token-memo",
+  "localProjectPath": "../Token-memo",
+  "minimumOS": "16.0",
+  "name": "클립키보드",
+  "nameEn": "Clip Keyboard",
+  "nextTasks": [],
+  "notes": "",
+  "price": {
+    "isFree": false,
+    "krw": 5500,
+    "usd": 3.99
   },
-  "priority" : "low",
-  "recentlyCompleted" : [
+  "priority": "low",
+  "recentlyCompleted": [
     "iCloud 백업 오류 수정 (Error saving record)",
-    "버튼 높이\/글자 크기 슬라이더 조정 기능",
+    "버튼 높이/글자 크기 슬라이더 조정 기능",
     "키보드 레이아웃 열 개수 설정 기능"
   ],
-  "sharedModules" : [
-
-  ],
-  "stats" : {
-    "done" : 16,
-    "inProgress" : 0,
-    "notStarted" : 0,
-    "totalTasks" : 16
+  "sharedModules": [],
+  "stats": {
+    "done": 16,
+    "inProgress": 0,
+    "notStarted": 0,
+    "todo": 0,
+    "totalTasks": 16
   },
-  "status" : "planning"
+  "status": "planning",
+  "vision": {
+    "tagline": "원탭의 힘",
+    "coreValue": "사용자가 앱을 쓸 때마다 '내가 시간을 아끼고 있다'는 것을 느끼게 하기. 추상적인 '생산성'이 아니라, 숫자로 보여주는 성취감.",
+    "targetUsers": "매일 반복적인 텍스트를 입력하는 직장인, 고객 응대, 이메일 작성이 많은 사람",
+    "uniqueSellingPoint": "단순한 텍스트 저장이 아닌 '시간 절약 시각화'. 사용할 때마다 절약한 시간을 실시간으로 보여주고, 마일스톤 달성으로 성취감 제공",
+    "conceptDescription": "## 핵심 아이디어\n\n사용자가 템플릿을 사용할 때마다:\n- 절약한 시간을 실시간 카운터로 표시 (오늘/이번달/총 누적)\n- 마일스톤 달성 시 축하 팝업 (1분, 10분, 1시간, 10시간...)\n- 친근한 마이크로카피로 앱에 애착 형성\n- 적절한 타이밍에 자연스러운 리뷰 요청\n\n## 계산 로직\n클립 1회 사용 = 평균 5초 절약 (추정치)\n→ 사용할 때마다 카운트 누적\n→ 실시간 업데이트\n\n## 마일스톤 배지\n⏱️ First Minute Saved — 첫 1분 절약\n🎯 100 Taps Club — 100회 사용\n⚡ Speed Demon — 하루 50회 이상 사용\n📅 7-Day Streak — 7일 연속 사용\n🏅 1 Hour Saved — 누적 1시간 절약\n🚀 Time Millionaire — 누적 10시간 절약",
+    "designPrinciples": [
+      "짧고 친근하게 - 장황한 설명 대신 간결한 메시지",
+      "숫자로 구체적으로 - 추상적 표현 대신 정확한 수치",
+      "성취감 느끼게 - 작은 달성도 축하하고 인정",
+      "이모지 적절히 활용 - 친근하고 즐거운 분위기",
+      "죄책감 NO - 격려는 하되 압박은 안 함"
+    ],
+    "userExperienceGoals": [
+      "첫 사용 30초 안에 가치 이해 - 3단계 온보딩으로 명확히 전달",
+      "매 사용마다 보상감 - 시간 절약 표시 + 미세한 햅틱 피드백",
+      "주 3회 이상 지속 사용 - 마일스톤으로 동기 부여",
+      "자발적 리뷰 작성 - 10분 절약 시점에 자연스럽게 요청",
+      "친구에게 추천하고 싶게 - 시간 절약 통계 공유 기능"
+    ],
+    "potential": {
+      "marketSize": "생산성 앱 시장 - 글로벌 수억 명의 지식 근로자",
+      "targetExpansion": [
+        "개인 사용자 → 기업 구독 모델",
+        "한국 → 글로벌 (영어, 일본어, 중국어)",
+        "개발자 → 모든 반복 업무 종사자 (세일즈, CS, 마케터)"
+      ],
+      "monetization": {
+        "current": "무료/유료",
+        "potential": [
+          "프리미엄 구독 (월 $4.99): 무제한 템플릿, 통계, 팀 동기화",
+          "기업용 라이선스 (사용자당 $2.99/월): 팀 템플릿 공유, 관리자 대시보드",
+          "API 제공: 다른 앱에서 템플릿 사용"
+        ]
+      },
+      "competitiveAdvantage": [
+        "시간 절약을 숫자로 시각화 - 경쟁사에 없는 독특한 기능",
+        "iOS 네이티브 키보드 익스텐션 - 모든 앱에서 사용 가능",
+        "한국 시장 1위 확보 후 글로벌 확장 전략"
+      ],
+      "expansionStrategy": [
+        "1단계: macOS/iPadOS 완벽 지원으로 애플 생태계 장악",
+        "2단계: 팀 기능 추가로 B2B 시장 진출",
+        "3단계: AI 기반 자동 템플릿 생성 및 추천",
+        "4단계: 음성-텍스트 템플릿 변환으로 접근성 확대"
+      ],
+      "longTermVision": "전 세계 지식 근로자의 필수 생산성 도구. '텍스트 반복 = 클립키보드'라는 브랜드 확립. 5년 내 MAU 100만 달성.",
+      "risks": [
+        "iOS 키보드 정책 변경 위험",
+        "ChatGPT 등 AI 도구와의 경쟁"
+      ],
+      "opportunities": [
+        "재택근무 확대로 생산성 도구 수요 증가",
+        "AI와 결합하여 맥락 기반 템플릿 자동 추천"
+      ]
+    }
+  }
 }

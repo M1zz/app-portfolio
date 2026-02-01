@@ -4,37 +4,109 @@
       "name": "특정 날짜만 제외하는 기능",
       "status": "done",
       "targetDate": null,
-      "targetVersion": "1.0.2"
+      "targetVersion": "1.0.2",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "유연한 추적",
+        "description": "휴가나 특별한 날을 습관 추적에서 제외할 수 있습니다",
+        "userValue": "유연하게 습관을 관리하여 완벽주의에 빠지지 않고 지속할 수 있습니다",
+        "technicalNotes": "날짜 예외 처리, 캘린더 통합",
+        "usageScenario": "휴가나 특별한 날은 기록에서 제외하고 싶을 때",
+        "problemSolved": "완벽주의 압박으로 습관 포기",
+        "userBenefit": "예외일 설정으로 부담 없는 기록"
+      }
     },
     {
       "name": "클라우드 킷 적용해서 데이터 동기화",
       "status": "done",
       "targetDate": null,
-      "targetVersion": "1.0.1"
+      "targetVersion": "1.0.1",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "기기 간 연동",
+        "description": "습관 기록을 iCloud로 자동 동기화합니다",
+        "userValue": "기기를 바꿔도 습관 기록이 유지되어 꾸준히 추적할 수 있습니다",
+        "technicalNotes": "CloudKit 프레임워크",
+        "usageScenario": "아이폰에서 기록한 감정을 아이패드에서도 보고 싶을 때",
+        "problemSolved": "기기를 바꾸면 기록이 사라짐",
+        "userBenefit": "모든 기기에서 감정 기록 동기화"
+      }
     },
     {
       "name": "일정관리 리스트로 하기",
       "status": "done",
       "targetDate": null,
-      "targetVersion": "1.0.1"
+      "targetVersion": "1.0.1",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "체계적 관리",
+        "description": "습관을 일정처럼 관리할 수 있습니다",
+        "userValue": "체계적으로 습관을 계획하고 실천할 수 있습니다",
+        "technicalNotes": "리스트 뷰, 정렬 및 필터링",
+        "usageScenario": "감정을 일정처럼 관리하고 싶을 때",
+        "problemSolved": "산발적인 기록으로 관리가 어려움",
+        "userBenefit": "리스트 뷰로 체계적인 감정 추적"
+      }
     },
     {
       "name": "캘린더를 불러오는 실험",
       "status": "done",
       "targetDate": null,
-      "targetVersion": "1.0.2"
+      "targetVersion": "1.0.2",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "맥락 이해",
+        "description": "기기 캘린더와 연동하여 일정과 감정을 함께 볼 수 있습니다",
+        "userValue": "어떤 일정이 어떤 감정을 유발했는지 연결하여 이해할 수 있습니다",
+        "technicalNotes": "EventKit, 캘린더 권한",
+        "usageScenario": "어떤 일정이 나를 힘들게 했는지 알고 싶을 때",
+        "problemSolved": "감정과 일정의 연결고리를 모름",
+        "userBenefit": "일정과 감정을 함께 보며 원인 파악"
+      }
     },
     {
       "name": "일정 패턴 다양하게 시각화 필요",
       "status": "done",
       "targetDate": null,
-      "targetVersion": "1.0.2"
+      "targetVersion": "1.0.2",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "다각도 분석",
+        "description": "감정 데이터를 다양한 차트와 그래프로 표현합니다",
+        "userValue": "여러 각도에서 감정 패턴을 분석하고 인사이트를 얻을 수 있습니다",
+        "technicalNotes": "차트 라이브러리, 다양한 시각화 옵션",
+        "usageScenario": "여러 방식으로 감정 데이터를 분석하고 싶을 때",
+        "problemSolved": "한 가지 차트로는 인사이트 부족",
+        "userBenefit": "다양한 차트로 깊이 있는 감정 분석"
+      }
     },
     {
       "name": "매일 계속되는 것, 시작점과 끝점이 없는것 만들기",
       "status": "done",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "지속 상태 기록",
+        "description": "지속적인 감정 상태를 구간 없이 기록할 수 있습니다",
+        "userValue": "단발적 감정이 아닌 지속되는 기분을 표현할 수 있습니다",
+        "technicalNotes": "연속 기록, 상태 트래킹",
+        "usageScenario": "특정 시간이 아닌 하루 종일 지속되는 기분을 기록할 때",
+        "problemSolved": "순간적 감정만 기록 가능",
+        "userBenefit": "연속적인 감정 상태 표현 가능"
+      }
     },
     {
       "name": "인스타 소개 + 글쓰기",
@@ -47,6 +119,42 @@
       "status": "not-started",
       "targetDate": "December 17, 2025 → December 21, 2025",
       "targetVersion": null
+    },
+    {
+      "name": "감정 색상 기록",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "감정 표현",
+        "description": "매일의 감정을 색깔로 선택하고 간단한 메모를 남길 수 있습니다",
+        "userValue": "복잡한 감정을 쉽게 표현하고 기록할 수 있습니다",
+        "technicalNotes": "컬러 선택 UI, 간단한 메모 입력",
+        "usageScenario": "복잡한 감정을 말로 표현하기 어려울 때",
+        "problemSolved": "감정을 글로 쓰기 부담스러움",
+        "userBenefit": "색깔 선택만으로 간단하게 감정 기록"
+      }
+    },
+    {
+      "name": "감정 캘린더",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "패턴 파악",
+        "description": "한 달간의 감정 변화를 색상 캘린더로 한눈에 볼 수 있습니다",
+        "userValue": "나의 감정 패턴을 시각적으로 파악하고 이해할 수 있습니다",
+        "technicalNotes": "캘린더 뷰, 색상 그리드",
+        "usageScenario": "한 달간 나의 감정 변화를 한눈에 보고 싶을 때",
+        "problemSolved": "전체적인 감정 흐름을 파악하기 어려움",
+        "userBenefit": "색상 캘린더로 감정 패턴 시각화"
+      }
     }
   ],
   "appStoreId": "",
@@ -77,8 +185,61 @@
     "done": 6,
     "inProgress": 1,
     "notStarted": 1,
-    "totalTasks": 8
+    "totalTasks": 8,
+    "todo": 0
   },
   "status": "active",
-  "folderId": "rainbow-of-desire"
+  "folderId": "rainbow-of-desire",
+  "vision": {
+    "tagline": "감정의 색깔을 찾아서",
+    "coreValue": "복잡한 감정을 색깔로 표현하고 이해하는 감정 일기",
+    "targetUsers": "자신의 감정을 탐구하고 싶은 사람, 감정 관리가 필요한 사람",
+    "uniqueSellingPoint": "감정을 무지개 색깔로 시각화하여 패턴 파악",
+    "designPrinciples": [
+      "색상 중심 - 말보다 색으로",
+      "비판단적 - 모든 감정은 괜찮아",
+      "패턴 발견 - 감정의 흐름 이해"
+    ],
+    "userExperienceGoals": [
+      "하루 감정을 색으로 표현",
+      "감정 패턴 시각적으로 파악",
+      "감정 변화 추이 확인"
+    ],
+    "potential": {
+      "marketSize": "정신 건강/자기계발 - 감정 관리 니즈 전 인구",
+      "targetExpansion": [
+        "개인 → 치료사-환자 연결 (감정 데이터 공유)",
+        "감정 기록 → 감정 코칭 플랫폼",
+        "한국 → 글로벌 (보편적 감정)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 ₩4,900): 고급 분석, AI 인사이트, 무제한 기록",
+          "치료사 연결: 상담 예약 커미션",
+          "명상/웰빙 콘텐츠 제휴"
+        ]
+      },
+      "competitiveAdvantage": [
+        "색상 기반 - 말보다 쉬운 감정 표현",
+        "비판단적 - 모든 감정 수용",
+        "패턴 발견 - 데이터 기반 자기 이해"
+      ],
+      "expansionStrategy": [
+        "1단계: AI 감정 코칭 - 패턴 기반 조언",
+        "2단계: 치료사 매칭 - 감정 데이터 기반",
+        "3단계: 명상/웰빙 콘텐츠 통합",
+        "4단계: 기업 EAP (직원 감정 관리) 진출"
+      ],
+      "longTermVision": "감정 웰빙의 첫걸음. 치료사와 환자를 연결하는 플랫폼. 감정 데이터 기반 정신 건강 관리의 표준.",
+      "risks": [
+        "의료 영역 진입 시 규제",
+        "프라이버시 민감도"
+      ],
+      "opportunities": [
+        "정신 건강 인식 급증",
+        "원격 치료 확대"
+      ]
+    }
+  }
 }

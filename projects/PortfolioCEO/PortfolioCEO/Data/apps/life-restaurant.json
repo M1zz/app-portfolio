@@ -3,7 +3,8 @@
     "done": 2,
     "notStarted": 6,
     "inProgress": 1,
-    "totalTasks": 9
+    "totalTasks": 9,
+    "todo": 0
   },
   "minimumOS": "16.0",
   "nextTasks": [
@@ -44,44 +45,216 @@
       "status": "done",
       "name": "방문 횟수",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "단골 파악",
+        "description": "각 식당을 몇 번 방문했는지 자동으로 카운트합니다",
+        "userValue": "자주 가는 단골 맛집을 쉽게 파악할 수 있습니다",
+        "technicalNotes": "카운터, 방문 기록",
+        "usageScenario": "어떤 식당을 가장 자주 가는지 궁금할 때",
+        "problemSolved": "단골집인지 아닌지 기억이 애매함",
+        "userBenefit": "자동 카운트로 진짜 단골집 파악"
+      }
     },
     {
       "status": "not-started",
       "name": "진짜 맛 있다는 것은",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "특별 표시",
+        "description": "별점 외에 '진짜 맛있음' 마크를 별도로 표시할 수 있습니다",
+        "userValue": "단순 평점을 넘어 정말 추천하고 싶은 곳을 강조할 수 있습니다",
+        "technicalNotes": "북마크 플래그, 필터링",
+        "usageScenario": "별점과 별개로 정말 추천하고 싶은 곳을 강조하고 싶을 때",
+        "problemSolved": "별점만으로는 진짜 맛집을 구분하기 어려움",
+        "userBenefit": "특별한 마크로 최애 맛집 표시"
+      }
     },
     {
       "status": "not-started",
       "name": "사람들 추가하기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "추억 강화",
+        "description": "함께 간 사람을 맛집 기록에 추가할 수 있습니다",
+        "userValue": "누구와 어떤 맛집을 갔는지 기억할 수 있어 추억을 더 풍부하게 남깁니다",
+        "technicalNotes": "연락처 통합, 태그 시스템",
+        "usageScenario": "누구랑 갔는지도 함께 기록하고 싶을 때",
+        "problemSolved": "맛집 정보만 있고 누구와 갔는지는 모름",
+        "userBenefit": "함께한 사람 기록으로 더 풍부한 추억"
+      }
     },
     {
       "status": "not-started",
       "name": "검색은 카카오 API",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 등록",
+        "description": "카카오맵 API로 식당을 검색하고 정보를 가져올 수 있습니다",
+        "userValue": "식당 이름만 입력하면 주소와 정보가 자동으로 채워집니다",
+        "technicalNotes": "Kakao Local API, 자동완성",
+        "usageScenario": "식당 정보를 일일이 입력하기 귀찮을 때",
+        "problemSolved": "주소, 전화번호 등을 수동으로 입력하는 번거로움",
+        "userBenefit": "식당 이름만 검색하면 정보 자동 입력"
+      }
     },
     {
       "status": "not-started",
       "name": "특정 위치에 들어가면 알림을 주는 것",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "위치 알림",
+        "description": "저장한 맛집 근처에 가면 자동으로 알림을 받습니다",
+        "userValue": "근처에 왔을 때 방문 예정이던 맛집을 떠올릴 수 있습니다",
+        "technicalNotes": "지오펜싱, 위치 기반 알림",
+        "usageScenario": "근처에 가보려던 맛집이 있는데 까먹을 때",
+        "problemSolved": "근처에 왔는데도 맛집을 떠올리지 못함",
+        "userBenefit": "근처 접근 시 자동 알림으로 방문 유도"
+      }
     },
     {
       "status": "not-started",
       "name": "도형 은 절반으로 보여야지",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "세밀한 평가",
+        "description": "맛집 평점을 반쪽 별점으로 세밀하게 표현할 수 있습니다",
+        "userValue": "3.5점, 4.5점 등 더 정확한 평가를 할 수 있습니다",
+        "technicalNotes": "반쪽 별 아이콘, 소수점 평점",
+        "usageScenario": "3점과 4점 사이의 미묘한 평가를 하고 싶을 때",
+        "problemSolved": "정수 별점으로는 세밀한 평가 불가",
+        "userBenefit": "반쪽 별점으로 더 정확한 평가"
+      }
     },
     {
       "status": "not-started",
       "name": "친구에게 리스트 공유할 수 있게하기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "공유하기",
+        "description": "내 맛집 리스트를 친구들과 공유할 수 있습니다",
+        "userValue": "맛집 추천을 쉽게 공유하고 함께 방문 계획을 세울 수 있습니다",
+        "technicalNotes": "딥링크, 공유 시트 구현",
+        "usageScenario": "친구에게 맛집 리스트를 추천하고 싶을 때",
+        "problemSolved": "일일이 메시지로 보내야 하는 번거로움",
+        "userBenefit": "한 번에 맛집 리스트 공유"
+      }
+    },
+    {
+      "name": "맛집 기록",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "추억 저장",
+        "description": "방문한 식당의 사진, 메뉴, 평점, 메모를 저장할 수 있습니다",
+        "userValue": "나중에 다시 방문하거나 추천할 때 정확한 정보를 기억할 수 있습니다",
+        "technicalNotes": "사진 첨부, 평점 UI, 메모 에디터",
+        "usageScenario": "맛있게 먹은 식당을 나중에도 기억하고 싶을 때",
+        "problemSolved": "시간이 지나면 어디가 맛있었는지 잊어버림",
+        "userBenefit": "사진, 메모, 평점으로 생생하게 기록"
+      }
+    },
+    {
+      "name": "맛집 지도",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "위치 기반 검색",
+        "description": "기록한 맛집들을 지도에 표시하여 한눈에 볼 수 있습니다",
+        "userValue": "현재 위치 근처의 내가 가본 맛집을 빠르게 찾을 수 있습니다",
+        "technicalNotes": "MapKit, 위치 권한, 커스텀 핀",
+        "usageScenario": "지금 있는 곳 근처에 내가 가본 맛집이 있는지 확인하고 싶을 때",
+        "problemSolved": "근처에 좋은 곳이 있어도 기억이 안 남",
+        "userBenefit": "지도에서 한눈에 주변 맛집 확인"
+      }
     }
   ],
-  "folderId": "life-restaurant"
+  "folderId": "life-restaurant",
+  "vision": {
+    "tagline": "맛집 기록의 새로운 기준",
+    "coreValue": "먹었던 맛집을 기록하고 공유하여 더 나은 외식 경험",
+    "targetUsers": "외식을 즐기고 맛집 탐방을 좋아하는 사람들",
+    "uniqueSellingPoint": "사진, 메모, 평점을 한곳에 모아 나만의 맛집 지도 생성",
+    "designPrinciples": [
+      "사진 중심 - 음식은 보는 것부터",
+      "위치 기반 - 지도에서 한눈에",
+      "개인 평가 - 대중 평점이 아닌 내 기준"
+    ],
+    "userExperienceGoals": [
+      "식사 후 30초 안에 기록",
+      "지도에서 주변 내 맛집 확인",
+      "친구에게 추천 공유"
+    ],
+    "potential": {
+      "marketSize": "맛집/외식 시장 - 외식 인구 전체",
+      "targetExpansion": [
+        "개인 기록 → 소셜 맛집 공유 플랫폼",
+        "맛집 기록 → 음식 사진 SNS",
+        "한국 → 아시아 (외식 문화 활발)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 ₩4,900): 무제한 사진, 고급 필터, 프라이빗",
+          "레스토랑 제휴: 할인 쿠폰 및 예약 커미션",
+          "맛집 가이드북 제작: 큐레이션 콘텐츠 판매"
+        ]
+      },
+      "competitiveAdvantage": [
+        "개인 평가 중심 - 대중 평점에 휘둘리지 않음",
+        "사진 중심 - 시각적 기억",
+        "위치 기반 빠른 검색"
+      ],
+      "expansionStrategy": [
+        "1단계: 친구 팔로우 - 맛집 취향 공유",
+        "2단계: AI 추천 - 내 입맛 기반 새 맛집 발견",
+        "3단계: 레스토랑 예약 통합",
+        "4단계: 맛집 인플루언서 플랫폼"
+      ],
+      "longTermVision": "개인화된 맛집 발견 플랫폼. 대중 평점이 아닌 내 취향 기반 추천. 미식가 커뮤니티의 허브.",
+      "risks": [
+        "네이버, 카카오 등 대형 플랫폼 독점",
+        "개인 기록만으로는 성장 한계"
+      ],
+      "opportunities": [
+        "외식 지출 증가 트렌드",
+        "미식가 문화 확산"
+      ]
+    }
+  }
 }

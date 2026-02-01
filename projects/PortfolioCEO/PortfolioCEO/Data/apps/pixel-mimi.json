@@ -1,60 +1,337 @@
 {
-  "allTasks" : [
+  "allTasks": [
     {
-      "name" : "사용성 개선",
-      "status" : "not-started",
-      "targetDate" : null,
-      "targetVersion" : "1.0.3"
+      "name": "사용성 개선",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": "1.0.3"
     },
     {
-      "name" : "이걸 돈 받으려면 뭘 제공할지 고민하기",
-      "status" : "not-started",
-      "targetDate" : null,
-      "targetVersion" : null
+      "name": "이걸 돈 받으려면 뭘 제공할지 고민하기",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "기타",
+        "description": "기타 관련 기능: 이걸 돈 받으려면 뭘 제공할지 고민하기",
+        "userValue": "앱 사용 경험 향상",
+        "technicalNotes": null,
+        "usageScenario": "프리미엄 기능을 고민 중일 때",
+        "problemSolved": "무료 앱의 수익 모델 부재",
+        "userBenefit": "향후 프리미엄 기능 제공 가능성"
+      }
     },
     {
-      "name" : "앱 유료화",
-      "status" : "not-started",
-      "targetDate" : "November 25, 2025",
-      "targetVersion" : "1.0.3"
+      "name": "앱 유료화",
+      "status": "not-started",
+      "targetDate": "November 25, 2025",
+      "targetVersion": "1.0.3"
+    },
+    {
+      "name": "픽셀 캔버스",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "자유로운 창작",
+        "description": "다양한 크기의 픽셀 그리드에서 그림을 그릴 수 있습니다",
+        "userValue": "종이에 그리듯 자유롭게 픽셀 아트를 만들 수 있습니다",
+        "technicalNotes": "그리드 뷰, 터치 제스처",
+        "usageScenario": "간단한 픽셀 아트를 그리고 싶을 때",
+        "problemSolved": "복잡한 그래픽 툴은 배우기 어려움",
+        "userBenefit": "직관적인 그리드에서 쉽게 픽셀 아트 제작"
+      }
+    },
+    {
+      "name": "색상 팔레트",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "일관된 스타일",
+        "description": "다양한 색상을 쉽게 선택하고 저장할 수 있습니다",
+        "userValue": "자주 쓰는 색을 저장해서 일관된 스타일로 그릴 수 있습니다",
+        "technicalNotes": "컬러 피커, 팔레트 저장",
+        "usageScenario": "자주 쓰는 색을 매번 찾기 귀찮을 때",
+        "problemSolved": "같은 색을 다시 찾느라 시간 낭비",
+        "userBenefit": "색상 저장으로 일관된 색조의 작품 완성"
+      }
+    },
+    {
+      "name": "레이어 시스템",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "고급 편집",
+        "description": "여러 레이어를 만들어 복잡한 픽셀 아트를 작업할 수 있습니다",
+        "userValue": "배경과 캐릭터를 분리하여 더 전문적인 작품을 만들 수 있습니다",
+        "technicalNotes": "레이어 관리, 순서 변경",
+        "usageScenario": "복잡한 씬을 그릴 때 요소별로 분리하고 싶을 때",
+        "problemSolved": "모든 것을 한 레이어에 그려서 수정이 어려움",
+        "userBenefit": "레이어별 편집으로 작업 효율 대폭 향상"
+      }
+    },
+    {
+      "name": "애니메이션 프레임",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "창작 확장",
+        "description": "여러 프레임을 그려 움직이는 픽셀 아트를 만들 수 있습니다",
+        "userValue": "정적인 그림을 넘어 애니메이션 작품을 만들 수 있습니다",
+        "technicalNotes": "프레임 관리, 재생 기능, GIF 내보내기",
+        "usageScenario": "캐릭터가 걷는 애니메이션을 만들고 싶을 때",
+        "problemSolved": "정지 이미지만 가능",
+        "userBenefit": "움직이는 픽셀 아트로 표현력 극대화"
+      }
+    },
+    {
+      "name": "대칭 그리기 모드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "편의 도구",
+        "description": "한쪽을 그리면 반대편도 자동으로 그려집니다",
+        "userValue": "대칭 캐릭터를 쉽게 그릴 수 있습니다",
+        "technicalNotes": "미러링 알고리즘",
+        "usageScenario": "정면 얼굴이나 대칭 디자인을 그릴 때",
+        "problemSolved": "양쪽을 똑같이 그리기 어려움",
+        "userBenefit": "절반만 그려도 완벽한 대칭"
+      }
+    },
+    {
+      "name": "드로잉 도구 확장",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "자유로운 창작",
+        "description": "연필, 선, 원, 사각형, 채우기 등 다양한 도구를 제공합니다",
+        "userValue": "복잡한 형태를 빠르게 그릴 수 있습니다",
+        "technicalNotes": "도형 도구, 채우기 알고리즘",
+        "usageScenario": "큰 영역을 한 색으로 채우고 싶을 때",
+        "problemSolved": "픽셀 하나씩 찍어서 시간이 오래 걸림",
+        "userBenefit": "도구로 빠르고 정확한 작업"
+      }
+    },
+    {
+      "name": "프로젝트 저장 및 불러오기",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "작업 관리",
+        "description": "작업 중인 그림을 저장하고 나중에 다시 편집할 수 있습니다",
+        "userValue": "한 번에 완성하지 않아도 언제든 이어서 작업할 수 있습니다",
+        "technicalNotes": "프로젝트 파일 저장, Core Data",
+        "usageScenario": "시간이 없어서 나중에 마저 그리고 싶을 때",
+        "problemSolved": "한 번 나가면 작업이 사라짐",
+        "userBenefit": "여러 프로젝트 관리 가능"
+      }
+    },
+    {
+      "name": "템플릿 갤러리",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 시작",
+        "description": "기본 캐릭터, 배경 템플릿을 제공하여 수정해서 사용할 수 있습니다",
+        "userValue": "빈 캔버스가 막막하지 않고 템플릿을 기반으로 시작할 수 있습니다",
+        "technicalNotes": "템플릿 DB, 불러오기",
+        "usageScenario": "픽셀 아트를 처음 그려봐서 어떻게 시작할지 모를 때",
+        "problemSolved": "빈 화면 앞에서 막막함",
+        "userBenefit": "템플릿 수정으로 쉬운 시작"
+      }
+    },
+    {
+      "name": "공유 및 내보내기 옵션",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "공유하기",
+        "description": "PNG, GIF 등 다양한 형식으로 내보내고 SNS에 공유합니다",
+        "userValue": "완성작을 친구들에게 자랑하거나 SNS에 올릴 수 있습니다",
+        "technicalNotes": "이미지 내보내기, Share Sheet",
+        "usageScenario": "완성한 픽셀 아트를 인스타그램에 올리고 싶을 때",
+        "problemSolved": "작품을 저장만 하고 공유하기 어려움",
+        "userBenefit": "다양한 형식으로 내보내기"
+      }
+    },
+    {
+      "name": "실행 취소/다시 실행",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "편의 도구",
+        "description": "잘못 그린 부분을 되돌리거나 다시 실행할 수 있습니다",
+        "userValue": "실수를 두려워하지 않고 자유롭게 그릴 수 있습니다",
+        "technicalNotes": "Undo/Redo 스택",
+        "usageScenario": "실수로 잘못 칠했을 때",
+        "problemSolved": "한 번 잘못 그리면 처음부터 다시",
+        "userBenefit": "무한 실행 취소로 안심하고 작업"
+      }
+    },
+    {
+      "name": "그리드 표시 옵션",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시각적 보조",
+        "description": "픽셀 그리드 선을 켜거나 끌 수 있습니다",
+        "userValue": "그리드 없이 완성작의 실제 모습을 확인할 수 있습니다",
+        "technicalNotes": "그리드 토글",
+        "usageScenario": "완성된 작품이 어떻게 보일지 확인하고 싶을 때",
+        "problemSolved": "그리드 선 때문에 최종 결과물 확인 어려움",
+        "userBenefit": "그리드 on/off로 작업과 미리보기 전환"
+      }
+    },
+    {
+      "name": "커뮤니티 갤러리",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "영감과 학습",
+        "description": "다른 사용자의 작품을 구경하고 영감을 얻습니다",
+        "userValue": "다른 사람들의 작품을 보며 아이디어를 얻고 배울 수 있습니다",
+        "technicalNotes": "커뮤니티 기능, 작품 업로드",
+        "usageScenario": "뭘 그릴지 아이디어가 필요할 때",
+        "problemSolved": "혼자 그리면 영감이 부족함",
+        "userBenefit": "커뮤니티에서 영감과 동기 부여"
+      }
     }
   ],
-  "appStoreId" : "",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/app\/pixel-meme\/id6449769987",
-  "bundleId" : "com.leeo.pixelmimi",
-  "categories" : [
+  "appStoreId": "",
+  "appStoreUrl": "https://apps.apple.com/app/pixel-meme/id6449769987",
+  "bundleId": "com.leeo.pixelmimi",
+  "categories": [
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion" : "1.0.4",
-  "folderId" : "pixel-mimi",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/PixelMe",
-  "localProjectPath" : "..\/PixelMe",
-  "minimumOS" : "16.0",
-  "name" : "픽셀 미미",
-  "nameEn" : "Pixel Mimi",
-  "nextTasks" : [
+  "currentVersion": "1.0.4",
+  "folderId": "pixel-mimi",
+  "githubRepo": "https://github.com/M1zz/PixelMe",
+  "localProjectPath": "../PixelMe",
+  "minimumOS": "16.0",
+  "name": "픽셀 미미",
+  "nameEn": "Pixel Mimi",
+  "nextTasks": [
     "사용성 개선",
     "이걸 돈 받으려면 뭘 제공할지 고민하기"
   ],
-  "notes" : "",
-  "price" : {
-    "isFree" : false,
-    "krw" : 5500,
-    "usd" : 3.9900000000000002
+  "notes": "",
+  "price": {
+    "isFree": false,
+    "krw": 5500,
+    "usd": 3.99
   },
-  "priority" : "medium",
-  "recentlyCompleted" : [
-
-  ],
-  "sharedModules" : [
-
-  ],
-  "stats" : {
-    "done" : 0,
-    "inProgress" : 0,
-    "notStarted" : 3,
-    "totalTasks" : 3
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 10,
+    "notStarted": 5,
+    "totalTasks": 15
   },
-  "status" : "planning"
+  "status": "planning",
+  "vision": {
+    "tagline": "픽셀 아트의 즐거움",
+    "coreValue": "누구나 쉽게 픽셀 아트를 그리고 공유하는 경험",
+    "targetUsers": "픽셀 아트를 좋아하는 사람, 간단한 그림을 그리고 싶은 사람",
+    "uniqueSellingPoint": "모바일에 최적화된 픽셀 아트 에디터",
+    "designPrinciples": [
+      "단순함 - 복잡한 도구 없이",
+      "즉각적 피드백 - 그리는 즉시 확인",
+      "공유 중심 - SNS로 바로 공유"
+    ],
+    "userExperienceGoals": [
+      "5분 안에 작은 픽셀 아트 완성",
+      "직관적인 그리기 도구",
+      "완성작 즉시 공유"
+    ],
+    "potential": {
+      "marketSize": "창작/취미 앱 - 픽셀 아트 애호가 글로벌 수백만",
+      "targetExpansion": [
+        "취미 → NFT 크리에이터",
+        "개인 → 게임 개발자 (에셋 제작)",
+        "픽셀 아트 → 도트 애니메이션"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 $4.99): 고급 도구, 레이어, 클라우드 저장",
+          "NFT 민팅 연동: 작품 NFT 변환 수수료",
+          "에셋 마켓플레이스: 게임 개발자에게 판매"
+        ]
+      },
+      "competitiveAdvantage": [
+        "모바일 최적화 - 언제 어디서나 창작",
+        "직관적 UI - 배우기 쉬움",
+        "소셜 공유 - 작품 쉽게 공유"
+      ],
+      "expansionStrategy": [
+        "1단계: 애니메이션 기능 추가 - 움직이는 픽셀 아트",
+        "2단계: 커뮤니티 - 작품 공유 및 챌린지",
+        "3단계: NFT 연동 - 작품을 자산으로",
+        "4단계: 게임 에셋 마켓플레이스"
+      ],
+      "longTermVision": "모바일 픽셀 아트의 표준. 취미 크리에이터가 수익을 창출하는 플랫폼. 픽셀 아트 문화 확산의 리더.",
+      "risks": [
+        "PC 기반 전문 툴과의 성능 차이",
+        "NFT 시장 침체"
+      ],
+      "opportunities": [
+        "레트로 게임 붐",
+        "크리에이터 이코노미 성장"
+      ]
+    }
+  }
 }

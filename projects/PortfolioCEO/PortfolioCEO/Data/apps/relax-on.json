@@ -1,42 +1,304 @@
 {
-  "allTasks" : [
-
+  "allTasks": [
+    {
+      "name": "자연 소리 재생",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "힐링 사운드",
+        "description": "비, 파도, 새소리 등 다양한 자연 소리를 재생할 수 있습니다",
+        "userValue": "자연 소리를 들으며 스트레스를 해소하고 집중력을 높일 수 있습니다",
+        "technicalNotes": "오디오 플레이어, 백그라운드 재생",
+        "usageScenario": "스트레스를 해소하거나 집중하고 싶을 때",
+        "problemSolved": "조용한 공간이 없거나 소음이 방해됨",
+        "userBenefit": "비, 파도 소리로 편안함과 집중력 향상"
+      }
+    },
+    {
+      "name": "소리 믹싱",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "맞춤 힐링",
+        "description": "여러 자연 소리를 동시에 재생하고 볼륨을 조절할 수 있습니다",
+        "userValue": "나만의 완벽한 힐링 사운드를 만들 수 있습니다",
+        "technicalNotes": "멀티 트랙 오디오, 볼륨 컨트롤",
+        "usageScenario": "여러 소리를 섞어서 나만의 완벽한 환경을 만들고 싶을 때",
+        "problemSolved": "단일 소리만으로는 만족도가 낮음",
+        "userBenefit": "비+천둥, 파도+새소리 등 조합으로 최적 사운드 제작"
+      }
+    },
+    {
+      "name": "수면 타이머",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "수면 지원",
+        "description": "설정한 시간 후 자동으로 소리가 꺼지도록 타이머를 설정합니다",
+        "userValue": "잠들 때 소리를 틀어놓고 자동으로 꺼지게 할 수 있습니다",
+        "technicalNotes": "타이머, 페이드아웃 효과",
+        "usageScenario": "자연 소리를 들으며 잠들고 싶을 때",
+        "problemSolved": "밤새 소리가 나서 오히려 방해됨",
+        "userBenefit": "30분, 1시간 등 설정 후 안심하고 수면"
+      }
+    },
+    {
+      "name": "즐겨찾기 프리셋",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "맞춤 힐링",
+        "description": "자주 쓰는 소리 조합을 저장하여 한 번에 불러옵니다",
+        "userValue": "매번 소리를 조합하지 않고 저장된 프리셋으로 바로 재생할 수 있습니다",
+        "technicalNotes": "프리셋 저장, 빠른 로드",
+        "usageScenario": "밤에는 A조합, 공부할 때는 B조합을 쓸 때",
+        "problemSolved": "매번 같은 소리를 다시 설정해야 함",
+        "userBenefit": "한 탭으로 완벽한 조합 즉시 재생"
+      }
+    },
+    {
+      "name": "3D 공간 오디오",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "몰입 경험",
+        "description": "AirPods Pro의 공간 오디오로 더 현실적인 자연 소리를 제공합니다",
+        "userValue": "실제 자연 속에 있는 듯한 입체적인 청각 경험을 할 수 있습니다",
+        "technicalNotes": "Spatial Audio API, 입체 음향",
+        "usageScenario": "완전한 몰입을 원할 때",
+        "problemSolved": "평면적인 소리로 현실감이 부족함",
+        "userBenefit": "진짜 숲, 바다에 있는 듯한 느낌"
+      }
+    },
+    {
+      "name": "시각적 배경",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시청각 통합",
+        "description": "소리와 어울리는 자연 배경 영상이나 애니메이션을 보여줍니다",
+        "userValue": "소리뿐 아니라 시각적으로도 자연을 느낄 수 있습니다",
+        "technicalNotes": "비디오 재생, 애니메이션",
+        "usageScenario": "소리와 함께 화면도 힐링되는 이미지를 보고 싶을 때",
+        "problemSolved": "소리만으로는 몰입이 부족함",
+        "userBenefit": "청각과 시각의 완벽한 조화"
+      }
+    },
+    {
+      "name": "집중 모드 연동",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시스템 통합",
+        "description": "iOS 집중 모드와 연동하여 자동으로 소리를 재생합니다",
+        "userValue": "일할 때, 잘 때 등 상황별로 자동으로 적절한 소리가 나옵니다",
+        "technicalNotes": "Focus Mode API 연동",
+        "usageScenario": "업무 집중 모드를 켰을 때 자동으로 백색소음이 나오길 원할 때",
+        "problemSolved": "상황마다 앱을 열어서 재생해야 함",
+        "userBenefit": "완전 자동화로 신경 쓸 필요 없음"
+      }
+    },
+    {
+      "name": "날씨 연동 추천",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "상황 인식",
+        "description": "현재 날씨에 맞는 소리를 추천합니다 (비 오는 날 빗소리 등)",
+        "userValue": "날씨와 어울리는 소리로 더 자연스러운 힐링 경험을 할 수 있습니다",
+        "technicalNotes": "날씨 API, 상황 인식",
+        "usageScenario": "밖에 비가 오는데 집에서도 빗소리를 듣고 싶을 때",
+        "problemSolved": "어떤 소리를 들을지 선택하기 어려움",
+        "userBenefit": "날씨 맞춤 자동 추천"
+      }
+    },
+    {
+      "name": "사용 통계",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "진행 추적",
+        "description": "이번 주 명상 시간, 자주 듣는 소리 등을 시각화합니다",
+        "userValue": "내 힐링 습관을 객관적으로 파악할 수 있습니다",
+        "technicalNotes": "사용 시간 추적, 차트",
+        "usageScenario": "이번 달 얼마나 명상에 시간을 썼는지 궁금할 때",
+        "problemSolved": "얼마나 사용하는지 모름",
+        "userBenefit": "힐링 시간 시각화로 자기 관리"
+      }
+    },
+    {
+      "name": "커뮤니티 추천 믹스",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "소셜",
+        "description": "다른 사용자들이 만든 인기 소리 조합을 탐색하고 사용합니다",
+        "userValue": "다른 사람들의 창의적인 조합을 발견하여 새로운 힐링 방법을 찾습니다",
+        "technicalNotes": "커뮤니티 기능, 공유 시스템",
+        "usageScenario": "새로운 소리 조합을 시도하고 싶을 때",
+        "problemSolved": "같은 소리만 반복해서 지루함",
+        "userBenefit": "커뮤니티가 검증한 최고의 조합"
+      }
+    },
+    {
+      "name": "오프라인 다운로드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "오프라인 지원",
+        "description": "자주 쓰는 소리를 다운로드하여 인터넷 없이도 재생합니다",
+        "userValue": "비행기나 지하철 등 오프라인 환경에서도 자연 소리를 들을 수 있습니다",
+        "technicalNotes": "로컬 저장, 다운로드 관리",
+        "usageScenario": "해외 여행이나 인터넷이 없는 곳에서 사용할 때",
+        "problemSolved": "네트워크 없으면 앱 사용 불가",
+        "userBenefit": "언제 어디서나 힐링 가능"
+      }
+    },
+    {
+      "name": "Apple Watch 컨트롤",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "5.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "기기 연동",
+        "description": "Apple Watch에서 재생, 볼륨, 타이머를 제어합니다",
+        "userValue": "침대에 누워서 폰을 꺼내지 않고도 소리를 제어할 수 있습니다",
+        "technicalNotes": "watchOS 앱, 동기화",
+        "usageScenario": "잠들기 전 편하게 누워서 제어하고 싶을 때",
+        "problemSolved": "폰까지 손을 뻗어야 함",
+        "userBenefit": "손목에서 모든 제어 가능"
+      }
+    }
   ],
-  "appStoreId" : "",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/relax-on-수면-백색-소음-자연의-소리\/id1626715109",
-  "bundleId" : "com.leeo.relaxon",
-  "categories" : [
+  "appStoreId": "",
+  "appStoreUrl": "https://apps.apple.com/kr/app/relax-on-수면-백색-소음-자연의-소리/id1626715109",
+  "bundleId": "com.leeo.relaxon",
+  "categories": [
     "다국어지원"
   ],
-  "currentVersion" : "4.0.1",
-  "folderId" : "relax-on",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/RelaxOn",
+  "currentVersion": "4.0.1",
+  "folderId": "relax-on",
+  "githubRepo": "https://github.com/M1zz/RelaxOn",
   "localProjectPath": "../../../../../RelaxOn",
-  "minimumOS" : "16.0",
-  "name" : "릴렉스 온",
-  "nameEn" : "Relax On",
-  "nextTasks" : [
-
-  ],
-  "notes" : "",
-  "price" : {
-    "isFree" : false,
-    "monthlyKRW" : 1100,
-    "monthlyUSD" : 0.98999999999999999,
-    "pricingModel" : "subscription"
+  "minimumOS": "16.0",
+  "name": "릴렉스 온",
+  "nameEn": "Relax On",
+  "nextTasks": [],
+  "notes": "",
+  "price": {
+    "isFree": false,
+    "monthlyKRW": 1100,
+    "monthlyUSD": 0.99,
+    "pricingModel": "subscription"
   },
-  "priority" : "medium",
-  "recentlyCompleted" : [
-
-  ],
-  "sharedModules" : [
-
-  ],
-  "stats" : {
-    "done" : 0,
-    "inProgress" : 0,
-    "notStarted" : 0,
-    "totalTasks" : 0
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 10,
+    "notStarted": 2,
+    "totalTasks": 12
   },
-  "status" : "planning"
+  "status": "planning",
+  "vision": {
+    "tagline": "언제 어디서나 힐링",
+    "coreValue": "자연 소리와 명상으로 일상 속 스트레스 해소",
+    "targetUsers": "스트레스가 많은 직장인, 수면에 어려움을 겪는 사람",
+    "uniqueSellingPoint": "고품질 자연 소리와 가이드 명상을 제공하는 힐링 앱",
+    "designPrinciples": [
+      "고요함 - 미니멀한 디자인",
+      "몰입 - 방해 요소 제거",
+      "개인화 - 취향에 맞는 소리 조합"
+    ],
+    "userExperienceGoals": [
+      "10초 안에 원하는 소리 재생",
+      "스트레스 해소와 집중력 향상",
+      "편안한 수면 유도"
+    ],
+    "potential": {
+      "marketSize": "명상/수면 앱 - 스트레스 사회 전 인구",
+      "targetExpansion": [
+        "스트레스 해소 → 수면 개선, 집중력 향상",
+        "개인 → 기업 웰빙 프로그램",
+        "한국 → 글로벌 (자연 소리는 보편적)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 $4.99): 프리미엄 사운드, 무제한 믹스, 오프라인",
+          "기업 라이선스: 직원 스트레스 관리",
+          "수면 클리닉 제휴: 불면증 치료 보조"
+        ]
+      },
+      "competitiveAdvantage": [
+        "고품질 사운드 - 실제 녹음",
+        "믹싱 자유도 - 나만의 완벽한 조합",
+        "간결한 UI - 복잡하지 않음"
+      ],
+      "expansionStrategy": [
+        "1단계: 가이드 명상 추가 - 음성 가이드",
+        "2단계: 수면 트래킹 - Apple Health 연동",
+        "3단계: 기업 웰빙 패키지",
+        "4단계: 수면 클리닉 협력 - 의료 도구 인증"
+      ],
+      "longTermVision": "일상 속 힐링의 필수 도구. 스트레스 사회의 오아시스. 기업 복지의 표준.",
+      "risks": [
+        "Calm, Headspace 등 대형 플랫폼과 경쟁",
+        "무료 유튜브 자연 소리와 차별화"
+      ],
+      "opportunities": [
+        "불면증 인구 증가",
+        "기업의 직원 웰빙 투자 확대"
+      ]
+    }
+  }
 }

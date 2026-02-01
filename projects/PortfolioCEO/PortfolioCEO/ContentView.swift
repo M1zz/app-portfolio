@@ -12,6 +12,8 @@ struct ContentView: View {
         case apps
         case kanban
         case workflow
+        case featureList
+        case vision
         case aiAssistant
     }
 
@@ -38,6 +40,16 @@ struct ContentView: View {
                     Label("워크플로우", systemImage: "timeline.selection")
                 }
                 .tag(Tab.workflow)
+
+                Button(action: { selectedTab = .featureList }) {
+                    Label("피쳐리스트", systemImage: "star.square.on.square.fill")
+                }
+                .tag(Tab.featureList)
+
+                Button(action: { selectedTab = .vision }) {
+                    Label("비전/컨셉", systemImage: "lightbulb.fill")
+                }
+                .tag(Tab.vision)
 
                 Button(action: { selectedTab = .aiAssistant }) {
                     Label("AI 어시스턴트", systemImage: "sparkles")
@@ -70,6 +82,10 @@ struct ContentView: View {
                     KanbanView()
                 case .workflow:
                     WorkflowTimelineView()
+                case .featureList:
+                    FeatureListView()
+                case .vision:
+                    VisionView()
                 case .aiAssistant:
                     AIAssistantView()
                 }
@@ -110,6 +126,8 @@ extension ContentView.Tab {
         case .apps: return "전체 앱"
         case .kanban: return "칸반 보드"
         case .workflow: return "워크플로우 타임라인"
+        case .featureList: return "피쳐리스트"
+        case .vision: return "비전/컨셉"
         case .aiAssistant: return "AI 어시스턴트"
         }
     }

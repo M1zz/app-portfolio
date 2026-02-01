@@ -1,139 +1,356 @@
 {
-  "allTasks" : [
+  "allTasks": [
     {
-      "name" : "UI 개선작업",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : "1.0.4"
-    },
-    {
-      "name" : "예비알림 마크 개선",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : "1.0.4"
-    },
-    {
-      "name" : "워치 사용성 개선",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : "1.0.4"
-    },
-    {
-      "name" : "사용자가 사용할 수 있는 테스트 모드",
-      "status" : "done",
-      "targetDate" : "December 3, 2025",
-      "targetVersion" : "1.0.5"
-    },
-    {
-      "name" : "온보딩 개선",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : "1.0.4"
-    },
-    {
-      "name" : "각각 알림마다 노티 레이블 넣기",
-      "status" : "done",
-      "targetDate" : "December 3, 2025",
-      "targetVersion" : "1.0.5"
-    },
-    {
-      "name" : "다음 알림까지 남은 시간 보여주기",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "name" : "사용자가 사용했던 타이머의 기록 남기기와 빠른 타이머 그리고 그 레이블링",
-      "status" : "done",
-      "targetDate" : "December 3, 2025",
-      "targetVersion" : "1.0.5"
-    },
-    {
-      "name" : "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
-      "status" : "not-started",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "name" : "접근성 개선",
-      "status" : "not-started",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "name" : "권한 거부 되었을 때 다시 하는 법 혹은 부작용 안내",
-      "status" : "done",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "name" : "사용자 사운드 커스터마이징",
-      "status" : "not-started",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "name" : "1.0.4 배포",
-      "status" : "done",
-      "targetDate" : "November 25, 2025",
-      "targetVersion" : "1.0.4"
-    },
-    {
-      "name" : "1.0.5 배포",
-      "status" : "in-progress",
-      "targetDate" : null,
-      "targetVersion" : null
-    },
-    {
-      "labels" : [
-        "브랜치 시작"
+      "name": "UI 개선작업",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.4",
+      "labels": [
+        "feature"
       ],
-      "name" : "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
-      "status" : "not-started",
-      "targetDate" : null,
-      "targetVersion" : "1.1.0"
+      "featureMetadata": {
+        "category": "사용 편의성",
+        "description": "알림 관리 화면을 더 직관적이고 사용하기 편하게 개선합니다",
+        "userValue": "복잡한 알림도 쉽게 설정하고 관리할 수 있습니다",
+        "technicalNotes": "SwiftUI 기반 리디자인",
+        "usageScenario": "알림 관리 화면이 복잡해서 헷갈릴 때",
+        "problemSolved": "직관적이지 않은 UI로 설정이 어려움",
+        "userBenefit": "한눈에 이해되는 화면으로 빠른 설정"
+      }
+    },
+    {
+      "name": "예비알림 마크 개선",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.4",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시각적 구분",
+        "description": "예비 알림이 설정되어 있음을 시각적으로 명확히 표시합니다",
+        "userValue": "어떤 알림에 예비가 설정되어 있는지 한눈에 파악할 수 있습니다",
+        "technicalNotes": "배지, 아이콘 인디케이터",
+        "usageScenario": "어떤 알림에 예비가 설정되어 있는지 확인하고 싶을 때",
+        "problemSolved": "예비 알림 설정 여부를 확인하기 어려움",
+        "userBenefit": "한눈에 예비 알림 설정 상태 파악"
+      }
+    },
+    {
+      "name": "워치 사용성 개선",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.4"
+    },
+    {
+      "name": "사용자가 사용할 수 있는 테스트 모드",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.0.5"
+    },
+    {
+      "name": "온보딩 개선",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.4",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "첫 사용 지원",
+        "description": "앱 첫 사용 시 이중 알림의 장점을 명확히 설명합니다",
+        "userValue": "앱의 핵심 가치를 빠르게 이해하고 바로 활용할 수 있습니다",
+        "technicalNotes": "페이지 인디케이터, 인터랙티브 가이드",
+        "usageScenario": "앱을 처음 설치하고 어떻게 쓰는지 모를 때",
+        "problemSolved": "핵심 가치를 이해하지 못해 앱을 삭제함",
+        "userBenefit": "이중 알림의 장점을 빠르게 이해하고 바로 활용"
+      }
+    },
+    {
+      "name": "각각 알림마다 노티 레이블 넣기",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.0.5",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "명확한 정보",
+        "description": "첫 번째/두 번째 알림을 구분할 수 있는 레이블을 표시합니다",
+        "userValue": "알림을 받았을 때 지금이 첫 번째인지 마지막 알림인지 바로 알 수 있습니다",
+        "technicalNotes": "알림 콘텐츠 커스터마이징",
+        "usageScenario": "알림을 받았을 때 이게 첫 번째인지 두 번째인지 궁금할 때",
+        "problemSolved": "지금 받은 알림이 마지막인지 아닌지 알 수 없음",
+        "userBenefit": "알림 순서를 바로 알아 적절한 행동 선택 가능"
+      }
+    },
+    {
+      "name": "다음 알림까지 남은 시간 보여주기",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시간 관리",
+        "description": "예정된 알림까지 남은 시간을 실시간으로 표시합니다",
+        "userValue": "다음 알림 시간을 예측하고 준비할 수 있습니다",
+        "technicalNotes": "타이머, 실시간 업데이트",
+        "usageScenario": "다음 알림이 언제 올지 예상하고 싶을 때",
+        "problemSolved": "다음 알림 시간을 계산해야 하는 번거로움",
+        "userBenefit": "남은 시간을 보고 여유롭게 준비"
+      }
+    },
+    {
+      "name": "사용자가 사용했던 타이머의 기록 남기기와 빠른 타이머 그리고 그 레이블링",
+      "status": "done",
+      "targetDate": "December 3, 2025",
+      "targetVersion": "1.0.5",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 설정",
+        "description": "자주 쓰는 알림 시간을 저장하고 빠르게 재사용할 수 있습니다",
+        "userValue": "매번 시간을 설정하지 않고 자주 쓰는 패턴을 빠르게 선택할 수 있습니다",
+        "technicalNotes": "히스토리 저장, 퀵 액션",
+        "usageScenario": "자주 쓰는 알림 패턴을 매번 설정하기 귀찮을 때",
+        "problemSolved": "반복적으로 같은 시간을 입력하는 번거로움",
+        "userBenefit": "자주 쓰는 패턴을 저장하여 한 번의 탭으로 설정"
+      }
+    },
+    {
+      "name": "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "기기 간 연동",
+        "description": "설정한 알림을 iCloud로 자동 동기화합니다",
+        "userValue": "여러 기기에서 동일한 알림을 받을 수 있습니다",
+        "technicalNotes": "CloudKit 기반 동기화",
+        "usageScenario": "아이폰과 아이패드 모두에서 같은 알림을 받고 싶을 때",
+        "problemSolved": "기기마다 알림을 따로 설정해야 하는 불편함",
+        "userBenefit": "모든 기기에서 동일한 알림 자동 동기화"
+      }
+    },
+    {
+      "name": "접근성 개선",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "모두를 위한 접근성",
+        "description": "VoiceOver, 다이나믹 타입 등 접근성 기능을 지원합니다",
+        "userValue": "시각 장애가 있어도 불편함 없이 앱을 사용할 수 있습니다",
+        "technicalNotes": "VoiceOver 레이블, 다이나믹 폰트",
+        "usageScenario": "시각 장애가 있거나 큰 글씨가 필요할 때",
+        "problemSolved": "기본 설정으로는 사용하기 어려움",
+        "userBenefit": "VoiceOver, 큰 글씨 지원으로 누구나 사용 가능"
+      }
+    },
+    {
+      "name": "권한 거부 되었을 때 다시 하는 법 혹은 부작용 안내",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "문제 해결 지원",
+        "description": "알림 권한이 없을 때 설정 방법을 안내하고 영향을 설명합니다",
+        "userValue": "권한 문제로 앱을 못 쓰는 상황을 쉽게 해결할 수 있습니다",
+        "technicalNotes": "권한 체크, 설정 앱 딥링크",
+        "usageScenario": "알림 권한을 거부했더니 앱이 작동하지 않을 때",
+        "problemSolved": "권한 문제로 앱을 못 쓰고 포기하는 상황",
+        "userBenefit": "친절한 가이드로 쉽게 권한 설정 완료"
+      }
+    },
+    {
+      "name": "사용자 사운드 커스터마이징",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "개인화",
+        "description": "알림음을 개인 취향에 맞게 선택할 수 있습니다",
+        "userValue": "좋아하는 소리로 알림을 받아 더 쾌적한 경험을 할 수 있습니다",
+        "technicalNotes": "사운드 피커, 커스텀 오디오",
+        "usageScenario": "기본 알림음이 마음에 들지 않을 때",
+        "problemSolved": "획일적인 알림음으로 거부감이 생김",
+        "userBenefit": "좋아하는 소리로 알림을 받아 더 쾌적한 경험"
+      }
+    },
+    {
+      "name": "1.0.4 배포",
+      "status": "done",
+      "targetDate": "November 25, 2025",
+      "targetVersion": "1.0.4"
+    },
+    {
+      "name": "1.0.5 배포",
+      "status": "in-progress",
+      "targetDate": null,
+      "targetVersion": null
+    },
+    {
+      "labels": [
+        "브랜치 시작",
+        "feature"
+      ],
+      "name": "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": "1.1.0",
+      "featureMetadata": {
+        "category": "글로벌 지원",
+        "description": "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)을 통해 더 나은 사용성을 제공합니다",
+        "userValue": "앱 사용 경험 향상",
+        "technicalNotes": null,
+        "usageScenario": "한국어가 아닌 다른 언어로 앱을 사용하고 싶을 때",
+        "problemSolved": "한국어만 지원하여 외국인은 사용 불가",
+        "userBenefit": "모국어로 편하게 앱 사용"
+      }
+    },
+    {
+      "name": "이중 알림 설정",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "확실한 알림",
+        "description": "하나의 일정에 두 번의 알림을 설정할 수 있습니다",
+        "userValue": "첫 번째 알림을 놓쳐도 두 번째 알림으로 확인할 수 있습니다",
+        "technicalNotes": "다중 로컬 알림, 스누즈 기능",
+        "usageScenario": "중요한 약속을 절대 놓치면 안 될 때",
+        "problemSolved": "한 번의 알림을 놓쳐서 중요한 일정을 망치는 상황",
+        "userBenefit": "두 번의 알림으로 안전장치 확보, 마음의 안정"
+      }
+    },
+    {
+      "name": "유연한 간격 설정",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "맞춤 설정",
+        "description": "첫 번째와 두 번째 알림 사이의 간격을 자유롭게 조정할 수 있습니다",
+        "userValue": "상황에 맞게 5분 전, 1시간 전 등 원하는 간격으로 알림을 받을 수 있습니다",
+        "technicalNotes": "커스텀 타이머, 시간 선택 UI",
+        "usageScenario": "상황에 따라 다른 알림 간격이 필요할 때",
+        "problemSolved": "고정된 간격으로는 다양한 상황에 대응하기 어려움",
+        "userBenefit": "5분 전, 1시간 전 등 상황에 맞는 완벽한 알림 설정"
+      }
     }
   ],
-  "appStoreId" : "",
-  "appStoreUrl" : "https:\/\/apps.apple.com\/kr\/app\/두번알림\/id6752551268",
-  "bundleId" : "com.leeo.doublereminder",
-  "categories" : [
+  "appStoreId": "",
+  "appStoreUrl": "https://apps.apple.com/kr/app/두번알림/id6752551268",
+  "bundleId": "com.leeo.doublereminder",
+  "categories": [
     "최근관심",
     "다국어지원"
   ],
-  "currentVersion" : "1.0.6",
-  "folderId" : "double-reminder",
-  "githubRepo" : "https:\/\/github.com\/M1zz\/toki",
-  "localProjectPath" : "..\/toki",
-  "minimumOS" : "16.0",
-  "name" : "두 번 알림",
-  "nameEn" : "Double Reminder",
-  "nextTasks" : [
+  "currentVersion": "1.0.6",
+  "folderId": "double-reminder",
+  "githubRepo": "https://github.com/M1zz/toki",
+  "localProjectPath": "../toki",
+  "minimumOS": "16.0",
+  "name": "두 번 알림",
+  "nameEn": "Double Reminder",
+  "nextTasks": [
     "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
     "1.0.5 배포",
     "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
     "접근성 개선"
   ],
-  "notes" : "",
-  "price" : {
-    "isFree" : false,
-    "krw" : 5500,
-    "usd" : 3.9900000000000002
+  "notes": "",
+  "price": {
+    "isFree": false,
+    "krw": 5500,
+    "usd": 3.99
   },
-  "priority" : "high",
-  "recentlyCompleted" : [
+  "priority": "high",
+  "recentlyCompleted": [
     "UI 개선작업",
     "예비알림 마크 개선",
     "워치 사용성 개선"
   ],
-  "sharedModules" : [
-
-  ],
-  "stats" : {
-    "done" : 10,
-    "inProgress" : 1,
-    "notStarted" : 4,
-    "totalTasks" : 15
+  "sharedModules": [],
+  "stats": {
+    "done": 10,
+    "inProgress": 1,
+    "notStarted": 4,
+    "totalTasks": 15,
+    "todo": 0
   },
-  "status" : "active"
+  "status": "active",
+  "vision": {
+    "tagline": "잊지 않는 두 번의 기회",
+    "coreValue": "중요한 일을 두 번 알려줘서 절대 놓치지 않게",
+    "targetUsers": "건망증이 있거나 중요한 일정을 자주 놓치는 사람",
+    "uniqueSellingPoint": "한 번이 아닌 두 번 알림으로 확실하게 상기",
+    "designPrinciples": [
+      "이중 안전망 - 한 번 놓쳐도 괜찮아",
+      "유연한 간격 - 상황에 맞는 알림 간격",
+      "맥락 인식 - 적절한 타이밍에 알림"
+    ],
+    "userExperienceGoals": [
+      "중요한 일정 절대 놓치지 않기",
+      "두 번째 알림으로 안심",
+      "알림 간격 자유롭게 설정"
+    ],
+    "potential": {
+      "marketSize": "생산성/알람 앱 - 스마트폰 사용자 전체",
+      "targetExpansion": [
+        "건망증 있는 사람 → 모든 바쁜 직장인",
+        "개인 일정 → 팀 프로젝트 데드라인 관리",
+        "한국 → 글로벌 (시차 관리 기능 추가)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 ₩3,900): 무제한 알림, 위치 기반, 고급 패턴",
+          "기업 버전: 팀 프로젝트 데드라인 공유",
+          "Siri Shortcuts 프리미엄 기능"
+        ]
+      },
+      "competitiveAdvantage": [
+        "이중 안전망 - 절대 놓치지 않는 신뢰",
+        "유연한 간격 설정 - 상황별 최적화",
+        "친근한 UX - 알림이 스트레스가 아님"
+      ],
+      "expansionStrategy": [
+        "1단계: AI 학습 - 사용자 패턴 분석하여 최적 간격 제안",
+        "2단계: 캘린더 연동 - 중요 일정 자동 이중 알림",
+        "3단계: 팀 기능 - 프로젝트 마감 공유 알림",
+        "4단계: 웨어러블 통합 - Apple Watch 햅틱"
+      ],
+      "longTermVision": "중요한 순간을 절대 놓치지 않는 안전망. 신뢰할 수 있는 알림의 표준. ADHD, 치매 환자를 위한 필수 도구.",
+      "risks": [
+        "기본 알림 앱으로도 충분하다는 인식",
+        "너무 많은 알림으로 인한 피로"
+      ],
+      "opportunities": [
+        "고령화 사회에서 기억 보조 도구 수요",
+        "ADHD 인식 증가로 특화 도구 필요"
+      ]
+    }
+  }
 }

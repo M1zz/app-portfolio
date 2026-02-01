@@ -5,6 +5,222 @@
       "status": "not-started",
       "targetDate": null,
       "targetVersion": null
+    },
+    {
+      "name": "자동 타이머",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "건강 알림",
+        "description": "20분마다 자동으로 휴식 시간을 알려줍니다",
+        "userValue": "타이머를 직접 설정하지 않아도 규칙적으로 눈을 쉴 수 있습니다",
+        "technicalNotes": "백그라운드 타이머, 알림 권한",
+        "usageScenario": "업무에 집중하다가 눈 쉬는 것을 잊을 때",
+        "problemSolved": "장시간 화면 사용으로 눈이 피로하고 건조해지는 문제",
+        "userBenefit": "20분마다 자동 알림으로 규칙적인 눈 휴식 습관 형성"
+      }
+    },
+    {
+      "name": "눈 운동 가이드",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "건강 관리",
+        "description": "휴식 시간에 따라할 수 있는 간단한 눈 운동을 제공합니다",
+        "userValue": "단순히 쉬는 것이 아니라 눈 건강에 도움이 되는 운동을 할 수 있습니다",
+        "technicalNotes": "애니메이션 가이드, 타이머",
+        "usageScenario": "휴식 시간에 눈을 쉬면서 적극적인 운동을 하고 싶을 때",
+        "problemSolved": "단순히 화면에서 눈을 떼는 것만으로는 피로 회복이 부족함",
+        "userBenefit": "따라하기 쉬운 눈 운동으로 눈 건강 적극 개선"
+      }
+    },
+    {
+      "name": "휴식 통계 대시보드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "진행 추적",
+        "description": "일별, 주별, 월별 휴식 횟수와 패턴을 시각화합니다",
+        "userValue": "내가 얼마나 규칙적으로 눈을 쉬고 있는지 확인할 수 있습니다",
+        "technicalNotes": "Charts 라이브러리, Core Data 통계 쿼리",
+        "usageScenario": "한 달간 내 휴식 습관이 개선되고 있는지 확인하고 싶을 때",
+        "problemSolved": "눈 건강이 나아지는지 체감하기 어려움",
+        "userBenefit": "데이터로 습관 개선 확인, 성취감 획득"
+      }
+    },
+    {
+      "name": "맞춤형 알림 간격 설정",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "개인화",
+        "description": "20분 기본 외에 15분, 30분, 45분 등 원하는 간격으로 조정 가능합니다",
+        "userValue": "내 업무 패턴에 맞춰 휴식 타이밍을 최적화할 수 있습니다",
+        "technicalNotes": "UserDefaults 설정 저장, 타이머 재구성",
+        "usageScenario": "업무 집중 시간이 더 길거나 짧을 때",
+        "problemSolved": "고정된 20분이 모든 상황에 맞지 않음",
+        "userBenefit": "내 리듬에 맞는 완벽한 휴식 주기"
+      }
+    },
+    {
+      "name": "방해 금지 모드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "유연한 제어",
+        "description": "중요한 회의나 작업 중 일시적으로 알림을 끌 수 있습니다",
+        "userValue": "긴급한 상황에서도 앱을 완전히 끄지 않고 알림만 일시 정지할 수 있습니다",
+        "technicalNotes": "타이머 일시 정지, 알림 스케줄 관리",
+        "usageScenario": "중요한 프레젠테이션이나 면접 중일 때",
+        "problemSolved": "중요한 순간에 알림이 방해가 됨",
+        "userBenefit": "30분, 1시간, 2시간 단위로 스누즈 가능"
+      }
+    },
+    {
+      "name": "위젯 지원",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 확인",
+        "description": "홈 화면에서 오늘 휴식 횟수와 다음 휴식까지 남은 시간을 확인합니다",
+        "userValue": "앱을 열지 않고도 내 휴식 현황을 한눈에 파악할 수 있습니다",
+        "technicalNotes": "WidgetKit, Timeline Provider",
+        "usageScenario": "오늘 몇 번 쉬었는지 빠르게 확인하고 싶을 때",
+        "problemSolved": "현황 확인하려고 앱을 열어야 함",
+        "userBenefit": "잠금 화면에서도 즉시 확인 가능"
+      }
+    },
+    {
+      "name": "휴식 중 화면 보호",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "건강 관리",
+        "description": "휴식 시간에 화면을 자동으로 어둡게 하거나 초록색 화면을 표시합니다",
+        "userValue": "휴식 중 실수로 화면을 보지 않도록 도와줍니다",
+        "technicalNotes": "화면 밝기 제어, 풀스크린 오버레이",
+        "usageScenario": "휴식 중인데 습관적으로 화면을 보게 될 때",
+        "problemSolved": "휴식 시간에도 화면을 보는 습관",
+        "userBenefit": "강제 휴식으로 실제 눈 쉼 효과 증대"
+      }
+    },
+    {
+      "name": "성취 배지 시스템",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "동기부여",
+        "description": "7일 연속, 한 달 100회 등 목표 달성 시 배지를 획득합니다",
+        "userValue": "꾸준한 눈 건강 습관에 대한 보상으로 동기부여됩니다",
+        "technicalNotes": "업적 시스템, 로컬 저장",
+        "usageScenario": "습관을 지속하기 위한 동기가 필요할 때",
+        "problemSolved": "단조로운 알림으로 흥미가 떨어짐",
+        "userBenefit": "게임처럼 재미있게 눈 건강 관리"
+      }
+    },
+    {
+      "name": "다양한 눈 운동 프로그램",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "건강 관리",
+        "description": "기본 20-20-20 외에 3분 집중 운동, 5분 완전 휴식 등 다양한 프로그램 제공",
+        "userValue": "상황에 맞는 여러 눈 운동 방법을 선택할 수 있습니다",
+        "technicalNotes": "운동 프로그램 DB, 가이드 애니메이션",
+        "usageScenario": "점심시간에 좀 더 긴 눈 운동을 하고 싶을 때",
+        "problemSolved": "한 가지 운동만 반복해서 지루함",
+        "userBenefit": "짧은 휴식부터 긴 휴식까지 선택 가능"
+      }
+    },
+    {
+      "name": "건강 앱 연동",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "데이터 통합",
+        "description": "Apple Health에 마인드풀니스 시간으로 기록됩니다",
+        "userValue": "눈 휴식을 건강 데이터의 일부로 추적할 수 있습니다",
+        "technicalNotes": "HealthKit 통합",
+        "usageScenario": "전반적인 건강 데이터를 통합 관리하고 싶을 때",
+        "problemSolved": "눈 건강이 전체 건강 데이터와 분리됨",
+        "userBenefit": "건강 앱에서 모든 웰빙 활동 한눈에 확인"
+      }
+    },
+    {
+      "name": "팀/그룹 챌린지",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "사회적 동기부여",
+        "description": "팀원들과 함께 눈 건강 챌린지에 참여하고 순위를 확인합니다",
+        "userValue": "혼자가 아닌 동료들과 함께 건강한 습관을 만들어갑니다",
+        "technicalNotes": "서버 연동, 리더보드",
+        "usageScenario": "회사 동료들과 함께 눈 건강 캠페인을 할 때",
+        "problemSolved": "혼자 하면 작심삼일로 끝남",
+        "userBenefit": "동료들과 경쟁하며 재미있게 지속"
+      }
+    },
+    {
+      "name": "음성 안내 옵션",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "접근성",
+        "description": "눈 운동을 음성으로 안내하여 화면을 보지 않고도 따라할 수 있습니다",
+        "userValue": "시각장애가 있거나 눈을 완전히 감고 운동하고 싶을 때 유용합니다",
+        "technicalNotes": "AVSpeechSynthesizer, VoiceOver 지원",
+        "usageScenario": "눈을 감고 완전히 휴식하면서 운동하고 싶을 때",
+        "problemSolved": "화면을 봐야 운동 방법을 알 수 있음",
+        "userBenefit": "눈을 감은 채로 음성만 들으며 운동"
+      }
     }
   ],
   "appStoreId": "",
@@ -29,9 +245,62 @@
   "stats": {
     "done": 0,
     "inProgress": 0,
-    "notStarted": 1,
-    "totalTasks": 1
+    "todo": 10,
+    "notStarted": 3,
+    "totalTasks": 13
   },
   "status": "planning",
-  "folderId": "cooltime"
+  "folderId": "cooltime",
+  "vision": {
+    "tagline": "눈 건강 지키미",
+    "coreValue": "장시간 화면 사용으로부터 눈을 보호하는 휴식 관리",
+    "targetUsers": "장시간 컴퓨터를 사용하는 개발자, 디자이너, 직장인",
+    "uniqueSellingPoint": "20-20-20 규칙(20분마다 20초간 20피트 먼 곳 보기)을 자동으로 관리",
+    "designPrinciples": [
+      "자동 알림 - 사용자가 잊지 않도록",
+      "방해 최소화 - 중요한 작업 중단 방지",
+      "습관 형성 - 꾸준한 휴식 패턴 만들기"
+    ],
+    "userExperienceGoals": [
+      "20분마다 부드러운 알림",
+      "휴식 중 눈 운동 가이드",
+      "하루 휴식 횟수 추적"
+    ],
+    "potential": {
+      "marketSize": "눈 건강/웰빙 앱 - 전 세계 PC 사용자 20억+ 명",
+      "targetExpansion": [
+        "개발자/디자이너 → 모든 사무직 근로자",
+        "개인 → 기업 복지 프로그램",
+        "눈 건강 → 종합 디지털 웰빙 (자세, 스트레칭)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 $2.99): 고급 통계, 맞춤 프로그램, 광고 제거",
+          "기업 라이선스 (직원당 $1/월): 팀 대시보드, 건강 리포트",
+          "보험사 제휴: 눈 건강 관리 리워드 프로그램"
+        ]
+      },
+      "competitiveAdvantage": [
+        "과학적 근거 (20-20-20 규칙) 기반",
+        "게이미피케이션 - 배지, 스트릭으로 습관 형성",
+        "팀 챌린지 - 동료와 함께 건강 관리"
+      ],
+      "expansionStrategy": [
+        "1단계: Windows/Android 버전 출시로 시장 확대",
+        "2단계: 기업 복지 패키지로 B2B 진출",
+        "3단계: 안과 의사 협력 - 눈 건강 전문 콘텐츠",
+        "4단계: 종합 디지털 웰빙 플랫폼 (자세, 수면 등)"
+      ],
+      "longTermVision": "전 세계 사무직 근로자의 필수 건강 도구. 기업 복지 프로그램 표준. VDT 증후군 예방의 대명사.",
+      "risks": [
+        "무료 타이머 앱과의 경쟁",
+        "기업 도입 없이는 성장 한계"
+      ],
+      "opportunities": [
+        "재택근무로 장시간 화면 노출 증가",
+        "기업의 직원 건강 관리 중요성 증대"
+      ]
+    }
+  }
 }

@@ -10,13 +10,241 @@
       "status": "in-progress",
       "name": "너 이거 다 했어? 라고 물어봐주기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "친근한 리마인더",
+        "description": "완료하지 않은 작업에 대해 친근하게 알림을 보냅니다",
+        "userValue": "잊고 있던 작업을 부담스럽지 않게 상기할 수 있습니다",
+        "technicalNotes": "작업 상태 체크, 친근한 알림 메시지",
+        "usageScenario": "해야 할 일을 잊고 있을 때",
+        "problemSolved": "차가운 알림은 부담스럽고 무시하게 됨",
+        "userBenefit": "친근한 톤의 알림으로 부담 없이 상기"
+      }
     },
     {
       "status": "not-started",
       "name": "앱 배포 1.0.0 일정비서",
       "targetDate": "December 17, 2025 → December 21, 2025",
       "targetVersion": null
+    },
+    {
+      "name": "스마트 일정 추천",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "AI 추천",
+        "description": "일정의 우선순위와 소요 시간을 고려하여 최적의 시간대를 제안합니다",
+        "userValue": "언제 무엇을 할지 고민하지 않고 AI의 제안을 따를 수 있습니다",
+        "technicalNotes": "일정 최적화 알고리즘, ML 모델",
+        "usageScenario": "할 일은 많은데 언제 무엇을 해야 할지 모를 때",
+        "problemSolved": "일정 계획 세우는 데만 시간 낭비",
+        "userBenefit": "AI가 최적 시간대를 제안해서 바로 실행"
+      }
+    },
+    {
+      "name": "캘린더 통합",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "통합 관리",
+        "description": "기존 캘린더 앱과 연동하여 일정을 동기화합니다",
+        "userValue": "여러 캘린더를 한곳에서 관리할 수 있습니다",
+        "technicalNotes": "EventKit, 캘린더 API",
+        "usageScenario": "여러 캘린더 앱을 오가며 확인하는 것이 불편할 때",
+        "problemSolved": "캘린더가 분산되어 전체 일정 파악 어려움",
+        "userBenefit": "한 곳에서 모든 캘린더 통합 관리"
+      }
+    },
+    {
+      "name": "작업 우선순위 자동 정렬",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "AI 추천",
+        "description": "마감일, 중요도를 고려하여 오늘 할 일 순서를 자동으로 정렬합니다",
+        "userValue": "어떤 일부터 해야 할지 고민하지 않고 추천 순서대로 실행하면 됩니다",
+        "technicalNotes": "우선순위 알고리즘, 자동 정렬",
+        "usageScenario": "할 일이 많은데 뭐부터 할지 모를 때",
+        "problemSolved": "우선순위를 정하느라 시간 낭비",
+        "userBenefit": "AI가 최적 순서 제시"
+      }
+    },
+    {
+      "name": "시간 블록 설정",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시간 관리",
+        "description": "작업에 예상 소요 시간을 입력하면 캘린더에 블록으로 표시합니다",
+        "userValue": "하루 일정을 시각적으로 파악하고 현실적으로 계획할 수 있습니다",
+        "technicalNotes": "시간 블록 UI, 캘린더 연동",
+        "usageScenario": "오늘 할 일들이 시간 내에 끝날지 확인하고 싶을 때",
+        "problemSolved": "일정을 너무 빡빡하게 잡아서 실패",
+        "userBenefit": "시각적 시간 관리로 현실적 계획"
+      }
+    },
+    {
+      "name": "루틴 템플릿",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "습관 형성",
+        "description": "아침 루틴, 저녁 루틴 등 반복되는 작업을 템플릿으로 저장합니다",
+        "userValue": "매일 하는 일을 일일이 입력하지 않아도 됩니다",
+        "technicalNotes": "템플릿 시스템, 자동 추가",
+        "usageScenario": "아침마다 운동, 명상, 아침식사 등을 할 때",
+        "problemSolved": "매일 같은 작업을 반복 입력",
+        "userBenefit": "한 번 설정으로 자동 반복"
+      }
+    },
+    {
+      "name": "에너지 레벨 고려",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "AI 추천",
+        "description": "오전에는 중요한 일, 오후에는 가벼운 일 등 에너지 패턴을 학습합니다",
+        "userValue": "집중력이 높을 때 중요한 일을 하고 효율을 극대화합니다",
+        "technicalNotes": "사용 패턴 학습, 시간대별 추천",
+        "usageScenario": "오후만 되면 집중력이 떨어질 때",
+        "problemSolved": "피곤할 때 어려운 일을 해서 비효율적",
+        "userBenefit": "에너지 최적 배분으로 생산성 향상"
+      }
+    },
+    {
+      "name": "목표 추적",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "진행 추적",
+        "description": "장기 목표를 설정하고 주간/월간 진행 상황을 확인합니다",
+        "userValue": "큰 목표를 향해 얼마나 나아가고 있는지 시각적으로 확인할 수 있습니다",
+        "technicalNotes": "목표 시스템, 진행률 차트",
+        "usageScenario": "올해 목표가 잘 진행되고 있는지 확인하고 싶을 때",
+        "problemSolved": "일상에 치여 큰 목표를 잊어버림",
+        "userBenefit": "목표 진행률 시각화로 동기 유지"
+      }
+    },
+    {
+      "name": "휴식 시간 자동 배치",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "웰빙",
+        "description": "작업 사이에 5분, 10분 휴식을 자동으로 배치합니다",
+        "userValue": "번아웃 없이 지속 가능한 페이스로 일할 수 있습니다",
+        "technicalNotes": "휴식 시간 알고리즘",
+        "usageScenario": "쉬지 않고 일하다가 지쳐버릴 때",
+        "problemSolved": "휴식 없이 일해서 오히려 비효율적",
+        "userBenefit": "규칙적 휴식으로 지속 가능한 생산성"
+      }
+    },
+    {
+      "name": "이동 시간 자동 계산",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "통합 관리",
+        "description": "일정에 위치가 있으면 이동 시간을 자동으로 계산하여 알립니다",
+        "userValue": "약속에 늦지 않도록 언제 출발해야 하는지 알려줍니다",
+        "technicalNotes": "지도 API, 교통 상황 반영",
+        "usageScenario": "회의 장소가 멀어서 언제 출발해야 할지 모를 때",
+        "problemSolved": "이동 시간을 잊고 늦음",
+        "userBenefit": "출발 시간 자동 알림"
+      }
+    },
+    {
+      "name": "주간 리뷰",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "회고",
+        "description": "일주일 동안 뭘 했는지, 얼마나 달성했는지 요약 리포트를 생성합니다",
+        "userValue": "한 주를 돌아보며 잘한 점과 개선할 점을 파악합니다",
+        "technicalNotes": "통계 생성, 리포트 UI",
+        "usageScenario": "주말에 이번 주를 돌아보고 싶을 때",
+        "problemSolved": "시간이 어떻게 갔는지 모름",
+        "userBenefit": "데이터 기반 자기 성찰"
+      }
+    },
+    {
+      "name": "협업 작업 공유",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "통합 관리",
+        "description": "팀원과 작업을 공유하고 진행 상황을 실시간으로 확인합니다",
+        "userValue": "누가 무엇을 하고 있는지 파악하여 협업이 원활해집니다",
+        "technicalNotes": "클라우드 동기화, 멀티 유저",
+        "usageScenario": "팀 프로젝트를 관리할 때",
+        "problemSolved": "팀원들의 진행 상황을 모름",
+        "userBenefit": "투명한 협업 관리"
+      }
+    },
+    {
+      "name": "포커스 모드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "집중 지원",
+        "description": "현재 작업에만 집중하도록 다른 작업을 숨기고 타이머를 시작합니다",
+        "userValue": "멀티태스킹의 유혹 없이 하나의 작업에 몰입할 수 있습니다",
+        "technicalNotes": "포커스 UI, 타이머",
+        "usageScenario": "중요한 작업에 집중하고 싶을 때",
+        "problemSolved": "다른 작업들이 신경 쓰여서 집중 불가",
+        "userBenefit": "완벽한 집중 환경"
+      }
     }
   ],
   "minimumOS": "16.0",
@@ -40,9 +268,62 @@
   "sharedModules": [],
   "stats": {
     "done": 0,
-    "notStarted": 1,
     "inProgress": 2,
-    "totalTasks": 3
+    "todo": 10,
+    "notStarted": 3,
+    "totalTasks": 15
   },
-  "folderId": "schedule-assistant"
+  "folderId": "schedule-assistant",
+  "vision": {
+    "tagline": "AI 일정 비서",
+    "coreValue": "똑똑한 일정 관리로 시간 활용 최적화",
+    "targetUsers": "바쁜 일정을 관리하는 직장인, 프리랜서",
+    "uniqueSellingPoint": "AI 기반 일정 추천과 자동 시간 배분",
+    "designPrinciples": [
+      "자동화 - AI가 제안하는 최적 일정",
+      "유연성 - 쉬운 조정과 변경",
+      "통합 - 캘린더 앱과 연동"
+    ],
+    "userExperienceGoals": [
+      "일정 입력만으로 최적 시간 제안",
+      "충돌 없는 스케줄 관리",
+      "시간 활용 효율 향상"
+    ],
+    "potential": {
+      "marketSize": "생산성/일정 관리 - 바쁜 현대인 전체",
+      "targetExpansion": [
+        "개인 → 팀 협업 (회의 일정 AI 조율)",
+        "일정 관리 → 업무 자동화",
+        "한국 → 글로벌 (시차 지원)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 $6.99): AI 추천, 무제한 캘린더",
+          "팀 버전 (월 $9.99/인): 팀 일정 자동 조율",
+          "기업 라이선스: 회의실 예약, 리소스 관리"
+        ]
+      },
+      "competitiveAdvantage": [
+        "AI 스마트 추천 - 최적 시간대 자동 제안",
+        "친근한 리마인더 - 부담 없는 알림",
+        "캘린더 통합 - 모든 일정 한곳에"
+      ],
+      "expansionStrategy": [
+        "1단계: AI 학습 강화 - 사용자 패턴 분석",
+        "2단계: 팀 기능 - 회의 시간 자동 찾기",
+        "3단계: 업무 자동화 - Zapier, Slack 연동",
+        "4단계: 기업 생산성 플랫폼"
+      ],
+      "longTermVision": "AI 비서의 시작. 일정 관리를 넘어 업무 자동화. 시간 관리의 새로운 패러다임.",
+      "risks": [
+        "Google Calendar 등 무료 도구로 충분",
+        "AI 추천 정확도 이슈"
+      ],
+      "opportunities": [
+        "원격 근무로 일정 조율 복잡도 증가",
+        "AI 기술 발전으로 스마트 추천 가능"
+      ]
+    }
+  }
 }

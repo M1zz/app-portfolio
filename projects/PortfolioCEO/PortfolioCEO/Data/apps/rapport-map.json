@@ -4,103 +4,304 @@
       "status": "in-progress",
       "name": "멘티들과 했던 행동들에 사진으로 기억할 수 있도록 돕기",
       "targetDate": null,
-      "targetVersion": "1.0.2"
+      "targetVersion": "1.0.2",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시각적 기록",
+        "description": "만남에 사진을 첨부하여 시각적으로 기억할 수 있습니다",
+        "userValue": "텍스트만으로는 표현하기 어려운 순간들을 사진으로 생생하게 남길 수 있습니다",
+        "technicalNotes": "사진 첨부, 갤러리 통합",
+        "usageScenario": "멘토링 활동을 사진으로 남기고 싶을 때",
+        "problemSolved": "텍스트만으로는 그 순간의 감정을 기억하기 어려움",
+        "userBenefit": "사진으로 생생하게 추억 보존"
+      }
     },
     {
       "status": "done",
       "name": "데이터를 마구 던지면 저장해주는 메모 기능",
       "targetDate": null,
-      "targetVersion": "1.0.2"
+      "targetVersion": "1.0.2",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 기록",
+        "description": "만난 사람과의 대화 내용을 빠르게 메모로 남길 수 있습니다",
+        "userValue": "중요한 대화나 약속을 잊지 않고 나중에 다시 확인할 수 있습니다",
+        "technicalNotes": "텍스트 입력 자동 저장, 실시간 동기화",
+        "usageScenario": "만남 직후 대화 내용을 바로 메모하고 싶을 때",
+        "problemSolved": "시간 지나면 대화 내용을 잊어버림",
+        "userBenefit": "30초 안에 핵심 내용 기록 완료"
+      }
     },
     {
       "status": "not-started",
       "name": "기록에 태그를 남기고 태그로 필터링 해서 볼 수 있도록 하기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "검색과 정리",
+        "description": "만남이나 대화에 태그를 달아 분류하고 검색할 수 있습니다",
+        "userValue": "특정 주제의 대화나 활동을 빠르게 찾아볼 수 있습니다",
+        "technicalNotes": "태그 시스템, 다중 필터",
+        "usageScenario": "특정 주제로 나눴던 대화를 다시 찾고 싶을 때",
+        "problemSolved": "많은 기록 중에서 원하는 내용 찾기 어려움",
+        "userBenefit": "#커리어 #고민 등 태그로 즉시 검색"
+      }
     },
     {
       "status": "not-started",
       "name": "멘토링이나 어떤 특정 태그처럼 속성 중에 멘토링 케이스를 추가할 수 있었으면 좋겠음",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "관계 유형 분류",
+        "description": "인간관계를 멘토링, 친구, 동료 등의 유형으로 분류할 수 있습니다",
+        "userValue": "각 관계의 특성에 맞게 관리하고 필요한 정보를 효율적으로 찾을 수 있습니다",
+        "technicalNotes": "태그 시스템, 필터링 및 검색 기능",
+        "usageScenario": "멘토링, 친구, 동료 등 관계를 구분하고 싶을 때",
+        "problemSolved": "모든 사람이 한 목록에 섞여 있음",
+        "userBenefit": "관계 유형별로 분류하여 체계적 관리"
+      }
     },
     {
       "status": "not-started",
       "name": "위젯으로 다가오는 이벤트 볼 수 있게 해주기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "일정 알림",
+        "description": "홈 화면 위젯에서 다가오는 만남 일정을 확인할 수 있습니다",
+        "userValue": "앱을 열지 않고도 오늘의 만남 일정을 바로 확인할 수 있습니다",
+        "technicalNotes": "WidgetKit, 일정 필터링",
+        "usageScenario": "오늘 만날 사람을 아침에 확인하고 싶을 때",
+        "problemSolved": "앱을 열어야만 일정을 확인 가능",
+        "userBenefit": "홈 화면에서 오늘의 만남 즉시 확인"
+      }
     },
     {
       "status": "not-started",
       "name": "녹음 중 일때 좀 더 쉽게 다이나믹 아일랜드",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "음성 기록",
+        "description": "대화 녹음 중일 때 다이나믹 아일랜드에 상태를 표시합니다",
+        "userValue": "녹음 중임을 잊지 않고 쉽게 제어할 수 있습니다",
+        "technicalNotes": "Live Activity, 다이나믹 아일랜드 API",
+        "usageScenario": "대화를 녹음 중일 때 상태를 확인하고 싶을 때",
+        "problemSolved": "녹음 중임을 잊고 중요한 내용 놓침",
+        "userBenefit": "항상 보이는 녹음 상태 표시"
+      }
     },
     {
       "status": "not-started",
       "name": "Core Spotlight - Spotlight 검색 으로 사람 쉽게 검색하기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "검색과 정리",
+        "description": "iOS 스포트라이트 검색에서 라포맵의 사람을 찾을 수 있습니다",
+        "userValue": "앱을 열지 않고 시스템 검색으로 바로 사람을 찾을 수 있습니다",
+        "technicalNotes": "CoreSpotlight, 검색 인덱싱",
+        "usageScenario": "특정 사람의 정보를 빠르게 찾고 싶을 때",
+        "problemSolved": "앱을 열고 검색해야 하는 번거로움",
+        "userBenefit": "시스템 검색에서 즉시 사람 찾기"
+      }
     },
     {
       "status": "not-started",
       "name": "만난 장소도 기록해주기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "맥락 기록",
+        "description": "만남이 이루어진 장소를 위치 정보와 함께 저장할 수 있습니다",
+        "userValue": "어디서 만났는지 기억하며 장소와 연결된 추억을 떠올릴 수 있습니다",
+        "technicalNotes": "위치 권한, 지오코딩",
+        "usageScenario": "어디서 만났는지도 함께 기억하고 싶을 때",
+        "problemSolved": "만난 장소를 기억하지 못함",
+        "userBenefit": "장소와 함께 추억 회상"
+      }
     },
     {
       "status": "not-started",
       "name": "메모에서 자연스럽게 데이터를 추출해서 필요한 곳에 녹이기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "자동화",
+        "description": "자유로운 메모에서 날짜, 장소 등을 자동으로 인식하여 구조화합니다",
+        "userValue": "정해진 양식 없이 자연스럽게 메모만 해도 정보가 정리됩니다",
+        "technicalNotes": "NLP, 데이터 파싱",
+        "usageScenario": "자유롭게 메모했는데 자동으로 정리되길 원할 때",
+        "problemSolved": "정해진 양식에 맞춰 입력하는 번거로움",
+        "userBenefit": "자연어 메모를 AI가 자동 구조화"
+      }
     },
     {
       "status": "not-started",
       "name": "클라우드 동기화",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "통합",
+        "description": "인간관계 데이터를 iCloud로 자동 동기화합니다",
+        "userValue": "여러 기기에서 동일한 관계 정보를 확인하고 업데이트할 수 있습니다",
+        "technicalNotes": "CloudKit 기반 실시간 동기화"
+      }
     },
     {
       "status": "not-started",
       "name": "MessageUI - 빠른 연락",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 연락",
+        "description": "앱에서 바로 메시지나 전화를 걸 수 있습니다",
+        "userValue": "연락처를 따로 찾지 않고 바로 소통할 수 있어 편리합니다",
+        "technicalNotes": "MessageUI 프레임워크, CallKit 통합",
+        "usageScenario": "기록을 보다가 바로 연락하고 싶을 때",
+        "problemSolved": "연락처 앱을 따로 열어야 함",
+        "userBenefit": "한 번의 탭으로 전화/메시지 발송"
+      }
     },
     {
       "status": "not-started",
       "name": "Push Notifications + Background Tasks - 스마트 알림",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "일정 알림",
+        "description": "오랜만에 연락하지 않은 사람을 알림으로 상기시킵니다",
+        "userValue": "소중한 사람과의 연락을 놓치지 않고 관계를 유지할 수 있습니다",
+        "technicalNotes": "백그라운드 작업, 푸시 알림",
+        "usageScenario": "오랫동안 연락하지 않은 사람을 잊어버릴 때",
+        "problemSolved": "소중한 관계를 방치하게 됨",
+        "userBenefit": "일정 주기로 연락 제안"
+      }
     },
     {
       "status": "not-started",
       "name": "App Intents + Siri Shortcuts - 음성 명령",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 기록",
+        "description": "시리로 음성 명령하여 빠르게 만남을 기록할 수 있습니다",
+        "userValue": "손을 쓰지 않고도 음성으로 만남을 기록할 수 있습니다",
+        "technicalNotes": "App Intents, Siri Shortcuts",
+        "usageScenario": "운전 중 만남을 기록하고 싶을 때",
+        "problemSolved": "손을 쓸 수 없는 상황",
+        "userBenefit": "시리로 음성 명령만으로 기록"
+      }
     },
     {
       "status": "not-started",
       "name": "음성 개선",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "음성 기록",
+        "description": "대화 녹음 품질과 재생 기능을 개선합니다",
+        "userValue": "더 선명한 음질로 대화를 녹음하고 나중에 다시 들을 수 있습니다",
+        "technicalNotes": "오디오 녹음, 노이즈 캔슬링",
+        "usageScenario": "중요한 대화를 녹음해 두고 싶을 때",
+        "problemSolved": "음질이 나빠서 나중에 듣기 어려움",
+        "userBenefit": "선명한 음질로 대화 재생"
+      }
     },
     {
       "status": "not-started",
       "name": "멘토링 트래킹",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "진행 추적",
+        "description": "멘토링 세션의 횟수, 주제, 진행 상황을 추적합니다",
+        "userValue": "멘티의 성장 과정을 체계적으로 관리하고 피드백할 수 있습니다",
+        "technicalNotes": "세션 카운팅, 진행률 시각화",
+        "usageScenario": "멘티의 성장 과정을 관리하고 싶을 때",
+        "problemSolved": "몇 번 만났는지, 어떤 진전이 있었는지 모름",
+        "userBenefit": "멘토링 회차와 성과 시각화"
+      }
     },
     {
       "status": "in-progress",
       "name": "클라우드 백업기능",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "데이터 안전",
+        "description": "중요한 인간관계 데이터를 클라우드에 백업합니다",
+        "userValue": "기기를 잃어버려도 관계 정보를 안전하게 복원할 수 있습니다",
+        "technicalNotes": "자동 백업 스케줄링, 암호화 저장",
+        "usageScenario": "기기를 잃어버렸을 때",
+        "problemSolved": "소중한 관계 기록이 모두 사라짐",
+        "userBenefit": "클라우드 백업으로 안전하게 보관"
+      }
     },
     {
       "status": "not-started",
       "name": "사람관계보기",
       "targetDate": null,
-      "targetVersion": null
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "관계 분석",
+        "description": "사람들 간의 연결 관계를 시각화하여 보여줍니다",
+        "userValue": "네트워크가 어떻게 연결되어 있는지 한눈에 파악할 수 있습니다",
+        "technicalNotes": "그래프 시각화, 관계 매핑",
+        "usageScenario": "내 인맥이 어떻게 연결되어 있는지 궁금할 때",
+        "problemSolved": "누가 누구를 소개해줬는지 기억 안 남",
+        "userBenefit": "관계망 시각화로 네트워킹 파악"
+      }
     }
   ],
   "minimumOS": "16.0",
@@ -129,7 +330,60 @@
     "done": 1,
     "notStarted": 14,
     "inProgress": 2,
-    "totalTasks": 17
+    "totalTasks": 17,
+    "todo": 0
   },
-  "folderId": "rapport-map"
+  "folderId": "rapport-map",
+  "vision": {
+    "tagline": "인간관계의 나침반",
+    "coreValue": "사람들과의 소중한 순간을 기록하고, 관계를 체계적으로 관리하여 더 깊은 유대감 형성",
+    "targetUsers": "멘토링, 네트워킹, 고객 관리 등 다양한 인간관계를 유지하는 사람들",
+    "uniqueSellingPoint": "단순 연락처 앱이 아닌 '관계의 맥락'을 기록하는 도구. 만난 날짜, 대화 내용, 약속을 모두 기록",
+    "designPrinciples": [
+      "빠른 기록 - 만나자마자 바로 메모",
+      "맥락 보존 - 언제, 어디서, 무엇을 했는지",
+      "관계 유형별 관리 - 멘토링, 친구, 동료 등 구분"
+    ],
+    "userExperienceGoals": [
+      "만남 직후 30초 안에 메모 작성",
+      "다음 만남 전 이전 기록 빠르게 확인",
+      "연락처 앱보다 훨씬 풍부한 정보"
+    ],
+    "potential": {
+      "marketSize": "CRM/네트워킹 시장 - 전문직, 프리랜서, 멘토 수백만 명",
+      "targetExpansion": [
+        "멘토링 → 세일즈, 컨설팅, 코칭 전문가",
+        "개인 → 소규모 비즈니스 (10인 이하 스타트업)",
+        "한국 → 글로벌 (영어권 멘토링 시장)"
+      ],
+      "monetization": {
+        "current": "무료/유료",
+        "potential": [
+          "프리미엄 구독 (월 $7.99): 무제한 연락처, 음성 녹음, 고급 분석",
+          "프로 버전 (월 $19.99): 팀 공유, CRM 연동, AI 인사이트",
+          "멘토링 마켓플레이스: 멘토-멘티 매칭 수수료 (15%)"
+        ]
+      },
+      "competitiveAdvantage": [
+        "단순 연락처가 아닌 관계의 '맥락' 기록",
+        "음성 녹음 + 자동 전사 + AI 요약",
+        "멘토링 특화 기능 (세션 트래킹, 성장 기록)"
+      ],
+      "expansionStrategy": [
+        "1단계: AI 기반 자동 메모 정리 및 인사이트 추출",
+        "2단계: LinkedIn, 명함 OCR 연동으로 네트워킹 자동화",
+        "3단계: 멘토-멘티 매칭 플랫폼으로 확장",
+        "4단계: Slack/Notion 등 협업 툴 연동으로 B2B 진출"
+      ],
+      "longTermVision": "전문가들의 필수 관계 관리 도구. '인맥 관리 = 라포맵'이라는 브랜드. 멘토링 플랫폼으로 확장하여 교육 시장 진출.",
+      "risks": [
+        "프라이버시 우려 (녹음, 개인정보)",
+        "대기업 CRM 툴과의 경쟁"
+      ],
+      "opportunities": [
+        "긱 이코노미 확대로 개인 네트워킹 중요성 증가",
+        "AI 기술 발전으로 관계 인사이트 자동 생성 가능"
+      ]
+    }
+  }
 }

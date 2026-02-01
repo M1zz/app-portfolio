@@ -11,6 +11,222 @@
       "name": "머지 컨플릭트 PR",
       "targetDate": null,
       "targetVersion": "1.0.11"
+    },
+    {
+      "name": "회복 일지",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "회복 기록",
+        "description": "매일의 감정과 상태를 기록하고 긍정적 변화를 메모할 수 있습니다",
+        "userValue": "회복 과정을 기록하며 작은 진전도 놓치지 않고 확인할 수 있습니다",
+        "technicalNotes": "일지 에디터, 감정 트래킹",
+        "usageScenario": "힘든 시기를 극복하는 과정을 기록하고 싶을 때",
+        "problemSolved": "작은 진전을 알아차리지 못함",
+        "userBenefit": "매일의 긍정적 변화를 기록하며 희망 유지"
+      }
+    },
+    {
+      "name": "회복 그래프",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "진행 추적",
+        "description": "시간에 따른 감정 변화를 그래프로 시각화합니다",
+        "userValue": "전체적인 회복 추이를 확인하며 희망을 얻을 수 있습니다",
+        "technicalNotes": "차트 라이브러리, 데이터 분석",
+        "usageScenario": "전체적으로 나아지고 있는지 확인하고 싶을 때",
+        "problemSolved": "주관적으로는 변화를 느끼기 어려움",
+        "userBenefit": "그래프로 회복 추세를 객관적으로 확인"
+      }
+    },
+    {
+      "name": "감정 체크인",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "회복 기록",
+        "description": "하루 중 여러 번 현재 감정 상태를 간단히 기록할 수 있습니다",
+        "userValue": "하루 종일의 감정 변화를 세밀하게 추적할 수 있습니다",
+        "technicalNotes": "빠른 감정 입력 UI, 타임스탬프",
+        "usageScenario": "아침, 점심, 저녁 감정이 어떻게 바뀌는지 확인하고 싶을 때",
+        "problemSolved": "하루에 한 번만 기록하면 변화를 놓침",
+        "userBenefit": "3초 안에 감정 기록 완료"
+      }
+    },
+    {
+      "name": "긍정 일기",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "회복 촉진",
+        "description": "매일 감사한 일 3가지를 적는 프롬프트를 제공합니다",
+        "userValue": "부정적 생각에서 벗어나 긍정적 측면을 찾는 습관을 만듭니다",
+        "technicalNotes": "프롬프트 시스템, 일일 알림",
+        "usageScenario": "하루를 마무리하며 좋았던 점을 떠올리고 싶을 때",
+        "problemSolved": "부정적인 것만 계속 생각하게 됨",
+        "userBenefit": "긍정 찾기 습관으로 빠른 회복"
+      }
+    },
+    {
+      "name": "트리거 패턴 분석",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "인사이트",
+        "description": "감정이 안 좋아지는 상황을 AI가 분석하여 패턴을 찾아줍니다",
+        "userValue": "어떤 상황에서 힘들어지는지 객관적으로 파악할 수 있습니다",
+        "technicalNotes": "텍스트 분석, 패턴 인식",
+        "usageScenario": "왜 자꾸 같은 상황에서 힘들어지는지 궁금할 때",
+        "problemSolved": "주관적으로는 패턴을 발견하기 어려움",
+        "userBenefit": "트리거를 알면 미리 대비 가능"
+      }
+    },
+    {
+      "name": "회복 마일스톤",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "동기부여",
+        "description": "7일 연속 기록, 30일 회복 등 주요 단계마다 축하 메시지를 받습니다",
+        "userValue": "작은 성취를 인정받으며 계속 나아갈 힘을 얻습니다",
+        "technicalNotes": "마일스톤 시스템, 축하 애니메이션",
+        "usageScenario": "꾸준히 기록하고 있지만 변화가 느껴지지 않을 때",
+        "problemSolved": "노력을 인정받지 못해 포기하게 됨",
+        "userBenefit": "단계별 축하로 지속 동기 부여"
+      }
+    },
+    {
+      "name": "전문가 콘텐츠",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "회복 지원",
+        "description": "심리 전문가의 회복 팁과 가이드를 제공합니다",
+        "userValue": "혼자 고민하지 않고 전문적인 조언을 받을 수 있습니다",
+        "technicalNotes": "콘텐츠 DB, 상황별 추천",
+        "usageScenario": "힘든 상황에서 어떻게 대처해야 할지 모를 때",
+        "problemSolved": "전문가 도움이 필요하지만 접근이 어려움",
+        "userBenefit": "검증된 회복 전략으로 효과적 대처"
+      }
+    },
+    {
+      "name": "사진 일기",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "시각적 기록",
+        "description": "감정과 함께 사진을 첨부하여 그날의 순간을 생생하게 기록합니다",
+        "userValue": "나중에 돌아봤을 때 그날의 감정이 더 선명하게 떠오릅니다",
+        "technicalNotes": "이미지 첨부, 갤러리 통합",
+        "usageScenario": "특별한 순간이나 힘들었던 날을 기억하고 싶을 때",
+        "problemSolved": "텍스트만으로는 감정을 완전히 담기 어려움",
+        "userBenefit": "사진으로 더 풍부한 기억 보존"
+      }
+    },
+    {
+      "name": "명상 가이드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "회복 촉진",
+        "description": "5분, 10분 짧은 명상 가이드 오디오를 제공합니다",
+        "userValue": "감정이 힘들 때 즉시 명상으로 진정할 수 있습니다",
+        "technicalNotes": "오디오 플레이어, 명상 스크립트",
+        "usageScenario": "갑자기 불안하거나 우울할 때",
+        "problemSolved": "감정이 힘들 때 대처 방법을 모름",
+        "userBenefit": "즉시 사용 가능한 진정 도구"
+      }
+    },
+    {
+      "name": "비공개 모드",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "프라이버시",
+        "description": "Face ID/Touch ID로 앱을 잠그고 민감한 내용을 보호합니다",
+        "userValue": "안전하게 솔직한 감정을 기록할 수 있습니다",
+        "technicalNotes": "생체 인증, 데이터 암호화",
+        "usageScenario": "타인이 내 일기를 볼까 걱정될 때",
+        "problemSolved": "남이 볼까봐 솔직하게 못 씀",
+        "userBenefit": "완전한 프라이버시로 자유로운 표현"
+      }
+    },
+    {
+      "name": "응급 연락망",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "위기 지원",
+        "description": "힘들 때 바로 연락할 수 있는 친구나 상담 기관 번호를 저장합니다",
+        "userValue": "위기 상황에서 빠르게 도움을 요청할 수 있습니다",
+        "technicalNotes": "연락처 저장, 원터치 전화",
+        "usageScenario": "혼자서는 감당하기 힘든 순간",
+        "problemSolved": "도움이 필요한데 누구에게 연락할지 모름",
+        "userBenefit": "한 번의 탭으로 즉시 도움 요청"
+      }
+    },
+    {
+      "name": "회복 리마인더",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "습관 형성",
+        "description": "매일 같은 시간에 일기 작성 알림을 보냅니다",
+        "userValue": "기록하는 습관을 만들어 꾸준한 회복 과정을 유지합니다",
+        "technicalNotes": "로컬 알림, 시간 설정",
+        "usageScenario": "바쁘다는 핑계로 기록을 잊어버릴 때",
+        "problemSolved": "기록 습관을 만들기 어려움",
+        "userBenefit": "알림으로 자동 습관 형성"
+      }
     }
   ],
   "minimumOS": "16.0",
@@ -34,9 +250,62 @@
   "sharedModules": [],
   "stats": {
     "done": 1,
-    "notStarted": 0,
     "inProgress": 1,
-    "totalTasks": 2
+    "todo": 10,
+    "notStarted": 2,
+    "totalTasks": 14
   },
-  "folderId": "rebound-journal"
+  "folderId": "rebound-journal",
+  "vision": {
+    "tagline": "회복의 기록",
+    "coreValue": "어려운 시기를 극복하는 과정을 기록하고 성장 추적",
+    "targetUsers": "힘든 시기를 겪고 있거나 극복 중인 사람",
+    "uniqueSellingPoint": "회복 여정을 단계별로 기록하고 긍정적 변화 시각화",
+    "designPrinciples": [
+      "공감 - 따뜻하고 이해하는 톤",
+      "희망 - 긍정적 변화 강조",
+      "프라이버시 - 안전한 개인 공간"
+    ],
+    "userExperienceGoals": [
+      "부담 없이 솔직한 기록",
+      "작은 진전도 축하",
+      "회복 과정 시각적으로 확인"
+    ],
+    "potential": {
+      "marketSize": "정신 건강/회복 - 트라우마, 우울, 중독 회복자 수백만",
+      "targetExpansion": [
+        "회복 일기 → 전문 치료 보조 도구",
+        "개인 → 회복 커뮤니티 (익명)",
+        "한국 → 글로벌 (보편적 회복 경험)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 $7.99): 전문가 콘텐츠, 위기 개입 도구",
+          "치료사 협력: 전문가 검증 프로그램 판매",
+          "보험 연동: 정신 건강 치료 보조 도구 인증"
+        ]
+      },
+      "competitiveAdvantage": [
+        "회복 특화 - 일반 일기와 차별화",
+        "긍정 확언 - 과학적 회복 지원",
+        "안전 공간 - 프라이버시 최우선"
+      ],
+      "expansionStrategy": [
+        "1단계: 전문가 콘텐츠 - 심리학자, 정신과 의사 협력",
+        "2단계: 위기 개입 - 위험 감지 시 헬프라인 연결",
+        "3단계: 익명 커뮤니티 - 동료 지원",
+        "4단계: 의료 기관 연동 - 치료 보조 도구 인증"
+      ],
+      "longTermVision": "회복의 동반자. 전문 치료와 일상 관리의 다리. 회복자들의 희망과 연대의 공간.",
+      "risks": [
+        "의료 기기 규제 이슈",
+        "위기 상황 대응 책임"
+      ],
+      "opportunities": [
+        "정신 건강 치료 접근성 확대",
+        "원격 치료 도구 수요 증가"
+      ]
+    }
+  }
 }

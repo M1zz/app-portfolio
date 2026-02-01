@@ -1,9 +1,10 @@
 {
   "stats": {
     "done": 0,
-    "notStarted": 1,
     "inProgress": 0,
-    "totalTasks": 1
+    "todo": 10,
+    "notStarted": 3,
+    "totalTasks": 13
   },
   "minimumOS": "16.0",
   "nextTasks": [
@@ -27,8 +28,288 @@
       "status": "not-started",
       "name": "진통기록 + 호흡을 도와주는 것 추가",
       "targetDate": null,
-      "targetVersion": "1.1.0"
+      "targetVersion": "1.1.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "출산 준비",
+        "description": "진통 시간을 기록하고 호흡법을 안내받을 수 있습니다",
+        "userValue": "출산 과정에서 진통 간격을 정확히 측정하고 호흡을 조절하는데 도움을 받습니다",
+        "technicalNotes": "타이머 기능, 호흡 가이드 애니메이션",
+        "usageScenario": "진통이 시작되어 간격을 측정하고 호흡 조절이 필요할 때",
+        "problemSolved": "진통 간격을 종이에 적거나 다른 앱을 찾느라 당황하는 상황",
+        "userBenefit": "진통 시작부터 병원 가는 시점까지 정확한 기록과 호흡 가이드로 안심"
+      }
+    },
+    {
+      "name": "학습 노트 작성",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 기록",
+        "description": "배운 내용을 빠르게 기록하고 태그로 분류할 수 있습니다",
+        "userValue": "수업이나 독서 직후 핵심 내용을 놓치지 않고 정리할 수 있습니다",
+        "technicalNotes": "마크다운 에디터, 태그 시스템",
+        "usageScenario": "육아 강의나 독서 직후 중요 내용을 빠르게 메모하고 싶을 때",
+        "problemSolved": "배운 내용을 나중에 적으려다 잊어버리는 문제",
+        "userBenefit": "30초 안에 핵심만 기록하고 태그로 쉽게 찾기"
+      }
+    },
+    {
+      "name": "복습 스케줄링",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "학습 효율",
+        "description": "망각 곡선 기반으로 복습 시기를 자동 알림합니다",
+        "userValue": "언제 복습해야 할지 고민하지 않고 알림을 따라 효율적으로 학습합니다",
+        "technicalNotes": "간격 반복 알고리즘, 로컬 알림",
+        "usageScenario": "배운 내용을 언제 다시 봐야 할지 모를 때",
+        "problemSolved": "복습 타이밍을 놓쳐서 결국 잊어버리는 문제",
+        "userBenefit": "과학적 복습 주기에 맞춰 자동 알림으로 장기 기억 형성"
+      }
+    },
+    {
+      "name": "육아 일기",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "빠른 기록",
+        "description": "아기의 하루를 간단히 기록하고 성장 과정을 문서화합니다",
+        "userValue": "바쁜 육아 중에도 30초면 오늘의 특별한 순간을 저장할 수 있습니다",
+        "technicalNotes": "빠른 입력 UI, 사진 첨부",
+        "usageScenario": "아기가 첫 미소를 지었을 때 바로 기록하고 싶을 때",
+        "problemSolved": "특별한 순간을 나중에 기록하려다 잊어버림",
+        "userBenefit": "성장 과정을 빠짐없이 기록"
+      }
+    },
+    {
+      "name": "수유 트래커",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "건강 관리",
+        "description": "수유 시간과 양을 기록하고 패턴을 분석합니다",
+        "userValue": "아기가 충분히 먹고 있는지, 수유 간격이 적절한지 확인할 수 있습니다",
+        "technicalNotes": "타이머, 통계 차트",
+        "usageScenario": "아기가 잘 먹고 있는지 확인하고 싶을 때",
+        "problemSolved": "마지막 수유 시간을 기억하기 어려움",
+        "userBenefit": "정확한 수유 기록으로 건강 관리"
+      }
+    },
+    {
+      "name": "성장 차트",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "성장 추적",
+        "description": "키, 몸무게를 입력하면 성장 곡선 차트로 표시합니다",
+        "userValue": "아기가 또래에 비해 잘 자라고 있는지 객관적으로 확인할 수 있습니다",
+        "technicalNotes": "성장 곡선 알고리즘, 차트",
+        "usageScenario": "검진 후 아기 성장이 정상인지 확인할 때",
+        "problemSolved": "성장 기록이 산발적이어서 추세 파악 어려움",
+        "userBenefit": "WHO 기준 성장 곡선과 비교"
+      }
+    },
+    {
+      "name": "예방접종 알림",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "건강 관리",
+        "description": "아기 개월 수에 맞는 예방접종 일정을 알려줍니다",
+        "userValue": "접종을 놓치지 않고 적기에 맞출 수 있습니다",
+        "technicalNotes": "예방접종 일정 DB, 알림",
+        "usageScenario": "다음 예방접종이 언제인지 확인할 때",
+        "problemSolved": "예방접종 일정을 놓쳐서 늦게 맞춤",
+        "userBenefit": "자동 알림으로 적기 접종"
+      }
+    },
+    {
+      "name": "수면 패턴 분석",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "생활 패턴",
+        "description": "아기의 수면 시간을 기록하고 패턴을 분석합니다",
+        "userValue": "언제 재우면 잘 자는지, 수면 시간이 충분한지 파악할 수 있습니다",
+        "technicalNotes": "수면 추적, 패턴 분석",
+        "usageScenario": "아기가 자주 깨서 수면 패턴을 개선하고 싶을 때",
+        "problemSolved": "언제 재우는 게 좋을지 모름",
+        "userBenefit": "데이터 기반 수면 루틴 최적화"
+      }
+    },
+    {
+      "name": "마일스톤 추적",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "성장 추적",
+        "description": "뒤집기, 걷기 등 발달 단계를 체크하고 기록합니다",
+        "userValue": "아기의 발달이 정상적으로 진행되는지 확인할 수 있습니다",
+        "technicalNotes": "마일스톤 체크리스트",
+        "usageScenario": "아기가 또래보다 발달이 느린 건 아닌지 확인할 때",
+        "problemSolved": "어떤 발달 단계를 거쳐야 하는지 모름",
+        "userBenefit": "월령별 체크리스트로 발달 확인"
+      }
+    },
+    {
+      "name": "육아 팁 콘텐츠",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "학습 효율",
+        "description": "전문가의 육아 팁과 가이드를 아기 월령에 맞춰 제공합니다",
+        "userValue": "검색하지 않아도 필요한 정보가 적시에 제공됩니다",
+        "technicalNotes": "콘텐츠 DB, 맞춤 추천",
+        "usageScenario": "이유식을 시작할 때가 됐는데 방법을 모를 때",
+        "problemSolved": "인터넷에서 정보를 찾느라 시간 소모",
+        "userBenefit": "검증된 정보를 딱 필요한 시점에"
+      }
+    },
+    {
+      "name": "가족 공유",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "협업",
+        "description": "배우자나 할머니와 육아 기록을 공유하고 함께 관리합니다",
+        "userValue": "누가 마지막으로 수유했는지, 기저귀를 갈았는지 공유할 수 있습니다",
+        "technicalNotes": "iCloud 동기화, 멀티 유저",
+        "usageScenario": "배우자와 교대로 육아할 때",
+        "problemSolved": "마지막에 뭘 했는지 서로 모름",
+        "userBenefit": "실시간 동기화로 완벽한 협업"
+      }
+    },
+    {
+      "name": "사진 타임라인",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "추억 저장",
+        "description": "아기 사진을 시간 순으로 정리하여 성장 과정을 시각화합니다",
+        "userValue": "아기가 얼마나 자랐는지 사진으로 한눈에 확인할 수 있습니다",
+        "technicalNotes": "사진 정렬, 타임라인 뷰",
+        "usageScenario": "1년간 아기 성장을 사진으로 돌아보고 싶을 때",
+        "problemSolved": "사진이 휴대폰에 흩어져 있음",
+        "userBenefit": "성장 타임라인으로 감동적인 회상"
+      }
+    },
+    {
+      "name": "출산 준비 체크리스트",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "2.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "출산 준비",
+        "description": "출산 전 준비할 것들을 체크리스트로 제공합니다",
+        "userValue": "출산 가방, 서류 등 빠뜨리지 않고 준비할 수 있습니다",
+        "technicalNotes": "체크리스트 시스템",
+        "usageScenario": "출산이 임박했는데 뭘 준비해야 할지 모를 때",
+        "problemSolved": "출산 준비를 체계적으로 하기 어려움",
+        "userBenefit": "전문가 검증 체크리스트로 완벽 준비"
+      }
     }
   ],
-  "folderId": "bami-log"
+  "folderId": "bami-log",
+  "vision": {
+    "tagline": "개발자의 학습 동반자",
+    "coreValue": "학습한 내용을 체계적으로 기록하고 복습하여 장기 기억으로 전환",
+    "targetUsers": "꾸준히 공부하는 개발자, 학생, 평생 학습자",
+    "uniqueSellingPoint": "단순 노트가 아닌 복습 주기 기반 학습 관리 시스템",
+    "designPrinciples": [
+      "빠른 기록 - 배운 것을 바로 메모",
+      "주기적 복습 - 망각 곡선 기반 알림",
+      "진행 추적 - 학습량 시각화"
+    ],
+    "userExperienceGoals": [
+      "학습 직후 30초 안에 기록",
+      "복습 알림으로 장기 기억 형성",
+      "학습 진행도 한눈에 파악"
+    ],
+    "potential": {
+      "marketSize": "출산/육아 - 임산부 및 신생아 부모 수십만",
+      "targetExpansion": [
+        "진통 기록 → 육아 전반 (수유, 수면, 성장)",
+        "개인 → 산부인과 연동 (의료 데이터)",
+        "한국 → 글로벌 (보편적 출산 경험)"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독 (월 ₩6,900): 육아 전문가 콘텐츠, 성장 분석",
+          "산부인과 제휴: 진통 데이터 공유 및 연동",
+          "육아 용품 추천 커미션"
+        ]
+      },
+      "competitiveAdvantage": [
+        "진통 특화 - 출산의 결정적 순간 지원",
+        "호흡 가이드 - 실질적 도움",
+        "육아 학습 - 복습 기능 활용"
+      ],
+      "expansionStrategy": [
+        "1단계: 수유, 수면 기록 추가 - 종합 육아 앱",
+        "2단계: 성장 곡선 - 아기 발달 추적",
+        "3단계: 산부인과 연동 - 의료 데이터 통합",
+        "4단계: 육아 커뮤니티 - 부모 간 정보 공유"
+      ],
+      "longTermVision": "출산에서 육아까지 전 과정 지원. 산부인과 표준 앱. 초보 부모의 든든한 조력자.",
+      "risks": [
+        "의료 영역 규제",
+        "타겟이 제한적 (임산부)"
+      ],
+      "opportunities": [
+        "저출산 시대 프리미엄 육아 서비스 수요",
+        "원격 의료 확대"
+      ]
+    }
+  }
 }
