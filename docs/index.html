@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Portfolio — hyunho lee</title>
+<meta name="description" content="hyunho lee 가 만든 iOS / macOS 앱 포트폴리오">
+<meta property="og:title" content="App Portfolio — hyunho lee">
+<meta property="og:description" content="iOS / macOS 앱 16종을 소개합니다.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-soft: #151821;
+    --card: #1a1e29;
+    --border: #262b38;
+    --text: #e8eaf0;
+    --muted: #8b90a0;
+    --accent: #5b8def;
+    --accent-2: #a78bfa;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  header.hero {
+    text-align: center;
+    padding: 80px 20px 50px;
+    background:
+      radial-gradient(800px 400px at 50% -10%, rgba(91,141,239,.25), transparent),
+      radial-gradient(600px 300px at 80% 0%, rgba(167,139,250,.18), transparent);
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p { color: var(--muted); margin-top: 14px; font-size: 1.1rem; }
+
+  .stats { display: flex; justify-content: center; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; align-items: center; }
+  .stat-num { font-size: 2rem; font-weight: 800; color: var(--text); }
+  .stat-label { font-size: .85rem; color: var(--muted); }
+
+  main { padding: 30px 0 80px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card-head { display: flex; gap: 14px; align-items: center; }
+  .icon { width: 62px; height: 62px; border-radius: 14px; flex-shrink: 0; object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,.4); }
+  .icon-fallback {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; font-weight: 800; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  }
+  .card-title h3 { font-size: 1.15rem; font-weight: 700; }
+  .name-en { color: var(--muted); font-size: .82rem; }
+  .rating { margin-top: 4px; font-size: .8rem; display: flex; align-items: center; gap: 6px; }
+  .stars { color: #f5b301; letter-spacing: 1px; }
+  .rating-num { font-weight: 700; }
+  .rating-count { color: var(--muted); }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .chip {
+    font-size: .73rem; color: var(--muted);
+    background: var(--bg-soft); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 999px;
+  }
+  .chip-price { color: var(--text); }
+  .desc { color: var(--muted); font-size: .9rem; margin-top: 12px; min-height: 1.2em; }
+  .links { display: flex; gap: 8px; margin-top: 16px; }
+  .btn {
+    flex: 1; text-align: center; font-size: .85rem; font-weight: 600;
+    padding: 9px 12px; border-radius: 10px; transition: opacity .15s;
+  }
+  .btn:hover { opacity: .85; }
+  .btn-store { background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #fff; }
+  .btn-ghost { background: var(--bg-soft); border: 1px solid var(--border); color: var(--text); }
+
+  .soon { margin-top: 56px; text-align: center; }
+  .soon h2 { font-size: 1.2rem; color: var(--muted); font-weight: 600; margin-bottom: 16px; }
+  .soon-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .soon-chip {
+    font-size: .85rem; color: var(--muted);
+    background: var(--bg-soft); border: 1px dashed var(--border);
+    padding: 6px 14px; border-radius: 999px;
+  }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; padding: 40px 20px 60px; border-top: 1px solid var(--border); }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>App Portfolio</h1>
+      <p>hyunho lee 가 만든 iOS · macOS 앱들</p>
+      <div class="stats">
+        <div class="stat"><span class="stat-num">16</span><span class="stat-label">출시 앱</span></div>
+        <div class="stat"><span class="stat-num">4.9</span><span class="stat-label">평균 평점</span></div>
+        <div class="stat"><span class="stat-num">19</span><span class="stat-label">전체 프로젝트</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="grid">
+        
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/8e/d2/e48ed297-cc8b-ab4d-c77b-d007282b4eef/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="클립키보드" loading="lazy">
+        <div class="card-title">
+          <h3>클립키보드</h3>
+          <p class="name-en">Clip Keyboard</p>
+          <div class="rating"><span class="stars">★★★★★</span><span class="rating-num">4.7</span><span class="rating-count">(13)</span></div>
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Productivity</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">같은 메시지를 반복해서 입력하지 마세요. 한 번만 탭하면 끝!</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%ED%81%B4%EB%A6%BD%ED%82%A4%EB%B3%B4%EB%93%9C/id1543660502?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/Code-Ward/Token-memo" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1a/4d/c8/1a4dc8ce-b91a-5516-ccbc-449a35631f47/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="릴렉스 온" loading="lazy">
+        <div class="card-title">
+          <h3>릴렉스 온</h3>
+          <p class="name-en">Relax On</p>
+          <div class="rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="rating-count">(7)</span></div>
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">유튜브에서 잠을 잘 때 틀어놓을 소리를 찾는 과정에서 시간이 오래 걸리는 불편함을 느꼈던 적이 있으신가요? </p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/relax-on-%EC%88%98%EB%A9%B4-%EB%B0%B1%EC%83%89-%EC%86%8C%EC%9D%8C-%EC%9E%90%EC%97%B0%EC%9D%98-%EC%86%8C%EB%A6%AC/id1626715109?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/RelaxOn" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/cd/e8/0ecde892-caba-09ea-32f5-1a6ebf8b4d33/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="오늘의 주접" loading="lazy">
+        <div class="card-title">
+          <h3>오늘의 주접</h3>
+          <p class="name-en">Daily Compliment</p>
+          <div class="rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="rating-count">(6)</span></div>
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦3,300</span></div>
+      <p class="desc">나를 깎아먹는 자존감을 막아 줄 응원의 메시지를 받아보세요</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EC%9D%98-%EC%A3%BC%EC%A0%91/id6450839961?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/Jujob" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/70/0c/af700c95-fc8f-6ff4-2e5b-51b3592a2d68/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="두 번 알림" loading="lazy">
+        <div class="card-title">
+          <h3>두 번 알림</h3>
+          <p class="name-en">Double Reminder</p>
+          <div class="rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="rating-count">(1)</span></div>
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Utilities</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">끝나기 전에, 미리 알려줍니다.                                                 </p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%91%90%EB%B2%88%EC%95%8C%EB%A6%BC/id6752551268?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/toki" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/5d/b7/675db7f6-c9bd-3b91-247c-e59293608cb6/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg" alt="리바운드 저널" loading="lazy">
+        <div class="card-title">
+          <h3>리바운드 저널</h3>
+          <p class="name-en">Rebound Journal</p>
+          <div class="rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="rating-count">(1)</span></div>
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">나의 실패를 흘려보내지 않고 성장의 발판이 될 수 있도록 기록할 수 있는 앱 입니다.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%A6%AC%EB%B0%94%EC%9A%B4%EB%93%9C-%EC%A0%80%EB%84%90/id6450388408?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/Code-Ward/Rebound-Journal" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/29/c9/9129c998-6569-418b-b9d1-7e5d71514108/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="욕망의 무지개" loading="lazy">
+        <div class="card-title">
+          <h3>욕망의 무지개</h3>
+          <p class="name-en">Rainbow Of Desire</p>
+          <div class="rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="rating-count">(1)</span></div>
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">사용자가 ‘일을 벌리는 행위’를 인식하고 조절하여 과부하를 막고 성장감을 느끼게 해주는 작업 부하 인식 및 시간 조율 도구입니다.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%9A%95%EB%A7%9D%EC%9D%98-%EB%AC%B4%EC%A7%80%EA%B0%9C/id6755280882?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/ScheduleDensity" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/63/33/9f/63339fa9-05c2-bee0-679e-a8205ee597cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="꿈을 찾아서" loading="lazy">
+        <div class="card-title">
+          <h3>꿈을 찾아서</h3>
+          <p class="name-en">Bucket Climb</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦4,400</span></div>
+      <p class="desc">꿈을 찾아가도록 도와주는 앱 입니다.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EA%BF%88%EC%9D%84-%EC%B0%BE%EC%95%84%EC%84%9C/id6755934506?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/BucketClimb" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/ec/a9/f8eca975-6849-4831-bfcb-e58b98d64bb2/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="돈꼬마트" loading="lazy">
+        <div class="card-title">
+          <h3>돈꼬마트</h3>
+          <p class="name-en">Donkko Mart</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">마트에 갔는데 문 닫았던 경험 있으신가요? 이제는 마트 가기전에 간편하게 확인하세요!</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%ED%81%B4%EB%A1%9C%EC%A6%88%EB%93%9C/id6450387984?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/DontGoMart" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/fb/ee/34fbee37-0bf1-e019-b336-dde09e1aeb47/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="라포 맵" loading="lazy">
+        <div class="card-title">
+          <h3>라포 맵</h3>
+          <p class="name-en">Rapport Map</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">40명의 멘티와 깊은 관계를 체계적으로 관리하고, 아무도 놓치지 않게 도와주는 멘토를 위한 관계 관리 앱입니다.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%9D%BC%ED%8F%AC%EB%A7%B5/id6754888089?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/RapportMap" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/93/39/a39339fb-6246-4fdf-0de1-40b8509fa816/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="세끼" loading="lazy">
+        <div class="card-title">
+          <h3>세끼</h3>
+          <p class="name-en">Three Meals</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">세끼는 하루 세 끼 식사를 빠짐없이 기록하고 관리할 수 있는 간편한 식사 기록 앱입니다. 사진으로 식사를 기록하고, 건강한 식습관을 만들어보세요.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%84%B8%EB%81%BC/id6755164924?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/RoutineCamera" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/62/78/8e627886-d44e-27fd-7094-b4c1f67b2595/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="인생 맛집" loading="lazy">
+        <div class="card-title">
+          <h3>인생 맛집</h3>
+          <p class="name-en">Life Restaurant</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Food &amp; Drink</span><span class="chip chip-price">￦4,400</span></div>
+      <p class="desc">인생 맛집을 기록하고 추천하면서 늘려갈 수 있는 앱 입니다.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%9D%B8%EC%83%9D-%EB%A7%9B%EC%A7%91/id6755934548?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/RestaurantMap" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e5/20/a7/e520a72a-7a8e-a3bc-e1de-9f115ccaeeec/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" alt="일정비서" loading="lazy">
+        <div class="card-title">
+          <h3>일정비서</h3>
+          <p class="name-en">Schedule Assistant</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦4,400</span></div>
+      <p class="desc">캘린더를 바탕으로 개인의 일정을 관리해주는 앱 입니다</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%9D%BC%EC%A0%95-%EB%B9%84%EC%84%9C/id6756593712?mt=12&amp;uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/WeekAheadTodo" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/c8/6b/04c86baa-44d9-48dd-342d-7ba44a375dfb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="쿨타임" loading="lazy">
+        <div class="card-title">
+          <h3>쿨타임</h3>
+          <p class="name-en">Cooltime</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">나의 행동에 쿨타임을 표시해주는 앱 입니다.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%BF%A8%ED%83%80%EC%9E%84/id6755988507?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/Cooltime" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/2b/26/572b265c-99a3-ccb1-bc2a-9a1d85a285cc/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="픽셀 미미" loading="lazy">
+        <div class="card-title">
+          <h3>픽셀 미미</h3>
+          <p class="name-en">Pixel Mimi</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦6,600</span></div>
+      <p class="desc">Help drawing pixel art</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/pixel-meme/id6449769987?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/PixelMe" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/d7/73/cfd773b2-2d65-e119-6296-7b55db86153c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="확률계산기" loading="lazy">
+        <div class="card-title">
+          <h3>확률계산기</h3>
+          <p class="name-en">Probability Calculator</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">$1.99</span></div>
+      <p class="desc">지난 번호를 기반으로 새로운 번호를 생성하고 확률을 계산해보는 앱 입니다.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/us/app/%ED%99%95%EB%A5%A0%EA%B3%84%EC%82%B0%EA%B8%B0/id6755651803?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/LottoChecker" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/b0/2b/98b02bd8-9d4e-ba64-5fee-cd5389f51e82/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="휴가 플래너" loading="lazy">
+        <div class="card-title">
+          <h3>휴가 플래너</h3>
+          <p class="name-en">Shared Day Designer</p>
+          
+        </div>
+      </div>
+      <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
+      <p class="desc">Goldweek는 직장인을 위한 스마트 연차 관리 및 황금연휴 플래너입니다.  공휴일과 주말, 내 연차를 가장 효율적으로 조합해 최소 연차로 최대 연휴를 만들어드립니다.</p>
+      <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EA%B3%A8%EB%93%9C%EC%9C%84%ED%81%AC-%ED%99%A9%EA%B8%88%EC%97%B0%ED%9C%B4-%ED%94%8C%EB%9E%98%EB%84%88/id6755983135?uo=4" target="_blank" rel="noopener">App Store</a><a class="btn btn-ghost" href="https://github.com/M1zz/LeaveWise" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+      </div>
+      
+    <section class="soon">
+      <h2>곧 출시</h2>
+      <div class="soon-list"><span class="soon-chip">바미로그</span><span class="soon-chip">ecDesigner</span><span class="soon-chip">퀴즈</span></div>
+    </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>마지막 업데이트 2026-06-25 · <a href="https://github.com/M1zz/app-portfolio" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+</body>
+</html>

@@ -11,16 +11,17 @@ git commit -m "🎉 Add GitHub Pages dashboard"
 git push origin main
 ```
 
-### 2단계: GitHub Pages 활성화
+### 2단계: GitHub Pages 활성화 (최초 1회만)
 
 1. GitHub 저장소로 이동
 2. **Settings** 클릭
 3. 왼쪽 메뉴에서 **Pages** 클릭
-4. **Source**를 `Deploy from a branch`로 설정
-5. **Branch**를 `main` 선택, 폴더를 `/docs` 선택
-6. **Save** 클릭
+4. **Source**를 **`GitHub Actions`** 로 설정
+5. 저장 후 `main`에 push 하면 `.github/workflows/deploy-pages.yml`이
+   앱스토어 정보를 수집해 사이트를 자동 빌드·배포합니다.
 
-![GitHub Pages 설정](https://docs.github.com/assets/cb-47267/images/help/pages/publishing-source-drop-down.png)
+> ⚠️ 이전의 `Deploy from a branch → /docs` 방식이 아니라 **GitHub Actions** 방식입니다.
+> 빌드 스크립트가 매번 앱스토어에서 최신 아이콘/평점을 가져와 `docs/index.html`을 생성합니다.
 
 ### 3단계: URL 확인
 

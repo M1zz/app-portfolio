@@ -1,176 +1,61 @@
-# 🍎 Leeo's App Portfolio
+# 🍎 hyunho lee's App Portfolio
 
-[![Dashboard](https://img.shields.io/badge/📊_Live_Dashboard-보기-blue?style=for-the-badge)](https://M1zz.github.io/app-portfolio/)
-[![Stats](https://img.shields.io/badge/📈_Statistics-보기-green?style=for-the-badge)](./docs/STATS.md)
-[![CEO Mode](https://img.shields.io/badge/👔_CEO_Mode-활성화-purple?style=for-the-badge)](./docs/CEO-QUICK-START.md)
+[![App Portfolio](https://img.shields.io/badge/🍎_App_Portfolio-라이브-5b8def?style=for-the-badge)](https://M1zz.github.io/app-portfolio/)
 
-> 🌐 **실시간 대시보드**: 어디서든 브라우저로 포트폴리오 현황을 확인하세요
-> 👔 **CEO 모드**: 보고받고 의사결정만 하세요. 실행은 자동입니다.
+> 🌐 **공개 쇼케이스** — https://M1zz.github.io/app-portfolio/
 
-23개 iOS 앱을 각각 하나의 회사처럼 운영하는 포트폴리오 허브입니다.
+직접 만든 iOS · macOS 앱들을 모아둔 포트폴리오입니다.
+앱스토어 정보(아이콘 · 평점 · 가격)는 빌드할 때마다 자동으로 갱신됩니다.
 
 ---
 
-## 📊 현황 요약
+## 📱 출시한 앱
 
-| 지표 | 수치 |
-|------|------|
-| 전체 앱 | 23개 |
-| 활성 앱 | 11개 |
-| 기획 중 | 12개 |
-| 높은 우선순위 | 9개 |
-| 전체 태스크 | 127개 |
-| 완료 | 44개 (35%) |
-| 진행 중 | 13개 (10%) |
-| 대기 | 70개 (55%) |
+<!-- APPS:START -->
+<!-- 이 섹션은 `python3 scripts/build-portfolio-site.py` 실행 시 자동 생성됩니다. -->
 
-## 📁 폴더 구조
+| | 앱 | 분류 | 평점 | 가격 |
+|:--:|---|---|---|---|
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/8e/d2/e48ed297-cc8b-ab4d-c77b-d007282b4eef/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[클립키보드](https://apps.apple.com/kr/app/%ED%81%B4%EB%A6%BD%ED%82%A4%EB%B3%B4%EB%93%9C/id1543660502?uo=4)**<br><sub>Clip Keyboard</sub> | Productivity | ⭐ 4.7 (13) | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1a/4d/c8/1a4dc8ce-b91a-5516-ccbc-449a35631f47/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[릴렉스 온](https://apps.apple.com/kr/app/relax-on-%EC%88%98%EB%A9%B4-%EB%B0%B1%EC%83%89-%EC%86%8C%EC%9D%8C-%EC%9E%90%EC%97%B0%EC%9D%98-%EC%86%8C%EB%A6%AC/id1626715109?uo=4)**<br><sub>Relax On</sub> | Lifestyle | ⭐ 5.0 (7) | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/cd/e8/0ecde892-caba-09ea-32f5-1a6ebf8b4d33/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[오늘의 주접](https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EC%9D%98-%EC%A3%BC%EC%A0%91/id6450839961?uo=4)**<br><sub>Daily Compliment</sub> | Lifestyle | ⭐ 5.0 (6) | ￦3,300 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/70/0c/af700c95-fc8f-6ff4-2e5b-51b3592a2d68/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[두 번 알림](https://apps.apple.com/kr/app/%EB%91%90%EB%B2%88%EC%95%8C%EB%A6%BC/id6752551268?uo=4)**<br><sub>Double Reminder</sub> | Utilities | ⭐ 5.0 (1) | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/5d/b7/675db7f6-c9bd-3b91-247c-e59293608cb6/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[리바운드 저널](https://apps.apple.com/kr/app/%EB%A6%AC%EB%B0%94%EC%9A%B4%EB%93%9C-%EC%A0%80%EB%84%90/id6450388408?uo=4)**<br><sub>Rebound Journal</sub> | Lifestyle | ⭐ 5.0 (1) | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/29/c9/9129c998-6569-418b-b9d1-7e5d71514108/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[욕망의 무지개](https://apps.apple.com/kr/app/%EC%9A%95%EB%A7%9D%EC%9D%98-%EB%AC%B4%EC%A7%80%EA%B0%9C/id6755280882?uo=4)**<br><sub>Rainbow Of Desire</sub> | Lifestyle | ⭐ 5.0 (1) | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/63/33/9f/63339fa9-05c2-bee0-679e-a8205ee597cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[꿈을 찾아서](https://apps.apple.com/kr/app/%EA%BF%88%EC%9D%84-%EC%B0%BE%EC%95%84%EC%84%9C/id6755934506?uo=4)**<br><sub>Bucket Climb</sub> | Lifestyle | – | ￦4,400 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/ec/a9/f8eca975-6849-4831-bfcb-e58b98d64bb2/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[돈꼬마트](https://apps.apple.com/kr/app/%ED%81%B4%EB%A1%9C%EC%A6%88%EB%93%9C/id6450387984?uo=4)**<br><sub>Donkko Mart</sub> | Lifestyle | – | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/fb/ee/34fbee37-0bf1-e019-b336-dde09e1aeb47/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[라포 맵](https://apps.apple.com/kr/app/%EB%9D%BC%ED%8F%AC%EB%A7%B5/id6754888089?uo=4)**<br><sub>Rapport Map</sub> | Lifestyle | – | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/93/39/a39339fb-6246-4fdf-0de1-40b8509fa816/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[세끼](https://apps.apple.com/kr/app/%EC%84%B8%EB%81%BC/id6755164924?uo=4)**<br><sub>Three Meals</sub> | Lifestyle | – | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/62/78/8e627886-d44e-27fd-7094-b4c1f67b2595/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[인생 맛집](https://apps.apple.com/kr/app/%EC%9D%B8%EC%83%9D-%EB%A7%9B%EC%A7%91/id6755934548?uo=4)**<br><sub>Life Restaurant</sub> | Food & Drink | – | ￦4,400 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e5/20/a7/e520a72a-7a8e-a3bc-e1de-9f115ccaeeec/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" width="44" height="44" style="border-radius:10px"> | **[일정비서](https://apps.apple.com/kr/app/%EC%9D%BC%EC%A0%95-%EB%B9%84%EC%84%9C/id6756593712?mt=12&uo=4)**<br><sub>Schedule Assistant</sub> | Lifestyle | – | ￦4,400 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/c8/6b/04c86baa-44d9-48dd-342d-7ba44a375dfb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[쿨타임](https://apps.apple.com/kr/app/%EC%BF%A8%ED%83%80%EC%9E%84/id6755988507?uo=4)**<br><sub>Cooltime</sub> | Lifestyle | – | 무료 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/2b/26/572b265c-99a3-ccb1-bc2a-9a1d85a285cc/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[픽셀 미미](https://apps.apple.com/kr/app/pixel-meme/id6449769987?uo=4)**<br><sub>Pixel Mimi</sub> | Lifestyle | – | ￦6,600 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/d7/73/cfd773b2-2d65-e119-6296-7b55db86153c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[확률계산기](https://apps.apple.com/us/app/%ED%99%95%EB%A5%A0%EA%B3%84%EC%82%B0%EA%B8%B0/id6755651803?uo=4)**<br><sub>Probability Calculator</sub> | Lifestyle | – | $1.99 |
+| <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/b0/2b/98b02bd8-9d4e-ba64-5fee-cd5389f51e82/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[휴가 플래너](https://apps.apple.com/kr/app/%EA%B3%A8%EB%93%9C%EC%9C%84%ED%81%AC-%ED%99%A9%EA%B8%88%EC%97%B0%ED%9C%B4-%ED%94%8C%EB%9E%98%EB%84%88/id6755983135?uo=4)**<br><sub>Shared Day Designer</sub> | Lifestyle | – | 무료 |
 
-```
-app-portfolio/
-├── README.md
-├── visualization/              # 📊 시각화 웹 대시보드
-│   └── index.html             # 실시간 포트폴리오 대시보드
-├── apps/                       # 📱 앱별 메타데이터 및 관리 정보
-│   ├── clip-keyboard.json
-│   ├── double-reminder.json
-│   └── ...
-├── data/                       # 📦 JSON 데이터 파일들
-│   ├── portfolio-summary.json  # 전체 포트폴리오 요약
-│   ├── app-name-mapping.json   # 앱 이름 매핑
-│   ├── decisions-queue.json    # CEO 의사결정 대기열
-│   └── requests-queue.json     # 요청 관리
-├── docs/                       # 📚 문서 및 가이드
-│   ├── CEO-QUICK-START.md     # CEO 모드 빠른 시작
-│   ├── AUTOMATION-GUIDE.md    # 자동화 가이드
-│   ├── SOURCE-CODE-GUIDE.md   # 소스코드 연동
-│   └── ...
-├── projects/                   # 💻 실제 앱 프로젝트 코드
-│   └── PortfolioCEO/          # iOS 앱 프로젝트
-├── claude-projects/            # 🤖 앱별 Claude 프로젝트
-│   ├── shared/                 # 공통 리소스
-│   ├── rapport-map/
-│   └── ...
-├── scripts/                    # ⚙️ 자동화 스크립트
-│   ├── link-source-code.sh
-│   ├── claude-update-task.sh
-│   └── ...
-└── prompts/                    # 📝 프롬프트 템플릿
-    ├── deploy-checklist.txt
-    └── ...
-```
+> 🚧 **곧 출시**: 바미로그, ecDesigner, 퀴즈
 
-## 🚀 빠른 시작
-
-### 👔 CEO 모드 (추천!)
-```bash
-# CEO 시스템 초기화 (최초 1회)
-./scripts/ceo-system-init.sh
-
-# 매일 아침 루틴 (5분)
-./scripts/ceo-morning-routine.sh
-```
-**보고 받고 의사결정만 하세요. 실행은 Claude가 자동으로 합니다.**
-자세한 내용: [CEO-QUICK-START.md](docs/CEO-QUICK-START.md)
-
-### 📊 대시보드 보기
-```bash
-./scripts/open-dashboard.sh
-```
-브라우저에서 모든 앱의 상태를 한눈에 확인하세요.
-
-> 🎯 **일반 사용자:** [QUICK-START.md](docs/QUICK-START.md)
-> 👔 **CEO 모드:** [CEO-QUICK-START.md](docs/CEO-QUICK-START.md)
-
-### ⚡ 자주 사용하는 명령어
-
-**태스크 업데이트**
-```bash
-./scripts/claude-update-task.sh "앱이름" "태스크명" "done"
-```
-
-**우선순위 분석**
-```bash
-./scripts/claude-priority-analysis.sh
-```
-
-**주간 리포트 생성**
-```bash
-./scripts/claude-weekly-report.sh
-```
-
-**앱 상태 조회**
-```bash
-./scripts/claude-app-status.sh "앱이름"
-```
-
-**릴리스 노트 생성**
-```bash
-./scripts/claude-release.sh "앱이름" "버전"
-```
-
-더 자세한 사용법은 [AUTOMATION-GUIDE.md](docs/AUTOMATION-GUIDE.md)를 참고하세요.
-
-## 🤖 Claude와 함께 사용하기
-
-### 현황 파악
-```
-"포트폴리오 현황 요약해줘"
-"우선순위 높은 앱 목록 보여줘"
-"진행 중인 태스크 정리해줘"
-```
-
-### 데이터 업데이트
-```
-"클립키보드 버전을 3.1.0으로 업데이트해줘"
-"두 번 알림에 '위젯 기능 추가' 태스크 추가해줘"
-"라포 맵의 '클라우드 백업기능' 완료 처리해줘"
-```
-
-### 리포트 생성
-```
-"이번 주 진행상황 리포트 만들어줘"
-"월간 배포 현황 정리해줘"
-```
-
-## 🏷️ 앱 상태 정의
-
-- **active**: 활발히 개발/운영 중
-- **planning**: 기획 또는 초기 개발 단계
-- **maintenance**: 유지보수 모드
-- **archived**: 개발 중단
-
-## 🎯 우선순위 기준
-
-- **high**: 진행 중인 태스크가 있거나, 핵심 수익 앱
-- **medium**: 안정적인 운영 중, 점진적 개선
-- **low**: 장기 계획 또는 실험적 프로젝트
-
-## ✨ 자동화 기능
-
-- ✅ **Git Hook 검증**: 커밋 전 자동으로 데이터 무결성 검증
-- 📊 **시각적 대시보드**: HTML 기반 실시간 현황 대시보드
-- 🤖 **Claude 자동화**: 태스크 업데이트, 리포트 생성 등 자동화
-- 📝 **프롬프트 템플릿**: 배포, 버그 조사, 기획 등 재사용 가능한 템플릿
-- 🔍 **데이터 검증**: Python 기반 자동 검증 시스템
-
-## 📚 문서
-
-### 🎯 운영 모드
-- [CEO-QUICK-START.md](docs/CEO-QUICK-START.md) - 👔 **CEO 모드 빠른 시작 (추천!)**
-- [CEO-OPERATION-SYSTEM.md](docs/CEO-OPERATION-SYSTEM.md) - 👔 CEO 운영 시스템 전체 가이드
-
-### 🚀 시작하기
-- [QUICK-START.md](docs/QUICK-START.md) - ⚡ 5분 빠른 시작 가이드
-- [GITHUB-PAGES-SETUP.md](docs/GITHUB-PAGES-SETUP.md) - 🌐 온라인 대시보드 설정
-
-### 📖 상세 가이드
-- [SOURCE-CODE-GUIDE.md](docs/SOURCE-CODE-GUIDE.md) - 🔗 **소스코드 연동 가이드 (신규!)**
-- [AUTOMATION-GUIDE.md](docs/AUTOMATION-GUIDE.md) - 🤖 자동화 시스템 전체 가이드
-- [CLAUDE-GUIDE.md](docs/CLAUDE-GUIDE.md) - 📝 Claude 데이터 관리 가이드
-- [CLAUDE-PROJECT-SETUP.md](docs/CLAUDE-PROJECT-SETUP.md) - 🏗️ Claude 프로젝트 구조
-- [STATS.md](docs/STATS.md) - 📊 실시간 통계 페이지
+> 🌐 전체 쇼케이스 보기 → **https://M1zz.github.io/app-portfolio/**
+<!-- APPS:END -->
 
 ---
 
-*마지막 업데이트: 2026-01-23*
+## 🛠️ 사이트 빌드 & 배포
+
+이 README의 앱 목록과 [공개 쇼케이스 사이트](https://M1zz.github.io/app-portfolio/)는
+앱 메타데이터(JSON)로부터 **자동 생성**됩니다.
+
+```bash
+# 앱스토어 정보 수집 → docs/index.html + README 앱 목록 갱신
+python3 scripts/build-portfolio-site.py
+```
+
+- 앱 메타데이터: `projects/PortfolioCEO/PortfolioCEO/Data/apps/*.json`
+- `main` 브랜치에 push하면 GitHub Actions가 사이트를 자동으로 빌드·배포합니다 — `.github/workflows/deploy-pages.yml`
+- **최초 1회만**: GitHub 저장소 **Settings → Pages → Source = `GitHub Actions`** 로 설정
+
+자세한 설정은 [GITHUB-PAGES-SETUP.md](docs/GITHUB-PAGES-SETUP.md) 를 참고하세요.
+
+---
+
+*Made by hyunho lee · 앱 정보는 App Store에서 자동 수집됩니다.*
