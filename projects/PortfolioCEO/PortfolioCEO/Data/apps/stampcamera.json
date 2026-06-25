@@ -1,0 +1,23 @@
+{
+  "name": "펀칭",
+  "nameEn": "",
+  "bundleId": "com.devkoan.StampCamera",
+  "currentVersion": "1.0",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6779659029",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%ED%8E%80%EC%B9%AD/id6779659029?uo=4",
+  "categories": [
+    "Utilities"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "stampcamera"
+}

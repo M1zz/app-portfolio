@@ -1,0 +1,23 @@
+{
+  "name": "잊지마",
+  "nameEn": "",
+  "bundleId": "com.leeo.TodoAlarm",
+  "currentVersion": "1.0.3",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6758198267",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%EC%9E%8A%EC%A7%80%EB%A7%88/id6758198267?uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "todoalarm"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "한국길찾기",
+  "nameEn": "",
+  "bundleId": "com.kora.leeo",
+  "currentVersion": "1.0.2",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6775176578",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%ED%95%9C%EA%B5%AD%EA%B8%B8%EC%B0%BE%EA%B8%B0/id6775176578?uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "leeo"
+}

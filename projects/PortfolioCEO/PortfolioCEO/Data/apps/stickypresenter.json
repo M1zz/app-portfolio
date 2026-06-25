@@ -1,0 +1,23 @@
+{
+  "name": "StickyPresenter",
+  "nameEn": "StickyPresenter",
+  "bundleId": "com.leeo.StickyPresenter",
+  "currentVersion": "1.0",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6778457299",
+  "appStoreUrl": "https://apps.apple.com/kr/app/stickypresenter/id6778457299?mt=12&uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "stickypresenter"
+}

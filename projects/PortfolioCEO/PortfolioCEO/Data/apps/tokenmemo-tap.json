@@ -1,0 +1,23 @@
+{
+  "name": "탭클립 키보드",
+  "nameEn": "",
+  "bundleId": "com.ysoup.TokenMemo-tap",
+  "currentVersion": "4.2.2",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6756433372",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%ED%83%AD%ED%81%B4%EB%A6%BD-%ED%82%A4%EB%B3%B4%EB%93%9C/id6756433372?mt=12&uo=4",
+  "categories": [
+    "Productivity"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "tokenmemo-tap"
+}

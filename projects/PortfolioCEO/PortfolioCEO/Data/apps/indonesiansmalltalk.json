@@ -1,0 +1,23 @@
+{
+  "name": "사노라면",
+  "nameEn": "",
+  "bundleId": "com.devkoan.IndonesianSmallTalk",
+  "currentVersion": "1.0.2",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6764088776",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%EC%82%AC%EB%85%B8%EB%9D%BC%EB%A9%B4/id6764088776?uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "indonesiansmalltalk"
+}

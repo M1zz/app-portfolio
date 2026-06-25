@@ -1,0 +1,23 @@
+{
+  "name": "불타는 내인생",
+  "nameEn": "",
+  "bundleId": "com.burningparchment.app",
+  "currentVersion": "1.0.4",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6758995390",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%EB%B6%88%ED%83%80%EB%8A%94-%EB%82%B4%EC%9D%B8%EC%83%9D/id6758995390?uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "burning-life"
+}

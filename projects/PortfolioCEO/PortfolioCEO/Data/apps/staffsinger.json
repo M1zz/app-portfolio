@@ -1,0 +1,23 @@
+{
+  "name": "초견",
+  "nameEn": "",
+  "bundleId": "com.devkoan.StaffSinger",
+  "currentVersion": "1.0.1",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6779262832",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%EC%B4%88%EA%B2%AC/id6779262832?uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "staffsinger"
+}

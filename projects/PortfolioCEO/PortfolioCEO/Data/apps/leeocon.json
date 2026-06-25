@@ -1,0 +1,23 @@
+{
+  "name": "LeeoCon",
+  "nameEn": "LeeoCon",
+  "bundleId": "com.leeo.LeeoCon",
+  "currentVersion": "1.0",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "1627216318",
+  "appStoreUrl": "https://apps.apple.com/kr/app/leeocon/id1627216318?uo=4",
+  "categories": [
+    "Entertainment"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "leeocon"
+}

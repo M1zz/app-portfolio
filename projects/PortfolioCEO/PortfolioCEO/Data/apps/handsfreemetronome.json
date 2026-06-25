@@ -1,0 +1,23 @@
+{
+  "name": "낫마템포",
+  "nameEn": "",
+  "bundleId": "com.leeo.HandsFreeMetronome",
+  "currentVersion": "1.0.1",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6781537149",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%EB%82%AB%EB%A7%88%ED%85%9C%ED%8F%AC/id6781537149?uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "handsfreemetronome"
+}

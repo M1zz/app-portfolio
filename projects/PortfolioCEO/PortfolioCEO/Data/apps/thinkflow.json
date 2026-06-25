@@ -1,0 +1,23 @@
+{
+  "name": "이어생각",
+  "nameEn": "",
+  "bundleId": "com.leeo.thinkflow",
+  "currentVersion": "1.0",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6779270691",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%EC%9D%B4%EC%96%B4%EC%83%9D%EA%B0%81/id6779270691?uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "thinkflow"
+}

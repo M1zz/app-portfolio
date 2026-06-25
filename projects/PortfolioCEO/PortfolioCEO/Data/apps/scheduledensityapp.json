@@ -1,0 +1,23 @@
+{
+  "name": "무지개 공작소",
+  "nameEn": "",
+  "bundleId": "com.devkoan.ScheduleDensityApp",
+  "currentVersion": "1.0",
+  "status": "active",
+  "priority": "medium",
+  "appStoreId": "6777737322",
+  "appStoreUrl": "https://apps.apple.com/kr/app/%EB%AC%B4%EC%A7%80%EA%B0%9C-%EA%B3%B5%EC%9E%91%EC%86%8C/id6777737322?mt=12&uo=4",
+  "categories": [
+    "Lifestyle"
+  ],
+  "stats": {
+    "totalTasks": 0,
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0
+  },
+  "nextTasks": [],
+  "allTasks": [],
+  "folderId": "scheduledensityapp"
+}
