@@ -48,8 +48,6 @@
 | <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/d7/73/cfd773b2-2d65-e119-6296-7b55db86153c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[확률계산기](https://apps.apple.com/us/app/%ED%99%95%EB%A5%A0%EA%B3%84%EC%82%B0%EA%B8%B0/id6755651803?uo=4)**<br><sub>Probability Calculator</sub> | Lifestyle | – | $1.99 |
 | <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/b0/2b/98b02bd8-9d4e-ba64-5fee-cd5389f51e82/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" width="44" height="44" style="border-radius:10px"> | **[휴가 플래너](https://apps.apple.com/kr/app/%EA%B3%A8%EB%93%9C%EC%9C%84%ED%81%AC-%ED%99%A9%EA%B8%88%EC%97%B0%ED%9C%B4-%ED%94%8C%EB%9E%98%EB%84%88/id6755983135?uo=4)**<br><sub>Shared Day Designer</sub> | Lifestyle | – | 무료 |
 
-> 🚧 **곧 출시**: 바미로그, ecDesigner, 퀴즈
-
 > 🌐 전체 쇼케이스 보기 → **https://M1zz.github.io/app-portfolio/**
 <!-- APPS:END -->
 

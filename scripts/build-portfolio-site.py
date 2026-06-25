@@ -220,17 +220,7 @@ def render(apps):
 
     cards = "\n".join(render_card(a) for a in released)
 
-    upcoming_html = ""
-    if upcoming:
-        chips = "".join(
-            f'<span class="soon-chip">{escape(a.get("name") or a["_slug"])}</span>'
-            for a in upcoming
-        )
-        upcoming_html = f"""
-    <section class="soon">
-      <h2>곧 출시</h2>
-      <div class="soon-list">{chips}</div>
-    </section>"""
+    upcoming_html = ""  # '곧 출시' 섹션은 표시하지 않음
 
     avg_stat = (
         f"""<div class="stat"><span class="stat-num">{avg_rating:.1f}</span><span class="stat-label">평균 평점</span></div>"""
@@ -421,10 +411,6 @@ def render_readme_section(apps):
         )
         price = s.get("price") or "-"
         lines.append(f"| {icon_md} | {name_cell} | {genre} | {rating_cell} | {price} |")
-
-    if upcoming:
-        names = ", ".join(a.get("name") or a["_slug"] for a in upcoming)
-        lines += ["", f"> 🚧 **곧 출시**: {names}"]
 
     lines += [
         "",
