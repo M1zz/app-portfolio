@@ -145,7 +145,7 @@ def render_card(app):
     rating = store.get("rating")
     rating_count = store.get("ratingCount") or 0
     appstore_url = store.get("url") or app.get("appStoreUrl")
-    github = app.get("githubRepo")
+    support = app.get("supportUrl")
 
     icon_html = (
         f'<img class="icon" src="{escape(icon)}" alt="{escape(name)}" loading="lazy">'
@@ -173,9 +173,9 @@ def render_card(app):
         links.append(
             f'<a class="btn btn-store" href="{escape(appstore_url)}" target="_blank" rel="noopener">App Store</a>'
         )
-    if github:
+    if support:
         links.append(
-            f'<a class="btn btn-ghost" href="{escape(github)}" target="_blank" rel="noopener">GitHub</a>'
+            f'<a class="btn btn-ghost" href="{escape(support)}" target="_blank" rel="noopener">지원</a>'
         )
     links_html = f'<div class="links">{"".join(links)}</div>' if links else ""
 
