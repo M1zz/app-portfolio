@@ -159,21 +159,17 @@
     ]
   },
   "1626715109": {
-    "trackName": "Relax On - 수면 백색 소음 & 자연의 소리",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1a/4d/c8/1a4dc8ce-b91a-5516-ccbc-449a35631f47/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+    "trackName": "달빛 - 수면 백색 소음 & 자연의 소리",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e5/b4/c2/e5b4c2cd-a67b-0658-130f-55fa99412b76/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
     "rating": 5,
     "ratingCount": 7,
     "genre": "Lifestyle",
     "price": "무료",
     "description": "유튜브에서 잠을 잘 때 틀어놓을 소리를 찾는 과정에서 시간이 오래 걸리는 불편함을 느꼈던 적이 있으신가요? \n영상을 찾아보면서 어떤 소리를 선택해야 할지 결정하기 힘들었을 수도 있고, 선택한 소리가 기대와 다를 수도 있었을 것입니다. \n소리를 조금만 바꾸면 더 좋았을텐데 원하는대로 조절하지 못해서 아쉬웠던 적도 있으실 겁니다.\n\n이러한 경험에서 우리는 사람마다 원하는 소리와 안정감을 느끼는 것이 서로 다르다는 사실을 깨달았고, \n그러한 소리를 스스로 만들 수 있는 앱이 있다면 좋을 것 같다는 생각을 하게 되었습니다.\n\n이에 따라, 편안한 잠자리를 위한 최고의 동반자인 Relax On을 소개합니다. \nRelax On은 사용자가 손쉽게 수면 사운드를 커스터마이징하여 행복한 수면을 위한 완벽한 환경을 조성할 수 있도록 도와줍니다.\n\nRelax On은 부드러운 물방울 소리에서 울림이 있는 종소리, 지저귀는 새소리까지 기분에 맞는 \n다양한 옵션을 제공하여 깊고 활력 넘치는 숙면을 취할 수 있도록 돕습니다.\n\n하지만 그것으로 끝나지 않습니다. \n저희는 모든 사람의 수면 요구 사항이 다르다는 것을 알고 있으며, \nRelax On이 최고의 편안함을 제공하기 위해 더 많은 노력을 기울인다는 것을 알려드리고 싶습니다. \nRelax On은 사용자가 볼륨, 소리 주기, 음의 높낮이를 조절하거나 다양한 필터를 적용하는 등 \n수면 사운드를 자유롭게 커스터마이징할 수 있는 기능을 제공합니다.\n\n몇 번의 탭만으로 재생 목록에서 원하는 소리를 선택하고, \n타이머를 설정하여 소리가 서서히 사라지도록 하여 깊은 잠에 빠져들 수 있으며, \n상쾌한 기분으로 하루를 시작할 준비를 할 수 있습니다.\n\n불면증으로 고민하거나 바쁜 일상에서 위안을 찾거나 단순히 수면 루틴을 개선하고 싶을 때, \nRelax On은 편안한 밤을 보낼 수 있는 최상의 선택입니다. \n지금 Relax On을 다운로드하고 혁신적인 수면 여정을 시작해보세요.",
     "seller": "hyunho lee",
-    "version": "4.0.0",
-    "url": "https://apps.apple.com/kr/app/relax-on-%EC%88%98%EB%A9%B4-%EB%B0%B1%EC%83%89-%EC%86%8C%EC%9D%8C-%EC%9E%90%EC%97%B0%EC%9D%98-%EC%86%8C%EB%A6%AC/id1626715109?uo=4",
-    "screenshots": [
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/ba/b1/c6/bab1c6b1-98c5-7c57-00fa-a18fa72a27d3/98031e74-11b2-4cac-97dc-b0099af2b583_Screenshot_2208_01.jpg/392x696bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/30/fa/c4/30fac404-9679-9b3c-a0c9-49b77088cfb7/1c4b9eff-8f26-42d2-ab02-a0bd19f2ca14_Screenshot_2208_02.jpg/392x696bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/c8/ca/af/c8caaf9d-764a-bd5e-97c5-118bee727d1f/8c0bad94-d029-4068-991b-22b2845492bd_Screenshot_2208_03.jpg/392x696bb.jpg"
-    ]
+    "version": "4.0.1",
+    "url": "https://apps.apple.com/kr/app/%EB%8B%AC%EB%B9%9B-%EC%88%98%EB%A9%B4-%EB%B0%B1%EC%83%89-%EC%86%8C%EC%9D%8C-%EC%9E%90%EC%97%B0%EC%9D%98-%EC%86%8C%EB%A6%AC/id1626715109?uo=4",
+    "screenshots": []
   },
   "6756593712": {
     "trackName": "일정 비서",
@@ -231,14 +227,14 @@
   },
   "6758995390": {
     "trackName": "불타는 내인생",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/e1/fb/51e1fb70-a76b-c495-e114-6a543a4d0da0/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/c3/eb/70c3eb56-c6fe-a1c2-0753-d562808b7bbf/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg",
     "rating": 0,
     "ratingCount": 0,
     "genre": "Lifestyle",
     "price": "무료",
     "description": "저의 저녁시간은 다 타고 없어진 것을 보았는데요. 여러분의 자유시간이 타서 없어지는 것을 보여드리고 싶었습니다.",
     "seller": "hyunho lee",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "url": "https://apps.apple.com/kr/app/%EB%B6%88%ED%83%80%EB%8A%94-%EB%82%B4%EC%9D%B8%EC%83%9D/id6758995390?uo=4",
     "screenshots": []
   },
@@ -283,14 +279,14 @@
   },
   "6781537149": {
     "trackName": "낫마템포",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/17/5a/6e/175a6e03-fad3-fd00-e0db-7ad81f42e2de/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/ac/9a/81ac9ab3-f377-6e2a-2cd4-6324a8e15b06/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
     "rating": 0,
     "ratingCount": 0,
     "genre": "Lifestyle",
-    "price": "무료",
+    "price": "￦17,000",
     "description": "손을 대지 않고 사용하는 메트로놈 입니다",
     "seller": "hyunho lee",
-    "version": "1.0.1",
+    "version": "1.0.4",
     "url": "https://apps.apple.com/kr/app/%EB%82%AB%EB%A7%88%ED%85%9C%ED%8F%AC/id6781537149?uo=4",
     "screenshots": []
   },
@@ -309,14 +305,14 @@
   },
   "6775176578": {
     "trackName": "한국길찾기",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6c/6a/d7/6c6ad728-909a-e0ac-4702-b7dfb07592a0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/3b/61/9f3b6151-7e0c-7acb-15ab-310c74ff3515/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
     "rating": 0,
     "ratingCount": 0,
     "genre": "Lifestyle",
     "price": "무료",
     "description": "모두가 길을 찾기 쉽도록 접근성을 고려하여 만든 앱 입니다",
     "seller": "hyunho lee",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "url": "https://apps.apple.com/kr/app/%ED%95%9C%EA%B5%AD%EA%B8%B8%EC%B0%BE%EA%B8%B0/id6775176578?uo=4",
     "screenshots": []
   },
@@ -339,14 +335,14 @@
   },
   "6777737322": {
     "trackName": "무지개 공작소",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/ae/aa/05aeaa04-ac98-ffbf-707e-b768e652224b/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b5/ba/29/b5ba298c-2201-a48c-eee6-a622170d99e8/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
     "rating": 0,
     "ratingCount": 0,
     "genre": "Lifestyle",
     "price": "무료",
     "description": "나의 일주일을 블록으로 만들어서 시각화 하는 앱 입니다.",
     "seller": "hyunho lee",
-    "version": "1.0",
+    "version": "1.0.3",
     "url": "https://apps.apple.com/kr/app/%EB%AC%B4%EC%A7%80%EA%B0%9C-%EA%B3%B5%EC%9E%91%EC%86%8C/id6777737322?mt=12&uo=4",
     "screenshots": [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/70/5d/ca/705dca12-f975-2631-30ad-4684eae4f222/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2026-06-08__U110b_U1169_U110c_U1165_U11ab_10.30.32_1.png/800x500bb.jpg"
