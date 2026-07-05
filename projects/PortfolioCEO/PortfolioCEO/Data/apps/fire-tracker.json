@@ -38,5 +38,6 @@
     "notStarted": 0,
     "totalTasks": 1
   },
-  "status": "active"
+  "status": "active",
+  "supportUrl": "https://m1zz.github.io/FireTracker/"
 }

@@ -37,5 +37,6 @@
     "notStarted": 0,
     "totalTasks": 1
   },
-  "status": "active"
+  "status": "active",
+  "supportUrl": "https://developeracademy-postech.github.io/StickyPresenter/support.html"
 }
