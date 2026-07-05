@@ -221,15 +221,21 @@
         "problemSolved": "화면을 봐야 운동 방법을 알 수 있음",
         "userBenefit": "눈을 감은 채로 음성만 들으며 운동"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
-  "appStoreId": "",
-  "appStoreUrl": "https://apps.apple.com/us/app/쿨타임/id6755988507",
-  "bundleId": "com.leeo.cooltime",
+  "appStoreId": "6755988507",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6755988507",
+  "bundleId": "com.Ysoup.CoolTime",
   "categories": [
     "다국어지원예정"
   ],
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.2",
   "githubRepo": "https://github.com/M1zz/Cooltime",
   "localProjectPath": "../Cooltime",
   "minimumOS": "16.0",
@@ -238,18 +244,20 @@
   "nextTasks": [
     "앱 구상하기"
   ],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v1.0.2 (2026-06-24 출시)",
   "priority": "medium",
-  "recentlyCompleted": [],
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)"
+  ],
   "sharedModules": [],
   "stats": {
-    "done": 0,
+    "done": 1,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 3,
-    "totalTasks": 13
+    "totalTasks": 14
   },
-  "status": "planning",
+  "status": "active",
   "folderId": "cooltime",
   "vision": {
     "tagline": "눈 건강 지키미",
@@ -302,5 +310,16 @@
         "기업의 직원 건강 관리 중요성 증대"
       ]
     }
+  },
+  "price": {
+    "isFree": true,
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "평생구매",
+        "price": "￦9,900"
+      }
+    ]
   }
 }

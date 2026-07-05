@@ -40,16 +40,16 @@
     ]
   },
   "stats": {
-    "done": 2,
+    "done": 3,
     "notStarted": 3,
     "inProgress": 3,
-    "totalTasks": 8,
+    "totalTasks": 9,
     "todo": 0
   },
-  "bundleId": "com.leeo.bucketclimb",
-  "appStoreUrl": "https://apps.apple.com/kr/app/꿈을-찾아서/id6755934506",
+  "bundleId": "com.bucketclimb.app",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6755934506",
   "name": "꿈을 찾아서",
-  "notes": "버킷리스트 관리 앱. 사용자들이 다중 사진 첨부와 세분화된 카테고리를 원하고 있으며, 로딩 성능 이슈가 있음. 위젯과 소셜 기능에 대한 니즈도 확인됨.",
+  "notes": "버킷리스트 관리 앱. 사용자들이 다중 사진 첨부와 세분화된 카테고리를 원하고 있으며, 로딩 성능 이슈가 있음. 위젯과 소셜 기능에 대한 니즈도 확인됨. | [2026-07-05 스토어 동기화] v1.0 (2025-12-02 출시)",
   "allTasks": [
     {
       "status": "done",
@@ -194,15 +194,22 @@
         "problemSolved": "전체적인 진행 상황을 파악하기 어려움",
         "userBenefit": "달성률, 카테고리별 분포 등 한눈에 확인"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "localProjectPath": "../BucketClimb",
-  "appStoreId": null,
+  "appStoreId": "6755934506",
   "currentVersion": "1.0",
   "status": "active",
   "nameEn": "Bucket Climb",
   "priority": "high",
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "기본 버킷리스트 CRUD",
     "사진 첨부 기능 (단일)"
   ],
@@ -258,5 +265,11 @@
         "소셜 미디어 연동으로 바이럴 가능성"
       ]
     }
+  },
+  "price": {
+    "isFree": false,
+    "priceKRW": 4400,
+    "pricingModel": "paid",
+    "hasInAppPurchases": false
   }
 }

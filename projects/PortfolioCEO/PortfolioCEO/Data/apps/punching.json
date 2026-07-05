@@ -1,0 +1,41 @@
+{
+  "allTasks": [
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
+    }
+  ],
+  "appStoreId": "6779659029",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6779659029",
+  "bundleId": "com.devkoan.StampCamera",
+  "categories": [],
+  "currentVersion": "1.0",
+  "folderId": "punching",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "",
+  "name": "펀칭",
+  "nameEn": "Punching",
+  "nextTasks": [],
+  "notes": "[2026-07-05 스토어 동기화로 자동 등록] 내가 찍은 사진을 바로 스티커로 만들어 주는 카메라 입니다 (스토어명: 펀칭, 2026-06-15 최신 버전 출시)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "low",
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)"
+  ],
+  "sharedModules": [],
+  "stats": {
+    "done": 1,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 1
+  },
+  "status": "active"
+}

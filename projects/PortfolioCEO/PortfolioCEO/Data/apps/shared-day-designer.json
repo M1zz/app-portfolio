@@ -1,6 +1,7 @@
 {
   "sharedModules": [],
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "앱 구상하기",
     "앱 배포하기"
   ],
@@ -9,7 +10,7 @@
   ],
   "githubRepo": "https://github.com/M1zz/LeaveWise",
   "folderId": "shared-day-designer",
-  "nameEn": "Shared Day Designer",
+  "nameEn": "Goldweek",
   "priority": "medium",
   "allTasks": [
     {
@@ -245,33 +246,44 @@
         "problemSolved": "급한 상황에서 일일이 연락하기 어려움",
         "userBenefit": "한 번의 탭으로 모두에게 알림"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "localProjectPath": "../../../../../LeaveWise",
-  "appStoreId": "",
+  "appStoreId": "6755983135",
   "nextTasks": [
     "위젯 버그"
   ],
-  "appStoreUrl": "https://apps.apple.com/kr/app/휴가-플래너/id6755983135",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6755983135",
   "price": {
-    "pricingModel": "oneTime",
-    "krw": 4400,
-    "isFree": false,
-    "usd": 2.99
+    "isFree": true,
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "휴가플래너 pro",
+        "price": "￦7,700"
+      }
+    ]
   },
-  "notes": "",
-  "bundleId": "com.leeo.shareddaydesigner",
+  "notes": "[2026-07-05 스토어 동기화] v2.0.7 (2026-06-20 출시). '휴가 플래너'에서 '골드위크 - 황금연휴 플래너'로 리브랜딩 (연차 관리/황금연휴 조합 특화)",
+  "bundleId": "com.Ysoup.LeaveWise",
   "status": "active",
-  "currentVersion": "1.0.4",
+  "currentVersion": "2.0.7",
   "stats": {
-    "done": 2,
+    "done": 3,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 3,
-    "totalTasks": 15
+    "totalTasks": 16
   },
   "minimumOS": "16.0",
-  "name": "휴가 플래너",
+  "name": "골드위크",
   "vision": {
     "tagline": "함께 만드는 하루",
     "coreValue": "가족이나 팀과 일정을 공유하고 협업하는 플래너",

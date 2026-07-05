@@ -1,0 +1,199 @@
+{
+  "allTasks": [
+    {
+      "name": "App Store Connect API 연동",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "리뷰 조회 및 필터링",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "리뷰 응답 작성/수정/삭제",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "CloudKit 클라우드 동기화",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "통계 데이터 로컬 캐싱 자동화",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "다국어 지원 (Localizable.xcstrings)",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "우선순위 대시보드 (위험/기회 점수화)",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "의사결정 지원",
+        "description": "모든 앱을 매출·다운로드 추세·평점 기반으로 위험(Risk)과 기회(Opportunity) 두 축으로 점수화합니다",
+        "userValue": "지금 가장 신경 쓸 앱과 키우면 더 잘 될 앱을 한눈에 파악할 수 있습니다",
+        "technicalNotes": "Scorer.swift 가중치 기반 점수 계산, Vendor Number로 매출 데이터 연동",
+        "usageScenario": "여러 앱을 운영하면서 어디에 시간을 쓸지 결정할 때",
+        "problemSolved": "앱이 많아질수록 어떤 앱부터 챙겨야 할지 판단이 어려움",
+        "userBenefit": "우선순위 점수, 플래그(급등/급락/평점 위험)로 즉시 의사결정"
+      }
+    },
+    {
+      "name": "데모 모드",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "1.0.0"
+    },
+    {
+      "name": "iOS 버전 개발",
+      "status": "in-progress",
+      "targetDate": null,
+      "targetVersion": "1.1.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "플랫폼 확장",
+        "description": "iPhone에서도 리뷰를 확인하고 응답할 수 있는 iOS 버전",
+        "userValue": "이동 중에도 새 리뷰를 확인하고 바로 응답할 수 있습니다",
+        "technicalNotes": "ReviewManager_iOS_New 타겟, CloudKit으로 macOS와 설정 공유",
+        "usageScenario": "외출 중 별점 낮은 리뷰가 달렸을 때 즉시 대응",
+        "problemSolved": "리뷰 대응이 Mac 앞에 있을 때만 가능함",
+        "userBenefit": "언제 어디서나 리뷰 대응, 응답률 향상"
+      }
+    },
+    {
+      "name": "리뷰 알림 (새 리뷰/평점 급락 푸시)",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "1.1.0",
+      "labels": [
+        "feature"
+      ]
+    },
+    {
+      "name": "AI 리뷰 응답 초안 생성",
+      "status": "not-started",
+      "targetDate": null,
+      "targetVersion": null,
+      "labels": [
+        "feature"
+      ]
+    },
+    {
+      "name": "App Store 출시 준비 (심사 제출)",
+      "status": "todo",
+      "targetDate": null,
+      "targetVersion": "1.1.0"
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
+    }
+  ],
+  "appStoreId": "",
+  "appStoreUrl": "",
+  "bundleId": "com.leeo.ReviewManager",
+  "categories": [
+    "개발자 도구",
+    "macOS"
+  ],
+  "currentVersion": "1.0.0",
+  "githubRepo": "",
+  "localProjectPath": "../ReviewManager",
+  "minimumOS": "macOS 14.0",
+  "name": "리뷰 매니저",
+  "nameEn": "Review Manager",
+  "nextTasks": [
+    "iOS 버전 개발",
+    "App Store 출시 준비 (심사 제출)"
+  ],
+  "notes": "macOS용 App Store 리뷰 관리 도구. App Store Connect API 키(Issuer ID, Key ID, .p8) 필요. 최신 커밋: 우선순위 대시보드 + 데모 모드 추가. iOS 버전(com.ysoup.ReviewManageriOS) 개발 진행 중.",
+  "priority": "high",
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+    "우선순위 대시보드 (위험/기회 점수화)",
+    "데모 모드"
+  ],
+  "sharedModules": [],
+  "stats": {
+    "done": 9,
+    "inProgress": 1,
+    "todo": 2,
+    "notStarted": 1,
+    "totalTasks": 13
+  },
+  "status": "active",
+  "folderId": "review-manager",
+  "vision": {
+    "tagline": "인디 개발자의 리뷰 사령탑",
+    "coreValue": "여러 앱의 리뷰와 평점을 한 곳에서 관리하고, 데이터 기반으로 어떤 앱에 집중할지 결정",
+    "targetUsers": "여러 앱을 운영하는 인디 개발자, 소규모 앱 스튜디오",
+    "uniqueSellingPoint": "위험/기회 두 축 점수화로 '지금 신경 쓸 앱'을 자동 추천하는 우선순위 대시보드",
+    "designPrinciples": [
+      "한눈에 파악 - 모든 앱의 리뷰 상태를 대시보드 하나로",
+      "빠른 대응 - 리뷰 확인부터 응답까지 최소 클릭",
+      "데이터 기반 - 감이 아닌 점수로 우선순위 결정"
+    ],
+    "userExperienceGoals": [
+      "새 리뷰를 놓치지 않고 빠르게 응답",
+      "평균 평점, 응답률 등 핵심 지표 즉시 확인",
+      "위험 앱과 기회 앱을 자동 분류"
+    ],
+    "potential": {
+      "marketSize": "ASO/리뷰 관리 도구 - 전 세계 iOS 개발자 계정 수백만",
+      "targetExpansion": [
+        "인디 개발자 → 소규모 스튜디오/에이전시",
+        "macOS 단독 → iOS 동반 앱으로 모바일 대응",
+        "리뷰 관리 → 매출·다운로드 통합 포트폴리오 분석"
+      ],
+      "monetization": {
+        "current": "무료",
+        "potential": [
+          "프리미엄 구독: AI 응답 초안, 무제한 앱 연결",
+          "일회성 구매 (macOS 앱 특성상 buy-once 선호층 존재)",
+          "팀 라이선스: 스튜디오용 멀티 계정"
+        ]
+      },
+      "competitiveAdvantage": [
+        "네이티브 macOS 앱 (Appfigures/AppFollow는 웹 SaaS)",
+        "API 키가 로컬에만 저장되는 프라이버시 우선 설계",
+        "우선순위 점수화 - 단순 조회를 넘는 의사결정 지원"
+      ],
+      "expansionStrategy": [
+        "1단계: Mac App Store 출시 + 인디 개발자 커뮤니티 홍보",
+        "2단계: iOS 버전 출시로 이동 중 리뷰 대응 지원",
+        "3단계: AI 응답 초안, 리뷰 감성 분석 등 프리미엄 기능",
+        "4단계: Google Play 지원으로 크로스 플랫폼 확장"
+      ],
+      "longTermVision": "인디 개발자가 앱 포트폴리오를 운영하는 데 필요한 리뷰·평판 관리의 표준 도구",
+      "risks": [
+        "AppFollow, Appfigures 등 기존 SaaS의 무료 티어와 경쟁",
+        "App Store Connect API 정책 변경 리스크"
+      ],
+      "opportunities": [
+        "인디 개발자/1인 앱 스튜디오 증가 추세",
+        "웹 SaaS 구독 피로감 - 네이티브 buy-once 앱 선호층",
+        "AI 응답 생성 기능에 대한 수요 증가"
+      ]
+    }
+  }
+}

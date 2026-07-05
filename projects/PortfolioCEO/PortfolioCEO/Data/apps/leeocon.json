@@ -1,0 +1,33 @@
+{
+  "allTasks": [],
+  "appStoreId": "1627216318",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id1627216318",
+  "bundleId": "com.leeo.LeeoCon",
+  "categories": [],
+  "currentVersion": "1.0",
+  "folderId": "leeocon",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "",
+  "name": "LeeoCon",
+  "nameEn": "LeeoCon",
+  "nextTasks": [],
+  "notes": "[2026-07-05 스토어 동기화로 자동 등록] The new sticker for iMessage app user.  (스토어명: LeeoCon, 2022-06-01 최신 버전 출시)",
+  "price": {
+    "isFree": false,
+    "priceKRW": 1100,
+    "pricingModel": "paid",
+    "hasInAppPurchases": false
+  },
+  "priority": "low",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active"
+}

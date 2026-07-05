@@ -9,16 +9,17 @@
     "캐싱으로 문제 저장 및 API 최소화"
   ],
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "사용성 개선",
     "1.0.5 배포"
   ],
   "name": "퀴즈",
   "stats": {
-    "done": 2,
+    "done": 3,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 4,
-    "totalTasks": 16
+    "totalTasks": 17
   },
   "sharedModules": [],
   "appStoreId": "",
@@ -276,10 +277,16 @@
         "problemSolved": "명확한 목표가 없어서 동기 부족",
         "userBenefit": "배지 수집으로 지속 동기"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "githubRepo": "https://github.com/Swift-Coding-Club/Level1Kuiz",
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] App Store에서 조회되지 않음(한국/미국 모두) — 판매 중단 또는 내려간 상태. 재출시 여부 결정 필요.",
   "minimumOS": "16.0",
   "folderId": "quiz",
   "vision": {

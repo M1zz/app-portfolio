@@ -245,6 +245,12 @@
         "problemSolved": "다른 작업들이 신경 쓰여서 집중 불가",
         "userBenefit": "완벽한 집중 환경"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "minimumOS": "16.0",
@@ -253,25 +259,27 @@
     "너 이거 다 했어? 라고 물어봐주기",
     "앱 배포 1.0.0 일정비서"
   ],
-  "notes": "",
-  "name": "일정비서",
+  "notes": "[2026-07-05 스토어 동기화] v1.0.3 (2026-06-17 출시). 스토어 표기 '일정 비서', 유료 전환(₩4,400)",
+  "name": "일정 비서",
   "githubRepo": "https://github.com/M1zz/WeekAheadTodo",
-  "bundleId": "com.leeo.scheduleassistant",
+  "bundleId": "com.weekahead.todo",
   "localProjectPath": "../../../../../WeekAheadTodo",
   "status": "active",
-  "appStoreId": "",
+  "appStoreId": "6756593712",
   "priority": "high",
   "nameEn": "Schedule Assistant",
-  "recentlyCompleted": [],
-  "appStoreUrl": "https://apps.apple.com/kr/app/일정-비서/id6756593712",
-  "currentVersion": "1.0",
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)"
+  ],
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6756593712",
+  "currentVersion": "1.0.3",
   "sharedModules": [],
   "stats": {
-    "done": 0,
+    "done": 1,
     "inProgress": 2,
     "todo": 10,
     "notStarted": 3,
-    "totalTasks": 15
+    "totalTasks": 16
   },
   "folderId": "schedule-assistant",
   "vision": {
@@ -325,5 +333,11 @@
         "AI 기술 발전으로 스마트 추천 가능"
       ]
     }
+  },
+  "price": {
+    "isFree": false,
+    "priceKRW": 4400,
+    "pricingModel": "paid",
+    "hasInAppPurchases": false
   }
 }

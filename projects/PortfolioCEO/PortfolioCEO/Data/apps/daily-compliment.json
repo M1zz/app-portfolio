@@ -2,24 +2,24 @@
   "sharedModules": [],
   "minimumOS": "16.0",
   "localProjectPath": "../Jujob",
-  "appStoreUrl": "https://apps.apple.com/us/app/오늘의-주접/id6450839961",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6450839961",
   "githubRepo": "https://github.com/M1zz/Jujob",
-  "appStoreId": "",
+  "appStoreId": "6450839961",
   "nextTasks": [
     "사용성 개선",
     "컨텐츠 추가"
   ],
-  "bundleId": "com.leeo.dailycompliment",
+  "bundleId": "com.leeo.JuJob",
   "priority": "medium",
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v1.0.3 (2025-11-24 출시), 평점 5(6개)",
   "name": "오늘의 주접",
   "currentVersion": "1.0.3",
   "stats": {
-    "done": 1,
+    "done": 2,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 4,
-    "totalTasks": 15
+    "totalTasks": 16
   },
   "allTasks": [
     {
@@ -267,11 +267,18 @@
         "problemSolved": "일반적인 칭찬은 공감이 안 됨",
         "userBenefit": "내 상황에 공감하는 맞춤 칭찬"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "nameEn": "Daily Compliment",
   "status": "planning",
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "1.0.3 배포"
   ],
   "folderId": "daily-compliment",
@@ -326,5 +333,11 @@
         "기업의 직원 웰빙 투자 확대"
       ]
     }
+  },
+  "price": {
+    "isFree": false,
+    "priceKRW": 3300,
+    "pricingModel": "paid",
+    "hasInAppPurchases": false
   }
 }

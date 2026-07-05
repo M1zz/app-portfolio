@@ -1,24 +1,26 @@
 {
   "stats": {
-    "done": 0,
+    "done": 1,
     "notStarted": 8,
     "inProgress": 2,
-    "totalTasks": 10,
+    "totalTasks": 11,
     "todo": 0
   },
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v1.0.3 (2025-12-08 출시)",
   "githubRepo": "https://github.com/M1zz/RoutineCamera",
-  "appStoreUrl": "https://apps.apple.com/kr/app/세끼/id6755164924",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6755164924",
   "name": "세끼",
-  "bundleId": "com.leeo.threemeals",
+  "bundleId": "com.ysoup.RoutineCamera",
   "sharedModules": [],
   "priority": "high",
   "status": "active",
   "currentVersion": "1.0.3",
   "nameEn": "Three Meals",
   "minimumOS": "16.0",
-  "appStoreId": "",
-  "recentlyCompleted": [],
+  "appStoreId": "6755164924",
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)"
+  ],
   "allTasks": [
     {
       "status": "not-started",
@@ -187,6 +189,12 @@
         "problemSolved": "간식까지 표시되어 식단이 복잡해 보임",
         "userBenefit": "식사 중심으로 깔끔한 기록 관리"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "localProjectPath": "../RoutineCamera",
@@ -248,5 +256,10 @@
         "보험사와 제휴하여 건강 리워드 프로그램 가능"
       ]
     }
+  },
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
   }
 }

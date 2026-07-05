@@ -1,16 +1,16 @@
 {
   "stats": {
-    "done": 0,
+    "done": 1,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 3,
-    "totalTasks": 13
+    "totalTasks": 14
   },
   "minimumOS": "16.0",
   "nextTasks": [
     "진통기록 + 호흡을 도와주는 것 추가"
   ],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] App Store에서 조회되지 않음(한국/미국 모두) — 판매 중단 또는 내려간 상태. 재출시 여부 결정 필요.",
   "name": "바미로그",
   "githubRepo": "https://github.com/M1zz/BamiLog",
   "bundleId": "com.leeo.bamilog",
@@ -19,7 +19,9 @@
   "appStoreId": "",
   "priority": "medium",
   "nameEn": "Bami Log",
-  "recentlyCompleted": [],
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)"
+  ],
   "appStoreUrl": "https://apps.apple.com/us/app/바미로그/id1662257034",
   "currentVersion": "1.0.5",
   "sharedModules": [],
@@ -257,6 +259,12 @@
         "problemSolved": "출산 준비를 체계적으로 하기 어려움",
         "userBenefit": "전문가 검증 체크리스트로 완벽 준비"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "folderId": "bami-log",

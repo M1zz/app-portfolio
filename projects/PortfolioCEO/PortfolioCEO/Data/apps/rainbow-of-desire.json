@@ -155,15 +155,21 @@
         "problemSolved": "전체적인 감정 흐름을 파악하기 어려움",
         "userBenefit": "색상 캘린더로 감정 패턴 시각화"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
-  "appStoreId": "",
-  "appStoreUrl": "https://apps.apple.com/kr/app/욕망의-무지개/id6755280882",
-  "bundleId": "com.leeo.rainbowofdesire",
+  "appStoreId": "6755280882",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6755280882",
+  "bundleId": "com.example.ScheduleDensityApp",
   "categories": [
     "다국어지원예정"
   ],
-  "currentVersion": "1.0.1",
+  "currentVersion": "1.0.3",
   "githubRepo": "https://github.com/M1zz/ScheduleDensity",
   "localProjectPath": "../ScheduleDensity",
   "minimumOS": "16.0",
@@ -173,19 +179,19 @@
     "인스타 소개 + 글쓰기",
     "욕망의 무지개 업데이트"
   ],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v1.0.3 (2026-06-24 출시), 평점 5(1개)",
   "priority": "high",
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "특정 날짜만 제외하는 기능",
-    "클라우드 킷 적용해서 데이터 동기화",
-    "일정관리 리스트로 하기"
+    "클라우드 킷 적용해서 데이터 동기화"
   ],
   "sharedModules": [],
   "stats": {
-    "done": 6,
+    "done": 7,
     "inProgress": 1,
     "notStarted": 1,
-    "totalTasks": 8,
+    "totalTasks": 9,
     "todo": 0
   },
   "status": "active",
@@ -241,5 +247,10 @@
         "원격 치료 확대"
       ]
     }
+  },
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
   }
 }

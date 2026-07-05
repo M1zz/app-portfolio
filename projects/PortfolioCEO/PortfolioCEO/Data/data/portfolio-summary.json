@@ -1,368 +1,631 @@
 {
-  "apps" : [
+  "apps": [
     {
-      "currentVersion" : "1.0.0",
-      "file" : "ecdesigner.json",
-      "name" : "ecDesigner",
-      "nameEn" : "ecDesigner",
-      "nextTasks" : [
-
+      "currentVersion": "1.0.5",
+      "file": "bami-log.json",
+      "name": "바미로그",
+      "nameEn": "Bami Log",
+      "nextTasks": [
+        "진통기록 + 호흡을 도와주는 것 추가"
       ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 6,
-        "inProgress" : 0,
-        "notStarted" : 0,
-        "todo" : 0,
-        "totalTasks" : 6
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 3,
+        "todo": 10,
+        "totalTasks": 14
       },
-      "status" : "active"
+      "status": "planning"
     },
     {
-      "currentVersion" : "1.0.1",
-      "file" : "rainbow-of-desire.json",
-      "name" : "욕망의 무지개",
-      "nameEn" : "Rainbow Of Desire",
-      "nextTasks" : [
-        "인스타 소개 + 글쓰기",
-        "욕망의 무지개 업데이트"
-      ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 6,
-        "inProgress" : 1,
-        "notStarted" : 0,
-        "todo" : 1,
-        "totalTasks" : 8
-      },
-      "status" : "active"
-    },
-    {
-      "currentVersion" : "1.0.6",
-      "file" : "double-reminder.json",
-      "name" : "두 번 알림",
-      "nameEn" : "Double Reminder",
-      "nextTasks" : [
-        "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
-        "1.0.5 배포"
-      ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 10,
-        "inProgress" : 1,
-        "notStarted" : 3,
-        "todo" : 1,
-        "totalTasks" : 15
-      },
-      "status" : "active"
-    },
-    {
-      "currentVersion" : "1.0.10",
-      "file" : "rebound-journal.json",
-      "name" : "리바운드 저널",
-      "nameEn" : "Rebound Journal",
-      "nextTasks" : [
-        "머지 컨플릭트 PR"
-      ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 1,
-        "inProgress" : 1,
-        "notStarted" : 0,
-        "todo" : 0,
-        "totalTasks" : 2
-      },
-      "status" : "active"
-    },
-    {
-      "currentVersion" : "1.0",
-      "file" : "bucket-climb.json",
-      "name" : "꿈을 찾아서",
-      "nameEn" : "Bucket Climb",
-      "nextTasks" : [
+      "currentVersion": "1.0",
+      "file": "bucket-climb.json",
+      "name": "꿈을 찾아서",
+      "nameEn": "Bucket Climb",
+      "nextTasks": [
         "다중 사진 첨부 기능 구현",
-        "카테고리 시스템 개선"
+        "카테고리 시스템 개선",
+        "앱 로딩 성능 최적화"
       ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 2,
-        "inProgress" : 3,
-        "notStarted" : 0,
-        "todo" : 3,
-        "totalTasks" : 8
+      "priority": "high",
+      "stats": {
+        "done": 3,
+        "inProgress": 3,
+        "notStarted": 3,
+        "todo": 0,
+        "totalTasks": 9
       },
-      "status" : "active"
+      "status": "active"
     },
     {
-      "currentVersion" : "1.0",
-      "file" : "life-restaurant.json",
-      "name" : "인생 맛집",
-      "nameEn" : "Life Restaurant",
-      "nextTasks" : [
-        "앱 배포",
-        "진짜 맛 있다는 것은"
-      ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 2,
-        "inProgress" : 1,
-        "notStarted" : 6,
-        "todo" : 0,
-        "totalTasks" : 9
+      "currentVersion": "1.0.4",
+      "file": "burning-my-life.json",
+      "name": "불타는 내인생",
+      "nameEn": "Burning My Life",
+      "nextTasks": [],
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
       },
-      "status" : "active"
+      "status": "active"
     },
     {
-      "currentVersion" : "1.0.1",
-      "file" : "rapport-map.json",
-      "name" : "라포 맵",
-      "nameEn" : "Rapport Map",
-      "nextTasks" : [
-        "멘티들과 했던 행동들에 사진으로 기억할 수 있도록 돕기",
-        "클라우드 백업기능"
-      ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 1,
-        "inProgress" : 2,
-        "notStarted" : 14,
-        "todo" : 0,
-        "totalTasks" : 17
+      "currentVersion": "4.3.4",
+      "file": "clip-keyboard.json",
+      "name": "클립키보드",
+      "nameEn": "Clip Keyboard",
+      "nextTasks": [],
+      "priority": "low",
+      "stats": {
+        "done": 17,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 17
       },
-      "status" : "active"
+      "status": "active"
     },
     {
-      "currentVersion" : "1.0.3",
-      "file" : "three-meals.json",
-      "name" : "세끼",
-      "nameEn" : "Three Meals",
-      "nextTasks" : [
-        "식단 피드백 작성기능 추가",
-        "간식 감추는 설정"
+      "currentVersion": "1.0.2",
+      "file": "cooltime.json",
+      "name": "쿨타임",
+      "nameEn": "Cooltime",
+      "nextTasks": [
+        "앱 구상하기"
       ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 0,
-        "inProgress" : 2,
-        "notStarted" : 7,
-        "todo" : 1,
-        "totalTasks" : 10
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 3,
+        "todo": 10,
+        "totalTasks": 14
       },
-      "status" : "active"
+      "status": "active"
     },
     {
-      "currentVersion" : "1.0",
-      "file" : "schedule-assistant.json",
-      "name" : "일정비서",
-      "nameEn" : "Schedule Assistant",
-      "nextTasks" : [
-        "앱 기획하기",
-        "너 이거 다 했어? 라고 물어봐주기"
-      ],
-      "priority" : "high",
-      "stats" : {
-        "done" : 0,
-        "inProgress" : 2,
-        "notStarted" : 0,
-        "todo" : 1,
-        "totalTasks" : 3
-      },
-      "status" : "active"
-    },
-    {
-      "currentVersion" : "1.1.1",
-      "file" : "donkko-mart.json",
-      "name" : "돈꼬마트",
-      "nameEn" : "Donkko Mart",
-      "nextTasks" : [
-
-      ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 5,
-        "inProgress" : 0,
-        "notStarted" : 0,
-        "todo" : 0,
-        "totalTasks" : 5
-      },
-      "status" : "active"
-    },
-    {
-      "currentVersion" : "1.0.4",
-      "file" : "shared-day-designer.json",
-      "name" : "휴가 플래너",
-      "nameEn" : "Shared Day Designer",
-      "nextTasks" : [
-        "위젯 버그"
-      ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 2,
-        "inProgress" : 0,
-        "notStarted" : 1,
-        "todo" : 0,
-        "totalTasks" : 3
-      },
-      "status" : "active"
-    },
-    {
-      "currentVersion" : "1.0.5",
-      "file" : "quiz.json",
-      "name" : "퀴즈",
-      "nameEn" : "Quiz",
-      "nextTasks" : [
-        "이걸 어떻게 하면 돈 벌지 고민",
-        "캐싱으로 문제 저장 및 API 최소화"
-      ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 2,
-        "inProgress" : 0,
-        "notStarted" : 2,
-        "todo" : 0,
-        "totalTasks" : 4
-      },
-      "status" : "planning"
-    },
-    {
-      "currentVersion" : "1.0",
-      "file" : "probability-calculator.json",
-      "name" : "확률계산기",
-      "nameEn" : "Probability Calculator",
-      "nextTasks" : [
-        "앱 재 배포시도"
-      ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 1,
-        "inProgress" : 0,
-        "notStarted" : 0,
-        "todo" : 1,
-        "totalTasks" : 2
-      },
-      "status" : "planning"
-    },
-    {
-      "currentVersion" : "1.0.3",
-      "file" : "daily-compliment.json",
-      "name" : "오늘의 주접",
-      "nameEn" : "Daily Compliment",
-      "nextTasks" : [
+      "currentVersion": "1.0.3",
+      "file": "daily-compliment.json",
+      "name": "오늘의 주접",
+      "nameEn": "Daily Compliment",
+      "nextTasks": [
         "사용성 개선",
         "컨텐츠 추가"
       ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 1,
-        "inProgress" : 0,
-        "notStarted" : 2,
-        "todo" : 0,
-        "totalTasks" : 3
+      "priority": "medium",
+      "stats": {
+        "done": 2,
+        "inProgress": 0,
+        "notStarted": 4,
+        "todo": 10,
+        "totalTasks": 16
       },
-      "status" : "planning"
+      "status": "planning"
     },
     {
-      "currentVersion" : "1.0",
-      "file" : "cooltime.json",
-      "name" : "쿨타임",
-      "nameEn" : "Cooltime",
-      "nextTasks" : [
-        "앱 구상하기"
+      "currentVersion": "2.0.2",
+      "file": "donkko-mart.json",
+      "name": "클로즈드",
+      "nameEn": "Closed",
+      "nextTasks": [],
+      "priority": "medium",
+      "stats": {
+        "done": 6,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 10,
+        "totalTasks": 16
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.3",
+      "file": "dont-forget.json",
+      "name": "잊지마",
+      "nameEn": "Don't Forget",
+      "nextTasks": [],
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "2.0.2",
+      "file": "double-reminder.json",
+      "name": "두번알림",
+      "nameEn": "Double Reminder",
+      "nextTasks": [
+        "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
+        "1.0.5 배포",
+        "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
+        "접근성 개선"
       ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 0,
-        "inProgress" : 0,
-        "notStarted" : 1,
-        "todo" : 0,
-        "totalTasks" : 1
+      "priority": "high",
+      "stats": {
+        "done": 11,
+        "inProgress": 1,
+        "notStarted": 4,
+        "todo": 0,
+        "totalTasks": 16
       },
-      "status" : "planning"
+      "status": "active"
     },
     {
-      "currentVersion" : "1.0.5",
-      "file" : "bami-log.json",
-      "name" : "바미로그",
-      "nameEn" : "Bami Log",
-      "nextTasks" : [
-        "진통기록 + 호흡을 도와주는 것 추가"
+      "currentVersion": "1.0.0",
+      "file": "ecdesigner.json",
+      "name": "ecDesigner",
+      "nameEn": "ecDesigner",
+      "nextTasks": [],
+      "priority": "high",
+      "stats": {
+        "done": 7,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 7
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0",
+      "file": "fire-tracker.json",
+      "name": "퇴사각",
+      "nameEn": "Fire Tracker",
+      "nextTasks": [],
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.3",
+      "file": "hands-free-metronome.json",
+      "name": "낫마템포",
+      "nameEn": "Notma Tempo",
+      "nextTasks": [],
+      "priority": "high",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.3",
+      "file": "korea-navi.json",
+      "name": "한국길찾기",
+      "nameEn": "Korea Navi",
+      "nextTasks": [],
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0",
+      "file": "leeocon.json",
+      "name": "LeeoCon",
+      "nameEn": "LeeoCon",
+      "nextTasks": [],
+      "priority": "low",
+      "stats": {
+        "done": 0,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 0
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0",
+      "file": "life-restaurant.json",
+      "name": "인생 맛집",
+      "nameEn": "Life Restaurant",
+      "nextTasks": [
+        "앱 배포",
+        "진짜 맛 있다는 것은",
+        "사람들 추가하기"
       ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 0,
-        "inProgress" : 0,
-        "notStarted" : 0,
-        "todo" : 1,
-        "totalTasks" : 1
+      "priority": "high",
+      "stats": {
+        "done": 3,
+        "inProgress": 1,
+        "notStarted": 6,
+        "todo": 0,
+        "totalTasks": 10
       },
-      "status" : "planning"
+      "status": "active"
     },
     {
-      "currentVersion" : "1.0.4",
-      "file" : "pixel-mimi.json",
-      "name" : "픽셀 미미",
-      "nameEn" : "Pixel Mimi",
-      "nextTasks" : [
+      "currentVersion": "2.0.1",
+      "file": "pixel-mimi.json",
+      "name": "픽셀 미미",
+      "nameEn": "Pixel MeMe",
+      "nextTasks": [
         "사용성 개선",
         "이걸 돈 받으려면 뭘 제공할지 고민하기"
       ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 0,
-        "inProgress" : 0,
-        "notStarted" : 1,
-        "todo" : 2,
-        "totalTasks" : 3
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 5,
+        "todo": 10,
+        "totalTasks": 16
       },
-      "status" : "planning"
+      "status": "planning"
     },
     {
-      "currentVersion" : "4.0.1",
-      "file" : "relax-on.json",
-      "name" : "릴렉스 온",
-      "nameEn" : "Relax On",
-      "nextTasks" : [
-
+      "currentVersion": "1.0.1",
+      "file": "probability-calculator.json",
+      "name": "확률계산기",
+      "nameEn": "Probability Calculator",
+      "nextTasks": [
+        "앱 재 배포시도"
       ],
-      "priority" : "medium",
-      "stats" : {
-        "done" : 0,
-        "inProgress" : 0,
-        "notStarted" : 0,
-        "todo" : 0,
-        "totalTasks" : 0
+      "priority": "medium",
+      "stats": {
+        "done": 2,
+        "inProgress": 0,
+        "notStarted": 3,
+        "todo": 10,
+        "totalTasks": 15
       },
-      "status" : "planning"
+      "status": "planning"
     },
     {
-      "currentVersion" : "3.0.3",
-      "file" : "clip-keyboard.json",
-      "name" : "클립키보드",
-      "nameEn" : "Clip Keyboard",
-      "nextTasks" : [
-
-      ],
-      "priority" : "low",
-      "stats" : {
-        "done" : 16,
-        "inProgress" : 0,
-        "notStarted" : 0,
-        "todo" : 0,
-        "totalTasks" : 16
+      "currentVersion": "1.0",
+      "file": "punching.json",
+      "name": "펀칭",
+      "nameEn": "Punching",
+      "nextTasks": [],
+      "priority": "low",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
       },
-      "status" : "planning"
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.5",
+      "file": "quiz.json",
+      "name": "퀴즈",
+      "nameEn": "Quiz",
+      "nextTasks": [
+        "이걸 어떻게 하면 돈 벌지 고민",
+        "캐싱으로 문제 저장 및 API 최소화"
+      ],
+      "priority": "medium",
+      "stats": {
+        "done": 3,
+        "inProgress": 0,
+        "notStarted": 4,
+        "todo": 10,
+        "totalTasks": 17
+      },
+      "status": "planning"
+    },
+    {
+      "currentVersion": "1.0.3",
+      "file": "rainbow-of-desire.json",
+      "name": "욕망의 무지개",
+      "nameEn": "Rainbow Of Desire",
+      "nextTasks": [
+        "인스타 소개 + 글쓰기",
+        "욕망의 무지개 업데이트"
+      ],
+      "priority": "high",
+      "stats": {
+        "done": 7,
+        "inProgress": 1,
+        "notStarted": 1,
+        "todo": 0,
+        "totalTasks": 9
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.3",
+      "file": "rainbow-workshop.json",
+      "name": "무지개 공작소",
+      "nameEn": "Rainbow Workshop",
+      "nextTasks": [],
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.1",
+      "file": "rapport-map.json",
+      "name": "라포 맵",
+      "nameEn": "Rapport Map",
+      "nextTasks": [
+        "멘티들과 했던 행동들에 사진으로 기억할 수 있도록 돕기",
+        "클라우드 백업기능",
+        "기록에 태그를 남기고 태그로 필터링 해서 볼 수 있도록 하기",
+        "멘토링이나 어떤 특정 태그처럼 속성 중에 멘토링 케이스를 추가할 수 있었으면 좋겠음"
+      ],
+      "priority": "high",
+      "stats": {
+        "done": 2,
+        "inProgress": 2,
+        "notStarted": 14,
+        "todo": 0,
+        "totalTasks": 18
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.10",
+      "file": "rebound-journal.json",
+      "name": "리바운드 저널",
+      "nameEn": "Rebound Journal",
+      "nextTasks": [
+        "머지 컨플릭트 PR"
+      ],
+      "priority": "high",
+      "stats": {
+        "done": 2,
+        "inProgress": 1,
+        "notStarted": 2,
+        "todo": 10,
+        "totalTasks": 15
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "4.0.1",
+      "file": "relax-on.json",
+      "name": "달빛",
+      "nameEn": "Dalbit",
+      "nextTasks": [
+        "수면 타이머",
+        "즐겨찾기 프리셋"
+      ],
+      "priority": "high",
+      "stats": {
+        "done": 4,
+        "inProgress": 0,
+        "notStarted": 2,
+        "todo": 10,
+        "totalTasks": 16
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.0",
+      "file": "review-manager.json",
+      "name": "리뷰 매니저",
+      "nameEn": "Review Manager",
+      "nextTasks": [
+        "iOS 버전 개발",
+        "App Store 출시 준비 (심사 제출)"
+      ],
+      "priority": "high",
+      "stats": {
+        "done": 9,
+        "inProgress": 1,
+        "notStarted": 1,
+        "todo": 2,
+        "totalTasks": 13
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.2",
+      "file": "ring-rong.json",
+      "name": "링롱",
+      "nameEn": "Ring Rong",
+      "nextTasks": [],
+      "priority": "low",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.2",
+      "file": "sanoramyeon.json",
+      "name": "사노라면",
+      "nameEn": "Sanoramyeon",
+      "nextTasks": [],
+      "priority": "low",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.3",
+      "file": "schedule-assistant.json",
+      "name": "일정 비서",
+      "nameEn": "Schedule Assistant",
+      "nextTasks": [
+        "앱 기획하기",
+        "너 이거 다 했어? 라고 물어봐주기",
+        "앱 배포 1.0.0 일정비서"
+      ],
+      "priority": "high",
+      "stats": {
+        "done": 1,
+        "inProgress": 2,
+        "notStarted": 3,
+        "todo": 10,
+        "totalTasks": 16
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "2.0.7",
+      "file": "shared-day-designer.json",
+      "name": "골드위크",
+      "nameEn": "Goldweek",
+      "nextTasks": [
+        "위젯 버그"
+      ],
+      "priority": "medium",
+      "stats": {
+        "done": 3,
+        "inProgress": 0,
+        "notStarted": 3,
+        "todo": 10,
+        "totalTasks": 16
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.1",
+      "file": "sight-singer.json",
+      "name": "초견",
+      "nameEn": "Sight Singer",
+      "nextTasks": [],
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0",
+      "file": "speak-flow.json",
+      "name": "스픽플로우",
+      "nameEn": "Speak Flow",
+      "nextTasks": [],
+      "priority": "low",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0",
+      "file": "sticky-presenter.json",
+      "name": "StickyPresenter",
+      "nameEn": "StickyPresenter",
+      "nextTasks": [],
+      "priority": "low",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "4.2.2",
+      "file": "tap-clip-keyboard.json",
+      "name": "탭클립 키보드",
+      "nameEn": "Tap Clip Keyboard",
+      "nextTasks": [],
+      "priority": "medium",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0",
+      "file": "think-flow.json",
+      "name": "이어생각",
+      "nameEn": "Think Flow",
+      "nextTasks": [],
+      "priority": "low",
+      "stats": {
+        "done": 1,
+        "inProgress": 0,
+        "notStarted": 0,
+        "todo": 0,
+        "totalTasks": 1
+      },
+      "status": "active"
+    },
+    {
+      "currentVersion": "1.0.3",
+      "file": "three-meals.json",
+      "name": "세끼",
+      "nameEn": "Three Meals",
+      "nextTasks": [
+        "식단 피드백 작성기능 추가",
+        "간식 감추는 설정",
+        "설정 바로반응",
+        "[BUG] 식단 분석 후 이미지가 깨지는 버그 수정"
+      ],
+      "priority": "high",
+      "stats": {
+        "done": 1,
+        "inProgress": 2,
+        "notStarted": 8,
+        "todo": 0,
+        "totalTasks": 11
+      },
+      "status": "active"
     }
   ],
-  "lastUpdated" : "2026-01-31T05:23:18Z",
-  "overview" : {
-    "active" : 11,
-    "highPriority" : 9,
-    "planning" : 8,
-    "totalDone" : 55,
-    "totalInProgress" : 13,
-    "totalNotStarted" : 37,
-    "totalTasks" : 116,
-    "totalTodo" : 11
+  "lastUpdated": "2026-07-05T13:30:00Z",
+  "overview": {
+    "active": 30,
+    "planning": 5,
+    "highPriority": 12,
+    "totalDone": 100,
+    "totalInProgress": 14,
+    "totalNotStarted": 69,
+    "totalTodo": 112,
+    "totalTasks": 295
   },
-  "totalApps" : 19
+  "totalApps": 35
 }

@@ -9,28 +9,18 @@
     "클립키보드": {
       "nameEn": "Clip Keyboard",
       "folder": "clip-keyboard",
-      "bundleId": "com.leeo.clipkeyboard",
+      "bundleId": "com.Ysoup.TokenMemo",
       "sourcePath": "../Token-memo"
     },
     "쿨타임": {
       "nameEn": "Cooltime",
       "folder": "cooltime",
-      "bundleId": "com.leeo.cooltime"
+      "bundleId": "com.Ysoup.CoolTime"
     },
     "오늘의 주접": {
       "nameEn": "Daily Compliment",
       "folder": "daily-compliment",
-      "bundleId": "com.leeo.dailycompliment"
-    },
-    "돈꼬마트": {
-      "nameEn": "Donkko Mart",
-      "folder": "donkko-mart",
-      "bundleId": "com.leeo.donkkomart"
-    },
-    "두 번 알림": {
-      "nameEn": "Double Reminder",
-      "folder": "double-reminder",
-      "bundleId": "com.leeo.doublereminder"
+      "bundleId": "com.leeo.JuJob"
     },
     "ecDesigner": {
       "nameEn": "ecDesigner",
@@ -51,12 +41,12 @@
     "인생 맛집": {
       "nameEn": "Life Restaurant",
       "folder": "life-restaurant",
-      "bundleId": "com.leeo.liferestaurant"
+      "bundleId": "com.Ysoup.restaurantmap"
     },
     "세끼": {
       "nameEn": "Three Meals",
       "folder": "three-meals",
-      "bundleId": "com.leeo.threemeals"
+      "bundleId": "com.ysoup.RoutineCamera"
     },
     "나만의 버킷": {
       "nameEn": "My Bucket",
@@ -66,7 +56,7 @@
     "픽셀 미미": {
       "nameEn": "Pixel Mimi",
       "folder": "pixel-mimi",
-      "bundleId": "com.leeo.pixelmimi"
+      "bundleId": "com.leeo.PixelMe"
     },
     "포항 어드벤쳐": {
       "nameEn": "Pohang Adventure",
@@ -76,7 +66,7 @@
     "확률계산기": {
       "nameEn": "Probability Calculator",
       "folder": "probability-calculator",
-      "bundleId": "com.leeo.probabilitycalculator"
+      "bundleId": "com.lottochecker.app"
     },
     "퀴즈": {
       "nameEn": "Quiz",
@@ -86,52 +76,148 @@
     "욕망의 무지개": {
       "nameEn": "Rainbow of Desire",
       "folder": "rainbow-of-desire",
-      "bundleId": "com.leeo.rainbowofdesire"
+      "bundleId": "com.example.ScheduleDensityApp"
     },
     "라포 맵": {
       "nameEn": "Rapport Map",
       "folder": "rapport-map",
-      "bundleId": "com.leeo.rapportmap"
+      "bundleId": "com.ysoup.RapportMap"
     },
     "리바운드 저널": {
       "nameEn": "Rebound Journal",
       "folder": "rebound-journal",
-      "bundleId": "com.leeo.reboundjournal"
+      "bundleId": "com.leeo.ReboundJournal"
     },
-    "릴렉스 온": {
-      "nameEn": "Relax On",
+    "달빛": {
+      "nameEn": "Dalbit",
       "folder": "relax-on",
-      "bundleId": "com.leeo.relaxon"
+      "bundleId": "com.leeo.LullabyRecipe",
+      "sourcePath": "../RelaxOn",
+      "formerName": "릴렉스 온 (Relax On)"
     },
     "내마음에저장": {
       "nameEn": "Save In My Heart",
       "folder": "save-in-my-heart",
       "bundleId": "com.leeo.saveinmyheart"
     },
-    "일정비서": {
-      "nameEn": "Schedule Assistant",
-      "folder": "schedule-assistant",
-      "bundleId": "com.leeo.scheduleassistant"
-    },
-    "공유일 설계자": {
-      "nameEn": "Shared Day Designer",
-      "folder": "shared-day-designer",
-      "bundleId": "com.leeo.shareddaydesigner"
-    },
     "속삭": {
       "nameEn": "Whisper",
       "folder": "whisper",
       "bundleId": "com.leeo.whisper"
     },
-    "버킷 클라임": {
-      "nameEn": "Bucket Climb",
-      "folder": "bucket-climb",
-      "bundleId": "com.leeo.bucketclimb"
-    },
     "데일리 트래커": {
       "nameEn": "Daily Tracker",
       "folder": "daily-tracker",
       "bundleId": "com.leeo.dailytracker"
+    },
+    "리뷰 매니저": {
+      "nameEn": "Review Manager",
+      "folder": "review-manager",
+      "bundleId": "com.leeo.ReviewManager",
+      "sourcePath": "../ReviewManager"
+    },
+    "클로즈드": {
+      "nameEn": "Closed",
+      "folder": "donkko-mart",
+      "bundleId": "com.leeo.DontGoMart",
+      "formerName": "돈꼬마트 (Donkko Mart)"
+    },
+    "두번알림": {
+      "nameEn": "Double Reminder",
+      "folder": "double-reminder",
+      "bundleId": "com.xa.toki"
+    },
+    "골드위크": {
+      "nameEn": "Goldweek",
+      "folder": "shared-day-designer",
+      "bundleId": "com.Ysoup.LeaveWise",
+      "formerName": "공유일 설계자/휴가 플래너 (Shared Day Designer)"
+    },
+    "꿈을 찾아서": {
+      "nameEn": "Bucket Climb",
+      "folder": "bucket-climb",
+      "bundleId": "com.bucketclimb.app",
+      "formerName": "버킷 클라임"
+    },
+    "일정 비서": {
+      "nameEn": "Schedule Assistant",
+      "folder": "schedule-assistant",
+      "bundleId": "com.weekahead.todo"
+    },
+    "낫마템포": {
+      "nameEn": "Notma Tempo",
+      "folder": "hands-free-metronome",
+      "bundleId": "com.leeo.HandsFreeMetronome"
+    },
+    "무지개 공작소": {
+      "nameEn": "Rainbow Workshop",
+      "folder": "rainbow-workshop",
+      "bundleId": "com.devkoan.ScheduleDensityApp"
+    },
+    "한국길찾기": {
+      "nameEn": "Korea Navi",
+      "folder": "korea-navi",
+      "bundleId": "com.kora.leeo"
+    },
+    "초견": {
+      "nameEn": "Sight Singer",
+      "folder": "sight-singer",
+      "bundleId": "com.devkoan.StaffSinger"
+    },
+    "잊지마": {
+      "nameEn": "Don't Forget",
+      "folder": "dont-forget",
+      "bundleId": "com.leeo.TodoAlarm"
+    },
+    "펀칭": {
+      "nameEn": "Punching",
+      "folder": "punching",
+      "bundleId": "com.devkoan.StampCamera"
+    },
+    "퇴사각": {
+      "nameEn": "Fire Tracker",
+      "folder": "fire-tracker",
+      "bundleId": "com.devkoan.FireTracker"
+    },
+    "이어생각": {
+      "nameEn": "Think Flow",
+      "folder": "think-flow",
+      "bundleId": "com.leeo.thinkflow"
+    },
+    "StickyPresenter": {
+      "nameEn": "StickyPresenter",
+      "folder": "sticky-presenter",
+      "bundleId": "com.leeo.StickyPresenter"
+    },
+    "탭클립 키보드": {
+      "nameEn": "Tap Clip Keyboard",
+      "folder": "tap-clip-keyboard",
+      "bundleId": "com.ysoup.TokenMemo-tap"
+    },
+    "불타는 내인생": {
+      "nameEn": "Burning My Life",
+      "folder": "burning-my-life",
+      "bundleId": "com.burningparchment.app"
+    },
+    "사노라면": {
+      "nameEn": "Sanoramyeon",
+      "folder": "sanoramyeon",
+      "bundleId": "com.devkoan.IndonesianSmallTalk"
+    },
+    "링롱": {
+      "nameEn": "Ring Rong",
+      "folder": "ring-rong",
+      "bundleId": "com.leeo.FindMe"
+    },
+    "스픽플로우": {
+      "nameEn": "Speak Flow",
+      "folder": "speak-flow",
+      "bundleId": "com.leeo.ConversationPractice"
+    },
+    "LeeoCon": {
+      "nameEn": "LeeoCon",
+      "folder": "leeocon",
+      "bundleId": "com.leeo.LeeoCon"
     }
   }
 }

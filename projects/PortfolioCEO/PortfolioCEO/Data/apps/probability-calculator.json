@@ -227,33 +227,40 @@
         "problemSolved": "계산기 앱을 따로 열어야 함",
         "userBenefit": "한 앱 안에서 모든 계산 완료"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "minimumOS": "16.0",
   "nextTasks": [
     "앱 재 배포시도"
   ],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v1.0.1 (2026-02-06 출시). 한국 스토어 미노출, 미국 스토어에서 $1.99로 판매 중",
   "name": "확률계산기",
   "githubRepo": "https://github.com/M1zz/LottoChecker",
-  "bundleId": "com.leeo.probabilitycalculator",
+  "bundleId": "com.lottochecker.app",
   "localProjectPath": "../LottoChecker",
   "status": "planning",
-  "appStoreId": "",
+  "appStoreId": "6755651803",
   "priority": "medium",
   "nameEn": "Probability Calculator",
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "앱 구성하기"
   ],
-  "appStoreUrl": "https://apps.apple.com/kr/app/확률계산기/id6755651803",
-  "currentVersion": "1.0",
+  "appStoreUrl": "https://apps.apple.com/us/app/id6755651803",
+  "currentVersion": "1.0.1",
   "sharedModules": [],
   "stats": {
-    "done": 1,
+    "done": 2,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 3,
-    "totalTasks": 14
+    "totalTasks": 15
   },
   "folderId": "probability-calculator",
   "vision": {
@@ -307,5 +314,11 @@
         "데이터 기반 의사결정 트렌드"
       ]
     }
+  },
+  "price": {
+    "isFree": false,
+    "priceUSD": 1.99,
+    "pricingModel": "paid",
+    "hasInAppPurchases": false
   }
 }

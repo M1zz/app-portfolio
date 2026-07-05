@@ -1,9 +1,9 @@
 {
   "stats": {
-    "done": 2,
+    "done": 3,
     "notStarted": 6,
     "inProgress": 1,
-    "totalTasks": 9,
+    "totalTasks": 10,
     "todo": 0
   },
   "minimumOS": "16.0",
@@ -12,20 +12,21 @@
     "진짜 맛 있다는 것은",
     "사람들 추가하기"
   ],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v1.0 (2025-12-17 출시)",
   "name": "인생 맛집",
   "githubRepo": "https://github.com/M1zz/RestaurantMap",
-  "bundleId": "com.leeo.liferestaurant",
+  "bundleId": "com.Ysoup.restaurantmap",
   "localProjectPath": "../RestaurantMap",
   "status": "active",
-  "appStoreId": "",
+  "appStoreId": "6755934548",
   "priority": "high",
   "nameEn": "Life Restaurant",
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "앱 구상하기",
     "방문 횟수"
   ],
-  "appStoreUrl": "https://apps.apple.com/kr/app/인생-맛집/id6755934548",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6755934548",
   "currentVersion": "1.0",
   "sharedModules": [],
   "allTasks": [
@@ -202,6 +203,12 @@
         "problemSolved": "근처에 좋은 곳이 있어도 기억이 안 남",
         "userBenefit": "지도에서 한눈에 주변 맛집 확인"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "folderId": "life-restaurant",
@@ -256,5 +263,11 @@
         "미식가 문화 확산"
       ]
     }
+  },
+  "price": {
+    "isFree": false,
+    "priceKRW": 4400,
+    "pricingModel": "paid",
+    "hasInAppPurchases": false
   }
 }

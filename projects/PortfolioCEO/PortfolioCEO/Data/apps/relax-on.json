@@ -1,6 +1,24 @@
 {
   "allTasks": [
     {
+      "name": "달빛(Dalbit) 리브랜딩 + 달 홈/우주 테마 + 제작·보관함 개편",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "4.0.1"
+    },
+    {
+      "name": "구체(오브) 인터랙션 — 스와이프 곡 전환, 굴려서 모드 전환",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "4.0.1"
+    },
+    {
+      "name": "온보딩 제거 + 첫 설치 시 기본 소리 제공",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "4.0.1"
+    },
+    {
       "name": "자연 소리 재생",
       "status": "not-started",
       "targetDate": null,
@@ -215,11 +233,17 @@
         "problemSolved": "폰까지 손을 뻗어야 함",
         "userBenefit": "손목에서 모든 제어 가능"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
-  "appStoreId": "",
-  "appStoreUrl": "https://apps.apple.com/kr/app/relax-on-수면-백색-소음-자연의-소리/id1626715109",
-  "bundleId": "com.leeo.relaxon",
+  "appStoreId": "1626715109",
+  "appStoreUrl": "https://apps.apple.com/kr/app/달빛-수면-백색-소음-자연의-소리/id1626715109",
+  "bundleId": "com.leeo.LullabyRecipe",
   "categories": [
     "다국어지원"
   ],
@@ -228,27 +252,39 @@
   "githubRepo": "https://github.com/M1zz/RelaxOn",
   "localProjectPath": "../../../../../RelaxOn",
   "minimumOS": "16.0",
-  "name": "릴렉스 온",
-  "nameEn": "Relax On",
-  "nextTasks": [],
-  "notes": "",
+  "name": "달빛",
+  "nameEn": "Dalbit",
+  "nextTasks": [
+    "수면 타이머",
+    "즐겨찾기 프리셋"
+  ],
+  "notes": "2026-06 '릴렉스 온(Relax On)'에서 '달빛(Dalbit)'으로 리브랜딩. v4.0.1 App Store 출시(2026-06-26), 평점 5.0(7개). 달 홈/우주 테마 + 구체(오브) 인터랙션 중심으로 UI 전면 개편. 실제 번들 ID는 com.leeo.LullabyRecipe.",
   "price": {
-    "isFree": false,
-    "monthlyKRW": 1100,
-    "monthlyUSD": 0.99,
-    "pricingModel": "subscription"
+    "isFree": true,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "monthly",
+        "price": "￦1,100"
+      }
+    ]
   },
-  "priority": "medium",
-  "recentlyCompleted": [],
+  "priority": "high",
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+    "달빛(Dalbit) 리브랜딩 + 달 홈/우주 테마 + 제작·보관함 개편",
+    "구체(오브) 인터랙션 — 스와이프 곡 전환, 굴려서 모드 전환"
+  ],
   "sharedModules": [],
   "stats": {
-    "done": 0,
+    "done": 4,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 2,
-    "totalTasks": 12
+    "totalTasks": 16
   },
-  "status": "planning",
+  "status": "active",
   "vision": {
     "tagline": "언제 어디서나 힐링",
     "coreValue": "자연 소리와 명상으로 일상 속 스트레스 해소",

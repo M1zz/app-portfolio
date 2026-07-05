@@ -258,21 +258,27 @@
         "problemSolved": "고정된 간격으로는 다양한 상황에 대응하기 어려움",
         "userBenefit": "5분 전, 1시간 전 등 상황에 맞는 완벽한 알림 설정"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
-  "appStoreId": "",
-  "appStoreUrl": "https://apps.apple.com/kr/app/두번알림/id6752551268",
-  "bundleId": "com.leeo.doublereminder",
+  "appStoreId": "6752551268",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6752551268",
+  "bundleId": "com.xa.toki",
   "categories": [
     "최근관심",
     "다국어지원"
   ],
-  "currentVersion": "1.0.6",
+  "currentVersion": "2.0.2",
   "folderId": "double-reminder",
   "githubRepo": "https://github.com/M1zz/toki",
   "localProjectPath": "../toki",
   "minimumOS": "16.0",
-  "name": "두 번 알림",
+  "name": "두번알림",
   "nameEn": "Double Reminder",
   "nextTasks": [
     "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
@@ -280,24 +286,30 @@
     "내가 기록한 정보 중 저장된 것 아이클라우드 동기화",
     "접근성 개선"
   ],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v2.0.2 (2026-05-07 출시), 평점 5(1개). 스토어 표기 '두번알림'으로 통일",
   "price": {
-    "isFree": false,
-    "krw": 5500,
-    "usd": 3.99
+    "isFree": true,
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "두번알림 pro",
+        "price": "￦7,700"
+      }
+    ]
   },
   "priority": "high",
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "UI 개선작업",
-    "예비알림 마크 개선",
-    "워치 사용성 개선"
+    "예비알림 마크 개선"
   ],
   "sharedModules": [],
   "stats": {
-    "done": 10,
+    "done": 11,
     "inProgress": 1,
     "notStarted": 4,
-    "totalTasks": 15,
+    "totalTasks": 16,
     "todo": 0
   },
   "status": "active",

@@ -1,16 +1,16 @@
 {
   "status": "active",
   "folderId": "donkko-mart",
-  "currentVersion": "1.1.1",
+  "currentVersion": "2.0.2",
   "stats": {
-    "done": 5,
+    "done": 6,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 0,
-    "totalTasks": 15
+    "totalTasks": 16
   },
   "githubRepo": "https://github.com/M1zz/DontGoMart",
-  "nameEn": "Donkko Mart",
+  "nameEn": "Closed",
   "localProjectPath": "../../../../../DontGoMart",
   "allTasks": [
     {
@@ -258,30 +258,41 @@
         "problemSolved": "어디가 싼지 모르고 그냥 가까운 곳으로",
         "userBenefit": "가격 비교로 절약"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
-  "name": "돈꼬마트",
+  "name": "클로즈드",
   "price": {
-    "pricingModel": "oneTime",
-    "krw": 4400,
-    "isFree": false,
-    "usd": 2.99
+    "isFree": true,
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "클로즈드 Pro",
+        "price": "￦7,700"
+      }
+    ]
   },
   "nextTasks": [],
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "사용성 개선",
-    "나의 마트 추가하는 경험 개선",
-    "위젯 화면 개선"
+    "나의 마트 추가하는 경험 개선"
   ],
-  "appStoreUrl": "https://apps.apple.com/kr/app/돈꼬마트/id6450387984",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6450387984",
   "sharedModules": [],
-  "bundleId": "com.leeo.donkkomart",
+  "bundleId": "com.leeo.DontGoMart",
   "categories": [
     "다국어지원"
   ],
   "priority": "medium",
-  "notes": "",
-  "appStoreId": "",
+  "notes": "[2026-07-05 스토어 동기화] v2.0.2 (2026-06-24 출시). '돈꼬마트'(장보기 목록)에서 '클로즈드'(마트 영업시간/휴무일 확인)로 피벗 및 리브랜딩",
+  "appStoreId": "6450387984",
   "minimumOS": "16.0",
   "vision": {
     "tagline": "장보기의 새로운 기준",

@@ -302,6 +302,12 @@
         "problemSolved": "누가 누구를 소개해줬는지 기억 안 남",
         "userBenefit": "관계망 시각화로 네트워킹 파악"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
   "minimumOS": "16.0",
@@ -311,26 +317,27 @@
     "기록에 태그를 남기고 태그로 필터링 해서 볼 수 있도록 하기",
     "멘토링이나 어떤 특정 태그처럼 속성 중에 멘토링 케이스를 추가할 수 있었으면 좋겠음"
   ],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v1.0.1 (2025-11-19 출시)",
   "name": "라포 맵",
   "githubRepo": "https://github.com/M1zz/RapportMap",
-  "bundleId": "com.leeo.rapportmap",
+  "bundleId": "com.ysoup.RapportMap",
   "localProjectPath": "../../../../../RapportMap",
   "status": "active",
-  "appStoreId": "",
+  "appStoreId": "6754888089",
   "priority": "high",
   "nameEn": "Rapport Map",
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "데이터를 마구 던지면 저장해주는 메모 기능"
   ],
   "currentVersion": "1.0.1",
-  "appStoreUrl": "https://apps.apple.com/kr/app/라포맵/id6754888089",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6754888089",
   "sharedModules": [],
   "stats": {
-    "done": 1,
+    "done": 2,
     "notStarted": 14,
     "inProgress": 2,
-    "totalTasks": 17,
+    "totalTasks": 18,
     "todo": 0
   },
   "folderId": "rapport-map",
@@ -385,5 +392,10 @@
         "AI 기술 발전으로 관계 인사이트 자동 생성 가능"
       ]
     }
+  },
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
   }
 }

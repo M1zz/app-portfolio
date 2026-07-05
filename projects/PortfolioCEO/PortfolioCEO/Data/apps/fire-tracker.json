@@ -1,0 +1,42 @@
+{
+  "allTasks": [
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
+    }
+  ],
+  "appStoreId": "6779654854",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6779654854",
+  "bundleId": "com.devkoan.FireTracker",
+  "categories": [],
+  "currentVersion": "1.0",
+  "folderId": "fire-tracker",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "",
+  "name": "퇴사각",
+  "nameEn": "Fire Tracker",
+  "nextTasks": [],
+  "notes": "[2026-07-05 스토어 동기화로 자동 등록] 은퇴를 계획하는 분들을 위한 계산기 입니다 (스토어명: 퇴사각, 2026-06-15 최신 버전 출시)",
+  "price": {
+    "isFree": false,
+    "priceKRW": 229000,
+    "pricingModel": "paid",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)"
+  ],
+  "sharedModules": [],
+  "stats": {
+    "done": 1,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 1
+  },
+  "status": "active"
+}

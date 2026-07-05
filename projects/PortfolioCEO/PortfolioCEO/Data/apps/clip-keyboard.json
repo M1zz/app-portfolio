@@ -251,16 +251,22 @@
         "userValue": "시력이 안 좋거나 손가락이 큰 경우에도 편안하게 사용할 수 있도록 개인화합니다",
         "technicalNotes": "동적 타이포그래피, 접근성 지원, Dynamic Type"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
-  "appStoreId": "",
-  "appStoreUrl": "https://apps.apple.com/app/클립-키보드/id1543660502",
-  "bundleId": "com.leeo.clipkeyboard",
+  "appStoreId": "1543660502",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id1543660502",
+  "bundleId": "com.Ysoup.TokenMemo",
   "categories": [
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "3.0.3",
+  "currentVersion": "4.3.4",
   "folderId": "clip-keyboard",
   "githubRepo": "https://github.com/Code-Ward/Token-memo",
   "localProjectPath": "../Token-memo",
@@ -268,27 +274,33 @@
   "name": "클립키보드",
   "nameEn": "Clip Keyboard",
   "nextTasks": [],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v4.3.4 (2026-06-21 출시), 평점 4.7(13개)",
   "price": {
-    "isFree": false,
-    "krw": 5500,
-    "usd": 3.99
+    "isFree": true,
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "클립키보드 Pro",
+        "price": "￦17,000"
+      }
+    ]
   },
   "priority": "low",
   "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "iCloud 백업 오류 수정 (Error saving record)",
-    "버튼 높이/글자 크기 슬라이더 조정 기능",
-    "키보드 레이아웃 열 개수 설정 기능"
+    "버튼 높이/글자 크기 슬라이더 조정 기능"
   ],
   "sharedModules": [],
   "stats": {
-    "done": 16,
+    "done": 17,
     "inProgress": 0,
     "notStarted": 0,
     "todo": 0,
-    "totalTasks": 16
+    "totalTasks": 17
   },
-  "status": "planning",
+  "status": "active",
   "vision": {
     "tagline": "원탭의 힘",
     "coreValue": "사용자가 앱을 쓸 때마다 '내가 시간을 아끼고 있다'는 것을 느끼게 하기. 추상적인 '생산성'이 아니라, 숫자로 보여주는 성취감.",

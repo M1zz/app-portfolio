@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<title>앱 포트폴리오 시장성 분석 — 2026년 7월</title>
+<style>
+:root{
+  --bg:#F6F6F2; --card:#FFFFFF; --ink:#22252B; --ink2:#5D626B; --ink3:#8B9098;
+  --line:#E4E4DE; --accent:#0D9488; --accent-soft:#E4F2F0;
+  --opp:#2F7D46; --thr:#B0483E; --chip:#EFEFEA;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171B; --card:#1C2026; --ink:#E7E9EC; --ink2:#A2A8B0; --ink3:#767C85;
+    --line:#2B3037; --accent:#0D9488; --accent-soft:#17332F;
+    --opp:#6FBF85; --thr:#E08B82; --chip:#262B32;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14171B; --card:#1C2026; --ink:#E7E9EC; --ink2:#A2A8B0; --ink3:#767C85;
+  --line:#2B3037; --accent:#0D9488; --accent-soft:#17332F;
+  --opp:#6FBF85; --thr:#E08B82; --chip:#262B32;
+}
+:root[data-theme="light"]{
+  --bg:#F6F6F2; --card:#FFFFFF; --ink:#22252B; --ink2:#5D626B; --ink3:#8B9098;
+  --line:#E4E4DE; --accent:#0D9488; --accent-soft:#E4F2F0;
+  --opp:#2F7D46; --thr:#B0483E; --chip:#EFEFEA;
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+  line-height:1.62; margin:0; padding:0 20px 80px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px; margin:0 auto}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,.bar-row:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+
+/* header */
+.report-head{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700; margin:0 0 10px}
+h1{font-size:clamp(26px,4.5vw,38px); font-weight:800; letter-spacing:-.02em; line-height:1.25; margin:0 0 12px; text-wrap:balance}
+.lede{color:var(--ink2); font-size:16px; max-width:44em; margin:0}
+.head-meta{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:20px; font-size:13px; color:var(--ink3)}
+.head-meta b{color:var(--ink); font-weight:600}
+
+/* sections */
+section{margin-top:52px}
+h2{font-size:21px; font-weight:800; letter-spacing:-.01em; margin:0 0 6px; text-wrap:balance}
+.sec-sub{color:var(--ink2); font-size:14px; margin:0 0 20px; max-width:46em}
+h2 .num{color:var(--ink3); font-weight:600; font-variant-numeric:tabular-nums; margin-right:8px}
+
+/* summary cards */
+.takeaways{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-top:18px}
+.tk{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px}
+.tk h3{font-size:14px; font-weight:700; margin:0 0 6px}
+.tk p{font-size:13.5px; color:var(--ink2); margin:0}
+.tk .big{font-size:26px; font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums; line-height:1.1; display:block; margin-bottom:6px}
+
+/* score chart */
+.chart{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px 24px; margin-top:16px}
+.tier{margin-top:18px}
+.tier:first-child{margin-top:0}
+.tier-label{display:flex; align-items:baseline; gap:10px; margin-bottom:8px}
+.tier-label b{font-size:13.5px; font-weight:700}
+.tier-label span{font-size:12.5px; color:var(--ink3)}
+.bar-row{display:grid; grid-template-columns:120px 1fr 34px; align-items:center; gap:10px; padding:3px 4px; border-radius:6px; color:inherit}
+.bar-row:hover{background:var(--accent-soft); text-decoration:none}
+.bar-name{font-size:13.5px; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.bar-track{height:14px; position:relative}
+.bar-fill{position:absolute; inset:0 auto 0 0; background:var(--accent); border-radius:0 4px 4px 0}
+.bar-val{font-size:13px; font-variant-numeric:tabular-nums; color:var(--ink2); text-align:left}
+.axis-note{font-size:12px; color:var(--ink3); margin-top:14px}
+
+/* app cards */
+.cat-chip{display:inline-block; font-size:12px; font-weight:600; color:var(--ink2); background:var(--chip); border-radius:100px; padding:2px 10px; vertical-align:2px; margin-left:8px}
+.app{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px 24px; margin-top:16px; scroll-margin-top:24px}
+.app-head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px}
+.app h3{font-size:18px; font-weight:800; margin:0; letter-spacing:-.01em}
+.app h3 .en{font-weight:500; color:var(--ink3); font-size:14px; margin-left:6px}
+.app .meta{font-size:12.5px; color:var(--ink3); margin-top:3px}
+.score{flex:none; text-align:center; background:var(--accent-soft); border-radius:10px; padding:8px 14px; min-width:56px}
+.score b{display:block; font-size:22px; font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums; line-height:1.1}
+.score span{font-size:11px; color:var(--ink2)}
+.verdict{font-size:14px; color:var(--ink2); border-left:3px solid var(--accent); padding-left:12px; margin:14px 0 0}
+.facts{display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; margin:16px 0 0}
+@media (max-width:640px){.facts{grid-template-columns:1fr}}
+.facts dt{font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3); margin:0 0 3px}
+.facts dd{font-size:13.5px; margin:0; color:var(--ink)}
+.facts dd .src{font-size:12px; color:var(--ink3)}
+.ot{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px}
+@media (max-width:640px){.ot{grid-template-columns:1fr}}
+.ot h4{font-size:12.5px; font-weight:700; margin:0 0 6px}
+.opp h4{color:var(--opp)} .thr h4{color:var(--thr)}
+.ot ul{margin:0; padding-left:18px}
+.ot li{font-size:13.5px; margin-top:4px; color:var(--ink2)}
+.actions{margin-top:16px; background:var(--accent-soft); border-radius:8px; padding:12px 16px}
+.actions h4{font-size:12.5px; font-weight:700; color:var(--accent); margin:0 0 6px}
+.actions ol{margin:0; padding-left:18px}
+.actions li{font-size:13.5px; margin-top:4px}
+.sources{font-size:12px; color:var(--ink3); margin:14px 0 0; line-height:1.8}
+.sources a{color:var(--ink3); text-decoration:underline; text-decoration-color:var(--line); word-break:break-all}
+.sources a:hover{color:var(--accent)}
+
+/* strategy list */
+.strategy{counter-reset:st; margin-top:18px}
+.st{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin-top:10px; display:flex; gap:16px}
+.st::before{counter-increment:st; content:counter(st); flex:none; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center; margin-top:2px}
+.st h3{font-size:15px; font-weight:700; margin:0 0 4px}
+.st p{font-size:13.5px; color:var(--ink2); margin:0}
+.foot{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink3)}
+</style>
+
+<div class="wrap">
+
+<header class="report-head">
+  <p class="eyebrow">Portfolio Market Research</p>
+  <h1>앱 포트폴리오 시장성 분석</h1>
+  <p class="lede">보유 앱 20종을 6개 카테고리로 나눠 시장 규모·성장률·경쟁 구도·수익화 트렌드를 웹 조사로 검증하고, 1인 개발자 관점의 시장성 점수와 실행 제안을 정리한 보고서입니다.</p>
+  <div class="head-meta">
+    <span>기준일 <b>2026년 7월 5일</b></span>
+    <span>대상 <b>20개 앱 · 6개 카테고리</b></span>
+    <span>방법 <b>카테고리별 병렬 웹 리서치 (2025–2026 시장 데이터)</b></span>
+  </div>
+</header>
+
+<section id="summary">
+  <h2>요약</h2>
+  <p class="sec-sub">시장성 점수는 시장 규모·성장률·경쟁 강도·1인 개발자 실행 가능성을 종합한 10점 척도입니다. 포트폴리오 평균은 <b>5.6점</b>이며, 5개 앱이 최고 등급(7점)에 올랐습니다.</p>
+  <div class="takeaways">
+    <div class="tk"><span class="big">7점 × 5개</span><h3>집중 투자 후보</h3><p>달빛(구 릴렉스 온) · 리바운드 저널 · 클립키보드 · 바미로그 · 리뷰 매니저. 성숙한 제품이거나, 검증된 니치 공백을 정확히 겨냥하고 있습니다.</p></div>
+    <div class="tk"><span class="big">12 / 20</span><h3>수익화 이미 장착</h3><p>스토어 페이지의 인앱결제 정보까지 수집한 결과(2026-07-05), 유료 6개(오늘의 주접 ₩3,300, 인생 맛집·꿈을 찾아서·일정 비서 ₩4,400, 확률계산기 $1.99, Pixel MeMe ₩6,600+구독)에 더해 무료+인앱 6개(달빛 월 ₩1,100 구독, 클립키보드 Pro ₩17,000, 쿨타임 평생 ₩9,900, 클로즈드·두번알림·골드위크 Pro 각 ₩7,700)가 확인됐습니다. 출시 중인 완전 무료 앱은 세끼·욕망의 무지개·라포 맵·리바운드 저널 4개뿐입니다.</p></div>
+    <div class="tk"><span class="big">니치 우선</span><h3>반복된 승리 공식</h3><p>범용 포지셔닝은 Calm·Canva·TimeTree 같은 거인과의 정면 승부입니다. 모든 카테고리에서 "페르소나 1개로 좁혀라"가 공통 권고였습니다.</p></div>
+  </div>
+</section>
+
+<section id="scores">
+  <h2>시장성 점수 순위</h2>
+  <p class="sec-sub">막대에 마우스를 올리면 강조되고, 클릭하면 해당 앱의 상세 분석으로 이동합니다.</p>
+  <div class="chart">
+    <div class="tier">
+      <div class="tier-label"><b>집중 투자</b><span>7점 — 지금 리소스를 더 배분할 앱</span></div>
+      <a class="bar-row" href="#relax-on" title="v4.x까지 운영된 성숙 앱 + 슬리포노믹스 순풍"><span class="bar-name">달빛</span><span class="bar-track"><span class="bar-fill" style="width:70%"></span></span><span class="bar-val">7</span></a>
+      <a class="bar-row" href="#rebound-journal" title="포지셔닝이 가장 명확하고 니치 방어력이 높음"><span class="bar-name">리바운드 저널</span><span class="bar-track"><span class="bar-fill" style="width:70%"></span></span><span class="bar-val">7</span></a>
+      <a class="bar-row" href="#clip-keyboard" title="TextExpander 구독 이탈 수요라는 명확한 공백"><span class="bar-name">클립키보드</span><span class="bar-track"><span class="bar-fill" style="width:70%"></span></span><span class="bar-val">7</span></a>
+      <a class="bar-row" href="#bami-log" title="고성장 시장 + Anki UX 약점이라는 명확한 틈새"><span class="bar-name">바미로그</span><span class="bar-track"><span class="bar-fill" style="width:70%"></span></span><span class="bar-val">7</span></a>
+      <a class="bar-row" href="#review-manager" title="인디용 저가 네이티브 툴 공백이 실재, B2B 지불 의사"><span class="bar-name">리뷰 매니저</span><span class="bar-track"><span class="bar-fill" style="width:70%"></span></span><span class="bar-val">7</span></a>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><b>성장 후보</b><span>6점 — 니치를 좁히면 상방이 열리는 앱</span></div>
+      <a class="bar-row" href="#three-meals" title="가장 큰 시장이지만 경쟁도 가장 치열"><span class="bar-name">세끼</span><span class="bar-track"><span class="bar-fill" style="width:60%"></span></span><span class="bar-val">6</span></a>
+      <a class="bar-row" href="#daily-compliment" title="한국형 유머 차별화, 규모 상한은 낮음"><span class="bar-name">오늘의 주접</span><span class="bar-track"><span class="bar-fill" style="width:60%"></span></span><span class="bar-val">6</span></a>
+      <a class="bar-row" href="#schedule-assistant" title="최고 성장률, 최고 경쟁 강도 — 고위험·고성장"><span class="bar-name">일정 비서</span><span class="bar-track"><span class="bar-fill" style="width:60%"></span></span><span class="bar-val">6</span></a>
+      <a class="bar-row" href="#shared-day-designer" title="휴가 버티컬은 거인들이 비워둔 포지션"><span class="bar-name">골드위크</span><span class="bar-track"><span class="bar-fill" style="width:60%"></span></span><span class="bar-val">6</span></a>
+      <a class="bar-row" href="#bucket-climb" title="카테고리 성장률 최고, 저빈도 사용이 약점"><span class="bar-name">꿈을 찾아서</span><span class="bar-track"><span class="bar-fill" style="width:60%"></span></span><span class="bar-val">6</span></a>
+      <a class="bar-row" href="#rapport-map" title="지불 의사 검증된 시장, 연동 기능 격차가 과제"><span class="bar-name">라포 맵</span><span class="bar-track"><span class="bar-fill" style="width:60%"></span></span><span class="bar-val">6</span></a>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><b>니치 유지</b><span>5점 — 작지만 방어 가능한 시장</span></div>
+      <a class="bar-row" href="#cooltime" title="작은 시장이지만 일회성 구매로 안정 수익 가능"><span class="bar-name">쿨타임</span><span class="bar-track"><span class="bar-fill" style="width:50%"></span></span><span class="bar-val">5</span></a>
+      <a class="bar-row" href="#double-reminder" title="Due 선점 + 무료 기본 앱 사이에 낀 포지션"><span class="bar-name">두번알림</span><span class="bar-track"><span class="bar-fill" style="width:50%"></span></span><span class="bar-val">5</span></a>
+      <a class="bar-row" href="#rainbow-of-desire" title="색 기반 UX는 글로벌 확장성이 높지만 하루콩이 선점"><span class="bar-name">욕망의 무지개</span><span class="bar-track"><span class="bar-fill" style="width:50%"></span></span><span class="bar-val">5</span></a>
+      <a class="bar-row" href="#donkko-mart" title="틈새 시장이나 경쟁 강도가 낮고 차별점 보유"><span class="bar-name">클로즈드</span><span class="bar-track"><span class="bar-fill" style="width:50%"></span></span><span class="bar-val">5</span></a>
+      <a class="bar-row" href="#pixel-mimi" title="수요는 견조하나 무료 커뮤니티 양강 구도"><span class="bar-name">픽셀 미미</span><span class="bar-track"><span class="bar-fill" style="width:50%"></span></span><span class="bar-val">5</span></a>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><b>재포지셔닝 검토</b><span>4점 — 현재 포지션으로는 상한이 낮은 앱</span></div>
+      <a class="bar-row" href="#probability-calculator" title="무료 대체재 과다, 게이머 니치로 피벗 여지"><span class="bar-name">확률계산기</span><span class="bar-track"><span class="bar-fill" style="width:40%"></span></span><span class="bar-val">4</span></a>
+      <a class="bar-row" href="#life-restaurant" title="네이버 지도라는 무료 대체재 — 개인 기록으로 좁혀야 생존"><span class="bar-name">인생 맛집</span><span class="bar-track"><span class="bar-fill" style="width:40%"></span></span><span class="bar-val">4</span></a>
+      <a class="bar-row" href="#quiz" title="가장 작은 시장, 광고 수익화는 대규모 트래픽 전제"><span class="bar-name">퀴즈</span><span class="bar-track"><span class="bar-fill" style="width:40%"></span></span><span class="bar-val">4</span></a>
+      <a class="bar-row" href="#ecdesigner" title="Canva 무료 티어가 시장 표준 — 디지털 명함 전환 필요"><span class="bar-name">ecDesigner</span><span class="bar-track"><span class="bar-fill" style="width:40%"></span></span><span class="bar-val">4</span></a>
+    </div>
+    <p class="axis-note">척도: 0–10점. 시장 규모 · 성장률 · 경쟁 강도 · 1인 개발자 실행 가능성 종합.</p>
+  </div>
+</section>
+
+<section id="health">
+  <h2><span class="num">1</span>건강 · 웰빙</h2>
+  <p class="sec-sub">눈 건강, 식단 기록, 수면 — 셋 다 성장 시장이지만 경쟁 구도가 극단적으로 다릅니다. 달빛(구 릴렉스 온)은 이미 갖춘 자산으로 즉시 수익화가 가능한 반면, 세끼는 AI 사진 인식이 사실상 입장권이 된 레드오션입니다.</p>
+
+  <article class="app" id="relax-on">
+    <header class="app-head">
+      <div><h3>달빛 <span class="en">Dalbit · 구 Relax On</span></h3><div class="meta">v4.0.1 (2026-06-26 출시, 평점 5.0) · 무료 + 월 구독 ₩1,100 · 수면 / 백색소음 / 자연 소리 · 2026년 6월 '달빛'으로 리브랜딩</div></div>
+      <div class="score"><b>7</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">시장 규모·성장률이 높고 한국 슬리포노믹스 순풍이 있으며, v4.x까지 운영해온 성숙 앱이라 실행 리스크가 가장 낮습니다. 2026년 6월 '달빛' 리브랜딩(달 홈/우주 테마 + 구체 인터랙션 개편)으로 브랜드 정체성까지 갖춰, 백색소음 니치에서 로컬 콘텐츠와 저가 구독으로 대형 앱과 공존이 가능합니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>글로벌 수면 앱 시장 2025년 약 46억 달러, 백색소음 세그먼트만 12억 달러. 한국 수면 산업(슬리포노믹스)은 3조 원 규모로 10년간 6배 성장.</dd></div>
+      <div><dt>성장률</dt><dd>수면 앱 CAGR 14~21%. 성인 65% 이상이 수면 문제를 호소해 수요 기반이 구조적으로 확대 중.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Calm(수면 전용 앱을 $69.99/년에 별도 출시), BetterSleep($59.99/년, 방대한 콘텐츠), Sleep Cycle, Headspace.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>연 $60~80 구독이 표준. 무료 티어 + 콘텐츠 잠금 → 구독 전환. 백색소음 단독 앱은 광고+저가 구독 병행도 흔함.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>v4.x까지 쌓은 사용자·리뷰 자산 — 구독 도입 시 즉시 수익화 가능</li><li>한국어 수면 콘텐츠(ASMR, 수면 스토리)는 글로벌 앱이 약한 영역</li><li>백색소음은 콘텐츠 원가가 낮아 1인 개발자 마진 구조가 좋음</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>Calm 등 대형 브랜드의 수면 시장 집중 투자</li><li>Apple·삼성 웨어러블 기본 수면 기능의 상향 평준화</li><li>단순 사운드 앱은 이탈률이 높아 LTV 확보가 어려움</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>✓ 저가 구독은 이미 실행됨(월 ₩1,100 — 조사 권고보다도 공격적인 저가) — 연간 플랜 추가와 수면 타이머·알람 연동으로 전환 퍼널을 보강할 것</li><li>한국어 특화 콘텐츠(사찰·계곡 현장 녹음, 한국어 수면 명상)로 'K-수면 사운드' 국내 키워드 선점</li></ol></div>
+    <p class="sources">출처: <a href="https://www.thebusinessresearchcompany.com/report/sleep-monitoring-apps-global-market-report">The Business Research Company</a> · <a href="https://www.businessresearchinsights.com/market-reports/sleep-apps-and-sleep-tracking-apps-market-125301">Business Research Insights</a> · <a href="https://techcrunch.com/2025/09/16/calm-launches-standalone-ios-app-for-sleep-support/">TechCrunch — Calm Sleep</a> · <a href="https://www.eroun.net/news/articleView.html?idxno=42255">이로운넷 — 슬리포노믹스</a></p>
+  </article>
+
+  <article class="app" id="three-meals">
+    <header class="app-head">
+      <div><h3>세끼 <span class="en">Three Meals</span></h3><div class="meta">v1.0.3 · 식단 기록 / 다이어트</div></div>
+      <div class="score"><b>6</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">건강/웰빙 3개 앱 중 시장이 가장 크고 성장률도 높지만 경쟁 강도 역시 최고입니다. 한식 특화 + AI 사진 기록 니치를 잡으면 유의미한 구독 매출이 가능하지만, 차별화에 실패하면 매몰될 위험이 큽니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>글로벌 다이어트·영양 앱 시장 2025년 약 58~61억 달러, 2030년 최대 100억 달러 전망. 한국은 인아웃(140만 다운로드)·밀리그램이 활발한 검증된 시장.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 12~16.6%. AI 사진 인식 식단 기록이 최대 트렌드 — Cal AI는 18개월 만에 ARR 5,000만 달러 후 MyFitnessPal에 인수.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>인아웃(소셜 동기부여), 밀리그램(AI 코치 통합 기록), MyFitnessPal/Cal AI($79.99/년, 사진 칼로리 분석), YAZIO·Noom.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>프리미엄 구독 표준(글로벌 연 $60~100, 한국 월 5,000~15,000원). 무료 + AI 스캔 횟수 제한 → 구독 전환 퍼널이 주류.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>한식 DB·한국어 UX에 민감한 한국 사용자 — 로컬 앱의 방어력 존재</li><li>AI 사진 기록은 소규모 팀도 API 조합으로 구현 가능 (Cal AI가 증명)</li><li>'하루 세 끼 습관'이라는 비(非)칼로리강박 니치 포지셔닝 가능</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>자금력 있는 로컬 강자 + Cal AI를 흡수한 MyFitnessPal의 협공</li><li>AI 식단 인식이 기본 기대치가 됨 — 미탑재 시 선택받기 어려움</li><li>AI API 비용이 무료 사용자 규모에 비례해 증가하는 원가 구조</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>Vision LLM 기반 '사진 한 장 한식 인식'을 최우선 로드맵으로 — 무료 월 10회 + 월 4,900~6,900원 구독 페이월</li><li>직장인 점심 기록, 간헐적 단식 결합 등 대형 앱이 안 다루는 니치 1개에 ASO·온보딩 집중</li></ol></div>
+    <p class="sources">출처: <a href="https://www.grandviewresearch.com/industry-analysis/diet-nutrition-apps-market-report">Grand View Research</a> · <a href="https://www.mordorintelligence.com/industry-reports/diet-and-nutrition-apps-market">Mordor Intelligence</a> · <a href="https://www.cnbc.com/2025/09/06/cal-ai-how-a-teenage-ceo-built-a-fast-growing-calorie-tracking-app.html">CNBC — Cal AI</a></p>
+  </article>
+
+  <article class="app" id="cooltime">
+    <header class="app-head">
+      <div><h3>쿨타임 <span class="en">Cooltime</span></h3><div class="meta">v1.0.2 (2026-06-24 출시) · 무료 + 인앱 '평생구매' ₩9,900 · 눈 건강 휴식 알림 (20-20-20)</div></div>
+      <div class="score"><b>5</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">시장 절대 규모가 작고 무료 대체재가 많지만 경쟁 강도가 낮아, 일회성 구매 모델로 월 수백~수천 달러의 안정 수익을 만들기에는 적합한 카테고리입니다. 성장 상한이 낮아 5점입니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>눈 보호 소프트웨어 시장 2025년 약 2.5억 달러 → 2033년 8억 달러 전망. 니치지만 디지털 눈 피로 인구는 화면 노동자 대부분.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 약 15%. 재택근무·장시간 화면 사용 확산이 성장 동력.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>LookAway(macOS $14.99 일회성, 인디 성공 사례), Eye Care 20 20 20(무료), Pause, 무료 웹 타이머들.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>이 카테고리는 구독보다 일회성 구매($10~20)가 주류. Setapp 번들 입점도 유효한 채널.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>경쟁 앱 대부분이 영어권·macOS 중심 — 한국어 + iOS UX 차별화 여지</li><li>1인 개발자 유료화가 검증된 카테고리 (LookAway 사례)</li><li>개발자·직장인 커뮤니티 대상 저비용 마케팅이 잘 통하는 제품</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>대박보다는 소규모 안정 수익 구조 — 시장 상한이 낮음</li><li>OS 집중 모드·무료 오픈소스로 충분하다고 느끼는 사용자 다수</li><li>무료 v1.0에서 유료 전환 시 기존 사용자 반발 가능</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>✓ 일회성 Pro는 이미 실행됨(평생구매 ₩9,900) — 다음 단계로 '회의/영상 중 자동 일시정지' 같은 스마트 기능 1개를 킬러로 추가해 전환율을 높일 것</li><li>macOS 메뉴바 앱으로 확장 후 Setapp 입점 신청 — 데스크톱이 결제 전환율이 더 높음</li></ol></div>
+    <p class="sources">출처: <a href="https://www.datainsightsmarket.com/reports/eye-protection-software-1943336">Data Insights Market</a> · <a href="https://lookaway.com/">LookAway</a> · <a href="https://blog.apps.deals/2025-04-23-pause-vs-lookaway-break-apps">Pause vs LookAway</a></p>
+  </article>
+</section>
+
+<section id="mental">
+  <h2><span class="num">2</span>정신건강 · 감정</h2>
+  <p class="sec-sub">정신건강 앱 시장은 CAGR 15%+로 조사한 카테고리 중 가장 빠르게 크고 있고, 한국은 "정신건강 문제를 겪은 사람의 73%가 병원에 가지 않는" 구조라 셀프케어 도구 수요층이 두텁습니다. 관건은 하루콩·Finch 같은 선점자와의 각도 차별화입니다.</p>
+
+  <article class="app" id="rebound-journal">
+    <header class="app-head">
+      <div><h3>리바운드 저널 <span class="en">Rebound Journal</span></h3><div class="meta">v1.0.10 · 회복 저널 (번아웃 / 우울 / 트라우마)</div></div>
+      <div class="score"><b>7</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">정신건강 3개 앱 중 포지셔닝이 가장 명확하고 니치 방어력이 높습니다. 유사 사례(Finch: 월 100만 달러 매출)가 수요를 입증했고, 한국의 '병원 안 가는 73%'가 정확히 타겟과 겹칩니다. 민감 주제의 윤리 리스크가 감점 요인입니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>정신건강 앱 2025년 약 75~96억 달러, 디지털 저널 앱 약 57~65억 달러. 회복 특화 저널은 두 시장의 교집합 니치.</dd></div>
+      <div><dt>성장률</dt><dd>정신건강 앱 CAGR 14.7~19.2%. 북미 저널 앱의 최대 트렌드가 '웰빙 지향 저널로의 이동'이라 니치 방향성 자체가 순풍.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Finch(펫 게이미피케이션, 월 $1M 매출), Rosebud(AI 트라우마 저널링), Day One(범용 프리미엄 저널), Liven.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>구독 표준 월 $12.99 / 연 $38.42. 회복이라는 장기 여정 특성상 연구독 적합. '핵심 무료 + 꾸미기 유료'(Finch)도 검증됨.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'추락→기록→회복 증거 축적' 서사는 범용 저널이 제공 못 하는 명확한 포지셔닝</li><li>이 카테고리는 기능보다 톤·안전감·문구 디테일이 승부처 — 1인 개발자가 유리</li><li>번아웃 회복은 한국 직장인 시장에서 검색·지불 의사가 높은 세그먼트</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>의료기기 오인·위기 상황 대응 책임 등 윤리·법적 리스크가 가장 큼</li><li>Finch·Rosebud가 게이미피케이션·AI로 감정적 몰입을 선점</li><li>회복 후 '졸업'하면 이탈하는 구조라 LTV 상한 존재</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>'회복 마일스톤 리포트'(30일/90일 회고)를 연구독(연 29,000~39,000원) 핵심 상품으로 설계</li><li>블라인드·브런치 등 번아웃 키워드 콘텐츠 마케팅 집중 + 자살예방상담전화(109) 연결과 비의료 고지 즉시 추가</li></ol></div>
+    <p class="sources">출처: <a href="https://www.precedenceresearch.com/mental-health-apps-market">Precedence Research</a> · <a href="https://medium.com/@jashsak/the-12m-mental-health-app-that-broke-every-silicon-valley-rule-bd9d06e725f8">Finch 사례 분석</a> · <a href="https://www.futuremarketinsights.com/reports/digital-journal-apps-market">Future Market Insights</a></p>
+  </article>
+
+  <article class="app" id="daily-compliment">
+    <header class="app-head">
+      <div><h3>오늘의 주접 <span class="en">Daily Compliment</span></h3><div class="meta">v1.0.3 · 매일 칭찬 / 자기긍정</div></div>
+      <div class="score"><b>6</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">성장률 15%+에 검증된 수익 모델('I am' 단독 월 60만 달러)이 존재하고 '주접'이라는 한국형 유머 차별화가 명확하지만, 진입장벽이 낮아 경쟁이 극심하고 글로벌 확장 시 유머 코드 번역이 어렵습니다. 한국 니치에서는 승산이 있습니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>정신건강 앱 시장 2025년 75~96억 달러. 어퍼메이션 앱은 성장세 뚜렷한 하위 카테고리 — 선두 'I am'이 월 40만 다운로드.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 14.7~19.2%. 아시아는 스마트폰 의존도가 높아 수용성이 더 빠르게 성장.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>I am(월 $14.99/연 $35.99/평생 $99.99, 위젯·알림 UX 강점), Innertune, ThinkUp, Motivation.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>구독 중심. App Store 전체에서 주간 구독이 매출의 55.5% — 소액 주간 플랜 + 평생권 병행이 유리.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'웃긴 칭찬'이라는 니치는 영어권 어퍼메이션 앱이 복제 불가</li><li>위젯·잠금화면·알림만 잘 써도 'I am'류 핵심 가치를 저비용 재현 가능</li><li>콘텐츠 기반이라 유지보수 부담이 작고 LLM으로 문구 확장 용이</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>자본력 있는 선두 앱이 한국어 로컬라이즈하면 방어 어려움</li><li>2025년 신규 구독 앱의 57.7%가 총매출 $1,000 미달 — 유료 전환이 어려운 환경</li><li>콘텐츠 소진 시 리텐션 급락 (매일 새 문구 공급 필요)</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>잠금화면 위젯 + 하루 3회 '주접 알림'을 무료 루프로, 카테고리 팩(아이돌 팬용·수험생용·직장인용)을 연 29,000원 안팎 구독 + 평생권으로 상품화</li><li>인스타/틱톡 공유용 '주접 카드' 이미지 생성 기능으로 바이럴 채널 확보</li></ol></div>
+    <p class="sources">출처: <a href="https://www.precedenceresearch.com/mental-health-apps-market">Precedence Research</a> · <a href="https://app.sensortower.com/overview/874656917?country=US">Sensor Tower — I am</a> · <a href="https://www.revenuecat.com/state-of-subscription-apps-2025/">RevenueCat 2025</a></p>
+  </article>
+
+  <article class="app" id="rainbow-of-desire">
+    <header class="app-head">
+      <div><h3>욕망의 무지개 <span class="en">Rainbow of Desire</span></h3><div class="meta">v1.0.3 (2026-06-24 출시) · 색깔 감정 일기</div></div>
+      <div class="score"><b>5</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">카테고리 성장성은 좋고 한국 팀의 글로벌 성공 선례(하루콩 1,000만 다운로드)도 있지만, 바로 그 선례가 최대 경쟁자입니다. 색 기반 UX는 언어 장벽이 없어 3개 앱 중 글로벌 확장 잠재력은 가장 높습니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>디지털 저널 앱 2025년 약 57~65억 달러. 한국은 감정일기 강세 — 하루콩이 해외 비중 80%+로 1,000만 다운로드.</dd></div>
+      <div><dt>성장률</dt><dd>저널 앱 CAGR 9.6~11.5%, 정신건강 앱 전체 약 18.3%.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>하루콩/DailyBean(캐릭터 기록, 21억 원 투자), Daylio(750만+ 다운로드), How We Feel(예일대, 완전 무료), 무디.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>프리미엄 구독 표준이나 무료 대안 품질이 높아 지불장벽이 낮게 형성 — 저가 연구독 또는 일회성 프리미엄이 현실적.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'색 그라데이션 연간 차트' 같은 공유 가능한 비주얼 산출물로 차별화</li><li>색 기록은 언어 장벽이 없어 로컬라이즈 비용이 거의 0</li><li>'욕망(원하는 것) 기록' 프레임은 기존 무드트래커가 안 다루는 각도</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>하루콩이라는 압도적 로컬 강자 + 무료 고품질 대안(How We Feel)</li><li>무드트래커는 전환·리텐션을 만들기 가장 어려운 카테고리 중 하나</li><li>감정 데이터 프라이버시 규제 리스크</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>영어·일본어 스토어 페이지를 즉시 열고 '1년을 한 장의 무지개로' 연간 리포트 공유 기능으로 SNS 바이럴 루프 구축</li><li>감정일기 정면 대결을 피해 자기이해·버킷리스트 쪽 ASO 키워드로 확장</li></ol></div>
+    <p class="sources">출처: <a href="https://www.futuremarketinsights.com/reports/digital-journal-apps-market">Future Market Insights</a> · <a href="https://www.unicornfactory.co.kr/article/2025031816445236729">유니콘팩토리 — 하루콩</a> · <a href="https://moodgrade.com/en/blog/best-mood-tracking-apps-2026">Best Mood Tracking Apps 2026</a></p>
+  </article>
+</section>
+
+<section id="productivity">
+  <h2><span class="num">3</span>생산성 · 유틸리티</h2>
+  <p class="sec-sub">클립키보드는 "TextExpander 구독 피로" 이탈 수요라는 공백을 노릴 수 있는 성숙 자산이고, 일정비서는 시장이 폭발적으로 크지만 자본 격차가 압도적인 고위험·고성장 베팅입니다.</p>
+
+  <article class="app" id="clip-keyboard">
+    <header class="app-head">
+      <div><h3>클립키보드 <span class="en">Clip Keyboard</span></h3><div class="meta">v4.3.4 (2026-06-21 출시, 평점 4.7) · 무료 + 인앱 '클립키보드 Pro' ₩17,000 · 원탭 텍스트 입력 키보드</div></div>
+      <div class="score"><b>7</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">시장 성장률이 견조하고(8%+), TextExpander의 구독 전환 반발 이후 '저가/일회성 대안' 공백이 뚜렷하며, v3.x까지 검증된 성숙 제품입니다. 커스텀 키보드 온보딩 마찰과 OS 제약이 상한선입니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>글로벌 가상 키보드 시장 2025년 약 31.9억 달러. 텍스트 확장 도구는 그 하위 니치.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 8.5~11.8% (2025~2035).</dd></div>
+      <div><dt>주요 경쟁</dt><dd>TextExpander(팀 협업, 구독 전환 후 이탈자 다수), Text Blaze(동적 템플릿), OneTap(가장 유사한 iOS 키보드 방식), PhraseExpress.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>'일회성 구매 또는 저가 구독' 대안 수요가 뚜렷. 무료 + 프리미엄(스니펫 무제한, iCloud 동기화, 팀 공유)이 주류.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>TextExpander 구독료 불만 사용자를 겨냥한 저가 포지셔닝 공백</li><li>고객응대·CS 직군 타겟 마케팅으로 니치 선점 가능 (경쟁 앱은 범용 포지셔닝)</li><li>포트폴리오 내 가장 방어력 있는 성숙 자산</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>iOS 기본 텍스트 대체 기능 + 키보드 풀 액세스 권한에 대한 사용자 불신</li><li>자금력 있는 경쟁사(Text Blaze)의 iOS 진출</li><li>키보드 변경 UX의 전환 마찰로 온보딩 이탈 높음</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>'TextExpander 대안' / 'CS 상담원용 키보드' 키워드로 ASO·블로그 콘텐츠를 만들어 직군별 랜딩 확보</li><li>일회성 구매 또는 연 1만원 이하 구독으로 'TextExpander의 1/4 가격' 포지셔닝 명시</li></ol></div>
+    <p class="sources">출처: <a href="https://www.marketresearchfuture.com/reports/virtual-keyboard-market-34329">Market Research Future</a> · <a href="https://alternativeto.net/software/textexpander/">AlternativeTo — TextExpander</a> · <a href="https://siit.co/blog/10-best-textexpander-alternatives-for-productivity-in-2025/29503">TextExpander 대안 2025</a></p>
+  </article>
+
+  <article class="app" id="schedule-assistant">
+    <header class="app-head">
+      <div><h3>일정 비서 <span class="en">Schedule Assistant</span></h3><div class="meta">v1.0.3 (2026-06-17 출시, ₩4,400 유료) · AI 일정 관리</div></div>
+      <div class="score"><b>6</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">성장률·시장 규모는 생산성 4개 앱 중 최고지만 경쟁 강도와 자본 격차도 최고입니다. '한국어 + 경량 + 저가' 니치 전제 하에서만 승산이 있는, 상방과 하방이 모두 큰 베팅입니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>AI 스케줄링 어시스턴트 시장 2024년 약 45억 달러 → 2027년 125억 달러 이상 전망.</dd></div>
+      <div><dt>성장률</dt><dd>AI 스케줄링 부문 연 40%대 고성장. 조사한 전체 카테고리 중 최고 성장률.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Motion(시리즈C $60M, 월 $29 고가), Reclaim.ai(Dropbox 인수, 무료 티어), Clockwise, Calendly.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>월 $15~30 구독 표준(LLM 비용 전가). 개인용은 무료 티어 + AI 기능 구독 게이트가 지배적.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>Motion·Reclaim은 고가·영어·팀 중심 — '개인용 경량 AI 비서, 월 5천원 이하, 한국어 완벽 지원' 공백이 실존</li><li>시장 자체가 폭발적으로 크는 중이라 니치만 잡아도 절대 규모가 커짐</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>압도적 자본 격차 — 기능 경쟁 소모전 위험</li><li>Apple Intelligence·Gemini의 OS 레벨 일정 AI 탑재 시 존재 이유 약화</li><li>LLM API 비용이 1인 개발자 마진을 직접 잠식, 제품 검증도 아직 전</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>범용 AI 비서를 버리고 1개 페르소나(프리랜서/자영업자 예약·일정)로 좁혀 v1.x에서 리텐션부터 검증</li><li>LLM 호출을 온디바이스·캐싱으로 최소화해 월 4,900원 구독에도 마진이 남는 원가 구조 설계</li></ol></div>
+    <p class="sources">출처: <a href="https://www.fortunebusinessinsights.com/appointment-scheduling-software-market-108614">Fortune Business Insights</a> · <a href="https://reclaim.ai/blog/motion-vs-reclaim">Reclaim vs Motion</a> · <a href="https://www.agentrank.tech/blog/motion-review-ai-scheduling-tool">Motion 리뷰</a></p>
+  </article>
+
+  <article class="app" id="double-reminder">
+    <header class="app-head">
+      <div><h3>두번알림 <span class="en">Double Reminder</span></h3><div class="meta">v2.0.2 (2026-05-07 출시) · 무료 + 인앱 '두번알림 pro' ₩7,700 · 이중 리마인더</div></div>
+      <div class="score"><b>5</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">'끈질긴 알림' 수요는 Due의 성공이 증명한 검증된 컨셉이지만, 바로 그 Due가 15년간 니치를 선점했고 Apple 미리 알림이 캐주얼 수요를 흡수 중입니다. '두 번'만으로는 차별화가 약해 한국어권 니치 이상 확장이 어렵습니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>투두리스트/리마인더 앱 시장 2025년 약 14.3억 달러 → 2035년 36.6억 달러 전망.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 9.5% (iOS 세그먼트 10.1%).</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Due(Auto Snooze 절대 강자, 일회성 + 연 $4.99 업그레이드 패스), Apple 미리 알림(무료), Todoist/TickTick.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>일회성 구매(Due 모델)가 유효하며 '일회성 + 저가 연간 업그레이드 패스' 하이브리드가 트렌드. 구독 전용은 저항이 큼.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'끈질긴 알림' 컨셉 자체는 검증됨 (Due의 성공)</li><li>Due는 영어권 중심·구형 UI — 한국어권 + 현대적 UI로 로컬 니치 공략 가능</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>Due의 15년 선점과 브랜드 인지도 격차</li><li>Apple 미리 알림의 무료 기능 확장</li><li>단일 기능 앱 특성상 차별화 소진 시 성장 정체</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>Due가 못 하는 것(사전 알림 + 직전 알림 자동 세트, 가족·팀에게 대신 알림)으로 컨셉을 한 단계 구체화</li><li>한국 앱스토어 '알림'·'깜빡' 키워드 ASO 집중 후 일회성 3,300~5,500원 유료 전환 실험</li></ol></div>
+    <p class="sources">출처: <a href="https://www.businessresearchinsights.com/market-reports/to-do-list-apps-market-117863">Business Research Insights</a> · <a href="https://www.dueapp.com/">Due</a> · <a href="https://toolfinder.com/best/reminder-apps">Toolfinder — 리마인더 앱</a></p>
+  </article>
+
+  <article class="app" id="probability-calculator">
+    <header class="app-head">
+      <div><h3>확률계산기 <span class="en">Probability Calculator</span></h3><div class="meta">v1.0.1 (2026-02-06 출시, $1.99 유료 · 미국 스토어만 판매 중) · 확률 시각화 계산기</div></div>
+      <div class="score"><b>4</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">교육 앱 시장 전체는 크지만 확률 계산기 니치는 무료 웹 계산기와 ChatGPT가 수요를 흡수해 지불 의사가 극히 낮고 사용도 일회성입니다. 가챠·강화 확률 시뮬레이터라는 게이머 니치로의 피벗이 유일한 상방입니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>교육 앱 시장 2025년 매출 약 64억 달러, 사용자 약 8억 명. 확률 계산기는 그중 소형 니치.</dd></div>
+      <div><dt>성장률</dt><dd>교육 앱 CAGR 약 21% 전망이나, 2025년 한 해 신규 교육 앱 10.3만 개 출시로 공급 과잉.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Stats &amp; Probability Calculator(140개+ 계산기), IntroStat(대학생층), 무료 웹 계산기 다수.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>광고 + 소액 일회성 구매(광고 제거, Pro). 구독은 시험 시즌성 때문에 부적합.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'시각화'는 기존 계산기 앱들의 공통 약점</li><li>게이머 타겟(가챠·강화 확률)은 경쟁이 거의 없는 미개척 니치이며 한국 게이머 정서와 부합</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>무료 웹 계산기·ChatGPT가 지불 의사 자체를 무너뜨림</li><li>시험 기간에만 쓰는 계절성·일회성 사용 패턴</li><li>성공해도 매출 상한이 낮음</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>'가챠·강화 확률 시뮬레이터'로 피벗(또는 별도 모드)해 게이머 커뮤니티에서 바이럴 검증</li><li>광고 + 3,300원 일회성 광고 제거로 수익화하되, 개발 리소스는 최소 유지 모드로 상위 점수 앱에 재배분</li></ol></div>
+    <p class="sources">출처: <a href="https://www.businessofapps.com/data/education-app-market/">Business of Apps</a> · <a href="https://www.educationalappstore.com/blog/education-app-market">Educational App Store</a></p>
+  </article>
+</section>
+
+<section id="lifestyle">
+  <h2><span class="num">4</span>라이프스타일</h2>
+  <p class="sec-sub">이 카테고리의 공통 교훈은 "거인이 안 하는 버티컬만 살아남는다"입니다. 휴가 플래너의 '연차 시나리오', 돈꼬마트의 '마트별 관리'는 유효한 쐐기지만, 인생 맛집은 네이버 지도라는 무료 대체재와 정면으로 겹칩니다.</p>
+
+  <article class="app" id="shared-day-designer">
+    <header class="app-head">
+      <div><h3>골드위크 <span class="en">Goldweek · 구 휴가 플래너</span></h3><div class="meta">v2.0.7 (2026-06-20 출시) · 무료 + 인앱 'pro' ₩7,700 · 2026년 6월 '골드위크 - 황금연휴 플래너'로 리브랜딩</div></div>
+      <div class="score"><b>6</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">시장 규모와 성장률(CAGR 9~11%)이 라이프스타일 4개 앱 중 가장 안정적이고, '휴가 계획' 버티컬은 TimeTree·구글이 직접 다루지 않는 시나리오입니다. <b>스토어 동기화 결과 이미 '연차 관리 + 황금연휴 조합' 버티컬로 리브랜딩을 마쳐, 이 조사가 권고한 방향과 정확히 일치하는 포지션을 선점했습니다.</b> 범용 공유 캘린더로 되돌아가지 않는 것이 유지 조건입니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>글로벌 캘린더 앱 시장 2025년 집계 기준별 24.8억~146억 달러. TimeTree는 글로벌 7,000만 사용자로 한국·일본 강세.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 9~10.8% (2034년까지). 가족 단위 일정 조율 앱은 '필수재화'되는 추세.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>TimeTree(그룹 채팅+캘린더), Google 캘린더, 네이버 캘린더, Cozi(북미 가족 오거나이저).</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>무료+광고 → 프리미엄 구독(광고 제거, 첨부파일 등). TimeTree가 검증한 표준 모델. 가족·커플 앱은 연 구독 전환율이 양호.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'휴가/연차' 특화는 범용 캘린더가 비워둔 포지션 — 남은 연차 계산, 징검다리 연휴 추천</li><li>한국 직장인의 연차 촉진 문화·황금연휴 계산 수요는 로컬 특화 기회</li><li>B2B 연차관리와 개인용 사이의 공백 존재</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>TimeTree·구글·네이버의 압도적 기본 앱 지위</li><li>캘린더는 전환 비용이 높아 신규 유입이 어려움</li><li>OS 기본 캘린더의 지속적 기능 흡수</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>'연차 계산기 + 황금연휴 추천 + 가족 휴가 투표' 등 휴가 시나리오 기능을 심화해 차별화 고정</li><li>공휴일 발표 시즌(연말·연초)에 '내년 연차 계획 짜기' 콘텐츠 마케팅으로 시즌성 유입 확보</li></ol></div>
+    <p class="sources">출처: <a href="https://dataintelo.com/report/calendar-applications-market">Dataintelo</a> · <a href="https://timetreeapp.com/intl/en">TimeTree</a> · <a href="https://www.sphericalinsights.com/blogs/top-25-companies-in-global-calendar-and-scheduling-software-market-statistics-report-till-2035">Spherical Insights</a></p>
+  </article>
+
+  <article class="app" id="bucket-climb">
+    <header class="app-head">
+      <div><h3>꿈을 찾아서 <span class="en">Bucket Climb</span></h3><div class="meta">v1.0 · 버킷리스트 시각화</div></div>
+      <div class="score"><b>6</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">습관/목표관리 카테고리 성장률(CAGR 14~15%)이 라이프스타일 중 최고이고 한국 '갓생' 트렌드와 부합하지만, 버킷리스트 특성상 저빈도 사용이라는 구조적 리텐션 문제가 있습니다. 시각화 강점으로 SNS 공유 루프를 만들면 승산이 있습니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>글로벌 습관 추적 앱 시장 2025년 약 19억 달러 → 2033년 55억 달러 전망. 한국은 투두메이트(MZ 300만+)·챌린저스가 활성화한 시장.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 14~15%. 한국 1020 '갓생'·기록 문화 트렌드로 수요 지속 확대.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>투두메이트(목표 SNS화), 챌린저스(예치금 모델), Habitica(게임화), 열품타·마이루틴.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>구독(프리미엄 테마·통계·위젯) 기본. 주간 구독 비중이 55.5%까지 상승하는 추세.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'인생 목표 시각화'는 투두메이트·챌린저스와 겹치지 않는 서브 포지션</li><li>감성 디자인·위젯·연말 결산은 1인 개발자가 차별화하기 좋은 축</li><li>글로벌(영어권) 확장이 쉬운 주제</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>투두메이트·챌린저스의 소셜/금전 인센티브 락인</li><li>연 단위 목표 특성상 사용 빈도가 낮아 구독 유지가 구조적으로 어려움</li><li>노션 템플릿 등 무료 대체재</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>큰 꿈을 월간/주간 마일스톤으로 쪼개는 기능 + 홈 화면 위젯으로 접점 빈도를 일상 수준으로 확보</li><li>'내 버킷리스트 지도 / 연말 달성 리포트' 인스타 공유 이미지 생성으로 바이럴 채널 구축 후 영어권 출시</li></ol></div>
+    <p class="sources">출처: <a href="https://straitsresearch.com/report/habit-tracking-apps-market">Straits Research</a> · <a href="https://www.womennews.co.kr/news/articleView.html?idxno=214877">여성신문 — 갓생 트렌드</a> · <a href="https://adapty.io/state-of-in-app-subscriptions/">Adapty — 인앱 구독</a></p>
+  </article>
+
+  <article class="app" id="donkko-mart">
+    <header class="app-head">
+      <div><h3>클로즈드 <span class="en">Closed · 구 돈꼬마트</span></h3><div class="meta">v2.0.2 (2026-06-24 출시) · 무료 + 인앱 '클로즈드 Pro' ₩7,700 · 2026년 6월 '클로즈드'(마트 영업시간/휴무일 확인)로 피벗</div></div>
+      <div class="score"><b>5</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">글로벌 카테고리 성장률(18.6%)은 높지만 한국은 온라인 장보기 전환으로 오프라인 목록 앱 수요가 축소되는 틈새입니다. <b>스토어 동기화 결과 이 앱은 이미 '장보기 목록'에서 '마트 가기 전 휴무일 확인'(클로즈드)으로 피벗을 마쳤습니다</b> — 아래 조사는 장보기 목록 기준이므로, 새 포지션(대형마트 의무휴업일 확인)의 시장성은 별도 검증이 필요합니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>글로벌 장보기 리스트 앱 시장 2024년 약 14.2억 달러. 한국은 퀵커머스 확산으로 오프라인 장보기 보조 앱은 니치.</dd></div>
+      <div><dt>성장률</dt><dd>글로벌 CAGR 18.6% (2033년 66.9억 달러 전망). 단, 한국은 온라인 전환으로 이보다 제한적.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Bring!(협업 장보기 글로벌 강자), Listonic(2,000만+ 사용자, AI 목록), AnyList/OurGroceries, 국내 무료 메모 앱.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>프리미엄 구독(광고 제거+가족 공유+무제한 목록) 표준. 소액 평생권도 한국 유저 반응이 좋은 편.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'마트별' 목록 관리는 글로벌 앱에 없는 한국 마트(이마트·홈플러스·코스트코) 특화 차별점</li><li>전단/할인 정보 연동 시 앱테크 성향 강한 한국 주부·자취생에게 소구</li><li>카테고리가 단순해 1인 개발자가 유지 가능한 규모</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>쿠팡·네이버 장보기가 오프라인 장보기 행위 자체를 대체 중</li><li>메모 앱·카카오톡 등 무료 대체재로 지불 의사 낮음</li><li>Listonic 등 글로벌 앱의 한국어 지원</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>마트별 템플릿 + 할인 전단 알림으로 '한국 마트 특화' 포지셔닝 강화</li><li>가족 공유(실시간 동기화)를 프리미엄 구독 또는 소액 평생권으로 수익화 테스트</li></ol></div>
+    <p class="sources">출처: <a href="https://dataintelo.com/report/grocery-list-automation-app-market">Dataintelo</a> · <a href="https://listonic.com/">Listonic</a></p>
+  </article>
+
+  <article class="app" id="life-restaurant">
+    <header class="app-head">
+      <div><h3>인생 맛집 <span class="en">Life Restaurant</span></h3><div class="meta">v1.0 · 맛집 기록 / 공유</div></div>
+      <div class="score"><b>4</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">외식 플랫폼 시장의 성장은 예약·웨이팅(캐치테이블)에 집중돼 있고, 기록/공유 세그먼트는 네이버 지도라는 무료 대체재와 뽈레라는 선점자가 있어 1인 개발자에게 가장 어려운 시장입니다. '공유' 대신 '개인 기록'으로 좁혀야 생존 가능합니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>캐치테이블 가입자 1,000만 명, 2025년 매출 301억 원(+70%). 망고플레이트 종료(450만+ 다운로드 공백) 후 뽈레·다이닝코드가 기록 수요를 흡수 중.</dd></div>
+      <div><dt>성장률</dt><dd>예약 중심은 고성장, 기록/리뷰 중심은 망고플레이트 폐업이 보여주듯 단독 수익화가 어려운 구조. 개인 아카이빙 수요는 MZ '기록 문화'와 함께 꾸준.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>캐치테이블(예약 1위), 다이닝코드(AI 검색), 뽈레(지도 핀 기록), 네이버 지도 저장(사실상 최대 경쟁자).</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>리뷰 앱 단독 광고 모델은 실패 사례(망고플레이트)가 증명. 개인 아카이빙은 프리미엄 구독(무제한 기록·사진 백업)이 현실적.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>망고플레이트 종료로 '기록 중심' 유저층에 공백</li><li>인스타 감성 '개인 맛집 지도 카드'라는 바이럴 포인트</li><li>'개인 기록' 집중 시 콜드스타트 문제 회피 가능</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>네이버 지도 저장·인스타그램이 무료로 같은 욕구 충족</li><li>뽈레가 기록+소셜 포지션 선점</li><li>네트워크 효과 없이는 성장 정체 (망고플레이트 사례)</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>'공유 플랫폼' 야심을 버리고 프라이빗 맛집 아카이빙에 집중 — 연말 '내 맛집 결산' 인스타 카드로 오가닉 유입</li><li>네이버 지도 저장 목록 가져오기(import) 기능으로 전환 장벽 제거</li></ol></div>
+    <p class="sources">출처: <a href="https://www.mt.co.kr/future/2025/09/01/2025090114285797688">머니투데이 — 캐치테이블</a> · <a href="https://namu.wiki/w/%EB%A7%9D%EA%B3%A0%ED%94%8C%EB%A0%88%EC%9D%B4%ED%8A%B8">망고플레이트 종료</a></p>
+  </article>
+</section>
+
+<section id="learning">
+  <h2><span class="num">5</span>학습 · 관계 · 창작</h2>
+  <p class="sec-sub">바미로그는 고성장 시장(플래시카드 CAGR 15%)에서 Anki의 UX 약점이라는 명확한 틈새가 있는 반면, 퀴즈는 시장 자체가 작아 바미로그와의 연계 퍼널이 현실적인 활용법입니다.</p>
+
+  <article class="app" id="bami-log">
+    <header class="app-head">
+      <div><h3>바미로그 <span class="en">Bami Log</span></h3><div class="meta">v1.0.5 · 학습 기록 / 복습 · ⚠ 2026-07-05 확인: App Store에서 내려간 상태 — 재출시 여부 결정 필요</div></div>
+      <div class="score"><b>7</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">학습/창작 4개 앱 중 가장 성장률 높은 시장이고 구독 지불 의사가 검증된 카테고리(교육 구독 매출 +30% YoY)입니다. Anki의 가파른 학습곡선이라는 명확한 틈새가 있으며, '기록→복습' 학습 루프를 증명하는 것이 과제입니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>플래시카드/학습기록 앱 시장 2025년 약 25억 달러 → 2033년 45억 달러 전망. 상위 교육 앱 시장은 863억 달러.</dd></div>
+      <div><dt>성장률</dt><dd>플래시카드 앱 CAGR 약 15%. 교육 앱 구독 매출은 2024년 전년 대비 30% 급증.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Anki/AnkiMobile($24.99 유료, 월 약 $70만 추정 매출), Quizlet(AI 학습), RemNote(노트+간격반복), Brainscape.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>프리미엄+구독 지배적(성공한 교육 도구의 79%). AnkiMobile처럼 일회성 유료도 니치에서 통함.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>Anki는 강력하지만 학습곡선이 가파르고 UI가 노후 — 캐주얼 학습자 공백</li><li>간격반복 알림은 구독 전환 포인트로 자연스러움</li><li>한국의 강한 자기계발 수요·스터디 인증 문화에 부합</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>Quizlet·Anki의 공유 덱 생태계(네트워크 효과)를 재현하기 어려움</li><li>AI 자동 카드 생성이 2025년 표준 기능화 — 부재 시 빠르게 뒤처짐</li><li>'학습 저널'은 카테고리 인지도가 낮아 검색 유입 설계가 어려움</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>기록을 자동으로 복습 카드화하는 간격반복(SRS) 알림을 핵심 구독 기능으로 — 무료는 일일 복습 수 제한</li><li>AI 기록 요약→퀴즈/카드 자동 생성을 추가해 'AI 학습 저널'로 ASO 재포지셔닝</li></ol></div>
+    <p class="sources">출처: <a href="https://www.archivemarketresearch.com/reports/flashcard-app-558570">Archive Market Research</a> · <a href="https://www.revenuecat.com/state-of-subscription-apps-2025/">RevenueCat 2025</a> · <a href="https://www.mindomax.com/best-spaced-repetition-apps-2026-anki-alternatives">Anki 대안 2026</a></p>
+  </article>
+
+  <article class="app" id="rapport-map">
+    <header class="app-head">
+      <div><h3>라포 맵 <span class="en">Rapport Map</span></h3><div class="meta">v1.0.1 · 개인 CRM / 관계 관리</div></div>
+      <div class="score"><b>6</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">시장 성장률(CAGR 12.1%)과 지불 의사(월 $12+ 검증)는 양호하고 '관계 시각화'라는 차별점도 있지만, 이메일·캘린더 연동 격차가 커서 초기 제품이 선점자를 넘으려면 기능 투자가 필요합니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>개인 CRM 시장 2025년 약 146.8억 달러(광의) → 2036년 515.7억 달러 전망. 모바일 접근이 2026년 58.7% 차지 예상.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 12.1%. AI 후속 조치 알림 등 '관계 인텔리전스'로 트렌드 이동 중.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Dex(월 $12, 사실상 표준), Clay(AI, $31억 밸류에이션이나 B2B로 피벗), Covve(연락처 자동 스캔), Monica HQ(오픈소스).</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>월 $9~30 구독 표준. 프리미엄 기능(AI 리마인더, 연동)을 구독으로 잠그는 모델 지배적.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>Clay의 B2B 피벗으로 순수 '개인 관계' 모바일 CRM에 공백 발생</li><li>iOS 네이티브 UX + 온디바이스 프라이버시 포지셔닝 유효</li><li>'맵(관계 시각화)'은 Dex/Covve에 없는 기능</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>연락처·캘린더 연동 없이는 수동 입력 부담으로 리텐션 확보 어려움</li><li>Dex·Covve가 네트워커 세그먼트 선점, 통합 기능 우위</li><li>습관 형성 실패 시 이탈률이 매우 높은 카테고리</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>iOS 연락처·캘린더 연동과 '연락한 지 N일' 리마인더를 최우선 구현, 관계 맵 시각화를 스크린샷 1순위로</li><li>멘토·프리랜서 페르소나로 ASO를 좁게 잡고 월 $4.99~6.99(Dex 대비 저가) 구독 테스트</li></ol></div>
+    <p class="sources">출처: <a href="https://www.futuremarketinsights.com/reports/personal-crm-market">Future Market Insights</a> · <a href="https://wavecnct.com/blogs/the-6-best-personal-crm-tools-in-2025">Best Personal CRM 2025</a> · <a href="https://www.capterra.com/p/275020/Dex/">Capterra — Dex</a></p>
+  </article>
+
+  <article class="app" id="pixel-mimi">
+    <header class="app-head">
+      <div><h3>픽셀 미미 <span class="en">Pixel MeMe</span></h3><div class="meta">v2.0.1 (2026-03-03 출시) · ₩6,600 유료 + 구독형 Pro(주 ₩1,100 / 월 ₩7,700 / 연 ₩33,000 / 평생 ₩99,000) · 픽셀 아트 드로잉</div></div>
+      <div class="score"><b>5</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">레트로 트렌드로 픽셀아트 수요는 견조하고(Dotpict 500만 다운로드) 시장 성장도 안정적이지만, 무료 커뮤니티 강자가 양강 구도를 형성한 시장에서 단독 도구가 파고들 명확한 쐐기가 아직 없습니다. 게임 에셋/타임랩스 니치 특화 시 상향 여지가 있습니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>픽셀아트 소프트웨어 시장 2025년 약 5억 달러 → 2033년 9억 달러. 모바일 수요는 Dotpict 500만+, Pixilart 210만+ 다운로드로 검증.</dd></div>
+      <div><dt>성장률</dt><dd>픽셀아트 툴 CAGR 8.5%, 디지털 창작 전체 17.3%. 레트로 게임 미학·인디게임 붐이 동력.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Dotpict(타임랩스 GIF·커뮤니티), Pixilart(크로스플랫폼), Pixel Studio(프로 기능), Aseprite($19.99 일회성, 인디게임 표준).</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>무료+광고+프리미엄 IAP 표준. 창작 도구는 구독 저항이 커서 일회성 언락 + 소액 구독 혼합이 현실적.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>커뮤니티 운영 부담 없이 '도구 품질'(타임랩스, 애니메이션, 팔레트)로 승부하는 전략 가능</li><li>인디게임 스프라이트 제작 니치는 지불 의사 검증됨 (Aseprite 사례)</li><li>타임랩스 영상은 틱톡/쇼츠 바이럴과 궁합이 좋아 무마케팅 성장 경로 존재</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>무료 강자(Dotpict, Pixilart)의 커뮤니티 네트워크 효과</li><li>창작 앱은 다운로드 대비 과금 전환율이 낮은 카테고리</li><li>AI 이미지 생성 툴이 캐주얼 창작 수요 일부를 잠식</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>타임랩스 GIF/MP4 내보내기 + 숏폼 공유로 #pixelart 챌린지형 오가닉 유입 확보</li><li>스프라이트 시트/애니메이션 프레임 내보내기를 $4.99 일회성 언락으로 — 'Aseprite 모바일 대체재' 포지션 테스트</li></ol></div>
+    <p class="sources">출처: <a href="https://www.accio.com/business/pixel-art-trend-2025">Accio — 픽셀아트 트렌드</a> · <a href="https://www.makeuseof.com/best-apps-to-create-pixel-art/">MakeUseOf</a></p>
+  </article>
+
+  <article class="app" id="quiz">
+    <header class="app-head">
+      <div><h3>퀴즈 <span class="en">Quiz / Kuiz</span></h3><div class="meta">v1.0.5 · 지식 퀴즈 게임 · ⚠ 2026-07-05 확인: App Store에서 내려간 상태</div></div>
+      <div class="score"><b>4</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">트리비아 카테고리는 조사한 시장 중 절대 규모가 가장 작고(2026년 약 3억 달러) 광고 수익화는 대규모 트래픽이 전제라 1인 개발자에게 구조적으로 불리합니다. 니치 주제 특화 또는 바미로그와의 연계 없이는 독립 성장 가능성이 낮습니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>트리비아 게임 앱 시장 2026년 글로벌 약 3.06억 달러 — 조사 카테고리 중 최소.</dd></div>
+      <div><dt>성장률</dt><dd>CAGR 8.6~9.2%. 소비자 트리비아 앱 자체는 성숙기.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Trivia Crack(소셜 대전 최강자), Kahoot!(교육/기업 장악), QuizUp(1억 다운로드에도 2021년 종료 — 수익화 난이도의 증거).</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>보상형 광고 + IAP(코인/힌트) + 광고 제거 하이브리드. 높은 DAU가 전제되어야 성립.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>특정 주제(한국사, 자격증, K-콘텐츠) 특화 퀴즈는 ASO 경쟁이 낮고 충성도 높음</li><li>바미로그와 결합한 '학습→퀴즈 복습' 크로스 퍼널로 리텐션 약점 보완 가능</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>상위 소수 앱이 매출 독식 — 광고 수익화는 대규모 트래픽 없이 불성립</li><li>문제 콘텐츠 지속 공급 비용이 1인 개발자에게 부담</li><li>소셜 기능 없는 트리비아는 수명이 짧음 (QuizUp 사례)</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>범용 트리비아를 버리고 한국 니치 주제(한국사능력검정, TOEIC 어휘 등 시험 연계) 1개로 좁혀 '학습형 퀴즈'로 재포지셔닝</li><li>바미로그와 데이터 연동해 '기록한 내용으로 퀴즈 생성' — 두 앱의 상호 유입 퍼널 구축</li></ol></div>
+    <p class="sources">출처: <a href="https://www.statista.com/outlook/dmo/app/games/trivia-games/worldwide">Statista</a> · <a href="https://dataintelo.com/report/trivia-games-market">Dataintelo</a></p>
+  </article>
+</section>
+
+<section id="b2b">
+  <h2><span class="num">6</span>B2B · 개발자 도구</h2>
+  <p class="sec-sub">리뷰 매니저는 이번 조사에서 가장 뚜렷한 가격 공백(AppFollow 월 $97 vs Astro 연 $108)을 겨냥하고 있고, 타겟 고객이 개발자 본인과 같아 마케팅 비용 없이 도달 가능하다는 구조적 이점이 있습니다.</p>
+
+  <article class="app" id="review-manager">
+    <header class="app-head">
+      <div><h3>리뷰 매니저 <span class="en">Review Manager</span></h3><div class="meta">v1.0.0 · App Store 리뷰 관리 (macOS) · iOS 버전 개발 중</div></div>
+      <div class="score"><b>7</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">리뷰 관리 부문이 연 10.6% 성장 중이고, 인디용 저가 네이티브 툴 공백이 실재하며, 개발자 대상 B2B라 지불 의사와 커뮤니티 도달성이 좋습니다. Astro가 유사 포지션의 성공을 입증했고 위험/기회 점수화 대시보드는 차별화 요소입니다. 니치 규모의 상한과 Apple 플랫폼 종속이 감점 요인입니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>ASO 툴 시장 내 리뷰·평점 관리 부문 2025년 약 6.11억 달러(전체의 21.8%). Appfigures 기준 30만+ 앱이 관련 툴 사용 중.</dd></div>
+      <div><dt>성장률</dt><dd>리뷰 관리 툴 부문 CAGR 10.6%. 인디 대상 저가 네이티브 툴(Astro 등)이 활발히 등장하는 추세.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>AppFollow(약 $97/월부터 — 인디에겐 고가), Appfigures($7.99/월부터), Astro(인디용 네이티브 macOS, $108/년, 키워드 중심), Appbot.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>인디 대상 네이티브 앱은 Astro식 연간 정액($9/월 수준)이 검증된 모델. 개발자 툴은 업무 비용 처리가 가능해 지불 의사가 높음.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>AppFollow와 Appfigures 상위 티어 사이 '멀티앱 인디용 저가 네이티브 툴' 공백 — Astro가 키워드에 집중하는 동안 리뷰+점수화 대시보드는 차별화된 각도</li><li>타겟 고객이 본인과 동일 — X/Reddit/인디해커 커뮤니티로 무비용 도달</li><li>네이티브 앱이라 서버 비용이 거의 없어 1인 운영에 최적</li><li>AI 리뷰 응답 초안·감성 분석이 지불 전환 포인트로 유효</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>유료 전환 가능한 멀티앱 인디 개발자 풀 자체가 제한적</li><li>Appfigures가 $7.99/월로 저가 구간 점유</li><li>Apple이 App Store Connect 공식 기능을 강화하면 기본 기능이 무료로 흡수될 위험</li><li>API 정책·레이트리밋 변경에 대한 플랫폼 종속성</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>연간 정액(예: $79~99/년, 앱 수 무제한) + 14~30일 무료 체험(장기 체험이 전환율 약 70% 우위) 후 Product Hunt·X 인디 커뮤니티 런칭</li><li>AI 리뷰 응답 초안 + 위험/기회 점수 알림을 유료 킬러 기능으로 완성하고, iOS 버전을 '위험 리뷰 즉시 대응' 각도로 출시</li></ol></div>
+    <p class="sources">출처: <a href="https://dataintelo.com/report/global-app-store-optimization-aso-tools-market">Dataintelo — ASO Tools</a> · <a href="https://appfigures.com/platform/pricing">Appfigures Pricing</a> · <a href="https://tryastro.app/">Astro</a> · <a href="https://www.revenuecat.com/state-of-subscription-apps-2025/">RevenueCat 2025</a></p>
+  </article>
+
+  <article class="app" id="ecdesigner">
+    <header class="app-head">
+      <div><h3>ecDesigner <span class="en">ecDesigner</span></h3><div class="meta">v1.0.0 · 명함 디자인</div></div>
+      <div class="score"><b>4</b><span>/ 10</span></div>
+    </header>
+    <p class="verdict">시장은 크고 성장 중이지만(연 8~12%) Canva·Adobe라는 압도적 무료 대안이 존재하고, 연 1~2회 사용하는 저빈도 카테고리라 LTV가 낮습니다. 디지털 명함(CAGR 11~15%)·한국 인쇄 규격 특화로의 전환 없이는 유의미한 매출 확보가 어렵습니다.</p>
+    <dl class="facts">
+      <div><dt>시장 규모</dt><dd>명함 제작 소프트웨어 시장 2025년 약 13.7억~15억 달러. 인접한 디지털 명함 시장은 약 2억~3.5억 달러.</dd></div>
+      <div><dt>성장률</dt><dd>명함 SW CAGR 7.8~12%. 디지털/NFC 명함 부문은 CAGR 11.4~15.2%로 더 빠르게 성장.</dd></div>
+      <div><dt>주요 경쟁</dt><dd>Canva(무료 티어 강력, Pro $12.99/월), Adobe Express($9.99/월), VistaPrint(인쇄 수직 통합), Zazzle/Moo.</dd></div>
+      <div><dt>수익화 트렌드</dt><dd>구독+평생구매 혼합이 확산(앱의 35%). 저빈도 디자인 앱은 템플릿 팩 IAP·워터마크 제거 일회성 결제가 유효.</dd></div>
+    </dl>
+    <div class="ot">
+      <div class="opp"><h4>기회</h4><ul><li>'명함만 3분 만에'라는 초단순 네이티브 UX로 범용 툴의 과잉기능·가입 부담 공략</li><li>NFC/QR 디지털 명함 기능 추가 시 고성장 축에 편승</li><li>한국 명함 규격 등 로컬 인쇄 대응은 글로벌 대기업이 소홀한 영역</li></ul></div>
+      <div class="thr"><h4>위협</h4><ul><li>Canva·Adobe Express 무료 티어가 사실상 시장 표준</li><li>연 1~2회 사용 특성상 구독 유지율이 낮음</li><li>생성형 AI 디자인이 범용 툴에 흡수되며 단일 기능 앱의 차별화 수명 단축</li></ul></div>
+    </div>
+    <div class="actions"><h4>실행 제안</h4><ol><li>QR/NFC 디지털 명함 공유를 차기 버전 핵심으로 — '종이+디지털 명함 원스톱' 포지셔닝 전환</li><li>구독 대신 템플릿 팩 + 워터마크 제거 일회성 결제(5,000~15,000원), 한국 인쇄소 표준 규격(90×50mm, 재단선) 내보내기를 차별점으로 ASO 공략</li></ol></div>
+    <p class="sources">출처: <a href="https://www.giiresearch.com/report/tbrc1978509-business-card-software-global-market-report.html">GII Research</a> · <a href="https://market.us/report/digital-business-card-market/">Market.us — 디지털 명함</a> · <a href="https://www.revenuecat.com/state-of-subscription-apps-2025/">RevenueCat 2025</a></p>
+  </article>
+</section>
+
+<section id="strategy">
+  <h2>포트폴리오 공통 전략</h2>
+  <p class="sec-sub">6개 카테고리 조사에서 반복적으로 나타난 패턴을 포트폴리오 차원의 행동 원칙으로 정리했습니다.</p>
+  <div class="strategy">
+    <div class="st"><div><h3>수익화는 시작됨 — 이제 가격 검증과 잔여 무료 앱 차례</h3><p>조사 대상 20개 중 12개가 이미 일회성 유료 또는 인앱결제를 장착했고, 이 조사가 권고한 방향(달빛 저가 구독, 클립키보드·쿨타임 일회성 Pro)은 대부분 실행돼 있습니다. 다음 과제는 두 가지입니다: ① 출시 중인 완전 무료 4개(세끼, 욕망의 무지개, 라포 맵, 리바운드 저널)의 수익화 설계 — 특히 리바운드 저널은 7점 앱인데 무료입니다. ② 이미 붙인 가격의 검증 — 전환율 데이터 없이 정한 가격(클립키보드 Pro ₩17,000 등)이 적정한지 리뷰 매니저의 매출 데이터로 확인할 것.</p></div></div>
+    <div class="st"><div><h3>범용을 버리고 페르소나 1개로 좁히기</h3><p>Calm·Canva·TimeTree·Due 같은 거인과의 정면 승부는 모든 카테고리에서 패배 시나리오였습니다. 반대로 '휴가 시나리오'(휴가 플래너), 'CS 상담원용 키보드'(클립키보드), '번아웃 직장인'(리바운드 저널), '가챠 확률'(확률계산기)처럼 거인이 안 다루는 버티컬이 유일한 승리 공식이었습니다.</p></div></div>
+    <div class="st"><div><h3>SNS 공유 산출물로 무비용 성장 루프 만들기</h3><p>연말 맛집 결산 카드, 1년치 감정 무지개 리포트, 주접 카드, 픽셀아트 타임랩스, 버킷리스트 달성 리포트 — 조사된 성공 사례(하루콩, Dotpict)의 공통점은 '공유하고 싶은 이미지 산출물'이었습니다. 마케팅 예산이 없는 1인 개발자에게 가장 현실적인 성장 채널입니다.</p></div></div>
+    <div class="st"><div><h3>AI 기능은 선택이 아닌 기대치</h3><p>식단 사진 인식(세끼), AI 카드 생성(바미로그), AI 리뷰 응답 초안(리뷰 매니저)은 2025~26년 각 카테고리의 표준 기대치가 됐습니다. 단, LLM 비용이 마진을 잠식하지 않도록 무료 횟수 제한 + 구독 게이트 설계가 전제입니다.</p></div></div>
+    <div class="st"><div><h3>앱 간 시너지 활용</h3><p>바미로그↔퀴즈('기록한 내용으로 퀴즈 생성')처럼 약한 앱을 강한 앱의 리텐션 장치로 전환할 수 있습니다. 그리고 리뷰 매니저의 우선순위 대시보드는 이 포트폴리오 자체를 운영하는 도구입니다 — 20개 앱 중 어디에 시간을 쓸지 데이터로 결정하는 내부 무기이자, 같은 고민을 하는 인디 개발자에게 팔 수 있는 상품입니다.</p></div></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>본 보고서는 2026년 7월 5일 기준 웹 공개 자료(시장조사 보고서, 앱 매출 추정치, 언론 보도)를 카테고리별 병렬 리서치로 수집해 작성했습니다. 시장 규모 수치는 조사 기관별 집계 기준에 따라 편차가 있으며, 원문은 각 앱 카드의 출처 링크를 참고하세요. 시장성 점수는 시장 규모·성장률·경쟁 강도·1인 개발자 실행 가능성을 종합한 상대 평가입니다.</p>
+  <p>같은 날 App Store 개발자 계정 동기화로 확인된 변경(달빛·클로즈드·골드위크 리브랜딩, 유료 전환 6건, 바미로그·퀴즈 판매 중단)은 본문에 반영했습니다. 가격·인앱결제 정보는 각 앱의 App Store 웹페이지 "앱 내 구입" 데이터를 수집해 반영했습니다(2026-07-05). 스토어에는 이 보고서의 조사 범위에 포함되지 않은 신규 출시 앱 15종(낫마템포, 무지개 공작소, 한국길찾기, 초견, 잊지마, 펀칭, 퇴사각, 이어생각, StickyPresenter, 탭클립 키보드, 불타는 내인생, 사노라면, 링롱, 스픽플로우, LeeoCon)이 추가로 확인되어 포트폴리오에는 등록했으며, 이들의 시장성 조사는 별도 요청 시 진행할 수 있습니다.</p>
+</footer>
+
+</div>
+
+</body>
+</html>

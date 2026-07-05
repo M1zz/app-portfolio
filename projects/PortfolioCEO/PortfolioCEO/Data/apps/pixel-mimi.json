@@ -245,41 +245,68 @@
         "problemSolved": "혼자 그리면 영감이 부족함",
         "userBenefit": "커뮤니티에서 영감과 동기 부여"
       }
+    },
+    {
+      "name": "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
+      "status": "done",
+      "targetDate": "July 5, 2026",
+      "targetVersion": null
     }
   ],
-  "appStoreId": "",
-  "appStoreUrl": "https://apps.apple.com/app/pixel-meme/id6449769987",
-  "bundleId": "com.leeo.pixelmimi",
+  "appStoreId": "6449769987",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6449769987",
+  "bundleId": "com.leeo.PixelMe",
   "categories": [
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "1.0.4",
+  "currentVersion": "2.0.1",
   "folderId": "pixel-mimi",
   "githubRepo": "https://github.com/M1zz/PixelMe",
   "localProjectPath": "../PixelMe",
   "minimumOS": "16.0",
   "name": "픽셀 미미",
-  "nameEn": "Pixel Mimi",
+  "nameEn": "Pixel MeMe",
   "nextTasks": [
     "사용성 개선",
     "이걸 돈 받으려면 뭘 제공할지 고민하기"
   ],
-  "notes": "",
+  "notes": "[2026-07-05 스토어 동기화] v2.0.1 (2026-03-03 출시). 스토어명 'Pixel MeMe', 유료 전환(₩6,600)",
   "price": {
     "isFree": false,
-    "krw": 5500,
-    "usd": 3.99
+    "priceKRW": 6600,
+    "pricingModel": "paid+subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "pixelmeme pro weekly",
+        "price": "￦1,100"
+      },
+      {
+        "name": "yearly",
+        "price": "￦33,000"
+      },
+      {
+        "name": "monthly",
+        "price": "￦7,700"
+      },
+      {
+        "name": "Life time",
+        "price": "￦99,000"
+      }
+    ]
   },
   "priority": "medium",
-  "recentlyCompleted": [],
+  "recentlyCompleted": [
+    "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)"
+  ],
   "sharedModules": [],
   "stats": {
-    "done": 0,
+    "done": 1,
     "inProgress": 0,
     "todo": 10,
     "notStarted": 5,
-    "totalTasks": 15
+    "totalTasks": 16
   },
   "status": "planning",
   "vision": {
