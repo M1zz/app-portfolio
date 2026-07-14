@@ -25,6 +25,7 @@ APPS_DIR = ROOT / "projects/PortfolioCEO/PortfolioCEO/Data/apps"
 OUT_DIR = ROOT / "docs"
 OUT_FILE = OUT_DIR / "index.html"
 CACHE_FILE = ROOT / "scripts" / ".appstore-cache.json"
+CONTENT_FILE = ROOT / "scripts" / "showcase-content.json"
 
 KST = timezone(timedelta(hours=9))
 APPSTORE_ID_RE = re.compile(r"/id(\d+)")
@@ -46,6 +47,14 @@ def extract_appstore_id(app):
     url = app.get("appStoreUrl") or ""
     m = APPSTORE_ID_RE.search(url)
     return m.group(1) if m else None
+
+
+def load_content():
+    """카테고리 그룹 + 앱별 누가/언제/어떻게 큐레이션 카피."""
+    if CONTENT_FILE.exists():
+        with open(CONTENT_FILE, encoding="utf-8") as fp:
+            return json.load(fp)
+    return {"groups": [], "apps": {}}
 
 
 def load_cache():
@@ -131,7 +140,8 @@ def stars(rating):
     return "★" * full + "☆" * (5 - full)
 
 
-def render_card(app):
+def render_card(app, copy=None):
+    copy = copy or {}
     store = app.get("_store") or {}
     name = app.get("name") or store.get("trackName") or app["_slug"]
     name_en = app.get("nameEn") or ""
@@ -153,12 +163,42 @@ def render_card(app):
         else f'<div class="icon icon-fallback">{escape(name[:1])}</div>'
     )
 
+    released = bool(appstore_url)
+
     meta = []
     if genre:
         meta.append(f'<span class="chip">{escape(genre)}</span>')
     if price:
         meta.append(f'<span class="chip chip-price">{escape(price)}</span>')
+    if not released:
+        meta.append('<span class="chip chip-soon">준비 중</span>')
     meta_html = f'<div class="meta">{"".join(meta)}</div>' if meta else ""
+
+    tagline = copy.get("tagline")
+    tagline_html = f'<p class="tagline">{escape(tagline)}</p>' if tagline else ""
+
+    case_rows = []
+    for label, key in (
+        ("문제", "problem"),
+        ("스테이크홀더", "stakeholders"),
+        ("페르소나", "persona"),
+        ("상황", "context"),
+        ("솔루션", "solution"),
+    ):
+        val = copy.get(key)
+        if val:
+            case_rows.append(
+                f'<div class="case-row case-{key}"><dt>{label}</dt>'
+                f'<dd>{escape(val)}</dd></div>'
+            )
+    guide_html = (
+        f"""<details class="case">
+        <summary>문제 · 페르소나 · 솔루션 보기</summary>
+        <dl class="case-body">{"".join(case_rows)}</dl>
+      </details>"""
+        if case_rows
+        else ""
+    )
 
     rating_html = ""
     if rating:
@@ -193,34 +233,83 @@ def render_card(app):
         </div>
       </div>
       {meta_html}
+      {tagline_html}
       {desc_html}
+      {guide_html}
       {links_html}
     </article>"""
 
 
-def render(apps):
-    released = [a for a in apps if (a.get("_store") or {}).get("url")]
-    upcoming = [a for a in apps if a not in released]
+def render(apps, content=None):
+    content = content or {"groups": [], "apps": {}}
+    copy_map = content.get("apps", {})
+    by_slug = {a["_slug"]: a for a in apps}
 
-    # 출시작은 평점순 → 이름순으로 정렬
-    released.sort(
-        key=lambda a: (
-            -(((a.get("_store") or {}).get("ratingCount")) or 0),
-            a.get("name") or "",
+    released = [a for a in apps if (a.get("_store") or {}).get("url")]
+
+    def showable(app):
+        # 스토어에 있거나, 큐레이션 카피가 있는 앱(예: 준비 중인 개발자 도구)만 노출
+        return bool((app.get("_store") or {}).get("url")) or bool(
+            copy_map.get(app["_slug"])
         )
-    )
+
+    # 카테고리 그룹 순서대로 섹션 구성
+    section_blocks = []
+    grouped_slugs = set()
+    for group in content.get("groups", []):
+        cards = []
+        for slug in group.get("slugs", []):
+            app = by_slug.get(slug)
+            if not app or not showable(app):
+                continue
+            grouped_slugs.add(slug)
+            cards.append(render_card(app, copy_map.get(slug)))
+        if not cards:
+            continue
+        intro = group.get("intro", "")
+        intro_html = f'<p class="cat-intro">{escape(intro)}</p>' if intro else ""
+        section_blocks.append(
+            f"""
+    <section class="category">
+      <div class="cat-head">
+        <h2>{escape(group.get("title", ""))}</h2>
+        {intro_html}
+        <span class="cat-count">{len(cards)}</span>
+      </div>
+      <div class="grid">{"".join(cards)}</div>
+    </section>"""
+        )
+
+    # 그룹에 빠진 출시작이 있으면 '그 외' 섹션으로 보강 (누락 방지)
+    leftovers = [
+        a
+        for a in released
+        if a["_slug"] not in grouped_slugs
+    ]
+    leftovers.sort(key=lambda a: a.get("name") or "")
+    if leftovers:
+        cards = "".join(render_card(a, copy_map.get(a["_slug"])) for a in leftovers)
+        section_blocks.append(
+            f"""
+    <section class="category">
+      <div class="cat-head">
+        <h2>✨ 그 외</h2>
+        <span class="cat-count">{len(leftovers)}</span>
+      </div>
+      <div class="grid">{cards}</div>
+    </section>"""
+        )
+
+    sections_html = "\n".join(section_blocks)
 
     total = len(apps)
     released_n = len(released)
+    category_n = len([b for b in content.get("groups", []) if b.get("slugs")])
     rated = [a for a in released if (a.get("_store") or {}).get("rating")]
     avg_rating = (
         sum((a["_store"]["rating"]) for a in rated) / len(rated) if rated else 0
     )
     updated = datetime.now(KST).strftime("%Y-%m-%d")
-
-    cards = "\n".join(render_card(a) for a in released)
-
-    upcoming_html = ""  # '곧 출시' 섹션은 표시하지 않음
 
     avg_stat = (
         f"""<div class="stat"><span class="stat-num">{avg_rating:.1f}</span><span class="stat-label">평균 평점</span></div>"""
@@ -283,6 +372,14 @@ def render(apps):
   .stat-label {{ font-size: .85rem; color: var(--muted); }}
 
   main {{ padding: 30px 0 80px; }}
+
+  .category {{ margin-top: 44px; }}
+  .category:first-child {{ margin-top: 8px; }}
+  .cat-head {{ display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }}
+  .cat-head h2 {{ font-size: 1.4rem; font-weight: 800; letter-spacing: -.01em; }}
+  .cat-intro {{ color: var(--muted); font-size: .92rem; }}
+  .cat-count {{ margin-left: auto; font-size: .8rem; font-weight: 700; color: var(--muted); background: var(--bg-soft); border: 1px solid var(--border); padding: 2px 11px; border-radius: 999px; }}
+
   .grid {{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -316,7 +413,27 @@ def render(apps):
     padding: 3px 10px; border-radius: 999px;
   }}
   .chip-price {{ color: var(--text); }}
-  .desc {{ color: var(--muted); font-size: .9rem; margin-top: 12px; min-height: 1.2em; }}
+  .chip-soon {{ color: var(--accent-2); border-color: rgba(167,139,250,.4); }}
+  .tagline {{ margin-top: 14px; font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -.01em; }}
+  .desc {{ color: var(--muted); font-size: .87rem; margin-top: 6px; }}
+
+  .case {{ margin-top: 14px; border-top: 1px solid var(--border); padding-top: 12px; }}
+  .case > summary {{
+    cursor: pointer; list-style: none;
+    font-size: .82rem; font-weight: 700; color: var(--accent);
+    display: flex; align-items: center; gap: 6px;
+  }}
+  .case > summary::-webkit-details-marker {{ display: none; }}
+  .case > summary::before {{ content: "▸"; transition: transform .15s ease; display: inline-block; }}
+  .case[open] > summary::before {{ transform: rotate(90deg); }}
+  .case-body {{ margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }}
+  .case-row {{ font-size: .86rem; line-height: 1.5; }}
+  .case-row dt {{ font-weight: 700; color: var(--accent-2); font-size: .74rem; letter-spacing: .02em; margin-bottom: 2px; }}
+  .case-row dd {{ margin: 0; color: var(--text); }}
+  .case-problem dt {{ color: #f0776a; }}
+  .case-solution {{ background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }}
+  .case-solution dt {{ color: #4fd1a5; }}
+
   .links {{ display: flex; gap: 8px; margin-top: 16px; }}
   .btn {{
     flex: 1; text-align: center; font-size: .85rem; font-weight: 600;
@@ -343,9 +460,10 @@ def render(apps):
   <header class="hero">
     <div class="wrap">
       <h1>App Portfolio</h1>
-      <p>hyunho lee 가 만든 iOS · macOS 앱들</p>
+      <p>hyunho lee 가 만든 iOS · macOS 앱 — 누가 · 언제 · 어떻게 쓰면 좋은지 카테고리별로 소개합니다.</p>
       <div class="stats">
         <div class="stat"><span class="stat-num">{released_n}</span><span class="stat-label">출시 앱</span></div>
+        <div class="stat"><span class="stat-num">{category_n}</span><span class="stat-label">카테고리</span></div>
         {avg_stat}
         <div class="stat"><span class="stat-num">{total}</span><span class="stat-label">전체 프로젝트</span></div>
       </div>
@@ -354,10 +472,7 @@ def render(apps):
 
   <main>
     <div class="wrap">
-      <div class="grid">
-        {cards}
-      </div>
-      {upcoming_html}
+      {sections_html}
     </div>
   </main>
 
@@ -442,8 +557,9 @@ def main():
     print(f"   {len(apps)}개 앱 발견")
     print("🌐 앱스토어 정보 수집 중..." if fetch else "💾 캐시 사용 (--no-fetch)")
     apps = enrich(apps, fetch=fetch)
+    content = load_content()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    html = render(apps)
+    html = render(apps, content)
     OUT_FILE.write_text(html, encoding="utf-8")
     update_readme(apps)
     released = sum(1 for a in apps if (a.get("_store") or {}).get("url"))
