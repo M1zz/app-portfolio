@@ -190,14 +190,19 @@ def render_card(app, copy=None):
             if icon
             else f'<div class="ex-icon icon-fallback">{escape(name[:1])}</div>'
         )
-        poster_tag = f'<p class="poster-tagline">{escape(tagline)}</p>' if tagline else ""
+        hook = copy.get("hook")
+        poster_tag = f'<p class="poster-tagline">{escape(hook)}</p>' if hook else ""
+        price_badge = (
+            f'<span class="poster-price">{escape(price)}</span>' if price else ""
+        )
         hue = 0
         for ch in app["_slug"]:
             hue = (hue * 31 + ord(ch)) % 360
         visual_html = f"""<div class="ex-visual ex-poster" style="--booth-h:{hue}">
-        {big_icon}
+        <div class="poster-icon-wrap">{big_icon}</div>
         <p class="poster-name">{escape(name)}</p>
         {poster_tag}
+        {price_badge}
       </div>"""
 
     meta = []
@@ -210,6 +215,13 @@ def render_card(app, copy=None):
     meta_html = f'<div class="meta">{"".join(meta)}</div>' if meta else ""
 
     tagline_html = f'<p class="tagline">{escape(tagline)}</p>' if tagline else ""
+
+    highlight = copy.get("highlight")
+    highlight_html = (
+        f'<p class="highlight"><span class="highlight-star">✦</span>{escape(highlight)}</p>'
+        if highlight
+        else ""
+    )
 
     # 스토리: 문제 → 솔루션
     story_parts = []
@@ -275,6 +287,7 @@ def render_card(app, copy=None):
         </div>
         {meta_html}
         {tagline_html}
+        {highlight_html}
         {desc_html}
         {story_html}
         {who_html}
@@ -511,9 +524,14 @@ def render(apps, content=None):
       radial-gradient(90% 90% at 80% 100%, hsl(calc(var(--booth-h, 220) + 40) 70% 55% / .16), transparent),
       linear-gradient(160deg, var(--bg-soft), var(--card));
   }}
-  .ex-poster .ex-icon {{ width: 112px; height: 112px; border-radius: 26px; object-fit: cover; box-shadow: 0 16px 40px rgba(0,0,0,.55); }}
-  .poster-name {{ font-size: 1.45rem; font-weight: 800; letter-spacing: -.01em; }}
+  .poster-icon-wrap {{ position: relative; padding: 6px; border-radius: 32px; }}
+  .poster-icon-wrap::before {{ content: ""; position: absolute; inset: -18px; border-radius: 50%;
+    background: radial-gradient(circle, hsl(var(--booth-h, 220) 80% 65% / .35), transparent 70%); z-index: 0; }}
+  .ex-poster .ex-icon {{ position: relative; z-index: 1; width: 116px; height: 116px; border-radius: 27px; object-fit: cover; box-shadow: 0 18px 44px rgba(0,0,0,.6); }}
+  .poster-name {{ font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }}
   .poster-tagline {{ color: var(--muted); font-size: .95rem; max-width: 320px; }}
+  .poster-price {{ margin-top: 4px; font-size: .74rem; font-weight: 700; color: var(--text);
+    background: rgba(255,255,255,.08); border: 1px solid var(--border); padding: 3px 12px; border-radius: 999px; }}
 
   .icon-fallback {{
     display: flex; align-items: center; justify-content: center;
@@ -527,10 +545,12 @@ def render(apps, content=None):
   .ex-head-icon {{ width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,.4); font-size: 1.6rem; }}
   .ex-title h3 {{ font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }}
   .name-en {{ color: var(--muted); font-size: .84rem; }}
-  .rating {{ margin-top: 5px; font-size: .82rem; display: flex; align-items: center; gap: 6px; }}
+  .rating {{ margin-top: 7px; font-size: .8rem; display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(245,179,1,.12); border: 1px solid rgba(245,179,1,.3); color: #f5b301;
+    padding: 3px 10px; border-radius: 999px; }}
   .stars {{ color: #f5b301; letter-spacing: 1px; }}
-  .rating-num {{ font-weight: 700; }}
-  .rating-count {{ color: var(--muted); }}
+  .rating-num {{ font-weight: 800; color: #f5c542; }}
+  .rating-count {{ color: rgba(245,179,1,.7); }}
 
   .meta {{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }}
   .chip {{
@@ -541,8 +561,14 @@ def render(apps, content=None):
   .chip-price {{ color: var(--text); }}
   .chip-soon {{ color: var(--accent-2); border-color: rgba(167,139,250,.4); }}
 
-  .tagline {{ margin-top: 16px; font-size: 1.28rem; font-weight: 800; color: var(--text); letter-spacing: -.015em; line-height: 1.35; }}
-  .desc {{ color: var(--muted); font-size: .9rem; margin-top: 8px; }}
+  .tagline {{ margin-top: 16px; font-size: 1.32rem; font-weight: 800; color: var(--text); letter-spacing: -.015em; line-height: 1.32; }}
+  .highlight {{ margin-top: 10px; display: inline-flex; align-items: baseline; gap: 7px;
+    font-size: .92rem; font-weight: 700; line-height: 1.4;
+    color: var(--accent-2);
+    background: linear-gradient(90deg, rgba(167,139,250,.14), rgba(91,141,239,.06));
+    border: 1px solid rgba(167,139,250,.28); border-radius: 10px; padding: 8px 13px; }}
+  .highlight-star {{ color: var(--accent-2); font-size: .85rem; }}
+  .desc {{ color: var(--muted); font-size: .88rem; margin-top: 12px; }}
 
   /* 스토리: 문제 → 솔루션 */
   .story {{ margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }}

@@ -119,9 +119,14 @@
       radial-gradient(90% 90% at 80% 100%, hsl(calc(var(--booth-h, 220) + 40) 70% 55% / .16), transparent),
       linear-gradient(160deg, var(--bg-soft), var(--card));
   }
-  .ex-poster .ex-icon { width: 112px; height: 112px; border-radius: 26px; object-fit: cover; box-shadow: 0 16px 40px rgba(0,0,0,.55); }
-  .poster-name { font-size: 1.45rem; font-weight: 800; letter-spacing: -.01em; }
+  .poster-icon-wrap { position: relative; padding: 6px; border-radius: 32px; }
+  .poster-icon-wrap::before { content: ""; position: absolute; inset: -18px; border-radius: 50%;
+    background: radial-gradient(circle, hsl(var(--booth-h, 220) 80% 65% / .35), transparent 70%); z-index: 0; }
+  .ex-poster .ex-icon { position: relative; z-index: 1; width: 116px; height: 116px; border-radius: 27px; object-fit: cover; box-shadow: 0 18px 44px rgba(0,0,0,.6); }
+  .poster-name { font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }
   .poster-tagline { color: var(--muted); font-size: .95rem; max-width: 320px; }
+  .poster-price { margin-top: 4px; font-size: .74rem; font-weight: 700; color: var(--text);
+    background: rgba(255,255,255,.08); border: 1px solid var(--border); padding: 3px 12px; border-radius: 999px; }
 
   .icon-fallback {
     display: flex; align-items: center; justify-content: center;
@@ -135,10 +140,12 @@
   .ex-head-icon { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,.4); font-size: 1.6rem; }
   .ex-title h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }
   .name-en { color: var(--muted); font-size: .84rem; }
-  .rating { margin-top: 5px; font-size: .82rem; display: flex; align-items: center; gap: 6px; }
+  .rating { margin-top: 7px; font-size: .8rem; display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(245,179,1,.12); border: 1px solid rgba(245,179,1,.3); color: #f5b301;
+    padding: 3px 10px; border-radius: 999px; }
   .stars { color: #f5b301; letter-spacing: 1px; }
-  .rating-num { font-weight: 700; }
-  .rating-count { color: var(--muted); }
+  .rating-num { font-weight: 800; color: #f5c542; }
+  .rating-count { color: rgba(245,179,1,.7); }
 
   .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
   .chip {
@@ -149,8 +156,14 @@
   .chip-price { color: var(--text); }
   .chip-soon { color: var(--accent-2); border-color: rgba(167,139,250,.4); }
 
-  .tagline { margin-top: 16px; font-size: 1.28rem; font-weight: 800; color: var(--text); letter-spacing: -.015em; line-height: 1.35; }
-  .desc { color: var(--muted); font-size: .9rem; margin-top: 8px; }
+  .tagline { margin-top: 16px; font-size: 1.32rem; font-weight: 800; color: var(--text); letter-spacing: -.015em; line-height: 1.32; }
+  .highlight { margin-top: 10px; display: inline-flex; align-items: baseline; gap: 7px;
+    font-size: .92rem; font-weight: 700; line-height: 1.4;
+    color: var(--accent-2);
+    background: linear-gradient(90deg, rgba(167,139,250,.14), rgba(91,141,239,.06));
+    border: 1px solid rgba(167,139,250,.28); border-radius: 10px; padding: 8px 13px; }
+  .highlight-star { color: var(--accent-2); font-size: .85rem; }
+  .desc { color: var(--muted); font-size: .88rem; margin-top: 12px; }
 
   /* 스토리: 문제 → 솔루션 */
   .story { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
@@ -301,9 +314,10 @@
       <div class="exhibits">
     <article class="exhibit" id="app-clip-keyboard">
       <div class="ex-visual ex-poster" style="--booth-h:28">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/85/cf/ee/85cfee65-511a-a51f-3f9f-94099ff60732/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="클립키보드" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/85/cf/ee/85cfee65-511a-a51f-3f9f-94099ff60732/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="클립키보드" loading="lazy"></div>
         <p class="poster-name">클립키보드</p>
-        <p class="poster-tagline">반복 입력은 원탭으로, 아낀 시간은 숫자로</p>
+        <p class="poster-tagline">매일 같은 문구를 반복해서 타이핑하고 있다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -316,6 +330,7 @@
         </div>
         <div class="meta"><span class="chip">Productivity</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">반복 입력은 원탭으로, 아낀 시간은 숫자로</p>
+        <p class="highlight"><span class="highlight-star">✦</span>쓸수록 쌓이는 ‘절약한 시간’ 통계와 성취 마일스톤</p>
         <p class="desc">같은 메시지를 반복해서 입력하지 마세요. 한 번만 탭하면 끝!</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>예약 확인·계좌 안내처럼 매일 똑같은 문구를 손으로 다시 입력하며 시간과 오타를 감수합니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>자주 쓰는 문장을 키보드 버튼으로 저장해 탭 한 번에 보내고, 그렇게 아낀 시간을 숫자로 보여줘 성취감까지 줍니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>예약 문의에 하루 수십 번 같은 답을 보내는 공방 사장 &#x27;지현&#x27;(34)</dd></div><div class="who-item"><dt>상황</dt><dd>손님 문의가 몰리는 점심시간, 같은 안내를 반복 타이핑하다 다른 주문을 놓칩니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>고객 응대·이메일이 잦은 자영업자·상담원·직장인</dd></div></div>
@@ -335,6 +350,7 @@
         </div>
         <div class="meta"><span class="chip">Productivity</span><span class="chip chip-price">￦4,400</span></div>
         <p class="tagline">iOS 상용구를 맥에서도 그대로</p>
+        
         <p class="desc">클립 키보드 iOS 앱에서 추가한 데이터를 맥 앱에서도 이용 가능합니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>아이폰에 저장한 상용구가 정작 오래 일하는 맥에서는 쓸 수 없어 다시 옮겨 적습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>클립키보드(iOS)에 저장한 문구를 맥에서 그대로 불러 붙여넣어 기기 경계를 없앱니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>폰으로 초안, 맥으로 마무리하는 재택 마케터 &#x27;준호&#x27;(38)</dd></div><div class="who-item"><dt>상황</dt><dd>맥에서 제안 메일을 쓰다 폰에만 있는 표준 문구가 필요해 흐름이 끊깁니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>아이폰·맥을 오가며 문서·메일을 쓰는 지식노동자</dd></div></div>
@@ -343,9 +359,10 @@
     </article>
     <article class="exhibit" id="app-double-reminder">
       <div class="ex-visual ex-poster" style="--booth-h:94">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/70/0c/af700c95-fc8f-6ff4-2e5b-51b3592a2d68/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="두번알림" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/70/0c/af700c95-fc8f-6ff4-2e5b-51b3592a2d68/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="두번알림" loading="lazy"></div>
         <p class="poster-name">두번알림</p>
-        <p class="poster-tagline">두 번 알려줘 절대 놓치지 않게</p>
+        <p class="poster-tagline">발표·회의 마무리 타이밍을 자꾸 놓친다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -358,6 +375,7 @@
         </div>
         <div class="meta"><span class="chip">Utilities</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">두 번 알려줘 절대 놓치지 않게</p>
+        <p class="highlight"><span class="highlight-star">✦</span>종료 전·후 두 번 울려 확실하게</p>
         <p class="desc">끝나기 전에, 미리 알려줍니다.                                                 </p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>알림 한 번은 놓치기 쉬워, 발표·회의의 마무리 타이밍을 번번이 넘깁니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>끝나기 전 예비 알림과 종료 알림, 두 번에 걸쳐 상기시켜 중요한 순간을 놓치지 않게 합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>5분 발표에서 늘 시간을 넘기는 학회 발표자 &#x27;수민&#x27;(29)</dd></div><div class="who-item"><dt>상황</dt><dd>발표 종료 3분 전을 몰라 결론을 급히 잘라내며 마무리합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>발표자·회의 진행자·트레이너 등 시간을 배분해야 하는 사람</dd></div></div>
@@ -377,6 +395,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">키노트 위에 항상 뜨는 발표 타이머</p>
+        
         <p class="desc">키노트와 함께 쓸 수 있는 타이머 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>발표 중 남은 시간을 확인할 방법이 없어 슬라이드 페이스가 무너집니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>키노트 위에 항상 보이는 타이머를 띄워 발표 내내 남은 시간을 눈으로 관리합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>45분 강의를 30분 만에 끝내버리곤 하는 사내 강사 &#x27;태영&#x27;(41)</dd></div><div class="who-item"><dt>상황</dt><dd>청중을 보며 말하다 시간 감각을 잃어 뒷부분을 서두릅니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>강연자·교육자·세일즈 피치를 하는 사람</dd></div></div>
@@ -385,9 +404,10 @@
     </article>
     <article class="exhibit" id="app-dont-forget">
       <div class="ex-visual ex-poster" style="--booth-h:289">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/2b/66/cf2b6692-6a3f-788f-c107-64641871848f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="잊지마" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/2b/66/cf2b6692-6a3f-788f-c107-64641871848f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="잊지마" loading="lazy"></div>
         <p class="poster-name">잊지마</p>
-        <p class="poster-tagline">맥 일정도 아이폰에서 한눈에</p>
+        <p class="poster-tagline">맥에 정리한 일정을 밖에서 못 봐 약속을 놓친다면</p>
+        <span class="poster-price">￦6,600</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -400,6 +420,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦6,600</span></div>
         <p class="tagline">맥 일정도 아이폰에서 한눈에</p>
+        
         <p class="desc">일정을 아이폰에서도 볼 수 있도록 도와주는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>데스크톱에 정리한 일정을 밖에서는 확인하기 번거로워 약속을 놓칩니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>일정을 등록해두면 아이폰 위젯·앱에서 즉시 오늘 일정을 확인합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>사무실 캘린더를 외근 중엔 못 보는 영업사원 &#x27;경아&#x27;(33)</dd></div><div class="who-item"><dt>상황</dt><dd>외근 중 다음 미팅 시간이 헷갈려 사무실에 전화해 확인합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>맥에서 일정을 관리하지만 이동이 잦은 사람</dd></div></div>
@@ -419,6 +440,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦4,400</span></div>
         <p class="tagline">AI가 짜주는 일정 비서</p>
+        <p class="highlight"><span class="highlight-star">✦</span>AI가 최적의 시간을 제안</p>
         <p class="desc">캘린더를 바탕으로 개인의 일정을 관리해주는 앱 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>여러 곳에 흩어진 일정을 스스로 취합·배분하느라 정작 계획에 쓸 에너지가 소진됩니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>캘린더를 연결하면 AI가 일정을 취합해 최적 시간을 제안하고 충돌 없이 정리해줍니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>수업·알바·스터디로 주간이 뒤엉킨 대학생 &#x27;하늘&#x27;(22)</dd></div><div class="who-item"><dt>상황</dt><dd>캘린더에 일정은 쌓여 있지만 우선순위가 안 보여 무엇부터 할지 막막합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>일정이 많고 관리 부담을 느끼는 직장인·프리랜서</dd></div></div>
@@ -427,9 +449,10 @@
     </article>
     <article class="exhibit" id="app-think-flow">
       <div class="ex-visual ex-poster" style="--booth-h:97">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/7b/fa/e87bfabe-4959-3ba6-8263-c1bf6709db35/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="이어생각" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/7b/fa/e87bfabe-4959-3ba6-8263-c1bf6709db35/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="이어생각" loading="lazy"></div>
         <p class="poster-name">이어생각</p>
-        <p class="poster-tagline">끊긴 생각을 이어 쓰는 메모장</p>
+        <p class="poster-tagline">어제 하던 생각을 오늘 이어가기 어렵다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -442,6 +465,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">끊긴 생각을 이어 쓰는 메모장</p>
+        
         <p class="desc">나의 생각을 이어서 할 수 있도록 돕는 메모장 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>일반 메모는 단편으로 흩어져, 어제 하던 생각을 오늘 이어가기 어렵습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>이전 생각에 이어 쓰는 흐름형 메모장으로 사고의 맥락을 끊기지 않게 잇습니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>소설 구상을 며칠에 걸쳐 잇는 습작 작가 &#x27;연우&#x27;(27)</dd></div><div class="who-item"><dt>상황</dt><dd>며칠 전 떠오른 흐름의 맥락을 잊어 매번 처음부터 다시 생각합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>아이디어·글·기획을 오래 붙잡고 발전시키는 사람</dd></div></div>
@@ -450,9 +474,10 @@
     </article>
     <article class="exhibit" id="app-slide-snap">
       <div class="ex-visual ex-poster" style="--booth-h:198">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/e3/6b/3ee36b19-de9f-a6d9-fc9d-b9317795f9c5/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="장표스냅" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/e3/6b/3ee36b19-de9f-a6d9-fc9d-b9317795f9c5/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="장표스냅" loading="lazy"></div>
         <p class="poster-name">장표스냅</p>
-        <p class="poster-tagline">발표 장표를 편하게 찍어 정리</p>
+        <p class="poster-tagline">발표 장표를 급히 찍어 뒤죽박죽이 된다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -465,6 +490,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">발표 장표를 편하게 찍어 정리</p>
+        
         <p class="desc">발표를 들을 때 편하게 장표를 촬영하세요</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>발표 슬라이드를 급히 찍으면 삐뚤어지고 사진첩에 흩어져 나중에 알아보기 어렵습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>발표를 들으며 장표를 편하게 촬영·정리해 나중에 바로 찾아보게 합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>세미나 장표를 마구 찍어 두는 대학원생 &#x27;유나&#x27;(26)</dd></div><div class="who-item"><dt>상황</dt><dd>발표를 들으며 찍은 장표가 사진첩에 뒤섞여 다시 찾기 힘듭니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>강연·세미나·수업에서 슬라이드를 기록하는 청중</dd></div></div>
@@ -482,9 +508,10 @@
       <div class="exhibits">
     <article class="exhibit" id="app-punching">
       <div class="ex-visual ex-poster" style="--booth-h:260">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0b/d2/06/0bd206c1-7de0-44ef-3fc0-5cf5ff7ab598/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="펀칭" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0b/d2/06/0bd206c1-7de0-44ef-3fc0-5cf5ff7ab598/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="펀칭" loading="lazy"></div>
         <p class="poster-name">펀칭</p>
-        <p class="poster-tagline">내 사진이 바로 스티커가 되는 카메라</p>
+        <p class="poster-tagline">내 사진으로 나만의 스티커를 만들고 싶다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -497,6 +524,7 @@
         </div>
         <div class="meta"><span class="chip">Utilities</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">내 사진이 바로 스티커가 되는 카메라</p>
+        <p class="highlight"><span class="highlight-star">✦</span>찍으면 배경 쏙, 바로 스티커</p>
         <p class="desc">내가 찍은 사진을 바로 스티커로 만들어 주는 카메라 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>나만의 스티커를 만들려면 배경을 지우는 편집 앱을 따로 거쳐야 해 번거롭습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>사진을 찍으면 배경을 자동으로 따내 곧바로 스티커로 만들어 줍니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>반려묘 사진으로 스티커를 만들고 싶은 직장인 &#x27;보라&#x27;(31)</dd></div><div class="who-item"><dt>상황</dt><dd>귀여운 순간을 찍었지만 스티커로 만들 방법을 몰라 그냥 사진첩에 묻어둡니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>메신저에서 개성 있는 스티커를 쓰고 싶은 일반 사용자</dd></div></div>
@@ -516,6 +544,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦6,600</span></div>
         <p class="tagline">손쉽게 그리는 픽셀아트</p>
+        <p class="highlight"><span class="highlight-star">✦</span>손끝으로 톡톡 찍는 모바일 픽셀 에디터</p>
         <p class="desc">Help drawing pixel art</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>도트 그림을 그리려면 전문 그래픽 툴이 필요해 취미로 시작하기 문턱이 높습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>격자 위에 점을 찍는 직관적 방식으로 누구나 픽셀아트를 완성합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>인디 게임 캐릭터를 직접 그려보고 싶은 학생 &#x27;시우&#x27;(19)</dd></div><div class="who-item"><dt>상황</dt><dd>복잡한 툴 앞에서 무엇부터 눌러야 할지 몰라 시작조차 못 합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>픽셀아트·게임 스프라이트를 취미로 그리려는 초보 창작자</dd></div></div>
@@ -535,6 +564,7 @@
         </div>
         <div class="meta"><span class="chip">Entertainment</span><span class="chip chip-price">￦1,100</span></div>
         <p class="tagline">아이메시지용 귀여운 스티커팩</p>
+        
         <p class="desc">The new sticker for iMessage app user. </p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>기본 이모지만으로는 대화의 감정과 개성을 충분히 표현하기 어렵습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>컬러풀하고 아기자기한 iMessage 스티커팩으로 대화에 감정을 더합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>친구들과 아이메시지로 수다 떠는 대학생 &#x27;민서&#x27;(21)</dd></div><div class="who-item"><dt>상황</dt><dd>밋밋한 텍스트 대화에 분위기를 더할 표현이 아쉽습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>iMessage로 소통하는 사용자</dd></div></div>
@@ -543,9 +573,10 @@
     </article>
     <article class="exhibit" id="app-sight-singer">
       <div class="ex-visual ex-poster" style="--booth-h:36">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/01/21/7e012123-2a2a-2b73-a10d-bba28a29d1fb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="초견" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/01/21/7e012123-2a2a-2b73-a10d-bba28a29d1fb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="초견" loading="lazy"></div>
         <p class="poster-name">초견</p>
-        <p class="poster-tagline">악보를 찍고 바로 들어보는 앱</p>
+        <p class="poster-tagline">악보를 소리로 바로 확인하고 싶다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -558,6 +589,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">악보를 찍고 바로 들어보는 앱</p>
+        <p class="highlight"><span class="highlight-star">✦</span>찍은 악보를 그 자리에서 소리로</p>
         <p class="desc">악보에 내가 원하는 음표를 간단하게 찍고 들어볼 수 있게 해주는 앱</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>초견 연습이나 멜로디 확인을 하려면 악기가 있어야 해 즉석에서 소리를 못 듣습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>오선지에 음표를 찍고 재생해 악보를 즉시 소리로 확인합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>초견이 약해 새 악보 앞에서 막히는 합창단원 &#x27;지훈&#x27;(35)</dd></div><div class="who-item"><dt>상황</dt><dd>악보의 음정이 머릿속에 그려지지 않아 연습 진도가 더딥니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>음악 학습자·작곡 입문자·합창/성악 연습생</dd></div></div>
@@ -566,9 +598,10 @@
     </article>
     <article class="exhibit" id="app-hands-free-metronome">
       <div class="ex-visual ex-poster" style="--booth-h:306">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/d5/91/f7d5919d-78c8-d5d4-4529-8982c65b3649/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="낫마템포" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/d5/91/f7d5919d-78c8-d5d4-4529-8982c65b3649/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="낫마템포" loading="lazy"></div>
         <p class="poster-name">낫마템포</p>
-        <p class="poster-tagline">손대지 않는 핸즈프리 메트로놈</p>
+        <p class="poster-tagline">연주 중 손을 못 떼 박자 조절이 끊긴다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -581,6 +614,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">손대지 않는 핸즈프리 메트로놈</p>
+        
         <p class="desc">손을 대지 않고 사용하는 메트로놈 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>연주 중 두 손이 악기에 묶여 메트로놈을 조작할 수 없어 박자 조절이 끊깁니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>손대지 않고 조작하는 핸즈프리 방식으로 연주 중에도 박자를 이어갑니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>연습 중 템포를 바꾸려 매번 연주를 멈추는 기타 학생 &#x27;재이&#x27;(24)</dd></div><div class="who-item"><dt>상황</dt><dd>곡 중간에 BPM을 올리고 싶지만 손을 뗄 수 없어 흐름이 깨집니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>악기 연주자·연습생·음악 교사</dd></div></div>
@@ -589,9 +623,10 @@
     </article>
     <article class="exhibit" id="app-flip-book">
       <div class="ex-visual ex-poster" style="--booth-h:329">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/66/5f/5a665f43-8fd1-1dda-3859-667c60cfe318/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="팔랑북" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/66/5f/5a665f43-8fd1-1dda-3859-667c60cfe318/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="팔랑북" loading="lazy"></div>
         <p class="poster-name">팔랑북</p>
-        <p class="poster-tagline">아이 그림이 움직이는 애니메이션</p>
+        <p class="poster-tagline">아이 그림이 움직이면 좋겠다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -604,6 +639,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">아이 그림이 움직이는 애니메이션</p>
+        <p class="highlight"><span class="highlight-star">✦</span>아이 그림이 살아 움직이는 애니메이션</p>
         <p class="desc">내 아이가 그림을 쉽게 그리게 도와주고 그 그림들이 움직이게 도와주는 앱 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>아이가 그린 그림은 종이에 멈춰 있어, 움직이는 결과물로 이어지는 재미를 주기 어렵습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>아이가 쉽게 그림을 그리고 그 그림이 움직이게 만들어, 창작의 재미를 키워 줍니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>아이와 그림 놀이를 자주 하는 부모 &#x27;수진&#x27;(35)</dd></div><div class="who-item"><dt>상황</dt><dd>아이가 그림을 그려도 금세 흥미를 잃어 더 이어가지 못합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>아이의 그리기·창작을 북돋우려는 부모</dd></div></div>
@@ -632,6 +668,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">충동에 쿨타임을 거는 습관 타이머</p>
+        <p class="highlight"><span class="highlight-star">✦</span>게임 스킬처럼 행동에 거는 쿨타임</p>
         <p class="desc">나의 행동에 쿨타임을 표시해주는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>사고 싶고 하고 싶은 충동이 들 때 곧바로 저질러, 뒤늦게 후회하는 일이 반복됩니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>게임의 스킬 쿨타임처럼 소비·행동에 대기 시간을 걸어, 충동과 실행 사이에 간격을 만들어 줍니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>홧김에 결제 버튼을 눌러 놓고 후회하는 직장인 &#x27;현수&#x27;(37)</dd></div><div class="who-item"><dt>상황</dt><dd>&#x27;딱 하나만&#x27; 하며 충동적으로 지르고, 돌아서면 곧 후회합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>충동구매·즉흥적 소비와 행동을 줄이고 싶은 사람</dd></div></div>
@@ -640,9 +677,10 @@
     </article>
     <article class="exhibit" id="app-rainbow-of-desire">
       <div class="ex-visual ex-poster" style="--booth-h:313">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/4b/4f/0e4b4fee-aa08-f368-80a9-02628e82d867/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="욕망의 무지개" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/4b/4f/0e4b4fee-aa08-f368-80a9-02628e82d867/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="욕망의 무지개" loading="lazy"></div>
         <p class="poster-name">욕망의 무지개</p>
-        <p class="poster-tagline">벌여둔 일을 인식·조율하는 도구</p>
+        <p class="poster-tagline">일을 자꾸 벌여 과부하가 온다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -655,6 +693,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">벌여둔 일을 인식·조율하는 도구</p>
+        <p class="highlight"><span class="highlight-star">✦</span>‘일 벌리는 습관’을 알아채고 조율</p>
         <p class="desc">사용자가 ‘일을 벌리는 행위’를 인식하고 조절하여 과부하를 막고 성장감을 느끼게 해주는 작업 부하 인식 및 시간 조율 도구입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>의욕에 일을 자꾸 벌이다 과부하에 빠지고, 정작 성취감은 흐려집니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>&#x27;일을 벌리는 행위&#x27;를 인식·조율해 작업 부하를 관리하고 성장감을 회복합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>사이드 프로젝트를 동시에 다섯 개 벌인 기획자 &#x27;다은&#x27;(30)</dd></div><div class="who-item"><dt>상황</dt><dd>시작한 일은 많은데 끝나는 게 없어 늘 쫓기고 지칩니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>멀티태스킹으로 번아웃 위험이 있는 사람</dd></div></div>
@@ -674,6 +713,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">일주일을 블록으로 시각화</p>
+        
         <p class="desc">나의 일주일을 블록으로 만들어서 시각화 하는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>한 주의 시간을 어디에 썼는지 감이 없어 계획과 회고가 뜬구름 잡기입니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>일주일을 블록으로 쌓아 시각화해 시간의 사용처를 한눈에 파악합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>주말마다 &#x27;이번 주 뭐 했지&#x27; 싶은 프리랜서 &#x27;유진&#x27;(28)</dd></div><div class="who-item"><dt>상황</dt><dd>바빴던 건 아는데 결과물이 안 보여 시간이 새는 곳을 못 찾습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>시간 사용을 개선하려는 직장인·학생</dd></div></div>
@@ -693,6 +733,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">회복의 여정을 기록하다</p>
+        
         <p class="desc">나의 실패를 흘려보내지 않고 성장의 발판이 될 수 있도록 기록할 수 있는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>힘든 시기를 그냥 버티며 흘려보내, 무엇을 통해 나아졌는지 성장의 흔적이 남지 않습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>회복 여정을 단계별로 기록하고 작은 진전을 시각화해 성장의 발판으로 삼습니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>번아웃과 좌절을 딛고 다시 서려는 직장인 &#x27;성민&#x27;(33)</dd></div><div class="who-item"><dt>상황</dt><dd>감정만 소용돌이칠 뿐, 회복의 과정을 정리하지 못해 같은 어려움에 또 흔들립니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>힘든 시기를 겪거나 실패에서 다시 일어서려는 사람</dd></div></div>
@@ -701,9 +742,10 @@
     </article>
     <article class="exhibit" id="app-three-meals">
       <div class="ex-visual ex-poster" style="--booth-h:241">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/b2/42/fcb242b5-da88-f94f-0e6f-9e66bfb86092/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="세끼" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/b2/42/fcb242b5-da88-f94f-0e6f-9e66bfb86092/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="세끼" loading="lazy"></div>
         <p class="poster-name">세끼</p>
-        <p class="poster-tagline">사진 한 장으로 시작하는 식습관</p>
+        <p class="poster-tagline">오늘 뭘 먹었는지 기억나지 않는다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -716,6 +758,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">사진 한 장으로 시작하는 식습관</p>
+        <p class="highlight"><span class="highlight-star">✦</span>사진 한 장, AI가 읽는 식습관</p>
         <p class="desc">세끼는 하루 세 끼 식사를 빠짐없이 기록하고 관리할 수 있는 간편한 식사 기록 앱입니다. 사진으로 식사를 기록하고, 건강한 식습관을 만들어보세요.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>끼니를 자주 거르거나 대충 때우면서도 내 식습관을 객관적으로 보지 못합니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>매 끼니를 사진으로 10초 만에 기록하고 주간 식습관을 분석해 건강한 패턴을 만듭니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>바빠서 점심을 거르기 일쑤인 직장인 &#x27;아름&#x27;(26)</dd></div><div class="who-item"><dt>상황</dt><dd>하루가 끝나면 오늘 뭘 먹었는지조차 기억나지 않습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>다이어트·건강 관리에 관심 있는 사람</dd></div></div>
@@ -724,9 +767,10 @@
     </article>
     <article class="exhibit" id="app-burning-my-life">
       <div class="ex-visual ex-poster" style="--booth-h:323">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/50/91/fd5091e4-c137-38e6-7cbb-1eb62097f601/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="불타는 내인생" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/50/91/fd5091e4-c137-38e6-7cbb-1eb62097f601/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="불타는 내인생" loading="lazy"></div>
         <p class="poster-name">불타는 내인생</p>
-        <p class="poster-tagline">사라지는 자유시간을 눈으로</p>
+        <p class="poster-tagline">자유시간이 그냥 사라지는 게 느껴진다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -739,6 +783,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">사라지는 자유시간을 눈으로</p>
+        
         <p class="desc">저의 저녁시간은 다 타고 없어진 것을 보았는데요. 여러분의 자유시간이 타서 없어지는 것을 보여드리고 싶었습니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>저녁·여가 시간이 손가락 사이로 새어 나가는데 그 소모가 체감되지 않습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>남은 자유시간이 &#x27;타들어가는&#x27; 모습으로 시각화해 시간의 유한함을 자각하게 합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>퇴근 후 스마트폰만 보다 잠드는 직장인 &#x27;동혁&#x27;(32)</dd></div><div class="who-item"><dt>상황</dt><dd>&#x27;오늘도 아무것도 못 했다&#x27;는 후회로 하루를 마감합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>자유시간을 의미 있게 쓰고 싶은 사람</dd></div></div>
@@ -758,6 +803,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">내 취향대로 믹스하는 수면 사운드</p>
+        <p class="highlight"><span class="highlight-star">✦</span>자연의 소리를 내 취향대로 믹스</p>
         <p class="desc">유튜브에서 잠을 잘 때 틀어놓을 소리를 찾는 과정에서 시간이 오래 걸리는 불편함을 느꼈던 적이 있으신가요? </p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>잠들 때 틀 소리를 유튜브에서 찾느라 시간을 쓰고, 원하는 대로 조절도 안 됩니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>자연의 소리를 골라 내 취향대로 믹스·조절해 나만의 수면 사운드를 만듭니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>잠들기 전 소리 찾기에 30분을 쓰는 불면 직장인 &#x27;소연&#x27;(29)</dd></div><div class="who-item"><dt>상황</dt><dd>겨우 고른 소리가 기대와 달라 볼륨·조합을 못 맞춰 뒤척입니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>수면·휴식·집중에 사운드가 필요한 사람</dd></div></div>
@@ -766,9 +812,10 @@
     </article>
     <article class="exhibit" id="app-sunflower">
       <div class="ex-visual ex-poster" style="--booth-h:247">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/46/0e/94460efc-e20b-4431-176c-9b54602c0b81/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="햇빛바라기" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/46/0e/94460efc-e20b-4431-176c-9b54602c0b81/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="햇빛바라기" loading="lazy"></div>
         <p class="poster-name">햇빛바라기</p>
-        <p class="poster-tagline">오늘 받은 햇빛을 기록하다</p>
+        <p class="poster-tagline">햇빛을 얼마나 쬐는지 감이 없다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -781,6 +828,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">오늘 받은 햇빛을 기록하다</p>
+        
         <p class="desc">내가 오늘 받은 햇빛을 기록하는 앱 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>햇빛을 얼마나 쬐었는지 감이 없어, 실내 생활에 부족한 일조량을 놓치기 쉽습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>오늘 받은 햇빛을 기록해, 규칙적으로 볕을 쬐는 습관을 만들어 줍니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>온종일 사무실에 있어 해를 못 보는 직장인 &#x27;지아&#x27;(29)</dd></div><div class="who-item"><dt>상황</dt><dd>며칠째 볕 한 번 못 쬔 걸 몸이 무거워지고서야 깨닫습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>실내 생활이 길어 햇빛·비타민D가 부족하기 쉬운 사람</dd></div></div>
@@ -809,6 +857,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦3,300</span></div>
         <p class="tagline">매일 아침 도착하는 칭찬 한마디</p>
+        <p class="highlight"><span class="highlight-star">✦</span>매일 아침 도착하는 나만의 맞춤 칭찬</p>
         <p class="desc">나를 깎아먹는 자존감을 막아 줄 응원의 메시지를 받아보세요</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>비교와 자기비판 속에 자존감이 조금씩 깎이지만 스스로를 다독일 계기가 없습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>매일 아침 맞춤형 칭찬·주접 메시지로 하루를 긍정으로 열고 자존감을 쌓는 습관을 만듭니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>SNS를 보다 우울해지는 사회초년생 &#x27;예린&#x27;(25)</dd></div><div class="who-item"><dt>상황</dt><dd>SNS 속 남들과 비교하며 아침부터 자신을 깎아내립니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>긍정적인 하루가 필요한 모든 사람, 특히 자존감이 낮은 사람</dd></div></div>
@@ -828,6 +877,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦4,400</span></div>
         <p class="tagline">꿈을 사진으로 시각화하다</p>
+        <p class="highlight"><span class="highlight-star">✦</span>사진으로 남기고, 이루면 추억 스토리북</p>
         <p class="desc">꿈을 찾아가도록 도와주는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>이루고 싶은 게 막연한 목록으로만 남아, 동기부여도 성취의 실감도 흐릿합니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>꿈을 사진과 함께 등록해 눈으로 동기부여하고, 완료하면 추억으로 남기는 스토리북을 만듭니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>하고 싶은 건 많지만 실천은 미루는 20대 &#x27;민규&#x27;(24)</dd></div><div class="who-item"><dt>상황</dt><dd>버킷리스트를 적어둬도 눈에 띄지 않아 잊고, 이뤄도 기록이 남지 않습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>인생의 목표를 세우고 실천하려는 20-30대</dd></div></div>
@@ -856,6 +906,7 @@
         </div>
         <div class="meta"><span class="chip">Education</span><span class="chip chip-price">￦11,000</span></div>
         <p class="tagline">원하는 회화를 입에 붙을 때까지</p>
+        
         <p class="desc">내가 원하는 회화를 반복해서 연습할 수 있도록 도와주는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>정형화된 교재 문장은 실제 내가 쓸 표현과 달라, 배워도 입에서 안 나옵니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>연습할 회화를 직접 등록해 반복 재생·훈련으로 원하는 표현을 체화합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>해외 미팅을 앞둔 직장인 &#x27;지원&#x27;(31)</dd></div><div class="who-item"><dt>상황</dt><dd>정작 쓰고 싶은 표현은 교재에 없어 매번 얼버무립니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>실전 영어 회화가 필요한 학습자</dd></div></div>
@@ -864,9 +915,10 @@
     </article>
     <article class="exhibit" id="app-sanoramyeon">
       <div class="ex-visual ex-poster" style="--booth-h:26">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/37/62/463762b5-40e5-32fd-d931-53b967e707cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="사노라면" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/37/62/463762b5-40e5-32fd-d931-53b967e707cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="사노라면" loading="lazy"></div>
         <p class="poster-name">사노라면</p>
-        <p class="poster-tagline">가볍게 배우는 인도네시아어</p>
+        <p class="poster-tagline">인도네시아어 기초를 가볍게 배우고 싶다면</p>
+        <span class="poster-price">￦12,000</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -879,6 +931,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦12,000</span></div>
         <p class="tagline">가볍게 배우는 인도네시아어</p>
+        
         <p class="desc">간단한 인도네시아어를 학습하는 앱 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>인도네시아어 기초를 배우려 해도 부담 없이 시작할 자료가 마땅치 않습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>짧은 표현 중심으로 인도네시아어를 가볍게 학습해 기초 회화를 익힙니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>발리 한 달 살기를 준비하는 여행자 &#x27;나연&#x27;(30)</dd></div><div class="who-item"><dt>상황</dt><dd>현지에서 간단한 인사·주문조차 못 할까 걱정됩니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>여행·업무로 인도네시아어가 필요한 입문자</dd></div></div>
@@ -907,6 +960,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">마트 가기 전 영업 여부 확인</p>
+        
         <p class="desc">마트에 갔는데 문 닫았던 경험 있으신가요? 이제는 마트 가기전에 간편하게 확인하세요!</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>마트에 갔다가 문이 닫혀 헛걸음하는 낭패를 겪습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>마트 휴무·영업시간을 미리 확인하고 출발해 헛걸음을 없앱니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>퇴근길에 장 보러 들르는 1인 가구 &#x27;태윤&#x27;(34)</dd></div><div class="who-item"><dt>상황</dt><dd>늦은 밤 도착했더니 이미 영업이 끝나 빈손으로 돌아옵니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>오프라인 마트·매장을 이용하는 생활인</dd></div></div>
@@ -915,9 +969,10 @@
     </article>
     <article class="exhibit" id="app-life-restaurant">
       <div class="ex-visual ex-poster" style="--booth-h:118">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/62/78/8e627886-d44e-27fd-7094-b4c1f67b2595/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="인생 맛집" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/62/78/8e627886-d44e-27fd-7094-b4c1f67b2595/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="인생 맛집" loading="lazy"></div>
         <p class="poster-name">인생 맛집</p>
-        <p class="poster-tagline">나만의 맛집 지도를 만들다</p>
+        <p class="poster-tagline">다녀온 맛집 이름이 기억 안 난다면</p>
+        <span class="poster-price">￦4,400</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -930,6 +985,7 @@
         </div>
         <div class="meta"><span class="chip">Food &amp; Drink</span><span class="chip chip-price">￦4,400</span></div>
         <p class="tagline">나만의 맛집 지도를 만들다</p>
+        <p class="highlight"><span class="highlight-star">✦</span>다녀온 맛집이 지도 위 나만의 컬렉션으로</p>
         <p class="desc">인생 맛집을 기록하고 추천하면서 늘려갈 수 있는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>다녀온 좋은 식당을 기억에만 남겨 나중에 이름도, 추천도 못 합니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>사진·메모·내 평점을 한곳에 모아 지도 위 나만의 인생 맛집 리스트를 쌓고 추천합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>친구가 맛집 물어보면 늘 &#x27;어디였더라&#x27; 하는 회사원 &#x27;주하&#x27;(28)</dd></div><div class="who-item"><dt>상황</dt><dd>분명 좋았던 곳인데 상호가 기억나지 않아 재방문도 추천도 못 합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>외식과 맛집 탐방을 즐기는 미식가</dd></div></div>
@@ -938,9 +994,10 @@
     </article>
     <article class="exhibit" id="app-shared-day-designer">
       <div class="ex-visual ex-poster" style="--booth-h:28">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/a4/43/d5a443ca-4db2-f3ff-d1ae-66992dbeff3e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="골드위크" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/a4/43/d5a443ca-4db2-f3ff-d1ae-66992dbeff3e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="골드위크" loading="lazy"></div>
         <p class="poster-name">골드위크</p>
-        <p class="poster-tagline">최소 연차로 최대 연휴 설계</p>
+        <p class="poster-tagline">최소 연차로 최대 연휴를 만들고 싶다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -953,6 +1010,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">최소 연차로 최대 연휴 설계</p>
+        <p class="highlight"><span class="highlight-star">✦</span>최소 연차로 최대 연휴를 자동 설계</p>
         <p class="desc">Goldweek는 직장인을 위한 스마트 연차 관리 및 황금연휴 플래너입니다.  공휴일과 주말, 내 연차를 가장 효율적으로 조합해 최소 연차로 최대 연휴를 만들어드립니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>연차를 언제 붙여 써야 연휴가 길어지는지 일일이 달력을 계산하기 번거롭습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>공휴일·주말·내 연차를 조합해 최소 연차로 최대 연휴를 자동 설계합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>징검다리 연휴를 최대한 늘리고 싶은 대리 &#x27;현우&#x27;(33)</dd></div><div class="who-item"><dt>상황</dt><dd>공휴일과 주말 사이 언제 연차를 낄지 몰라 매번 어림짐작합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>휴가를 전략적으로 쓰려는 직장인</dd></div></div>
@@ -972,6 +1030,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">￦229,000</span></div>
         <p class="tagline">은퇴 시점을 계산하는 계산기</p>
+        
         <p class="desc">은퇴를 계획하는 분들을 위한 계산기 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>&#x27;언제쯤 퇴사·은퇴할 수 있을까&#x27;가 막연한 불안으로만 남아 있습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>조건을 입력해 필요한 자금과 은퇴 시점을 계산해 구체적 목표를 세웁니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>파이어족을 꿈꾸는 30대 직장인 &#x27;승호&#x27;(36)</dd></div><div class="who-item"><dt>상황</dt><dd>목표 자금과 은퇴 시점을 감으로만 알아 계획이 흔들립니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>조기 은퇴(FIRE)·퇴사를 계획하는 직장인</dd></div></div>
@@ -980,9 +1039,10 @@
     </article>
     <article class="exhibit" id="app-korea-navi">
       <div class="ex-visual ex-poster" style="--booth-h:345">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/bb/93/8cbb9344-3069-5c00-5b6d-be083195f5c0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="한국길찾기" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/bb/93/8cbb9344-3069-5c00-5b6d-be083195f5c0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="한국길찾기" loading="lazy"></div>
         <p class="poster-name">한국길찾기</p>
-        <p class="poster-tagline">접근성을 고려한 길찾기</p>
+        <p class="poster-tagline">접근성 좋은 길찾기가 필요하다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -995,6 +1055,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">접근성을 고려한 길찾기</p>
+        <p class="highlight"><span class="highlight-star">✦</span>접근성을 최우선으로 설계한 길찾기</p>
         <p class="desc">모두가 길을 찾기 쉽도록 접근성을 고려하여 만든 앱 입니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>기존 지도 앱은 접근성 배려가 부족해 누군가에겐 길찾기 자체가 장벽입니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>접근성을 우선한 UI로 누구나 목적지까지 쉽게 안내받습니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>화면 읽기에 의존해 길을 찾는 시각장애 사용자 &#x27;한별&#x27;(40)</dd></div><div class="who-item"><dt>상황</dt><dd>복잡한 UI의 지도 앱에서 목적지 안내를 따라가기 어렵습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>접근성이 필요한 사용자를 포함한 모든 보행자</dd></div></div>
@@ -1003,9 +1064,10 @@
     </article>
     <article class="exhibit" id="app-probability-calculator">
       <div class="ex-visual ex-poster" style="--booth-h:226">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/d7/73/cfd773b2-2d65-e119-6296-7b55db86153c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="확률계산기" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/d7/73/cfd773b2-2d65-e119-6296-7b55db86153c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="확률계산기" loading="lazy"></div>
         <p class="poster-name">확률계산기</p>
-        <p class="poster-tagline">지난 번호로 확률을 계산</p>
+        <p class="poster-tagline">번호를 감으로만 찍고 있다면</p>
+        <span class="poster-price">$1.99</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -1018,6 +1080,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">$1.99</span></div>
         <p class="tagline">지난 번호로 확률을 계산</p>
+        <p class="highlight"><span class="highlight-star">✦</span>수식 없이 그래프로 보는 확률</p>
         <p class="desc">지난 번호를 기반으로 새로운 번호를 생성하고 확률을 계산해보는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>번호를 고를 때 감에만 의존하고 확률적 근거를 재미로라도 확인할 방법이 없습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>지난 번호를 기반으로 새 번호를 생성하고 확률을 계산해 재미를 더합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>매주 번호를 고민하는 로또 애호가 &#x27;광수&#x27;(45)</dd></div><div class="who-item"><dt>상황</dt><dd>어떤 번호 조합이 나을지 감으로만 찍으며 아쉬워합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>번호·확률 게임을 즐기는 사람</dd></div></div>
@@ -1026,9 +1089,10 @@
     </article>
     <article class="exhibit" id="app-kid-calendar">
       <div class="ex-visual ex-poster" style="--booth-h:13">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/78/88/39788814-5c79-cc0c-f697-44d452cd1792/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="아이일정" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/78/88/39788814-5c79-cc0c-f697-44d452cd1792/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="아이일정" loading="lazy"></div>
         <p class="poster-name">아이일정</p>
-        <p class="poster-tagline">종이 알림장을 찍어서 관리</p>
+        <p class="poster-tagline">아이 종이 알림장을 놓치기 일쑤라면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -1041,6 +1105,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">종이 알림장을 찍어서 관리</p>
+        
         <p class="desc">아이의 일정이 종이로 온다면 이제 찍어서 관리하세요</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>아이 학원·학교 일정이 종이로 와, 손으로 옮겨 적다 빠뜨리기 쉽습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>종이로 온 아이 일정을 사진으로 찍어 디지털로 한데 관리하게 해 줍니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>아이 둘 일정을 종이로 받아 관리하는 워킹맘 &#x27;은정&#x27;(38)</dd></div><div class="who-item"><dt>상황</dt><dd>알림장을 깜빡 못 옮겨 적어 준비물을 놓칩니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>아이의 종이 일정·알림장을 챙기는 부모</dd></div></div>
@@ -1058,9 +1123,10 @@
       <div class="exhibits">
     <article class="exhibit" id="app-rapport-map">
       <div class="ex-visual ex-poster" style="--booth-h:209">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/fb/ee/34fbee37-0bf1-e019-b336-dde09e1aeb47/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="라포 맵" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/fb/ee/34fbee37-0bf1-e019-b336-dde09e1aeb47/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="라포 맵" loading="lazy"></div>
         <p class="poster-name">라포 맵</p>
-        <p class="poster-tagline">관계의 맥락을 기록하는 나침반</p>
+        <p class="poster-tagline">챙길 사람이 많아 관계를 놓친다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -1073,6 +1139,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">관계의 맥락을 기록하는 나침반</p>
+        <p class="highlight"><span class="highlight-star">✦</span>연락처를 넘어 ‘관계의 맥락’까지 기록</p>
         <p class="desc">40명의 멘티와 깊은 관계를 체계적으로 관리하고, 아무도 놓치지 않게 도와주는 멘토를 위한 관계 관리 앱입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>연락처엔 이름만 남아, 언제 무슨 이야기를 나눴는지 관계의 맥락이 사라집니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>만난 날짜·대화·약속을 사람별로 기록해, 다음 만남 전 맥락을 되짚고 아무도 놓치지 않게 케어합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>40명의 멘티를 챙기는 커뮤니티 멘토 &#x27;재원&#x27;(42)</dd></div><div class="who-item"><dt>상황</dt><dd>챙기는 사람에만 집중하다 조용한 멘티를 자기도 모르게 방치합니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>멘토링·네트워킹·고객 관리로 많은 관계를 유지하는 사람</dd></div></div>
@@ -1081,9 +1148,10 @@
     </article>
     <article class="exhibit" id="app-ring-rong">
       <div class="ex-visual ex-poster" style="--booth-h:315">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/7c/18/687c18c0-81e9-312e-3eee-5eddcca160e7/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="링롱" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/7c/18/687c18c0-81e9-312e-3eee-5eddcca160e7/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="링롱" loading="lazy"></div>
         <p class="poster-name">링롱</p>
-        <p class="poster-tagline">멘토·상대의 위치를 확인</p>
+        <p class="poster-tagline">만남 전 상대 위치 파악이 번거롭다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -1096,6 +1164,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">멘토·상대의 위치를 확인</p>
+        
         <p class="desc">멘토의 위치를 찾을 수 있습니다</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>만남·멘토링 전 상대의 위치를 몰라 조율에 시간이 낭비됩니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>상대의 위치를 확인해 만남과 멘토링을 손쉽게 연결합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>멘티와 접선 장소를 정하는 멘토 &#x27;가은&#x27;(37)</dd></div><div class="who-item"><dt>상황</dt><dd>서로 어디쯤인지 몰라 전화로 위치를 주고받느라 번거롭습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>오프라인 만남·멘토링을 조율하는 사람</dd></div></div>
@@ -1113,9 +1182,10 @@
       <div class="exhibits">
     <article class="exhibit" id="app-review-manager">
       <div class="ex-visual ex-poster" style="--booth-h:144">
-        <div class="ex-icon icon-fallback">리</div>
+        <div class="poster-icon-wrap"><div class="ex-icon icon-fallback">리</div></div>
         <p class="poster-name">리뷰 매니저</p>
-        <p class="poster-tagline">인디 개발자의 리뷰 사령탑</p>
+        <p class="poster-tagline">여러 앱 리뷰가 흩어져 관리가 힘들다면</p>
+        
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -1128,6 +1198,7 @@
         </div>
         <div class="meta"><span class="chip">개발자 도구</span><span class="chip chip-soon">준비 중</span></div>
         <p class="tagline">인디 개발자의 리뷰 사령탑</p>
+        <p class="highlight"><span class="highlight-star">✦</span>위험·기회 점수로 오늘 챙길 앱을 콕 집어</p>
         <p class="desc">macOS용 App Store 리뷰 관리 도구. App Store Connect API 키(Issuer ID, Key ID, .p8) 필요. 최신 커밋: 우선순위 대시보드 + 데모 모드 추가. iO…</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>여러 앱을 운영하면 리뷰·평점이 흩어져, 어디에 먼저 대응할지 감으로 정하게 됩니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>모든 앱 리뷰를 한곳에 모으고 위험/기회 점수로 &#x27;지금 신경 쓸 앱&#x27;을 자동 추천합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>앱 10개를 혼자 운영하는 1인 개발자 &#x27;이오&#x27;(35)</dd></div><div class="who-item"><dt>상황</dt><dd>앱마다 App Store Connect를 오가며 리뷰를 확인하다 중요한 앱의 악평을 놓칩니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>여러 앱을 운영하는 인디 개발자·소규모 스튜디오</dd></div></div>
@@ -1147,6 +1218,7 @@
         </div>
         <div class="meta"><span class="chip">Developer Tools</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">개발자를 위한 대비 색상 도구</p>
+        <p class="highlight"><span class="highlight-star">✦</span>대비 색상을 한눈에 확인하는 개발 도구</p>
         <p class="desc">개발을 하는데 필요한 대비 색상을 손쉽게 보여주는 앱</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>UI 색상의 명도 대비가 접근성 기준에 맞는지 눈대중으로 판단해 놓치기 쉽습니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>개발에 필요한 대비 색상을 손쉽게 확인해 접근성 기준에 맞는 색을 고르도록 돕습니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>다크모드 색 대비가 늘 애매한 프런트엔드 개발자 &#x27;민재&#x27;(31)</dd></div><div class="who-item"><dt>상황</dt><dd>텍스트와 배경 색을 정하며 대비가 충분한지 매번 확신이 서지 않습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>색상 대비·접근성을 챙겨야 하는 개발자·디자이너</dd></div></div>
@@ -1155,9 +1227,10 @@
     </article>
     <article class="exhibit" id="app-junior-mistakes">
       <div class="ex-visual ex-poster" style="--booth-h:73">
-        <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a4/1c/85/a41c8583-5e73-0df4-c348-e8a4085593ed/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="실수 100" loading="lazy">
+        <div class="poster-icon-wrap"><img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a4/1c/85/a41c8583-5e73-0df4-c348-e8a4085593ed/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="실수 100" loading="lazy"></div>
         <p class="poster-name">실수 100</p>
-        <p class="poster-tagline">실수하며 크는 주니어 개발자</p>
+        <p class="poster-tagline">주니어 개발자로서 실수가 두렵다면</p>
+        <span class="poster-price">무료</span>
       </div>
       <div class="ex-content">
         <div class="ex-head">
@@ -1170,6 +1243,7 @@
         </div>
         <div class="meta"><span class="chip">Lifestyle</span><span class="chip chip-price">무료</span></div>
         <p class="tagline">실수하며 크는 주니어 개발자</p>
+        
         <p class="desc">주니어 개발자들이 실수를 하면서 성장할 수 있도록 실패를 도와주는 앱 입니다.</p>
         <div class="story"><div class="story-item story-problem"><span class="story-tag">문제</span><p>주니어 개발자는 실수를 부끄러워 숨겨, 성장의 밑거름으로 삼지 못합니다.</p></div><div class="story-item story-solution"><span class="story-tag">솔루션</span><p>개발자들이 흔히 겪는 실수 100가지를 통해, 실패를 성장의 발판으로 삼게 합니다.</p></div></div>
         <div class="who"><div class="who-item"><dt>페르소나</dt><dd>사소한 실수에도 자책이 큰 1년차 개발자 &#x27;도현&#x27;(26)</dd></div><div class="who-item"><dt>상황</dt><dd>같은 실수를 반복하면서도 정리해두지 않아 배움으로 남지 않습니다.</dd></div><div class="who-item"><dt>스테이크홀더</dt><dd>이제 막 입문한 주니어 개발자</dd></div></div>
