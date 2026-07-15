@@ -1,0 +1,36 @@
+{
+  "allTasks": [],
+  "appStoreId": "6789206198",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6789206198",
+  "bundleId": "com.leeo.TetraTint",
+  "categories": [
+    "개발자 도구",
+    "macOS"
+  ],
+  "currentVersion": "",
+  "folderId": "tetra-tint",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "",
+  "name": "TetraTint",
+  "nameEn": "TetraTint",
+  "nextTasks": [],
+  "notes": "[2026-07-15 스토어 동기화로 추가] 개발을 하는데 필요한 대비 색상을 손쉽게 보여주는 앱 (스토어명: TetraTint, 개발자 도구/macOS)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}

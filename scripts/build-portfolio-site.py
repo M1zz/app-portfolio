@@ -26,6 +26,7 @@ OUT_DIR = ROOT / "docs"
 OUT_FILE = OUT_DIR / "index.html"
 CACHE_FILE = ROOT / "scripts" / ".appstore-cache.json"
 CONTENT_FILE = ROOT / "scripts" / "showcase-content.json"
+SHOTS_DIR = OUT_DIR / "screenshots"
 
 KST = timezone(timedelta(hours=9))
 APPSTORE_ID_RE = re.compile(r"/id(\d+)")
@@ -47,6 +48,14 @@ def extract_appstore_id(app):
     url = app.get("appStoreUrl") or ""
     m = APPSTORE_ID_RE.search(url)
     return m.group(1) if m else None
+
+
+def local_shots(slug):
+    """docs/screenshots/<slug>.png (+ <slug>-2.png …) 이 있으면 상대경로로 반환."""
+    if not SHOTS_DIR.exists():
+        return []
+    files = sorted(SHOTS_DIR.glob(f"{slug}.png")) + sorted(SHOTS_DIR.glob(f"{slug}-*.png"))
+    return [f"screenshots/{f.name}" for f in files]
 
 
 def load_content():
@@ -166,8 +175,9 @@ def render_card(app, copy=None):
         else f'<div class="ex-head-icon icon-fallback">{escape(name[:1])}</div>'
     )
 
-    # 비주얼 패널: 스크린샷이 있으면 폰샷, 없으면 아이콘 포스터(부스 커버)
-    shots = [s for s in (store.get("screenshots") or []) if s][:3]
+    # 비주얼 패널: 로컬(시뮬레이터) 스크린샷 우선 → 스토어 스크린샷 → 아이콘 포스터
+    local = local_shots(app["_slug"])
+    shots = local[:3] if local else [s for s in (store.get("screenshots") or []) if s][:3]
     if shots:
         shots_html = "".join(
             f'<img class="shot" src="{escape(s)}" alt="{escape(name)} 스크린샷" loading="lazy">'

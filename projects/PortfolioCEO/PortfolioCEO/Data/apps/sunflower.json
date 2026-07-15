@@ -1,0 +1,35 @@
+{
+  "allTasks": [],
+  "appStoreId": "6758931631",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6758931631",
+  "bundleId": "com.leeo.sunflower",
+  "categories": [
+    "라이프스타일"
+  ],
+  "currentVersion": "",
+  "folderId": "sunflower",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "",
+  "name": "햇빛바라기",
+  "nameEn": "Sunflower",
+  "nextTasks": [],
+  "notes": "[2026-07-15 스토어 동기화로 추가] 내가 오늘 받은 햇빛을 기록하는 앱 입니다 (스토어명: 햇빛바라기)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}

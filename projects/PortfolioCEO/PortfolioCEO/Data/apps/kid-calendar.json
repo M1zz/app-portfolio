@@ -1,0 +1,35 @@
+{
+  "allTasks": [],
+  "appStoreId": "6789881830",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6789881830",
+  "bundleId": "com.devkoan.CalendarSnap",
+  "categories": [
+    "라이프스타일"
+  ],
+  "currentVersion": "",
+  "folderId": "kid-calendar",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "",
+  "name": "아이일정",
+  "nameEn": "Kid Calendar",
+  "nextTasks": [],
+  "notes": "[2026-07-15 스토어 동기화로 추가] 아이의 일정이 종이로 온다면 이제 찍어서 관리하세요 (스토어명: 아이일정)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}

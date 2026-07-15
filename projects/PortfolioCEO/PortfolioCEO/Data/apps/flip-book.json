@@ -1,0 +1,35 @@
+{
+  "allTasks": [],
+  "appStoreId": "6789852144",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6789852144",
+  "bundleId": "com.leeo.RotoscopeiPad",
+  "categories": [
+    "라이프스타일"
+  ],
+  "currentVersion": "",
+  "folderId": "flip-book",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "",
+  "name": "팔랑북",
+  "nameEn": "PalrangBook",
+  "nextTasks": [],
+  "notes": "[2026-07-15 스토어 동기화로 추가] 내 아이가 그림을 쉽게 그리게 도와주고 그 그림들이 움직이게 도와주는 앱 입니다 (스토어명: 팔랑북)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}

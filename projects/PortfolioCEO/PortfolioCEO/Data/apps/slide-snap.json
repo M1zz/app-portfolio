@@ -1,0 +1,35 @@
+{
+  "allTasks": [],
+  "appStoreId": "6790835318",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6790835318",
+  "bundleId": "com.leeo.slidesnap",
+  "categories": [
+    "라이프스타일"
+  ],
+  "currentVersion": "",
+  "folderId": "slide-snap",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "",
+  "name": "장표스냅",
+  "nameEn": "SlideSnap",
+  "nextTasks": [],
+  "notes": "[2026-07-15 스토어 동기화로 추가] 발표를 들을 때 편하게 장표를 촬영하세요 (스토어명: 장표스냅)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}

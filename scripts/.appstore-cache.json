@@ -429,5 +429,85 @@
     "screenshots": [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/64/29/8c/64298ce9-11f0-5c3f-f890-6feed9eaec4a/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2025-12-07__U110b_U1169_U1112_U116e_6.06.12_1.png/800x500bb.jpg"
     ]
+  },
+  "6789852144": {
+    "trackName": "팔랑북",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/66/5f/5a665f43-8fd1-1dda-3859-667c60cfe318/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+    "rating": 0,
+    "ratingCount": 0,
+    "genre": "Lifestyle",
+    "price": "무료",
+    "description": "내 아이가 그림을 쉽게 그리게 도와주고 그 그림들이 움직이게 도와주는 앱 입니다",
+    "seller": "hyunho lee",
+    "version": "1.0",
+    "url": "https://apps.apple.com/kr/app/%ED%8C%94%EB%9E%91%EB%B6%81/id6789852144?uo=4",
+    "screenshots": []
+  },
+  "6759643878": {
+    "trackName": "실수 100",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a4/1c/85/a41c8583-5e73-0df4-c348-e8a4085593ed/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    "rating": 0,
+    "ratingCount": 0,
+    "genre": "Lifestyle",
+    "price": "무료",
+    "description": "주니어 개발자들이 실수를 하면서 성장할 수 있도록 실패를 도와주는 앱 입니다.\n\n이용약관 (Terms of Use / EULA):\nhttps://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\n개인정보처리방침 (Privacy Policy):\nhttps://m1zz.github.io/JuniorDevMistakes/privacy.html",
+    "seller": "hyunho lee",
+    "version": "1.0",
+    "url": "https://apps.apple.com/kr/app/%EC%8B%A4%EC%88%98-100/id6759643878?uo=4",
+    "screenshots": []
+  },
+  "6789881830": {
+    "trackName": "아이일정",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/78/88/39788814-5c79-cc0c-f697-44d452cd1792/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    "rating": 0,
+    "ratingCount": 0,
+    "genre": "Lifestyle",
+    "price": "무료",
+    "description": "아이의 일정이 종이로 온다면 이제 찍어서 관리하세요",
+    "seller": "hyunho lee",
+    "version": "1.0.1",
+    "url": "https://apps.apple.com/kr/app/%EC%95%84%EC%9D%B4%EC%9D%BC%EC%A0%95/id6789881830?uo=4",
+    "screenshots": []
+  },
+  "6790835318": {
+    "trackName": "장표스냅",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/e3/6b/3ee36b19-de9f-a6d9-fc9d-b9317795f9c5/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    "rating": 0,
+    "ratingCount": 0,
+    "genre": "Lifestyle",
+    "price": "무료",
+    "description": "발표를 들을 때 편하게 장표를 촬영하세요",
+    "seller": "hyunho lee",
+    "version": "1.0",
+    "url": "https://apps.apple.com/kr/app/%EC%9E%A5%ED%91%9C%EC%8A%A4%EB%83%85/id6790835318?uo=4",
+    "screenshots": []
+  },
+  "6758931631": {
+    "trackName": "햇빛바라기",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/46/0e/94460efc-e20b-4431-176c-9b54602c0b81/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    "rating": 0,
+    "ratingCount": 0,
+    "genre": "Lifestyle",
+    "price": "무료",
+    "description": "내가 오늘 받은 햇빛을 기록하는 앱 입니다",
+    "seller": "hyunho lee",
+    "version": "1.0",
+    "url": "https://apps.apple.com/kr/app/%ED%96%87%EB%B9%9B%EB%B0%94%EB%9D%BC%EA%B8%B0/id6758931631?uo=4",
+    "screenshots": []
+  },
+  "6789206198": {
+    "trackName": "TetraTint",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/bf/bc/e2bfbc81-7b75-3c19-4686-78b17fb56510/AppIcon-0-0-85-220-0-5-0-2x-P3.png/512x512bb.png",
+    "rating": 0,
+    "ratingCount": 0,
+    "genre": "Developer Tools",
+    "price": "무료",
+    "description": "개발을 하는데 필요한 대비 색상을 손쉽게 보여주는 앱",
+    "seller": "hyunho lee",
+    "version": "1.0",
+    "url": "https://apps.apple.com/kr/app/tetratint/id6789206198?mt=12&uo=4",
+    "screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/95/c2/d6/95c2d669-c2cb-522f-6ae3-1c6cffed0c89/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2026-07-10__U110b_U1169_U110c_U1165_U11ab_12.44.19_1.png/800x500bb.jpg"
+    ]
   }
 }
