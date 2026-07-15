@@ -157,13 +157,38 @@ def render_card(app, copy=None):
     appstore_url = store.get("url") or app.get("appStoreUrl")
     support = app.get("supportUrl")
 
-    icon_html = (
-        f'<img class="icon" src="{escape(icon)}" alt="{escape(name)}" loading="lazy">'
+    released = bool(appstore_url)
+    tagline = copy.get("tagline") or ""
+
+    head_icon_html = (
+        f'<img class="ex-head-icon" src="{escape(icon)}" alt="{escape(name)}" loading="lazy">'
         if icon
-        else f'<div class="icon icon-fallback">{escape(name[:1])}</div>'
+        else f'<div class="ex-head-icon icon-fallback">{escape(name[:1])}</div>'
     )
 
-    released = bool(appstore_url)
+    # 비주얼 패널: 스크린샷이 있으면 폰샷, 없으면 아이콘 포스터(부스 커버)
+    shots = [s for s in (store.get("screenshots") or []) if s][:3]
+    if shots:
+        shots_html = "".join(
+            f'<img class="shot" src="{escape(s)}" alt="{escape(name)} 스크린샷" loading="lazy">'
+            for s in shots
+        )
+        visual_html = f'<div class="ex-visual ex-shots shots-{len(shots)}">{shots_html}</div>'
+    else:
+        big_icon = (
+            f'<img class="ex-icon" src="{escape(icon)}" alt="{escape(name)}" loading="lazy">'
+            if icon
+            else f'<div class="ex-icon icon-fallback">{escape(name[:1])}</div>'
+        )
+        poster_tag = f'<p class="poster-tagline">{escape(tagline)}</p>' if tagline else ""
+        hue = 0
+        for ch in app["_slug"]:
+            hue = (hue * 31 + ord(ch)) % 360
+        visual_html = f"""<div class="ex-visual ex-poster" style="--booth-h:{hue}">
+        {big_icon}
+        <p class="poster-name">{escape(name)}</p>
+        {poster_tag}
+      </div>"""
 
     meta = []
     if genre:
@@ -174,31 +199,35 @@ def render_card(app, copy=None):
         meta.append('<span class="chip chip-soon">준비 중</span>')
     meta_html = f'<div class="meta">{"".join(meta)}</div>' if meta else ""
 
-    tagline = copy.get("tagline")
     tagline_html = f'<p class="tagline">{escape(tagline)}</p>' if tagline else ""
 
-    case_rows = []
+    # 스토리: 문제 → 솔루션
+    story_parts = []
+    if copy.get("problem"):
+        story_parts.append(
+            '<div class="story-item story-problem"><span class="story-tag">문제</span>'
+            f'<p>{escape(copy["problem"])}</p></div>'
+        )
+    if copy.get("solution"):
+        story_parts.append(
+            '<div class="story-item story-solution"><span class="story-tag">솔루션</span>'
+            f'<p>{escape(copy["solution"])}</p></div>'
+        )
+    story_html = f'<div class="story">{"".join(story_parts)}</div>' if story_parts else ""
+
+    # 대상 · 맥락 스트립
+    who_rows = []
     for label, key in (
-        ("문제", "problem"),
-        ("스테이크홀더", "stakeholders"),
         ("페르소나", "persona"),
         ("상황", "context"),
-        ("솔루션", "solution"),
+        ("스테이크홀더", "stakeholders"),
     ):
         val = copy.get(key)
         if val:
-            case_rows.append(
-                f'<div class="case-row case-{key}"><dt>{label}</dt>'
-                f'<dd>{escape(val)}</dd></div>'
+            who_rows.append(
+                f'<div class="who-item"><dt>{label}</dt><dd>{escape(val)}</dd></div>'
             )
-    guide_html = (
-        f"""<details class="case">
-        <summary>문제 · 페르소나 · 솔루션 보기</summary>
-        <dl class="case-body">{"".join(case_rows)}</dl>
-      </details>"""
-        if case_rows
-        else ""
-    )
+    who_html = f'<div class="who">{"".join(who_rows)}</div>' if who_rows else ""
 
     rating_html = ""
     if rating:
@@ -211,11 +240,11 @@ def render_card(app, copy=None):
     links = []
     if appstore_url:
         links.append(
-            f'<a class="btn btn-store" href="{escape(appstore_url)}" target="_blank" rel="noopener">App Store</a>'
+            f'<a class="btn btn-store" href="{escape(appstore_url)}" target="_blank" rel="noopener">App Store에서 보기</a>'
         )
     if support:
         links.append(
-            f'<a class="btn btn-ghost" href="{escape(support)}" target="_blank" rel="noopener">지원</a>'
+            f'<a class="btn btn-ghost" href="{escape(support)}" target="_blank" rel="noopener">지원 페이지</a>'
         )
     links_html = f'<div class="links">{"".join(links)}</div>' if links else ""
 
@@ -223,20 +252,24 @@ def render_card(app, copy=None):
     desc_html = f'<p class="desc">{escape(desc)}</p>' if desc else ""
 
     return f"""
-    <article class="card">
-      <div class="card-head">
-        {icon_html}
-        <div class="card-title">
-          <h3>{escape(name)}</h3>
-          {name_en_html}
-          {rating_html}
+    <article class="exhibit">
+      {visual_html}
+      <div class="ex-content">
+        <div class="ex-head">
+          {head_icon_html}
+          <div class="ex-title">
+            <h3>{escape(name)}</h3>
+            {name_en_html}
+            {rating_html}
+          </div>
         </div>
+        {meta_html}
+        {tagline_html}
+        {desc_html}
+        {story_html}
+        {who_html}
+        {links_html}
       </div>
-      {meta_html}
-      {tagline_html}
-      {desc_html}
-      {guide_html}
-      {links_html}
     </article>"""
 
 
@@ -276,7 +309,7 @@ def render(apps, content=None):
         {intro_html}
         <span class="cat-count">{len(cards)}</span>
       </div>
-      <div class="grid">{"".join(cards)}</div>
+      <div class="exhibits">{"".join(cards)}</div>
     </section>"""
         )
 
@@ -296,7 +329,7 @@ def render(apps, content=None):
         <h2>✨ 그 외</h2>
         <span class="cat-count">{len(leftovers)}</span>
       </div>
-      <div class="grid">{cards}</div>
+      <div class="exhibits">{cards}</div>
     </section>"""
         )
 
@@ -371,42 +404,70 @@ def render(apps, content=None):
   .stat-num {{ font-size: 2rem; font-weight: 800; color: var(--text); }}
   .stat-label {{ font-size: .85rem; color: var(--muted); }}
 
-  main {{ padding: 30px 0 80px; }}
+  main {{ padding: 30px 0 90px; }}
 
-  .category {{ margin-top: 44px; }}
-  .category:first-child {{ margin-top: 8px; }}
-  .cat-head {{ display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }}
-  .cat-head h2 {{ font-size: 1.4rem; font-weight: 800; letter-spacing: -.01em; }}
-  .cat-intro {{ color: var(--muted); font-size: .92rem; }}
+  .category {{ margin-top: 72px; }}
+  .category:first-child {{ margin-top: 16px; }}
+  .cat-head {{ display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }}
+  .cat-head h2 {{ font-size: 1.6rem; font-weight: 800; letter-spacing: -.01em; }}
+  .cat-intro {{ color: var(--muted); font-size: .95rem; }}
   .cat-count {{ margin-left: auto; font-size: .8rem; font-weight: 700; color: var(--muted); background: var(--bg-soft); border: 1px solid var(--border); padding: 2px 11px; border-radius: 999px; }}
 
-  .grid {{
+  .exhibits {{ display: flex; flex-direction: column; gap: 34px; }}
+
+  .exhibit {{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 18px;
-  }}
-  .card {{
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 34px;
+    align-items: center;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 22px;
-    transition: transform .15s ease, border-color .15s ease;
+    border-radius: 24px;
+    padding: 30px;
+    transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
   }}
-  .card:hover {{ transform: translateY(-3px); border-color: var(--accent); }}
-  .card-head {{ display: flex; gap: 14px; align-items: center; }}
-  .icon {{ width: 62px; height: 62px; border-radius: 14px; flex-shrink: 0; object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,.4); }}
+  .exhibit:hover {{ border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 18px 50px rgba(0,0,0,.35); }}
+  .exhibit:nth-child(even) .ex-visual {{ order: 2; }}
+
+  /* 비주얼 */
+  .ex-visual {{ align-self: stretch; border-radius: 18px; overflow: hidden; display: flex; min-height: 300px; }}
+  .ex-shots {{
+    gap: 12px; padding: 22px; justify-content: center; align-items: center; flex-wrap: nowrap;
+    background: radial-gradient(120% 120% at 50% 0%, rgba(91,141,239,.14), transparent), var(--bg-soft);
+  }}
+  .ex-shots .shot {{ min-width: 0; max-height: 360px; max-width: 100%; border-radius: 16px; box-shadow: 0 14px 36px rgba(0,0,0,.5); border: 1px solid var(--border); object-fit: contain; }}
+  .shots-1 .shot {{ max-height: 400px; }}
+
+  .ex-poster {{
+    flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    gap: 16px; padding: 46px 28px;
+    background:
+      radial-gradient(130% 110% at 50% 0%, hsl(var(--booth-h, 220) 72% 58% / .30), transparent),
+      radial-gradient(90% 90% at 80% 100%, hsl(calc(var(--booth-h, 220) + 40) 70% 55% / .16), transparent),
+      linear-gradient(160deg, var(--bg-soft), var(--card));
+  }}
+  .ex-poster .ex-icon {{ width: 112px; height: 112px; border-radius: 26px; object-fit: cover; box-shadow: 0 16px 40px rgba(0,0,0,.55); }}
+  .poster-name {{ font-size: 1.45rem; font-weight: 800; letter-spacing: -.01em; }}
+  .poster-tagline {{ color: var(--muted); font-size: .95rem; max-width: 320px; }}
+
   .icon-fallback {{
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; font-weight: 800; color: #fff;
+    font-size: 2.4rem; font-weight: 800; color: #fff;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
   }}
-  .card-title h3 {{ font-size: 1.15rem; font-weight: 700; }}
-  .name-en {{ color: var(--muted); font-size: .82rem; }}
-  .rating {{ margin-top: 4px; font-size: .8rem; display: flex; align-items: center; gap: 6px; }}
+
+  /* 콘텐츠 */
+  .ex-content {{ min-width: 0; }}
+  .ex-head {{ display: flex; gap: 14px; align-items: center; }}
+  .ex-head-icon {{ width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,.4); font-size: 1.6rem; }}
+  .ex-title h3 {{ font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }}
+  .name-en {{ color: var(--muted); font-size: .84rem; }}
+  .rating {{ margin-top: 5px; font-size: .82rem; display: flex; align-items: center; gap: 6px; }}
   .stars {{ color: #f5b301; letter-spacing: 1px; }}
   .rating-num {{ font-weight: 700; }}
   .rating-count {{ color: var(--muted); }}
-  .meta {{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }}
+
+  .meta {{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }}
   .chip {{
     font-size: .73rem; color: var(--muted);
     background: var(--bg-soft); border: 1px solid var(--border);
@@ -414,34 +475,43 @@ def render(apps, content=None):
   }}
   .chip-price {{ color: var(--text); }}
   .chip-soon {{ color: var(--accent-2); border-color: rgba(167,139,250,.4); }}
-  .tagline {{ margin-top: 14px; font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -.01em; }}
-  .desc {{ color: var(--muted); font-size: .87rem; margin-top: 6px; }}
 
-  .case {{ margin-top: 14px; border-top: 1px solid var(--border); padding-top: 12px; }}
-  .case > summary {{
-    cursor: pointer; list-style: none;
-    font-size: .82rem; font-weight: 700; color: var(--accent);
-    display: flex; align-items: center; gap: 6px;
-  }}
-  .case > summary::-webkit-details-marker {{ display: none; }}
-  .case > summary::before {{ content: "▸"; transition: transform .15s ease; display: inline-block; }}
-  .case[open] > summary::before {{ transform: rotate(90deg); }}
-  .case-body {{ margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }}
-  .case-row {{ font-size: .86rem; line-height: 1.5; }}
-  .case-row dt {{ font-weight: 700; color: var(--accent-2); font-size: .74rem; letter-spacing: .02em; margin-bottom: 2px; }}
-  .case-row dd {{ margin: 0; color: var(--text); }}
-  .case-problem dt {{ color: #f0776a; }}
-  .case-solution {{ background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }}
-  .case-solution dt {{ color: #4fd1a5; }}
+  .tagline {{ margin-top: 16px; font-size: 1.28rem; font-weight: 800; color: var(--text); letter-spacing: -.015em; line-height: 1.35; }}
+  .desc {{ color: var(--muted); font-size: .9rem; margin-top: 8px; }}
 
-  .links {{ display: flex; gap: 8px; margin-top: 16px; }}
+  /* 스토리: 문제 → 솔루션 */
+  .story {{ margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }}
+  .story-item {{ padding: 13px 16px; border-radius: 13px; }}
+  .story-item p {{ font-size: .93rem; line-height: 1.55; color: var(--text); margin-top: 5px; }}
+  .story-tag {{ display: inline-block; font-size: .68rem; font-weight: 800; letter-spacing: .06em; padding: 2px 9px; border-radius: 6px; }}
+  .story-problem {{ background: rgba(240,119,106,.08); border: 1px solid rgba(240,119,106,.22); }}
+  .story-problem .story-tag {{ background: rgba(240,119,106,.16); color: #f0776a; }}
+  .story-solution {{ background: rgba(79,209,165,.08); border: 1px solid rgba(79,209,165,.22); }}
+  .story-solution .story-tag {{ background: rgba(79,209,165,.16); color: #4fd1a5; }}
+
+  /* 대상 · 맥락 스트립 */
+  .who {{ margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; padding-top: 18px; border-top: 1px solid var(--border); }}
+  .who-item dt {{ font-size: .7rem; font-weight: 700; color: var(--accent-2); letter-spacing: .03em; margin-bottom: 4px; }}
+  .who-item dd {{ margin: 0; font-size: .82rem; color: var(--text); line-height: 1.45; }}
+
+  .links {{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }}
   .btn {{
-    flex: 1; text-align: center; font-size: .85rem; font-weight: 600;
-    padding: 9px 12px; border-radius: 10px; transition: opacity .15s;
+    text-align: center; font-size: .86rem; font-weight: 700;
+    padding: 11px 22px; border-radius: 11px; transition: opacity .15s, transform .15s;
   }}
-  .btn:hover {{ opacity: .85; }}
+  .btn:hover {{ opacity: .9; transform: translateY(-1px); }}
   .btn-store {{ background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #fff; }}
   .btn-ghost {{ background: var(--bg-soft); border: 1px solid var(--border); color: var(--text); }}
+
+  @media (max-width: 780px) {{
+    .exhibit {{ grid-template-columns: 1fr; gap: 20px; padding: 20px; }}
+    .exhibit:nth-child(even) .ex-visual {{ order: 0; }}
+    .ex-visual {{ min-height: 0; }}
+    .ex-shots {{ padding: 18px; }}
+    .ex-shots .shot {{ max-height: 300px; }}
+    .tagline {{ font-size: 1.15rem; }}
+    .ex-title h3 {{ font-size: 1.3rem; }}
+  }}
 
   .soon {{ margin-top: 56px; text-align: center; }}
   .soon h2 {{ font-size: 1.2rem; color: var(--muted); font-weight: 600; margin-bottom: 16px; }}
