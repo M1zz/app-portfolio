@@ -262,7 +262,7 @@ def render_card(app, copy=None):
     desc_html = f'<p class="desc">{escape(desc)}</p>' if desc else ""
 
     return f"""
-    <article class="exhibit">
+    <article class="exhibit" id="app-{app['_slug']}">
       {visual_html}
       <div class="ex-content">
         <div class="ex-head">
@@ -296,17 +296,27 @@ def render(apps, content=None):
             copy_map.get(app["_slug"])
         )
 
-    # 카테고리 그룹 순서대로 섹션 구성
+    # 카테고리 그룹 순서대로 섹션 구성 (+ 문제 목차 수집)
     section_blocks = []
+    toc_blocks = []
     grouped_slugs = set()
     for group in content.get("groups", []):
         cards = []
+        toc_items = []
         for slug in group.get("slugs", []):
             app = by_slug.get(slug)
             if not app or not showable(app):
                 continue
             grouped_slugs.add(slug)
-            cards.append(render_card(app, copy_map.get(slug)))
+            copy = copy_map.get(slug) or {}
+            cards.append(render_card(app, copy))
+            hook = copy.get("hook") or copy.get("problem") or (app.get("name") or slug)
+            name = app.get("name") or (app.get("_store") or {}).get("trackName") or slug
+            toc_items.append(
+                f'<a class="toc-item" href="#app-{slug}">'
+                f'<span class="toc-hook">{escape(hook)}</span>'
+                f'<span class="toc-app">{escape(name)} →</span></a>'
+            )
         if not cards:
             continue
         intro = group.get("intro", "")
@@ -322,6 +332,26 @@ def render(apps, content=None):
       <div class="exhibits">{"".join(cards)}</div>
     </section>"""
         )
+        toc_blocks.append(
+            f"""
+      <div class="toc-group">
+        <h3>{escape(group.get("title", ""))}</h3>
+        <div class="toc-list">{"".join(toc_items)}</div>
+      </div>"""
+        )
+
+    toc_html = (
+        f"""
+    <section class="toc">
+      <div class="toc-head">
+        <h2>이런 고민, 없으세요?</h2>
+        <p>공감 가는 문제를 누르면 그걸 푸는 앱으로 바로 이동합니다.</p>
+      </div>
+      <div class="toc-groups">{"".join(toc_blocks)}</div>
+    </section>"""
+        if toc_blocks
+        else ""
+    )
 
     # 그룹에 빠진 출시작이 있으면 '그 외' 섹션으로 보강 (누락 방지)
     leftovers = [
@@ -415,6 +445,28 @@ def render(apps, content=None):
   .stat-label {{ font-size: .85rem; color: var(--muted); }}
 
   main {{ padding: 30px 0 90px; }}
+
+  /* 문제 목차 */
+  .toc {{
+    background: linear-gradient(160deg, var(--card), var(--bg-soft));
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 34px 30px; margin-top: 8px;
+  }}
+  .toc-head h2 {{ font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }}
+  .toc-head p {{ color: var(--muted); font-size: .95rem; margin-top: 6px; }}
+  .toc-groups {{ margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px 30px; }}
+  .toc-group h3 {{ font-size: 1rem; font-weight: 800; color: var(--text); padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--border); }}
+  .toc-list {{ display: flex; flex-direction: column; }}
+  .toc-item {{
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+    padding: 8px 8px; border-radius: 9px; transition: background .12s;
+  }}
+  .toc-item:hover {{ background: rgba(91,141,239,.10); }}
+  .toc-hook {{ font-size: .9rem; color: var(--text); line-height: 1.4; }}
+  .toc-item:hover .toc-hook {{ color: var(--accent); }}
+  .toc-app {{ flex-shrink: 0; font-size: .74rem; font-weight: 700; color: var(--muted); white-space: nowrap; }}
+
+  .exhibit {{ scroll-margin-top: 20px; }}
 
   .category {{ margin-top: 72px; }}
   .category:first-child {{ margin-top: 16px; }}
@@ -552,6 +604,7 @@ def render(apps, content=None):
 
   <main>
     <div class="wrap">
+      {toc_html}
       {sections_html}
     </div>
   </main>

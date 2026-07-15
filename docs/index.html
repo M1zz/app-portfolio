@@ -54,6 +54,28 @@
 
   main { padding: 30px 0 90px; }
 
+  /* 문제 목차 */
+  .toc {
+    background: linear-gradient(160deg, var(--card), var(--bg-soft));
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 34px 30px; margin-top: 8px;
+  }
+  .toc-head h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }
+  .toc-head p { color: var(--muted); font-size: .95rem; margin-top: 6px; }
+  .toc-groups { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px 30px; }
+  .toc-group h3 { font-size: 1rem; font-weight: 800; color: var(--text); padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .toc-list { display: flex; flex-direction: column; }
+  .toc-item {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+    padding: 8px 8px; border-radius: 9px; transition: background .12s;
+  }
+  .toc-item:hover { background: rgba(91,141,239,.10); }
+  .toc-hook { font-size: .9rem; color: var(--text); line-height: 1.4; }
+  .toc-item:hover .toc-hook { color: var(--accent); }
+  .toc-app { flex-shrink: 0; font-size: .74rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
+
+  .exhibit { scroll-margin-top: 20px; }
+
   .category { margin-top: 72px; }
   .category:first-child { margin-top: 16px; }
   .cat-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
@@ -191,6 +213,46 @@
   <main>
     <div class="wrap">
       
+    <section class="toc">
+      <div class="toc-head">
+        <h2>이런 고민, 없으세요?</h2>
+        <p>공감 가는 문제를 누르면 그걸 푸는 앱으로 바로 이동합니다.</p>
+      </div>
+      <div class="toc-groups">
+      <div class="toc-group">
+        <h3>⌨️ 생산성 · 도구</h3>
+        <div class="toc-list"><a class="toc-item" href="#app-clip-keyboard"><span class="toc-hook">매일 같은 문구를 반복해서 타이핑하고 있다면</span><span class="toc-app">클립키보드 →</span></a><a class="toc-item" href="#app-tap-clip-keyboard"><span class="toc-hook">아이폰 상용구를 맥에서도 쓰고 싶다면</span><span class="toc-app">탭클립 키보드 →</span></a><a class="toc-item" href="#app-double-reminder"><span class="toc-hook">발표·회의 마무리 타이밍을 자꾸 놓친다면</span><span class="toc-app">두번알림 →</span></a><a class="toc-item" href="#app-sticky-presenter"><span class="toc-hook">발표 중 시간 감각을 잃어 페이스가 무너진다면</span><span class="toc-app">StickyPresenter →</span></a><a class="toc-item" href="#app-dont-forget"><span class="toc-hook">맥에 정리한 일정을 밖에서 못 봐 약속을 놓친다면</span><span class="toc-app">잊지마 →</span></a><a class="toc-item" href="#app-schedule-assistant"><span class="toc-hook">흩어진 일정 정리에 진이 빠진다면</span><span class="toc-app">일정 비서 →</span></a><a class="toc-item" href="#app-think-flow"><span class="toc-hook">어제 하던 생각을 오늘 이어가기 어렵다면</span><span class="toc-app">이어생각 →</span></a><a class="toc-item" href="#app-slide-snap"><span class="toc-hook">발표 장표를 급히 찍어 뒤죽박죽이 된다면</span><span class="toc-app">장표스냅 →</span></a></div>
+      </div>
+      <div class="toc-group">
+        <h3>🎨 창작 · 만들기</h3>
+        <div class="toc-list"><a class="toc-item" href="#app-punching"><span class="toc-hook">내 사진으로 나만의 스티커를 만들고 싶다면</span><span class="toc-app">펀칭 →</span></a><a class="toc-item" href="#app-pixel-mimi"><span class="toc-hook">픽셀아트를 가볍게 그려보고 싶다면</span><span class="toc-app">픽셀 미미 →</span></a><a class="toc-item" href="#app-leeocon"><span class="toc-hook">아이메시지를 아기자기하게 꾸미고 싶다면</span><span class="toc-app">LeeoCon →</span></a><a class="toc-item" href="#app-sight-singer"><span class="toc-hook">악보를 소리로 바로 확인하고 싶다면</span><span class="toc-app">초견 →</span></a><a class="toc-item" href="#app-hands-free-metronome"><span class="toc-hook">연주 중 손을 못 떼 박자 조절이 끊긴다면</span><span class="toc-app">낫마템포 →</span></a><a class="toc-item" href="#app-flip-book"><span class="toc-hook">아이 그림이 움직이면 좋겠다면</span><span class="toc-app">팔랑북 →</span></a></div>
+      </div>
+      <div class="toc-group">
+        <h3>🌱 습관 · 웰빙</h3>
+        <div class="toc-list"><a class="toc-item" href="#app-cooltime"><span class="toc-hook">충동적으로 지르고 뒤늦게 후회한다면</span><span class="toc-app">쿨타임 →</span></a><a class="toc-item" href="#app-rainbow-of-desire"><span class="toc-hook">일을 자꾸 벌여 과부하가 온다면</span><span class="toc-app">욕망의 무지개 →</span></a><a class="toc-item" href="#app-rainbow-workshop"><span class="toc-hook">한 주를 어디에 썼는지 감이 없다면</span><span class="toc-app">무지개 공작소 →</span></a><a class="toc-item" href="#app-rebound-journal"><span class="toc-hook">힘든 시기를 그냥 흘려보내고 있다면</span><span class="toc-app">리바운드 저널 →</span></a><a class="toc-item" href="#app-three-meals"><span class="toc-hook">오늘 뭘 먹었는지 기억나지 않는다면</span><span class="toc-app">세끼 →</span></a><a class="toc-item" href="#app-burning-my-life"><span class="toc-hook">자유시간이 그냥 사라지는 게 느껴진다면</span><span class="toc-app">불타는 내인생 →</span></a><a class="toc-item" href="#app-relax-on"><span class="toc-hook">잠들 때 틀 소리를 매번 찾기 번거롭다면</span><span class="toc-app">달빛 →</span></a><a class="toc-item" href="#app-sunflower"><span class="toc-hook">햇빛을 얼마나 쬐는지 감이 없다면</span><span class="toc-app">햇빛바라기 →</span></a></div>
+      </div>
+      <div class="toc-group">
+        <h3>💛 마음 · 동기부여</h3>
+        <div class="toc-list"><a class="toc-item" href="#app-daily-compliment"><span class="toc-hook">비교 속에 자존감이 깎인다면</span><span class="toc-app">오늘의 주접 →</span></a><a class="toc-item" href="#app-bucket-climb"><span class="toc-hook">이루고 싶은 꿈이 막연하게만 남아 있다면</span><span class="toc-app">꿈을 찾아서 →</span></a></div>
+      </div>
+      <div class="toc-group">
+        <h3>📚 학습</h3>
+        <div class="toc-list"><a class="toc-item" href="#app-speak-flow"><span class="toc-hook">배운 영어가 정작 입에서 안 나온다면</span><span class="toc-app">스픽플로우 →</span></a><a class="toc-item" href="#app-sanoramyeon"><span class="toc-hook">인도네시아어 기초를 가볍게 배우고 싶다면</span><span class="toc-app">사노라면 →</span></a></div>
+      </div>
+      <div class="toc-group">
+        <h3>🗺 생활 · 정보</h3>
+        <div class="toc-list"><a class="toc-item" href="#app-donkko-mart"><span class="toc-hook">마트 갔다 문 닫아 헛걸음한 적 있다면</span><span class="toc-app">클로즈드 →</span></a><a class="toc-item" href="#app-life-restaurant"><span class="toc-hook">다녀온 맛집 이름이 기억 안 난다면</span><span class="toc-app">인생 맛집 →</span></a><a class="toc-item" href="#app-shared-day-designer"><span class="toc-hook">최소 연차로 최대 연휴를 만들고 싶다면</span><span class="toc-app">골드위크 →</span></a><a class="toc-item" href="#app-fire-tracker"><span class="toc-hook">언제 은퇴할 수 있을지 막막하다면</span><span class="toc-app">퇴사각 →</span></a><a class="toc-item" href="#app-korea-navi"><span class="toc-hook">접근성 좋은 길찾기가 필요하다면</span><span class="toc-app">한국길찾기 →</span></a><a class="toc-item" href="#app-probability-calculator"><span class="toc-hook">번호를 감으로만 찍고 있다면</span><span class="toc-app">확률계산기 →</span></a><a class="toc-item" href="#app-kid-calendar"><span class="toc-hook">아이 종이 알림장을 놓치기 일쑤라면</span><span class="toc-app">아이일정 →</span></a></div>
+      </div>
+      <div class="toc-group">
+        <h3>🤝 관계 · 멘토링</h3>
+        <div class="toc-list"><a class="toc-item" href="#app-rapport-map"><span class="toc-hook">챙길 사람이 많아 관계를 놓친다면</span><span class="toc-app">라포 맵 →</span></a><a class="toc-item" href="#app-ring-rong"><span class="toc-hook">만남 전 상대 위치 파악이 번거롭다면</span><span class="toc-app">링롱 →</span></a></div>
+      </div>
+      <div class="toc-group">
+        <h3>🛠 개발자 도구</h3>
+        <div class="toc-list"><a class="toc-item" href="#app-review-manager"><span class="toc-hook">여러 앱 리뷰가 흩어져 관리가 힘들다면</span><span class="toc-app">리뷰 매니저 →</span></a><a class="toc-item" href="#app-tetra-tint"><span class="toc-hook">색상 대비가 접근성 기준에 맞는지 애매하다면</span><span class="toc-app">TetraTint →</span></a><a class="toc-item" href="#app-junior-mistakes"><span class="toc-hook">주니어 개발자로서 실수가 두렵다면</span><span class="toc-app">실수 100 →</span></a></div>
+      </div></div>
+    </section>
+      
     <section class="category">
       <div class="cat-head">
         <h2>⌨️ 생산성 · 도구</h2>
@@ -198,7 +260,7 @@
         <span class="cat-count">8</span>
       </div>
       <div class="exhibits">
-    <article class="exhibit">
+    <article class="exhibit" id="app-clip-keyboard">
       <div class="ex-visual ex-poster" style="--booth-h:28">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/85/cf/ee/85cfee65-511a-a51f-3f9f-94099ff60732/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="클립키보드" loading="lazy">
         <p class="poster-name">클립키보드</p>
@@ -221,7 +283,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%ED%81%B4%EB%A6%BD%ED%82%A4%EB%B3%B4%EB%93%9C/id1543660502?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/ClipKeyboard/" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-tap-clip-keyboard">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/64/29/8c/64298ce9-11f0-5c3f-f890-6feed9eaec4a/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2025-12-07__U110b_U1169_U1112_U116e_6.06.12_1.png/800x500bb.jpg" alt="탭클립 키보드 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -240,7 +302,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%ED%83%AD%ED%81%B4%EB%A6%BD-%ED%82%A4%EB%B3%B4%EB%93%9C/id6756433372?mt=12&amp;uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://dev200ok.blogspot.com/2020/12/tokenmemo.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-double-reminder">
       <div class="ex-visual ex-poster" style="--booth-h:94">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/70/0c/af700c95-fc8f-6ff4-2e5b-51b3592a2d68/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="두번알림" loading="lazy">
         <p class="poster-name">두번알림</p>
@@ -263,7 +325,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%91%90%EB%B2%88%EC%95%8C%EB%A6%BC/id6752551268?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/26fe264a0fdc803ebf57e96ac4b1ed0b" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-sticky-presenter">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/87/82/eb/8782eb8a-1551-e3d3-4257-071efb99c0eb/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2026-06-09__U110b_U1169_U1112_U116e_11.28.17_1.png/800x500bb.jpg" alt="StickyPresenter 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -282,7 +344,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/stickypresenter/id6778457299?mt=12&amp;uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://developeracademy-postech.github.io/StickyPresenter/support.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-dont-forget">
       <div class="ex-visual ex-poster" style="--booth-h:289">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/2b/66/cf2b6692-6a3f-788f-c107-64641871848f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="잊지마" loading="lazy">
         <p class="poster-name">잊지마</p>
@@ -305,7 +367,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%9E%8A%EC%A7%80%EB%A7%88/id6758198267?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/2f1e264a0fdc802ea2d0ea71ee60f41a" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-schedule-assistant">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/82/2d/0c/822d0cc2-87e8-4409-562a-e00b145a3f81/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2025-12-16__U110b_U1169_U1112_U116e_12.03.20_1.png/800x500bb.jpg" alt="일정 비서 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -324,7 +386,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%9D%BC%EC%A0%95-%EB%B9%84%EC%84%9C/id6756593712?mt=12&amp;uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://www.notion.so/leeo75/2cbe264a0fdc809ea8dfd726ffd08135" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-think-flow">
       <div class="ex-visual ex-poster" style="--booth-h:97">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/7b/fa/e87bfabe-4959-3ba6-8263-c1bf6709db35/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="이어생각" loading="lazy">
         <p class="poster-name">이어생각</p>
@@ -347,7 +409,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%9D%B4%EC%96%B4%EC%83%9D%EA%B0%81/id6779270691?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/ThinkFlow/" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-slide-snap">
       <div class="ex-visual ex-poster" style="--booth-h:198">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/e3/6b/3ee36b19-de9f-a6d9-fc9d-b9317795f9c5/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="장표스냅" loading="lazy">
         <p class="poster-name">장표스냅</p>
@@ -379,7 +441,7 @@
         <span class="cat-count">6</span>
       </div>
       <div class="exhibits">
-    <article class="exhibit">
+    <article class="exhibit" id="app-punching">
       <div class="ex-visual ex-poster" style="--booth-h:260">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0b/d2/06/0bd206c1-7de0-44ef-3fc0-5cf5ff7ab598/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="펀칭" loading="lazy">
         <p class="poster-name">펀칭</p>
@@ -402,7 +464,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%ED%8E%80%EC%B9%AD/id6779659029?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/StampCamera/support.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-pixel-mimi">
       <div class="ex-visual ex-shots shots-3"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/c0/ee/f6/c0eef654-13b1-7110-54b0-92086c28e6a7/849e0527-c0a6-44c8-9416-8c2bf9e10740_iPhone_14_-_12.png/392x696bb.png" alt="픽셀 미미 스크린샷" loading="lazy"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/3f/99/14/3f991490-ed35-847b-e534-bbb112f6106d/3d094d74-aa78-460f-870b-ec03c1b0088a_iPhone_14_-_14.png/392x696bb.png" alt="픽셀 미미 스크린샷" loading="lazy"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/6e/c3/6b/6ec36b24-ffa8-bb9c-6506-19c9a0328e2d/6421c08a-f972-4bd2-90a6-6fc9e2402772_iPhone_14_-_16.png/392x696bb.png" alt="픽셀 미미 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -421,7 +483,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/pixel-meme/id6449769987?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://www.blogger.com/blog/posts/3814466872646756794" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-leeocon">
       <div class="ex-visual ex-shots shots-3"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/8e/81/d2/8e81d297-7ad1-5981-f694-86aa11584247/3e08af56-1761-4cfb-8735-73b714785203_Apple_iPhone_8_Plus_Screenshot_0.png/392x696bb.png" alt="LeeoCon 스크린샷" loading="lazy"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/be/a5/1f/bea51f59-474a-c3e9-e34d-fe51cc0965f0/cc5cbc98-f996-4a97-9766-b6bdcc23555e_Apple_iPhone_8_Plus_Screenshot_1.png/392x696bb.png" alt="LeeoCon 스크린샷" loading="lazy"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/18/69/75/18697555-6242-9f82-1762-49b773b24f9f/c0a46ae1-46da-431c-ae8e-5c868571671e_Apple_iPhone_8_Plus_Screenshot_2.png/392x696bb.png" alt="LeeoCon 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -440,7 +502,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/leeocon/id1627216318?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://dev200ok.blogspot.com/2022/06/leeo-con.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-sight-singer">
       <div class="ex-visual ex-poster" style="--booth-h:36">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/01/21/7e012123-2a2a-2b73-a10d-bba28a29d1fb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="초견" loading="lazy">
         <p class="poster-name">초견</p>
@@ -463,7 +525,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%B4%88%EA%B2%AC/id6779262832?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/StaffSinger/support.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-hands-free-metronome">
       <div class="ex-visual ex-poster" style="--booth-h:306">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/d5/91/f7d5919d-78c8-d5d4-4529-8982c65b3649/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="낫마템포" loading="lazy">
         <p class="poster-name">낫마템포</p>
@@ -486,7 +548,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%82%AB%EB%A7%88%ED%85%9C%ED%8F%AC/id6781537149?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/HandsFreeMetronome/" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-flip-book">
       <div class="ex-visual ex-poster" style="--booth-h:329">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/66/5f/5a665f43-8fd1-1dda-3859-667c60cfe318/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="팔랑북" loading="lazy">
         <p class="poster-name">팔랑북</p>
@@ -518,7 +580,7 @@
         <span class="cat-count">8</span>
       </div>
       <div class="exhibits">
-    <article class="exhibit">
+    <article class="exhibit" id="app-cooltime">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="screenshots/cooltime.png" alt="쿨타임 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -537,7 +599,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%BF%A8%ED%83%80%EC%9E%84/id6755988507?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/2bde264a0fdc80cabd97c8fceaca5307" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-rainbow-of-desire">
       <div class="ex-visual ex-poster" style="--booth-h:313">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/4b/4f/0e4b4fee-aa08-f368-80a9-02628e82d867/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="욕망의 무지개" loading="lazy">
         <p class="poster-name">욕망의 무지개</p>
@@ -560,7 +622,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%9A%95%EB%A7%9D%EC%9D%98-%EB%AC%B4%EC%A7%80%EA%B0%9C/id6755280882?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/2abe264a0fdc80fa8012e587eb06ba98" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-rainbow-workshop">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/70/5d/ca/705dca12-f975-2631-30ad-4684eae4f222/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2026-06-08__U110b_U1169_U110c_U1165_U11ab_10.30.32_1.png/800x500bb.jpg" alt="무지개 공작소 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -579,7 +641,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%AC%B4%EC%A7%80%EA%B0%9C-%EA%B3%B5%EC%9E%91%EC%86%8C/id6777737322?mt=12&amp;uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/ScheduleDensity/" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-rebound-journal">
       <div class="ex-visual ex-shots shots-3"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/84/55/ec/8455ec37-10de-aa79-08ba-5f09dddaa3a2/79fdc46b-b280-4681-b204-80b53663d894_iPhone_14_-_24.png/392x696bb.png" alt="리바운드 저널 스크린샷" loading="lazy"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/44/77/33/44773372-2579-8bd6-030a-125adff505ad/87b36aa0-a549-48f1-abc5-77bb32d983d2_iPhone_14_-_26.png/392x696bb.png" alt="리바운드 저널 스크린샷" loading="lazy"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/63/42/98/634298e0-0590-d420-05a1-92881aa111f6/4bd90f8b-7eb1-4073-9b16-58e73a58ee07_iPhone_14_-_28.png/392x696bb.png" alt="리바운드 저널 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -598,7 +660,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%A6%AC%EB%B0%94%EC%9A%B4%EB%93%9C-%EC%A0%80%EB%84%90/id6450388408?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://dev200ok.blogspot.com/2023/06/blog-post_82.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-three-meals">
       <div class="ex-visual ex-poster" style="--booth-h:241">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/b2/42/fcb242b5-da88-f94f-0e6f-9e66bfb86092/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="세끼" loading="lazy">
         <p class="poster-name">세끼</p>
@@ -621,7 +683,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%84%B8%EB%81%BC/id6755164924?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/2a9e264a0fdc807d8afbd18a7dab17f2" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-burning-my-life">
       <div class="ex-visual ex-poster" style="--booth-h:323">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/50/91/fd5091e4-c137-38e6-7cbb-1eb62097f601/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="불타는 내인생" loading="lazy">
         <p class="poster-name">불타는 내인생</p>
@@ -644,7 +706,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%B6%88%ED%83%80%EB%8A%94-%EB%82%B4%EC%9D%B8%EC%83%9D/id6758995390?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/BurningParchment/" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-relax-on">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="screenshots/relax-on.png" alt="달빛 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -663,7 +725,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%8B%AC%EB%B9%9B-%EC%88%98%EB%A9%B4-%EB%B0%B1%EC%83%89-%EC%86%8C%EC%9D%8C-%EC%9E%90%EC%97%B0%EC%9D%98-%EC%86%8C%EB%A6%AC/id1626715109?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://relax-on-landing.bubbleapps.io/version-test?" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-sunflower">
       <div class="ex-visual ex-poster" style="--booth-h:247">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/46/0e/94460efc-e20b-4431-176c-9b54602c0b81/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="햇빛바라기" loading="lazy">
         <p class="poster-name">햇빛바라기</p>
@@ -695,7 +757,7 @@
         <span class="cat-count">2</span>
       </div>
       <div class="exhibits">
-    <article class="exhibit">
+    <article class="exhibit" id="app-daily-compliment">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="screenshots/daily-compliment.png" alt="오늘의 주접 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -714,7 +776,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EC%9D%98-%EC%A3%BC%EC%A0%91/id6450839961?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://dev200ok.blogspot.com/2023/06/blog-post_30.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-bucket-climb">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="screenshots/bucket-climb.png" alt="꿈을 찾아서 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -742,7 +804,7 @@
         <span class="cat-count">2</span>
       </div>
       <div class="exhibits">
-    <article class="exhibit">
+    <article class="exhibit" id="app-speak-flow">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="screenshots/speak-flow.png" alt="스픽플로우 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -761,7 +823,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%8A%A4%ED%94%BD%ED%94%8C%EB%A1%9C%EC%9A%B0/id6758270016?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/2f7e264a0fdc80d0a6bbe30ad3ce048a" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-sanoramyeon">
       <div class="ex-visual ex-poster" style="--booth-h:26">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/37/62/463762b5-40e5-32fd-d931-53b967e707cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="사노라면" loading="lazy">
         <p class="poster-name">사노라면</p>
@@ -793,7 +855,7 @@
         <span class="cat-count">7</span>
       </div>
       <div class="exhibits">
-    <article class="exhibit">
+    <article class="exhibit" id="app-donkko-mart">
       <div class="ex-visual ex-shots shots-3"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/10/86/6d/10866dab-5e5b-7a35-2c3a-a0d69b0ec5f3/1242_2208.png/392x696bb.png" alt="클로즈드 스크린샷" loading="lazy"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e8/df/02/e8df0259-720e-2c08-2d9d-af4e361cf9cc/1242_2208-1.png/392x696bb.png" alt="클로즈드 스크린샷" loading="lazy"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2b/37/87/2b378735-960b-2f54-2ff9-c782823dbebb/1242_2208-2.png/392x696bb.png" alt="클로즈드 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -812,7 +874,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%8F%88%EA%BC%AC%EB%A7%88%ED%8A%B8/id6450387984?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://dev200ok.blogspot.com/2023/06/blog-post_17.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-life-restaurant">
       <div class="ex-visual ex-poster" style="--booth-h:118">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/62/78/8e627886-d44e-27fd-7094-b4c1f67b2595/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="인생 맛집" loading="lazy">
         <p class="poster-name">인생 맛집</p>
@@ -835,7 +897,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EC%9D%B8%EC%83%9D-%EB%A7%9B%EC%A7%91/id6755934548?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/2cce264a0fdc807f9967ef3b24975c4e" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-shared-day-designer">
       <div class="ex-visual ex-poster" style="--booth-h:28">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/a4/43/d5a443ca-4db2-f3ff-d1ae-66992dbeff3e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="골드위크" loading="lazy">
         <p class="poster-name">골드위크</p>
@@ -858,7 +920,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EA%B3%A8%EB%93%9C%EC%9C%84%ED%81%AC-%ED%99%A9%EA%B8%88%EC%97%B0%ED%9C%B4-%ED%94%8C%EB%9E%98%EB%84%88/id6755983135?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/LeaveWise/support.html" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-fire-tracker">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="screenshots/fire-tracker.png" alt="퇴사각 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -877,7 +939,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%ED%87%B4%EC%82%AC%EA%B0%81/id6779654854?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/FireTracker/" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-korea-navi">
       <div class="ex-visual ex-poster" style="--booth-h:345">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/bb/93/8cbb9344-3069-5c00-5b6d-be083195f5c0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="한국길찾기" loading="lazy">
         <p class="poster-name">한국길찾기</p>
@@ -900,7 +962,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%ED%95%9C%EA%B5%AD%EA%B8%B8%EC%B0%BE%EA%B8%B0/id6775176578?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://m1zz.github.io/KORA/" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-probability-calculator">
       <div class="ex-visual ex-poster" style="--booth-h:226">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/d7/73/cfd773b2-2d65-e119-6296-7b55db86153c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="확률계산기" loading="lazy">
         <p class="poster-name">확률계산기</p>
@@ -923,7 +985,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/us/app/%ED%99%95%EB%A5%A0%EA%B3%84%EC%82%B0%EA%B8%B0/id6755651803?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/2b4e264a0fdc80e7b973ff62e2b2361e" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-kid-calendar">
       <div class="ex-visual ex-poster" style="--booth-h:13">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/78/88/39788814-5c79-cc0c-f697-44d452cd1792/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="아이일정" loading="lazy">
         <p class="poster-name">아이일정</p>
@@ -955,7 +1017,7 @@
         <span class="cat-count">2</span>
       </div>
       <div class="exhibits">
-    <article class="exhibit">
+    <article class="exhibit" id="app-rapport-map">
       <div class="ex-visual ex-poster" style="--booth-h:209">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/fb/ee/34fbee37-0bf1-e019-b336-dde09e1aeb47/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="라포 맵" loading="lazy">
         <p class="poster-name">라포 맵</p>
@@ -978,7 +1040,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/%EB%9D%BC%ED%8F%AC%EB%A7%B5/id6754888089?uo=4" target="_blank" rel="noopener">App Store에서 보기</a><a class="btn btn-ghost" href="https://leeo75.notion.site/2abe264a0fdc8049bad6f86954bca20d" target="_blank" rel="noopener">지원 페이지</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-ring-rong">
       <div class="ex-visual ex-poster" style="--booth-h:315">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/7c/18/687c18c0-81e9-312e-3eee-5eddcca160e7/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="링롱" loading="lazy">
         <p class="poster-name">링롱</p>
@@ -1010,7 +1072,7 @@
         <span class="cat-count">3</span>
       </div>
       <div class="exhibits">
-    <article class="exhibit">
+    <article class="exhibit" id="app-review-manager">
       <div class="ex-visual ex-poster" style="--booth-h:144">
         <div class="ex-icon icon-fallback">리</div>
         <p class="poster-name">리뷰 매니저</p>
@@ -1033,7 +1095,7 @@
         
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-tetra-tint">
       <div class="ex-visual ex-shots shots-1"><img class="shot" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/95/c2/d6/95c2d669-c2cb-522f-6ae3-1c6cffed0c89/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2026-07-10__U110b_U1169_U110c_U1165_U11ab_12.44.19_1.png/800x500bb.jpg" alt="TetraTint 스크린샷" loading="lazy"></div>
       <div class="ex-content">
         <div class="ex-head">
@@ -1052,7 +1114,7 @@
         <div class="links"><a class="btn btn-store" href="https://apps.apple.com/kr/app/tetratint/id6789206198?mt=12&amp;uo=4" target="_blank" rel="noopener">App Store에서 보기</a></div>
       </div>
     </article>
-    <article class="exhibit">
+    <article class="exhibit" id="app-junior-mistakes">
       <div class="ex-visual ex-poster" style="--booth-h:73">
         <img class="ex-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a4/1c/85/a41c8583-5e73-0df4-c348-e8a4085593ed/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="실수 100" loading="lazy">
         <p class="poster-name">실수 100</p>
