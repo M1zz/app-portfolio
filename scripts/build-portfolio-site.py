@@ -266,7 +266,7 @@ def render_card(app, copy=None):
         )
     if support:
         links.append(
-            f'<a class="btn btn-ghost" href="{escape(support)}" target="_blank" rel="noopener">지원 페이지</a>'
+            f'<a class="btn btn-ghost" href="{escape(support)}" target="_blank" rel="noopener">자세한 설명 보기</a>'
         )
     links_html = f'<div class="links">{"".join(links)}</div>' if links else ""
 
