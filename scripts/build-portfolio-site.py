@@ -26,6 +26,7 @@ OUT_DIR = ROOT / "docs"
 OUT_FILE = OUT_DIR / "index.html"
 CACHE_FILE = ROOT / "scripts" / ".appstore-cache.json"
 CONTENT_FILE = ROOT / "scripts" / "showcase-content.json"
+CONTENT_EN_FILE = ROOT / "scripts" / "showcase-content.en.json"
 SHOTS_DIR = OUT_DIR / "screenshots"
 
 KST = timezone(timedelta(hours=9))
@@ -66,6 +67,14 @@ def load_content():
     return {"groups": [], "apps": {}}
 
 
+def load_content_en():
+    """showcase-content.json 의 영어 번역본 (groups 는 배열 인덱스, apps 는 slug 로 매칭)."""
+    if CONTENT_EN_FILE.exists():
+        with open(CONTENT_EN_FILE, encoding="utf-8") as fp:
+            return json.load(fp)
+    return {"groups": [], "apps": {}}
+
+
 def load_cache():
     if CACHE_FILE.exists():
         with open(CACHE_FILE, encoding="utf-8") as fp:
@@ -81,19 +90,32 @@ def save_cache(cache):
 COUNTRIES = ("kr", "us", "jp")
 
 
+def lookup_country(app_id, country):
+    url = f"https://itunes.apple.com/lookup?id={app_id}&country={country}"
+    req = urllib.request.Request(url, headers={"User-Agent": "portfolio-site-builder"})
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        data = json.load(resp)
+    return data["results"][0] if data.get("resultCount") else None
+
+
 def fetch_appstore(app_id):
-    """여러 국가 스토어를 순차 조회 (KR → US → JP)."""
+    """여러 국가 스토어를 순차 조회 (KR → US → JP). US 스토어에서 영어 카피도 함께 수집."""
     r = None
+    found = None
     for country in COUNTRIES:
-        url = f"https://itunes.apple.com/lookup?id={app_id}&country={country}"
-        req = urllib.request.Request(url, headers={"User-Agent": "portfolio-site-builder"})
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            data = json.load(resp)
-        if data.get("resultCount"):
-            r = data["results"][0]
+        r = lookup_country(app_id, country)
+        if r:
+            found = country
             break
     if r is None:
         return None
+    # 영어(EN) 표시용: US 스토어 설명·장르·가격 (미출시면 None → 렌더 시 폴백)
+    r_en = r if found == "us" else None
+    if r_en is None:
+        try:
+            r_en = lookup_country(app_id, "us")
+        except (urllib.error.URLError, TimeoutError):
+            r_en = None
     return {
         "trackName": r.get("trackName"),
         "icon": r.get("artworkUrl512") or r.get("artworkUrl100"),
@@ -106,6 +128,10 @@ def fetch_appstore(app_id):
         "version": r.get("trackViewUrl") and r.get("version"),
         "url": r.get("trackViewUrl"),
         "screenshots": (r.get("screenshotUrls") or [])[:3],
+        "trackName_en": r_en.get("trackName") if r_en else None,
+        "description_en": r_en.get("description") if r_en else None,
+        "genre_en": r_en.get("primaryGenreName") if r_en else None,
+        "price_en": r_en.get("formattedPrice") if r_en else None,
     }
 
 
@@ -133,6 +159,44 @@ def enrich(apps, fetch=True):
 
 # ---------------------------------------------------------------- 렌더링
 
+# KR 스토어 장르명 → 영어 (US 스토어 미출시 앱 폴백용)
+GENRE_EN = {
+    "생산성": "Productivity",
+    "유틸리티": "Utilities",
+    "라이프스타일": "Lifestyle",
+    "음악": "Music",
+    "교육": "Education",
+    "건강 및 피트니스": "Health & Fitness",
+    "엔터테인먼트": "Entertainment",
+    "그래픽 및 디자인": "Graphics & Design",
+    "여행": "Travel",
+    "음식 및 음료": "Food & Drink",
+    "금융": "Finance",
+    "내비게이션": "Navigation",
+    "소셜 네트워킹": "Social Networking",
+    "사진 및 비디오": "Photo & Video",
+    "개발자 도구": "Developer Tools",
+    "비즈니스": "Business",
+    "의학": "Medical",
+    "날씨": "Weather",
+    "게임": "Games",
+    "도서": "Books",
+    "뉴스": "News",
+    "스포츠": "Sports",
+    "쇼핑": "Shopping",
+    "참고": "Reference",
+}
+
+PRICE_EN = {"무료": "Free"}
+
+
+def bi(ko, en=None):
+    """한/영 병기 span 쌍. html[data-lang=en] 일 때 .le 만 보인다. en 이 없으면 ko 를 그대로 사용."""
+    ko = ko or ""
+    en = en or ko
+    return f'<span class="lk">{escape(ko)}</span><span class="le">{escape(en)}</span>'
+
+
 def first_sentence(text, limit=110):
     if not text:
         return ""
@@ -149,18 +213,22 @@ def stars(rating):
     return "★" * full + "☆" * (5 - full)
 
 
-def render_card(app, copy=None):
+def render_card(app, copy=None, copy_en=None):
     copy = copy or {}
+    copy_en = copy_en or {}
     store = app.get("_store") or {}
     name = app.get("name") or store.get("trackName") or app["_slug"]
-    name_en = app.get("nameEn") or ""
+    name_en = app.get("nameEn") or store.get("trackName_en") or ""
     icon = store.get("icon")
     genre = store.get("genre") or (app.get("categories") or [""])[0]
+    genre_en = store.get("genre_en") or GENRE_EN.get(genre, genre)
     price = store.get("price")
     if price is None:
         p = app.get("price") or {}
         price = "무료" if p.get("isFree") else (f"₩{p['krw']:,}" if p.get("krw") else "")
+    price_en = store.get("price_en") or PRICE_EN.get(price, price)
     desc = first_sentence(store.get("description") or app.get("description") or app.get("notes"))
+    desc_en = first_sentence(store.get("description_en")) or desc
     rating = store.get("rating")
     rating_count = store.get("ratingCount") or 0
     appstore_url = store.get("url") or app.get("appStoreUrl")
@@ -191,34 +259,38 @@ def render_card(app, copy=None):
             else f'<div class="ex-icon icon-fallback">{escape(name[:1])}</div>'
         )
         hook = copy.get("hook")
-        poster_tag = f'<p class="poster-tagline">{escape(hook)}</p>' if hook else ""
+        poster_tag = (
+            f'<p class="poster-tagline">{bi(hook, copy_en.get("hook"))}</p>' if hook else ""
+        )
         price_badge = (
-            f'<span class="poster-price">{escape(price)}</span>' if price else ""
+            f'<span class="poster-price">{bi(price, price_en)}</span>' if price else ""
         )
         hue = 0
         for ch in app["_slug"]:
             hue = (hue * 31 + ord(ch)) % 360
         visual_html = f"""<div class="ex-visual ex-poster" style="--booth-h:{hue}">
         <div class="poster-icon-wrap">{big_icon}</div>
-        <p class="poster-name">{escape(name)}</p>
+        <p class="poster-name">{bi(name, name_en or name)}</p>
         {poster_tag}
         {price_badge}
       </div>"""
 
     meta = []
     if genre:
-        meta.append(f'<span class="chip">{escape(genre)}</span>')
+        meta.append(f'<span class="chip">{bi(genre, genre_en)}</span>')
     if price:
-        meta.append(f'<span class="chip chip-price">{escape(price)}</span>')
+        meta.append(f'<span class="chip chip-price">{bi(price, price_en)}</span>')
     if not released:
-        meta.append('<span class="chip chip-soon">준비 중</span>')
+        meta.append(f'<span class="chip chip-soon">{bi("준비 중", "Coming soon")}</span>')
     meta_html = f'<div class="meta">{"".join(meta)}</div>' if meta else ""
 
-    tagline_html = f'<p class="tagline">{escape(tagline)}</p>' if tagline else ""
+    tagline_html = (
+        f'<p class="tagline">{bi(tagline, copy_en.get("tagline"))}</p>' if tagline else ""
+    )
 
     highlight = copy.get("highlight")
     highlight_html = (
-        f'<p class="highlight"><span class="highlight-star">✦</span>{escape(highlight)}</p>'
+        f'<p class="highlight"><span class="highlight-star">✦</span>{bi(highlight, copy_en.get("highlight"))}</p>'
         if highlight
         else ""
     )
@@ -227,27 +299,28 @@ def render_card(app, copy=None):
     story_parts = []
     if copy.get("problem"):
         story_parts.append(
-            '<div class="story-item story-problem"><span class="story-tag">문제</span>'
-            f'<p>{escape(copy["problem"])}</p></div>'
+            f'<div class="story-item story-problem"><span class="story-tag">{bi("문제", "Problem")}</span>'
+            f'<p>{bi(copy["problem"], copy_en.get("problem"))}</p></div>'
         )
     if copy.get("solution"):
         story_parts.append(
-            '<div class="story-item story-solution"><span class="story-tag">솔루션</span>'
-            f'<p>{escape(copy["solution"])}</p></div>'
+            f'<div class="story-item story-solution"><span class="story-tag">{bi("솔루션", "Solution")}</span>'
+            f'<p>{bi(copy["solution"], copy_en.get("solution"))}</p></div>'
         )
     story_html = f'<div class="story">{"".join(story_parts)}</div>' if story_parts else ""
 
     # 대상 · 맥락 스트립
     who_rows = []
-    for label, key in (
-        ("페르소나", "persona"),
-        ("상황", "context"),
-        ("스테이크홀더", "stakeholders"),
+    for label, label_en, key in (
+        ("페르소나", "Persona", "persona"),
+        ("상황", "Context", "context"),
+        ("스테이크홀더", "Stakeholders", "stakeholders"),
     ):
         val = copy.get(key)
         if val:
             who_rows.append(
-                f'<div class="who-item"><dt>{label}</dt><dd>{escape(val)}</dd></div>'
+                f'<div class="who-item"><dt>{bi(label, label_en)}</dt>'
+                f'<dd>{bi(val, copy_en.get(key))}</dd></div>'
             )
     who_html = f'<div class="who">{"".join(who_rows)}</div>' if who_rows else ""
 
@@ -262,16 +335,19 @@ def render_card(app, copy=None):
     links = []
     if appstore_url:
         links.append(
-            f'<a class="btn btn-store" href="{escape(appstore_url)}" target="_blank" rel="noopener">App Store에서 보기</a>'
+            f'<a class="btn btn-store" href="{escape(appstore_url)}" target="_blank" rel="noopener">{bi("App Store에서 보기", "View on the App Store")}</a>'
         )
     if support:
         links.append(
-            f'<a class="btn btn-ghost" href="{escape(support)}" target="_blank" rel="noopener">자세한 설명 보기</a>'
+            f'<a class="btn btn-ghost" href="{escape(support)}" target="_blank" rel="noopener">{bi("자세한 설명 보기", "Learn more")}</a>'
         )
     links_html = f'<div class="links">{"".join(links)}</div>' if links else ""
 
-    name_en_html = f'<p class="name-en">{escape(name_en)}</p>' if name_en else ""
-    desc_html = f'<p class="desc">{escape(desc)}</p>' if desc else ""
+    # 부제: 한국어 모드에서는 영어 이름, 영어 모드에서는 한국어 이름
+    name_en_html = (
+        f'<p class="name-en">{bi(name_en, name)}</p>' if name_en and name_en != name else ""
+    )
+    desc_html = f'<p class="desc">{bi(desc, desc_en)}</p>' if desc else ""
 
     return f"""
     <article class="exhibit" id="app-{app['_slug']}">
@@ -280,7 +356,7 @@ def render_card(app, copy=None):
         <div class="ex-head">
           {head_icon_html}
           <div class="ex-title">
-            <h3>{escape(name)}</h3>
+            <h3>{bi(name, name_en or name)}</h3>
             {name_en_html}
             {rating_html}
           </div>
@@ -296,9 +372,12 @@ def render_card(app, copy=None):
     </article>"""
 
 
-def render(apps, content=None):
+def render(apps, content=None, content_en=None):
     content = content or {"groups": [], "apps": {}}
+    content_en = content_en or {"groups": [], "apps": {}}
     copy_map = content.get("apps", {})
+    copy_map_en = content_en.get("apps", {})
+    groups_en = content_en.get("groups", [])
     by_slug = {a["_slug"]: a for a in apps}
 
     released = [a for a in apps if (a.get("_store") or {}).get("url")]
@@ -313,7 +392,8 @@ def render(apps, content=None):
     section_blocks = []
     toc_blocks = []
     grouped_slugs = set()
-    for group in content.get("groups", []):
+    for gi, group in enumerate(content.get("groups", [])):
+        group_en = groups_en[gi] if gi < len(groups_en) else {}
         cards = []
         toc_items = []
         for slug in group.get("slugs", []):
@@ -322,23 +402,29 @@ def render(apps, content=None):
                 continue
             grouped_slugs.add(slug)
             copy = copy_map.get(slug) or {}
-            cards.append(render_card(app, copy))
-            hook = copy.get("hook") or copy.get("problem") or (app.get("name") or slug)
+            copy_en = copy_map_en.get(slug) or {}
+            cards.append(render_card(app, copy, copy_en))
             name = app.get("name") or (app.get("_store") or {}).get("trackName") or slug
+            name_en = app.get("nameEn") or (app.get("_store") or {}).get("trackName_en") or name
+            hook = copy.get("hook") or copy.get("problem") or name
+            hook_en = copy_en.get("hook") or copy_en.get("problem") or name_en
             toc_items.append(
                 f'<a class="toc-item" href="#app-{slug}">'
-                f'<span class="toc-hook">{escape(hook)}</span>'
-                f'<span class="toc-app">{escape(name)} →</span></a>'
+                f'<span class="toc-hook">{bi(hook, hook_en)}</span>'
+                f'<span class="toc-app">{bi(name, name_en)} →</span></a>'
             )
         if not cards:
             continue
         intro = group.get("intro", "")
-        intro_html = f'<p class="cat-intro">{escape(intro)}</p>' if intro else ""
+        intro_html = (
+            f'<p class="cat-intro">{bi(intro, group_en.get("intro"))}</p>' if intro else ""
+        )
+        title_html = bi(group.get("title", ""), group_en.get("title"))
         section_blocks.append(
             f"""
     <section class="category">
       <div class="cat-head">
-        <h2>{escape(group.get("title", ""))}</h2>
+        <h2>{title_html}</h2>
         {intro_html}
         <span class="cat-count">{len(cards)}</span>
       </div>
@@ -348,7 +434,7 @@ def render(apps, content=None):
         toc_blocks.append(
             f"""
       <div class="toc-group">
-        <h3>{escape(group.get("title", ""))}</h3>
+        <h3>{title_html}</h3>
         <div class="toc-list">{"".join(toc_items)}</div>
       </div>"""
         )
@@ -357,8 +443,8 @@ def render(apps, content=None):
         f"""
     <section class="toc">
       <div class="toc-head">
-        <h2>이런 고민, 없으세요?</h2>
-        <p>공감 가는 문제를 누르면 그걸 푸는 앱으로 바로 이동합니다.</p>
+        <h2>{bi("이런 고민, 없으세요?", "Sound familiar?")}</h2>
+        <p>{bi("공감 가는 문제를 누르면 그걸 푸는 앱으로 바로 이동합니다.", "Tap a problem you relate to and jump straight to the app that solves it.")}</p>
       </div>
       <div class="toc-groups">{"".join(toc_blocks)}</div>
     </section>"""
@@ -374,12 +460,15 @@ def render(apps, content=None):
     ]
     leftovers.sort(key=lambda a: a.get("name") or "")
     if leftovers:
-        cards = "".join(render_card(a, copy_map.get(a["_slug"])) for a in leftovers)
+        cards = "".join(
+            render_card(a, copy_map.get(a["_slug"]), copy_map_en.get(a["_slug"]))
+            for a in leftovers
+        )
         section_blocks.append(
             f"""
     <section class="category">
       <div class="cat-head">
-        <h2>✨ 그 외</h2>
+        <h2>{bi("✨ 그 외", "✨ More")}</h2>
         <span class="cat-count">{len(leftovers)}</span>
       </div>
       <div class="exhibits">{cards}</div>
@@ -398,13 +487,13 @@ def render(apps, content=None):
     updated = datetime.now(KST).strftime("%Y-%m-%d")
 
     avg_stat = (
-        f"""<div class="stat"><span class="stat-num">{avg_rating:.1f}</span><span class="stat-label">평균 평점</span></div>"""
+        f"""<div class="stat"><span class="stat-num">{avg_rating:.1f}</span><span class="stat-label">{bi("평균 평점", "Avg. Rating")}</span></div>"""
         if avg_rating
         else ""
     )
 
     return f"""<!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -437,6 +526,29 @@ def render(apps, content=None):
   img {{ max-width: 100%; }}
   a {{ color: inherit; text-decoration: none; }}
   .wrap {{ max-width: 1100px; margin: 0 auto; padding: 0 20px; }}
+
+  /* 언어 전환: 기본 한국어(.lk), data-lang=en 이면 영어(.le) */
+  .le {{ display: none; }}
+  html[data-lang="en"] .lk {{ display: none; }}
+  html[data-lang="en"] .le {{ display: inline; }}
+
+  .lang-toggle {{
+    position: fixed; top: 14px; right: 14px; z-index: 60;
+    display: flex; gap: 2px; padding: 3px; border-radius: 999px;
+    background: rgba(21,24,33,.88); border: 1px solid var(--border);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  }}
+  .lang-btn {{
+    font-family: inherit; font-size: .78rem; font-weight: 700; color: var(--muted);
+    background: transparent; border: 0; padding: 5px 13px; border-radius: 999px; cursor: pointer;
+    transition: color .15s;
+  }}
+  .lang-btn:hover {{ color: var(--text); }}
+  html[data-lang="ko"] .lang-btn[data-set-lang="ko"],
+  html[data-lang="en"] .lang-btn[data-set-lang="en"] {{
+    background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #fff;
+  }}
 
   header.hero {{
     text-align: center;
@@ -654,15 +766,19 @@ def render(apps, content=None):
 </style>
 </head>
 <body>
+  <div class="lang-toggle" role="group" aria-label="언어 선택 / Language">
+    <button type="button" class="lang-btn" data-set-lang="ko">한국어</button>
+    <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+  </div>
   <header class="hero">
     <div class="wrap">
       <h1>App Portfolio</h1>
-      <p>hyunho lee 가 만든 iOS · macOS 앱 — 누가 · 언제 · 어떻게 쓰면 좋은지 카테고리별로 소개합니다.</p>
+      <p>{bi("hyunho lee 가 만든 iOS · macOS 앱 — 누가 · 언제 · 어떻게 쓰면 좋은지 카테고리별로 소개합니다.", "iOS · macOS apps built by hyunho lee — organized by category, with who, when, and how to use each one.")}</p>
       <div class="stats">
-        <div class="stat"><span class="stat-num">{released_n}</span><span class="stat-label">출시 앱</span></div>
-        <div class="stat"><span class="stat-num">{category_n}</span><span class="stat-label">카테고리</span></div>
+        <div class="stat"><span class="stat-num">{released_n}</span><span class="stat-label">{bi("출시 앱", "Released Apps")}</span></div>
+        <div class="stat"><span class="stat-num">{category_n}</span><span class="stat-label">{bi("카테고리", "Categories")}</span></div>
         {avg_stat}
-        <div class="stat"><span class="stat-num">{total}</span><span class="stat-label">전체 프로젝트</span></div>
+        <div class="stat"><span class="stat-num">{total}</span><span class="stat-label">{bi("전체 프로젝트", "Total Projects")}</span></div>
       </div>
     </div>
   </header>
@@ -675,8 +791,32 @@ def render(apps, content=None):
   </main>
 
   <footer>
-    <p>마지막 업데이트 {updated} · <a href="https://github.com/M1zz/app-portfolio" target="_blank" rel="noopener">GitHub</a></p>
+    <p>{bi(f"마지막 업데이트 {updated}", f"Last updated {updated}")} · <a href="https://github.com/M1zz/app-portfolio" target="_blank" rel="noopener">GitHub</a></p>
   </footer>
+
+  <script>
+  (function () {{
+    var root = document.documentElement;
+    function apply(lang) {{
+      root.setAttribute('data-lang', lang);
+      root.setAttribute('lang', lang === 'en' ? 'en' : 'ko');
+    }}
+    var saved = null;
+    try {{ saved = localStorage.getItem('portfolio-lang'); }} catch (e) {{}}
+    var lang = (saved === 'ko' || saved === 'en')
+      ? saved
+      : ((navigator.language || '').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
+    apply(lang);
+    var btns = document.querySelectorAll('.lang-btn');
+    for (var i = 0; i < btns.length; i++) {{
+      btns[i].addEventListener('click', function () {{
+        var l = this.getAttribute('data-set-lang');
+        apply(l);
+        try {{ localStorage.setItem('portfolio-lang', l); }} catch (e) {{}}
+      }});
+    }}
+  }})();
+  </script>
 </body>
 </html>
 """
@@ -756,8 +896,9 @@ def main():
     print("🌐 앱스토어 정보 수집 중..." if fetch else "💾 캐시 사용 (--no-fetch)")
     apps = enrich(apps, fetch=fetch)
     content = load_content()
+    content_en = load_content_en()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    html = render(apps, content)
+    html = render(apps, content, content_en)
     OUT_FILE.write_text(html, encoding="utf-8")
     update_readme(apps)
     released = sum(1 for a in apps if (a.get("_store") or {}).get("url"))

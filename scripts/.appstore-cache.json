@@ -10,20 +10,28 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%EA%BF%88%EC%9D%84-%EC%B0%BE%EC%95%84%EC%84%9C/id6755934506?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "꿈을 찾아서",
+    "description_en": "꿈을 찾아가도록 도와주는 앱 입니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "$2.99"
   },
   "1543660502": {
     "trackName": "클립키보드",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/85/cf/ee/85cfee65-511a-a51f-3f9f-94099ff60732/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/d8/5d/84d85df9-6cca-e4c7-21ad-1401178b7146/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
     "rating": 4.69231,
     "ratingCount": 13,
     "genre": "Productivity",
     "price": "무료",
     "description": "같은 메시지를 반복해서 입력하지 마세요. 한 번만 탭하면 끝!\n자주 쓰는 메시지를 키보드 버튼으로 저장하세요.\n외울 약어 없이 탭 한 번으로 간편하게 전송하세요.",
     "seller": "hyunho lee",
-    "version": "4.3.6",
+    "version": "4.3.7",
     "url": "https://apps.apple.com/kr/app/%ED%81%B4%EB%A6%BD%ED%82%A4%EB%B3%B4%EB%93%9C/id1543660502?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "Clip Keyboard - Quick Phrases",
+    "description_en": "Stop typing the same messages. Tap once, done.\nSave your frequent texts as keyboard buttons.\nNo abbreviations to memorize — just tap and send.",
+    "genre_en": "Productivity",
+    "price_en": "Free"
   },
   "6755988507": {
     "trackName": "쿨타임",
@@ -36,7 +44,11 @@
     "seller": "hyunho lee",
     "version": "1.0.2",
     "url": "https://apps.apple.com/kr/app/%EC%BF%A8%ED%83%80%EC%9E%84/id6755988507?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "쿨타임",
+    "description_en": "나의 행동에 쿨타임을 표시해주는 앱 입니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6450839961": {
     "trackName": "오늘의 주접",
@@ -53,7 +65,11 @@
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/bf/13/97/bf13974a-0bbb-0616-9104-f4f44ddb5f3e/ef9e1bb3-92f9-4bfc-ac59-3144924f9d2e_iPhone_14_-_32.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/6f/a9/d8/6fa9d849-494c-55db-2cf9-b62f77edb2fe/ca7fd247-d63c-4f07-ae72-b31a02e67140_iPhone_14_-_34.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/7a/3a/26/7a3a26fd-7094-d4ae-8904-c434c51a4cac/9c07e1bd-56af-4362-8b4c-4e2b694dcd63_iPhone_14_-_30.png/392x696bb.png"
-    ]
+    ],
+    "trackName_en": "오늘의 주접",
+    "description_en": "나를 깎아먹는 자존감을 막아 줄 응원의 메시지를 받아보세요",
+    "genre_en": "Lifestyle",
+    "price_en": "$1.99"
   },
   "6450387984": {
     "trackName": "돈꼬마트",
@@ -70,7 +86,11 @@
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/10/86/6d/10866dab-5e5b-7a35-2c3a-a0d69b0ec5f3/1242_2208.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e8/df/02/e8df0259-720e-2c08-2d9d-af4e361cf9cc/1242_2208-1.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2b/37/87/2b378735-960b-2f54-2ff9-c782823dbebb/1242_2208-2.png/392x696bb.png"
-    ]
+    ],
+    "trackName_en": "Dont go mart",
+    "description_en": "Have you ever gone to the grocery store only to find it closed? Now you can easily check before you go!",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6752551268": {
     "trackName": "두번알림",
@@ -83,7 +103,11 @@
     "seller": "hyunho lee",
     "version": "2.0.2",
     "url": "https://apps.apple.com/kr/app/%EB%91%90%EB%B2%88%EC%95%8C%EB%A6%BC/id6752551268?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "Rereminder - Smart alarm",
+    "description_en": "Get warned before time runs out.\n\n5 minutes before your presentation ends.\n3 minutes before the meeting wraps up.\n1 minute before your workout is over.\n\nrereminder sends step-by-step alerts before your timer hits zero - so you're\nalways prepared, never caught off guard.\n\n\nPRE-ALERTS — The Feature Other Timers Don't Have\n\nMost timers only alert you when time is up.\nrereminder alerts you before it's up.\n\n- Set alerts at 1, 3, 5, 10, 15, or 30 minutes before end\n- Customize the timing to fit your needs\n- Add custom messages to each alert\n  e.g., \"Wrap up your slides\", \"Start cooldown\"\n\nKEY FEATURES\n\n- Dynamic Island & Live Activity\n  See your timer in real-time without unlocking your phone\n\n- Apple Watch\n  Start, pause, and track timers from your wrist\n\n- Timer Templates\n  Save your favorite setups and launch them instantly\n\n- Labels & Colors\n  Organize timers by purpose — Presentation, Meeting, Exercise, Study\n\n- Sound & Vibration\n  Choose the right alert style for any situation\n\n- Overtime Tracking\n  Keep counting after the timer ends so you know how far over you went\n\nPERFECT FOR\n\n- Speakers who need to pace their presentations\n- Meeting hosts who respect everyone's time\n- Athletes managing rest intervals between sets\n- Students using Pomodoro with staged alerts\n- Coaches and mentors running timed sessions\n\nWHY \"rereminder\"?\n\nre + reminder = remind you again\nWe remind you before it's too late — again and again.\n\nNo ads · No forced subscriptions · No internet required",
+    "genre_en": "Utilities",
+    "price_en": "Free"
   },
   "6755934548": {
     "trackName": "인생 맛집",
@@ -96,7 +120,11 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%EC%9D%B8%EC%83%9D-%EB%A7%9B%EC%A7%91/id6755934548?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "인생 맛집",
+    "description_en": "인생 맛집을 기록하고 추천하면서 늘려갈 수 있는 앱 입니다.",
+    "genre_en": "Food & Drink",
+    "price_en": "$2.99"
   },
   "6449769987": {
     "trackName": "Pixel MeMe",
@@ -113,7 +141,11 @@
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/c0/ee/f6/c0eef654-13b1-7110-54b0-92086c28e6a7/849e0527-c0a6-44c8-9416-8c2bf9e10740_iPhone_14_-_12.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/3f/99/14/3f991490-ed35-847b-e534-bbb112f6106d/3d094d74-aa78-460f-870b-ec03c1b0088a_iPhone_14_-_14.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/6e/c3/6b/6ec36b24-ffa8-bb9c-6506-19c9a0328e2d/6421c08a-f972-4bd2-90a6-6fc9e2402772_iPhone_14_-_16.png/392x696bb.png"
-    ]
+    ],
+    "trackName_en": "Pixel MeMe",
+    "description_en": "Help drawing pixel art",
+    "genre_en": "Lifestyle",
+    "price_en": "$3.99"
   },
   "6755280882": {
     "trackName": "욕망의 무지개",
@@ -126,7 +158,11 @@
     "seller": "hyunho lee",
     "version": "1.0.4",
     "url": "https://apps.apple.com/kr/app/%EC%9A%95%EB%A7%9D%EC%9D%98-%EB%AC%B4%EC%A7%80%EA%B0%9C/id6755280882?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "욕망의 무지개",
+    "description_en": "사용자가 ‘일을 벌리는 행위’를 인식하고 조절하여 과부하를 막고 성장감을 느끼게 해주는 작업 부하 인식 및 시간 조율 도구입니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6754888089": {
     "trackName": "라포맵",
@@ -139,7 +175,11 @@
     "seller": "hyunho lee",
     "version": "1.0.1",
     "url": "https://apps.apple.com/kr/app/%EB%9D%BC%ED%8F%AC%EB%A7%B5/id6754888089?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "라포맵",
+    "description_en": "40명의 멘티와 깊은 관계를 체계적으로 관리하고, 아무도 놓치지 않게 도와주는 멘토를 위한 관계 관리 앱입니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6450388408": {
     "trackName": "리바운드 저널",
@@ -156,20 +196,28 @@
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/84/55/ec/8455ec37-10de-aa79-08ba-5f09dddaa3a2/79fdc46b-b280-4681-b204-80b53663d894_iPhone_14_-_24.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/44/77/33/44773372-2579-8bd6-030a-125adff505ad/87b36aa0-a549-48f1-abc5-77bb32d983d2_iPhone_14_-_26.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/63/42/98/634298e0-0590-d420-05a1-92881aa111f6/4bd90f8b-7eb1-4073-9b16-58e73a58ee07_iPhone_14_-_28.png/392x696bb.png"
-    ]
+    ],
+    "trackName_en": "Rebound journal",
+    "description_en": "This is an app that allows you to record your failures so that they don't go to waste and can become a stepping stone for growth.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "1626715109": {
     "trackName": "달빛 - 수면 백색 소음 & 자연의 소리",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/86/cb/86/86cb86ce-c8e4-7acf-1c34-12380bcfbd4b/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/8c/a9/2a8ca980-6382-9b4a-0818-b2783f652727/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
     "rating": 5,
     "ratingCount": 7,
     "genre": "Lifestyle",
     "price": "무료",
     "description": "유튜브에서 잠을 잘 때 틀어놓을 소리를 찾는 과정에서 시간이 오래 걸리는 불편함을 느꼈던 적이 있으신가요? \n영상을 찾아보면서 어떤 소리를 선택해야 할지 결정하기 힘들었을 수도 있고, 선택한 소리가 기대와 다를 수도 있었을 것입니다. \n소리를 조금만 바꾸면 더 좋았을텐데 원하는대로 조절하지 못해서 아쉬웠던 적도 있으실 겁니다.\n\n이러한 경험에서 우리는 사람마다 원하는 소리와 안정감을 느끼는 것이 서로 다르다는 사실을 깨달았고, \n그러한 소리를 스스로 만들 수 있는 앱이 있다면 좋을 것 같다는 생각을 하게 되었습니다.\n\n이에 따라, 편안한 잠자리를 위한 최고의 동반자인 Relax On을 소개합니다. \nRelax On은 사용자가 손쉽게 수면 사운드를 커스터마이징하여 행복한 수면을 위한 완벽한 환경을 조성할 수 있도록 도와줍니다.\n\nRelax On은 부드러운 물방울 소리에서 울림이 있는 종소리, 지저귀는 새소리까지 기분에 맞는 \n다양한 옵션을 제공하여 깊고 활력 넘치는 숙면을 취할 수 있도록 돕습니다.\n\n하지만 그것으로 끝나지 않습니다. \n저희는 모든 사람의 수면 요구 사항이 다르다는 것을 알고 있으며, \nRelax On이 최고의 편안함을 제공하기 위해 더 많은 노력을 기울인다는 것을 알려드리고 싶습니다. \nRelax On은 사용자가 볼륨, 소리 주기, 음의 높낮이를 조절하거나 다양한 필터를 적용하는 등 \n수면 사운드를 자유롭게 커스터마이징할 수 있는 기능을 제공합니다.\n\n몇 번의 탭만으로 재생 목록에서 원하는 소리를 선택하고, \n타이머를 설정하여 소리가 서서히 사라지도록 하여 깊은 잠에 빠져들 수 있으며, \n상쾌한 기분으로 하루를 시작할 준비를 할 수 있습니다.\n\n불면증으로 고민하거나 바쁜 일상에서 위안을 찾거나 단순히 수면 루틴을 개선하고 싶을 때, \nRelax On은 편안한 밤을 보낼 수 있는 최상의 선택입니다. \n지금 Relax On을 다운로드하고 혁신적인 수면 여정을 시작해보세요.",
     "seller": "hyunho lee",
-    "version": "4.0.3",
+    "version": "4.0.4",
     "url": "https://apps.apple.com/kr/app/%EB%8B%AC%EB%B9%9B-%EC%88%98%EB%A9%B4-%EB%B0%B1%EC%83%89-%EC%86%8C%EC%9D%8C-%EC%9E%90%EC%97%B0%EC%9D%98-%EC%86%8C%EB%A6%AC/id1626715109?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "Dalbit",
+    "description_en": "Welcome to Relax On :)\n\nRelax On is an app where you can create your own relaxing music.\nJust select three kinds of sounds: Base, Melody, and White Noise, and then you will get a CD for the mixed sounds.\nWhile you're creating the music, illustrations for CD covers will be seen being made at the same time.\nYou can control the volume of each sound to get the best mix.\n\nCreate music, play it, set the timer, and enjoy for your own purpose: better sleep, meditation, study, work, and more.\n\nEULA: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6756593712": {
     "trackName": "일정 비서",
@@ -184,7 +232,11 @@
     "url": "https://apps.apple.com/kr/app/%EC%9D%BC%EC%A0%95-%EB%B9%84%EC%84%9C/id6756593712?mt=12&uo=4",
     "screenshots": [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/82/2d/0c/822d0cc2-87e8-4409-562a-e00b145a3f81/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2025-12-16__U110b_U1169_U1112_U116e_12.03.20_1.png/800x500bb.jpg"
-    ]
+    ],
+    "trackName_en": "일정 비서",
+    "description_en": "캘린더를 바탕으로 개인의 일정을 관리해주는 앱 입니다",
+    "genre_en": "Lifestyle",
+    "price_en": "$2.99"
   },
   "6755983135": {
     "trackName": "골드위크 - 황금연휴 플래너",
@@ -197,7 +249,11 @@
     "seller": "hyunho lee",
     "version": "2.1.0",
     "url": "https://apps.apple.com/kr/app/%EA%B3%A8%EB%93%9C%EC%9C%84%ED%81%AC-%ED%99%A9%EA%B8%88%EC%97%B0%ED%9C%B4-%ED%94%8C%EB%9E%98%EB%84%88/id6755983135?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "Goldweek - PTO and Vacation",
+    "description_en": "Goldweek is the smart PTO and vacation planner for busy professionals. Combine public holidays, weekends, and your leave days to get the maximum time off with the minimum days used.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6755164924": {
     "trackName": "세끼",
@@ -210,7 +266,11 @@
     "seller": "hyunho lee",
     "version": "1.0.4",
     "url": "https://apps.apple.com/kr/app/%EC%84%B8%EB%81%BC/id6755164924?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "세끼",
+    "description_en": "세끼는 하루 세 끼 식사를 빠짐없이 기록하고 관리할 수 있는 간편한 식사 기록 앱입니다. 사진으로 식사를 기록하고, 건강한 식습관을 만들어보세요.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6755651803": {
     "trackName": "확률계산기",
@@ -223,7 +283,11 @@
     "seller": "hyunho lee",
     "version": "1.0.1",
     "url": "https://apps.apple.com/us/app/%ED%99%95%EB%A5%A0%EA%B3%84%EC%82%B0%EA%B8%B0/id6755651803?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "확률계산기",
+    "description_en": "지난 번호를 기반으로 새로운 번호를 생성하고 확률을 계산해보는 앱 입니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "$1.99"
   },
   "6758995390": {
     "trackName": "불타는 내인생",
@@ -236,7 +300,11 @@
     "seller": "hyunho lee",
     "version": "1.0.6",
     "url": "https://apps.apple.com/kr/app/%EB%B6%88%ED%83%80%EB%8A%94-%EB%82%B4%EC%9D%B8%EC%83%9D/id6758995390?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "불타는 내인생",
+    "description_en": "저의 저녁시간은 다 타고 없어진 것을 보았는데요. 여러분의 자유시간이 타서 없어지는 것을 보여드리고 싶었습니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6758270016": {
     "trackName": "스픽플로우",
@@ -249,7 +317,11 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%EC%8A%A4%ED%94%BD%ED%94%8C%EB%A1%9C%EC%9A%B0/id6758270016?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "스픽플로우",
+    "description_en": "내가 원하는 회화를 반복해서 연습할 수 있도록 도와주는 앱 입니다.",
+    "genre_en": "Education",
+    "price_en": "$6.99"
   },
   "6758373947": {
     "trackName": "링롱",
@@ -262,7 +334,11 @@
     "seller": "hyunho lee",
     "version": "1.0.2",
     "url": "https://apps.apple.com/kr/app/%EB%A7%81%EB%A1%B1/id6758373947?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "링롱",
+    "description_en": "멘토의 위치를 찾을 수 있습니다",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6779654854": {
     "trackName": "퇴사각",
@@ -275,7 +351,11 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%ED%87%B4%EC%82%AC%EA%B0%81/id6779654854?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "퇴사각",
+    "description_en": "은퇴를 계획하는 분들을 위한 계산기 입니다",
+    "genre_en": "Lifestyle",
+    "price_en": "$149.99"
   },
   "6781537149": {
     "trackName": "낫마템포",
@@ -288,7 +368,11 @@
     "seller": "hyunho lee",
     "version": "1.0.5",
     "url": "https://apps.apple.com/kr/app/%EB%82%AB%EB%A7%88%ED%85%9C%ED%8F%AC/id6781537149?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "Not ma tempo",
+    "description_en": "It is a handheld metronome.\n\nTerms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\nPrivacy Policy: https://m1zz.github.io/HandsFreeMetronome/privacy.html",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6764088776": {
     "trackName": "사노라면",
@@ -301,7 +385,11 @@
     "seller": "hyunho lee",
     "version": "1.0.2",
     "url": "https://apps.apple.com/kr/app/%EC%82%AC%EB%85%B8%EB%9D%BC%EB%A9%B4/id6764088776?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "사노라면",
+    "description_en": "간단한 인도네시아어를 학습하는 앱 입니다",
+    "genre_en": "Lifestyle",
+    "price_en": "$7.99"
   },
   "6775176578": {
     "trackName": "한국길찾기",
@@ -314,7 +402,11 @@
     "seller": "hyunho lee",
     "version": "1.0.4",
     "url": "https://apps.apple.com/kr/app/%ED%95%9C%EA%B5%AD%EA%B8%B8%EC%B0%BE%EA%B8%B0/id6775176578?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "한국길찾기",
+    "description_en": "모두가 길을 찾기 쉽도록 접근성을 고려하여 만든 앱 입니다",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "1627216318": {
     "trackName": "LeeoCon",
@@ -331,7 +423,11 @@
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/8e/81/d2/8e81d297-7ad1-5981-f694-86aa11584247/3e08af56-1761-4cfb-8735-73b714785203_Apple_iPhone_8_Plus_Screenshot_0.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/be/a5/1f/bea51f59-474a-c3e9-e34d-fe51cc0965f0/cc5cbc98-f996-4a97-9766-b6bdcc23555e_Apple_iPhone_8_Plus_Screenshot_1.png/392x696bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/18/69/75/18697555-6242-9f82-1762-49b773b24f9f/c0a46ae1-46da-431c-ae8e-5c868571671e_Apple_iPhone_8_Plus_Screenshot_2.png/392x696bb.png"
-    ]
+    ],
+    "trackName_en": "LeeoCon",
+    "description_en": "The new sticker for iMessage app user. \ncolorful and cute sticker pack",
+    "genre_en": "Entertainment",
+    "price_en": "$0.99"
   },
   "6777737322": {
     "trackName": "무지개 공작소",
@@ -346,7 +442,11 @@
     "url": "https://apps.apple.com/kr/app/%EB%AC%B4%EC%A7%80%EA%B0%9C-%EA%B3%B5%EC%9E%91%EC%86%8C/id6777737322?mt=12&uo=4",
     "screenshots": [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/70/5d/ca/705dca12-f975-2631-30ad-4684eae4f222/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2026-06-08__U110b_U1169_U110c_U1165_U11ab_10.30.32_1.png/800x500bb.jpg"
-    ]
+    ],
+    "trackName_en": "무지개 공작소",
+    "description_en": "나의 일주일을 블록으로 만들어서 시각화 하는 앱 입니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6779262832": {
     "trackName": "초견",
@@ -359,7 +459,11 @@
     "seller": "hyunho lee",
     "version": "1.0.1",
     "url": "https://apps.apple.com/kr/app/%EC%B4%88%EA%B2%AC/id6779262832?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "초견",
+    "description_en": "악보에 내가 원하는 음표를 간단하게 찍고 들어볼 수 있게 해주는 앱",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6779659029": {
     "trackName": "펀칭",
@@ -372,7 +476,11 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%ED%8E%80%EC%B9%AD/id6779659029?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "펀칭",
+    "description_en": "내가 찍은 사진을 바로 스티커로 만들어 주는 카메라 입니다",
+    "genre_en": "Utilities",
+    "price_en": "Free"
   },
   "6778457299": {
     "trackName": "StickyPresenter",
@@ -387,7 +495,11 @@
     "url": "https://apps.apple.com/kr/app/stickypresenter/id6778457299?mt=12&uo=4",
     "screenshots": [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/87/82/eb/8782eb8a-1551-e3d3-4257-071efb99c0eb/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2026-06-09__U110b_U1169_U1112_U116e_11.28.17_1.png/800x500bb.jpg"
-    ]
+    ],
+    "trackName_en": "StickyPresenter",
+    "description_en": "키노트와 함께 쓸 수 있는 타이머 입니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6779270691": {
     "trackName": "이어생각",
@@ -400,7 +512,11 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%EC%9D%B4%EC%96%B4%EC%83%9D%EA%B0%81/id6779270691?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "이어생각",
+    "description_en": "나의 생각을 이어서 할 수 있도록 돕는 메모장 입니다",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6758198267": {
     "trackName": "잊지마",
@@ -413,7 +529,11 @@
     "seller": "hyunho lee",
     "version": "1.0.3",
     "url": "https://apps.apple.com/kr/app/%EC%9E%8A%EC%A7%80%EB%A7%88/id6758198267?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "잊지마",
+    "description_en": "일정을 아이폰에서도 볼 수 있도록 도와주는 앱 입니다.",
+    "genre_en": "Lifestyle",
+    "price_en": "$3.99"
   },
   "6756433372": {
     "trackName": "탭클립 키보드",
@@ -428,7 +548,11 @@
     "url": "https://apps.apple.com/kr/app/%ED%83%AD%ED%81%B4%EB%A6%BD-%ED%82%A4%EB%B3%B4%EB%93%9C/id6756433372?mt=12&uo=4",
     "screenshots": [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/64/29/8c/64298ce9-11f0-5c3f-f890-6feed9eaec4a/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2025-12-07__U110b_U1169_U1112_U116e_6.06.12_1.png/800x500bb.jpg"
-    ]
+    ],
+    "trackName_en": "탭클립 키보드",
+    "description_en": "클립 키보드 iOS 앱에서 추가한 데이터를 맥 앱에서도 이용 가능합니다.",
+    "genre_en": "Productivity",
+    "price_en": "$2.99"
   },
   "6789852144": {
     "trackName": "팔랑북",
@@ -441,7 +565,11 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%ED%8C%94%EB%9E%91%EB%B6%81/id6789852144?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "팔랑북",
+    "description_en": "내 아이가 그림을 쉽게 그리게 도와주고 그 그림들이 움직이게 도와주는 앱 입니다",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6759643878": {
     "trackName": "실수 100",
@@ -454,33 +582,45 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%EC%8B%A4%EC%88%98-100/id6759643878?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "실수 100",
+    "description_en": "주니어 개발자들이 실수를 하면서 성장할 수 있도록 실패를 도와주는 앱 입니다.\n\n이용약관 (Terms of Use / EULA):\nhttps://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\n개인정보처리방침 (Privacy Policy):\nhttps://m1zz.github.io/JuniorDevMistakes/privacy.html",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6789881830": {
     "trackName": "아이일정",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/78/88/39788814-5c79-cc0c-f697-44d452cd1792/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/11/d3/2a/11d32a8c-d323-4948-ac27-cbe970513f3f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
     "rating": 0,
     "ratingCount": 0,
     "genre": "Lifestyle",
     "price": "무료",
     "description": "아이의 일정이 종이로 온다면 이제 찍어서 관리하세요",
     "seller": "hyunho lee",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "url": "https://apps.apple.com/kr/app/%EC%95%84%EC%9D%B4%EC%9D%BC%EC%A0%95/id6789881830?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "아이일정",
+    "description_en": "아이의 일정이 종이로 온다면 이제 찍어서 관리하세요",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6790835318": {
     "trackName": "장표스냅",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/e3/6b/3ee36b19-de9f-a6d9-fc9d-b9317795f9c5/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d8/e4/3d/d8e43ddf-4a11-a09a-59e3-b3f112339445/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
     "rating": 0,
     "ratingCount": 0,
     "genre": "Lifestyle",
     "price": "무료",
     "description": "발표를 들을 때 편하게 장표를 촬영하세요",
     "seller": "hyunho lee",
-    "version": "1.0",
+    "version": "1.0.1",
     "url": "https://apps.apple.com/kr/app/%EC%9E%A5%ED%91%9C%EC%8A%A4%EB%83%85/id6790835318?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "장표스냅",
+    "description_en": "발표를 들을 때 편하게 장표를 촬영하세요",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6758931631": {
     "trackName": "햇빛바라기",
@@ -493,7 +633,11 @@
     "seller": "hyunho lee",
     "version": "1.0",
     "url": "https://apps.apple.com/kr/app/%ED%96%87%EB%B9%9B%EB%B0%94%EB%9D%BC%EA%B8%B0/id6758931631?uo=4",
-    "screenshots": []
+    "screenshots": [],
+    "trackName_en": "햇빛바라기",
+    "description_en": "내가 오늘 받은 햇빛을 기록하는 앱 입니다",
+    "genre_en": "Lifestyle",
+    "price_en": "Free"
   },
   "6789206198": {
     "trackName": "TetraTint",
@@ -508,6 +652,10 @@
     "url": "https://apps.apple.com/kr/app/tetratint/id6789206198?mt=12&uo=4",
     "screenshots": [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/95/c2/d6/95c2d669-c2cb-522f-6ae3-1c6cffed0c89/_U1109_U1173_U110f_U1173_U1105_U1175_U11ab_U1109_U1163_U11ba_2026-07-10__U110b_U1169_U110c_U1165_U11ab_12.44.19_1.png/800x500bb.jpg"
-    ]
+    ],
+    "trackName_en": "TetraTint",
+    "description_en": "개발을 하는데 필요한 대비 색상을 손쉽게 보여주는 앱",
+    "genre_en": "Developer Tools",
+    "price_en": "Free"
   }
 }

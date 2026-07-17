@@ -1,0 +1,400 @@
+{
+  "_comment": "English translations for showcase-content.json. groups match by array index (title/intro only); apps match by slug. build-portfolio-site.py embeds both languages and a KO/EN toggle.",
+  "groups": [
+    {
+      "title": "⌨️ Productivity · Tools",
+      "intro": "Practical tools that cut repetitive typing and time-management overhead"
+    },
+    {
+      "title": "🎨 Creativity · Making",
+      "intro": "Creator tools for making photos, sounds, and drawings with your own hands"
+    },
+    {
+      "title": "🌱 Habits · Wellbeing",
+      "intro": "Self-care apps for tracking, adjusting, and looking after yourself"
+    },
+    {
+      "title": "💛 Mind · Motivation",
+      "intro": "Apps that add encouragement and direction to a tiring day"
+    },
+    {
+      "title": "📚 Learning",
+      "intro": "Learning apps for practicing as much as you want"
+    },
+    {
+      "title": "🗺 Life · Info",
+      "intro": "Everyday apps that help with daily decisions and planning"
+    },
+    {
+      "title": "🤝 Relationships · Mentoring",
+      "intro": "Apps for staying on top of the relationships that matter"
+    },
+    {
+      "title": "🛠 Developer Tools",
+      "intro": "Tools for people who build and run apps"
+    }
+  ],
+  "apps": {
+    "clip-keyboard": {
+      "tagline": "One tap for repeated phrases — and the time saved, in numbers",
+      "problem": "You retype the same messages every day — booking confirmations, bank details — losing time and risking typos.",
+      "stakeholders": "Shop owners, support agents, and office workers who handle frequent customer messages and email",
+      "persona": "Jihyun (34), a workshop owner who sends dozens of identical replies to booking inquiries every day",
+      "context": "During the lunch rush, retyping the same instructions makes her miss other orders.",
+      "solution": "Save your go-to phrases as keyboard buttons, send them with one tap, and watch the time you've saved add up in stats.",
+      "hook": "If you type the same phrases over and over every day",
+      "highlight": "'Time saved' stats and achievement milestones that grow as you use it"
+    },
+    "tap-clip-keyboard": {
+      "tagline": "Your iOS text snippets, right on your Mac",
+      "problem": "Snippets saved on your iPhone can't be used on the Mac where you work most, so you end up retyping them.",
+      "stakeholders": "Knowledge workers who move between iPhone and Mac for documents and email",
+      "persona": "Junho (38), a remote marketer who drafts on his phone and finishes on his Mac",
+      "context": "Writing a proposal email on his Mac, he needs a standard phrase that only lives on his phone — and loses his flow.",
+      "solution": "Pull up phrases saved in Clip Keyboard (iOS) right on your Mac and paste them as-is — no more device boundary.",
+      "hook": "If you want your iPhone snippets on your Mac too"
+    },
+    "double-reminder": {
+      "tagline": "Two alerts, so you never miss it",
+      "problem": "A single notification is easy to miss, so you keep blowing past the end of talks and meetings.",
+      "stakeholders": "Presenters, meeting facilitators, trainers — anyone who has to budget time",
+      "persona": "Sumin (29), a conference presenter who always runs over in 5-minute talks",
+      "context": "Not knowing it's 3 minutes to the end, she has to cut her conclusion short.",
+      "solution": "A heads-up alert before the end and a final alert at the end — two reminders so the important moment never slips by.",
+      "hook": "If you keep missing the moment to wrap up talks and meetings",
+      "highlight": "Rings twice — before and at the end — so you can be sure"
+    },
+    "sticky-presenter": {
+      "tagline": "A presentation timer that stays on top of Keynote",
+      "problem": "With no way to check remaining time mid-presentation, your slide pacing falls apart.",
+      "stakeholders": "Speakers, educators, and anyone giving a sales pitch",
+      "persona": "Taeyoung (41), an in-house instructor who finishes 45-minute lectures in 30",
+      "context": "Talking to the audience, he loses track of time and rushes the back half.",
+      "solution": "An always-visible timer floats above Keynote so you can manage remaining time at a glance throughout your talk.",
+      "hook": "If you lose track of time mid-presentation and your pacing collapses"
+    },
+    "dont-forget": {
+      "tagline": "Your Mac schedule, at a glance on iPhone",
+      "problem": "Schedules organized on your desktop are a hassle to check on the go, so you miss appointments.",
+      "stakeholders": "People who manage their schedule on a Mac but are often out and about",
+      "persona": "Kyunga (33), a sales rep who can't see her office calendar while in the field",
+      "context": "Out on a client visit, she's unsure of her next meeting time and has to call the office.",
+      "solution": "Register your events once and see today's schedule instantly in the iPhone app and widget.",
+      "hook": "If you miss appointments because your Mac calendar isn't with you"
+    },
+    "schedule-assistant": {
+      "tagline": "An AI assistant that plans your schedule",
+      "problem": "Gathering and juggling events scattered across places drains the energy you needed for actual planning.",
+      "stakeholders": "Busy office workers and freelancers who feel the weight of schedule management",
+      "persona": "Haneul (22), a college student whose week is tangled with classes, part-time work, and study groups",
+      "context": "The calendar is full of events, but with no visible priorities it's hard to know where to start.",
+      "solution": "Connect your calendar and AI consolidates your events, suggests optimal times, and organizes everything without conflicts.",
+      "hook": "If organizing scattered schedules wears you out",
+      "highlight": "AI suggests the optimal time"
+    },
+    "think-flow": {
+      "tagline": "A notepad that continues your train of thought",
+      "problem": "Ordinary notes scatter into fragments, making it hard to pick up yesterday's thinking today.",
+      "stakeholders": "People who develop ideas, writing, and plans over long stretches",
+      "persona": "Yeonwoo (27), an aspiring novelist who builds story ideas over several days",
+      "context": "Forgetting the context of a thread from days ago, she starts from scratch every time.",
+      "solution": "A flow-style notepad that appends to your previous thoughts, keeping the thread of your thinking unbroken.",
+      "hook": "If it's hard to continue yesterday's thinking today"
+    },
+    "punching": {
+      "tagline": "A camera that turns your photos into stickers",
+      "problem": "Making your own stickers means a separate background-removal app — too much hassle.",
+      "stakeholders": "Anyone who wants personal, distinctive stickers in their messenger",
+      "persona": "Bora (31), an office worker who wants stickers of her cat",
+      "context": "She captures a cute moment but doesn't know how to make it a sticker, so it stays buried in her photo library.",
+      "solution": "Snap a photo and the background is cut out automatically — instantly a sticker.",
+      "hook": "If you want stickers made from your own photos",
+      "highlight": "Snap it, background gone — instant sticker"
+    },
+    "pixel-mimi": {
+      "tagline": "Pixel art made easy",
+      "problem": "Drawing pixel art usually requires pro graphics tools — a high bar for a hobby.",
+      "stakeholders": "Beginner creators trying pixel art and game sprites for fun",
+      "persona": "Siwoo (19), a student who wants to draw his own indie game characters",
+      "context": "Facing a complex tool, he doesn't even know what to click first.",
+      "solution": "An intuitive tap-the-grid approach anyone can use to finish pixel art.",
+      "hook": "If you want to try pixel art, lightly",
+      "highlight": "A mobile pixel editor you tap with your fingertips"
+    },
+    "leeocon": {
+      "tagline": "Cute sticker packs for iMessage",
+      "problem": "Default emoji alone can't fully express the feeling and personality in a conversation.",
+      "stakeholders": "People who chat over iMessage",
+      "persona": "Minseo (21), a college student chatting with friends on iMessage",
+      "context": "Plain text conversations could use something to set the mood.",
+      "solution": "Colorful, charming iMessage sticker packs that add feeling to your chats.",
+      "hook": "If you want to dress up your iMessage chats"
+    },
+    "sight-singer": {
+      "tagline": "Tap in a score, hear it instantly",
+      "problem": "Sight-singing practice or checking a melody requires an instrument — you can't just hear it on the spot.",
+      "stakeholders": "Music learners, beginner composers, choir and vocal students",
+      "persona": "Jihoon (35), a choir member whose weak sight-reading stalls him at every new score",
+      "context": "He can't picture the pitches on the page, so practice crawls.",
+      "solution": "Place notes on a staff and hit play — hear the score immediately.",
+      "hook": "If you want to hear a score right away",
+      "highlight": "The notes you tap, played back on the spot"
+    },
+    "hands-free-metronome": {
+      "tagline": "A metronome you never have to touch",
+      "problem": "With both hands on your instrument, you can't adjust the metronome — and the tempo work stops.",
+      "stakeholders": "Instrumentalists, music students, and teachers",
+      "persona": "Jae (24), a guitar student who stops playing every time he wants to change tempo",
+      "context": "He wants to raise the BPM mid-song but can't take a hand off — the flow breaks.",
+      "solution": "Hands-free control keeps the beat going even while you play.",
+      "hook": "If you can't take your hands off to adjust the beat"
+    },
+    "cooltime": {
+      "tagline": "A habit timer that puts impulses on cooldown",
+      "problem": "When the urge to buy or do something strikes, you act immediately — then the regret follows, again and again.",
+      "stakeholders": "People who want to curb impulse buying and impulsive behavior",
+      "persona": "Hyunsoo (37), an office worker who hits the pay button in the heat of the moment",
+      "context": "\"Just this one\" — he splurges impulsively, then regrets it moments later.",
+      "solution": "Like a skill cooldown in a game, it puts a waiting period on spending and actions, creating a gap between impulse and execution.",
+      "hook": "If you splurge on impulse and regret it later",
+      "highlight": "A cooldown on your actions, like a game skill"
+    },
+    "rainbow-of-desire": {
+      "tagline": "See and balance everything you've taken on",
+      "problem": "Enthusiasm keeps you starting new things until you're overloaded — and the sense of accomplishment fades.",
+      "stakeholders": "People at risk of burnout from multitasking",
+      "persona": "Daeun (30), a planner running five side projects at once",
+      "context": "Lots of things started, nothing finished — always chased, always tired.",
+      "solution": "Recognize and regulate the habit of taking on too much, manage your workload, and recover a sense of growth.",
+      "hook": "If you keep taking on more until you're overloaded",
+      "highlight": "Notice and rebalance your 'starting too much' habit"
+    },
+    "rainbow-workshop": {
+      "tagline": "Your week, visualized as blocks",
+      "problem": "With no sense of where the week's hours went, planning and reflection are guesswork.",
+      "stakeholders": "Office workers and students who want to use time better",
+      "persona": "Yujin (28), a freelancer who wonders every weekend what she even did this week",
+      "context": "She knows she was busy, but with nothing to show she can't find where time leaks.",
+      "solution": "Stack your week into blocks to see exactly where your time went, at a glance.",
+      "hook": "If you have no idea where your week went"
+    },
+    "rebound-journal": {
+      "tagline": "Chronicle your recovery journey",
+      "problem": "You just endure hard times as they pass, leaving no trace of what actually helped you get better.",
+      "stakeholders": "People going through a rough patch or getting back up after failure",
+      "persona": "Seongmin (33), an office worker rebuilding after burnout and setbacks",
+      "context": "Emotions swirl, but without processing the recovery, the same struggles shake him again.",
+      "solution": "Record your recovery step by step, visualize small wins, and turn them into a foothold for growth.",
+      "hook": "If hard times are just passing you by"
+    },
+    "three-meals": {
+      "tagline": "Better eating habits, starting with one photo",
+      "problem": "You skip or rush meals, yet never see your eating habits objectively.",
+      "stakeholders": "People interested in dieting and health management",
+      "persona": "Areum (26), an office worker who skips lunch when things get busy",
+      "context": "By day's end she can't even remember what she ate.",
+      "solution": "Log every meal with a photo in 10 seconds, get weekly analysis, and build healthier patterns.",
+      "hook": "If you can't remember what you ate today",
+      "highlight": "One photo — AI reads your eating habits"
+    },
+    "burning-my-life": {
+      "tagline": "Watch your free time burn away",
+      "problem": "Evenings and leisure time slip through your fingers, but the loss never registers.",
+      "stakeholders": "People who want their free time to mean something",
+      "persona": "Donghyuk (32), an office worker who scrolls his phone after work until he falls asleep",
+      "context": "He ends each day regretting that he 'did nothing again today.'",
+      "solution": "Visualizes your remaining free time as burning away, making the finiteness of time impossible to ignore.",
+      "hook": "If you can feel your free time just disappearing"
+    },
+    "relax-on": {
+      "tagline": "Sleep sounds, mixed to your taste",
+      "problem": "You waste time hunting for sleep sounds on YouTube, and they never adjust the way you want.",
+      "stakeholders": "People who need sound for sleep, rest, or focus",
+      "persona": "Soyeon (29), a sleepless office worker who spends 30 minutes finding a sound before bed",
+      "context": "The sound she finally picks isn't what she hoped, and she tosses and turns fiddling with volume and mix.",
+      "solution": "Pick nature sounds and mix them to your taste — your own custom sleep soundscape.",
+      "hook": "If finding a sleep sound every night is a chore",
+      "highlight": "Nature sounds, mixed exactly to your taste"
+    },
+    "daily-compliment": {
+      "tagline": "A compliment delivered every morning",
+      "problem": "Comparison and self-criticism chip away at your self-esteem, with no ritual to lift yourself up.",
+      "stakeholders": "Anyone who needs a positive day — especially those with low self-esteem",
+      "persona": "Yerin (25), a young professional who gets gloomy scrolling social media",
+      "context": "Comparing herself to others on social media, she starts the day putting herself down.",
+      "solution": "A personalized compliment every morning opens the day on a positive note and builds a self-esteem habit.",
+      "hook": "If comparison is wearing down your self-esteem",
+      "highlight": "A personalized compliment, delivered every morning"
+    },
+    "bucket-climb": {
+      "tagline": "Visualize your dreams in photos",
+      "problem": "Your aspirations stay a vague list — motivation is weak and achievement never feels real.",
+      "stakeholders": "20- and 30-somethings setting and pursuing life goals",
+      "persona": "Mingyu (24), who wants to do a lot but keeps putting it off",
+      "context": "Bucket lists get written, then forgotten out of sight — and achievements leave no record.",
+      "solution": "Register dreams with photos for visual motivation, and turn completed ones into a storybook of memories.",
+      "hook": "If your dreams remain vague and distant",
+      "highlight": "Captured in photos — and once achieved, a storybook of memories"
+    },
+    "speak-flow": {
+      "tagline": "Drill the phrases you actually need until they stick",
+      "problem": "Textbook sentences differ from what you'd actually say, so what you learn never comes out of your mouth.",
+      "stakeholders": "Learners who need real-world English conversation",
+      "persona": "Jiwon (31), an office worker preparing for overseas meetings",
+      "context": "The expressions she actually wants aren't in any textbook, so she mumbles through every time.",
+      "solution": "Register the conversations you want to practice and drill them on repeat until they're second nature.",
+      "hook": "If the English you learned won't come out of your mouth"
+    },
+    "sanoramyeon": {
+      "tagline": "Indonesian, learned lightly",
+      "problem": "Even to learn basic Indonesian, there's no easy, low-pressure way to start.",
+      "stakeholders": "Beginners who need Indonesian for travel or work",
+      "persona": "Nayeon (30), a traveler preparing to spend a month in Bali",
+      "context": "She worries she won't manage even simple greetings and orders on the ground.",
+      "solution": "Learn Indonesian lightly through short, useful expressions and pick up basic conversation.",
+      "hook": "If you want to pick up basic Indonesian, lightly"
+    },
+    "donkko-mart": {
+      "tagline": "Check if the store is open before you go",
+      "problem": "You head to the store only to find it closed — a wasted trip.",
+      "stakeholders": "Anyone who shops at offline marts and stores",
+      "persona": "Taeyun (34), living alone, who stops for groceries on the way home",
+      "context": "Arriving late at night, the store's already closed and he goes home empty-handed.",
+      "solution": "Check store holidays and opening hours before you leave — no more wasted trips.",
+      "hook": "If you've ever arrived at a closed store and walked home empty-handed"
+    },
+    "life-restaurant": {
+      "tagline": "Build your own restaurant map",
+      "problem": "Great restaurants live only in your memory — later you can't recall the name, let alone recommend it.",
+      "stakeholders": "Foodies who love dining out and exploring restaurants",
+      "persona": "Juha (28), an office worker who always says 'where was that place again?' when friends ask",
+      "context": "She loved the place, but the name is gone — no revisit, no recommendation.",
+      "solution": "Collect photos, notes, and your own ratings in one place — a personal best-restaurants map you can recommend from.",
+      "hook": "If you can't remember the name of that great restaurant",
+      "highlight": "Every place you've loved becomes your own collection on a map"
+    },
+    "shared-day-designer": {
+      "tagline": "Maximum holidays from minimum leave days",
+      "problem": "Figuring out where to place leave days for the longest break means tedious calendar math.",
+      "stakeholders": "Office workers who want to spend their leave strategically",
+      "persona": "Hyunwoo (33), an associate who wants to stretch bridge holidays as far as they'll go",
+      "context": "Unsure where to slot leave between holidays and weekends, he guesses every time.",
+      "solution": "Combines public holidays, weekends, and your leave to automatically design the longest break from the fewest days.",
+      "hook": "If you want maximum holiday from minimum leave",
+      "highlight": "Auto-designs the longest break from the fewest leave days"
+    },
+    "fire-tracker": {
+      "tagline": "A calculator for your retirement date",
+      "problem": "'When could I actually quit or retire?' stays nothing more than a vague anxiety.",
+      "stakeholders": "Office workers planning early retirement (FIRE) or a career exit",
+      "persona": "Seungho (36), a thirty-something office worker dreaming of FIRE",
+      "context": "He only has gut feelings about his target amount and date, so the plan keeps wobbling.",
+      "solution": "Enter your numbers to calculate the money you need and when you can retire — and set concrete goals.",
+      "hook": "If you have no idea when you could retire"
+    },
+    "korea-navi": {
+      "tagline": "Navigation designed for accessibility",
+      "problem": "Mainstream map apps neglect accessibility, making navigation itself a barrier for some.",
+      "stakeholders": "All pedestrians, including users who need accessibility support",
+      "persona": "Hanbyul (40), a visually impaired user who navigates with a screen reader",
+      "context": "Following directions in a map app with a complex UI is a struggle.",
+      "solution": "An accessibility-first UI guides everyone to their destination with ease.",
+      "hook": "If you need directions that respect accessibility",
+      "highlight": "Wayfinding designed accessibility-first"
+    },
+    "probability-calculator": {
+      "tagline": "Probabilities computed from past numbers",
+      "problem": "You pick numbers on gut feeling alone, with no way to check the odds — even just for fun.",
+      "stakeholders": "People who enjoy number and probability games",
+      "persona": "Kwangsoo (45), a lotto fan who agonizes over his numbers every week",
+      "context": "He picks combinations purely on instinct and always wonders if there's a better way.",
+      "solution": "Generates new numbers from past draws and calculates probabilities, adding a layer of fun.",
+      "hook": "If you're picking numbers on gut feeling alone",
+      "highlight": "Probability in graphs, no formulas needed"
+    },
+    "rapport-map": {
+      "tagline": "A compass that records the context of your relationships",
+      "problem": "Contacts hold only names — when you met and what you talked about gets lost.",
+      "stakeholders": "People who maintain many relationships through mentoring, networking, and client care",
+      "persona": "Jaewon (42), a community mentor looking after 40 mentees",
+      "context": "Focused on the vocal ones, he unknowingly neglects the quiet mentees.",
+      "solution": "Record dates, conversations, and promises per person — review the context before each meeting and leave no one behind.",
+      "hook": "If you have too many people to keep up with",
+      "highlight": "Beyond contacts — the full context of each relationship"
+    },
+    "ring-rong": {
+      "tagline": "See where your mentor or contact is",
+      "problem": "Before a meetup or mentoring session, not knowing where the other person is wastes coordination time.",
+      "stakeholders": "People coordinating in-person meetups and mentoring",
+      "persona": "Gaeun (37), a mentor arranging a meeting spot with her mentee",
+      "context": "Not knowing where each other is, they trade phone calls about location — tedious.",
+      "solution": "Check the other person's location and connect meetups and mentoring effortlessly.",
+      "hook": "If figuring out where the other person is before meeting is a hassle"
+    },
+    "review-manager": {
+      "tagline": "A review command center for indie developers",
+      "problem": "Run several apps and reviews and ratings scatter — you end up triaging by gut feeling.",
+      "stakeholders": "Indie developers and small studios running multiple apps",
+      "persona": "Leeo (35), a solo developer running 10 apps alone",
+      "context": "Hopping between App Store Connect pages per app, he misses a bad review on an important app.",
+      "solution": "Gathers all app reviews in one place and auto-recommends 'the app to watch now' with risk/opportunity scores.",
+      "hook": "If reviews scattered across apps are hard to manage",
+      "highlight": "Risk and opportunity scores point to today's priority app"
+    },
+    "tetra-tint": {
+      "tagline": "A contrast color tool for developers",
+      "problem": "You eyeball whether UI color contrast meets accessibility standards — and it's easy to get wrong.",
+      "stakeholders": "Developers and designers responsible for color contrast and accessibility",
+      "persona": "Minjae (31), a front-end developer never quite sure about dark-mode contrast",
+      "context": "Choosing text and background colors, he's never confident the contrast is sufficient.",
+      "solution": "Check contrast-safe colors easily and pick ones that meet accessibility standards.",
+      "hook": "If you're unsure your color contrast passes accessibility",
+      "highlight": "A dev tool that shows contrast colors at a glance"
+    },
+    "junior-mistakes": {
+      "tagline": "Junior developers grow through mistakes",
+      "problem": "Junior developers hide mistakes out of embarrassment, missing the chance to grow from them.",
+      "stakeholders": "Developers just starting out",
+      "persona": "Dohyun (26), a first-year developer who beats himself up over small mistakes",
+      "context": "He repeats the same mistakes but never writes them down, so nothing becomes a lesson.",
+      "solution": "100 common developer mistakes that turn failure into a stepping stone for growth.",
+      "hook": "If mistakes scare you as a junior developer"
+    },
+    "sunflower": {
+      "tagline": "Track the sunlight you got today",
+      "problem": "With no sense of how much sun you've gotten, indoor life quietly leaves you short on daylight.",
+      "stakeholders": "People who spend long hours indoors and risk running low on sunlight and vitamin D",
+      "persona": "Jia (29), an office worker who never sees the sun during the workday",
+      "context": "Only when her body starts feeling heavy does she realize she hasn't seen the sun in days.",
+      "solution": "Log today's sunlight and build a habit of getting regular time in the sun.",
+      "hook": "If you have no idea how much sun you're getting"
+    },
+    "slide-snap": {
+      "tagline": "Capture and organize presentation slides with ease",
+      "problem": "Slides shot in a hurry come out crooked and scatter across your photo library, impossible to find later.",
+      "stakeholders": "Audiences who capture slides at lectures, seminars, and classes",
+      "persona": "Yuna (26), a grad student who snaps seminar slides indiscriminately",
+      "context": "Slides shot during talks get mixed into her photo library and are hard to find again.",
+      "solution": "Capture and organize slides comfortably as you listen, and find them instantly later.",
+      "hook": "If your hastily shot slides end up in chaos"
+    },
+    "kid-calendar": {
+      "tagline": "Snap paper notices, manage them digitally",
+      "problem": "Kids' school and academy schedules arrive on paper — copying them by hand, things slip through.",
+      "stakeholders": "Parents managing children's paper schedules and notices",
+      "persona": "Eunjung (38), a working mom managing two kids' schedules from paper handouts",
+      "context": "She forgets to copy a notice over and the school supplies don't get packed.",
+      "solution": "Photograph paper schedules and manage them all in one digital place.",
+      "hook": "If paper notices from your kids keep slipping through"
+    },
+    "flip-book": {
+      "tagline": "Kids' drawings come alive as animation",
+      "problem": "A child's drawing stays frozen on paper — there's no easy path to the delight of seeing it move.",
+      "stakeholders": "Parents who want to encourage their child's drawing and creativity",
+      "persona": "Sujin (35), a parent who often draws together with her child",
+      "context": "Her child draws but quickly loses interest and doesn't keep going.",
+      "solution": "Kids draw easily and watch their drawings come to life, growing the joy of creating.",
+      "hook": "If you wish your child's drawings could move"
+    }
+  }
+}
