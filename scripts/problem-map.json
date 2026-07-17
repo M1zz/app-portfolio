@@ -1,0 +1,676 @@
+{
+  "_comment": "리이오의 문제 해결지도 (industry-explorer/leeo-map.json 에서 이식). 쇼케이스의 '문제 해결 지도' 섹션으로 렌더링. slug 는 Data/apps/*.json 파일명, 앱 이름·링크는 빌드 시 포트폴리오 데이터에서 가져온다. 각 문제는 pain(불편)·who(누가)·when(언제)·gap(공백) 4단 구조 + En 번역.",
+  "title": "🍎 문제 해결 지도",
+  "titleEn": "🍎 Problem-Solving Map",
+  "intro": "리이오의 앱들이 실제로 푸는 문제를 테마별로 정리했습니다. 불편(Pain) → 누가 · 언제 → 기존 도구의 공백(Gap) 순으로 살펴보세요.",
+  "introEn": "The real problems Leeo's apps solve, organized by theme. Explore each as pain → who · when → the gap in existing tools.",
+  "domains": [
+    {
+      "id": "leeo-mind",
+      "icon": "🧠",
+      "title": "마음·감정 돌봄",
+      "titleEn": "Mind & Emotional Care",
+      "color": "#a29bfe",
+      "apps": [
+        {
+          "slug": "relax-on",
+          "problems": [
+            {
+              "pain": "일상 스트레스로 이완과 수면이 어려움",
+              "painEn": "Daily stress makes it hard to unwind and sleep",
+              "who": "스트레스 많은 직장인·불면인",
+              "whoEn": "Stressed workers and people with insomnia",
+              "when": "잠들기 전이나 쉬고 싶을 때",
+              "whenEn": "Before sleep or when needing rest",
+              "gap": "고품질 자연 소리·가이드 명상 부재",
+              "gapEn": "No high-quality nature sounds or guided meditation"
+            },
+            {
+              "pain": "나에게 맞는 소리 조합을 찾기 어려움",
+              "painEn": "Hard to find the sound mix that works for you",
+              "who": "힐링이 필요한 사람",
+              "whoEn": "People who need to unwind",
+              "when": "집중하거나 수면을 유도할 때",
+              "whenEn": "When focusing or falling asleep",
+              "gap": "자유로운 사운드 믹싱 기능 부족",
+              "gapEn": "No free-form sound mixing"
+            }
+          ]
+        },
+        {
+          "slug": "rainbow-of-desire",
+          "problems": [
+            {
+              "pain": "복잡한 감정을 말로 표현·이해하기 어려움",
+              "painEn": "Complex emotions are hard to express and understand in words",
+              "who": "감정 관리가 필요한 사람",
+              "whoEn": "People who need to manage their emotions",
+              "when": "하루의 감정을 돌아볼 때",
+              "whenEn": "When reflecting on the day's emotions",
+              "gap": "감정을 색으로 시각화하는 도구 부재",
+              "gapEn": "No tool that visualizes emotions as color"
+            },
+            {
+              "pain": "감정의 흐름과 패턴을 파악하지 못함",
+              "painEn": "Can't see the flow and patterns of emotions",
+              "who": "자기 감정을 탐구하려는 사람",
+              "whoEn": "People exploring their own emotions",
+              "when": "감정 변화 추이를 확인할 때",
+              "whenEn": "When checking how emotions change over time",
+              "gap": "비판단적 감정 패턴 시각화 부재",
+              "gapEn": "No non-judgmental emotion-pattern visualization"
+            }
+          ]
+        },
+        {
+          "slug": "rebound-journal",
+          "problems": [
+            {
+              "pain": "힘든 시기 극복 과정을 혼자 감당하기 벅참",
+              "painEn": "Getting through hard times alone is overwhelming",
+              "who": "어려운 시기를 겪거나 극복 중인 사람",
+              "whoEn": "People going through or recovering from a rough patch",
+              "when": "회복 과정을 기록하고 싶을 때",
+              "whenEn": "When wanting to record the recovery process",
+              "gap": "회복 여정을 단계별로 남기는 안전한 공간 부재",
+              "gapEn": "No safe space to log the recovery journey step by step"
+            },
+            {
+              "pain": "작은 진전이 눈에 안 보여 쉽게 좌절",
+              "painEn": "Small progress stays invisible, so discouragement comes easily",
+              "who": "회복 중인 사람",
+              "whoEn": "People in recovery",
+              "when": "긍정적 변화를 확인하고 싶을 때",
+              "whenEn": "When wanting to see positive change",
+              "gap": "회복 과정을 시각화하는 도구 부재",
+              "gapEn": "No tool that visualizes the recovery process"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leeo-log",
+      "icon": "📝",
+      "title": "기록·습관·저널",
+      "titleEn": "Logging, Habits & Journaling",
+      "color": "#74b9ff",
+      "apps": [
+        {
+          "slug": "bucket-climb",
+          "problems": [
+            {
+              "pain": "버킷리스트가 잊혀지는 단순 체크리스트로 끝남",
+              "painEn": "Bucket lists end up as forgotten checklists",
+              "who": "목표를 세우고 실천하려는 20-30대",
+              "whoEn": "20- and 30-somethings setting and pursuing goals",
+              "when": "새 꿈을 세우거나 이루었을 때",
+              "whenEn": "When setting a new dream or achieving one",
+              "gap": "사진으로 여정을 남기는 시각적 기록이 없었음",
+              "gapEn": "No visual record of the journey in photos"
+            },
+            {
+              "pain": "목표 달성 동기가 금방 사그라듦",
+              "painEn": "Motivation to reach goals fades fast",
+              "who": "새로운 경험을 추구하는 사람",
+              "whoEn": "People chasing new experiences",
+              "when": "매일 꿈을 상기하고 싶을 때",
+              "whenEn": "When wanting a daily reminder of the dream",
+              "gap": "위젯·사진으로 동기부여하는 기능 부족",
+              "gapEn": "No widget or photo-driven motivation"
+            }
+          ]
+        },
+        {
+          "slug": "life-restaurant",
+          "problems": [
+            {
+              "pain": "갔던 맛집을 기억 못하고 잊어버림",
+              "painEn": "Great restaurants get forgotten",
+              "who": "외식·맛집 탐방을 즐기는 사람",
+              "whoEn": "People who love dining out and exploring restaurants",
+              "when": "식사 후 기록으로 남길 때",
+              "whenEn": "When logging a meal afterwards",
+              "gap": "사진·평점을 모은 나만의 맛집 지도 부재",
+              "gapEn": "No personal restaurant map of photos and ratings"
+            },
+            {
+              "pain": "대중 평점이 내 입맛과 맞지 않음",
+              "painEn": "Crowd ratings don't match your taste",
+              "who": "자기 기준이 있는 미식가",
+              "whoEn": "Foodies with their own standards",
+              "when": "다음에 갈 곳을 고를 때",
+              "whenEn": "When choosing where to go next",
+              "gap": "내 기준의 개인 평가 기록 부재",
+              "gapEn": "No record of ratings by your own standards"
+            }
+          ]
+        },
+        {
+          "slug": "rainbow-workshop",
+          "problems": [
+            {
+              "pain": "일주일을 어떻게 보내는지 한눈에 안 보임",
+              "painEn": "No at-a-glance view of how the week is spent",
+              "who": "시간 사용을 돌아보려는 사람",
+              "whoEn": "People reflecting on how they use time",
+              "when": "한 주를 계획하거나 회고할 때",
+              "whenEn": "When planning or reviewing the week",
+              "gap": "일주일을 블록으로 시각화하는 도구 부재",
+              "gapEn": "No tool that visualizes the week as blocks"
+            }
+          ]
+        },
+        {
+          "slug": "think-flow",
+          "problems": [
+            {
+              "pain": "흐르던 생각이 끊겨 이어가지 못함",
+              "painEn": "A flowing train of thought gets cut off and lost",
+              "who": "생각을 메모로 정리하는 사람",
+              "whoEn": "People who organize their thinking in notes",
+              "when": "떠오른 생각을 이어 적을 때",
+              "whenEn": "When continuing a thought as it comes",
+              "gap": "생각을 이어가도록 돕는 메모장 부재",
+              "gapEn": "No notepad designed to continue a thought"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leeo-prod",
+      "icon": "⚡",
+      "title": "생산성·입력도구",
+      "titleEn": "Productivity & Input Tools",
+      "color": "#fdcb6e",
+      "apps": [
+        {
+          "slug": "clip-keyboard",
+          "problems": [
+            {
+              "pain": "매일 같은 텍스트를 반복 입력하며 시간 낭비",
+              "painEn": "Time wasted retyping the same text every day",
+              "who": "이메일·고객응대가 많은 직장인",
+              "whoEn": "Workers with heavy email and customer-support loads",
+              "when": "반복 문구를 입력할 때",
+              "whenEn": "When typing recurring phrases",
+              "gap": "한 번에 붙여넣는 템플릿 입력 수단 부족",
+              "gapEn": "No one-tap template input"
+            },
+            {
+              "pain": "생산성 향상이 추상적이라 체감 안 됨",
+              "painEn": "Productivity gains feel abstract, never tangible",
+              "who": "반복 업무 종사자",
+              "whoEn": "People doing repetitive work",
+              "when": "템플릿을 사용할 때마다",
+              "whenEn": "Every time a template is used",
+              "gap": "절약한 시간을 숫자·마일스톤으로 보여주는 성취감 부재",
+              "gapEn": "No numbers or milestones showing the time saved"
+            }
+          ]
+        },
+        {
+          "slug": "tap-clip-keyboard",
+          "problems": [
+            {
+              "pain": "iOS에서 저장한 클립을 맥에서 쓸 수 없음",
+              "painEn": "Clips saved on iOS can't be used on the Mac",
+              "who": "반복 텍스트를 여러 기기서 쓰는 사람",
+              "whoEn": "People using recurring text across devices",
+              "when": "맥에서 저장한 문구를 입력할 때",
+              "whenEn": "When typing saved phrases on the Mac",
+              "gap": "iOS-맥 간 클립 데이터 연동 부재",
+              "gapEn": "No iOS–Mac clip syncing"
+            }
+          ]
+        },
+        {
+          "slug": "double-reminder",
+          "problems": [
+            {
+              "pain": "한 번 알림은 놓치면 끝이라 중요한 일을 놓침",
+              "painEn": "Miss the single notification and the important thing is gone",
+              "who": "건망증이 있는 사람",
+              "whoEn": "Forgetful people",
+              "when": "중요한 일정·약속 시각에",
+              "whenEn": "At important schedules and appointments",
+              "gap": "두 번 알려주는 이중 안전망 부재",
+              "gapEn": "No double-alert safety net"
+            },
+            {
+              "pain": "단일 알림은 ADHD·고령층에게 신뢰가 부족",
+              "painEn": "A single alert isn't reliable enough for ADHD users and seniors",
+              "who": "기억 보조가 필요한 사람",
+              "whoEn": "People who need memory support",
+              "when": "잊기 쉬운 일을 상기해야 할 때",
+              "whenEn": "When recalling easily forgotten things",
+              "gap": "유연한 간격의 재알림 부재",
+              "gapEn": "No flexible-interval re-alerts"
+            }
+          ]
+        },
+        {
+          "slug": "schedule-assistant",
+          "problems": [
+            {
+              "pain": "바쁜 일정 속 최적 시간 배분이 어려움",
+              "painEn": "Hard to allocate time optimally in a busy schedule",
+              "who": "일정이 많은 직장인·프리랜서",
+              "whoEn": "Busy office workers and freelancers",
+              "when": "일정을 잡고 조율할 때",
+              "whenEn": "When scheduling and coordinating",
+              "gap": "AI가 최적 시간대를 제안하는 기능 부재",
+              "gapEn": "No AI suggesting the optimal time slot"
+            },
+            {
+              "pain": "일정이 충돌해 스케줄이 꼬임",
+              "painEn": "Conflicting events tangle the schedule",
+              "who": "여러 일정을 관리하는 사람",
+              "whoEn": "People juggling multiple schedules",
+              "when": "새 일정을 추가할 때",
+              "whenEn": "When adding a new event",
+              "gap": "충돌 없는 자동 시간 배분 부재",
+              "gapEn": "No conflict-free automatic time allocation"
+            }
+          ]
+        },
+        {
+          "slug": "sticky-presenter",
+          "problems": [
+            {
+              "pain": "발표 중 시간 관리가 어려움",
+              "painEn": "Managing time mid-presentation is hard",
+              "who": "키노트로 발표하는 사람",
+              "whoEn": "People presenting with Keynote",
+              "when": "프레젠테이션을 진행할 때",
+              "whenEn": "While presenting",
+              "gap": "키노트와 함께 쓰는 타이머 부재",
+              "gapEn": "No timer that works alongside Keynote"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leeo-relation",
+      "icon": "🤝",
+      "title": "관계·소통",
+      "titleEn": "Relationships & Communication",
+      "color": "#fd79a8",
+      "apps": [
+        {
+          "slug": "rapport-map",
+          "problems": [
+            {
+              "pain": "연락처만으로는 관계의 맥락이 남지 않음",
+              "painEn": "Contacts alone keep no context of the relationship",
+              "who": "멘토링·네트워킹을 하는 사람",
+              "whoEn": "People doing mentoring and networking",
+              "when": "사람을 만난 직후 메모할 때",
+              "whenEn": "When taking notes right after meeting someone",
+              "gap": "만남·대화·약속을 기록하는 관계 도구 부재",
+              "gapEn": "No relationship tool that records meetings, conversations, and promises"
+            },
+            {
+              "pain": "다음 만남 전 지난 대화가 기억나지 않음",
+              "painEn": "Can't recall the last conversation before the next meeting",
+              "who": "고객·인맥을 관리하는 전문가",
+              "whoEn": "Professionals managing clients and connections",
+              "when": "재회 전 이전 기록을 확인할 때",
+              "whenEn": "When reviewing past notes before meeting again",
+              "gap": "관계 유형별 맥락 관리 부재",
+              "gapEn": "No context management by relationship type"
+            }
+          ]
+        },
+        {
+          "slug": "ring-rong",
+          "problems": [
+            {
+              "pain": "도움 줄 멘토를 어디서 찾을지 모름",
+              "painEn": "No idea where to find a mentor who can help",
+              "who": "멘토를 찾는 멘티",
+              "whoEn": "Mentees looking for a mentor",
+              "when": "멘토링·조언이 필요할 때",
+              "whenEn": "When mentoring or advice is needed",
+              "gap": "멘토의 위치를 찾는 연결 수단 부재",
+              "gapEn": "No way to locate and connect with mentors"
+            }
+          ]
+        },
+        {
+          "slug": "shared-day-designer",
+          "problems": [
+            {
+              "pain": "가족·팀의 일정이 흩어져 공유가 안 됨",
+              "painEn": "Family and team schedules stay scattered and unshared",
+              "who": "가족·커플·팀 단위 사용자",
+              "whoEn": "Families, couples, and small teams",
+              "when": "함께 일정을 계획할 때",
+              "whenEn": "When planning schedules together",
+              "gap": "실시간 동기화되는 공유 플래너 부재",
+              "gapEn": "No shared planner with real-time sync"
+            },
+            {
+              "pain": "서로 일정을 몰라 충돌·혼선 발생",
+              "painEn": "Not knowing each other's schedules causes conflicts and confusion",
+              "who": "맞벌이 부부·소규모 팀",
+              "whoEn": "Dual-income couples and small teams",
+              "when": "누가 무엇을 하는지 확인할 때",
+              "whenEn": "When checking who's doing what",
+              "gap": "실시간 공유로 충돌을 사전 방지하는 수단 부족",
+              "gapEn": "No real-time sharing to prevent conflicts upfront"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leeo-health",
+      "icon": "🏃",
+      "title": "건강·몸",
+      "titleEn": "Health & Body",
+      "color": "#55efc4",
+      "apps": [
+        {
+          "slug": "cooltime",
+          "problems": [
+            {
+              "pain": "장시간 화면 사용으로 눈 피로·건강 악화",
+              "painEn": "Long screen hours strain the eyes and health",
+              "who": "오래 컴퓨터를 쓰는 개발자·직장인",
+              "whoEn": "Developers and office workers at screens all day",
+              "when": "작업에 몰입해 휴식을 잊을 때",
+              "whenEn": "When deep in work and forgetting to rest",
+              "gap": "20-20-20 규칙을 자동 관리하는 도구 부재",
+              "gapEn": "No tool that automates the 20-20-20 rule"
+            },
+            {
+              "pain": "휴식이 필요한 걸 알아도 습관화 못함",
+              "painEn": "Knowing you need breaks doesn't make them a habit",
+              "who": "사무직 근로자",
+              "whoEn": "Desk workers",
+              "when": "20분마다 쉬어야 할 때",
+              "whenEn": "When a break is due every 20 minutes",
+              "gap": "배지·스트릭으로 휴식 습관을 만드는 장치 부족",
+              "gapEn": "No badges or streaks to build a break habit"
+            }
+          ]
+        },
+        {
+          "slug": "three-meals",
+          "problems": [
+            {
+              "pain": "매일 먹은 것을 기록·관리하기 번거로움",
+              "painEn": "Logging every meal is a chore",
+              "who": "다이어트·건강 관리에 관심 있는 사람",
+              "whoEn": "People into dieting and health management",
+              "when": "식사 후 간편히 기록할 때",
+              "whenEn": "When logging quickly after a meal",
+              "gap": "사진 기반 간편 기록과 AI 분석 부재",
+              "gapEn": "No photo-based quick logging with AI analysis"
+            },
+            {
+              "pain": "식습관을 객관적으로 파악하지 못함",
+              "painEn": "No objective view of your eating habits",
+              "who": "건강한 식습관을 원하는 사람",
+              "whoEn": "People who want healthier eating habits",
+              "when": "주간 식단을 돌아볼 때",
+              "whenEn": "When reviewing the week's meals",
+              "gap": "긍정 피드백 중심의 식습관 분석 부재",
+              "gapEn": "No eating-habit analysis built on positive feedback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leeo-learn",
+      "icon": "📚",
+      "title": "학습·성장",
+      "titleEn": "Learning & Growth",
+      "color": "#81ecec",
+      "apps": [
+        {
+          "slug": "speak-flow",
+          "problems": [
+            {
+              "pain": "원하는 회화를 반복 연습할 방법이 마땅찮음",
+              "painEn": "No good way to drill the conversations you actually want",
+              "who": "외국어 회화를 익히려는 학습자",
+              "whoEn": "Learners working on spoken language",
+              "when": "특정 표현을 반복 연습할 때",
+              "whenEn": "When drilling specific expressions",
+              "gap": "원하는 회화를 반복 연습하는 도구 부재",
+              "gapEn": "No tool for repeating the conversations you choose"
+            }
+          ]
+        },
+        {
+          "slug": "sanoramyeon",
+          "problems": [
+            {
+              "pain": "인도네시아어 기초를 쉽게 배울 곳이 없음",
+              "painEn": "Nowhere easy to learn basic Indonesian",
+              "who": "인도네시아어를 배우려는 사람",
+              "whoEn": "People learning Indonesian",
+              "when": "간단한 표현을 익히고 싶을 때",
+              "whenEn": "When picking up simple expressions",
+              "gap": "간편한 인도네시아어 학습 도구 부재",
+              "gapEn": "No lightweight Indonesian learning tool"
+            }
+          ]
+        },
+        {
+          "slug": "hands-free-metronome",
+          "problems": [
+            {
+              "pain": "연주 중 손이 바빠 메트로놈을 조작할 수 없음",
+              "painEn": "Hands are busy playing — no way to adjust the metronome",
+              "who": "악기를 연습하는 연주자",
+              "whoEn": "Musicians practicing an instrument",
+              "when": "두 손으로 연주하며 박자를 맞출 때",
+              "whenEn": "When keeping time while playing with both hands",
+              "gap": "손을 대지 않고 제어하는 메트로놈 부재",
+              "gapEn": "No metronome you can control without touching"
+            }
+          ]
+        },
+        {
+          "slug": "sight-singer",
+          "problems": [
+            {
+              "pain": "악보를 보고 음을 상상·확인하기 어려움",
+              "painEn": "Hard to imagine and verify the notes from a score",
+              "who": "초견을 연습하는 음악 학습자",
+              "whoEn": "Music learners practicing sight-reading",
+              "when": "악보의 음을 직접 들어보고 싶을 때",
+              "whenEn": "When wanting to hear the notes on the page",
+              "gap": "음표를 찍어 바로 들어보는 도구 부재",
+              "gapEn": "No tool to tap in notes and hear them instantly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leeo-fun",
+      "icon": "🎲",
+      "title": "재미·놀이·표현",
+      "titleEn": "Fun, Play & Expression",
+      "color": "#ff7675",
+      "apps": [
+        {
+          "slug": "daily-compliment",
+          "problems": [
+            {
+              "pain": "무미건조한 하루에 기분 좋은 한마디가 없음",
+              "painEn": "A dry day with no kind words in it",
+              "who": "위트·칭찬으로 기분전환하고 싶은 사람",
+              "whoEn": "People who want a lift from wit and compliments",
+              "when": "지치거나 심심할 때",
+              "whenEn": "When tired or bored",
+              "gap": "매일 새로운 주접·칭찬을 건네주는 앱 부재",
+              "gapEn": "No app that delivers fresh playful compliments daily"
+            }
+          ]
+        },
+        {
+          "slug": "pixel-mimi",
+          "problems": [
+            {
+              "pain": "평범한 사진을 개성 있는 픽셀아트로 못 만듦",
+              "painEn": "Ordinary photos can't become distinctive pixel art",
+              "who": "레트로 감성 콘텐츠를 즐기는 사람",
+              "whoEn": "Fans of retro-style content",
+              "when": "사진을 꾸며 공유할 때",
+              "whenEn": "When dressing up photos to share",
+              "gap": "사진을 픽셀아트로 변환하는 간편 도구 부재",
+              "gapEn": "No simple photo-to-pixel-art converter"
+            }
+          ]
+        },
+        {
+          "slug": "punching",
+          "problems": [
+            {
+              "pain": "내가 찍은 사진을 스티커로 만들기 번거로움",
+              "painEn": "Turning your own photos into stickers is a hassle",
+              "who": "사진으로 스티커를 만들고 싶은 사람",
+              "whoEn": "People who want stickers from their photos",
+              "when": "사진을 찍어 바로 활용할 때",
+              "whenEn": "When using a photo right after taking it",
+              "gap": "촬영 즉시 스티커로 만드는 카메라 부재",
+              "gapEn": "No camera that makes stickers the moment you shoot"
+            }
+          ]
+        },
+        {
+          "slug": "leeocon",
+          "problems": [
+            {
+              "pain": "iMessage 대화에 개성 있는 표현 수단이 부족",
+              "painEn": "iMessage chats lack distinctive ways to express yourself",
+              "who": "iMessage 사용자",
+              "whoEn": "iMessage users",
+              "when": "메시지로 감정·재미를 표현할 때",
+              "whenEn": "When expressing feeling and fun in messages",
+              "gap": "새로운 스티커 표현 수단 부재",
+              "gapEn": "No fresh sticker expressions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leeo-tool",
+      "icon": "🧭",
+      "title": "실용·생활도구",
+      "titleEn": "Practical & Everyday Tools",
+      "color": "#b2bec3",
+      "apps": [
+        {
+          "slug": "dont-forget",
+          "problems": [
+            {
+              "pain": "중요한 일정을 깜빡하고 놓침",
+              "painEn": "Important schedules slip the mind",
+              "who": "일정 관리가 필요한 사람",
+              "whoEn": "People who need schedule management",
+              "when": "이동 중 일정을 확인해야 할 때",
+              "whenEn": "When checking the schedule on the move",
+              "gap": "아이폰에서 일정을 쉽게 보는 방법이 없었음",
+              "gapEn": "No easy way to see the schedule on iPhone"
+            }
+          ]
+        },
+        {
+          "slug": "donkko-mart",
+          "problems": [
+            {
+              "pain": "마트마다 살 것이 달라 품목을 빠뜨리기 쉬움",
+              "painEn": "Different stores, different lists — items get missed",
+              "who": "정기적으로 장보는 주부·자취생",
+              "whoEn": "Regular grocery shoppers, from homemakers to singles",
+              "when": "마트에 도착해 목록을 확인할 때",
+              "whenEn": "When checking the list at the store",
+              "gap": "마트별 맞춤 리스트를 주는 도구 부재",
+              "gapEn": "No per-store custom shopping lists"
+            },
+            {
+              "pain": "매번 앱을 열어 확인하기 번거로움",
+              "painEn": "Opening the app to check every time is a hassle",
+              "who": "가족 구성원",
+              "whoEn": "Family members",
+              "when": "장보기 전 빠르게 확인할 때",
+              "whenEn": "When checking quickly before shopping",
+              "gap": "위젯·가족 공유로 앱 안 열고 보는 편의성 부족",
+              "gapEn": "No widget or family sharing to check without opening the app"
+            }
+          ]
+        },
+        {
+          "slug": "burning-my-life",
+          "problems": [
+            {
+              "pain": "소중한 자유시간이 어떻게 사라지는지 자각 못함",
+              "painEn": "No awareness of how precious free time disappears",
+              "who": "저녁·여가 시간을 흘려보내는 사람",
+              "whoEn": "People whose evenings and leisure slip away",
+              "when": "하루 자유시간을 되돌아볼 때",
+              "whenEn": "When looking back on the day's free time",
+              "gap": "시간이 타서 사라짐을 시각적으로 보여주는 도구 부재",
+              "gapEn": "No tool that shows time visibly burning away"
+            }
+          ]
+        },
+        {
+          "slug": "fire-tracker",
+          "problems": [
+            {
+              "pain": "언제 은퇴·퇴사할 수 있을지 막막함",
+              "painEn": "No idea when retiring or quitting becomes possible",
+              "who": "은퇴·경제적 자유를 계획하는 직장인",
+              "whoEn": "Workers planning retirement or financial freedom",
+              "when": "재무 목표와 시점을 점검할 때",
+              "whenEn": "When reviewing financial goals and timing",
+              "gap": "은퇴 가능 시점을 계산해주는 도구 부재",
+              "gapEn": "No calculator for a feasible retirement date"
+            }
+          ]
+        },
+        {
+          "slug": "korea-navi",
+          "problems": [
+            {
+              "pain": "기존 길찾기가 접근성이 부족해 이용이 어려움",
+              "painEn": "Existing navigation lacks accessibility and is hard to use",
+              "who": "접근성 배려가 필요한 사용자",
+              "whoEn": "Users who need accessibility support",
+              "when": "낯선 곳에서 길을 찾을 때",
+              "whenEn": "When finding the way in unfamiliar places",
+              "gap": "접근성을 고려한 길찾기 도구 부재",
+              "gapEn": "No navigation designed with accessibility in mind"
+            }
+          ]
+        },
+        {
+          "slug": "probability-calculator",
+          "problems": [
+            {
+              "pain": "복잡한 확률을 손으로 계산하기 번거로움",
+              "painEn": "Complex probabilities are tedious to work out by hand",
+              "who": "게임·통계·의사결정에 확률이 필요한 사람",
+              "whoEn": "People who need odds for games, stats, and decisions",
+              "when": "당첨·성공 확률을 따질 때",
+              "whenEn": "When weighing odds of winning or success",
+              "gap": "직관적인 확률 계산 도구 부재",
+              "gapEn": "No intuitive probability calculator"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

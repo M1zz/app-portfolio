@@ -27,6 +27,7 @@ OUT_FILE = OUT_DIR / "index.html"
 CACHE_FILE = ROOT / "scripts" / ".appstore-cache.json"
 CONTENT_FILE = ROOT / "scripts" / "showcase-content.json"
 CONTENT_EN_FILE = ROOT / "scripts" / "showcase-content.en.json"
+PROBLEM_MAP_FILE = ROOT / "scripts" / "problem-map.json"
 SHOTS_DIR = OUT_DIR / "screenshots"
 
 KST = timezone(timedelta(hours=9))
@@ -73,6 +74,14 @@ def load_content_en():
         with open(CONTENT_EN_FILE, encoding="utf-8") as fp:
             return json.load(fp)
     return {"groups": [], "apps": {}}
+
+
+def load_problem_map():
+    """리이오의 문제 해결지도 (industry-explorer 에서 이식한 테마별 문제 데이터)."""
+    if PROBLEM_MAP_FILE.exists():
+        with open(PROBLEM_MAP_FILE, encoding="utf-8") as fp:
+            return json.load(fp)
+    return None
 
 
 def load_cache():
@@ -372,7 +381,82 @@ def render_card(app, copy=None, copy_en=None):
     </article>"""
 
 
-def render(apps, content=None, content_en=None):
+def render_problem_map(pm, by_slug):
+    """'문제 해결 지도' 섹션: 테마 도메인 → 앱 → 문제(불편·누가·언제·공백) 아코디언."""
+    if not pm:
+        return ""
+    domain_blocks = []
+    for dom in pm.get("domains", []):
+        app_blocks = []
+        for entry in dom.get("apps", []):
+            app = by_slug.get(entry.get("slug"))
+            if not app:
+                continue
+            store = app.get("_store") or {}
+            name = app.get("name") or store.get("trackName") or entry["slug"]
+            name_en = app.get("nameEn") or store.get("trackName_en") or name
+            icon = store.get("icon")
+            icon_html = (
+                f'<img class="pmap-app-icon" src="{escape(icon)}" alt="" loading="lazy">'
+                if icon
+                else f'<span class="pmap-app-icon icon-fallback">{escape(name[:1])}</span>'
+            )
+            problems = []
+            for p in entry.get("problems", []):
+                meta_rows = []
+                for label, label_en, key in (
+                    ("누가", "Who", "who"),
+                    ("언제", "When", "when"),
+                    ("공백", "Gap", "gap"),
+                ):
+                    if p.get(key):
+                        meta_rows.append(
+                            f'<div class="pmap-meta-row"><dt>{bi(label, label_en)}</dt>'
+                            f'<dd>{bi(p[key], p.get(key + "En"))}</dd></div>'
+                        )
+                problems.append(
+                    f'<div class="pmap-problem">'
+                    f'<p class="pmap-pain">{bi(p.get("pain", ""), p.get("painEn"))}</p>'
+                    f'<div class="pmap-meta">{"".join(meta_rows)}</div></div>'
+                )
+            app_blocks.append(
+                f"""<div class="pmap-app">
+          <a class="pmap-app-head" href="#app-{entry['slug']}">
+            {icon_html}
+            <span class="pmap-app-name">{bi(name, name_en)}</span>
+            <span class="pmap-app-go">{bi("카드 보기", "View card")} ↓</span>
+          </a>
+          <div class="pmap-problems">{"".join(problems)}</div>
+        </div>"""
+            )
+        if not app_blocks:
+            continue
+        domain_blocks.append(
+            f"""
+      <details class="pmap-domain" style="--dm:{escape(dom.get("color", "#5b8def"))}">
+        <summary>
+          <span class="pmap-dm-icon">{escape(dom.get("icon", ""))}</span>
+          <span class="pmap-dm-title">{bi(dom.get("title", ""), dom.get("titleEn"))}</span>
+          <span class="pmap-dm-count">{len(app_blocks)}</span>
+          <span class="pmap-dm-arrow">▸</span>
+        </summary>
+        <div class="pmap-apps">{"".join(app_blocks)}</div>
+      </details>"""
+        )
+    if not domain_blocks:
+        return ""
+    return f"""
+    <section class="pmap" id="problem-map">
+      <div class="pmap-head">
+        <h2>{bi(pm.get("title", ""), pm.get("titleEn"))}</h2>
+        <p>{bi(pm.get("intro", ""), pm.get("introEn"))}</p>
+      </div>
+      <div class="pmap-domains">{"".join(domain_blocks)}</div>
+      <p class="pmap-more"><a href="https://m1zz.github.io/industry-explorer/" target="_blank" rel="noopener">{bi("산업 전체의 문제 ↔ 솔루션 지도 탐색하기", "Explore the full industry problem ↔ solution map")} →</a></p>
+    </section>"""
+
+
+def render(apps, content=None, content_en=None, problem_map=None):
     content = content or {"groups": [], "apps": {}}
     content_en = content_en or {"groups": [], "apps": {}}
     copy_map = content.get("apps", {})
@@ -476,6 +560,7 @@ def render(apps, content=None, content_en=None):
         )
 
     sections_html = "\n".join(section_blocks)
+    pmap_html = render_problem_map(problem_map, by_slug)
 
     total = len(apps)
     released_n = len(released)
@@ -737,6 +822,11 @@ def render(apps, content=None, content_en=None):
     .ex-title h3 {{ font-size: 1.28rem; }}
     .who {{ grid-template-columns: 1fr 1fr; gap: 10px 16px; }}
     .links .btn {{ flex: 1 1 auto; }}
+
+    .pmap {{ margin-top: 48px; padding: 24px 18px; }}
+    .pmap-head h2 {{ font-size: 1.3rem; }}
+    .pmap-apps {{ padding: 2px 12px 14px; }}
+    .pmap-problems {{ grid-template-columns: 1fr; }}
   }}
 
   @media (max-width: 440px) {{
@@ -746,11 +836,75 @@ def render(apps, content=None, content_en=None):
     .stats {{ gap: 14px; }}
     .toc {{ padding: 20px 15px; border-radius: 18px; }}
     .toc-groups {{ grid-template-columns: 1fr; }}
+    .pmap {{ padding: 20px 15px; border-radius: 18px; }}
+    .pmap-domain summary {{ padding: 12px 14px; }}
     .toc-app {{ font-size: .7rem; }}
     .exhibit {{ padding: 15px; }}
     .who {{ grid-template-columns: 1fr; }}
     .btn {{ padding: 11px 14px; font-size: .82rem; }}
   }}
+
+  /* 문제 해결 지도 */
+  .pmap {{
+    margin-top: 72px;
+    background: linear-gradient(160deg, var(--card), var(--bg-soft));
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 34px 30px;
+  }}
+  .pmap-head h2 {{ font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }}
+  .pmap-head p {{ color: var(--muted); font-size: .95rem; margin-top: 6px; max-width: 640px; }}
+  .pmap-domains {{ margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }}
+  .pmap-domain {{
+    border: 1px solid var(--border); border-radius: 16px;
+    background: var(--bg-soft); overflow: hidden; transition: border-color .2s;
+  }}
+  .pmap-domain[open], .pmap-domain:hover {{ border-color: color-mix(in srgb, var(--dm) 55%, var(--border)); }}
+  .pmap-domain summary {{
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px; cursor: pointer; list-style: none; user-select: none;
+  }}
+  .pmap-domain summary::-webkit-details-marker {{ display: none; }}
+  .pmap-dm-icon {{
+    width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
+    background: color-mix(in srgb, var(--dm) 18%, transparent);
+    border: 1px solid color-mix(in srgb, var(--dm) 35%, transparent);
+  }}
+  .pmap-dm-title {{ font-size: 1.02rem; font-weight: 800; flex: 1; min-width: 0; }}
+  .pmap-dm-count {{
+    font-size: .74rem; font-weight: 700; color: var(--muted);
+    background: var(--card); border: 1px solid var(--border);
+    padding: 2px 10px; border-radius: 999px;
+  }}
+  .pmap-dm-arrow {{ color: var(--muted); font-size: .8rem; transition: transform .2s; }}
+  .pmap-domain[open] .pmap-dm-arrow {{ transform: rotate(90deg); color: var(--dm); }}
+  .pmap-apps {{ padding: 4px 18px 16px; display: flex; flex-direction: column; gap: 12px; }}
+  .pmap-app {{
+    border: 1px solid var(--border); border-radius: 13px; background: var(--card);
+    padding: 13px 15px;
+  }}
+  .pmap-app-head {{ display: flex; align-items: center; gap: 10px; }}
+  .pmap-app-head:hover .pmap-app-name {{ color: var(--accent); }}
+  .pmap-app-icon {{ width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; object-fit: cover; font-size: .9rem; }}
+  .pmap-app-name {{ font-size: .95rem; font-weight: 800; flex: 1; min-width: 0; transition: color .15s; }}
+  .pmap-app-go {{ font-size: .72rem; font-weight: 700; color: var(--muted); white-space: nowrap; }}
+  .pmap-problems {{ margin-top: 11px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }}
+  .pmap-problem {{
+    background: rgba(240,119,106,.06); border: 1px solid rgba(240,119,106,.18);
+    border-radius: 11px; padding: 11px 13px;
+  }}
+  .pmap-pain {{ font-size: .88rem; font-weight: 700; line-height: 1.45; color: var(--text); }}
+  .pmap-meta {{ margin-top: 9px; display: flex; flex-direction: column; gap: 5px; }}
+  .pmap-meta-row {{ display: flex; gap: 8px; align-items: baseline; }}
+  .pmap-meta-row dt {{
+    flex-shrink: 0; font-size: .64rem; font-weight: 800; letter-spacing: .05em;
+    color: var(--accent-2); background: rgba(167,139,250,.12);
+    border: 1px solid rgba(167,139,250,.25); border-radius: 5px; padding: 1px 7px;
+  }}
+  .pmap-meta-row dd {{ margin: 0; font-size: .8rem; color: var(--muted); line-height: 1.45; }}
+  .pmap-more {{ margin-top: 20px; text-align: center; font-size: .88rem; font-weight: 700; }}
+  .pmap-more a {{ color: var(--accent); }}
+  .pmap-more a:hover {{ text-decoration: underline; }}
 
   .soon {{ margin-top: 56px; text-align: center; }}
   .soon h2 {{ font-size: 1.2rem; color: var(--muted); font-weight: 600; margin-bottom: 16px; }}
@@ -787,6 +941,7 @@ def render(apps, content=None, content_en=None):
     <div class="wrap">
       {toc_html}
       {sections_html}
+      {pmap_html}
     </div>
   </main>
 
@@ -897,8 +1052,9 @@ def main():
     apps = enrich(apps, fetch=fetch)
     content = load_content()
     content_en = load_content_en()
+    problem_map = load_problem_map()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    html = render(apps, content, content_en)
+    html = render(apps, content, content_en, problem_map)
     OUT_FILE.write_text(html, encoding="utf-8")
     update_readme(apps)
     released = sum(1 for a in apps if (a.get("_store") or {}).get("url"))
