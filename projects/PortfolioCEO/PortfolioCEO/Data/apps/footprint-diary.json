@@ -1,0 +1,35 @@
+{
+  "allTasks": [],
+  "appStoreId": "6789952970",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6789952970",
+  "bundleId": "com.leeo.FootprintDiary",
+  "categories": [
+    "라이프스타일"
+  ],
+  "currentVersion": "1.0",
+  "folderId": "footprint-diary",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "17.0",
+  "name": "발자국일기",
+  "nameEn": "Footprint Diary",
+  "nextTasks": [],
+  "notes": "[2026-07-18 스토어 동기화로 추가] 내가 돌아다닌 위치를 발자국으로 표시해주는 앱 (스토어명: 발자국일기)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}

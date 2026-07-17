@@ -24,9 +24,8 @@
     },
     "ecDesigner": {
       "nameEn": "ecDesigner",
-      "folder": "ecDesigner",
-      "bundleId": "com.leeo.ecDesigner",
-      "sourcePath": "../ecDesigner"
+      "folder": "ecdesigner",
+      "bundleId": "com.leeo.ecDesigner"
     },
     "잘 싸워보세": {
       "nameEn": "Fight Well",
@@ -218,6 +217,56 @@
       "nameEn": "LeeoCon",
       "folder": "leeocon",
       "bundleId": "com.leeo.LeeoCon"
+    },
+    "쑥쑥용돈": {
+      "nameEn": "Family Bank",
+      "folder": "family-bank",
+      "bundleId": "com.family.FamilyBank"
+    },
+    "억울해요": {
+      "nameEn": "Family Court",
+      "folder": "family-court",
+      "bundleId": "com.family.familycourt"
+    },
+    "팔랑북": {
+      "nameEn": "PalrangBook",
+      "folder": "flip-book",
+      "bundleId": "com.leeo.RotoscopeiPad"
+    },
+    "발자국일기": {
+      "nameEn": "Footprint Diary",
+      "folder": "footprint-diary",
+      "bundleId": "com.leeo.FootprintDiary"
+    },
+    "실수 100": {
+      "nameEn": "Junior Dev Mistakes",
+      "folder": "junior-mistakes",
+      "bundleId": "com.leeo.JuniorDevMistakes"
+    },
+    "아이일정": {
+      "nameEn": "Kid Calendar",
+      "folder": "kid-calendar",
+      "bundleId": "com.devkoan.CalendarSnap"
+    },
+    "달빛 오락실": {
+      "nameEn": "Moonlit Arcade",
+      "folder": "moonlit-arcade",
+      "bundleId": "com.example.MoonlitOrder"
+    },
+    "장표스냅": {
+      "nameEn": "SlideSnap",
+      "folder": "slide-snap",
+      "bundleId": "com.leeo.slidesnap"
+    },
+    "햇빛바라기": {
+      "nameEn": "Sunflower",
+      "folder": "sunflower",
+      "bundleId": "com.leeo.sunflower"
+    },
+    "TetraTint": {
+      "nameEn": "TetraTint",
+      "folder": "tetra-tint",
+      "bundleId": "com.leeo.TetraTint"
     }
   }
 }

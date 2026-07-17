@@ -387,6 +387,42 @@
       "solution": "Photograph paper schedules and manage them all in one digital place.",
       "hook": "If paper notices from your kids keep slipping through"
     },
+    "footprint-diary": {
+      "tagline": "A diary where your day's movements become footprints",
+      "problem": "Try to look back on where you went today and there's no record — the day just evaporates.",
+      "stakeholders": "People who want to log the paths of walks, travel, and daily life",
+      "persona": "Seoyeon (27), who wants to keep a record of her walks and trips",
+      "context": "After a trip, only photos remain — the streets she walked are forgotten.",
+      "solution": "Your movements are stamped on a map as footprints, turning the day's path into a diary.",
+      "hook": "If you want to keep a trace of where you went today"
+    },
+    "family-bank": {
+      "tagline": "A home economy school for your kids",
+      "problem": "Handing out allowance alone doesn't teach kids the value of money or how to manage it.",
+      "stakeholders": "Parents thinking about financial education for their kids",
+      "persona": "Jihye (38), a parent starting allowance education with her elementary schooler",
+      "context": "Her child spends the whole allowance the day it's given, and the worry piles up.",
+      "solution": "Build an allowance–saving–reward economy at home so kids pick up money sense like a game.",
+      "hook": "If you want to teach your kids money sense"
+    },
+    "moonlit-arcade": {
+      "tagline": "An instant arcade with the people around you",
+      "problem": "Finding a game everyone can play at a gathering means separate downloads and accounts — the fun cools off fast.",
+      "stakeholders": "People looking for something to play together at friend and family gatherings",
+      "persona": "Minjun (29), the group organizer who wants to liven things up",
+      "context": "Friends are gathered, but everyone's on their own phone and the room goes quiet.",
+      "solution": "Connects you with people nearby over local networking so everyone can jump into a game together.",
+      "hook": "If your get-togethers need a game everyone can join"
+    },
+    "family-court": {
+      "tagline": "Settle house rules and grievances with a family trial",
+      "problem": "House disputes tend to go to the loudest voice, and grievances pile up.",
+      "stakeholders": "Families who need shared rules and a way to clear the air",
+      "persona": "Taeho (41), a parent worn out from refereeing sibling fights",
+      "context": "Every 'who started it' argument spirals into hurt feelings.",
+      "solution": "Set family rules and resolve grievances in a playful courtroom format.",
+      "hook": "If you want a fun way to settle family disputes"
+    },
     "flip-book": {
       "tagline": "Kids' drawings come alive as animation",
       "problem": "A child's drawing stays frozen on paper — there's no easy path to the delight of seeing it move.",

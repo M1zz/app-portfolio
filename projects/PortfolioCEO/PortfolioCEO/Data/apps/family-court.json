@@ -1,0 +1,35 @@
+{
+  "allTasks": [],
+  "appStoreId": "6790131247",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6790131247",
+  "bundleId": "com.family.familycourt",
+  "categories": [
+    "엔터테인먼트"
+  ],
+  "currentVersion": "1.0",
+  "folderId": "family-court",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "16.0",
+  "name": "억울해요",
+  "nameEn": "Family Court",
+  "nextTasks": [],
+  "notes": "[2026-07-18 스토어 동기화로 추가] 우리집의 규칙을 정하고 억울함을 법적으로 풀어볼 수 있는 앱 (스토어명: 억울해요)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}

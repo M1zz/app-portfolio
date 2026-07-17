@@ -162,6 +162,21 @@
           ]
         },
         {
+          "slug": "footprint-diary",
+          "problems": [
+            {
+              "pain": "하루의 동선이 기록으로 남지 않음",
+              "painEn": "The day's movements leave no record",
+              "who": "산책·여행을 기록하고 싶은 사람",
+              "whoEn": "People who want to log walks and travel",
+              "when": "하루를 돌아보거나 여행을 추억할 때",
+              "whenEn": "When reflecting on the day or reminiscing about a trip",
+              "gap": "이동 경로를 발자국으로 남기는 일기 부재",
+              "gapEn": "No diary that stamps your path as footprints"
+            }
+          ]
+        },
+        {
           "slug": "think-flow",
           "problems": [
             {
@@ -289,6 +304,21 @@
               "gapEn": "No timer that works alongside Keynote"
             }
           ]
+        },
+        {
+          "slug": "slide-snap",
+          "problems": [
+            {
+              "pain": "급히 찍은 발표 장표가 삐뚤어지고 사진첩에 뒤섞임",
+              "painEn": "Hastily shot slides come out crooked and get lost in the photo library",
+              "who": "강연·세미나·수업의 청중",
+              "whoEn": "Audiences at lectures, seminars, and classes",
+              "when": "발표를 들으며 장표를 기록할 때",
+              "whenEn": "When capturing slides during a talk",
+              "gap": "장표 전용 촬영·정리 도구 부재",
+              "gapEn": "No dedicated tool for shooting and organizing slides"
+            }
+          ]
         }
       ]
     },
@@ -363,6 +393,36 @@
               "gapEn": "No real-time sharing to prevent conflicts upfront"
             }
           ]
+        },
+        {
+          "slug": "family-bank",
+          "problems": [
+            {
+              "pain": "아이에게 돈의 가치를 가르칠 방법이 마땅찮음",
+              "painEn": "No good way to teach kids the value of money",
+              "who": "자녀 경제 교육을 고민하는 부모",
+              "whoEn": "Parents thinking about financial education",
+              "when": "용돈을 주고 관리 습관을 들일 때",
+              "whenEn": "When giving allowance and building money habits",
+              "gap": "집안에서 굴러가는 용돈 경제 시스템 부재",
+              "gapEn": "No allowance economy that runs inside the home"
+            }
+          ]
+        },
+        {
+          "slug": "family-court",
+          "problems": [
+            {
+              "pain": "집안 다툼이 감정싸움으로 번지고 억울함이 쌓임",
+              "painEn": "House disputes turn emotional and grievances pile up",
+              "who": "규칙·갈등 해소가 필요한 가족",
+              "whoEn": "Families who need rules and conflict resolution",
+              "when": "가족 간 다툼이나 규칙을 정할 때",
+              "whenEn": "When settling family disputes or setting rules",
+              "gap": "갈등을 놀이처럼 푸는 장치 부재",
+              "gapEn": "No playful way to clear the air"
+            }
+          ]
         }
       ]
     },
@@ -420,6 +480,21 @@
               "whenEn": "When reviewing the week's meals",
               "gap": "긍정 피드백 중심의 식습관 분석 부재",
               "gapEn": "No eating-habit analysis built on positive feedback"
+            }
+          ]
+        },
+        {
+          "slug": "sunflower",
+          "problems": [
+            {
+              "pain": "햇빛을 얼마나 쬐었는지 감이 없어 일조량이 부족해짐",
+              "painEn": "No sense of how much sun you've had, so daylight quietly runs short",
+              "who": "실내 생활이 길어 햇빛이 부족하기 쉬운 사람",
+              "whoEn": "People indoors so long they run low on sunlight",
+              "when": "온종일 실내에서 일하고 공부할 때",
+              "whenEn": "When working or studying indoors all day",
+              "gap": "받은 햇빛을 기록·관리하는 도구 부재",
+              "gapEn": "No tool to log and manage the sunlight you get"
             }
           ]
         }
@@ -560,6 +635,36 @@
               "gapEn": "No fresh sticker expressions"
             }
           ]
+        },
+        {
+          "slug": "moonlit-arcade",
+          "problems": [
+            {
+              "pain": "모임에서 다 같이 즐길 게임을 바로 시작하기 어려움",
+              "painEn": "Hard to get a game going that everyone can join on the spot",
+              "who": "친구·가족 모임 참석자",
+              "whoEn": "People at friend and family gatherings",
+              "when": "여럿이 모여 놀거리를 찾을 때",
+              "whenEn": "When a group is looking for something to play",
+              "gap": "근거리 통신으로 즉석 연결되는 파티 게임 부재",
+              "gapEn": "No party games that connect instantly over local networking"
+            }
+          ]
+        },
+        {
+          "slug": "flip-book",
+          "problems": [
+            {
+              "pain": "아이 그림이 종이에 멈춰 있어 창작의 재미가 이어지지 않음",
+              "painEn": "A child's drawing stays frozen on paper, so the fun of creating fizzles",
+              "who": "아이의 그리기·창작을 북돋우려는 부모",
+              "whoEn": "Parents encouraging their child's drawing and creativity",
+              "when": "아이와 그림 놀이를 할 때",
+              "whenEn": "When drawing together with a child",
+              "gap": "그림을 움직이게 만드는 쉬운 도구 부재",
+              "gapEn": "No easy tool that makes drawings move"
+            }
+          ]
         }
       ]
     },
@@ -667,6 +772,75 @@
               "whenEn": "When weighing odds of winning or success",
               "gap": "직관적인 확률 계산 도구 부재",
               "gapEn": "No intuitive probability calculator"
+            }
+          ]
+        },
+        {
+          "slug": "kid-calendar",
+          "problems": [
+            {
+              "pain": "종이로 오는 아이 일정을 옮겨 적다 빠뜨림",
+              "painEn": "Kids' paper schedules get lost while copying them by hand",
+              "who": "아이의 알림장·일정을 챙기는 부모",
+              "whoEn": "Parents managing kids' notices and schedules",
+              "when": "알림장·가정통신문을 받았을 때",
+              "whenEn": "When a paper notice arrives from school",
+              "gap": "종이 일정을 찍어 디지털로 관리하는 수단 부재",
+              "gapEn": "No way to snap paper schedules and manage them digitally"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leeo-dev",
+      "icon": "🛠",
+      "title": "개발자 도구",
+      "titleEn": "Developer Tools",
+      "color": "#e17055",
+      "apps": [
+        {
+          "slug": "review-manager",
+          "problems": [
+            {
+              "pain": "여러 앱의 리뷰·평점이 흩어져 대응 우선순위를 못 정함",
+              "painEn": "Reviews and ratings scatter across apps, so triage is guesswork",
+              "who": "여러 앱을 운영하는 인디 개발자",
+              "whoEn": "Indie developers running multiple apps",
+              "when": "매일 리뷰를 확인하고 대응할 때",
+              "whenEn": "When checking and answering reviews daily",
+              "gap": "리뷰를 한곳에 모아 우선순위를 짚어주는 도구 부재",
+              "gapEn": "No tool that gathers reviews and points to today's priority"
+            }
+          ]
+        },
+        {
+          "slug": "tetra-tint",
+          "problems": [
+            {
+              "pain": "색상 대비가 접근성 기준에 맞는지 눈대중으로 판단함",
+              "painEn": "Color contrast gets judged by eye against accessibility standards",
+              "who": "색상·접근성을 챙겨야 하는 개발자·디자이너",
+              "whoEn": "Developers and designers responsible for color and accessibility",
+              "when": "텍스트·배경 색을 정할 때",
+              "whenEn": "When choosing text and background colors",
+              "gap": "대비 색상을 바로 확인하는 개발 도구 부재",
+              "gapEn": "No dev tool that shows contrast-safe colors instantly"
+            }
+          ]
+        },
+        {
+          "slug": "junior-mistakes",
+          "problems": [
+            {
+              "pain": "주니어의 실수가 반복되지만 배움으로 남지 않음",
+              "painEn": "Junior mistakes repeat but never turn into lessons",
+              "who": "이제 막 입문한 주니어 개발자",
+              "whoEn": "Developers just starting out",
+              "when": "실수하고 자책하게 될 때",
+              "whenEn": "When a mistake leads to self-blame",
+              "gap": "흔한 실수를 미리 배우는 자료 부재",
+              "gapEn": "No resource for learning common mistakes in advance"
             }
           ]
         }

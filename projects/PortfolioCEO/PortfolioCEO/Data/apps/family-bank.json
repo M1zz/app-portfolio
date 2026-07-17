@@ -1,0 +1,35 @@
+{
+  "allTasks": [],
+  "appStoreId": "6790130891",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6790130891",
+  "bundleId": "com.family.FamilyBank",
+  "categories": [
+    "라이프스타일"
+  ],
+  "currentVersion": "1.0",
+  "folderId": "family-bank",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "17.0",
+  "name": "쑥쑥용돈",
+  "nameEn": "Family Bank",
+  "nextTasks": [],
+  "notes": "[2026-07-18 스토어 동기화로 추가] 아이에게 경제관념을 심어줄 수 있도록 집에서 경제 시스템을 구축하는 앱 (스토어명: 쑥쑥용돈)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}
