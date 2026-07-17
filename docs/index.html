@@ -244,10 +244,8 @@
     .who { grid-template-columns: 1fr 1fr; gap: 10px 16px; }
     .links .btn { flex: 1 1 auto; }
 
-    .pmap { margin-top: 48px; padding: 24px 18px; }
-    .pmap-head h2 { font-size: 1.3rem; }
-    .pmap-apps { padding: 2px 12px 14px; }
-    .pmap-problems { grid-template-columns: 1fr; }
+    .pmap-graph { margin-top: 18px; border-radius: 14px; }
+    .pg-hint { display: none; }
   }
 
   @media (max-width: 440px) {
@@ -257,73 +255,30 @@
     .stats { gap: 14px; }
     .toc { padding: 20px 15px; border-radius: 18px; }
     .toc-groups { grid-template-columns: 1fr; }
-    .pmap { padding: 20px 15px; border-radius: 18px; }
-    .pmap-domain summary { padding: 12px 14px; }
     .toc-app { font-size: .7rem; }
     .exhibit { padding: 15px; }
     .who { grid-template-columns: 1fr; }
     .btn { padding: 11px 14px; font-size: .82rem; }
   }
 
-  /* 문제 해결 지도 */
-  .pmap {
-    margin-top: 72px;
-    background: linear-gradient(160deg, var(--card), var(--bg-soft));
-    border: 1px solid var(--border); border-radius: 24px;
-    padding: 34px 30px;
+  /* 문제 해결 지도: 네트워크 그래프 + 도메인 목차 */
+  .toc-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 2px; vertical-align: baseline; }
+  .toc-group { scroll-margin-top: 20px; }
+  .pmap-graph {
+    position: relative; margin-top: 24px; border: 1px solid var(--border); border-radius: 18px;
+    overflow: hidden; touch-action: pan-y;
+    background: radial-gradient(120% 130% at 50% 0%, rgba(91,141,239,.10), transparent), var(--bg);
   }
-  .pmap-head h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }
-  .pmap-head p { color: var(--muted); font-size: .95rem; margin-top: 6px; max-width: 640px; }
-  .pmap-domains { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
-  .pmap-domain {
-    border: 1px solid var(--border); border-radius: 16px;
-    background: var(--bg-soft); overflow: hidden; transition: border-color .2s;
+  .pmap-graph canvas { display: block; width: 100%; cursor: grab; }
+  .pg-tip {
+    position: absolute; pointer-events: none; z-index: 5; max-width: 250px;
+    background: rgba(11,13,18,.94); border: 1px solid var(--border); border-radius: 10px;
+    padding: 8px 12px; font-size: .8rem; line-height: 1.45; opacity: 0; transition: opacity .12s;
   }
-  .pmap-domain[open], .pmap-domain:hover { border-color: color-mix(in srgb, var(--dm) 55%, var(--border)); }
-  .pmap-domain summary {
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 18px; cursor: pointer; list-style: none; user-select: none;
-  }
-  .pmap-domain summary::-webkit-details-marker { display: none; }
-  .pmap-dm-icon {
-    width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
-    background: color-mix(in srgb, var(--dm) 18%, transparent);
-    border: 1px solid color-mix(in srgb, var(--dm) 35%, transparent);
-  }
-  .pmap-dm-title { font-size: 1.02rem; font-weight: 800; flex: 1; min-width: 0; }
-  .pmap-dm-count {
-    font-size: .74rem; font-weight: 700; color: var(--muted);
-    background: var(--card); border: 1px solid var(--border);
-    padding: 2px 10px; border-radius: 999px;
-  }
-  .pmap-dm-arrow { color: var(--muted); font-size: .8rem; transition: transform .2s; }
-  .pmap-domain[open] .pmap-dm-arrow { transform: rotate(90deg); color: var(--dm); }
-  .pmap-apps { padding: 4px 18px 16px; display: flex; flex-direction: column; gap: 12px; }
-  .pmap-app {
-    border: 1px solid var(--border); border-radius: 13px; background: var(--card);
-    padding: 13px 15px;
-  }
-  .pmap-app-head { display: flex; align-items: center; gap: 10px; }
-  .pmap-app-head:hover .pmap-app-name { color: var(--accent); }
-  .pmap-app-icon { width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; object-fit: cover; font-size: .9rem; }
-  .pmap-app-name { font-size: .95rem; font-weight: 800; flex: 1; min-width: 0; transition: color .15s; }
-  .pmap-app-go { font-size: .72rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
-  .pmap-problems { margin-top: 11px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
-  .pmap-problem {
-    background: rgba(240,119,106,.06); border: 1px solid rgba(240,119,106,.18);
-    border-radius: 11px; padding: 11px 13px;
-  }
-  .pmap-pain { font-size: .88rem; font-weight: 700; line-height: 1.45; color: var(--text); }
-  .pmap-meta { margin-top: 9px; display: flex; flex-direction: column; gap: 5px; }
-  .pmap-meta-row { display: flex; gap: 8px; align-items: baseline; }
-  .pmap-meta-row dt {
-    flex-shrink: 0; font-size: .64rem; font-weight: 800; letter-spacing: .05em;
-    color: var(--accent-2); background: rgba(167,139,250,.12);
-    border: 1px solid rgba(167,139,250,.25); border-radius: 5px; padding: 1px 7px;
-  }
-  .pmap-meta-row dd { margin: 0; font-size: .8rem; color: var(--muted); line-height: 1.45; }
-  .pmap-more { margin-top: 20px; text-align: center; font-size: .88rem; font-weight: 700; }
+  .pg-tip b { display: block; font-size: .84rem; margin-bottom: 2px; }
+  .pg-tip .pg-pain { color: var(--muted); }
+  .pg-hint { position: absolute; bottom: 10px; right: 14px; font-size: .7rem; color: var(--muted); opacity: .85; pointer-events: none; }
+  .pmap-more { margin-top: 22px; text-align: center; font-size: .88rem; font-weight: 700; }
   .pmap-more a { color: var(--accent); }
   .pmap-more a:hover { text-decoration: underline; }
 
@@ -361,44 +316,18 @@
   <main>
     <div class="wrap">
       
-    <section class="toc">
+    <section class="toc" id="problem-map">
       <div class="toc-head">
-        <h2><span class="lk">이런 고민, 없으세요?</span><span class="le">Sound familiar?</span></h2>
-        <p><span class="lk">공감 가는 문제를 누르면 그걸 푸는 앱으로 바로 이동합니다.</span><span class="le">Tap a problem you relate to and jump straight to the app that solves it.</span></p>
+        <h2><span class="lk">🍎 문제 해결 지도</span><span class="le">🍎 Problem-Solving Map</span></h2>
+        <p><span class="lk">이런 고민, 없으세요? 공감 가는 문제를 누르면 그 문제를 푸는 앱으로 바로 이동합니다.</span><span class="le">Sound familiar? Tap a problem you relate to and jump straight to the app that solves it.</span></p>
       </div>
-      <div class="toc-groups">
-      <div class="toc-group">
-        <h3><span class="lk">⌨️ 생산성 · 도구</span><span class="le">⌨️ Productivity · Tools</span></h3>
-        <div class="toc-list"><a class="toc-item" href="#app-clip-keyboard"><span class="toc-hook"><span class="lk">매일 같은 문구를 반복해서 타이핑하고 있다면</span><span class="le">If you type the same phrases over and over every day</span></span><span class="toc-app"><span class="lk">클립키보드</span><span class="le">Clip Keyboard</span> →</span></a><a class="toc-item" href="#app-tap-clip-keyboard"><span class="toc-hook"><span class="lk">아이폰 상용구를 맥에서도 쓰고 싶다면</span><span class="le">If you want your iPhone snippets on your Mac too</span></span><span class="toc-app"><span class="lk">탭클립 키보드</span><span class="le">Tap Clip Keyboard</span> →</span></a><a class="toc-item" href="#app-double-reminder"><span class="toc-hook"><span class="lk">발표·회의 마무리 타이밍을 자꾸 놓친다면</span><span class="le">If you keep missing the moment to wrap up talks and meetings</span></span><span class="toc-app"><span class="lk">두번알림</span><span class="le">Double Reminder</span> →</span></a><a class="toc-item" href="#app-sticky-presenter"><span class="toc-hook"><span class="lk">발표 중 시간 감각을 잃어 페이스가 무너진다면</span><span class="le">If you lose track of time mid-presentation and your pacing collapses</span></span><span class="toc-app"><span class="lk">StickyPresenter</span><span class="le">StickyPresenter</span> →</span></a><a class="toc-item" href="#app-dont-forget"><span class="toc-hook"><span class="lk">맥에 정리한 일정을 밖에서 못 봐 약속을 놓친다면</span><span class="le">If you miss appointments because your Mac calendar isn&#x27;t with you</span></span><span class="toc-app"><span class="lk">잊지마</span><span class="le">Don&#x27;t Forget</span> →</span></a><a class="toc-item" href="#app-schedule-assistant"><span class="toc-hook"><span class="lk">흩어진 일정 정리에 진이 빠진다면</span><span class="le">If organizing scattered schedules wears you out</span></span><span class="toc-app"><span class="lk">일정 비서</span><span class="le">Schedule Assistant</span> →</span></a><a class="toc-item" href="#app-think-flow"><span class="toc-hook"><span class="lk">어제 하던 생각을 오늘 이어가기 어렵다면</span><span class="le">If it&#x27;s hard to continue yesterday&#x27;s thinking today</span></span><span class="toc-app"><span class="lk">이어생각</span><span class="le">Think Flow</span> →</span></a><a class="toc-item" href="#app-slide-snap"><span class="toc-hook"><span class="lk">발표 장표를 급히 찍어 뒤죽박죽이 된다면</span><span class="le">If your hastily shot slides end up in chaos</span></span><span class="toc-app"><span class="lk">장표스냅</span><span class="le">SlideSnap</span> →</span></a></div>
+      <div class="pmap-graph" id="pmapGraph">
+        <canvas></canvas>
+        <div class="pg-tip"></div>
+        <div class="pg-hint"><span class="lk">노드를 드래그·클릭해 보세요</span><span class="le">Drag or click the nodes</span></div>
       </div>
-      <div class="toc-group">
-        <h3><span class="lk">🎨 창작 · 만들기</span><span class="le">🎨 Creativity · Making</span></h3>
-        <div class="toc-list"><a class="toc-item" href="#app-punching"><span class="toc-hook"><span class="lk">내 사진으로 나만의 스티커를 만들고 싶다면</span><span class="le">If you want stickers made from your own photos</span></span><span class="toc-app"><span class="lk">펀칭</span><span class="le">Punching</span> →</span></a><a class="toc-item" href="#app-pixel-mimi"><span class="toc-hook"><span class="lk">픽셀아트를 가볍게 그려보고 싶다면</span><span class="le">If you want to try pixel art, lightly</span></span><span class="toc-app"><span class="lk">픽셀 미미</span><span class="le">Pixel MeMe</span> →</span></a><a class="toc-item" href="#app-leeocon"><span class="toc-hook"><span class="lk">아이메시지를 아기자기하게 꾸미고 싶다면</span><span class="le">If you want to dress up your iMessage chats</span></span><span class="toc-app"><span class="lk">LeeoCon</span><span class="le">LeeoCon</span> →</span></a><a class="toc-item" href="#app-sight-singer"><span class="toc-hook"><span class="lk">악보를 소리로 바로 확인하고 싶다면</span><span class="le">If you want to hear a score right away</span></span><span class="toc-app"><span class="lk">초견</span><span class="le">Sight Singer</span> →</span></a><a class="toc-item" href="#app-hands-free-metronome"><span class="toc-hook"><span class="lk">연주 중 손을 못 떼 박자 조절이 끊긴다면</span><span class="le">If you can&#x27;t take your hands off to adjust the beat</span></span><span class="toc-app"><span class="lk">낫마템포</span><span class="le">Notma Tempo</span> →</span></a><a class="toc-item" href="#app-flip-book"><span class="toc-hook"><span class="lk">아이 그림이 움직이면 좋겠다면</span><span class="le">If you wish your child&#x27;s drawings could move</span></span><span class="toc-app"><span class="lk">팔랑북</span><span class="le">PalrangBook</span> →</span></a></div>
-      </div>
-      <div class="toc-group">
-        <h3><span class="lk">🌱 습관 · 웰빙</span><span class="le">🌱 Habits · Wellbeing</span></h3>
-        <div class="toc-list"><a class="toc-item" href="#app-cooltime"><span class="toc-hook"><span class="lk">충동적으로 지르고 뒤늦게 후회한다면</span><span class="le">If you splurge on impulse and regret it later</span></span><span class="toc-app"><span class="lk">쿨타임</span><span class="le">Cooltime</span> →</span></a><a class="toc-item" href="#app-rainbow-of-desire"><span class="toc-hook"><span class="lk">일을 자꾸 벌여 과부하가 온다면</span><span class="le">If you keep taking on more until you&#x27;re overloaded</span></span><span class="toc-app"><span class="lk">욕망의 무지개</span><span class="le">Rainbow Of Desire</span> →</span></a><a class="toc-item" href="#app-rainbow-workshop"><span class="toc-hook"><span class="lk">한 주를 어디에 썼는지 감이 없다면</span><span class="le">If you have no idea where your week went</span></span><span class="toc-app"><span class="lk">무지개 공작소</span><span class="le">Rainbow Workshop</span> →</span></a><a class="toc-item" href="#app-rebound-journal"><span class="toc-hook"><span class="lk">힘든 시기를 그냥 흘려보내고 있다면</span><span class="le">If hard times are just passing you by</span></span><span class="toc-app"><span class="lk">리바운드 저널</span><span class="le">Rebound Journal</span> →</span></a><a class="toc-item" href="#app-three-meals"><span class="toc-hook"><span class="lk">오늘 뭘 먹었는지 기억나지 않는다면</span><span class="le">If you can&#x27;t remember what you ate today</span></span><span class="toc-app"><span class="lk">세끼</span><span class="le">Three Meals</span> →</span></a><a class="toc-item" href="#app-burning-my-life"><span class="toc-hook"><span class="lk">자유시간이 그냥 사라지는 게 느껴진다면</span><span class="le">If you can feel your free time just disappearing</span></span><span class="toc-app"><span class="lk">불타는 내인생</span><span class="le">Burning My Life</span> →</span></a><a class="toc-item" href="#app-relax-on"><span class="toc-hook"><span class="lk">잠들 때 틀 소리를 매번 찾기 번거롭다면</span><span class="le">If finding a sleep sound every night is a chore</span></span><span class="toc-app"><span class="lk">달빛</span><span class="le">Dalbit</span> →</span></a><a class="toc-item" href="#app-sunflower"><span class="toc-hook"><span class="lk">햇빛을 얼마나 쬐는지 감이 없다면</span><span class="le">If you have no idea how much sun you&#x27;re getting</span></span><span class="toc-app"><span class="lk">햇빛바라기</span><span class="le">Sunflower</span> →</span></a></div>
-      </div>
-      <div class="toc-group">
-        <h3><span class="lk">💛 마음 · 동기부여</span><span class="le">💛 Mind · Motivation</span></h3>
-        <div class="toc-list"><a class="toc-item" href="#app-daily-compliment"><span class="toc-hook"><span class="lk">비교 속에 자존감이 깎인다면</span><span class="le">If comparison is wearing down your self-esteem</span></span><span class="toc-app"><span class="lk">오늘의 주접</span><span class="le">Daily Compliment</span> →</span></a><a class="toc-item" href="#app-bucket-climb"><span class="toc-hook"><span class="lk">이루고 싶은 꿈이 막연하게만 남아 있다면</span><span class="le">If your dreams remain vague and distant</span></span><span class="toc-app"><span class="lk">꿈을 찾아서</span><span class="le">Bucket Climb</span> →</span></a></div>
-      </div>
-      <div class="toc-group">
-        <h3><span class="lk">📚 학습</span><span class="le">📚 Learning</span></h3>
-        <div class="toc-list"><a class="toc-item" href="#app-speak-flow"><span class="toc-hook"><span class="lk">배운 영어가 정작 입에서 안 나온다면</span><span class="le">If the English you learned won&#x27;t come out of your mouth</span></span><span class="toc-app"><span class="lk">스픽플로우</span><span class="le">Speak Flow</span> →</span></a><a class="toc-item" href="#app-sanoramyeon"><span class="toc-hook"><span class="lk">인도네시아어 기초를 가볍게 배우고 싶다면</span><span class="le">If you want to pick up basic Indonesian, lightly</span></span><span class="toc-app"><span class="lk">사노라면</span><span class="le">Sanoramyeon</span> →</span></a></div>
-      </div>
-      <div class="toc-group">
-        <h3><span class="lk">🗺 생활 · 정보</span><span class="le">🗺 Life · Info</span></h3>
-        <div class="toc-list"><a class="toc-item" href="#app-donkko-mart"><span class="toc-hook"><span class="lk">마트 갔다 문 닫아 헛걸음한 적 있다면</span><span class="le">If you&#x27;ve ever arrived at a closed store and walked home empty-handed</span></span><span class="toc-app"><span class="lk">클로즈드</span><span class="le">Closed</span> →</span></a><a class="toc-item" href="#app-life-restaurant"><span class="toc-hook"><span class="lk">다녀온 맛집 이름이 기억 안 난다면</span><span class="le">If you can&#x27;t remember the name of that great restaurant</span></span><span class="toc-app"><span class="lk">인생 맛집</span><span class="le">Life Restaurant</span> →</span></a><a class="toc-item" href="#app-shared-day-designer"><span class="toc-hook"><span class="lk">최소 연차로 최대 연휴를 만들고 싶다면</span><span class="le">If you want maximum holiday from minimum leave</span></span><span class="toc-app"><span class="lk">골드위크</span><span class="le">Goldweek</span> →</span></a><a class="toc-item" href="#app-fire-tracker"><span class="toc-hook"><span class="lk">언제 은퇴할 수 있을지 막막하다면</span><span class="le">If you have no idea when you could retire</span></span><span class="toc-app"><span class="lk">퇴사각</span><span class="le">Fire Tracker</span> →</span></a><a class="toc-item" href="#app-korea-navi"><span class="toc-hook"><span class="lk">접근성 좋은 길찾기가 필요하다면</span><span class="le">If you need directions that respect accessibility</span></span><span class="toc-app"><span class="lk">한국길찾기</span><span class="le">Korea Navi</span> →</span></a><a class="toc-item" href="#app-probability-calculator"><span class="toc-hook"><span class="lk">번호를 감으로만 찍고 있다면</span><span class="le">If you&#x27;re picking numbers on gut feeling alone</span></span><span class="toc-app"><span class="lk">확률계산기</span><span class="le">Probability Calculator</span> →</span></a><a class="toc-item" href="#app-kid-calendar"><span class="toc-hook"><span class="lk">아이 종이 알림장을 놓치기 일쑤라면</span><span class="le">If paper notices from your kids keep slipping through</span></span><span class="toc-app"><span class="lk">아이일정</span><span class="le">Kid Calendar</span> →</span></a></div>
-      </div>
-      <div class="toc-group">
-        <h3><span class="lk">🤝 관계 · 멘토링</span><span class="le">🤝 Relationships · Mentoring</span></h3>
-        <div class="toc-list"><a class="toc-item" href="#app-rapport-map"><span class="toc-hook"><span class="lk">챙길 사람이 많아 관계를 놓친다면</span><span class="le">If you have too many people to keep up with</span></span><span class="toc-app"><span class="lk">라포 맵</span><span class="le">Rapport Map</span> →</span></a><a class="toc-item" href="#app-ring-rong"><span class="toc-hook"><span class="lk">만남 전 상대 위치 파악이 번거롭다면</span><span class="le">If figuring out where the other person is before meeting is a hassle</span></span><span class="toc-app"><span class="lk">링롱</span><span class="le">Ring Rong</span> →</span></a></div>
-      </div>
-      <div class="toc-group">
-        <h3><span class="lk">🛠 개발자 도구</span><span class="le">🛠 Developer Tools</span></h3>
-        <div class="toc-list"><a class="toc-item" href="#app-review-manager"><span class="toc-hook"><span class="lk">여러 앱 리뷰가 흩어져 관리가 힘들다면</span><span class="le">If reviews scattered across apps are hard to manage</span></span><span class="toc-app"><span class="lk">리뷰 매니저</span><span class="le">Review Manager</span> →</span></a><a class="toc-item" href="#app-tetra-tint"><span class="toc-hook"><span class="lk">색상 대비가 접근성 기준에 맞는지 애매하다면</span><span class="le">If you&#x27;re unsure your color contrast passes accessibility</span></span><span class="toc-app"><span class="lk">TetraTint</span><span class="le">TetraTint</span> →</span></a><a class="toc-item" href="#app-junior-mistakes"><span class="toc-hook"><span class="lk">주니어 개발자로서 실수가 두렵다면</span><span class="le">If mistakes scare you as a junior developer</span></span><span class="toc-app"><span class="lk">실수 100</span><span class="le">Junior Dev Mistakes</span> →</span></a></div>
-      </div></div>
+      <div class="toc-groups"><div class="toc-group" id="pd-leeo-mind"><h3><span class="toc-dot" style="background:#a29bfe"></span>🧠 <span class="lk">마음·감정 돌봄</span><span class="le">Mind &amp; Emotional Care</span></h3><div class="toc-list"><a class="toc-item" href="#app-relax-on"><span class="toc-hook"><span class="lk">일상 스트레스로 이완과 수면이 어려움</span><span class="le">Daily stress makes it hard to unwind and sleep</span></span><span class="toc-app"><span class="lk">달빛</span><span class="le">Dalbit</span> →</span></a><a class="toc-item" href="#app-relax-on"><span class="toc-hook"><span class="lk">나에게 맞는 소리 조합을 찾기 어려움</span><span class="le">Hard to find the sound mix that works for you</span></span><span class="toc-app"><span class="lk">달빛</span><span class="le">Dalbit</span> →</span></a><a class="toc-item" href="#app-rainbow-of-desire"><span class="toc-hook"><span class="lk">복잡한 감정을 말로 표현·이해하기 어려움</span><span class="le">Complex emotions are hard to express and understand in words</span></span><span class="toc-app"><span class="lk">욕망의 무지개</span><span class="le">Rainbow Of Desire</span> →</span></a><a class="toc-item" href="#app-rainbow-of-desire"><span class="toc-hook"><span class="lk">감정의 흐름과 패턴을 파악하지 못함</span><span class="le">Can&#x27;t see the flow and patterns of emotions</span></span><span class="toc-app"><span class="lk">욕망의 무지개</span><span class="le">Rainbow Of Desire</span> →</span></a><a class="toc-item" href="#app-rebound-journal"><span class="toc-hook"><span class="lk">힘든 시기 극복 과정을 혼자 감당하기 벅참</span><span class="le">Getting through hard times alone is overwhelming</span></span><span class="toc-app"><span class="lk">리바운드 저널</span><span class="le">Rebound Journal</span> →</span></a><a class="toc-item" href="#app-rebound-journal"><span class="toc-hook"><span class="lk">작은 진전이 눈에 안 보여 쉽게 좌절</span><span class="le">Small progress stays invisible, so discouragement comes easily</span></span><span class="toc-app"><span class="lk">리바운드 저널</span><span class="le">Rebound Journal</span> →</span></a></div></div><div class="toc-group" id="pd-leeo-log"><h3><span class="toc-dot" style="background:#74b9ff"></span>📝 <span class="lk">기록·습관·저널</span><span class="le">Logging, Habits &amp; Journaling</span></h3><div class="toc-list"><a class="toc-item" href="#app-bucket-climb"><span class="toc-hook"><span class="lk">버킷리스트가 잊혀지는 단순 체크리스트로 끝남</span><span class="le">Bucket lists end up as forgotten checklists</span></span><span class="toc-app"><span class="lk">꿈을 찾아서</span><span class="le">Bucket Climb</span> →</span></a><a class="toc-item" href="#app-bucket-climb"><span class="toc-hook"><span class="lk">목표 달성 동기가 금방 사그라듦</span><span class="le">Motivation to reach goals fades fast</span></span><span class="toc-app"><span class="lk">꿈을 찾아서</span><span class="le">Bucket Climb</span> →</span></a><a class="toc-item" href="#app-life-restaurant"><span class="toc-hook"><span class="lk">갔던 맛집을 기억 못하고 잊어버림</span><span class="le">Great restaurants get forgotten</span></span><span class="toc-app"><span class="lk">인생 맛집</span><span class="le">Life Restaurant</span> →</span></a><a class="toc-item" href="#app-life-restaurant"><span class="toc-hook"><span class="lk">대중 평점이 내 입맛과 맞지 않음</span><span class="le">Crowd ratings don&#x27;t match your taste</span></span><span class="toc-app"><span class="lk">인생 맛집</span><span class="le">Life Restaurant</span> →</span></a><a class="toc-item" href="#app-rainbow-workshop"><span class="toc-hook"><span class="lk">일주일을 어떻게 보내는지 한눈에 안 보임</span><span class="le">No at-a-glance view of how the week is spent</span></span><span class="toc-app"><span class="lk">무지개 공작소</span><span class="le">Rainbow Workshop</span> →</span></a><a class="toc-item" href="#app-think-flow"><span class="toc-hook"><span class="lk">흐르던 생각이 끊겨 이어가지 못함</span><span class="le">A flowing train of thought gets cut off and lost</span></span><span class="toc-app"><span class="lk">이어생각</span><span class="le">Think Flow</span> →</span></a></div></div><div class="toc-group" id="pd-leeo-prod"><h3><span class="toc-dot" style="background:#fdcb6e"></span>⚡ <span class="lk">생산성·입력도구</span><span class="le">Productivity &amp; Input Tools</span></h3><div class="toc-list"><a class="toc-item" href="#app-clip-keyboard"><span class="toc-hook"><span class="lk">매일 같은 텍스트를 반복 입력하며 시간 낭비</span><span class="le">Time wasted retyping the same text every day</span></span><span class="toc-app"><span class="lk">클립키보드</span><span class="le">Clip Keyboard</span> →</span></a><a class="toc-item" href="#app-clip-keyboard"><span class="toc-hook"><span class="lk">생산성 향상이 추상적이라 체감 안 됨</span><span class="le">Productivity gains feel abstract, never tangible</span></span><span class="toc-app"><span class="lk">클립키보드</span><span class="le">Clip Keyboard</span> →</span></a><a class="toc-item" href="#app-tap-clip-keyboard"><span class="toc-hook"><span class="lk">iOS에서 저장한 클립을 맥에서 쓸 수 없음</span><span class="le">Clips saved on iOS can&#x27;t be used on the Mac</span></span><span class="toc-app"><span class="lk">탭클립 키보드</span><span class="le">Tap Clip Keyboard</span> →</span></a><a class="toc-item" href="#app-double-reminder"><span class="toc-hook"><span class="lk">한 번 알림은 놓치면 끝이라 중요한 일을 놓침</span><span class="le">Miss the single notification and the important thing is gone</span></span><span class="toc-app"><span class="lk">두번알림</span><span class="le">Double Reminder</span> →</span></a><a class="toc-item" href="#app-double-reminder"><span class="toc-hook"><span class="lk">단일 알림은 ADHD·고령층에게 신뢰가 부족</span><span class="le">A single alert isn&#x27;t reliable enough for ADHD users and seniors</span></span><span class="toc-app"><span class="lk">두번알림</span><span class="le">Double Reminder</span> →</span></a><a class="toc-item" href="#app-schedule-assistant"><span class="toc-hook"><span class="lk">바쁜 일정 속 최적 시간 배분이 어려움</span><span class="le">Hard to allocate time optimally in a busy schedule</span></span><span class="toc-app"><span class="lk">일정 비서</span><span class="le">Schedule Assistant</span> →</span></a><a class="toc-item" href="#app-schedule-assistant"><span class="toc-hook"><span class="lk">일정이 충돌해 스케줄이 꼬임</span><span class="le">Conflicting events tangle the schedule</span></span><span class="toc-app"><span class="lk">일정 비서</span><span class="le">Schedule Assistant</span> →</span></a><a class="toc-item" href="#app-sticky-presenter"><span class="toc-hook"><span class="lk">발표 중 시간 관리가 어려움</span><span class="le">Managing time mid-presentation is hard</span></span><span class="toc-app"><span class="lk">StickyPresenter</span><span class="le">StickyPresenter</span> →</span></a></div></div><div class="toc-group" id="pd-leeo-relation"><h3><span class="toc-dot" style="background:#fd79a8"></span>🤝 <span class="lk">관계·소통</span><span class="le">Relationships &amp; Communication</span></h3><div class="toc-list"><a class="toc-item" href="#app-rapport-map"><span class="toc-hook"><span class="lk">연락처만으로는 관계의 맥락이 남지 않음</span><span class="le">Contacts alone keep no context of the relationship</span></span><span class="toc-app"><span class="lk">라포 맵</span><span class="le">Rapport Map</span> →</span></a><a class="toc-item" href="#app-rapport-map"><span class="toc-hook"><span class="lk">다음 만남 전 지난 대화가 기억나지 않음</span><span class="le">Can&#x27;t recall the last conversation before the next meeting</span></span><span class="toc-app"><span class="lk">라포 맵</span><span class="le">Rapport Map</span> →</span></a><a class="toc-item" href="#app-ring-rong"><span class="toc-hook"><span class="lk">도움 줄 멘토를 어디서 찾을지 모름</span><span class="le">No idea where to find a mentor who can help</span></span><span class="toc-app"><span class="lk">링롱</span><span class="le">Ring Rong</span> →</span></a><a class="toc-item" href="#app-shared-day-designer"><span class="toc-hook"><span class="lk">가족·팀의 일정이 흩어져 공유가 안 됨</span><span class="le">Family and team schedules stay scattered and unshared</span></span><span class="toc-app"><span class="lk">골드위크</span><span class="le">Goldweek</span> →</span></a><a class="toc-item" href="#app-shared-day-designer"><span class="toc-hook"><span class="lk">서로 일정을 몰라 충돌·혼선 발생</span><span class="le">Not knowing each other&#x27;s schedules causes conflicts and confusion</span></span><span class="toc-app"><span class="lk">골드위크</span><span class="le">Goldweek</span> →</span></a></div></div><div class="toc-group" id="pd-leeo-health"><h3><span class="toc-dot" style="background:#55efc4"></span>🏃 <span class="lk">건강·몸</span><span class="le">Health &amp; Body</span></h3><div class="toc-list"><a class="toc-item" href="#app-cooltime"><span class="toc-hook"><span class="lk">장시간 화면 사용으로 눈 피로·건강 악화</span><span class="le">Long screen hours strain the eyes and health</span></span><span class="toc-app"><span class="lk">쿨타임</span><span class="le">Cooltime</span> →</span></a><a class="toc-item" href="#app-cooltime"><span class="toc-hook"><span class="lk">휴식이 필요한 걸 알아도 습관화 못함</span><span class="le">Knowing you need breaks doesn&#x27;t make them a habit</span></span><span class="toc-app"><span class="lk">쿨타임</span><span class="le">Cooltime</span> →</span></a><a class="toc-item" href="#app-three-meals"><span class="toc-hook"><span class="lk">매일 먹은 것을 기록·관리하기 번거로움</span><span class="le">Logging every meal is a chore</span></span><span class="toc-app"><span class="lk">세끼</span><span class="le">Three Meals</span> →</span></a><a class="toc-item" href="#app-three-meals"><span class="toc-hook"><span class="lk">식습관을 객관적으로 파악하지 못함</span><span class="le">No objective view of your eating habits</span></span><span class="toc-app"><span class="lk">세끼</span><span class="le">Three Meals</span> →</span></a></div></div><div class="toc-group" id="pd-leeo-learn"><h3><span class="toc-dot" style="background:#81ecec"></span>📚 <span class="lk">학습·성장</span><span class="le">Learning &amp; Growth</span></h3><div class="toc-list"><a class="toc-item" href="#app-speak-flow"><span class="toc-hook"><span class="lk">원하는 회화를 반복 연습할 방법이 마땅찮음</span><span class="le">No good way to drill the conversations you actually want</span></span><span class="toc-app"><span class="lk">스픽플로우</span><span class="le">Speak Flow</span> →</span></a><a class="toc-item" href="#app-sanoramyeon"><span class="toc-hook"><span class="lk">인도네시아어 기초를 쉽게 배울 곳이 없음</span><span class="le">Nowhere easy to learn basic Indonesian</span></span><span class="toc-app"><span class="lk">사노라면</span><span class="le">Sanoramyeon</span> →</span></a><a class="toc-item" href="#app-hands-free-metronome"><span class="toc-hook"><span class="lk">연주 중 손이 바빠 메트로놈을 조작할 수 없음</span><span class="le">Hands are busy playing — no way to adjust the metronome</span></span><span class="toc-app"><span class="lk">낫마템포</span><span class="le">Notma Tempo</span> →</span></a><a class="toc-item" href="#app-sight-singer"><span class="toc-hook"><span class="lk">악보를 보고 음을 상상·확인하기 어려움</span><span class="le">Hard to imagine and verify the notes from a score</span></span><span class="toc-app"><span class="lk">초견</span><span class="le">Sight Singer</span> →</span></a></div></div><div class="toc-group" id="pd-leeo-fun"><h3><span class="toc-dot" style="background:#ff7675"></span>🎲 <span class="lk">재미·놀이·표현</span><span class="le">Fun, Play &amp; Expression</span></h3><div class="toc-list"><a class="toc-item" href="#app-daily-compliment"><span class="toc-hook"><span class="lk">무미건조한 하루에 기분 좋은 한마디가 없음</span><span class="le">A dry day with no kind words in it</span></span><span class="toc-app"><span class="lk">오늘의 주접</span><span class="le">Daily Compliment</span> →</span></a><a class="toc-item" href="#app-pixel-mimi"><span class="toc-hook"><span class="lk">평범한 사진을 개성 있는 픽셀아트로 못 만듦</span><span class="le">Ordinary photos can&#x27;t become distinctive pixel art</span></span><span class="toc-app"><span class="lk">픽셀 미미</span><span class="le">Pixel MeMe</span> →</span></a><a class="toc-item" href="#app-punching"><span class="toc-hook"><span class="lk">내가 찍은 사진을 스티커로 만들기 번거로움</span><span class="le">Turning your own photos into stickers is a hassle</span></span><span class="toc-app"><span class="lk">펀칭</span><span class="le">Punching</span> →</span></a><a class="toc-item" href="#app-leeocon"><span class="toc-hook"><span class="lk">iMessage 대화에 개성 있는 표현 수단이 부족</span><span class="le">iMessage chats lack distinctive ways to express yourself</span></span><span class="toc-app"><span class="lk">LeeoCon</span><span class="le">LeeoCon</span> →</span></a></div></div><div class="toc-group" id="pd-leeo-tool"><h3><span class="toc-dot" style="background:#b2bec3"></span>🧭 <span class="lk">실용·생활도구</span><span class="le">Practical &amp; Everyday Tools</span></h3><div class="toc-list"><a class="toc-item" href="#app-dont-forget"><span class="toc-hook"><span class="lk">중요한 일정을 깜빡하고 놓침</span><span class="le">Important schedules slip the mind</span></span><span class="toc-app"><span class="lk">잊지마</span><span class="le">Don&#x27;t Forget</span> →</span></a><a class="toc-item" href="#app-donkko-mart"><span class="toc-hook"><span class="lk">마트마다 살 것이 달라 품목을 빠뜨리기 쉬움</span><span class="le">Different stores, different lists — items get missed</span></span><span class="toc-app"><span class="lk">클로즈드</span><span class="le">Closed</span> →</span></a><a class="toc-item" href="#app-donkko-mart"><span class="toc-hook"><span class="lk">매번 앱을 열어 확인하기 번거로움</span><span class="le">Opening the app to check every time is a hassle</span></span><span class="toc-app"><span class="lk">클로즈드</span><span class="le">Closed</span> →</span></a><a class="toc-item" href="#app-burning-my-life"><span class="toc-hook"><span class="lk">소중한 자유시간이 어떻게 사라지는지 자각 못함</span><span class="le">No awareness of how precious free time disappears</span></span><span class="toc-app"><span class="lk">불타는 내인생</span><span class="le">Burning My Life</span> →</span></a><a class="toc-item" href="#app-fire-tracker"><span class="toc-hook"><span class="lk">언제 은퇴·퇴사할 수 있을지 막막함</span><span class="le">No idea when retiring or quitting becomes possible</span></span><span class="toc-app"><span class="lk">퇴사각</span><span class="le">Fire Tracker</span> →</span></a><a class="toc-item" href="#app-korea-navi"><span class="toc-hook"><span class="lk">기존 길찾기가 접근성이 부족해 이용이 어려움</span><span class="le">Existing navigation lacks accessibility and is hard to use</span></span><span class="toc-app"><span class="lk">한국길찾기</span><span class="le">Korea Navi</span> →</span></a><a class="toc-item" href="#app-probability-calculator"><span class="toc-hook"><span class="lk">복잡한 확률을 손으로 계산하기 번거로움</span><span class="le">Complex probabilities are tedious to work out by hand</span></span><span class="toc-app"><span class="lk">확률계산기</span><span class="le">Probability Calculator</span> →</span></a></div></div><div class="toc-group"><h3><span class="toc-dot" style="background:#8b90a0"></span>✨ <span class="lk">그 외</span><span class="le">More</span></h3><div class="toc-list"><a class="toc-item" href="#app-flip-book"><span class="toc-hook"><span class="lk">아이 그림이 움직이면 좋겠다면</span><span class="le">If you wish your child&#x27;s drawings could move</span></span><span class="toc-app"><span class="lk">팔랑북</span><span class="le">PalrangBook</span> →</span></a><a class="toc-item" href="#app-junior-mistakes"><span class="toc-hook"><span class="lk">주니어 개발자로서 실수가 두렵다면</span><span class="le">If mistakes scare you as a junior developer</span></span><span class="toc-app"><span class="lk">실수 100</span><span class="le">Junior Dev Mistakes</span> →</span></a><a class="toc-item" href="#app-kid-calendar"><span class="toc-hook"><span class="lk">아이 종이 알림장을 놓치기 일쑤라면</span><span class="le">If paper notices from your kids keep slipping through</span></span><span class="toc-app"><span class="lk">아이일정</span><span class="le">Kid Calendar</span> →</span></a><a class="toc-item" href="#app-slide-snap"><span class="toc-hook"><span class="lk">발표 장표를 급히 찍어 뒤죽박죽이 된다면</span><span class="le">If your hastily shot slides end up in chaos</span></span><span class="toc-app"><span class="lk">장표스냅</span><span class="le">SlideSnap</span> →</span></a><a class="toc-item" href="#app-sunflower"><span class="toc-hook"><span class="lk">햇빛을 얼마나 쬐는지 감이 없다면</span><span class="le">If you have no idea how much sun you&#x27;re getting</span></span><span class="toc-app"><span class="lk">햇빛바라기</span><span class="le">Sunflower</span> →</span></a><a class="toc-item" href="#app-tetra-tint"><span class="toc-hook"><span class="lk">색상 대비가 접근성 기준에 맞는지 애매하다면</span><span class="le">If you&#x27;re unsure your color contrast passes accessibility</span></span><span class="toc-app"><span class="lk">TetraTint</span><span class="le">TetraTint</span> →</span></a></div></div></div>
+      <p class="pmap-more"><a href="https://m1zz.github.io/industry-explorer/" target="_blank" rel="noopener"><span class="lk">산업 전체의 문제 ↔ 솔루션 지도 탐색하기</span><span class="le">Explore the full industry problem ↔ solution map</span> →</a></p>
     </section>
       
     <section class="category">
@@ -1347,304 +1276,6 @@
       </div>
     </article></div>
     </section>
-      
-    <section class="pmap" id="problem-map">
-      <div class="pmap-head">
-        <h2><span class="lk">🍎 문제 해결 지도</span><span class="le">🍎 Problem-Solving Map</span></h2>
-        <p><span class="lk">리이오의 앱들이 실제로 푸는 문제를 테마별로 정리했습니다. 불편(Pain) → 누가 · 언제 → 기존 도구의 공백(Gap) 순으로 살펴보세요.</span><span class="le">The real problems Leeo&#x27;s apps solve, organized by theme. Explore each as pain → who · when → the gap in existing tools.</span></p>
-      </div>
-      <div class="pmap-domains">
-      <details class="pmap-domain" style="--dm:#a29bfe">
-        <summary>
-          <span class="pmap-dm-icon">🧠</span>
-          <span class="pmap-dm-title"><span class="lk">마음·감정 돌봄</span><span class="le">Mind &amp; Emotional Care</span></span>
-          <span class="pmap-dm-count">3</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps"><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-relax-on">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/8c/a9/2a8ca980-6382-9b4a-0818-b2783f652727/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">달빛</span><span class="le">Dalbit</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">일상 스트레스로 이완과 수면이 어려움</span><span class="le">Daily stress makes it hard to unwind and sleep</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">스트레스 많은 직장인·불면인</span><span class="le">Stressed workers and people with insomnia</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">잠들기 전이나 쉬고 싶을 때</span><span class="le">Before sleep or when needing rest</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">고품질 자연 소리·가이드 명상 부재</span><span class="le">No high-quality nature sounds or guided meditation</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">나에게 맞는 소리 조합을 찾기 어려움</span><span class="le">Hard to find the sound mix that works for you</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">힐링이 필요한 사람</span><span class="le">People who need to unwind</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">집중하거나 수면을 유도할 때</span><span class="le">When focusing or falling asleep</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">자유로운 사운드 믹싱 기능 부족</span><span class="le">No free-form sound mixing</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-rainbow-of-desire">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/4b/4f/0e4b4fee-aa08-f368-80a9-02628e82d867/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">욕망의 무지개</span><span class="le">Rainbow Of Desire</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">복잡한 감정을 말로 표현·이해하기 어려움</span><span class="le">Complex emotions are hard to express and understand in words</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">감정 관리가 필요한 사람</span><span class="le">People who need to manage their emotions</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">하루의 감정을 돌아볼 때</span><span class="le">When reflecting on the day&#x27;s emotions</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">감정을 색으로 시각화하는 도구 부재</span><span class="le">No tool that visualizes emotions as color</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">감정의 흐름과 패턴을 파악하지 못함</span><span class="le">Can&#x27;t see the flow and patterns of emotions</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">자기 감정을 탐구하려는 사람</span><span class="le">People exploring their own emotions</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">감정 변화 추이를 확인할 때</span><span class="le">When checking how emotions change over time</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">비판단적 감정 패턴 시각화 부재</span><span class="le">No non-judgmental emotion-pattern visualization</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-rebound-journal">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/5d/b7/675db7f6-c9bd-3b91-247c-e59293608cb6/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">리바운드 저널</span><span class="le">Rebound Journal</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">힘든 시기 극복 과정을 혼자 감당하기 벅참</span><span class="le">Getting through hard times alone is overwhelming</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">어려운 시기를 겪거나 극복 중인 사람</span><span class="le">People going through or recovering from a rough patch</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">회복 과정을 기록하고 싶을 때</span><span class="le">When wanting to record the recovery process</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">회복 여정을 단계별로 남기는 안전한 공간 부재</span><span class="le">No safe space to log the recovery journey step by step</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">작은 진전이 눈에 안 보여 쉽게 좌절</span><span class="le">Small progress stays invisible, so discouragement comes easily</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">회복 중인 사람</span><span class="le">People in recovery</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">긍정적 변화를 확인하고 싶을 때</span><span class="le">When wanting to see positive change</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">회복 과정을 시각화하는 도구 부재</span><span class="le">No tool that visualizes the recovery process</span></dd></div></div></div></div>
-        </div></div>
-      </details>
-      <details class="pmap-domain" style="--dm:#74b9ff">
-        <summary>
-          <span class="pmap-dm-icon">📝</span>
-          <span class="pmap-dm-title"><span class="lk">기록·습관·저널</span><span class="le">Logging, Habits &amp; Journaling</span></span>
-          <span class="pmap-dm-count">4</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps"><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-bucket-climb">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/63/33/9f/63339fa9-05c2-bee0-679e-a8205ee597cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">꿈을 찾아서</span><span class="le">Bucket Climb</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">버킷리스트가 잊혀지는 단순 체크리스트로 끝남</span><span class="le">Bucket lists end up as forgotten checklists</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">목표를 세우고 실천하려는 20-30대</span><span class="le">20- and 30-somethings setting and pursuing goals</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">새 꿈을 세우거나 이루었을 때</span><span class="le">When setting a new dream or achieving one</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">사진으로 여정을 남기는 시각적 기록이 없었음</span><span class="le">No visual record of the journey in photos</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">목표 달성 동기가 금방 사그라듦</span><span class="le">Motivation to reach goals fades fast</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">새로운 경험을 추구하는 사람</span><span class="le">People chasing new experiences</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">매일 꿈을 상기하고 싶을 때</span><span class="le">When wanting a daily reminder of the dream</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">위젯·사진으로 동기부여하는 기능 부족</span><span class="le">No widget or photo-driven motivation</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-life-restaurant">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/62/78/8e627886-d44e-27fd-7094-b4c1f67b2595/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">인생 맛집</span><span class="le">Life Restaurant</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">갔던 맛집을 기억 못하고 잊어버림</span><span class="le">Great restaurants get forgotten</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">외식·맛집 탐방을 즐기는 사람</span><span class="le">People who love dining out and exploring restaurants</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">식사 후 기록으로 남길 때</span><span class="le">When logging a meal afterwards</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">사진·평점을 모은 나만의 맛집 지도 부재</span><span class="le">No personal restaurant map of photos and ratings</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">대중 평점이 내 입맛과 맞지 않음</span><span class="le">Crowd ratings don&#x27;t match your taste</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">자기 기준이 있는 미식가</span><span class="le">Foodies with their own standards</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">다음에 갈 곳을 고를 때</span><span class="le">When choosing where to go next</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">내 기준의 개인 평가 기록 부재</span><span class="le">No record of ratings by your own standards</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-rainbow-workshop">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6c/59/31/6c5931da-6818-e162-ed7d-6954f897461a/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">무지개 공작소</span><span class="le">Rainbow Workshop</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">일주일을 어떻게 보내는지 한눈에 안 보임</span><span class="le">No at-a-glance view of how the week is spent</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">시간 사용을 돌아보려는 사람</span><span class="le">People reflecting on how they use time</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">한 주를 계획하거나 회고할 때</span><span class="le">When planning or reviewing the week</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">일주일을 블록으로 시각화하는 도구 부재</span><span class="le">No tool that visualizes the week as blocks</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-think-flow">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/7b/fa/e87bfabe-4959-3ba6-8263-c1bf6709db35/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">이어생각</span><span class="le">Think Flow</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">흐르던 생각이 끊겨 이어가지 못함</span><span class="le">A flowing train of thought gets cut off and lost</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">생각을 메모로 정리하는 사람</span><span class="le">People who organize their thinking in notes</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">떠오른 생각을 이어 적을 때</span><span class="le">When continuing a thought as it comes</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">생각을 이어가도록 돕는 메모장 부재</span><span class="le">No notepad designed to continue a thought</span></dd></div></div></div></div>
-        </div></div>
-      </details>
-      <details class="pmap-domain" style="--dm:#fdcb6e">
-        <summary>
-          <span class="pmap-dm-icon">⚡</span>
-          <span class="pmap-dm-title"><span class="lk">생산성·입력도구</span><span class="le">Productivity &amp; Input Tools</span></span>
-          <span class="pmap-dm-count">5</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps"><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-clip-keyboard">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/d8/5d/84d85df9-6cca-e4c7-21ad-1401178b7146/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">클립키보드</span><span class="le">Clip Keyboard</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">매일 같은 텍스트를 반복 입력하며 시간 낭비</span><span class="le">Time wasted retyping the same text every day</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">이메일·고객응대가 많은 직장인</span><span class="le">Workers with heavy email and customer-support loads</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">반복 문구를 입력할 때</span><span class="le">When typing recurring phrases</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">한 번에 붙여넣는 템플릿 입력 수단 부족</span><span class="le">No one-tap template input</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">생산성 향상이 추상적이라 체감 안 됨</span><span class="le">Productivity gains feel abstract, never tangible</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">반복 업무 종사자</span><span class="le">People doing repetitive work</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">템플릿을 사용할 때마다</span><span class="le">Every time a template is used</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">절약한 시간을 숫자·마일스톤으로 보여주는 성취감 부재</span><span class="le">No numbers or milestones showing the time saved</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-tap-clip-keyboard">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cd/3e/ab/cd3eab46-d652-9f54-5bd9-e67681f7e8f4/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">탭클립 키보드</span><span class="le">Tap Clip Keyboard</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">iOS에서 저장한 클립을 맥에서 쓸 수 없음</span><span class="le">Clips saved on iOS can&#x27;t be used on the Mac</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">반복 텍스트를 여러 기기서 쓰는 사람</span><span class="le">People using recurring text across devices</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">맥에서 저장한 문구를 입력할 때</span><span class="le">When typing saved phrases on the Mac</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">iOS-맥 간 클립 데이터 연동 부재</span><span class="le">No iOS–Mac clip syncing</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-double-reminder">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/70/0c/af700c95-fc8f-6ff4-2e5b-51b3592a2d68/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">두번알림</span><span class="le">Double Reminder</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">한 번 알림은 놓치면 끝이라 중요한 일을 놓침</span><span class="le">Miss the single notification and the important thing is gone</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">건망증이 있는 사람</span><span class="le">Forgetful people</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">중요한 일정·약속 시각에</span><span class="le">At important schedules and appointments</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">두 번 알려주는 이중 안전망 부재</span><span class="le">No double-alert safety net</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">단일 알림은 ADHD·고령층에게 신뢰가 부족</span><span class="le">A single alert isn&#x27;t reliable enough for ADHD users and seniors</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">기억 보조가 필요한 사람</span><span class="le">People who need memory support</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">잊기 쉬운 일을 상기해야 할 때</span><span class="le">When recalling easily forgotten things</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">유연한 간격의 재알림 부재</span><span class="le">No flexible-interval re-alerts</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-schedule-assistant">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e5/20/a7/e520a72a-7a8e-a3bc-e1de-9f115ccaeeec/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">일정 비서</span><span class="le">Schedule Assistant</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">바쁜 일정 속 최적 시간 배분이 어려움</span><span class="le">Hard to allocate time optimally in a busy schedule</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">일정이 많은 직장인·프리랜서</span><span class="le">Busy office workers and freelancers</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">일정을 잡고 조율할 때</span><span class="le">When scheduling and coordinating</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">AI가 최적 시간대를 제안하는 기능 부재</span><span class="le">No AI suggesting the optimal time slot</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">일정이 충돌해 스케줄이 꼬임</span><span class="le">Conflicting events tangle the schedule</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">여러 일정을 관리하는 사람</span><span class="le">People juggling multiple schedules</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">새 일정을 추가할 때</span><span class="le">When adding a new event</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">충돌 없는 자동 시간 배분 부재</span><span class="le">No conflict-free automatic time allocation</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-sticky-presenter">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/86/99/6c/86996cea-c8e2-1175-8918-3e7989bdb330/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">StickyPresenter</span><span class="le">StickyPresenter</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">발표 중 시간 관리가 어려움</span><span class="le">Managing time mid-presentation is hard</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">키노트로 발표하는 사람</span><span class="le">People presenting with Keynote</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">프레젠테이션을 진행할 때</span><span class="le">While presenting</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">키노트와 함께 쓰는 타이머 부재</span><span class="le">No timer that works alongside Keynote</span></dd></div></div></div></div>
-        </div></div>
-      </details>
-      <details class="pmap-domain" style="--dm:#fd79a8">
-        <summary>
-          <span class="pmap-dm-icon">🤝</span>
-          <span class="pmap-dm-title"><span class="lk">관계·소통</span><span class="le">Relationships &amp; Communication</span></span>
-          <span class="pmap-dm-count">3</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps"><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-rapport-map">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/fb/ee/34fbee37-0bf1-e019-b336-dde09e1aeb47/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">라포 맵</span><span class="le">Rapport Map</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">연락처만으로는 관계의 맥락이 남지 않음</span><span class="le">Contacts alone keep no context of the relationship</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">멘토링·네트워킹을 하는 사람</span><span class="le">People doing mentoring and networking</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">사람을 만난 직후 메모할 때</span><span class="le">When taking notes right after meeting someone</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">만남·대화·약속을 기록하는 관계 도구 부재</span><span class="le">No relationship tool that records meetings, conversations, and promises</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">다음 만남 전 지난 대화가 기억나지 않음</span><span class="le">Can&#x27;t recall the last conversation before the next meeting</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">고객·인맥을 관리하는 전문가</span><span class="le">Professionals managing clients and connections</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">재회 전 이전 기록을 확인할 때</span><span class="le">When reviewing past notes before meeting again</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">관계 유형별 맥락 관리 부재</span><span class="le">No context management by relationship type</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-ring-rong">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/7c/18/687c18c0-81e9-312e-3eee-5eddcca160e7/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">링롱</span><span class="le">Ring Rong</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">도움 줄 멘토를 어디서 찾을지 모름</span><span class="le">No idea where to find a mentor who can help</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">멘토를 찾는 멘티</span><span class="le">Mentees looking for a mentor</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">멘토링·조언이 필요할 때</span><span class="le">When mentoring or advice is needed</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">멘토의 위치를 찾는 연결 수단 부재</span><span class="le">No way to locate and connect with mentors</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-shared-day-designer">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/a4/43/d5a443ca-4db2-f3ff-d1ae-66992dbeff3e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">골드위크</span><span class="le">Goldweek</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">가족·팀의 일정이 흩어져 공유가 안 됨</span><span class="le">Family and team schedules stay scattered and unshared</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">가족·커플·팀 단위 사용자</span><span class="le">Families, couples, and small teams</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">함께 일정을 계획할 때</span><span class="le">When planning schedules together</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">실시간 동기화되는 공유 플래너 부재</span><span class="le">No shared planner with real-time sync</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">서로 일정을 몰라 충돌·혼선 발생</span><span class="le">Not knowing each other&#x27;s schedules causes conflicts and confusion</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">맞벌이 부부·소규모 팀</span><span class="le">Dual-income couples and small teams</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">누가 무엇을 하는지 확인할 때</span><span class="le">When checking who&#x27;s doing what</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">실시간 공유로 충돌을 사전 방지하는 수단 부족</span><span class="le">No real-time sharing to prevent conflicts upfront</span></dd></div></div></div></div>
-        </div></div>
-      </details>
-      <details class="pmap-domain" style="--dm:#55efc4">
-        <summary>
-          <span class="pmap-dm-icon">🏃</span>
-          <span class="pmap-dm-title"><span class="lk">건강·몸</span><span class="le">Health &amp; Body</span></span>
-          <span class="pmap-dm-count">2</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps"><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-cooltime">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/c8/6b/04c86baa-44d9-48dd-342d-7ba44a375dfb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">쿨타임</span><span class="le">Cooltime</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">장시간 화면 사용으로 눈 피로·건강 악화</span><span class="le">Long screen hours strain the eyes and health</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">오래 컴퓨터를 쓰는 개발자·직장인</span><span class="le">Developers and office workers at screens all day</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">작업에 몰입해 휴식을 잊을 때</span><span class="le">When deep in work and forgetting to rest</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">20-20-20 규칙을 자동 관리하는 도구 부재</span><span class="le">No tool that automates the 20-20-20 rule</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">휴식이 필요한 걸 알아도 습관화 못함</span><span class="le">Knowing you need breaks doesn&#x27;t make them a habit</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">사무직 근로자</span><span class="le">Desk workers</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">20분마다 쉬어야 할 때</span><span class="le">When a break is due every 20 minutes</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">배지·스트릭으로 휴식 습관을 만드는 장치 부족</span><span class="le">No badges or streaks to build a break habit</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-three-meals">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/b2/42/fcb242b5-da88-f94f-0e6f-9e66bfb86092/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">세끼</span><span class="le">Three Meals</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">매일 먹은 것을 기록·관리하기 번거로움</span><span class="le">Logging every meal is a chore</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">다이어트·건강 관리에 관심 있는 사람</span><span class="le">People into dieting and health management</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">식사 후 간편히 기록할 때</span><span class="le">When logging quickly after a meal</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">사진 기반 간편 기록과 AI 분석 부재</span><span class="le">No photo-based quick logging with AI analysis</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">식습관을 객관적으로 파악하지 못함</span><span class="le">No objective view of your eating habits</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">건강한 식습관을 원하는 사람</span><span class="le">People who want healthier eating habits</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">주간 식단을 돌아볼 때</span><span class="le">When reviewing the week&#x27;s meals</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">긍정 피드백 중심의 식습관 분석 부재</span><span class="le">No eating-habit analysis built on positive feedback</span></dd></div></div></div></div>
-        </div></div>
-      </details>
-      <details class="pmap-domain" style="--dm:#81ecec">
-        <summary>
-          <span class="pmap-dm-icon">📚</span>
-          <span class="pmap-dm-title"><span class="lk">학습·성장</span><span class="le">Learning &amp; Growth</span></span>
-          <span class="pmap-dm-count">4</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps"><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-speak-flow">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1a/63/d3/1a63d391-479f-6842-d954-2e486d9553bc/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">스픽플로우</span><span class="le">Speak Flow</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">원하는 회화를 반복 연습할 방법이 마땅찮음</span><span class="le">No good way to drill the conversations you actually want</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">외국어 회화를 익히려는 학습자</span><span class="le">Learners working on spoken language</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">특정 표현을 반복 연습할 때</span><span class="le">When drilling specific expressions</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">원하는 회화를 반복 연습하는 도구 부재</span><span class="le">No tool for repeating the conversations you choose</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-sanoramyeon">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/37/62/463762b5-40e5-32fd-d931-53b967e707cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">사노라면</span><span class="le">Sanoramyeon</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">인도네시아어 기초를 쉽게 배울 곳이 없음</span><span class="le">Nowhere easy to learn basic Indonesian</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">인도네시아어를 배우려는 사람</span><span class="le">People learning Indonesian</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">간단한 표현을 익히고 싶을 때</span><span class="le">When picking up simple expressions</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">간편한 인도네시아어 학습 도구 부재</span><span class="le">No lightweight Indonesian learning tool</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-hands-free-metronome">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/d5/91/f7d5919d-78c8-d5d4-4529-8982c65b3649/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">낫마템포</span><span class="le">Notma Tempo</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">연주 중 손이 바빠 메트로놈을 조작할 수 없음</span><span class="le">Hands are busy playing — no way to adjust the metronome</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">악기를 연습하는 연주자</span><span class="le">Musicians practicing an instrument</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">두 손으로 연주하며 박자를 맞출 때</span><span class="le">When keeping time while playing with both hands</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">손을 대지 않고 제어하는 메트로놈 부재</span><span class="le">No metronome you can control without touching</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-sight-singer">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/01/21/7e012123-2a2a-2b73-a10d-bba28a29d1fb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">초견</span><span class="le">Sight Singer</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">악보를 보고 음을 상상·확인하기 어려움</span><span class="le">Hard to imagine and verify the notes from a score</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">초견을 연습하는 음악 학습자</span><span class="le">Music learners practicing sight-reading</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">악보의 음을 직접 들어보고 싶을 때</span><span class="le">When wanting to hear the notes on the page</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">음표를 찍어 바로 들어보는 도구 부재</span><span class="le">No tool to tap in notes and hear them instantly</span></dd></div></div></div></div>
-        </div></div>
-      </details>
-      <details class="pmap-domain" style="--dm:#ff7675">
-        <summary>
-          <span class="pmap-dm-icon">🎲</span>
-          <span class="pmap-dm-title"><span class="lk">재미·놀이·표현</span><span class="le">Fun, Play &amp; Expression</span></span>
-          <span class="pmap-dm-count">4</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps"><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-daily-compliment">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/cd/e8/0ecde892-caba-09ea-32f5-1a6ebf8b4d33/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">오늘의 주접</span><span class="le">Daily Compliment</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">무미건조한 하루에 기분 좋은 한마디가 없음</span><span class="le">A dry day with no kind words in it</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">위트·칭찬으로 기분전환하고 싶은 사람</span><span class="le">People who want a lift from wit and compliments</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">지치거나 심심할 때</span><span class="le">When tired or bored</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">매일 새로운 주접·칭찬을 건네주는 앱 부재</span><span class="le">No app that delivers fresh playful compliments daily</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-pixel-mimi">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/2b/26/572b265c-99a3-ccb1-bc2a-9a1d85a285cc/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">픽셀 미미</span><span class="le">Pixel MeMe</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">평범한 사진을 개성 있는 픽셀아트로 못 만듦</span><span class="le">Ordinary photos can&#x27;t become distinctive pixel art</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">레트로 감성 콘텐츠를 즐기는 사람</span><span class="le">Fans of retro-style content</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">사진을 꾸며 공유할 때</span><span class="le">When dressing up photos to share</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">사진을 픽셀아트로 변환하는 간편 도구 부재</span><span class="le">No simple photo-to-pixel-art converter</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-punching">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0b/d2/06/0bd206c1-7de0-44ef-3fc0-5cf5ff7ab598/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">펀칭</span><span class="le">Punching</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">내가 찍은 사진을 스티커로 만들기 번거로움</span><span class="le">Turning your own photos into stickers is a hassle</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">사진으로 스티커를 만들고 싶은 사람</span><span class="le">People who want stickers from their photos</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">사진을 찍어 바로 활용할 때</span><span class="le">When using a photo right after taking it</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">촬영 즉시 스티커로 만드는 카메라 부재</span><span class="le">No camera that makes stickers the moment you shoot</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-leeocon">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/99/17/28/9917280c-b360-0800-c279-398a85c48e99/iMessage_App_Icon-0-0-1x_U007emarketing-0-0-0-0-0-3-sRGB-0-0-0-GLES2_U002c0-512MB-85-181-0-0.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">LeeoCon</span><span class="le">LeeoCon</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">iMessage 대화에 개성 있는 표현 수단이 부족</span><span class="le">iMessage chats lack distinctive ways to express yourself</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">iMessage 사용자</span><span class="le">iMessage users</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">메시지로 감정·재미를 표현할 때</span><span class="le">When expressing feeling and fun in messages</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">새로운 스티커 표현 수단 부재</span><span class="le">No fresh sticker expressions</span></dd></div></div></div></div>
-        </div></div>
-      </details>
-      <details class="pmap-domain" style="--dm:#b2bec3">
-        <summary>
-          <span class="pmap-dm-icon">🧭</span>
-          <span class="pmap-dm-title"><span class="lk">실용·생활도구</span><span class="le">Practical &amp; Everyday Tools</span></span>
-          <span class="pmap-dm-count">6</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps"><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-dont-forget">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/2b/66/cf2b6692-6a3f-788f-c107-64641871848f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">잊지마</span><span class="le">Don&#x27;t Forget</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">중요한 일정을 깜빡하고 놓침</span><span class="le">Important schedules slip the mind</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">일정 관리가 필요한 사람</span><span class="le">People who need schedule management</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">이동 중 일정을 확인해야 할 때</span><span class="le">When checking the schedule on the move</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">아이폰에서 일정을 쉽게 보는 방법이 없었음</span><span class="le">No easy way to see the schedule on iPhone</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-donkko-mart">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/aa/4f/6daa4f8a-eb69-19b0-e20f-ae8ddb92935d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">클로즈드</span><span class="le">Closed</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">마트마다 살 것이 달라 품목을 빠뜨리기 쉬움</span><span class="le">Different stores, different lists — items get missed</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">정기적으로 장보는 주부·자취생</span><span class="le">Regular grocery shoppers, from homemakers to singles</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">마트에 도착해 목록을 확인할 때</span><span class="le">When checking the list at the store</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">마트별 맞춤 리스트를 주는 도구 부재</span><span class="le">No per-store custom shopping lists</span></dd></div></div></div><div class="pmap-problem"><p class="pmap-pain"><span class="lk">매번 앱을 열어 확인하기 번거로움</span><span class="le">Opening the app to check every time is a hassle</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">가족 구성원</span><span class="le">Family members</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">장보기 전 빠르게 확인할 때</span><span class="le">When checking quickly before shopping</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">위젯·가족 공유로 앱 안 열고 보는 편의성 부족</span><span class="le">No widget or family sharing to check without opening the app</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-burning-my-life">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/50/91/fd5091e4-c137-38e6-7cbb-1eb62097f601/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">불타는 내인생</span><span class="le">Burning My Life</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">소중한 자유시간이 어떻게 사라지는지 자각 못함</span><span class="le">No awareness of how precious free time disappears</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">저녁·여가 시간을 흘려보내는 사람</span><span class="le">People whose evenings and leisure slip away</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">하루 자유시간을 되돌아볼 때</span><span class="le">When looking back on the day&#x27;s free time</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">시간이 타서 사라짐을 시각적으로 보여주는 도구 부재</span><span class="le">No tool that shows time visibly burning away</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-fire-tracker">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/79/98/68/79986857-ed8f-34df-149b-d83569affb14/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">퇴사각</span><span class="le">Fire Tracker</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">언제 은퇴·퇴사할 수 있을지 막막함</span><span class="le">No idea when retiring or quitting becomes possible</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">은퇴·경제적 자유를 계획하는 직장인</span><span class="le">Workers planning retirement or financial freedom</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">재무 목표와 시점을 점검할 때</span><span class="le">When reviewing financial goals and timing</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">은퇴 가능 시점을 계산해주는 도구 부재</span><span class="le">No calculator for a feasible retirement date</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-korea-navi">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/bb/93/8cbb9344-3069-5c00-5b6d-be083195f5c0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">한국길찾기</span><span class="le">Korea Navi</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">기존 길찾기가 접근성이 부족해 이용이 어려움</span><span class="le">Existing navigation lacks accessibility and is hard to use</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">접근성 배려가 필요한 사용자</span><span class="le">Users who need accessibility support</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">낯선 곳에서 길을 찾을 때</span><span class="le">When finding the way in unfamiliar places</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">접근성을 고려한 길찾기 도구 부재</span><span class="le">No navigation designed with accessibility in mind</span></dd></div></div></div></div>
-        </div><div class="pmap-app">
-          <a class="pmap-app-head" href="#app-probability-calculator">
-            <img class="pmap-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/d7/73/cfd773b2-2d65-e119-6296-7b55db86153c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy">
-            <span class="pmap-app-name"><span class="lk">확률계산기</span><span class="le">Probability Calculator</span></span>
-            <span class="pmap-app-go"><span class="lk">카드 보기</span><span class="le">View card</span> ↓</span>
-          </a>
-          <div class="pmap-problems"><div class="pmap-problem"><p class="pmap-pain"><span class="lk">복잡한 확률을 손으로 계산하기 번거로움</span><span class="le">Complex probabilities are tedious to work out by hand</span></p><div class="pmap-meta"><div class="pmap-meta-row"><dt><span class="lk">누가</span><span class="le">Who</span></dt><dd><span class="lk">게임·통계·의사결정에 확률이 필요한 사람</span><span class="le">People who need odds for games, stats, and decisions</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">언제</span><span class="le">When</span></dt><dd><span class="lk">당첨·성공 확률을 따질 때</span><span class="le">When weighing odds of winning or success</span></dd></div><div class="pmap-meta-row"><dt><span class="lk">공백</span><span class="le">Gap</span></dt><dd><span class="lk">직관적인 확률 계산 도구 부재</span><span class="le">No intuitive probability calculator</span></dd></div></div></div></div>
-        </div></div>
-      </details></div>
-      <p class="pmap-more"><a href="https://m1zz.github.io/industry-explorer/" target="_blank" rel="noopener"><span class="lk">산업 전체의 문제 ↔ 솔루션 지도 탐색하기</span><span class="le">Explore the full industry problem ↔ solution map</span> →</a></p>
-    </section>
     </div>
   </main>
 
@@ -1652,6 +1283,273 @@
     <p><span class="lk">마지막 업데이트 2026-07-17</span><span class="le">Last updated 2026-07-17</span> · <a href="https://github.com/M1zz/app-portfolio" target="_blank" rel="noopener">GitHub</a></p>
   </footer>
 
+  <script>window.PMAP_GRAPH = {"domains": [{"id": "leeo-mind", "icon": "🧠", "title": "마음·감정 돌봄", "titleEn": "Mind & Emotional Care", "color": "#a29bfe", "apps": [{"slug": "relax-on", "name": "달빛", "nameEn": "Dalbit", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/8c/a9/2a8ca980-6382-9b4a-0818-b2783f652727/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg", "pain": "일상 스트레스로 이완과 수면이 어려움", "painEn": "Daily stress makes it hard to unwind and sleep"}, {"slug": "rainbow-of-desire", "name": "욕망의 무지개", "nameEn": "Rainbow Of Desire", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/4b/4f/0e4b4fee-aa08-f368-80a9-02628e82d867/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "복잡한 감정을 말로 표현·이해하기 어려움", "painEn": "Complex emotions are hard to express and understand in words"}, {"slug": "rebound-journal", "name": "리바운드 저널", "nameEn": "Rebound Journal", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/5d/b7/675db7f6-c9bd-3b91-247c-e59293608cb6/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg", "pain": "힘든 시기 극복 과정을 혼자 감당하기 벅참", "painEn": "Getting through hard times alone is overwhelming"}]}, {"id": "leeo-log", "icon": "📝", "title": "기록·습관·저널", "titleEn": "Logging, Habits & Journaling", "color": "#74b9ff", "apps": [{"slug": "bucket-climb", "name": "꿈을 찾아서", "nameEn": "Bucket Climb", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/63/33/9f/63339fa9-05c2-bee0-679e-a8205ee597cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "버킷리스트가 잊혀지는 단순 체크리스트로 끝남", "painEn": "Bucket lists end up as forgotten checklists"}, {"slug": "life-restaurant", "name": "인생 맛집", "nameEn": "Life Restaurant", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/62/78/8e627886-d44e-27fd-7094-b4c1f67b2595/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "갔던 맛집을 기억 못하고 잊어버림", "painEn": "Great restaurants get forgotten"}, {"slug": "rainbow-workshop", "name": "무지개 공작소", "nameEn": "Rainbow Workshop", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6c/59/31/6c5931da-6818-e162-ed7d-6954f897461a/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png", "pain": "일주일을 어떻게 보내는지 한눈에 안 보임", "painEn": "No at-a-glance view of how the week is spent"}, {"slug": "think-flow", "name": "이어생각", "nameEn": "Think Flow", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/7b/fa/e87bfabe-4959-3ba6-8263-c1bf6709db35/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "흐르던 생각이 끊겨 이어가지 못함", "painEn": "A flowing train of thought gets cut off and lost"}]}, {"id": "leeo-prod", "icon": "⚡", "title": "생산성·입력도구", "titleEn": "Productivity & Input Tools", "color": "#fdcb6e", "apps": [{"slug": "clip-keyboard", "name": "클립키보드", "nameEn": "Clip Keyboard", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/d8/5d/84d85df9-6cca-e4c7-21ad-1401178b7146/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg", "pain": "매일 같은 텍스트를 반복 입력하며 시간 낭비", "painEn": "Time wasted retyping the same text every day"}, {"slug": "tap-clip-keyboard", "name": "탭클립 키보드", "nameEn": "Tap Clip Keyboard", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cd/3e/ab/cd3eab46-d652-9f54-5bd9-e67681f7e8f4/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png", "pain": "iOS에서 저장한 클립을 맥에서 쓸 수 없음", "painEn": "Clips saved on iOS can't be used on the Mac"}, {"slug": "double-reminder", "name": "두번알림", "nameEn": "Double Reminder", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/70/0c/af700c95-fc8f-6ff4-2e5b-51b3592a2d68/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg", "pain": "한 번 알림은 놓치면 끝이라 중요한 일을 놓침", "painEn": "Miss the single notification and the important thing is gone"}, {"slug": "schedule-assistant", "name": "일정 비서", "nameEn": "Schedule Assistant", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e5/20/a7/e520a72a-7a8e-a3bc-e1de-9f115ccaeeec/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png", "pain": "바쁜 일정 속 최적 시간 배분이 어려움", "painEn": "Hard to allocate time optimally in a busy schedule"}, {"slug": "sticky-presenter", "name": "StickyPresenter", "nameEn": "StickyPresenter", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/86/99/6c/86996cea-c8e2-1175-8918-3e7989bdb330/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png", "pain": "발표 중 시간 관리가 어려움", "painEn": "Managing time mid-presentation is hard"}]}, {"id": "leeo-relation", "icon": "🤝", "title": "관계·소통", "titleEn": "Relationships & Communication", "color": "#fd79a8", "apps": [{"slug": "rapport-map", "name": "라포 맵", "nameEn": "Rapport Map", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/fb/ee/34fbee37-0bf1-e019-b336-dde09e1aeb47/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "연락처만으로는 관계의 맥락이 남지 않음", "painEn": "Contacts alone keep no context of the relationship"}, {"slug": "ring-rong", "name": "링롱", "nameEn": "Ring Rong", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/7c/18/687c18c0-81e9-312e-3eee-5eddcca160e7/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "도움 줄 멘토를 어디서 찾을지 모름", "painEn": "No idea where to find a mentor who can help"}, {"slug": "shared-day-designer", "name": "골드위크", "nameEn": "Goldweek", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/a4/43/d5a443ca-4db2-f3ff-d1ae-66992dbeff3e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "가족·팀의 일정이 흩어져 공유가 안 됨", "painEn": "Family and team schedules stay scattered and unshared"}]}, {"id": "leeo-health", "icon": "🏃", "title": "건강·몸", "titleEn": "Health & Body", "color": "#55efc4", "apps": [{"slug": "cooltime", "name": "쿨타임", "nameEn": "Cooltime", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/c8/6b/04c86baa-44d9-48dd-342d-7ba44a375dfb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "장시간 화면 사용으로 눈 피로·건강 악화", "painEn": "Long screen hours strain the eyes and health"}, {"slug": "three-meals", "name": "세끼", "nameEn": "Three Meals", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/b2/42/fcb242b5-da88-f94f-0e6f-9e66bfb86092/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "매일 먹은 것을 기록·관리하기 번거로움", "painEn": "Logging every meal is a chore"}]}, {"id": "leeo-learn", "icon": "📚", "title": "학습·성장", "titleEn": "Learning & Growth", "color": "#81ecec", "apps": [{"slug": "speak-flow", "name": "스픽플로우", "nameEn": "Speak Flow", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1a/63/d3/1a63d391-479f-6842-d954-2e486d9553bc/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "원하는 회화를 반복 연습할 방법이 마땅찮음", "painEn": "No good way to drill the conversations you actually want"}, {"slug": "sanoramyeon", "name": "사노라면", "nameEn": "Sanoramyeon", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/37/62/463762b5-40e5-32fd-d931-53b967e707cd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "인도네시아어 기초를 쉽게 배울 곳이 없음", "painEn": "Nowhere easy to learn basic Indonesian"}, {"slug": "hands-free-metronome", "name": "낫마템포", "nameEn": "Notma Tempo", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/d5/91/f7d5919d-78c8-d5d4-4529-8982c65b3649/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "연주 중 손이 바빠 메트로놈을 조작할 수 없음", "painEn": "Hands are busy playing — no way to adjust the metronome"}, {"slug": "sight-singer", "name": "초견", "nameEn": "Sight Singer", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/01/21/7e012123-2a2a-2b73-a10d-bba28a29d1fb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "악보를 보고 음을 상상·확인하기 어려움", "painEn": "Hard to imagine and verify the notes from a score"}]}, {"id": "leeo-fun", "icon": "🎲", "title": "재미·놀이·표현", "titleEn": "Fun, Play & Expression", "color": "#ff7675", "apps": [{"slug": "daily-compliment", "name": "오늘의 주접", "nameEn": "Daily Compliment", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/cd/e8/0ecde892-caba-09ea-32f5-1a6ebf8b4d33/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg", "pain": "무미건조한 하루에 기분 좋은 한마디가 없음", "painEn": "A dry day with no kind words in it"}, {"slug": "pixel-mimi", "name": "픽셀 미미", "nameEn": "Pixel MeMe", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/2b/26/572b265c-99a3-ccb1-bc2a-9a1d85a285cc/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "평범한 사진을 개성 있는 픽셀아트로 못 만듦", "painEn": "Ordinary photos can't become distinctive pixel art"}, {"slug": "punching", "name": "펀칭", "nameEn": "Punching", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0b/d2/06/0bd206c1-7de0-44ef-3fc0-5cf5ff7ab598/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "내가 찍은 사진을 스티커로 만들기 번거로움", "painEn": "Turning your own photos into stickers is a hassle"}, {"slug": "leeocon", "name": "LeeoCon", "nameEn": "LeeoCon", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/99/17/28/9917280c-b360-0800-c279-398a85c48e99/iMessage_App_Icon-0-0-1x_U007emarketing-0-0-0-0-0-3-sRGB-0-0-0-GLES2_U002c0-512MB-85-181-0-0.png/512x512bb.jpg", "pain": "iMessage 대화에 개성 있는 표현 수단이 부족", "painEn": "iMessage chats lack distinctive ways to express yourself"}]}, {"id": "leeo-tool", "icon": "🧭", "title": "실용·생활도구", "titleEn": "Practical & Everyday Tools", "color": "#b2bec3", "apps": [{"slug": "dont-forget", "name": "잊지마", "nameEn": "Don't Forget", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/2b/66/cf2b6692-6a3f-788f-c107-64641871848f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "중요한 일정을 깜빡하고 놓침", "painEn": "Important schedules slip the mind"}, {"slug": "donkko-mart", "name": "클로즈드", "nameEn": "Closed", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/aa/4f/6daa4f8a-eb69-19b0-e20f-ae8ddb92935d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg", "pain": "마트마다 살 것이 달라 품목을 빠뜨리기 쉬움", "painEn": "Different stores, different lists — items get missed"}, {"slug": "burning-my-life", "name": "불타는 내인생", "nameEn": "Burning My Life", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/50/91/fd5091e4-c137-38e6-7cbb-1eb62097f601/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg", "pain": "소중한 자유시간이 어떻게 사라지는지 자각 못함", "painEn": "No awareness of how precious free time disappears"}, {"slug": "fire-tracker", "name": "퇴사각", "nameEn": "Fire Tracker", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/79/98/68/79986857-ed8f-34df-149b-d83569affb14/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "언제 은퇴·퇴사할 수 있을지 막막함", "painEn": "No idea when retiring or quitting becomes possible"}, {"slug": "korea-navi", "name": "한국길찾기", "nameEn": "Korea Navi", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/bb/93/8cbb9344-3069-5c00-5b6d-be083195f5c0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "기존 길찾기가 접근성이 부족해 이용이 어려움", "painEn": "Existing navigation lacks accessibility and is hard to use"}, {"slug": "probability-calculator", "name": "확률계산기", "nameEn": "Probability Calculator", "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/d7/73/cfd773b2-2d65-e119-6296-7b55db86153c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg", "pain": "복잡한 확률을 손으로 계산하기 번거로움", "painEn": "Complex probabilities are tedious to work out by hand"}]}]};</script>
+  <script>
+(function () {
+  var data = window.PMAP_GRAPH;
+  var wrap = document.getElementById('pmapGraph');
+  if (!data || !wrap) return;
+  var canvas = wrap.querySelector('canvas');
+  var tip = wrap.querySelector('.pg-tip');
+  var ctx = canvas.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+  var nodes = [], links = [];
+  var center = { type: 'c', r: 25, x: 0, y: 0, vx: 0, vy: 0, fixed: true };
+  nodes.push(center);
+  data.domains.forEach(function (d) {
+    var dn = { type: 'd', d: d, r: 21, x: 0, y: 0, vx: 0, vy: 0 };
+    nodes.push(dn);
+    links.push({ s: center, t: dn, len: 150 });
+    d.apps.forEach(function (a) {
+      var an = { type: 'a', a: a, d: d, r: 12, x: 0, y: 0, vx: 0, vy: 0 };
+      if (a.icon) {
+        var im = new Image();
+        im.onload = function () { an.img = im; };
+        im.src = a.icon;
+      }
+      nodes.push(an);
+      links.push({ s: dn, t: an, len: 56 });
+    });
+  });
+
+  function col(hex, a) {
+    var r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function biSpan(ko, en) {
+    return '<span class="lk">' + esc(ko) + '</span><span class="le">' + esc(en || ko) + '</span>';
+  }
+  function lang() { return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'ko'; }
+  function label(n) {
+    var en = lang() === 'en';
+    if (n.type === 'd') return en ? (n.d.titleEn || n.d.title) : n.d.title;
+    if (n.type === 'a') return en ? (n.a.nameEn || n.a.name) : n.a.name;
+    return '';
+  }
+  function trunc(s, m) { return s.length > m ? s.slice(0, m - 1) + '…' : s; }
+
+  function layout() {
+    var R = Math.min(W, H) * 0.30;
+    var ds = nodes.filter(function (n) { return n.type === 'd'; });
+    ds.forEach(function (dn, i) {
+      var ang = (i / ds.length) * Math.PI * 2 - Math.PI / 2;
+      dn.x = center.x + Math.cos(ang) * R;
+      dn.y = center.y + Math.sin(ang) * R;
+      var as = nodes.filter(function (n) { return n.type === 'a' && n.d === dn.d; });
+      as.forEach(function (an, j) {
+        var a2 = ang + (j - (as.length - 1) / 2) * 0.42;
+        an.x = center.x + Math.cos(a2) * (R + 64);
+        an.y = center.y + Math.sin(a2) * (R + 64);
+      });
+    });
+  }
+  function resize() {
+    W = wrap.clientWidth;
+    H = W < 700 ? 400 : 480;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.height = H + 'px';
+    center.x = W / 2;
+    center.y = H / 2;
+    layout();
+    draw();
+  }
+
+  var dragging = null, moved = 0, hover = null;
+  function tick() {
+    var i, j, a, b, dx, dy, d2, d, f;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy || 1;
+        if (d2 > 25600) continue;
+        d = Math.sqrt(d2);
+        f = 640 / d2;
+        dx /= d; dy /= d;
+        if (!a.fixed && a !== dragging) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.fixed && b !== dragging) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    links.forEach(function (l) {
+      var dx = l.t.x - l.s.x, dy = l.t.y - l.s.y;
+      var d = Math.sqrt(dx * dx + dy * dy) || 1;
+      var f = (d - l.len) * 0.02;
+      dx /= d; dy /= d;
+      if (!l.s.fixed && l.s !== dragging) { l.s.vx += dx * f; l.s.vy += dy * f; }
+      if (!l.t.fixed && l.t !== dragging) { l.t.vx -= dx * f; l.t.vy -= dy * f; }
+    });
+    nodes.forEach(function (n) {
+      if (n.fixed || n === dragging) return;
+      n.vx *= 0.82; n.vy *= 0.82;
+      n.x += n.vx; n.y += n.vy;
+      var m = n.r + 16;
+      if (n.x < m) n.x = m;
+      if (n.x > W - m) n.x = W - m;
+      if (n.y < m) n.y = m;
+      if (n.y > H - m) n.y = H - m;
+    });
+  }
+
+  function draw() {
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    links.forEach(function (l) {
+      var c = l.t.type === 'd' ? 'rgba(139,144,160,0.22)' : col(l.t.d.color, 0.3);
+      ctx.strokeStyle = c;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(l.s.x, l.s.y);
+      ctx.lineTo(l.t.x, l.t.y);
+      ctx.stroke();
+    });
+    ctx.textAlign = 'center';
+    nodes.forEach(function (n) {
+      if (n.type === 'a') {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = col(n.d.color, 0.25);
+        ctx.fill();
+        if (n.img) {
+          ctx.save();
+          ctx.clip();
+          ctx.drawImage(n.img, n.x - n.r, n.y - n.r, n.r * 2, n.r * 2);
+          ctx.restore();
+        }
+        ctx.strokeStyle = n === hover ? '#5b8def' : col(n.d.color, 0.55);
+        ctx.lineWidth = n === hover ? 2 : 1;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fillStyle = n === hover ? '#e8eaf0' : 'rgba(139,144,160,0.95)';
+        ctx.font = '9.5px -apple-system, sans-serif';
+        ctx.fillText(trunc(label(n), 12), n.x, n.y + n.r + 11);
+      } else if (n.type === 'd') {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = col(n.d.color, 0.2);
+        ctx.fill();
+        ctx.strokeStyle = col(n.d.color, n === hover ? 1 : 0.6);
+        ctx.lineWidth = n === hover ? 2 : 1.4;
+        ctx.stroke();
+        ctx.font = '15px -apple-system, sans-serif';
+        ctx.fillStyle = '#e8eaf0';
+        ctx.fillText(n.d.icon, n.x, n.y + 5);
+        ctx.font = '700 10.5px -apple-system, sans-serif';
+        ctx.fillStyle = n === hover ? '#e8eaf0' : col(n.d.color, 0.95);
+        ctx.fillText(trunc(label(n), 16), n.x, n.y + n.r + 13);
+      } else {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(91,141,239,0.16)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(91,141,239,0.7)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.font = '17px -apple-system, sans-serif';
+        ctx.fillText('🍎', n.x, n.y + 6);
+        ctx.font = '800 10px -apple-system, sans-serif';
+        ctx.fillStyle = '#8b90a0';
+        ctx.fillText('Leeo', n.x, n.y + n.r + 12);
+      }
+    });
+  }
+
+  function pos(e) {
+    var r = canvas.getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  }
+  function hit(p) {
+    for (var i = nodes.length - 1; i >= 0; i--) {
+      var n = nodes[i];
+      var dx = p.x - n.x, dy = p.y - n.y;
+      if (dx * dx + dy * dy <= (n.r + 4) * (n.r + 4)) return n;
+    }
+    return null;
+  }
+  function showTip(n) {
+    var html = '';
+    if (n.type === 'a') {
+      html = '<b>' + biSpan(n.a.name, n.a.nameEn) + '</b>';
+      if (n.a.pain) html += '<span class="pg-pain">' + biSpan(n.a.pain, n.a.painEn) + '</span>';
+    } else if (n.type === 'd') {
+      html = '<b>' + esc(n.d.icon) + ' ' + biSpan(n.d.title, n.d.titleEn) + '</b>' +
+        '<span class="pg-pain">' + biSpan('앱 ' + n.d.apps.length + '개 · 클릭하면 목차로', n.d.apps.length + ' apps · click to jump to the list') + '</span>';
+    } else {
+      tip.style.opacity = 0;
+      return;
+    }
+    tip.innerHTML = html;
+    var tx = Math.min(Math.max(n.x + 16, 8), W - 240);
+    var ty = Math.max(n.y - 14, 8);
+    tip.style.left = tx + 'px';
+    tip.style.top = ty + 'px';
+    tip.style.opacity = 1;
+  }
+  canvas.addEventListener('pointerdown', function (e) {
+    var n = hit(pos(e));
+    if (n && !n.fixed) {
+      dragging = n;
+      moved = 0;
+      canvas.setPointerCapture(e.pointerId);
+    }
+  });
+  canvas.addEventListener('pointermove', function (e) {
+    var p = pos(e);
+    if (dragging) {
+      moved += Math.abs(p.x - dragging.x) + Math.abs(p.y - dragging.y);
+      dragging.x = p.x;
+      dragging.y = p.y;
+      dragging.vx = 0;
+      dragging.vy = 0;
+      return;
+    }
+    hover = hit(p);
+    canvas.style.cursor = hover ? 'pointer' : 'grab';
+    if (hover) showTip(hover);
+    else tip.style.opacity = 0;
+  });
+  canvas.addEventListener('pointerup', function (e) {
+    var n = dragging;
+    dragging = null;
+    if (n && moved < 6) {
+      var el = null;
+      if (n.type === 'a') el = document.getElementById('app-' + n.a.slug);
+      else if (n.type === 'd') el = document.getElementById('pd-' + n.d.id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+  canvas.addEventListener('pointerleave', function () {
+    hover = null;
+    tip.style.opacity = 0;
+  });
+
+  var running = false, raf = null;
+  function frame() {
+    tick();
+    tick();
+    draw();
+    raf = requestAnimationFrame(frame);
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting && !running) { running = true; frame(); }
+        else if (!en.isIntersecting && running) { running = false; cancelAnimationFrame(raf); }
+      });
+    }).observe(wrap);
+  } else {
+    running = true;
+    frame();
+  }
+  window.addEventListener('resize', resize);
+  resize();
+})();
+</script>
   <script>
   (function () {
     var root = document.documentElement;

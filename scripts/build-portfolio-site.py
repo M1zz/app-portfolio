@@ -381,79 +381,377 @@ def render_card(app, copy=None, copy_en=None):
     </article>"""
 
 
-def render_problem_map(pm, by_slug):
-    """'문제 해결 지도' 섹션: 테마 도메인 → 앱 → 문제(불편·누가·언제·공백) 아코디언."""
+def render_problem_hub(pm, by_slug, copy_map, copy_map_en, released):
+    """상단 '문제 해결 지도' 허브: 네트워크 그래프 + 도메인별 문제 목차(TOC 통합).
+
+    반환: (섹션 HTML, 그래프 데이터 JSON)
+    """
     if not pm:
-        return ""
-    domain_blocks = []
+        return "", "null"
+    toc_groups = []
+    graph_domains = []
+    mapped = set()
     for dom in pm.get("domains", []):
-        app_blocks = []
+        items = []
+        gapps = []
         for entry in dom.get("apps", []):
             app = by_slug.get(entry.get("slug"))
             if not app:
                 continue
+            mapped.add(entry["slug"])
             store = app.get("_store") or {}
             name = app.get("name") or store.get("trackName") or entry["slug"]
             name_en = app.get("nameEn") or store.get("trackName_en") or name
-            icon = store.get("icon")
-            icon_html = (
-                f'<img class="pmap-app-icon" src="{escape(icon)}" alt="" loading="lazy">'
-                if icon
-                else f'<span class="pmap-app-icon icon-fallback">{escape(name[:1])}</span>'
-            )
-            problems = []
-            for p in entry.get("problems", []):
-                meta_rows = []
-                for label, label_en, key in (
-                    ("누가", "Who", "who"),
-                    ("언제", "When", "when"),
-                    ("공백", "Gap", "gap"),
-                ):
-                    if p.get(key):
-                        meta_rows.append(
-                            f'<div class="pmap-meta-row"><dt>{bi(label, label_en)}</dt>'
-                            f'<dd>{bi(p[key], p.get(key + "En"))}</dd></div>'
-                        )
-                problems.append(
-                    f'<div class="pmap-problem">'
-                    f'<p class="pmap-pain">{bi(p.get("pain", ""), p.get("painEn"))}</p>'
-                    f'<div class="pmap-meta">{"".join(meta_rows)}</div></div>'
+            probs = entry.get("problems", [])
+            for p in probs:
+                items.append(
+                    f'<a class="toc-item" href="#app-{entry["slug"]}">'
+                    f'<span class="toc-hook">{bi(p.get("pain", ""), p.get("painEn"))}</span>'
+                    f'<span class="toc-app">{bi(name, name_en)} →</span></a>'
                 )
-            app_blocks.append(
-                f"""<div class="pmap-app">
-          <a class="pmap-app-head" href="#app-{entry['slug']}">
-            {icon_html}
-            <span class="pmap-app-name">{bi(name, name_en)}</span>
-            <span class="pmap-app-go">{bi("카드 보기", "View card")} ↓</span>
-          </a>
-          <div class="pmap-problems">{"".join(problems)}</div>
-        </div>"""
+            first = probs[0] if probs else {}
+            gapps.append(
+                {
+                    "slug": entry["slug"],
+                    "name": name,
+                    "nameEn": name_en,
+                    "icon": store.get("icon"),
+                    "pain": first.get("pain", ""),
+                    "painEn": first.get("painEn", ""),
+                }
             )
-        if not app_blocks:
+        if not items:
             continue
-        domain_blocks.append(
-            f"""
-      <details class="pmap-domain" style="--dm:{escape(dom.get("color", "#5b8def"))}">
-        <summary>
-          <span class="pmap-dm-icon">{escape(dom.get("icon", ""))}</span>
-          <span class="pmap-dm-title">{bi(dom.get("title", ""), dom.get("titleEn"))}</span>
-          <span class="pmap-dm-count">{len(app_blocks)}</span>
-          <span class="pmap-dm-arrow">▸</span>
-        </summary>
-        <div class="pmap-apps">{"".join(app_blocks)}</div>
-      </details>"""
+        color = dom.get("color", "#5b8def")
+        graph_domains.append(
+            {
+                "id": dom.get("id"),
+                "icon": dom.get("icon", ""),
+                "title": dom.get("title", ""),
+                "titleEn": dom.get("titleEn", ""),
+                "color": color,
+                "apps": gapps,
+            }
         )
-    if not domain_blocks:
-        return ""
-    return f"""
-    <section class="pmap" id="problem-map">
-      <div class="pmap-head">
+        toc_groups.append(
+            f'<div class="toc-group" id="pd-{escape(dom.get("id", ""))}">'
+            f'<h3><span class="toc-dot" style="background:{escape(color)}"></span>'
+            f'{escape(dom.get("icon", ""))} {bi(dom.get("title", ""), dom.get("titleEn"))}</h3>'
+            f'<div class="toc-list">{"".join(items)}</div></div>'
+        )
+
+    # 지도에 없는 출시작은 쇼케이스 훅으로 '그 외' 그룹에 노출 (누락 방지)
+    lo_items = []
+    for app in released:
+        if app["_slug"] in mapped:
+            continue
+        copy = copy_map.get(app["_slug"]) or {}
+        copy_en = copy_map_en.get(app["_slug"]) or {}
+        store = app.get("_store") or {}
+        name = app.get("name") or store.get("trackName") or app["_slug"]
+        name_en = app.get("nameEn") or store.get("trackName_en") or name
+        hook = copy.get("hook") or copy.get("problem") or name
+        hook_en = copy_en.get("hook") or copy_en.get("problem") or name_en
+        lo_items.append(
+            f'<a class="toc-item" href="#app-{app["_slug"]}">'
+            f'<span class="toc-hook">{bi(hook, hook_en)}</span>'
+            f'<span class="toc-app">{bi(name, name_en)} →</span></a>'
+        )
+    if lo_items:
+        toc_groups.append(
+            f'<div class="toc-group"><h3><span class="toc-dot" style="background:#8b90a0"></span>'
+            f'✨ {bi("그 외", "More")}</h3>'
+            f'<div class="toc-list">{"".join(lo_items)}</div></div>'
+        )
+
+    if not toc_groups:
+        return "", "null"
+
+    section = f"""
+    <section class="toc" id="problem-map">
+      <div class="toc-head">
         <h2>{bi(pm.get("title", ""), pm.get("titleEn"))}</h2>
-        <p>{bi(pm.get("intro", ""), pm.get("introEn"))}</p>
+        <p>{bi("이런 고민, 없으세요? 공감 가는 문제를 누르면 그 문제를 푸는 앱으로 바로 이동합니다.", "Sound familiar? Tap a problem you relate to and jump straight to the app that solves it.")}</p>
       </div>
-      <div class="pmap-domains">{"".join(domain_blocks)}</div>
+      <div class="pmap-graph" id="pmapGraph">
+        <canvas></canvas>
+        <div class="pg-tip"></div>
+        <div class="pg-hint">{bi("노드를 드래그·클릭해 보세요", "Drag or click the nodes")}</div>
+      </div>
+      <div class="toc-groups">{"".join(toc_groups)}</div>
       <p class="pmap-more"><a href="https://m1zz.github.io/industry-explorer/" target="_blank" rel="noopener">{bi("산업 전체의 문제 ↔ 솔루션 지도 탐색하기", "Explore the full industry problem ↔ solution map")} →</a></p>
     </section>"""
+    graph_json = json.dumps({"domains": graph_domains}, ensure_ascii=False)
+    return section, graph_json
+
+
+# 네트워크 그래프(중심 → 도메인 → 앱) — 템플릿에 그대로 삽입되는 순수 JS
+GRAPH_JS = r"""
+(function () {
+  var data = window.PMAP_GRAPH;
+  var wrap = document.getElementById('pmapGraph');
+  if (!data || !wrap) return;
+  var canvas = wrap.querySelector('canvas');
+  var tip = wrap.querySelector('.pg-tip');
+  var ctx = canvas.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+  var nodes = [], links = [];
+  var center = { type: 'c', r: 25, x: 0, y: 0, vx: 0, vy: 0, fixed: true };
+  nodes.push(center);
+  data.domains.forEach(function (d) {
+    var dn = { type: 'd', d: d, r: 21, x: 0, y: 0, vx: 0, vy: 0 };
+    nodes.push(dn);
+    links.push({ s: center, t: dn, len: 150 });
+    d.apps.forEach(function (a) {
+      var an = { type: 'a', a: a, d: d, r: 12, x: 0, y: 0, vx: 0, vy: 0 };
+      if (a.icon) {
+        var im = new Image();
+        im.onload = function () { an.img = im; };
+        im.src = a.icon;
+      }
+      nodes.push(an);
+      links.push({ s: dn, t: an, len: 56 });
+    });
+  });
+
+  function col(hex, a) {
+    var r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function biSpan(ko, en) {
+    return '<span class="lk">' + esc(ko) + '</span><span class="le">' + esc(en || ko) + '</span>';
+  }
+  function lang() { return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'ko'; }
+  function label(n) {
+    var en = lang() === 'en';
+    if (n.type === 'd') return en ? (n.d.titleEn || n.d.title) : n.d.title;
+    if (n.type === 'a') return en ? (n.a.nameEn || n.a.name) : n.a.name;
+    return '';
+  }
+  function trunc(s, m) { return s.length > m ? s.slice(0, m - 1) + '…' : s; }
+
+  function layout() {
+    var R = Math.min(W, H) * 0.30;
+    var ds = nodes.filter(function (n) { return n.type === 'd'; });
+    ds.forEach(function (dn, i) {
+      var ang = (i / ds.length) * Math.PI * 2 - Math.PI / 2;
+      dn.x = center.x + Math.cos(ang) * R;
+      dn.y = center.y + Math.sin(ang) * R;
+      var as = nodes.filter(function (n) { return n.type === 'a' && n.d === dn.d; });
+      as.forEach(function (an, j) {
+        var a2 = ang + (j - (as.length - 1) / 2) * 0.42;
+        an.x = center.x + Math.cos(a2) * (R + 64);
+        an.y = center.y + Math.sin(a2) * (R + 64);
+      });
+    });
+  }
+  function resize() {
+    W = wrap.clientWidth;
+    H = W < 700 ? 400 : 480;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.height = H + 'px';
+    center.x = W / 2;
+    center.y = H / 2;
+    layout();
+    draw();
+  }
+
+  var dragging = null, moved = 0, hover = null;
+  function tick() {
+    var i, j, a, b, dx, dy, d2, d, f;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy || 1;
+        if (d2 > 25600) continue;
+        d = Math.sqrt(d2);
+        f = 640 / d2;
+        dx /= d; dy /= d;
+        if (!a.fixed && a !== dragging) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.fixed && b !== dragging) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    links.forEach(function (l) {
+      var dx = l.t.x - l.s.x, dy = l.t.y - l.s.y;
+      var d = Math.sqrt(dx * dx + dy * dy) || 1;
+      var f = (d - l.len) * 0.02;
+      dx /= d; dy /= d;
+      if (!l.s.fixed && l.s !== dragging) { l.s.vx += dx * f; l.s.vy += dy * f; }
+      if (!l.t.fixed && l.t !== dragging) { l.t.vx -= dx * f; l.t.vy -= dy * f; }
+    });
+    nodes.forEach(function (n) {
+      if (n.fixed || n === dragging) return;
+      n.vx *= 0.82; n.vy *= 0.82;
+      n.x += n.vx; n.y += n.vy;
+      var m = n.r + 16;
+      if (n.x < m) n.x = m;
+      if (n.x > W - m) n.x = W - m;
+      if (n.y < m) n.y = m;
+      if (n.y > H - m) n.y = H - m;
+    });
+  }
+
+  function draw() {
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    links.forEach(function (l) {
+      var c = l.t.type === 'd' ? 'rgba(139,144,160,0.22)' : col(l.t.d.color, 0.3);
+      ctx.strokeStyle = c;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(l.s.x, l.s.y);
+      ctx.lineTo(l.t.x, l.t.y);
+      ctx.stroke();
+    });
+    ctx.textAlign = 'center';
+    nodes.forEach(function (n) {
+      if (n.type === 'a') {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = col(n.d.color, 0.25);
+        ctx.fill();
+        if (n.img) {
+          ctx.save();
+          ctx.clip();
+          ctx.drawImage(n.img, n.x - n.r, n.y - n.r, n.r * 2, n.r * 2);
+          ctx.restore();
+        }
+        ctx.strokeStyle = n === hover ? '#5b8def' : col(n.d.color, 0.55);
+        ctx.lineWidth = n === hover ? 2 : 1;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fillStyle = n === hover ? '#e8eaf0' : 'rgba(139,144,160,0.95)';
+        ctx.font = '9.5px -apple-system, sans-serif';
+        ctx.fillText(trunc(label(n), 12), n.x, n.y + n.r + 11);
+      } else if (n.type === 'd') {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = col(n.d.color, 0.2);
+        ctx.fill();
+        ctx.strokeStyle = col(n.d.color, n === hover ? 1 : 0.6);
+        ctx.lineWidth = n === hover ? 2 : 1.4;
+        ctx.stroke();
+        ctx.font = '15px -apple-system, sans-serif';
+        ctx.fillStyle = '#e8eaf0';
+        ctx.fillText(n.d.icon, n.x, n.y + 5);
+        ctx.font = '700 10.5px -apple-system, sans-serif';
+        ctx.fillStyle = n === hover ? '#e8eaf0' : col(n.d.color, 0.95);
+        ctx.fillText(trunc(label(n), 16), n.x, n.y + n.r + 13);
+      } else {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(91,141,239,0.16)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(91,141,239,0.7)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.font = '17px -apple-system, sans-serif';
+        ctx.fillText('🍎', n.x, n.y + 6);
+        ctx.font = '800 10px -apple-system, sans-serif';
+        ctx.fillStyle = '#8b90a0';
+        ctx.fillText('Leeo', n.x, n.y + n.r + 12);
+      }
+    });
+  }
+
+  function pos(e) {
+    var r = canvas.getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  }
+  function hit(p) {
+    for (var i = nodes.length - 1; i >= 0; i--) {
+      var n = nodes[i];
+      var dx = p.x - n.x, dy = p.y - n.y;
+      if (dx * dx + dy * dy <= (n.r + 4) * (n.r + 4)) return n;
+    }
+    return null;
+  }
+  function showTip(n) {
+    var html = '';
+    if (n.type === 'a') {
+      html = '<b>' + biSpan(n.a.name, n.a.nameEn) + '</b>';
+      if (n.a.pain) html += '<span class="pg-pain">' + biSpan(n.a.pain, n.a.painEn) + '</span>';
+    } else if (n.type === 'd') {
+      html = '<b>' + esc(n.d.icon) + ' ' + biSpan(n.d.title, n.d.titleEn) + '</b>' +
+        '<span class="pg-pain">' + biSpan('앱 ' + n.d.apps.length + '개 · 클릭하면 목차로', n.d.apps.length + ' apps · click to jump to the list') + '</span>';
+    } else {
+      tip.style.opacity = 0;
+      return;
+    }
+    tip.innerHTML = html;
+    var tx = Math.min(Math.max(n.x + 16, 8), W - 240);
+    var ty = Math.max(n.y - 14, 8);
+    tip.style.left = tx + 'px';
+    tip.style.top = ty + 'px';
+    tip.style.opacity = 1;
+  }
+  canvas.addEventListener('pointerdown', function (e) {
+    var n = hit(pos(e));
+    if (n && !n.fixed) {
+      dragging = n;
+      moved = 0;
+      canvas.setPointerCapture(e.pointerId);
+    }
+  });
+  canvas.addEventListener('pointermove', function (e) {
+    var p = pos(e);
+    if (dragging) {
+      moved += Math.abs(p.x - dragging.x) + Math.abs(p.y - dragging.y);
+      dragging.x = p.x;
+      dragging.y = p.y;
+      dragging.vx = 0;
+      dragging.vy = 0;
+      return;
+    }
+    hover = hit(p);
+    canvas.style.cursor = hover ? 'pointer' : 'grab';
+    if (hover) showTip(hover);
+    else tip.style.opacity = 0;
+  });
+  canvas.addEventListener('pointerup', function (e) {
+    var n = dragging;
+    dragging = null;
+    if (n && moved < 6) {
+      var el = null;
+      if (n.type === 'a') el = document.getElementById('app-' + n.a.slug);
+      else if (n.type === 'd') el = document.getElementById('pd-' + n.d.id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+  canvas.addEventListener('pointerleave', function () {
+    hover = null;
+    tip.style.opacity = 0;
+  });
+
+  var running = false, raf = null;
+  function frame() {
+    tick();
+    tick();
+    draw();
+    raf = requestAnimationFrame(frame);
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting && !running) { running = true; frame(); }
+        else if (!en.isIntersecting && running) { running = false; cancelAnimationFrame(raf); }
+      });
+    }).observe(wrap);
+  } else {
+    running = true;
+    frame();
+  }
+  window.addEventListener('resize', resize);
+  resize();
+})();
+"""
 
 
 def render(apps, content=None, content_en=None, problem_map=None):
@@ -474,12 +772,10 @@ def render(apps, content=None, content_en=None, problem_map=None):
 
     # 카테고리 그룹 순서대로 섹션 구성 (+ 문제 목차 수집)
     section_blocks = []
-    toc_blocks = []
     grouped_slugs = set()
     for gi, group in enumerate(content.get("groups", [])):
         group_en = groups_en[gi] if gi < len(groups_en) else {}
         cards = []
-        toc_items = []
         for slug in group.get("slugs", []):
             app = by_slug.get(slug)
             if not app or not showable(app):
@@ -488,15 +784,6 @@ def render(apps, content=None, content_en=None, problem_map=None):
             copy = copy_map.get(slug) or {}
             copy_en = copy_map_en.get(slug) or {}
             cards.append(render_card(app, copy, copy_en))
-            name = app.get("name") or (app.get("_store") or {}).get("trackName") or slug
-            name_en = app.get("nameEn") or (app.get("_store") or {}).get("trackName_en") or name
-            hook = copy.get("hook") or copy.get("problem") or name
-            hook_en = copy_en.get("hook") or copy_en.get("problem") or name_en
-            toc_items.append(
-                f'<a class="toc-item" href="#app-{slug}">'
-                f'<span class="toc-hook">{bi(hook, hook_en)}</span>'
-                f'<span class="toc-app">{bi(name, name_en)} →</span></a>'
-            )
         if not cards:
             continue
         intro = group.get("intro", "")
@@ -515,25 +802,10 @@ def render(apps, content=None, content_en=None, problem_map=None):
       <div class="exhibits">{"".join(cards)}</div>
     </section>"""
         )
-        toc_blocks.append(
-            f"""
-      <div class="toc-group">
-        <h3>{title_html}</h3>
-        <div class="toc-list">{"".join(toc_items)}</div>
-      </div>"""
-        )
 
-    toc_html = (
-        f"""
-    <section class="toc">
-      <div class="toc-head">
-        <h2>{bi("이런 고민, 없으세요?", "Sound familiar?")}</h2>
-        <p>{bi("공감 가는 문제를 누르면 그걸 푸는 앱으로 바로 이동합니다.", "Tap a problem you relate to and jump straight to the app that solves it.")}</p>
-      </div>
-      <div class="toc-groups">{"".join(toc_blocks)}</div>
-    </section>"""
-        if toc_blocks
-        else ""
+    # 상단 허브: 네트워크 그래프 + 도메인별 문제 목차 (문제 해결 지도 통합)
+    toc_html, pmap_graph_json = render_problem_hub(
+        problem_map, by_slug, copy_map, copy_map_en, released
     )
 
     # 그룹에 빠진 출시작이 있으면 '그 외' 섹션으로 보강 (누락 방지)
@@ -560,7 +832,6 @@ def render(apps, content=None, content_en=None, problem_map=None):
         )
 
     sections_html = "\n".join(section_blocks)
-    pmap_html = render_problem_map(problem_map, by_slug)
 
     total = len(apps)
     released_n = len(released)
@@ -823,10 +1094,8 @@ def render(apps, content=None, content_en=None, problem_map=None):
     .who {{ grid-template-columns: 1fr 1fr; gap: 10px 16px; }}
     .links .btn {{ flex: 1 1 auto; }}
 
-    .pmap {{ margin-top: 48px; padding: 24px 18px; }}
-    .pmap-head h2 {{ font-size: 1.3rem; }}
-    .pmap-apps {{ padding: 2px 12px 14px; }}
-    .pmap-problems {{ grid-template-columns: 1fr; }}
+    .pmap-graph {{ margin-top: 18px; border-radius: 14px; }}
+    .pg-hint {{ display: none; }}
   }}
 
   @media (max-width: 440px) {{
@@ -836,73 +1105,30 @@ def render(apps, content=None, content_en=None, problem_map=None):
     .stats {{ gap: 14px; }}
     .toc {{ padding: 20px 15px; border-radius: 18px; }}
     .toc-groups {{ grid-template-columns: 1fr; }}
-    .pmap {{ padding: 20px 15px; border-radius: 18px; }}
-    .pmap-domain summary {{ padding: 12px 14px; }}
     .toc-app {{ font-size: .7rem; }}
     .exhibit {{ padding: 15px; }}
     .who {{ grid-template-columns: 1fr; }}
     .btn {{ padding: 11px 14px; font-size: .82rem; }}
   }}
 
-  /* 문제 해결 지도 */
-  .pmap {{
-    margin-top: 72px;
-    background: linear-gradient(160deg, var(--card), var(--bg-soft));
-    border: 1px solid var(--border); border-radius: 24px;
-    padding: 34px 30px;
+  /* 문제 해결 지도: 네트워크 그래프 + 도메인 목차 */
+  .toc-dot {{ display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 2px; vertical-align: baseline; }}
+  .toc-group {{ scroll-margin-top: 20px; }}
+  .pmap-graph {{
+    position: relative; margin-top: 24px; border: 1px solid var(--border); border-radius: 18px;
+    overflow: hidden; touch-action: pan-y;
+    background: radial-gradient(120% 130% at 50% 0%, rgba(91,141,239,.10), transparent), var(--bg);
   }}
-  .pmap-head h2 {{ font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }}
-  .pmap-head p {{ color: var(--muted); font-size: .95rem; margin-top: 6px; max-width: 640px; }}
-  .pmap-domains {{ margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }}
-  .pmap-domain {{
-    border: 1px solid var(--border); border-radius: 16px;
-    background: var(--bg-soft); overflow: hidden; transition: border-color .2s;
+  .pmap-graph canvas {{ display: block; width: 100%; cursor: grab; }}
+  .pg-tip {{
+    position: absolute; pointer-events: none; z-index: 5; max-width: 250px;
+    background: rgba(11,13,18,.94); border: 1px solid var(--border); border-radius: 10px;
+    padding: 8px 12px; font-size: .8rem; line-height: 1.45; opacity: 0; transition: opacity .12s;
   }}
-  .pmap-domain[open], .pmap-domain:hover {{ border-color: color-mix(in srgb, var(--dm) 55%, var(--border)); }}
-  .pmap-domain summary {{
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 18px; cursor: pointer; list-style: none; user-select: none;
-  }}
-  .pmap-domain summary::-webkit-details-marker {{ display: none; }}
-  .pmap-dm-icon {{
-    width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
-    background: color-mix(in srgb, var(--dm) 18%, transparent);
-    border: 1px solid color-mix(in srgb, var(--dm) 35%, transparent);
-  }}
-  .pmap-dm-title {{ font-size: 1.02rem; font-weight: 800; flex: 1; min-width: 0; }}
-  .pmap-dm-count {{
-    font-size: .74rem; font-weight: 700; color: var(--muted);
-    background: var(--card); border: 1px solid var(--border);
-    padding: 2px 10px; border-radius: 999px;
-  }}
-  .pmap-dm-arrow {{ color: var(--muted); font-size: .8rem; transition: transform .2s; }}
-  .pmap-domain[open] .pmap-dm-arrow {{ transform: rotate(90deg); color: var(--dm); }}
-  .pmap-apps {{ padding: 4px 18px 16px; display: flex; flex-direction: column; gap: 12px; }}
-  .pmap-app {{
-    border: 1px solid var(--border); border-radius: 13px; background: var(--card);
-    padding: 13px 15px;
-  }}
-  .pmap-app-head {{ display: flex; align-items: center; gap: 10px; }}
-  .pmap-app-head:hover .pmap-app-name {{ color: var(--accent); }}
-  .pmap-app-icon {{ width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; object-fit: cover; font-size: .9rem; }}
-  .pmap-app-name {{ font-size: .95rem; font-weight: 800; flex: 1; min-width: 0; transition: color .15s; }}
-  .pmap-app-go {{ font-size: .72rem; font-weight: 700; color: var(--muted); white-space: nowrap; }}
-  .pmap-problems {{ margin-top: 11px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }}
-  .pmap-problem {{
-    background: rgba(240,119,106,.06); border: 1px solid rgba(240,119,106,.18);
-    border-radius: 11px; padding: 11px 13px;
-  }}
-  .pmap-pain {{ font-size: .88rem; font-weight: 700; line-height: 1.45; color: var(--text); }}
-  .pmap-meta {{ margin-top: 9px; display: flex; flex-direction: column; gap: 5px; }}
-  .pmap-meta-row {{ display: flex; gap: 8px; align-items: baseline; }}
-  .pmap-meta-row dt {{
-    flex-shrink: 0; font-size: .64rem; font-weight: 800; letter-spacing: .05em;
-    color: var(--accent-2); background: rgba(167,139,250,.12);
-    border: 1px solid rgba(167,139,250,.25); border-radius: 5px; padding: 1px 7px;
-  }}
-  .pmap-meta-row dd {{ margin: 0; font-size: .8rem; color: var(--muted); line-height: 1.45; }}
-  .pmap-more {{ margin-top: 20px; text-align: center; font-size: .88rem; font-weight: 700; }}
+  .pg-tip b {{ display: block; font-size: .84rem; margin-bottom: 2px; }}
+  .pg-tip .pg-pain {{ color: var(--muted); }}
+  .pg-hint {{ position: absolute; bottom: 10px; right: 14px; font-size: .7rem; color: var(--muted); opacity: .85; pointer-events: none; }}
+  .pmap-more {{ margin-top: 22px; text-align: center; font-size: .88rem; font-weight: 700; }}
   .pmap-more a {{ color: var(--accent); }}
   .pmap-more a:hover {{ text-decoration: underline; }}
 
@@ -941,7 +1167,6 @@ def render(apps, content=None, content_en=None, problem_map=None):
     <div class="wrap">
       {toc_html}
       {sections_html}
-      {pmap_html}
     </div>
   </main>
 
@@ -949,6 +1174,8 @@ def render(apps, content=None, content_en=None, problem_map=None):
     <p>{bi(f"마지막 업데이트 {updated}", f"Last updated {updated}")} · <a href="https://github.com/M1zz/app-portfolio" target="_blank" rel="noopener">GitHub</a></p>
   </footer>
 
+  <script>window.PMAP_GRAPH = {pmap_graph_json};</script>
+  <script>{GRAPH_JS}</script>
   <script>
   (function () {{
     var root = document.documentElement;
