@@ -530,7 +530,7 @@ GRAPH_JS = r"""
     var en = lang() === 'en';
     if (n.type === 'd') return en ? (n.d.titleEn || n.d.title) : n.d.title;
     if (n.type === 'a') return en ? (n.a.nameEn || n.a.name) : n.a.name;
-    return '';
+    return en ? 'Leeo' : '리이오';
   }
   function trunc(s, m) { return s.length > m ? s.slice(0, m - 1) + '…' : s; }
 
@@ -656,7 +656,7 @@ GRAPH_JS = r"""
         ctx.fillText('🍎', n.x, n.y + 6);
         ctx.font = '800 10px -apple-system, sans-serif';
         ctx.fillStyle = '#8b90a0';
-        ctx.fillText('Leeo', n.x, n.y + n.r + 12);
+        ctx.fillText(label(n), n.x, n.y + n.r + 12);
       }
     });
   }
@@ -833,30 +833,18 @@ def render(apps, content=None, content_en=None, problem_map=None):
 
     sections_html = "\n".join(section_blocks)
 
-    total = len(apps)
     released_n = len(released)
-    category_n = len([b for b in content.get("groups", []) if b.get("slugs")])
-    rated = [a for a in released if (a.get("_store") or {}).get("rating")]
-    avg_rating = (
-        sum((a["_store"]["rating"]) for a in rated) / len(rated) if rated else 0
-    )
     updated = datetime.now(KST).strftime("%Y-%m-%d")
-
-    avg_stat = (
-        f"""<div class="stat"><span class="stat-num">{avg_rating:.1f}</span><span class="stat-label">{bi("평균 평점", "Avg. Rating")}</span></div>"""
-        if avg_rating
-        else ""
-    )
 
     return f"""<!DOCTYPE html>
 <html lang="ko" data-lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App Portfolio — hyunho lee</title>
-<meta name="description" content="hyunho lee 가 만든 iOS / macOS 앱 포트폴리오">
-<meta property="og:title" content="App Portfolio — hyunho lee">
-<meta property="og:description" content="iOS / macOS 앱 {released_n}종을 소개합니다.">
+<title>리이오의 쇼케이스 — Leeo's Showcase</title>
+<meta name="description" content="일상의 문제를 앱으로 푸는 1인 개발자 리이오(Leeo)의 iOS / macOS 앱 쇼케이스">
+<meta property="og:title" content="리이오의 쇼케이스 — Leeo's Showcase">
+<meta property="og:description" content="일상의 문제를 앱으로 풉니다 — 출시 앱 {released_n}종">
 <meta property="og:type" content="website">
 <style>
   :root {{
@@ -908,27 +896,22 @@ def render(apps, content=None, content_en=None, problem_map=None):
 
   header.hero {{
     text-align: center;
-    padding: 80px 20px 50px;
+    padding: 52px 20px 10px;
     background:
       radial-gradient(800px 400px at 50% -10%, rgba(91,141,239,.25), transparent),
       radial-gradient(600px 300px at 80% 0%, rgba(167,139,250,.18), transparent);
   }}
   .hero h1 {{
-    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-size: clamp(2rem, 4.5vw, 3rem);
     font-weight: 800;
     letter-spacing: -.02em;
     background: linear-gradient(120deg, var(--accent), var(--accent-2));
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
   }}
-  .hero p {{ color: var(--muted); margin-top: 14px; font-size: 1.1rem; }}
+  .hero p {{ color: var(--muted); margin-top: 10px; font-size: 1.02rem; }}
 
-  .stats {{ display: flex; justify-content: center; gap: 40px; margin-top: 36px; flex-wrap: wrap; }}
-  .stat {{ display: flex; flex-direction: column; align-items: center; }}
-  .stat-num {{ font-size: 2rem; font-weight: 800; color: var(--text); }}
-  .stat-label {{ font-size: .85rem; color: var(--muted); }}
-
-  main {{ padding: 30px 0 90px; }}
+  main {{ padding: 18px 0 90px; }}
 
   /* 문제 목차 */
   .toc {{
@@ -1063,10 +1046,8 @@ def render(apps, content=None, content_en=None, problem_map=None):
   .btn-ghost {{ background: var(--bg-soft); border: 1px solid var(--border); color: var(--text); }}
 
   @media (max-width: 780px) {{
-    header.hero {{ padding: 56px 18px 36px; }}
-    .hero p {{ font-size: 1rem; }}
-    .stats {{ gap: 22px; margin-top: 26px; }}
-    .stat-num {{ font-size: 1.6rem; }}
+    header.hero {{ padding: 42px 18px 6px; }}
+    .hero p {{ font-size: .95rem; }}
 
     .toc {{ padding: 24px 18px; }}
     .toc-head h2 {{ font-size: 1.3rem; }}
@@ -1100,9 +1081,8 @@ def render(apps, content=None, content_en=None, problem_map=None):
 
   @media (max-width: 440px) {{
     .wrap {{ padding: 0 14px; }}
-    header.hero {{ padding: 44px 14px 28px; }}
-    .hero h1 {{ font-size: 2rem; }}
-    .stats {{ gap: 14px; }}
+    header.hero {{ padding: 34px 14px 4px; }}
+    .hero h1 {{ font-size: 1.8rem; }}
     .toc {{ padding: 20px 15px; border-radius: 18px; }}
     .toc-groups {{ grid-template-columns: 1fr; }}
     .toc-app {{ font-size: .7rem; }}
@@ -1152,14 +1132,8 @@ def render(apps, content=None, content_en=None, problem_map=None):
   </div>
   <header class="hero">
     <div class="wrap">
-      <h1>App Portfolio</h1>
-      <p>{bi("hyunho lee 가 만든 iOS · macOS 앱 — 누가 · 언제 · 어떻게 쓰면 좋은지 카테고리별로 소개합니다.", "iOS · macOS apps built by hyunho lee — organized by category, with who, when, and how to use each one.")}</p>
-      <div class="stats">
-        <div class="stat"><span class="stat-num">{released_n}</span><span class="stat-label">{bi("출시 앱", "Released Apps")}</span></div>
-        <div class="stat"><span class="stat-num">{category_n}</span><span class="stat-label">{bi("카테고리", "Categories")}</span></div>
-        {avg_stat}
-        <div class="stat"><span class="stat-num">{total}</span><span class="stat-label">{bi("전체 프로젝트", "Total Projects")}</span></div>
-      </div>
+      <h1>{bi("리이오의 쇼케이스", "Leeo's Showcase")}</h1>
+      <p>{bi(f"일상의 문제를 앱으로 푸는 1인 개발자 리이오 — 출시 앱 {released_n}종", f"Leeo, an indie developer solving everyday problems with apps — {released_n} on the App Store")}</p>
     </div>
   </header>
 
