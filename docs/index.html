@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko" data-lang="ko">
+<html lang="ko" data-lang="ko" data-theme="dark">
 <head>
 <meta charset="UTF-8">
+<script>
+try {
+  var _t = localStorage.getItem('portfolio-theme')
+    || (window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.setAttribute('data-theme', _t);
+} catch (e) {}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>리이오의 쇼케이스 — Leeo's Showcase</title>
 <meta name="description" content="일상의 문제를 앱으로 푸는 1인 개발자 리이오(Leeo)의 iOS / macOS 앱 쇼케이스">
@@ -18,6 +25,16 @@
     --muted: #8b90a0;
     --accent: #5b8def;
     --accent-2: #a78bfa;
+    color-scheme: dark;
+  }
+  html[data-theme="light"] {
+    --bg: #f6f7fb;
+    --bg-soft: #edeff6;
+    --card: #ffffff;
+    --border: #e2e5ee;
+    --text: #1c2030;
+    --muted: #5d6474;
+    color-scheme: light;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -45,6 +62,30 @@
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 6px 20px rgba(0,0,0,.35);
   }
+  html[data-theme="light"] .lang-toggle { background: rgba(255,255,255,.92); box-shadow: 0 6px 20px rgba(28,32,48,.12); }
+  .theme-btn { font-size: .85rem; padding: 5px 9px; }
+  .ti-light { display: none; }
+  html[data-theme="light"] .ti-dark { display: none; }
+  html[data-theme="light"] .ti-light { display: inline; }
+  /* 라이트 모드 보정: 어두운 배경 전제의 그림자·틴트 완화 */
+  html[data-theme="light"] header.hero {
+    background:
+      radial-gradient(800px 400px at 50% -10%, rgba(91,141,239,.12), transparent),
+      radial-gradient(600px 300px at 80% 0%, rgba(167,139,250,.09), transparent);
+  }
+  html[data-theme="light"] .exhibit:hover { box-shadow: 0 18px 50px rgba(28,32,48,.12); }
+  html[data-theme="light"] .ex-shots .shot { box-shadow: 0 14px 36px rgba(28,32,48,.18); }
+  html[data-theme="light"] .ex-poster .ex-icon { box-shadow: 0 18px 44px rgba(28,32,48,.25); }
+  html[data-theme="light"] .ex-head-icon { box-shadow: 0 4px 14px rgba(28,32,48,.15); }
+  html[data-theme="light"] .poster-price { background: rgba(0,0,0,.05); }
+  html[data-theme="light"] .rating { background: rgba(176,125,0,.10); border-color: rgba(176,125,0,.3); color: #8a6a00; }
+  html[data-theme="light"] .stars { color: #c99700; }
+  html[data-theme="light"] .rating-num { color: #8a6a00; }
+  html[data-theme="light"] .rating-count { color: rgba(138,106,0,.75); }
+  html[data-theme="light"] .pg-tip { background: rgba(255,255,255,.97); box-shadow: 0 8px 24px rgba(28,32,48,.14); }
+  html[data-theme="light"] .story-problem .story-tag { color: #c2483c; }
+  html[data-theme="light"] .story-solution .story-tag { color: #1e8e6a; }
+  html[data-theme="light"] .highlight { color: #7c5fd3; }
   .lang-btn {
     font-family: inherit; font-size: .78rem; font-weight: 700; color: var(--muted);
     background: transparent; border: 0; padding: 5px 13px; border-radius: 999px; cursor: pointer;
@@ -288,9 +329,10 @@
 </style>
 </head>
 <body>
-  <div class="lang-toggle" role="group" aria-label="언어 선택 / Language">
+  <div class="lang-toggle" role="group" aria-label="언어 · 테마 / Language · Theme">
     <button type="button" class="lang-btn" data-set-lang="ko">한국어</button>
     <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+    <button type="button" class="lang-btn theme-btn" id="themeBtn" aria-label="테마 전환 / Toggle theme"><span class="ti-dark">☀️</span><span class="ti-light">🌙</span></button>
   </div>
   <header class="hero">
     <div class="wrap">
@@ -1482,6 +1524,9 @@
   }
 
   function draw() {
+    var lightMode = document.documentElement.getAttribute('data-theme') === 'light';
+    var TXT = lightMode ? '#1c2030' : '#e8eaf0';
+    var MUT = lightMode ? 'rgba(93,100,116,0.95)' : 'rgba(139,144,160,0.95)';
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     ctx.clearRect(0, 0, W, H);
     links.forEach(function (l) {
@@ -1511,7 +1556,7 @@
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.stroke();
-        ctx.fillStyle = n === hover ? '#e8eaf0' : 'rgba(139,144,160,0.95)';
+        ctx.fillStyle = n === hover ? TXT : MUT;
         ctx.font = '9.5px -apple-system, sans-serif';
         ctx.fillText(trunc(label(n), 12), n.x, n.y + n.r + 11);
       } else if (n.type === 'd') {
@@ -1523,10 +1568,10 @@
         ctx.lineWidth = n === hover ? 2 : 1.4;
         ctx.stroke();
         ctx.font = '15px -apple-system, sans-serif';
-        ctx.fillStyle = '#e8eaf0';
+        ctx.fillStyle = TXT;
         ctx.fillText(n.d.icon, n.x, n.y + 5);
         ctx.font = '700 10.5px -apple-system, sans-serif';
-        ctx.fillStyle = n === hover ? '#e8eaf0' : col(n.d.color, 0.95);
+        ctx.fillStyle = n === hover ? TXT : col(n.d.color, lightMode ? 0.8 : 0.95);
         ctx.fillText(trunc(label(n), 16), n.x, n.y + n.r + 13);
       } else {
         ctx.beginPath();
@@ -1539,7 +1584,7 @@
         ctx.font = '17px -apple-system, sans-serif';
         ctx.fillText('🍎', n.x, n.y + 6);
         ctx.font = '800 10px -apple-system, sans-serif';
-        ctx.fillStyle = '#8b90a0';
+        ctx.fillStyle = MUT;
         ctx.fillText(label(n), n.x, n.y + n.r + 12);
       }
     });
@@ -1649,7 +1694,7 @@
       ? saved
       : ((navigator.language || '').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
     apply(lang);
-    var btns = document.querySelectorAll('.lang-btn');
+    var btns = document.querySelectorAll('.lang-btn[data-set-lang]');
     for (var i = 0; i < btns.length; i++) {
       btns[i].addEventListener('click', function () {
         var l = this.getAttribute('data-set-lang');
@@ -1657,6 +1702,12 @@
         try { localStorage.setItem('portfolio-lang', l); } catch (e) {}
       });
     }
+    var tb = document.getElementById('themeBtn');
+    if (tb) tb.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('portfolio-theme', next); } catch (e) {}
+    });
   })();
   </script>
 </body>
