@@ -402,14 +402,15 @@ def render_problem_hub(pm, by_slug, copy_map, copy_map_en, released):
             store = app.get("_store") or {}
             name = app.get("name") or store.get("trackName") or entry["slug"]
             name_en = app.get("nameEn") or store.get("trackName_en") or name
+            # 목차에는 앱당 대표 문제 1개만 노출 (2줄 이상이면 복잡해 보임)
             probs = entry.get("problems", [])
-            for p in probs:
+            first = probs[0] if probs else {}
+            if first:
                 items.append(
                     f'<a class="toc-item" href="#app-{entry["slug"]}">'
-                    f'<span class="toc-hook">{bi(p.get("pain", ""), p.get("painEn"))}</span>'
+                    f'<span class="toc-hook">{bi(first.get("pain", ""), first.get("painEn"))}</span>'
                     f'<span class="toc-app">{bi(name, name_en)} →</span></a>'
                 )
-            first = probs[0] if probs else {}
             gapps.append(
                 {
                     "slug": entry["slug"],
