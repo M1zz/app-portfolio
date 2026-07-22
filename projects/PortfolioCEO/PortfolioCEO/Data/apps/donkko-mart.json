@@ -266,15 +266,27 @@
       "targetVersion": null
     }
   ],
-  "name": "클로즈드",
+  "name": "돈꼬마트",
   "price": {
     "isFree": true,
     "pricingModel": "freemium",
     "hasInAppPurchases": true,
     "iapItems": [
       {
+        "name": "든든한 한 끼",
+        "price": "￦12,000"
+      },
+      {
+        "name": "케이크 한 조각",
+        "price": "￦6,600"
+      },
+      {
+        "name": "커피 한 잔",
+        "price": "￦1,100"
+      },
+      {
         "name": "클로즈드 Pro",
-        "price": "￦7,700"
+        "price": "￦4,400"
       }
     ]
   },

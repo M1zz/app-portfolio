@@ -244,7 +244,7 @@
   "githubRepo": "https://github.com/M1zz/LottoChecker",
   "bundleId": "com.lottochecker.app",
   "localProjectPath": "../LottoChecker",
-  "status": "planning",
+  "status": "active",
   "appStoreId": "6755651803",
   "priority": "medium",
   "nameEn": "Probability Calculator",

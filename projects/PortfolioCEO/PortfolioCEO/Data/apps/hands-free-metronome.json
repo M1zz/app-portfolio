@@ -22,8 +22,18 @@
   "notes": "[2026-07-05 스토어 동기화로 자동 등록] 손을 대지 않고 사용하는 메트로놈 입니다 (스토어명: 낫마템포, 2026-07-03 최신 버전 출시)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "yearly",
+        "price": "￦4,400"
+      },
+      {
+        "name": "Pro",
+        "price": "￦11,000"
+      }
+    ]
   },
   "priority": "high",
   "recentlyCompleted": [

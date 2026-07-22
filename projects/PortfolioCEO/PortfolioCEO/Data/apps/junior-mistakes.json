@@ -17,8 +17,22 @@
   "notes": "[2026-07-15 스토어 동기화로 추가] 주니어 개발자들이 실수를 하면서 성장할 수 있도록 실패를 도와주는 앱 입니다 (스토어명: 실수 100)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "평생 구매",
+        "price": "￦33,000"
+      },
+      {
+        "name": "1년 구독",
+        "price": "￦25,000"
+      },
+      {
+        "name": "1달 구독",
+        "price": "￦4,400"
+      }
+    ]
   },
   "priority": "medium",
   "recentlyCompleted": [],
