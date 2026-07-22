@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6781537149",
   "bundleId": "com.leeo.HandsFreeMetronome",
   "categories": [],
-  "currentVersion": "1.0.3",
+  "currentVersion": "1.0.5",
   "folderId": "hands-free-metronome",
   "githubRepo": "",
   "localProjectPath": "",
@@ -21,9 +21,8 @@
   "nextTasks": [],
   "notes": "[2026-07-05 스토어 동기화로 자동 등록] 손을 대지 않고 사용하는 메트로놈 입니다 (스토어명: 낫마템포, 2026-07-03 최신 버전 출시)",
   "price": {
-    "isFree": false,
-    "priceKRW": 17000,
-    "pricingModel": "paid",
+    "isFree": true,
+    "pricingModel": "free",
     "hasInAppPurchases": false
   },
   "priority": "high",

@@ -274,7 +274,7 @@
   "notes": "[2026-07-05 스토어 동기화] v2.0.7 (2026-06-20 출시). '휴가 플래너'에서 '골드위크 - 황금연휴 플래너'로 리브랜딩 (연차 관리/황금연휴 조합 특화)",
   "bundleId": "com.Ysoup.LeaveWise",
   "status": "active",
-  "currentVersion": "2.0.7",
+  "currentVersion": "2.1.1",
   "stats": {
     "done": 3,
     "inProgress": 0,

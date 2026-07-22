@@ -1,0 +1,36 @@
+{
+  "allTasks": [],
+  "appStoreId": "6792787106",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6792787106",
+  "bundleId": "com.leeo.bookmarkshot",
+  "categories": [
+    "라이프스타일",
+    "도서"
+  ],
+  "currentVersion": "1.0",
+  "folderId": "bookmark-shot",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "17.0",
+  "name": "밑줄",
+  "nameEn": "Bookmark Shot",
+  "nextTasks": [],
+  "notes": "[2026-07-22 스토어 동기화로 추가] 종이책의 밑줄 문장을 사진 한 장으로 스크랩·소장하는 앱. 책 표지 촬영 시 제목·저자 자동 인식, 문장 형광펜 스캔, 페이지 자동 인식, 위젯·감성 카드 지원 (스토어명: 밑줄, 2026-07-21 출시)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": null
+}

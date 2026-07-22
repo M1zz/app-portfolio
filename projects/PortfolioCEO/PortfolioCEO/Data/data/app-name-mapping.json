@@ -267,6 +267,11 @@
       "nameEn": "TetraTint",
       "folder": "tetra-tint",
       "bundleId": "com.leeo.TetraTint"
+    },
+    "밑줄": {
+      "nameEn": "Bookmark Shot",
+      "folder": "bookmark-shot",
+      "bundleId": "com.leeo.bookmarkshot"
     }
   }
 }

@@ -169,7 +169,7 @@
   "categories": [
     "다국어지원예정"
   ],
-  "currentVersion": "1.0.3",
+  "currentVersion": "1.0.4",
   "githubRepo": "https://github.com/M1zz/ScheduleDensity",
   "localProjectPath": "../ScheduleDensity",
   "minimumOS": "16.0",
