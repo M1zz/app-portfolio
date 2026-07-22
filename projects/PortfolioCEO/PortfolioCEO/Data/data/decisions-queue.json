@@ -1,33 +1,33 @@
 {
-  "completedDecisions" : [
+  "completedDecisions": [
     {
-      "aiReasoning" : "두 번 알림은 타이머\/알림이라는 단순하고 직관적인 기능이며, 번역할 텍스트가 매우 적습니다(약 30-50개). 영어만 추가해도 App Store 글로벌 노출이 즉시 증가하고, 영어권 사용자는 전 세계 인구의 20%입니다. 빠르게 구현(3-4일)하여 시장 반응을 확인한 후, 성과가 좋으면 일본어\/중국어를 추가하는 단계적 접근이 리스크가 적고 효율적입니다.",
-      "aiRecommendation" : "A",
-      "app" : "두 번 알림",
-      "appFolder" : "double-reminder",
-      "businessImpact" : "글로벌 시장 진출 - App Store 노출 증가, 해외 사용자 확보, 다운로드 수 5-10배 증가 예상",
-      "createdAt" : "2026-01-19T01:20:00Z",
-      "currentState" : "한국어만 지원, 국내 시장에만 노출",
-      "decision" : "영어 + 아시아 중심 (일본, 중국)",
-      "description" : "현재 두 번 알림은 한국어만 지원합니다. 타이머\/알림 앱은 언어 장벽이 낮고 글로벌 생산성 앱 시장에서 인기가 높아, 다국어 지원으로 해외 사용자를 확보할 수 있습니다. 번역할 텍스트가 적어 비용 대비 효과가 매우 높습니다.",
-      "id" : "dec-double-reminder-001",
-      "implementationOptions" : [
+      "aiReasoning": "두 번 알림은 타이머/알림이라는 단순하고 직관적인 기능이며, 번역할 텍스트가 매우 적습니다(약 30-50개). 영어만 추가해도 App Store 글로벌 노출이 즉시 증가하고, 영어권 사용자는 전 세계 인구의 20%입니다. 빠르게 구현(3-4일)하여 시장 반응을 확인한 후, 성과가 좋으면 일본어/중국어를 추가하는 단계적 접근이 리스크가 적고 효율적입니다.",
+      "aiRecommendation": "A",
+      "app": "두 번 알림",
+      "appFolder": "double-reminder",
+      "businessImpact": "글로벌 시장 진출 - App Store 노출 증가, 해외 사용자 확보, 다운로드 수 5-10배 증가 예상",
+      "createdAt": "2026-01-19T01:20:00Z",
+      "currentState": "한국어만 지원, 국내 시장에만 노출",
+      "decision": "영어 + 아시아 중심 (일본, 중국)",
+      "description": "현재 두 번 알림은 한국어만 지원합니다. 타이머/알림 앱은 언어 장벽이 낮고 글로벌 생산성 앱 시장에서 인기가 높아, 다국어 지원으로 해외 사용자를 확보할 수 있습니다. 번역할 텍스트가 적어 비용 대비 효과가 매우 높습니다.",
+      "id": "dec-double-reminder-001",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "비영어권 시장 미진출 (일본, 중국 등)",
             "아시아 시장 확장 제한적"
           ],
-          "description" : "한국어 + 영어 2개 언어 지원으로 빠른 글로벌 진출",
-          "estimatedTime" : "3-4일",
-          "label" : "영어만 추가 (추천)",
-          "pros" : [
+          "description": "한국어 + 영어 2개 언어 지원으로 빠른 글로벌 진출",
+          "estimatedTime": "3-4일",
+          "label": "영어만 추가 (추천)",
+          "pros": [
             "빠른 구현 (3-4일)",
             "영어권 전체 커버 (미국, 영국, 호주, 캐나다 등)",
             "App Store 글로벌 노출 즉시 증가",
             "번역 비용 최소 (텍스트 50개 이하)",
             "유지보수 부담 적음"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "Localizable.strings (en, ko) 파일 생성",
             "앱 내 모든 텍스트 NSLocalizedString 변환",
             "App Store 영문 설명 작성",
@@ -35,22 +35,22 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "번역 비용 발생 ($200-300)",
             "개발 시간 증가 (1-2주)",
             "유지보수 복잡도 증가",
             "업데이트마다 6개 언어 번역 필요"
           ],
-          "description" : "영어, 일본어, 중국어(간체\/번체), 스페인어 총 6개 언어",
-          "estimatedTime" : "1-2주",
-          "label" : "영어 + 주요 언어 5개",
-          "pros" : [
+          "description": "영어, 일본어, 중국어(간체/번체), 스페인어 총 6개 언어",
+          "estimatedTime": "1-2주",
+          "label": "영어 + 주요 언어 5개",
+          "pros": [
             "주요 시장 대부분 커버 (전 세계 인구 70%)",
             "일본, 중국 앱 스토어 순위 상승 기대",
             "글로벌 브랜드 이미지",
             "장기적 성장 가능성 높음"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "6개 언어 Localizable.strings 파일",
             "전문 번역가 활용 (DeepL + 네이티브 검수)",
             "RTL(Right-to-Left) 언어 대응 고려",
@@ -58,122 +58,122 @@
           ]
         },
         {
-          "cons" : [
-            "유럽\/남미 시장 미진출",
+          "cons": [
+            "유럽/남미 시장 미진출",
             "스페인어권 미커버 (5억 인구)",
             "번역 비용 중간 수준 ($150-200)"
           ],
-          "description" : "아시아 시장 집중 전략: 한국어, 영어, 일본어, 중국어(간체\/번체)",
-          "estimatedTime" : "5-7일",
-          "label" : "영어 + 아시아 중심 (일본, 중국)",
-          "pros" : [
+          "description": "아시아 시장 집중 전략: 한국어, 영어, 일본어, 중국어(간체/번체)",
+          "estimatedTime": "5-7일",
+          "label": "영어 + 아시아 중심 (일본, 중국)",
+          "pros": [
             "아시아 시장 완벽 커버",
             "일본 생산성 앱 시장 공략 (높은 구매력)",
             "중국 앱 스토어 진출 가능성",
             "문화적 유사성으로 마케팅 용이",
             "번역 품질 관리 집중 가능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "5개 언어 지원",
-            "일본\/중국 앱 스토어 최적화",
-            "아시아 문화권 맞춤 UI\/UX 고려",
+            "일본/중국 앱 스토어 최적화",
+            "아시아 문화권 맞춤 UI/UX 고려",
             "현지화된 스크린샷"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "Localizable.strings로 다국어 지원 구현",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "Localizable.strings로 다국어 지원 구현",
+      "relatedFeedback": [
         "FA7BF9A9-ADC7-466B-BAA7-445499F7DFFE"
       ],
-      "relatedTask" : "다국어 지원 구현",
-      "title" : "다국어 지원을 추가하여 글로벌 시장에 진출할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "다국어 지원 구현",
+      "title": "다국어 지원을 추가하여 글로벌 시장에 진출할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "사이드바와 캔버스가 겹치면 작업 영역이 가려져 불편합니다. 명확한 분리로 각 영역의 역할이 분명해지고 작업 효율이 올라갑니다.",
-      "aiRecommendation" : "A",
-      "app" : "ecDesigner",
-      "appFolder" : "ecDesigner",
-      "businessImpact" : "작업 효율 향상 - 캔버스 영역이 가려지지 않아 작업에 집중 가능",
-      "createdAt" : "2026-01-26T14:30:00Z",
-      "currentState" : "사이드바가 캔버스 위에 오버레이되어 콘텐츠가 겹침",
-      "decision" : "고정 사이드바 분리 (추천)",
-      "description" : "현재 사이드바가 캔버스 위에 올라가는 느낌이 있어 콘텐츠가 겹칩니다. 사이드바를 캔버스와 완전히 분리하여 옆으로 배치하면 작업 영역이 명확해집니다.",
-      "id" : "dec-ecdesigner-005",
-      "implementationOptions" : [
+      "aiReasoning": "사이드바와 캔버스가 겹치면 작업 영역이 가려져 불편합니다. 명확한 분리로 각 영역의 역할이 분명해지고 작업 효율이 올라갑니다.",
+      "aiRecommendation": "A",
+      "app": "ecDesigner",
+      "appFolder": "ecDesigner",
+      "businessImpact": "작업 효율 향상 - 캔버스 영역이 가려지지 않아 작업에 집중 가능",
+      "createdAt": "2026-01-26T14:30:00Z",
+      "currentState": "사이드바가 캔버스 위에 오버레이되어 콘텐츠가 겹침",
+      "decision": "고정 사이드바 분리 (추천)",
+      "description": "현재 사이드바가 캔버스 위에 올라가는 느낌이 있어 콘텐츠가 겹칩니다. 사이드바를 캔버스와 완전히 분리하여 옆으로 배치하면 작업 영역이 명확해집니다.",
+      "id": "dec-ecdesigner-005",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "캔버스 가용 공간 감소"
           ],
-          "description" : "사이드바를 캔버스와 완전히 분리된 고정 영역으로",
-          "estimatedTime" : "3-4일",
-          "label" : "고정 사이드바 분리 (추천)",
-          "pros" : [
+          "description": "사이드바를 캔버스와 완전히 분리된 고정 영역으로",
+          "estimatedTime": "3-4일",
+          "label": "고정 사이드바 분리 (추천)",
+          "pros": [
             "명확한 영역 구분",
             "콘텐츠 겹침 없음",
             "예측 가능한 레이아웃"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "HSplitView 또는 고정 너비 사이드바",
             "캔버스 영역과 명확한 경계",
             "리사이즈 가능한 구분선"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "토글 동작이 추가됨"
           ],
-          "description" : "사이드바 숨기기\/보이기 토글",
-          "estimatedTime" : "2-3일",
-          "label" : "접을 수 있는 사이드바",
-          "pros" : [
+          "description": "사이드바 숨기기/보이기 토글",
+          "estimatedTime": "2-3일",
+          "label": "접을 수 있는 사이드바",
+          "pros": [
             "필요할 때만 사이드바 표시",
             "캔버스 공간 최대화 가능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "사이드바 토글 버튼",
             "애니메이션 전환",
             "단축키 지원 (Cmd+\\)"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "사이드바와 캔버스를 명확히 분리",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "사이드바와 캔버스를 명확히 분리",
+      "relatedFeedback": [
         "4D56EA28-2201-4917-8EB8-966B06624698"
       ],
-      "relatedTask" : "",
-      "title" : "사이드바를 캔버스와 명확히 분리할까요?",
-      "type" : "feature-decision",
-      "urgency" : "high"
+      "relatedTask": "",
+      "title": "사이드바를 캔버스와 명확히 분리할까요?",
+      "type": "feature-decision",
+      "urgency": "high"
     },
     {
-      "aiReasoning" : "Tips가 계속 보이면 오히려 방해가 됩니다. 별도 하단 영역에 배치하고 닫을 수 있게 하면 필요할 때만 참고하고 평소에는 집중할 수 있습니다.",
-      "aiRecommendation" : "A",
-      "app" : "ecDesigner",
-      "appFolder" : "ecDesigner",
-      "businessImpact" : "사용자 경험 개선 - Tips가 작업을 방해하지 않으면서 필요할 때 참고 가능",
-      "createdAt" : "2026-01-26T14:30:00Z",
-      "currentState" : "Tips가 계속 표시되어 작업을 방해할 수 있음",
-      "decision" : "하단 고정 Tips 영역 (추천)",
-      "description" : "현재 Tips가 타이밍에 관계없이 계속 표시됩니다. 하단에 별도 영역을 만들어 회색 배경으로 구분하고, 필요 없을 때 닫을 수 있는 X 버튼을 추가하면 좋습니다.",
-      "id" : "dec-ecdesigner-006",
-      "implementationOptions" : [
+      "aiReasoning": "Tips가 계속 보이면 오히려 방해가 됩니다. 별도 하단 영역에 배치하고 닫을 수 있게 하면 필요할 때만 참고하고 평소에는 집중할 수 있습니다.",
+      "aiRecommendation": "A",
+      "app": "ecDesigner",
+      "appFolder": "ecDesigner",
+      "businessImpact": "사용자 경험 개선 - Tips가 작업을 방해하지 않으면서 필요할 때 참고 가능",
+      "createdAt": "2026-01-26T14:30:00Z",
+      "currentState": "Tips가 계속 표시되어 작업을 방해할 수 있음",
+      "decision": "하단 고정 Tips 영역 (추천)",
+      "description": "현재 Tips가 타이밍에 관계없이 계속 표시됩니다. 하단에 별도 영역을 만들어 회색 배경으로 구분하고, 필요 없을 때 닫을 수 있는 X 버튼을 추가하면 좋습니다.",
+      "id": "dec-ecdesigner-006",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "하단 공간 일부 사용"
           ],
-          "description" : "하단 고정 영역에 회색 배경 + X 버튼으로 닫기 가능",
-          "estimatedTime" : "2-3일",
-          "label" : "하단 고정 Tips 영역 (추천)",
-          "pros" : [
+          "description": "하단 고정 영역에 회색 배경 + X 버튼으로 닫기 가능",
+          "estimatedTime": "2-3일",
+          "label": "하단 고정 Tips 영역 (추천)",
+          "pros": [
             "작업 영역과 명확히 분리",
             "필요 없으면 닫을 수 있음",
             "회색 배경으로 구분 명확"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "화면 하단에 Tips 컨테이너 배치",
             "회색 배경색 적용",
             "X 버튼으로 닫기",
@@ -181,59 +181,59 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "어떤 동작이 언제 Tips를 트리거하는지 정의 필요"
           ],
-          "description" : "특정 동작 시에만 Tips 표시, 일정 시간 후 자동 사라짐",
-          "estimatedTime" : "4-5일",
-          "label" : "컨텍스트 기반 Tips",
-          "pros" : [
+          "description": "특정 동작 시에만 Tips 표시, 일정 시간 후 자동 사라짐",
+          "estimatedTime": "4-5일",
+          "label": "컨텍스트 기반 Tips",
+          "pros": [
             "필요한 순간에만 도움말 제공",
             "화면 공간 절약"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "동작별 Tips 매핑",
             "Toast 스타일 표시",
             "3-5초 후 자동 사라짐"
           ]
         }
       ],
-      "priority" : "medium",
-      "proposedSolution" : "하단에 별도 Tips 영역, 회색 배경 + X 버튼",
-      "relatedFeedback" : [
+      "priority": "medium",
+      "proposedSolution": "하단에 별도 Tips 영역, 회색 배경 + X 버튼",
+      "relatedFeedback": [
         "62B6971A-8069-40F2-B4E0-8B0EABAFD766"
       ],
-      "relatedTask" : "",
-      "title" : "Tips 영역을 하단에 분리하고 닫을 수 있게 할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "",
+      "title": "Tips 영역을 하단에 분리하고 닫을 수 있게 할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "그리드 배경은 시각적 노이즈가 될 수 있고, 깔끔한 흰 배경에 스냅 기능만 있으면 정렬은 유지하면서 더 깔끔한 작업 환경을 제공합니다. 피그마\/Figma도 유사한 접근을 사용합니다.",
-      "aiRecommendation" : "A",
-      "app" : "ecDesigner",
-      "appFolder" : "ecDesigner",
-      "businessImpact" : "시각적 품질 향상 - 깔끔한 캔버스로 작업 집중도 증가",
-      "createdAt" : "2026-01-26T14:30:00Z",
-      "currentState" : "그리드 배경이 표시되어 시각적으로 복잡함",
-      "decision" : "흰 배경 + 스냅그리드 (추천)",
-      "description" : "현재 캔버스에 그리드 배경이 표시되어 있습니다. 그리드를 제거하고 흰 배경으로 변경하면서 pt 단위 스냅그리드 기능을 추가하면 깔끔하면서도 정확한 배치가 가능합니다.",
-      "id" : "dec-ecdesigner-002",
-      "implementationOptions" : [
+      "aiReasoning": "그리드 배경은 시각적 노이즈가 될 수 있고, 깔끔한 흰 배경에 스냅 기능만 있으면 정렬은 유지하면서 더 깔끔한 작업 환경을 제공합니다. 피그마/Figma도 유사한 접근을 사용합니다.",
+      "aiRecommendation": "A",
+      "app": "ecDesigner",
+      "appFolder": "ecDesigner",
+      "businessImpact": "시각적 품질 향상 - 깔끔한 캔버스로 작업 집중도 증가",
+      "createdAt": "2026-01-26T14:30:00Z",
+      "currentState": "그리드 배경이 표시되어 시각적으로 복잡함",
+      "decision": "흰 배경 + 스냅그리드 (추천)",
+      "description": "현재 캔버스에 그리드 배경이 표시되어 있습니다. 그리드를 제거하고 흰 배경으로 변경하면서 pt 단위 스냅그리드 기능을 추가하면 깔끔하면서도 정확한 배치가 가능합니다.",
+      "id": "dec-ecdesigner-002",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "시각적 가이드가 없어 처음엔 정렬 어려울 수 있음"
           ],
-          "description" : "그리드 배경 제거, 흰 배경 + 스냅그리드(8pt\/16pt 등)",
-          "estimatedTime" : "2-3일",
-          "label" : "흰 배경 + 스냅그리드 (추천)",
-          "pros" : [
+          "description": "그리드 배경 제거, 흰 배경 + 스냅그리드(8pt/16pt 등)",
+          "estimatedTime": "2-3일",
+          "label": "흰 배경 + 스냅그리드 (추천)",
+          "pros": [
             "깔끔한 작업 환경",
             "정확한 정렬 유지",
-            "피그마\/스케치 방식과 유사",
+            "피그마/스케치 방식과 유사",
             "시각적 노이즈 제거"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "캔버스 배경색 흰색으로 변경",
             "스냅 단위 설정 (8pt, 16pt 등)",
             "드래그 시 자동 스냅",
@@ -241,59 +241,59 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "설정 UI 추가 필요",
             "개발 시간 증가"
           ],
-          "description" : "그리드 표시 여부를 사용자가 토글",
-          "estimatedTime" : "3-4일",
-          "label" : "그리드 표시 토글",
-          "pros" : [
+          "description": "그리드 표시 여부를 사용자가 토글",
+          "estimatedTime": "3-4일",
+          "label": "그리드 표시 토글",
+          "pros": [
             "사용자 선택권 제공",
             "필요할 때만 그리드 표시"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "View 메뉴에 그리드 토글 추가",
             "단축키 지원 (Cmd+')",
             "사용자 설정 저장"
           ]
         }
       ],
-      "priority" : "medium",
-      "proposedSolution" : "그리드 배경 제거, 흰 배경 + 스냅그리드",
-      "relatedFeedback" : [
+      "priority": "medium",
+      "proposedSolution": "그리드 배경 제거, 흰 배경 + 스냅그리드",
+      "relatedFeedback": [
         "9D443402-D37C-46F1-9DBC-45BE174B7EF4"
       ],
-      "relatedTask" : "",
-      "title" : "그리드 배경을 제거하고 흰 배경 + 스냅그리드로 변경할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "",
+      "title": "그리드 배경을 제거하고 흰 배경 + 스냅그리드로 변경할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "헤더 아이콘이 많으면 인지 부담이 증가합니다. 피그마처럼 필수 기능만 남기고 나머지는 메뉴로 통합하면 깔끔해집니다. 타이틀 클릭으로 챌린지 선택은 직관적이고 공간 효율적입니다.",
-      "aiRecommendation" : "A",
-      "app" : "ecDesigner",
-      "appFolder" : "ecDesigner",
-      "businessImpact" : "인지 부담 감소 - 헤더가 깔끔해지고 핵심 작업에 집중 가능",
-      "createdAt" : "2026-01-26T14:30:00Z",
-      "currentState" : "챌린지 타이틀 옆에 여러 아이콘이 있어 복잡함",
-      "decision" : "엘립시스 메뉴 통합 (추천)",
-      "description" : "현재 챌린지 타이틀 우측에 여러 아이콘이 있어 정보 간섭이 발생합니다. 아이콘을 정리하고 엘립시스(...) 메뉴로 통합하면 깔끔해집니다. 폴더 아이콘 대신 타이틀 클릭으로 챌린지 선택하는 방식도 더 직관적입니다.",
-      "id" : "dec-ecdesigner-004",
-      "implementationOptions" : [
+      "aiReasoning": "헤더 아이콘이 많으면 인지 부담이 증가합니다. 피그마처럼 필수 기능만 남기고 나머지는 메뉴로 통합하면 깔끔해집니다. 타이틀 클릭으로 챌린지 선택은 직관적이고 공간 효율적입니다.",
+      "aiRecommendation": "A",
+      "app": "ecDesigner",
+      "appFolder": "ecDesigner",
+      "businessImpact": "인지 부담 감소 - 헤더가 깔끔해지고 핵심 작업에 집중 가능",
+      "createdAt": "2026-01-26T14:30:00Z",
+      "currentState": "챌린지 타이틀 옆에 여러 아이콘이 있어 복잡함",
+      "decision": "엘립시스 메뉴 통합 (추천)",
+      "description": "현재 챌린지 타이틀 우측에 여러 아이콘이 있어 정보 간섭이 발생합니다. 아이콘을 정리하고 엘립시스(...) 메뉴로 통합하면 깔끔해집니다. 폴더 아이콘 대신 타이틀 클릭으로 챌린지 선택하는 방식도 더 직관적입니다.",
+      "id": "dec-ecdesigner-004",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "자주 쓰는 기능 접근에 한 번 더 클릭 필요"
           ],
-          "description" : "타이틀 우측 아이콘 제거, 엘립시스 메뉴만 남김",
-          "estimatedTime" : "3-4일",
-          "label" : "엘립시스 메뉴 통합 (추천)",
-          "pros" : [
+          "description": "타이틀 우측 아이콘 제거, 엘립시스 메뉴만 남김",
+          "estimatedTime": "3-4일",
+          "label": "엘립시스 메뉴 통합 (추천)",
+          "pros": [
             "헤더 깔끔",
             "피그마 스타일 UX",
             "인지 부담 감소"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "헤더 아이콘 제거",
             "엘립시스(...) 버튼 맨 오른쪽 배치",
             "Import, Export 등 메뉴로 통합",
@@ -301,76 +301,76 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "공간 부족 시 레이아웃 이슈"
           ],
-          "description" : "타이틀 클릭으로 챌린지 선택\/뒤로가기",
-          "estimatedTime" : "2-3일",
-          "label" : "타이틀 클릭 네비게이션",
-          "pros" : [
+          "description": "타이틀 클릭으로 챌린지 선택/뒤로가기",
+          "estimatedTime": "2-3일",
+          "label": "타이틀 클릭 네비게이션",
+          "pros": [
             "폴더 아이콘 제거 가능",
             "직관적인 네비게이션"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "타이틀을 클릭 가능한 버튼으로 변경",
             "클릭 시 챌린지 목록 표시 또는 뒤로가기",
             "브레드크럼 스타일 가능"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 시간 증가"
           ],
-          "description" : "A + B 모두 적용",
-          "estimatedTime" : "4-5일",
-          "label" : "A + B 통합",
-          "pros" : [
+          "description": "A + B 모두 적용",
+          "estimatedTime": "4-5일",
+          "label": "A + B 통합",
+          "pros": [
             "최대한 깔끔한 헤더",
             "직관적인 네비게이션"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "엘립시스 메뉴 통합",
             "타이틀 클릭 네비게이션",
             "폴더 아이콘 제거"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "헤더 아이콘 정리, 엘립시스 메뉴 통합, 타이틀 클릭 네비게이션",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "헤더 아이콘 정리, 엘립시스 메뉴 통합, 타이틀 클릭 네비게이션",
+      "relatedFeedback": [
         "1F8F073C-4AAF-4DF5-9D58-A785FE3BBDDA"
       ],
-      "relatedTask" : "",
-      "title" : "헤더 아이콘을 정리하고 엘립시스 메뉴로 통합할까요?",
-      "type" : "feature-decision",
-      "urgency" : "high"
+      "relatedTask": "",
+      "title": "헤더 아이콘을 정리하고 엘립시스 메뉴로 통합할까요?",
+      "type": "feature-decision",
+      "urgency": "high"
     },
     {
-      "aiReasoning" : "사이드바 버튼 제거와 우클릭\/카드 (+) 버튼 방식은 UI를 더 깔끔하게 만들면서도 필요한 기능에 쉽게 접근할 수 있게 합니다. 로파이 스타일의 목록 형태는 사용자가 전체 구조를 한눈에 파악하기 좋습니다.",
-      "aiRecommendation" : "A",
-      "app" : "ecDesigner",
-      "appFolder" : "ecDesigner",
-      "businessImpact" : "UX 개선 - 사이드바가 깔끔해지고 작업 흐름이 더 직관적으로 변경됨",
-      "createdAt" : "2026-01-26T14:30:00Z",
-      "currentState" : "Add Milestone, Add EC 버튼이 사이드바에 있어 복잡해 보임",
-      "decision" : "우클릭 컨텍스트 메뉴 (추천)",
-      "description" : "현재 사이드바에 Add Milestone, Add EC 버튼이 있어 복잡합니다. 버튼을 제거하고 우클릭 컨텍스트 메뉴나 카드에 (+) 버튼을 추가하는 방식으로 단순화하면 로파이 스타일처럼 목록만으로 깔끔한 사이드바를 만들 수 있습니다.",
-      "id" : "dec-ecdesigner-001",
-      "implementationOptions" : [
+      "aiReasoning": "사이드바 버튼 제거와 우클릭/카드 (+) 버튼 방식은 UI를 더 깔끔하게 만들면서도 필요한 기능에 쉽게 접근할 수 있게 합니다. 로파이 스타일의 목록 형태는 사용자가 전체 구조를 한눈에 파악하기 좋습니다.",
+      "aiRecommendation": "A",
+      "app": "ecDesigner",
+      "appFolder": "ecDesigner",
+      "businessImpact": "UX 개선 - 사이드바가 깔끔해지고 작업 흐름이 더 직관적으로 변경됨",
+      "createdAt": "2026-01-26T14:30:00Z",
+      "currentState": "Add Milestone, Add EC 버튼이 사이드바에 있어 복잡해 보임",
+      "decision": "우클릭 컨텍스트 메뉴 (추천)",
+      "description": "현재 사이드바에 Add Milestone, Add EC 버튼이 있어 복잡합니다. 버튼을 제거하고 우클릭 컨텍스트 메뉴나 카드에 (+) 버튼을 추가하는 방식으로 단순화하면 로파이 스타일처럼 목록만으로 깔끔한 사이드바를 만들 수 있습니다.",
+      "id": "dec-ecdesigner-001",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "우클릭 방식이 처음에는 발견하기 어려울 수 있음"
           ],
-          "description" : "사이드바 버튼 제거, 캔버스 우클릭으로 마일스톤\/EC 추가",
-          "estimatedTime" : "3-4일",
-          "label" : "우클릭 컨텍스트 메뉴 (추천)",
-          "pros" : [
+          "description": "사이드바 버튼 제거, 캔버스 우클릭으로 마일스톤/EC 추가",
+          "estimatedTime": "3-4일",
+          "label": "우클릭 컨텍스트 메뉴 (추천)",
+          "pros": [
             "사이드바가 깔끔해짐",
             "캔버스 중심 작업 흐름",
             "macOS 네이티브 UX",
-            "피그마\/스케치와 유사한 경험"
+            "피그마/스케치와 유사한 경험"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "NSMenu 컨텍스트 메뉴 구현",
             "Add Milestone, Add EC 옵션 추가",
             "사이드바에서 버튼 제거",
@@ -378,227 +378,225 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "카드마다 버튼이 생겨 시각적 노이즈 증가 가능"
           ],
-          "description" : "기존 카드 옆이나 하단에 (+) 버튼 추가",
-          "estimatedTime" : "2-3일",
-          "label" : "카드 (+) 버튼",
-          "pros" : [
+          "description": "기존 카드 옆이나 하단에 (+) 버튼 추가",
+          "estimatedTime": "2-3일",
+          "label": "카드 (+) 버튼",
+          "pros": [
             "직관적인 추가 방식",
             "버튼이 눈에 보여 발견하기 쉬움"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "카드 컴포넌트에 (+) 버튼 추가",
             "호버 시에만 버튼 표시 가능"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 시간 증가"
           ],
-          "description" : "우클릭 메뉴 + 카드 (+) 버튼 모두 제공",
-          "estimatedTime" : "4-5일",
-          "label" : "A + B 통합",
-          "pros" : [
+          "description": "우클릭 메뉴 + 카드 (+) 버튼 모두 제공",
+          "estimatedTime": "4-5일",
+          "label": "A + B 통합",
+          "pros": [
             "다양한 사용자 선호도 대응",
             "발견성과 효율성 모두 확보"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "컨텍스트 메뉴 + 카드 버튼 구현",
             "사용자 설정으로 버튼 표시 여부 선택"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "사이드바 버튼 제거, 우클릭\/카드 (+) 버튼으로 대체",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "사이드바 버튼 제거, 우클릭/카드 (+) 버튼으로 대체",
+      "relatedFeedback": [
         "55F0B5E1-B003-4E14-9FC6-AD48EF7851B7"
       ],
-      "relatedTask" : "",
-      "title" : "사이드바를 단순화하고 우클릭\/카드 버튼으로 추가 기능을 제공할까요?",
-      "type" : "feature-decision",
-      "urgency" : "high"
+      "relatedTask": "",
+      "title": "사이드바를 단순화하고 우클릭/카드 버튼으로 추가 기능을 제공할까요?",
+      "type": "feature-decision",
+      "urgency": "high"
     },
     {
-      "aiReasoning" : "마일스톤과 EC의 계층 관계를 명확히 하면 프로젝트 구조를 더 직관적으로 이해할 수 있습니다. 마일스톤 영역 안에 EC가 종속되는 형태가 논리적으로도 맞습니다.",
-      "aiRecommendation" : "A",
-      "app" : "ecDesigner",
-      "appFolder" : "ecDesigner",
-      "businessImpact" : "정보 구조 개선 - 프로젝트 계층 구조가 명확해져 이해도 향상",
-      "createdAt" : "2026-01-26T14:30:00Z",
-      "currentState" : "마일스톤과 EC가 같은 레벨에 평면적으로 나열됨",
-      "decision" : "마일스톤 컨테이너 방식 (추천)",
-      "description" : "현재 마일스톤과 EC가 같은 수준에서 나열되어 있어 계층 관계가 불명확합니다. 마일스톤 영역 안에 EC가 종속된 형태로 변경하면 구조적 관계가 명확해집니다.",
-      "id" : "dec-ecdesigner-003",
-      "implementationOptions" : [
+      "aiReasoning": "마일스톤과 EC의 계층 관계를 명확히 하면 프로젝트 구조를 더 직관적으로 이해할 수 있습니다. 마일스톤 영역 안에 EC가 종속되는 형태가 논리적으로도 맞습니다.",
+      "aiRecommendation": "A",
+      "app": "ecDesigner",
+      "appFolder": "ecDesigner",
+      "businessImpact": "정보 구조 개선 - 프로젝트 계층 구조가 명확해져 이해도 향상",
+      "createdAt": "2026-01-26T14:30:00Z",
+      "currentState": "마일스톤과 EC가 같은 레벨에 평면적으로 나열됨",
+      "decision": "마일스톤 컨테이너 방식 (추천)",
+      "description": "현재 마일스톤과 EC가 같은 수준에서 나열되어 있어 계층 관계가 불명확합니다. 마일스톤 영역 안에 EC가 종속된 형태로 변경하면 구조적 관계가 명확해집니다.",
+      "id": "dec-ecdesigner-003",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "화면 공간 더 많이 필요",
             "마일스톤 간 이동 시 복잡"
           ],
-          "description" : "마일스톤을 컨테이너로, EC를 그 안에 배치",
-          "estimatedTime" : "5-7일",
-          "label" : "마일스톤 컨테이너 방식 (추천)",
-          "pros" : [
+          "description": "마일스톤을 컨테이너로, EC를 그 안에 배치",
+          "estimatedTime": "5-7일",
+          "label": "마일스톤 컨테이너 방식 (추천)",
+          "pros": [
             "명확한 계층 구조",
             "논리적 그룹핑",
             "시각적 구분 명확"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "마일스톤을 확장 가능한 컨테이너로 변경",
             "EC를 마일스톤 내부에 배치",
             "드래그앤드롭으로 EC 이동",
-            "마일스톤 접기\/펼치기 기능"
+            "마일스톤 접기/펼치기 기능"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "계층 관계가 A만큼 명확하지 않음"
           ],
-          "description" : "사이드바에서 트리 구조로 표시",
-          "estimatedTime" : "3-4일",
-          "label" : "사이드바 트리 뷰",
-          "pros" : [
+          "description": "사이드바에서 트리 구조로 표시",
+          "estimatedTime": "3-4일",
+          "label": "사이드바 트리 뷰",
+          "pros": [
             "캔버스 레이아웃 변경 불필요",
             "빠른 구현"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "사이드바를 OutlineView 형태로 변경",
             "마일스톤 > EC 트리 구조",
             "캔버스는 현재 유지"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "선이 많아지면 복잡해질 수 있음"
           ],
-          "description" : "마일스톤과 EC 사이에 연결선 표시",
-          "estimatedTime" : "2-3일",
-          "label" : "연결선으로 관계 표시",
-          "pros" : [
+          "description": "마일스톤과 EC 사이에 연결선 표시",
+          "estimatedTime": "2-3일",
+          "label": "연결선으로 관계 표시",
+          "pros": [
             "현재 레이아웃 유지",
             "관계만 시각화"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "마일스톤-EC 간 연결선 그리기",
             "베지어 곡선으로 깔끔한 연결"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "마일스톤 영역 안에 EC가 종속되는 계층 구조",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "마일스톤 영역 안에 EC가 종속되는 계층 구조",
+      "relatedFeedback": [
         "91BCD74A-16F8-4E69-A5DE-37D3BC6CE442"
       ],
-      "relatedTask" : "",
-      "title" : "마일스톤 안에 EC가 종속되는 계층 구조로 변경할까요?",
-      "type" : "feature-decision",
-      "urgency" : "high"
+      "relatedTask": "",
+      "title": "마일스톤 안에 EC가 종속되는 계층 구조로 변경할까요?",
+      "type": "feature-decision",
+      "urgency": "high"
     },
     {
-      "aiReasoning" : "에러 안내는 반드시 필요하지만, 과도하게 복잡할 필요는 없습니다. 간단한 Alert으로 빠르게 구현하여 사용자 경험을 개선하고, 피드백을 받아 필요시 Toast나 커스텀 화면으로 발전시키는 것이 효율적입니다.",
-      "aiRecommendation" : "A",
-      "app" : "클립키보드",
-      "appFolder" : "clip-keyboard",
-      "businessImpact" : "사용자 경험 개선 - 에러 상황에서 사용자가 당황하지 않고 적절히 대처 가능",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "에러 발생 시 print만 출력, 사용자는 앱이 멈춘 것처럼 느낌",
-      "decision" : "에러별 맞춤 안내 화면",
-      "description" : "현재 에러가 발생했을 때 print 로그만 찍히고 사용자에게는 아무런 안내가 없습니다. 사용자가 무슨 문제가 발생했는지 알 수 있도록 에러 안내 UI를 구현하면 사용성이 크게 개선됩니다.",
-      "id" : "dec-clipkeyboard-001",
-      "implementationOptions" : [
+      "aiReasoning": "에러 안내는 반드시 필요하지만, 과도하게 복잡할 필요는 없습니다. 간단한 Alert으로 빠르게 구현하여 사용자 경험을 개선하고, 피드백을 받아 필요시 Toast나 커스텀 화면으로 발전시키는 것이 효율적입니다.",
+      "aiRecommendation": "A",
+      "app": "클립키보드",
+      "appFolder": "clip-keyboard",
+      "businessImpact": "사용자 경험 개선 - 에러 상황에서 사용자가 당황하지 않고 적절히 대처 가능",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "에러 발생 시 print만 출력, 사용자는 앱이 멈춘 것처럼 느낌",
+      "decision": "에러별 맞춤 안내 화면",
+      "description": "현재 에러가 발생했을 때 print 로그만 찍히고 사용자에게는 아무런 안내가 없습니다. 사용자가 무슨 문제가 발생했는지 알 수 있도록 에러 안내 UI를 구현하면 사용성이 크게 개선됩니다.",
+      "id": "dec-clipkeyboard-001",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "모달이라 사용 흐름 중단"
           ],
-          "description" : "시스템 Alert으로 에러 내용과 해결 방법 안내",
-          "estimatedTime" : "2-3일",
-          "label" : "간단한 Alert 메시지 (추천)",
-          "pros" : [
+          "description": "시스템 Alert으로 에러 내용과 해결 방법 안내",
+          "estimatedTime": "2-3일",
+          "label": "간단한 Alert 메시지 (추천)",
+          "pros": [
             "빠른 구현",
-            "iOS\/macOS 네이티브 UX",
+            "iOS/macOS 네이티브 UX",
             "추가 라이브러리 불필요"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "각 에러 케이스별 사용자 친화적 메시지 작성",
             "SwiftUI Alert 또는 NSAlert 활용",
             "에러 로그는 콘솔에 유지"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 시간 증가",
             "추가 저장 공간 필요"
           ],
-          "description" : "비침투적인 Toast 메시지 + 설정에서 에러 로그 확인 가능",
-          "estimatedTime" : "5-7일",
-          "label" : "Toast 메시지 + 에러 로그 화면",
-          "pros" : [
+          "description": "비침투적인 Toast 메시지 + 설정에서 에러 로그 확인 가능",
+          "estimatedTime": "5-7일",
+          "label": "Toast 메시지 + 에러 로그 화면",
+          "pros": [
             "사용 흐름 방해 안 함",
             "에러 히스토리 추적 가능",
             "디버깅 용이"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "커스텀 Toast UI 컴포넌트 개발",
             "에러 로그 저장 및 히스토리 화면",
             "설정 페이지에 에러 로그 섹션 추가"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 리소스 大",
             "모든 에러 케이스 대응 필요"
           ],
-          "description" : "에러 타입에 따라 다른 안내 화면과 해결 가이드 제공",
-          "estimatedTime" : "1-2주",
-          "label" : "에러별 맞춤 안내 화면",
-          "pros" : [
+          "description": "에러 타입에 따라 다른 안내 화면과 해결 가이드 제공",
+          "estimatedTime": "1-2주",
+          "label": "에러별 맞춤 안내 화면",
+          "pros": [
             "최상의 사용자 경험",
             "자가 문제 해결 가능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "에러 타입별 커스텀 UI 화면",
             "단계별 해결 가이드",
             "FAQ 링크 연결"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "에러 발생 시 Alert 또는 Toast 메시지로 사용자에게 안내",
-      "relatedFeedback" : [
-
-      ],
-      "relatedTask" : "에러처리를 실제로 구현",
-      "title" : "사용자 친화적인 에러 메시지 UI 구현할까요?",
-      "type" : "feature-decision",
-      "urgency" : "high"
+      "priority": "high",
+      "proposedSolution": "에러 발생 시 Alert 또는 Toast 메시지로 사용자에게 안내",
+      "relatedFeedback": [],
+      "relatedTask": "에러처리를 실제로 구현",
+      "title": "사용자 친화적인 에러 메시지 UI 구현할까요?",
+      "type": "feature-decision",
+      "urgency": "high"
     },
     {
-      "aiReasoning" : "iCloud 백업 실패는 사용자 데이터 손실로 직결되는 심각한 문제입니다. CloudKit 권한 확인, 레코드 저장 로직 디버깅, 에러 핸들링 강화가 필요합니다.",
-      "aiRecommendation" : "A",
-      "app" : "클립키보드",
-      "appFolder" : "clip-keyboard",
-      "businessImpact" : "데이터 손실 방지 - 사용자 신뢰 회복 및 장기 사용 보장",
-      "createdAt" : "2026-01-28T23:30:00Z",
-      "currentState" : "iCloud 백업 시 'Error saving record' 오류 발생",
-      "decision" : "iCloud 백업 디버깅 및 수정 (추천)",
-      "description" : "사용자가 iCloud 백업 실패 오류를 보고했습니다. CloudKit 저장 로직에 문제가 있거나 권한 설정이 잘못되었을 가능성이 있습니다.",
-      "id" : "dec-clipkeyboard-003",
-      "implementationOptions" : [
+      "aiReasoning": "iCloud 백업 실패는 사용자 데이터 손실로 직결되는 심각한 문제입니다. CloudKit 권한 확인, 레코드 저장 로직 디버깅, 에러 핸들링 강화가 필요합니다.",
+      "aiRecommendation": "A",
+      "app": "클립키보드",
+      "appFolder": "clip-keyboard",
+      "businessImpact": "데이터 손실 방지 - 사용자 신뢰 회복 및 장기 사용 보장",
+      "createdAt": "2026-01-28T23:30:00Z",
+      "currentState": "iCloud 백업 시 'Error saving record' 오류 발생",
+      "decision": "iCloud 백업 디버깅 및 수정 (추천)",
+      "description": "사용자가 iCloud 백업 실패 오류를 보고했습니다. CloudKit 저장 로직에 문제가 있거나 권한 설정이 잘못되었을 가능성이 있습니다.",
+      "id": "dec-clipkeyboard-003",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "근본 원인 파악에 시간 소요"
           ],
-          "description" : "CloudKit 권한 확인, 레코드 저장 로직 디버깅, 에러 로그 수집",
-          "estimatedTime" : "3-5일",
-          "label" : "iCloud 백업 디버깅 및 수정 (추천)",
-          "pros" : [
+          "description": "CloudKit 권한 확인, 레코드 저장 로직 디버깅, 에러 로그 수집",
+          "estimatedTime": "3-5일",
+          "label": "iCloud 백업 디버깅 및 수정 (추천)",
+          "pros": [
             "근본 원인 해결",
             "데이터 손실 방지",
             "사용자 신뢰 회복"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "CloudKit Console에서 권한 확인",
             "CKRecord 저장 로직 검토",
             "에러 핸들링 강화",
@@ -606,99 +604,99 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "사용자 불편",
             "근본 문제 미해결"
           ],
-          "description" : "iCloud 기능 일시 비활성화 및 로컬 저장만 사용",
-          "estimatedTime" : "1일",
-          "label" : "임시 비활성화",
-          "pros" : [
+          "description": "iCloud 기능 일시 비활성화 및 로컬 저장만 사용",
+          "estimatedTime": "1일",
+          "label": "임시 비활성화",
+          "pros": [
             "즉시 적용 가능",
             "오류 노출 방지"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "iCloud 동기화 기능 비활성화",
             "로컬 저장만 사용"
           ]
         }
       ],
-      "priority" : "critical",
-      "proposedSolution" : "CloudKit 저장 로직 디버깅 및 에러 핸들링 강화",
-      "relatedFeedback" : [
+      "priority": "critical",
+      "proposedSolution": "CloudKit 저장 로직 디버깅 및 에러 핸들링 강화",
+      "relatedFeedback": [
         "DD83D5AF-1165-4834-B0DD-57381D522AE9"
       ],
-      "relatedTask" : "iCloud 백업 오류 수정 (Error saving record)",
-      "title" : "iCloud 백업 실패 오류를 해결할까요?",
-      "type" : "bug-fix",
-      "urgency" : "high"
+      "relatedTask": "iCloud 백업 오류 수정 (Error saving record)",
+      "title": "iCloud 백업 실패 오류를 해결할까요?",
+      "type": "bug-fix",
+      "urgency": "high"
     },
     {
-      "aiReasoning" : "키보드 표시명 중복은 사용자 경험을 해치는 간단한 버그입니다. Info.plist 수정만으로 빠르게 해결 가능합니다.",
-      "aiRecommendation" : "A",
-      "app" : "클립키보드",
-      "appFolder" : "clip-keyboard",
-      "businessImpact" : "UX 개선 - 키보드 선택 시 깔끔한 표시",
-      "createdAt" : "2026-01-28T23:30:00Z",
-      "currentState" : "키보드 목록에 '클립키보드 ― 클립키보드'로 중복 표시",
-      "decision" : "표시명 수정 (추천)",
-      "description" : "키보드 변경 메뉴에서 앱 이름이 중복으로 표시되는 문제가 있습니다. Info.plist의 표시명 설정을 수정해야 합니다.",
-      "id" : "dec-clipkeyboard-004",
-      "implementationOptions" : [
+      "aiReasoning": "키보드 표시명 중복은 사용자 경험을 해치는 간단한 버그입니다. Info.plist 수정만으로 빠르게 해결 가능합니다.",
+      "aiRecommendation": "A",
+      "app": "클립키보드",
+      "appFolder": "clip-keyboard",
+      "businessImpact": "UX 개선 - 키보드 선택 시 깔끔한 표시",
+      "createdAt": "2026-01-28T23:30:00Z",
+      "currentState": "키보드 목록에 '클립키보드 ― 클립키보드'로 중복 표시",
+      "decision": "표시명 수정 (추천)",
+      "description": "키보드 변경 메뉴에서 앱 이름이 중복으로 표시되는 문제가 있습니다. Info.plist의 표시명 설정을 수정해야 합니다.",
+      "id": "dec-clipkeyboard-004",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "없음"
           ],
-          "description" : "Info.plist의 NSExtensionPrincipalClass 표시명 수정",
-          "estimatedTime" : "30분",
-          "label" : "표시명 수정 (추천)",
-          "pros" : [
+          "description": "Info.plist의 NSExtensionPrincipalClass 표시명 수정",
+          "estimatedTime": "30분",
+          "label": "표시명 수정 (추천)",
+          "pros": [
             "즉시 해결",
             "간단한 수정",
             "사용자 경험 개선"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "Info.plist 열기",
             "키보드 익스텐션의 표시명 확인",
             "'클립키보드'로 간결하게 수정"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "Info.plist 키보드 표시명을 '클립키보드'로 수정",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "Info.plist 키보드 표시명을 '클립키보드'로 수정",
+      "relatedFeedback": [
         "DD83D5AF-1165-4834-B0DD-57381D522AE9"
       ],
-      "relatedTask" : "키보드 표시명 중복 제거",
-      "title" : "키보드 표시명 중복을 수정할까요?",
-      "type" : "bug-fix",
-      "urgency" : "medium"
+      "relatedTask": "키보드 표시명 중복 제거",
+      "title": "키보드 표시명 중복을 수정할까요?",
+      "type": "bug-fix",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "사용자가 더 많은 버튼을 한 눈에 보고 싶어합니다. 열 개수 설정으로 정보 밀도를 조절할 수 있게 하면 사용성이 크게 향상됩니다.",
-      "aiRecommendation" : "A",
-      "app" : "클립키보드",
-      "appFolder" : "clip-keyboard",
-      "businessImpact" : "사용자 만족도 향상 - 개인화된 레이아웃으로 생산성 증가",
-      "createdAt" : "2026-01-28T23:30:00Z",
-      "currentState" : "2열 고정 레이아웃",
-      "decision" : "열 개수 설정 기능 (추천)",
-      "description" : "현재 2열 고정 레이아웃으로 한 화면에 보이는 버튼이 적습니다. 사용자가 1\/3\/4\/5열로 조정할 수 있게 하면 더 많은 버튼을 한 눈에 볼 수 있습니다.",
-      "id" : "dec-clipkeyboard-005",
-      "implementationOptions" : [
+      "aiReasoning": "사용자가 더 많은 버튼을 한 눈에 보고 싶어합니다. 열 개수 설정으로 정보 밀도를 조절할 수 있게 하면 사용성이 크게 향상됩니다.",
+      "aiRecommendation": "A",
+      "app": "클립키보드",
+      "appFolder": "clip-keyboard",
+      "businessImpact": "사용자 만족도 향상 - 개인화된 레이아웃으로 생산성 증가",
+      "createdAt": "2026-01-28T23:30:00Z",
+      "currentState": "2열 고정 레이아웃",
+      "decision": "열 개수 설정 기능 (추천)",
+      "description": "현재 2열 고정 레이아웃으로 한 화면에 보이는 버튼이 적습니다. 사용자가 1/3/4/5열로 조정할 수 있게 하면 더 많은 버튼을 한 눈에 볼 수 있습니다.",
+      "id": "dec-clipkeyboard-005",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "설정 항목 추가"
           ],
-          "description" : "설정에서 열 개수 선택 (1\/2\/3\/4\/5열)",
-          "estimatedTime" : "3-4일",
-          "label" : "열 개수 설정 기능 (추천)",
-          "pros" : [
+          "description": "설정에서 열 개수 선택 (1/2/3/4/5열)",
+          "estimatedTime": "3-4일",
+          "label": "열 개수 설정 기능 (추천)",
+          "pros": [
             "사용자 맞춤 설정",
             "화면 활용도 증가",
             "더 많은 버튼 표시"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "Settings에 columnCount 속성 추가 (1-5)",
             "설정 UI에 Picker 추가",
             "GridLayout columns 동적 조정",
@@ -706,139 +704,228 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "자동 조정의 정확도 이슈"
           ],
-          "description" : "화면 크기에 따라 자동으로 열 개수 조정",
-          "estimatedTime" : "2-3일",
-          "label" : "자동 레이아웃",
-          "pros" : [
+          "description": "화면 크기에 따라 자동으로 열 개수 조정",
+          "estimatedTime": "2-3일",
+          "label": "자동 레이아웃",
+          "pros": [
             "설정 불필요",
             "자동 최적화"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "화면 너비 감지",
             "버튼 최소 너비 기준 열 개수 계산",
             "동적 레이아웃"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "설정에서 열 개수 선택 가능하도록 구현",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "설정에서 열 개수 선택 가능하도록 구현",
+      "relatedFeedback": [
         "DD83D5AF-1165-4834-B0DD-57381D522AE9"
       ],
-      "relatedTask" : "키보드 레이아웃 열 개수 설정 기능",
-      "title" : "키보드 레이아웃 열 개수를 사용자가 조정할 수 있게 할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "키보드 레이아웃 열 개수 설정 기능",
+      "title": "키보드 레이아웃 열 개수를 사용자가 조정할 수 있게 할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "버튼 크기 조정으로 정보 밀도를 높일 수 있습니다. 프리셋 방식이 구현이 간단하고 대부분의 사용 케이스를 커버합니다.",
-      "aiRecommendation" : "A",
-      "app" : "클립키보드",
-      "appFolder" : "clip-keyboard",
-      "businessImpact" : "접근성 개선 - 사용자별 선호도에 맞는 크기 선택",
-      "createdAt" : "2026-01-28T23:30:00Z",
-      "currentState" : "고정된 버튼 높이와 글자 크기",
-      "decision" : "슬라이더 커스텀 조정",
-      "description" : "사용자가 버튼 높이를 더 좁게, 글자 크기를 더 작게 조정하고 싶어합니다. 크기 프리셋을 제공하여 정보 밀도를 조절할 수 있게 합니다.",
-      "id" : "dec-clipkeyboard-006",
-      "implementationOptions" : [
+      "aiReasoning": "버튼 크기 조정으로 정보 밀도를 높일 수 있습니다. 프리셋 방식이 구현이 간단하고 대부분의 사용 케이스를 커버합니다.",
+      "aiRecommendation": "A",
+      "app": "클립키보드",
+      "appFolder": "clip-keyboard",
+      "businessImpact": "접근성 개선 - 사용자별 선호도에 맞는 크기 선택",
+      "createdAt": "2026-01-28T23:30:00Z",
+      "currentState": "고정된 버튼 높이와 글자 크기",
+      "decision": "슬라이더 커스텀 조정",
+      "description": "사용자가 버튼 높이를 더 좁게, 글자 크기를 더 작게 조정하고 싶어합니다. 크기 프리셋을 제공하여 정보 밀도를 조절할 수 있게 합니다.",
+      "id": "dec-clipkeyboard-006",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "세밀한 조정 불가"
           ],
-          "description" : "Small, Medium, Large 3가지 크기 프리셋 제공",
-          "estimatedTime" : "2-3일",
-          "label" : "크기 프리셋 (추천)",
-          "pros" : [
+          "description": "Small, Medium, Large 3가지 크기 프리셋 제공",
+          "estimatedTime": "2-3일",
+          "label": "크기 프리셋 (추천)",
+          "pros": [
             "빠른 구현",
             "간단한 선택",
             "대부분의 케이스 커버"
           ],
-          "technicalDetails" : [
-            "ButtonSizePreset enum (small\/medium\/large)",
+          "technicalDetails": [
+            "ButtonSizePreset enum (small/medium/large)",
             "설정 UI에 크기 선택 추가",
-            "높이: 30\/40\/50pt",
-            "폰트: 12\/14\/16pt"
+            "높이: 30/40/50pt",
+            "폰트: 12/14/16pt"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "UI 복잡도 증가",
             "개발 시간 증가"
           ],
-          "description" : "슬라이더로 높이와 폰트 크기 자유롭게 조정",
-          "estimatedTime" : "4-5일",
-          "label" : "슬라이더 커스텀 조정",
-          "pros" : [
+          "description": "슬라이더로 높이와 폰트 크기 자유롭게 조정",
+          "estimatedTime": "4-5일",
+          "label": "슬라이더 커스텀 조정",
+          "pros": [
             "완전한 개인화",
             "세밀한 조정"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "높이 슬라이더 (20-60pt)",
             "폰트 슬라이더 (10-20pt)",
             "실시간 미리보기"
           ]
         }
       ],
-      "priority" : "medium",
-      "proposedSolution" : "버튼 크기 프리셋 제공 (Small\/Medium\/Large)",
-      "relatedFeedback" : [
+      "priority": "medium",
+      "proposedSolution": "버튼 크기 프리셋 제공 (Small/Medium/Large)",
+      "relatedFeedback": [
         "DD83D5AF-1165-4834-B0DD-57381D522AE9"
       ],
-      "relatedTask" : "버튼 높이/글자 크기 슬라이더 조정 기능",
-      "title" : "버튼 높이와 글자 크기를 조정할 수 있게 할까요?",
-      "type" : "feature-decision",
-      "urgency" : "low"
+      "relatedTask": "버튼 높이/글자 크기 슬라이더 조정 기능",
+      "title": "버튼 높이와 글자 크기를 조정할 수 있게 할까요?",
+      "type": "feature-decision",
+      "urgency": "low"
     }
   ],
-  "lastUpdated" : "2026-01-28T23:45:00Z",
-  "pendingDecisions" : [
+  "lastUpdated": "2026-02-01T02:44:59Z",
+  "pendingDecisions": [
     {
-      "aiReasoning" : "Lazy Loading은 빠르게 구현 가능하고 즉각적인 효과가 있습니다. 우선 A를 구현하여 사용자 불만을 해소하고, 필요시 B를 추가하는 것이 효율적입니다.",
-      "aiRecommendation" : "A",
-      "app" : "나만의 버킷",
-      "appFolder" : "my-bucket",
-      "businessImpact" : "사용자 이탈 방지 - 느린 로딩은 앱 삭제로 직결됨",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "데이터 증가 시 로딩 속도 저하",
-      "description" : "사용자 피드백에서 데이터가 많아질수록 앱 실행 시 로딩이 느려진다는 심각한 문제가 보고되었습니다. 성능 최적화가 시급합니다.",
-      "id" : "dec-mybucket-003",
-      "implementationOptions" : [
+      "id": "dec-clipkeyboard-007",
+      "type": "feature-decision",
+      "app": "클립키보드",
+      "appFolder": "clip-keyboard",
+      "title": "\"원탭의 힘\" 컨셉 도입 - 시간 절약 시각화 및 성취감 시스템을 추가할까요?",
+      "description": "현재 클립 키보드는 템플릿 기능을 제공하지만, 사용자가 '얼마나 시간을 절약했는지' 체감하기 어렵습니다. 시간 절약을 숫자로 보여주고, 마일스톤 달성 시스템을 통해 지속 사용을 유도하는 '원탭의 힘' 컨셉을 도입하면 사용자 경험과 리텐션이 크게 향상됩니다. 이는 단순한 기능 추가가 아닌 앱의 핵심 가치를 시각화하는 전략입니다.",
+      "relatedTask": "",
+      "relatedFeedback": [],
+      "priority": "high",
+      "urgency": "medium",
+      "businessImpact": "사용자 리텐션 향상 - 시간 절약을 체감하며 지속 사용 유도, 자연스러운 리뷰 요청으로 앱스토어 평점 개선, 바이럴 가능성 증가 (시간 절약 공유)",
+      "currentState": "템플릿 기능은 있지만 사용자가 절약한 시간이나 성취를 확인할 방법이 없음",
+      "proposedSolution": "시간 절약 대시보드, 마일스톤 달성 시스템, 개선된 마이크로카피로 구성된 '원탭의 힘' 컨셉 구현",
+      "implementationOptions": [
         {
-          "cons" : [
+          "label": "핵심 기능만 (추천)",
+          "description": "시간 절약 카운터 + 마일스톤 달성 팝업 + 개선된 온보딩/빈 화면 문구",
+          "estimatedTime": "1-2주",
+          "pros": [
+            "빠른 구현으로 즉시 효과 확인 가능",
+            "핵심 가치(시간 절약)를 명확히 전달",
+            "마일스톤으로 지속 사용 동기 부여",
+            "리뷰 요청 타이밍 최적화",
+            "신규 사용자 온보딩 개선"
+          ],
+          "cons": [
+            "위젯, 주간 리포트 등 고급 기능은 제외",
+            "일부 사용자는 더 많은 기능 원할 수 있음"
+          ],
+          "technicalDetails": [
+            "1. 시간 절약 카운터: UserDefaults에 사용 횟수 저장, 1회당 5초 계산",
+            "2. 대시보드 UI: 메인 화면 상단에 오늘/이번달/총 누적 시간 표시",
+            "3. 마일스톤: 1분, 10분, 1시간, 10시간 등 달성 시 축하 팝업",
+            "4. 온보딩: 3단계 화면으로 가치 명확히 전달",
+            "5. 빈 화면: 템플릿 등록 유도 메시지 개선",
+            "6. 리뷰 요청: 10분 절약 또는 50회 사용 시 요청"
+          ]
+        },
+        {
+          "label": "전체 패키지",
+          "description": "핵심 기능 + 위젯 + 주간 리포트 푸시 + 시각적 피드백 강화",
+          "estimatedTime": "3-4주",
+          "pros": [
+            "완전한 '원탭의 힘' 경험 제공",
+            "위젯으로 홈 화면에서도 절약 시간 확인",
+            "주간 리포트로 정기적인 리마인드",
+            "미세한 애니메이션으로 보상감 극대화",
+            "차별화된 사용자 경험"
+          ],
+          "cons": [
+            "개발 시간 증가",
+            "위젯 등은 나중에 추가해도 됨",
+            "복잡도 증가"
+          ],
+          "technicalDetails": [
+            "핵심 기능 모두 포함 +",
+            "7. 위젯: WidgetKit으로 Small/Medium 크기 제공",
+            "8. 주간 리포트: 매주 월요일 사용 통계 푸시",
+            "9. 시각적 피드백: 탭 시 햅틱 + 체크마크 애니메이션",
+            "10. 절약 시간 카운터: 슬롯머신 롤링 효과"
+          ]
+        },
+        {
+          "label": "단계적 접근",
+          "description": "1단계(핵심) 출시 → 사용자 피드백 → 2단계(위젯 등) 추가",
+          "estimatedTime": "1-2주 + 추가 개발",
+          "pros": [
+            "리스크 최소화",
+            "사용자 반응 보고 방향 조정 가능",
+            "빠른 시장 검증",
+            "점진적 개선"
+          ],
+          "cons": [
+            "초기에는 제한적인 경험",
+            "장기적으로는 시간 더 소요"
+          ],
+          "technicalDetails": [
+            "1단계: 핵심 기능 (1-2주)",
+            "피드백 수집 및 분석 (1-2주)",
+            "2단계: 위젯 + 리포트 (2-3주)",
+            "3단계: 고급 기능 (필요시)"
+          ]
+        }
+      ],
+      "aiRecommendation": "A",
+      "aiReasoning": "클립 키보드의 핵심 가치는 '시간 절약'입니다. 하지만 현재는 이를 사용자가 체감하기 어렵습니다. 핵심 기능(시간 절약 카운터 + 마일스톤)만으로도 충분한 임팩트를 낼 수 있으며, 1-2주 안에 구현 가능합니다. 위젯이나 주간 리포트는 사용자 반응을 보고 추가해도 늦지 않습니다. 리뷰에서 언급된 구현 우선순위 표에서도 절약 시간 카운터, 온보딩 개선, 마일스톤이 최상위 임팩트로 평가되었습니다. 빠르게 핵심을 구현하여 효과를 검증하고, 필요시 확장하는 것이 효율적입니다.",
+      "createdAt": "2026-02-01T02:44:59Z"
+    },
+    {
+      "aiReasoning": "Lazy Loading은 빠르게 구현 가능하고 즉각적인 효과가 있습니다. 우선 A를 구현하여 사용자 불만을 해소하고, 필요시 B를 추가하는 것이 효율적입니다.",
+      "aiRecommendation": "A",
+      "app": "나만의 버킷",
+      "appFolder": "my-bucket",
+      "businessImpact": "사용자 이탈 방지 - 느린 로딩은 앱 삭제로 직결됨",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "데이터 증가 시 로딩 속도 저하",
+      "description": "사용자 피드백에서 데이터가 많아질수록 앱 실행 시 로딩이 느려진다는 심각한 문제가 보고되었습니다. 성능 최적화가 시급합니다.",
+      "id": "dec-mybucket-003",
+      "implementationOptions": [
+        {
+          "cons": [
             "전체 검색 시 제약"
           ],
-          "description" : "필요한 데이터만 로드하고, 스크롤 시 점진적으로 추가 로드",
-          "estimatedTime" : "4-5일",
-          "label" : "Lazy Loading + 페이지네이션 (추천)",
-          "pros" : [
+          "description": "필요한 데이터만 로드하고, 스크롤 시 점진적으로 추가 로드",
+          "estimatedTime": "4-5일",
+          "label": "Lazy Loading + 페이지네이션 (추천)",
+          "pros": [
             "즉각적인 성능 개선",
             "확장성 좋음",
             "메모리 효율적"
           ],
-          "technicalDetails" : [
-            "LazyVStack\/LazyVGrid 적용",
+          "technicalDetails": [
+            "LazyVStack/LazyVGrid 적용",
             "초기 로딩은 최근 20개만",
             "스크롤 시 추가 로드",
             "이미지 lazy loading"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "기존 데이터 마이그레이션 필요",
             "복잡도 증가"
           ],
-          "description" : "CoreData 인덱스 최적화 및 메모리 캐싱",
-          "estimatedTime" : "3-4일",
-          "label" : "데이터베이스 인덱싱 + 캐싱",
-          "pros" : [
+          "description": "CoreData 인덱스 최적화 및 메모리 캐싱",
+          "estimatedTime": "3-4일",
+          "label": "데이터베이스 인덱싱 + 캐싱",
+          "pros": [
             "근본적인 성능 개선",
             "전체 데이터 접근 가능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "CoreData fetch request 최적화",
             "자주 사용하는 쿼리 인덱스 추가",
             "메모리 캐시 구현",
@@ -846,76 +933,76 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 시간 증가",
             "테스트 복잡"
           ],
-          "description" : "Lazy Loading + DB 최적화 + 캐싱 모두 적용",
-          "estimatedTime" : "1주",
-          "label" : "A + B 통합 최적화",
-          "pros" : [
+          "description": "Lazy Loading + DB 최적화 + 캐싱 모두 적용",
+          "estimatedTime": "1주",
+          "label": "A + B 통합 최적화",
+          "pros": [
             "최고의 성능",
             "장기적으로 안정적"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "옵션 A, B의 모든 기법 적용",
             "완전한 성능 최적화"
           ]
         }
       ],
-      "priority" : "critical",
-      "proposedSolution" : "데이터 로딩 최적화 및 성능 개선",
-      "relatedFeedback" : [
+      "priority": "critical",
+      "proposedSolution": "데이터 로딩 최적화 및 성능 개선",
+      "relatedFeedback": [
         "note-bc-005"
       ],
-      "relatedTask" : "",
-      "title" : "앱 로딩 성능 최적화를 진행할까요?",
-      "type" : "feature-decision",
-      "urgency" : "high"
+      "relatedTask": "",
+      "title": "앱 로딩 성능 최적화를 진행할까요?",
+      "type": "feature-decision",
+      "urgency": "high"
     },
     {
-      "aiReasoning" : "3-5장 제한은 대부분의 사용 케이스를 커버하면서도 구현이 간단하고 성능 이슈가 적습니다. 우선 이렇게 구현하고 사용자 피드백을 보며 확장 여부를 결정하는 것이 좋습니다.",
-      "aiRecommendation" : "A",
-      "app" : "나만의 버킷",
-      "appFolder" : "my-bucket",
-      "businessImpact" : "사용자 만족도 향상 - 버킷리스트 완료 후 추억을 풍성하게 기록 가능",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "버킷리스트당 사진 1장만 가능",
-      "description" : "현재는 버킷리스트 항목당 사진을 1장만 첨부할 수 있습니다. 사용자 피드백에서 여행, 이벤트 등 여러 순간을 기록하고 싶다는 요청이 있습니다.",
-      "id" : "dec-mybucket-001",
-      "implementationOptions" : [
+      "aiReasoning": "3-5장 제한은 대부분의 사용 케이스를 커버하면서도 구현이 간단하고 성능 이슈가 적습니다. 우선 이렇게 구현하고 사용자 피드백을 보며 확장 여부를 결정하는 것이 좋습니다.",
+      "aiRecommendation": "A",
+      "app": "나만의 버킷",
+      "appFolder": "my-bucket",
+      "businessImpact": "사용자 만족도 향상 - 버킷리스트 완료 후 추억을 풍성하게 기록 가능",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "버킷리스트당 사진 1장만 가능",
+      "description": "현재는 버킷리스트 항목당 사진을 1장만 첨부할 수 있습니다. 사용자 피드백에서 여행, 이벤트 등 여러 순간을 기록하고 싶다는 요청이 있습니다.",
+      "id": "dec-mybucket-001",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "5장 이상 원하는 사용자 불만족"
           ],
-          "description" : "버킷리스트당 최대 5장까지 사진 첨부",
-          "estimatedTime" : "3-5일",
-          "label" : "사진 3-5장 제한 (추천)",
-          "pros" : [
+          "description": "버킷리스트당 최대 5장까지 사진 첨부",
+          "estimatedTime": "3-5일",
+          "label": "사진 3-5장 제한 (추천)",
+          "pros": [
             "적절한 구현 난이도",
             "저장 공간 관리 용이",
             "UI 복잡도 낮음"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "사진 배열로 데이터 모델 변경",
             "갤러리 UI 구현 (수평 스크롤)",
-            "사진 추가\/삭제 기능",
+            "사진 추가/삭제 기능",
             "최대 5장 제한"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "저장 공간 이슈",
             "로딩 성능 저하 가능"
           ],
-          "description" : "사진 개수 제한 없이 그리드 형태로 표시",
-          "estimatedTime" : "1주",
-          "label" : "무제한 사진 + 그리드 뷰",
-          "pros" : [
+          "description": "사진 개수 제한 없이 그리드 형태로 표시",
+          "estimatedTime": "1주",
+          "label": "무제한 사진 + 그리드 뷰",
+          "pros": [
             "사용자 제약 없음",
             "풍부한 기록 가능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "그리드 레이아웃 UI",
             "LazyVGrid로 성능 최적화",
             "사진 압축 및 최적화",
@@ -923,52 +1010,52 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "2단계 접근 필요"
           ],
-          "description" : "메인 화면에는 대표 사진 1장, 상세 화면에서 앨범으로 전체 사진 확인",
-          "estimatedTime" : "5-7일",
-          "label" : "대표 사진 1장 + 추가 사진 앨범",
-          "pros" : [
+          "description": "메인 화면에는 대표 사진 1장, 상세 화면에서 앨범으로 전체 사진 확인",
+          "estimatedTime": "5-7일",
+          "label": "대표 사진 1장 + 추가 사진 앨범",
+          "pros": [
             "메인 UI 깔끔 유지",
             "상세에서 풍부한 정보"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "대표 사진 선택 기능",
             "상세 화면에 사진 앨범 섹션",
             "사진 정렬 및 관리"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "사진 갤러리 형태로 여러 장 첨부 가능",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "사진 갤러리 형태로 여러 장 첨부 가능",
+      "relatedFeedback": [
         "note-bc-001"
       ],
-      "relatedTask" : "버킷리스트에 알맞는 이미지 올리기",
-      "title" : "버킷리스트 항목에 사진을 여러 장 첨부하는 기능을 구현할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "버킷리스트에 알맞는 이미지 올리기",
+      "title": "버킷리스트 항목에 사진을 여러 장 첨부하는 기능을 구현할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "기본 카테고리 제공은 사용자에게 좋은 시작점을 주면서도, 커스터마이징을 통해 개인화도 가능합니다. AI 추천은 매력적이지만 우선순위가 낮습니다.",
-      "aiRecommendation" : "A",
-      "app" : "나만의 버킷",
-      "appFolder" : "my-bucket",
-      "businessImpact" : "사용자 편의성 향상 - 많은 버킷리스트를 체계적으로 관리 가능",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "카테고리 기능 없거나 단순함",
-      "description" : "현재 카테고리 분류가 부족하다는 피드백이 있습니다. 여행, 운동, 학습, 취미 등 세분화된 카테고리를 제공하면 관리가 쉬워집니다.",
-      "id" : "dec-mybucket-002",
-      "implementationOptions" : [
+      "aiReasoning": "기본 카테고리 제공은 사용자에게 좋은 시작점을 주면서도, 커스터마이징을 통해 개인화도 가능합니다. AI 추천은 매력적이지만 우선순위가 낮습니다.",
+      "aiRecommendation": "A",
+      "app": "나만의 버킷",
+      "appFolder": "my-bucket",
+      "businessImpact": "사용자 편의성 향상 - 많은 버킷리스트를 체계적으로 관리 가능",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "카테고리 기능 없거나 단순함",
+      "description": "현재 카테고리 분류가 부족하다는 피드백이 있습니다. 여행, 운동, 학습, 취미 등 세분화된 카테고리를 제공하면 관리가 쉬워집니다.",
+      "id": "dec-mybucket-002",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "초기 카테고리 선택 고민"
           ],
-          "description" : "자주 사용하는 카테고리 10개 제공 + 사용자 추가 가능",
-          "estimatedTime" : "3-4일",
-          "exampleCategories" : [
-            "🌍 여행 (국내\/해외)",
+          "description": "자주 사용하는 카테고리 10개 제공 + 사용자 추가 가능",
+          "estimatedTime": "3-4일",
+          "exampleCategories": [
+            "🌍 여행 (국내/해외)",
             "🏃 운동 (마라톤, 등산 등)",
             "📚 학습 (자격증, 언어 등)",
             "🎨 취미 (악기, 그림 등)",
@@ -979,89 +1066,89 @@
             "🧘 건강 (식단, 명상 등)",
             "✨ 기타"
           ],
-          "label" : "기본 카테고리 10개 + 커스텀 (추천)",
-          "pros" : [
+          "label": "기본 카테고리 10개 + 커스텀 (추천)",
+          "pros": [
             "즉시 사용 가능",
             "유연한 확장",
             "개인화 가능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "기본 카테고리: 여행, 운동, 학습, 취미, 경력, 관계, 경험, 재정, 건강, 기타",
-            "카테고리 추가\/수정\/삭제 기능",
+            "카테고리 추가/수정/삭제 기능",
             "카테고리별 필터링 및 통계",
-            "카테고리별 아이콘\/색상"
+            "카테고리별 아이콘/색상"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "초기 진입 장벽",
             "빈 화면 시작"
           ],
-          "description" : "기본 카테고리 없이 사용자가 직접 모두 생성",
-          "estimatedTime" : "2일",
-          "label" : "완전 커스텀 카테고리",
-          "pros" : [
+          "description": "기본 카테고리 없이 사용자가 직접 모두 생성",
+          "estimatedTime": "2일",
+          "label": "완전 커스텀 카테고리",
+          "pros": [
             "빠른 구현",
             "완전한 개인화"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "카테고리 CRUD 기능만 제공",
             "사용자 완전 자유"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 복잡도 높음",
             "정확도 보장 어려움"
           ],
-          "description" : "버킷리스트 내용 분석하여 자동 카테고리 제안",
-          "estimatedTime" : "2주",
-          "label" : "AI 추천 카테고리",
-          "pros" : [
+          "description": "버킷리스트 내용 분석하여 자동 카테고리 제안",
+          "estimatedTime": "2주",
+          "label": "AI 추천 카테고리",
+          "pros": [
             "편리한 분류",
             "차별화 기능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "자연어 처리로 내용 분석",
             "카테고리 자동 제안",
             "학습 기반 개선"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "미리 정의된 카테고리 + 커스텀 카테고리 지원",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "미리 정의된 카테고리 + 커스텀 카테고리 지원",
+      "relatedFeedback": [
         "note-bc-003"
       ],
-      "relatedTask" : "꿈 모으기 카테고리 별로 그룹화",
-      "title" : "버킷리스트 카테고리를 더 세분화할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "꿈 모으기 카테고리 별로 그룹화",
+      "title": "버킷리스트 카테고리를 더 세분화할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "차트 크기 확대는 즉각적이고 효과적인 개선입니다. 우선 빠르게 문제를 해결하고, 사용자 피드백을 받아 B나 C를 진행하는 것이 좋습니다.",
-      "aiRecommendation" : "A",
-      "app" : "PortfolioCEO",
-      "appFolder" : "portfolioceo",
-      "businessImpact" : "CEO 의사결정 속도 향상 - 직관적인 시각화로 빠른 현황 파악",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "작은 차트로 정보 파악 어려움",
-      "description" : "현재 대시보드의 완료율 차트가 너무 작아서 한눈에 파악하기 어렵다는 피드백이 있습니다. CEO가 빠르게 현황을 파악할 수 있도록 시각화를 개선해야 합니다.",
-      "id" : "dec-portfolioceo-001",
-      "implementationOptions" : [
+      "aiReasoning": "차트 크기 확대는 즉각적이고 효과적인 개선입니다. 우선 빠르게 문제를 해결하고, 사용자 피드백을 받아 B나 C를 진행하는 것이 좋습니다.",
+      "aiRecommendation": "A",
+      "app": "PortfolioCEO",
+      "appFolder": "portfolioceo",
+      "businessImpact": "CEO 의사결정 속도 향상 - 직관적인 시각화로 빠른 현황 파악",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "작은 차트로 정보 파악 어려움",
+      "description": "현재 대시보드의 완료율 차트가 너무 작아서 한눈에 파악하기 어렵다는 피드백이 있습니다. CEO가 빠르게 현황을 파악할 수 있도록 시각화를 개선해야 합니다.",
+      "id": "dec-portfolioceo-001",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "화면 스크롤 필요할 수 있음"
           ],
-          "description" : "기존 차트 크기를 2배로 키우고 레이블 명확하게 표시",
-          "estimatedTime" : "1-2일",
-          "label" : "차트 크기 2배 확대 (추천)",
-          "pros" : [
+          "description": "기존 차트 크기를 2배로 키우고 레이블 명확하게 표시",
+          "estimatedTime": "1-2일",
+          "label": "차트 크기 2배 확대 (추천)",
+          "pros": [
             "빠른 구현",
             "즉시 효과",
             "기존 디자인 유지"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "차트 컴포넌트 크기 조정",
             "폰트 크기 증가",
             "색상 대비 개선",
@@ -1069,19 +1156,19 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 시간 증가",
             "복잡도 증가"
           ],
-          "description" : "클릭\/호버로 상세 정보 표시, 애니메이션 추가",
-          "estimatedTime" : "5-7일",
-          "label" : "인터랙티브 대시보드",
-          "pros" : [
+          "description": "클릭/호버로 상세 정보 표시, 애니메이션 추가",
+          "estimatedTime": "5-7일",
+          "label": "인터랙티브 대시보드",
+          "pros": [
             "풍부한 정보",
             "현대적인 UX",
             "탐색 용이"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "차트 라이브러리 업그레이드",
             "호버 툴팁 상세 정보",
             "클릭 시 드릴다운",
@@ -1089,18 +1176,18 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 리소스 大",
             "기존 사용자 적응 필요"
           ],
-          "description" : "KPI 중심 레이아웃, 다양한 차트 타입 활용",
-          "estimatedTime" : "2주",
-          "label" : "대시보드 전체 리디자인",
-          "pros" : [
+          "description": "KPI 중심 레이아웃, 다양한 차트 타입 활용",
+          "estimatedTime": "2주",
+          "label": "대시보드 전체 리디자인",
+          "pros": [
             "최고의 사용자 경험",
             "차별화 요소"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "UX 리서치 및 디자인",
             "다양한 차트 타입 (선, 막대, 파이 등)",
             "반응형 레이아웃",
@@ -1108,44 +1195,44 @@
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "차트 크기 확대 및 시각화 개선",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "차트 크기 확대 및 시각화 개선",
+      "relatedFeedback": [
         "note-001"
       ],
-      "relatedTask" : "",
-      "title" : "대시보드 차트 크기를 키우고 시각화를 개선할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "",
+      "title": "대시보드 차트 크기를 키우고 시각화를 개선할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "PortfolioCEO 앱의 핵심 가치는 정교한 의사결정 지원입니다. API 비용은 월 $20-50 정도로 부담스럽지 않고, 제공되는 가치가 훨씬 큽니다. 나중에 프리미엄 기능으로 수익화도 가능합니다.",
-      "aiRecommendation" : "A",
-      "app" : "PortfolioCEO",
-      "appFolder" : "portfolioceo",
-      "businessImpact" : "앱 핵심 가치 향상 - CEO 의사결정의 질이 크게 개선됨",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "키워드 매칭 기반 단순 분석",
-      "description" : "현재 AI 분석은 키워드 매칭 수준입니다. Claude API를 연동하면 피드백 분석, 의사결정 옵션 제시, 기획서 생성 등을 더 정교하게 할 수 있습니다. 단, API 비용이 월 $20-50 정도 발생합니다.",
-      "id" : "dec-portfolioceo-003",
-      "implementationOptions" : [
+      "aiReasoning": "PortfolioCEO 앱의 핵심 가치는 정교한 의사결정 지원입니다. API 비용은 월 $20-50 정도로 부담스럽지 않고, 제공되는 가치가 훨씬 큽니다. 나중에 프리미엄 기능으로 수익화도 가능합니다.",
+      "aiRecommendation": "A",
+      "app": "PortfolioCEO",
+      "appFolder": "portfolioceo",
+      "businessImpact": "앱 핵심 가치 향상 - CEO 의사결정의 질이 크게 개선됨",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "키워드 매칭 기반 단순 분석",
+      "description": "현재 AI 분석은 키워드 매칭 수준입니다. Claude API를 연동하면 피드백 분석, 의사결정 옵션 제시, 기획서 생성 등을 더 정교하게 할 수 있습니다. 단, API 비용이 월 $20-50 정도 발생합니다.",
+      "id": "dec-portfolioceo-003",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "API 비용 발생",
             "인터넷 연결 필수",
             "외부 서비스 의존"
           ],
-          "costEstimate" : "월 $20-50 (사용량에 따라)",
-          "description" : "Anthropic Claude API로 피드백 분석 및 의사결정 지원",
-          "estimatedTime" : "1주",
-          "label" : "Claude API 연동 (추천)",
-          "pros" : [
+          "costEstimate": "월 $20-50 (사용량에 따라)",
+          "description": "Anthropic Claude API로 피드백 분석 및 의사결정 지원",
+          "estimatedTime": "1주",
+          "label": "Claude API 연동 (추천)",
+          "pros": [
             "정교한 분석",
             "의사결정 품질 향상",
             "기획서 자동 생성",
             "지속적인 AI 개선"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "Claude API 키 설정 UI",
             "피드백 → 의사결정 자동 생성",
             "기획서 자동 작성",
@@ -1153,83 +1240,83 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "성능 제한적",
             "Mac 리소스 많이 소모",
             "구현 복잡도 높음",
             "정확도 낮을 수 있음"
           ],
-          "description" : "Llama 등 오픈소스 LLM을 Mac에서 직접 실행",
-          "estimatedTime" : "2-3주",
-          "label" : "로컬 LLM 활용",
-          "pros" : [
+          "description": "Llama 등 오픈소스 LLM을 Mac에서 직접 실행",
+          "estimatedTime": "2-3주",
+          "label": "로컬 LLM 활용",
+          "pros": [
             "비용 없음",
             "오프라인 가능",
             "개인정보 보호"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "Llama 모델 통합",
             "Mac GPU 활용",
             "오프라인 동작"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "분석 품질 한계",
             "차별화 어려움",
             "복잡한 케이스 대응 불가"
           ],
-          "description" : "키워드 매칭을 더 정교하게 개선",
-          "estimatedTime" : "3-5일",
-          "label" : "현재 방식 개선",
-          "pros" : [
+          "description": "키워드 매칭을 더 정교하게 개선",
+          "estimatedTime": "3-5일",
+          "label": "현재 방식 개선",
+          "pros": [
             "비용 없음",
             "빠른 응답",
             "의존성 없음"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "키워드 데이터베이스 확장",
             "패턴 매칭 알고리즘 개선",
             "규칙 기반 추론"
           ]
         }
       ],
-      "priority" : "high",
-      "proposedSolution" : "Claude API 연동으로 정교한 AI 분석",
-      "relatedFeedback" : [
+      "priority": "high",
+      "proposedSolution": "Claude API 연동으로 정교한 AI 분석",
+      "relatedFeedback": [
         "note-004"
       ],
-      "relatedTask" : "",
-      "title" : "Claude API를 연동하여 AI 분석을 고도화할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "",
+      "title": "Claude API를 연동하여 AI 분석을 고도화할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "macOS 앱은 시스템 다크모드 연동이 표준입니다. 사용자가 이미 익숙한 방식이고, 추가 설정 없이 자동으로 작동합니다.",
-      "aiRecommendation" : "A",
-      "app" : "PortfolioCEO",
-      "appFolder" : "portfolioceo",
-      "businessImpact" : "사용자 편의성 향상 - 야간 작업 시 눈의 피로 감소",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "라이트 모드만 지원",
-      "description" : "밤에 작업할 때 눈이 부시다는 피드백이 있습니다. macOS 시스템 설정에 따라 자동으로 다크\/라이트 모드를 전환하는 기능을 추가하면 야간 사용성이 크게 개선됩니다.",
-      "id" : "dec-portfolioceo-004",
-      "implementationOptions" : [
+      "aiReasoning": "macOS 앱은 시스템 다크모드 연동이 표준입니다. 사용자가 이미 익숙한 방식이고, 추가 설정 없이 자동으로 작동합니다.",
+      "aiRecommendation": "A",
+      "app": "PortfolioCEO",
+      "appFolder": "portfolioceo",
+      "businessImpact": "사용자 편의성 향상 - 야간 작업 시 눈의 피로 감소",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "라이트 모드만 지원",
+      "description": "밤에 작업할 때 눈이 부시다는 피드백이 있습니다. macOS 시스템 설정에 따라 자동으로 다크/라이트 모드를 전환하는 기능을 추가하면 야간 사용성이 크게 개선됩니다.",
+      "id": "dec-portfolioceo-004",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "모든 UI 컴포넌트 대응 필요",
             "테스트 시간 증가"
           ],
-          "description" : "macOS 다크모드 설정에 따라 자동 전환",
-          "estimatedTime" : "3-5일",
-          "label" : "시스템 연동 자동 전환 (추천)",
-          "pros" : [
+          "description": "macOS 다크모드 설정에 따라 자동 전환",
+          "estimatedTime": "3-5일",
+          "label": "시스템 연동 자동 전환 (추천)",
+          "pros": [
             "macOS 네이티브 경험",
             "자동 전환",
             "추가 설정 불필요",
             "표준 방식"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "ColorScheme 환경 변수 활용",
             "모든 뷰 다크모드 대응",
             "차트 및 이미지 다크모드 최적화",
@@ -1237,150 +1324,148 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "설정 UI 추가 필요",
             "사용자 혼란 가능",
             "macOS 표준과 다름"
           ],
-          "description" : "사용자가 앱에서 직접 라이트\/다크 선택",
-          "estimatedTime" : "1주",
-          "label" : "앱 내 토글 제공",
-          "pros" : [
+          "description": "사용자가 앱에서 직접 라이트/다크 선택",
+          "estimatedTime": "1주",
+          "label": "앱 내 토글 제공",
+          "pros": [
             "사용자 선택권",
             "시스템 설정 무관"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "설정 화면에 토글 버튼",
             "사용자 선택 저장",
             "시스템 설정과 독립적"
           ]
         }
       ],
-      "priority" : "medium",
-      "proposedSolution" : "시스템 설정 연동 다크모드 지원",
-      "relatedFeedback" : [
+      "priority": "medium",
+      "proposedSolution": "시스템 설정 연동 다크모드 지원",
+      "relatedFeedback": [
         "note-006"
       ],
-      "relatedTask" : "",
-      "title" : "다크모드를 지원할까요?",
-      "type" : "feature-decision",
-      "urgency" : "medium"
+      "relatedTask": "",
+      "title": "다크모드를 지원할까요?",
+      "type": "feature-decision",
+      "urgency": "medium"
     },
     {
-      "aiReasoning" : "기본 템플릿은 빠르게 제공하여 사용자 온보딩을 개선하는 것이 우선입니다. 다국어나 스토어는 사용자 피드백을 받은 후 진행해도 늦지 않습니다.",
-      "aiRecommendation" : "A",
-      "app" : "클립키보드",
-      "appFolder" : "clip-keyboard",
-      "businessImpact" : "신규 사용자 온보딩 개선 - 템플릿의 가치를 바로 체험 가능",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "템플릿 기능은 있지만 빈 상태로 시작",
-      "description" : "템플릿 기능은 이미 구현되어 있지만, 사용자가 직접 만들어야 합니다. 자주 사용하는 기본 템플릿(인사말, 이메일 서명, 회의 안내 등)을 미리 제공하면 첫 사용 경험이 개선됩니다.",
-      "id" : "dec-clipkeyboard-002",
-      "implementationOptions" : [
+      "aiReasoning": "기본 템플릿은 빠르게 제공하여 사용자 온보딩을 개선하는 것이 우선입니다. 다국어나 스토어는 사용자 피드백을 받은 후 진행해도 늦지 않습니다.",
+      "aiRecommendation": "A",
+      "app": "클립키보드",
+      "appFolder": "clip-keyboard",
+      "businessImpact": "신규 사용자 온보딩 개선 - 템플릿의 가치를 바로 체험 가능",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "템플릿 기능은 있지만 빈 상태로 시작",
+      "description": "템플릿 기능은 이미 구현되어 있지만, 사용자가 직접 만들어야 합니다. 자주 사용하는 기본 템플릿(인사말, 이메일 서명, 회의 안내 등)을 미리 제공하면 첫 사용 경험이 개선됩니다.",
+      "id": "dec-clipkeyboard-002",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "영어권 사용자 대응 안 됨"
           ],
-          "description" : "한국 사용자에게 유용한 기본 템플릿 제공",
-          "estimatedTime" : "1-2일",
-          "exampleTemplates" : [
+          "description": "한국 사용자에게 유용한 기본 템플릿 제공",
+          "estimatedTime": "1-2일",
+          "exampleTemplates": [
             "안녕하세요, {이름}입니다.",
             "회의 일정: {날짜} {시간}",
             "감사합니다. 좋은 하루 되세요!",
             "죄송하지만 해당 요청은 어렵습니다.",
             "이메일 서명: {이름} | {직책} | {회사}"
           ],
-          "label" : "한국어 기본 템플릿 10개 (추천)",
-          "pros" : [
+          "label": "한국어 기본 템플릿 10개 (추천)",
+          "pros": [
             "빠른 구현",
             "즉시 사용 가능",
             "한국 사용자 맞춤"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "기본 템플릿 JSON 파일 작성",
             "앱 초기 실행 시 템플릿 자동 생성",
             "예시: 인사말, 이메일 서명, 회의 안내, 감사 인사, 거절 메시지 등"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 시간 증가",
             "번역 필요"
           ],
-          "description" : "한국어\/영어 템플릿 + 비즈니스\/일상\/개발자용 등 카테고리",
-          "estimatedTime" : "3-5일",
-          "label" : "다국어 템플릿 + 카테고리 분류",
-          "pros" : [
+          "description": "한국어/영어 템플릿 + 비즈니스/일상/개발자용 등 카테고리",
+          "estimatedTime": "3-5일",
+          "label": "다국어 템플릿 + 카테고리 분류",
+          "pros": [
             "글로벌 대응",
             "사용자별 필요 템플릿 선택 용이"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "카테고리별 템플릿 분류",
             "언어 자동 감지 또는 선택",
             "20-30개 다양한 템플릿"
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "개발 리소스 大",
             "서버 비용 발생",
             "모더레이션 필요"
           ],
-          "description" : "사용자가 템플릿을 공유하고 다운로드하는 스토어",
-          "estimatedTime" : "2-3주",
-          "label" : "템플릿 스토어 (커뮤니티)",
-          "pros" : [
+          "description": "사용자가 템플릿을 공유하고 다운로드하는 스토어",
+          "estimatedTime": "2-3주",
+          "label": "템플릿 스토어 (커뮤니티)",
+          "pros": [
             "지속적인 템플릿 확장",
             "커뮤니티 형성"
           ],
-          "technicalDetails" : [
-            "템플릿 업로드\/다운로드 기능",
+          "technicalDetails": [
+            "템플릿 업로드/다운로드 기능",
             "서버 인프라 구축",
             "검색 및 평가 시스템"
           ]
         }
       ],
-      "priority" : "medium",
-      "proposedSolution" : "앱 설치 시 기본 템플릿 10-15개 제공",
-      "relatedFeedback" : [
-
-      ],
-      "relatedTask" : "기본 템플릿 제공해주기",
-      "title" : "사용자를 위한 기본 템플릿을 제공할까요?",
-      "type" : "feature-decision",
-      "urgency" : "low"
+      "priority": "medium",
+      "proposedSolution": "앱 설치 시 기본 템플릿 10-15개 제공",
+      "relatedFeedback": [],
+      "relatedTask": "기본 템플릿 제공해주기",
+      "title": "사용자를 위한 기본 템플릿을 제공할까요?",
+      "type": "feature-decision",
+      "urgency": "low"
     },
     {
-      "aiReasoning" : "5개 기본 카테고리면 대부분의 피드백을 분류하기 충분합니다. 너무 복잡하면 사용자가 피드백 작성을 꺼릴 수 있습니다.",
-      "aiRecommendation" : "A",
-      "app" : "PortfolioCEO",
-      "appFolder" : "portfolioceo",
-      "businessImpact" : "피드백 관리 효율성 향상 - 카테고리별 분석 및 우선순위 결정 용이",
-      "createdAt" : "2026-01-18T18:00:00Z",
-      "currentState" : "자유 텍스트만 입력 가능",
-      "description" : "현재 피드백 작성 시 자유 텍스트만 입력 가능합니다. 버그, UI\/UX, 기능 요청, 성능 등 카테고리를 선택할 수 있으면 나중에 분류하고 우선순위를 정하기 쉬워집니다.",
-      "id" : "dec-portfolioceo-002",
-      "implementationOptions" : [
+      "aiReasoning": "5개 기본 카테고리면 대부분의 피드백을 분류하기 충분합니다. 너무 복잡하면 사용자가 피드백 작성을 꺼릴 수 있습니다.",
+      "aiRecommendation": "A",
+      "app": "PortfolioCEO",
+      "appFolder": "portfolioceo",
+      "businessImpact": "피드백 관리 효율성 향상 - 카테고리별 분석 및 우선순위 결정 용이",
+      "createdAt": "2026-01-18T18:00:00Z",
+      "currentState": "자유 텍스트만 입력 가능",
+      "description": "현재 피드백 작성 시 자유 텍스트만 입력 가능합니다. 버그, UI/UX, 기능 요청, 성능 등 카테고리를 선택할 수 있으면 나중에 분류하고 우선순위를 정하기 쉬워집니다.",
+      "id": "dec-portfolioceo-002",
+      "implementationOptions": [
         {
-          "cons" : [
+          "cons": [
             "세부 분류 제한적"
           ],
-          "description" : "버그, UI\/UX, 기능요청, 성능, 기타 5개 카테고리",
-          "estimatedTime" : "2-3일",
-          "exampleCategories" : [
+          "description": "버그, UI/UX, 기능요청, 성능, 기타 5개 카테고리",
+          "estimatedTime": "2-3일",
+          "exampleCategories": [
             "🐛 버그",
-            "🎨 UI\/UX",
+            "🎨 UI/UX",
             "✨ 기능 요청",
             "⚡ 성능",
             "💡 기타"
           ],
-          "label" : "기본 카테고리 5개 (추천)",
-          "pros" : [
+          "label": "기본 카테고리 5개 (추천)",
+          "pros": [
             "간단 명확",
             "빠른 구현",
             "즉시 활용 가능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "피드백 모델에 category 필드 추가",
             "드롭다운 또는 버튼 선택 UI",
             "카테고리별 필터링",
@@ -1388,33 +1473,33 @@
           ]
         },
         {
-          "cons" : [
+          "cons": [
             "사용자 입력 부담",
             "복잡도 증가"
           ],
-          "description" : "대분류\/중분류\/소분류 3단계 카테고리",
-          "estimatedTime" : "5-7일",
-          "label" : "다층 카테고리 시스템",
-          "pros" : [
+          "description": "대분류/중분류/소분류 3단계 카테고리",
+          "estimatedTime": "5-7일",
+          "label": "다층 카테고리 시스템",
+          "pros": [
             "정교한 분류",
             "상세한 분석 가능"
           ],
-          "technicalDetails" : [
+          "technicalDetails": [
             "계층형 카테고리 구조",
             "중분류 선택 시 소분류 표시",
             "복잡한 필터링 로직"
           ]
         }
       ],
-      "priority" : "medium",
-      "proposedSolution" : "피드백 카테고리 선택 옵션 추가",
-      "relatedFeedback" : [
+      "priority": "medium",
+      "proposedSolution": "피드백 카테고리 선택 옵션 추가",
+      "relatedFeedback": [
         "note-002"
       ],
-      "relatedTask" : "",
-      "title" : "피드백 작성 시 카테고리 선택 기능을 추가할까요?",
-      "type" : "feature-decision",
-      "urgency" : "low"
+      "relatedTask": "",
+      "title": "피드백 작성 시 카테고리 선택 기능을 추가할까요?",
+      "type": "feature-decision",
+      "urgency": "low"
     }
   ]
 }

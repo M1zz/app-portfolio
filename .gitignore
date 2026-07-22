@@ -31,3 +31,11 @@ venv/
 !dashboard/index.html
 !docs/index.html
 !STATS.md
+
+# 앱 JSON 백업 / 로컬 잡파일 (커밋 제외)
+*.json.backup
+*.json.backup-*
+*.json.backup[0-9]
+*.bak
+*.backup-20260201
+todo.local.md
