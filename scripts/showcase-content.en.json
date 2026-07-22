@@ -431,6 +431,16 @@
       "context": "Her child draws but quickly loses interest and doesn't keep going.",
       "solution": "Kids draw easily and watch their drawings come to life, growing the joy of creating.",
       "hook": "If you wish your child's drawings could move"
+    },
+    "bookmark-shot": {
+      "tagline": "Keep book passages as a photo",
+      "problem": "While reading, copying out your favorite passages by hand is a hassle, so you let them slip away.",
+      "stakeholders": "Readers who want to collect and keep the sentences they love",
+      "persona": "Seoyeon (29), an avid reader who underlines but can never find the lines again",
+      "context": "When you hit a passage worth keeping in a paper book",
+      "solution": "Snap the cover to auto-detect title and author, then swipe over a sentence to scrap just that one line — highlighter-style — into your library.",
+      "hook": "If good lines in books slip away because jotting them down is a chore",
+      "highlight": "Swipe over a sentence to grab just that line"
     }
   }
 }

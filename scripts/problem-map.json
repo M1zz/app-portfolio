@@ -190,6 +190,21 @@
               "gapEn": "No notepad designed to continue a thought"
             }
           ]
+        },
+        {
+          "slug": "bookmark-shot",
+          "problems": [
+            {
+              "pain": "책을 읽다가 내가 좋아하는 문구를 적기 귀찮음",
+              "painEn": "Copying out your favorite passages by hand while reading is a hassle",
+              "who": "책을 읽으며 문장을 모으고 싶은 사람",
+              "whoEn": "Readers who want to collect the sentences they love",
+              "when": "종이책에서 마음에 드는 문장을 만났을 때",
+              "whenEn": "When you hit a passage worth keeping in a paper book",
+              "gap": "표지 촬영으로 책을 자동 인식하고 문장만 형광펜처럼 스캔·소장하는 도구 부재",
+              "gapEn": "No tool that auto-identifies the book from its cover and scans just the highlighted sentence to keep"
+            }
+          ]
         }
       ]
     },
