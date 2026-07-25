@@ -50,6 +50,23 @@
 ### 4. 리뷰요청 장치
 - 시그니처: `SKStoreReviewController` `requestReview`
 
+### 5. 성숙 서비스 견고성 (신규, 소스 grep — 표에 컬럼 추가)
+성숙한 서비스가 갖춰야 할 "안정적 데이터 보관 / 기능 안정 보장" 관점의 점검.
+
+| 항목 | 배지/기준 | 시그니처 |
+|------|-----------|----------|
+| **데이터 보관** | `클라우드` > `로컬DB` > `기본저장` 순 | 클라우드=`CloudKit·NSPersistentCloudKitContainer·iCloud·ubiquit` / 로컬DB=`CoreData·SwiftData·GRDB·Realm·SQLite` / 그 외=기본저장 |
+| ┗ 백업 칩 | 백업/복원/내보내기 로직 | `백업·복원·backup·restore·export/import` |
+| **테스트** | 있음/없음 | `import XCTest·import Testing·@Test·XCTAssert` 파일 존재 |
+| **장애 대비** | 모니터링/없음 | `Crashlytics·Sentry·Bugsnag·FirebaseCrashlytics` |
+| 보안·인증 (체크리스트) | 집계만 | `LocalAuthentication·LAContext·Keychain·SecItem·FaceID` |
+| 개인정보 매니페스트 (체크리스트) | 집계만 | `PrivacyInfo.xcprivacy` 파일 |
+
+> 이 신규 항목들은 **표/체크리스트에만 표시**하고 8축 성숙도 점수에는 아직 미반영(정보 제공용). 점수에 넣을지는 추후 결정.
+
+**자동탐지가 어려워 수동 확인을 권장하는 항목** (HTML "추가로 점검하면 좋은 항목" 섹션):
+스키마 마이그레이션 · 오프라인/동기화 충돌 처리 · 빈/에러 상태 UI · 계정·데이터 삭제 경로 · 개인정보 처리방침/약관 링크 · 접근성(VoiceOver·Dynamic Type) · CI/CD · 로그·관측성.
+
 ### 종합 발달 성숙도 (8축 가중합, 100점 만점)
 | 배점 | 축 | 산정 |
 |-----|----|------|
