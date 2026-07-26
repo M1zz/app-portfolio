@@ -38,6 +38,9 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # ⚠️ docs/ 폴더는 여기서 통째로 공개된다.
+      # 내부 평가 리포트(앱별 약점·수익모델·우선순위)는 docs/ 가 아니라 reports/ 에 두고
+      # .gitignore 로 추적에서 제외한다. 공개해도 되는 파일만 docs/ 에 넣을 것.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

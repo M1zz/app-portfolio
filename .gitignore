@@ -39,3 +39,7 @@ venv/
 *.bak
 *.backup-20260201
 todo.local.md
+
+# 내부 평가 리포트 — 공개 저장소이므로 커밋하지 않는다 (로컬 전용)
+# 생성: python3 scripts/build-portfolio-status.py
+reports/
