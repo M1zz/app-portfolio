@@ -141,7 +141,7 @@
     "notStarted": 1,
     "totalTasks": 13
   },
-  "status": "active",
+  "status": "abandoned",
   "folderId": "review-manager",
   "vision": {
     "tagline": "인디 개발자의 리뷰 사령탑",
@@ -195,5 +195,14 @@
         "AI 응답 생성 기능에 대한 수요 증가"
       ]
     }
+  },
+  "lifecycle": {
+    "stage": 0,
+    "label": "abandoned",
+    "tier": null,
+    "evaluatedAt": "2026-08-29",
+    "basis": "미출시 상태로 개발 중단",
+    "ratingCount": 0,
+    "daysSinceUpdate": null
   }
 }

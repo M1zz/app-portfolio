@@ -1,0 +1,45 @@
+{
+  "allTasks": [],
+  "appStoreId": "6793472383",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6793472383",
+  "bundleId": "com.leeo.wifisnap",
+  "categories": [
+    "라이프스타일",
+    "생산성"
+  ],
+  "currentVersion": "1.0",
+  "folderId": "wifi-snap",
+  "githubRepo": "https://github.com/M1zz/WifiSnap",
+  "localProjectPath": "",
+  "minimumOS": "17.0",
+  "name": "마이파이",
+  "nameEn": "WifiSnap",
+  "nextTasks": [],
+  "notes": "[2026-08-29 스토어 동기화로 추가] 저장해둔 Wi-Fi 정보를 QR·공유시트로 손쉽게 전달하는 앱 (스토어명: 마이파이, 2026-08-18 출시)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": "https://m1zz.github.io/WifiSnap/",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 11일 경과 → 개선 중",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 11
+  }
+}

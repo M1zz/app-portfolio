@@ -266,7 +266,7 @@
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "4.3.9",
+  "currentVersion": "5.0.4",
   "folderId": "clip-keyboard",
   "githubRepo": "https://github.com/Code-Ward/Token-memo",
   "localProjectPath": "../Token-memo",
@@ -358,5 +358,14 @@
       ]
     }
   },
-  "supportUrl": "https://m1zz.github.io/ClipKeyboard/"
+  "supportUrl": "https://m1zz.github.io/ClipKeyboard/",
+  "lifecycle": {
+    "stage": 3,
+    "label": "pmf-search",
+    "tier": null,
+    "basis": "외부 평점 13개(복수 반응) · 평점 4.7 · v5.0.4",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 13,
+    "daysSinceUpdate": 2
+  }
 }

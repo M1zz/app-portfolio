@@ -1,130 +1,30 @@
 {
   "앱 이름 매핑": "한글 이름 → 프로젝트 폴더",
   "apps": {
-    "바미로그": {
-      "nameEn": "Bami Log",
-      "folder": "bami-log",
-      "bundleId": "com.leeo.bamilog"
+    "LeeoCon": {
+      "nameEn": "LeeoCon",
+      "folder": "leeocon",
+      "bundleId": "com.leeo.LeeoCon"
     },
-    "클립키보드": {
-      "nameEn": "Clip Keyboard",
-      "folder": "clip-keyboard",
-      "bundleId": "com.Ysoup.TokenMemo",
-      "sourcePath": "../Token-memo"
+    "StickyPresenter": {
+      "nameEn": "StickyPresenter",
+      "folder": "sticky-presenter",
+      "bundleId": "com.leeo.StickyPresenter"
     },
-    "쿨타임": {
-      "nameEn": "Cooltime",
-      "folder": "cooltime",
-      "bundleId": "com.Ysoup.CoolTime"
+    "StickyPresenterRemote": {
+      "nameEn": "StickyPresenterRemote",
+      "folder": "sticky-presenter-remote",
+      "bundleId": "com.leeo.StickyPresenter.Remote"
     },
-    "오늘의 주접": {
-      "nameEn": "Daily Compliment",
-      "folder": "daily-compliment",
-      "bundleId": "com.leeo.JuJob"
+    "TetraTint": {
+      "nameEn": "TetraTint",
+      "folder": "tetra-tint",
+      "bundleId": "com.leeo.TetraTint"
     },
     "ecDesigner": {
       "nameEn": "ecDesigner",
       "folder": "ecdesigner",
       "bundleId": "com.leeo.ecDesigner"
-    },
-    "잘 싸워보세": {
-      "nameEn": "Fight Well",
-      "folder": "fight-well",
-      "bundleId": "com.leeo.fightwell"
-    },
-    "외국어는 언어다": {
-      "nameEn": "Foreign Is Language",
-      "folder": "foreign-is-language",
-      "bundleId": "com.leeo.foreignislanguage"
-    },
-    "인생 맛집": {
-      "nameEn": "Life Restaurant",
-      "folder": "life-restaurant",
-      "bundleId": "com.Ysoup.restaurantmap"
-    },
-    "세끼": {
-      "nameEn": "Three Meals",
-      "folder": "three-meals",
-      "bundleId": "com.ysoup.RoutineCamera"
-    },
-    "나만의 버킷": {
-      "nameEn": "My Bucket",
-      "folder": "my-bucket",
-      "bundleId": "com.leeo.mybucket"
-    },
-    "픽셀 미미": {
-      "nameEn": "Pixel Mimi",
-      "folder": "pixel-mimi",
-      "bundleId": "com.leeo.PixelMe"
-    },
-    "포항 어드벤쳐": {
-      "nameEn": "Pohang Adventure",
-      "folder": "pohang-adventure",
-      "bundleId": "com.leeo.pohangadventure"
-    },
-    "확률계산기": {
-      "nameEn": "Probability Calculator",
-      "folder": "probability-calculator",
-      "bundleId": "com.lottochecker.app"
-    },
-    "퀴즈": {
-      "nameEn": "Quiz",
-      "folder": "quiz",
-      "bundleId": "com.leeo.quiz"
-    },
-    "욕망의 무지개": {
-      "nameEn": "Rainbow of Desire",
-      "folder": "rainbow-of-desire",
-      "bundleId": "com.example.ScheduleDensityApp"
-    },
-    "라포 맵": {
-      "nameEn": "Rapport Map",
-      "folder": "rapport-map",
-      "bundleId": "com.ysoup.RapportMap"
-    },
-    "리바운드 저널": {
-      "nameEn": "Rebound Journal",
-      "folder": "rebound-journal",
-      "bundleId": "com.leeo.ReboundJournal"
-    },
-    "달빛": {
-      "nameEn": "Dalbit",
-      "folder": "relax-on",
-      "bundleId": "com.leeo.LullabyRecipe",
-      "sourcePath": "../RelaxOn",
-      "formerName": "릴렉스 온 (Relax On)"
-    },
-    "내마음에저장": {
-      "nameEn": "Save In My Heart",
-      "folder": "save-in-my-heart",
-      "bundleId": "com.leeo.saveinmyheart"
-    },
-    "속삭": {
-      "nameEn": "Whisper",
-      "folder": "whisper",
-      "bundleId": "com.leeo.whisper"
-    },
-    "데일리 트래커": {
-      "nameEn": "Daily Tracker",
-      "folder": "daily-tracker",
-      "bundleId": "com.leeo.dailytracker"
-    },
-    "리뷰 매니저": {
-      "nameEn": "Review Manager",
-      "folder": "review-manager",
-      "bundleId": "com.leeo.ReviewManager",
-      "sourcePath": "../ReviewManager"
-    },
-    "클로즈드": {
-      "nameEn": "Closed",
-      "folder": "donkko-mart",
-      "bundleId": "com.leeo.DontGoMart",
-      "formerName": "돈꼬마트 (Donkko Mart)"
-    },
-    "두번알림": {
-      "nameEn": "Double Reminder",
-      "folder": "double-reminder",
-      "bundleId": "com.xa.toki"
     },
     "골드위크": {
       "nameEn": "Goldweek",
@@ -138,60 +38,83 @@
       "bundleId": "com.bucketclimb.app",
       "formerName": "버킷 클라임"
     },
-    "일정 비서": {
-      "nameEn": "Schedule Assistant",
-      "folder": "schedule-assistant",
-      "bundleId": "com.weekahead.todo"
+    "나만의 버킷": {
+      "nameEn": "My Bucket",
+      "folder": "my-bucket",
+      "bundleId": "com.leeo.mybucket"
     },
     "낫마템포": {
       "nameEn": "Notma Tempo",
       "folder": "hands-free-metronome",
       "bundleId": "com.leeo.HandsFreeMetronome"
     },
+    "내마음에저장": {
+      "nameEn": "Save In My Heart",
+      "folder": "save-in-my-heart",
+      "bundleId": "com.leeo.saveinmyheart"
+    },
+    "달빛": {
+      "nameEn": "Dalbit",
+      "folder": "relax-on",
+      "bundleId": "com.leeo.LullabyRecipe",
+      "sourcePath": "../../Auto/달빛",
+      "formerName": "릴렉스 온 (Relax On)"
+    },
+    "달빛 오락실": {
+      "nameEn": "Moonlit Arcade",
+      "folder": "moonlit-arcade",
+      "bundleId": "com.example.MoonlitOrder"
+    },
+    "데일리 트래커": {
+      "nameEn": "Daily Tracker",
+      "folder": "daily-tracker",
+      "bundleId": "com.leeo.dailytracker"
+    },
+    "두번알림": {
+      "nameEn": "Double Reminder",
+      "folder": "double-reminder",
+      "bundleId": "com.xa.toki"
+    },
+    "라포맵": {
+      "nameEn": "Rapport Map",
+      "folder": "rapport-map",
+      "bundleId": "com.ysoup.RapportMap"
+    },
+    "리뷰 매니저": {
+      "nameEn": "Review Manager",
+      "folder": "review-manager",
+      "bundleId": "com.leeo.ReviewManager",
+      "sourcePath": "../ReviewManager"
+    },
+    "링롱": {
+      "nameEn": "Ring Rong",
+      "folder": "ring-rong",
+      "bundleId": "com.leeo.FindMe"
+    },
+    "마이파이": {
+      "nameEn": "WifiSnap",
+      "folder": "wifi-snap",
+      "bundleId": "com.leeo.wifisnap"
+    },
     "무지개 공작소": {
       "nameEn": "Rainbow Workshop",
       "folder": "rainbow-workshop",
       "bundleId": "com.devkoan.ScheduleDensityApp"
     },
-    "한국길찾기": {
-      "nameEn": "Korea Navi",
-      "folder": "korea-navi",
-      "bundleId": "com.kora.leeo"
+    "밑줄": {
+      "nameEn": "Bookmark Shot",
+      "folder": "bookmark-shot",
+      "bundleId": "com.leeo.bookmarkshot"
     },
-    "초견": {
-      "nameEn": "Sight Singer",
-      "folder": "sight-singer",
-      "bundleId": "com.devkoan.StaffSinger"
+    "바미로그": {
+      "nameEn": "Bami Log",
+      "folder": "bami-log",
+      "bundleId": "com.leeo.bamilog"
     },
-    "잊지마": {
-      "nameEn": "Don't Forget",
-      "folder": "dont-forget",
-      "bundleId": "com.leeo.TodoAlarm"
-    },
-    "펀칭": {
-      "nameEn": "Punching",
-      "folder": "punching",
-      "bundleId": "com.devkoan.StampCamera"
-    },
-    "퇴사각": {
-      "nameEn": "Fire Tracker",
-      "folder": "fire-tracker",
-      "bundleId": "com.devkoan.FireTracker"
-    },
-    "이어생각": {
-      "nameEn": "Think Flow",
-      "folder": "think-flow",
-      "bundleId": "com.leeo.thinkflow"
-    },
-    "StickyPresenter": {
-      "nameEn": "StickyPresenter",
-      "folder": "sticky-presenter",
-      "bundleId": "com.leeo.StickyPresenter"
-    },
-    "탭클립 키보드": {
-      "nameEn": "Tap Clip Keyboard",
-      "folder": "tap-clip-keyboard",
-      "bundleId": "com.ysoup.TokenMemo-tap"
+    "벅터벅터": {
+      "nameEn": "Beokteo Beokteo",
+      "folder": "footprint-diary",
+      "bundleId": "com.leeo.FootprintDiary"
     },
     "불타는 내인생": {
       "nameEn": "Burning My Life",
@@ -203,75 +126,167 @@
       "folder": "sanoramyeon",
       "bundleId": "com.devkoan.IndonesianSmallTalk"
     },
-    "링롱": {
-      "nameEn": "Ring Rong",
-      "folder": "ring-rong",
-      "bundleId": "com.leeo.FindMe"
+    "세끼": {
+      "nameEn": "Three Meals",
+      "folder": "three-meals",
+      "bundleId": "com.ysoup.RoutineCamera"
+    },
+    "속삭": {
+      "nameEn": "Whisper",
+      "folder": "whisper",
+      "bundleId": "com.leeo.whisper"
     },
     "스픽플로우": {
       "nameEn": "Speak Flow",
       "folder": "speak-flow",
       "bundleId": "com.leeo.ConversationPractice"
     },
-    "LeeoCon": {
-      "nameEn": "LeeoCon",
-      "folder": "leeocon",
-      "bundleId": "com.leeo.LeeoCon"
+    "실수 100": {
+      "nameEn": "Junior Dev Mistakes",
+      "folder": "junior-mistakes",
+      "bundleId": "com.leeo.JuniorDevMistakes"
     },
     "쑥쑥용돈": {
       "nameEn": "Family Bank",
       "folder": "family-bank",
       "bundleId": "com.family.FamilyBank"
     },
-    "억울해요": {
-      "nameEn": "Family Court",
-      "folder": "family-court",
-      "bundleId": "com.family.familycourt"
-    },
-    "팔랑북": {
-      "nameEn": "PalrangBook",
-      "folder": "flip-book",
-      "bundleId": "com.leeo.RotoscopeiPad"
-    },
-    "발자국일기": {
-      "nameEn": "Footprint Diary",
-      "folder": "footprint-diary",
-      "bundleId": "com.leeo.FootprintDiary"
-    },
-    "실수 100": {
-      "nameEn": "Junior Dev Mistakes",
-      "folder": "junior-mistakes",
-      "bundleId": "com.leeo.JuniorDevMistakes"
-    },
     "아이일정": {
       "nameEn": "Kid Calendar",
       "folder": "kid-calendar",
       "bundleId": "com.devkoan.CalendarSnap"
     },
-    "달빛 오락실": {
-      "nameEn": "Moonlit Arcade",
-      "folder": "moonlit-arcade",
-      "bundleId": "com.example.MoonlitOrder"
+    "억울해요": {
+      "nameEn": "Family Court",
+      "folder": "family-court",
+      "bundleId": "com.family.familycourt"
+    },
+    "오늘의 주접": {
+      "nameEn": "Daily Compliment",
+      "folder": "daily-compliment",
+      "bundleId": "com.leeo.JuJob"
+    },
+    "외국어는 언어다": {
+      "nameEn": "Foreign Is Language",
+      "folder": "foreign-is-language",
+      "bundleId": "com.leeo.foreignislanguage"
+    },
+    "욕망의 무지개": {
+      "nameEn": "Rainbow of Desire",
+      "folder": "rainbow-of-desire",
+      "bundleId": "com.example.ScheduleDensityApp"
+    },
+    "이어생각": {
+      "nameEn": "Think Flow",
+      "folder": "think-flow",
+      "bundleId": "com.leeo.thinkflow"
+    },
+    "인생 맛집": {
+      "nameEn": "Life Restaurant",
+      "folder": "life-restaurant",
+      "bundleId": "com.Ysoup.restaurantmap"
+    },
+    "일정 비서": {
+      "nameEn": "Schedule Assistant",
+      "folder": "schedule-assistant",
+      "bundleId": "com.weekahead.todo"
+    },
+    "잊지마": {
+      "nameEn": "Don't Forget",
+      "folder": "dont-forget",
+      "bundleId": "com.leeo.TodoAlarm"
+    },
+    "잘 싸워보세": {
+      "nameEn": "Fight Well",
+      "folder": "fight-well",
+      "bundleId": "com.leeo.fightwell"
     },
     "장표스냅": {
       "nameEn": "SlideSnap",
       "folder": "slide-snap",
       "bundleId": "com.leeo.slidesnap"
     },
+    "징검돌": {
+      "nameEn": "Jinggeomdol",
+      "folder": "rebound-journal",
+      "bundleId": "com.leeo.ReboundJournal"
+    },
+    "초견": {
+      "nameEn": "Sight Singer",
+      "folder": "sight-singer",
+      "bundleId": "com.devkoan.StaffSinger"
+    },
+    "쿨타임": {
+      "nameEn": "Cooltime",
+      "folder": "cooltime",
+      "bundleId": "com.Ysoup.CoolTime"
+    },
+    "퀴즈": {
+      "nameEn": "Quiz",
+      "folder": "quiz",
+      "bundleId": "com.leeo.quiz"
+    },
+    "클로즈드": {
+      "nameEn": "Closed",
+      "folder": "donkko-mart",
+      "bundleId": "com.leeo.DontGoMart",
+      "formerName": "돈꼬마트 (Donkko Mart)"
+    },
+    "클립키보드": {
+      "nameEn": "Clip Keyboard",
+      "folder": "clip-keyboard",
+      "bundleId": "com.Ysoup.TokenMemo",
+      "sourcePath": "../Token-memo"
+    },
+    "탭클립 키보드": {
+      "nameEn": "Tap Clip Keyboard",
+      "folder": "tap-clip-keyboard",
+      "bundleId": "com.ysoup.TokenMemo-tap"
+    },
+    "퇴사각": {
+      "nameEn": "Fire Tracker",
+      "folder": "fire-tracker",
+      "bundleId": "com.devkoan.FireTracker"
+    },
+    "팔랑북": {
+      "nameEn": "PalrangBook",
+      "folder": "flip-book",
+      "bundleId": "com.leeo.RotoscopeiPad"
+    },
+    "펀칭": {
+      "nameEn": "Punching",
+      "folder": "punching",
+      "bundleId": "com.devkoan.StampCamera"
+    },
+    "포항 어드벤쳐": {
+      "nameEn": "Pohang Adventure",
+      "folder": "pohang-adventure",
+      "bundleId": "com.leeo.pohangadventure"
+    },
+    "픽셀 미미": {
+      "nameEn": "Pixel Mimi",
+      "folder": "pixel-mimi",
+      "bundleId": "com.leeo.PixelMe"
+    },
+    "하늘색": {
+      "nameEn": "SkyDex",
+      "folder": "sky-dex",
+      "bundleId": "com.leeo.SkyDex"
+    },
+    "한국길찾기": {
+      "nameEn": "Korea Navi",
+      "folder": "korea-navi",
+      "bundleId": "com.kora.leeo"
+    },
     "햇빛바라기": {
       "nameEn": "Sunflower",
       "folder": "sunflower",
       "bundleId": "com.leeo.sunflower"
     },
-    "TetraTint": {
-      "nameEn": "TetraTint",
-      "folder": "tetra-tint",
-      "bundleId": "com.leeo.TetraTint"
-    },
-    "밑줄": {
-      "nameEn": "Bookmark Shot",
-      "folder": "bookmark-shot",
-      "bundleId": "com.leeo.bookmarkshot"
+    "확률계산기": {
+      "nameEn": "Probability Calculator",
+      "folder": "probability-calculator",
+      "bundleId": "com.lottochecker.app"
     }
   }
 }

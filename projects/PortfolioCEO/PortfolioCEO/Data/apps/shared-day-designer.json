@@ -274,7 +274,7 @@
   "notes": "[2026-07-05 스토어 동기화] v2.0.7 (2026-06-20 출시). '휴가 플래너'에서 '골드위크 - 황금연휴 플래너'로 리브랜딩 (연차 관리/황금연휴 조합 특화)",
   "bundleId": "com.Ysoup.LeaveWise",
   "status": "active",
-  "currentVersion": "2.1.1",
+  "currentVersion": "2.1.2",
   "stats": {
     "done": 3,
     "inProgress": 0,
@@ -336,5 +336,14 @@
       ]
     }
   },
-  "supportUrl": "https://m1zz.github.io/LeaveWise/support.html"
+  "supportUrl": "https://m1zz.github.io/LeaveWise/support.html",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 12일 경과 → 개선 중",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 12
+  }
 }

@@ -169,7 +169,7 @@
   "categories": [
     "다국어지원예정"
   ],
-  "currentVersion": "1.0.4",
+  "currentVersion": "1.0.9",
   "githubRepo": "https://github.com/M1zz/ScheduleDensity",
   "localProjectPath": "../ScheduleDensity",
   "minimumOS": "16.0",
@@ -253,5 +253,14 @@
     "pricingModel": "free",
     "hasInAppPurchases": false
   },
-  "supportUrl": "https://leeo75.notion.site/2abe264a0fdc80fa8012e587eb06ba98"
+  "supportUrl": "https://leeo75.notion.site/2abe264a0fdc80fa8012e587eb06ba98",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "외부 평점 1개(유저 반응 신호 없음) · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 1,
+    "daysSinceUpdate": 1
+  }
 }

@@ -766,9 +766,16 @@ def render(apps, content=None, content_en=None, problem_map=None):
     groups_en = content_en.get("groups", [])
     by_slug = {a["_slug"]: a for a in apps}
 
-    released = [a for a in apps if (a.get("_store") or {}).get("url")]
+    released = [
+        a for a in apps
+        if (a.get("_store") or {}).get("url")
+        and (a.get("lifecycle") or {}).get("stage") != 0
+    ]
 
     def showable(app):
+        # 폐기(lifecycle.stage 0) 앱은 쇼케이스에서 제외 — 스토어에 남아 있어도 노출하지 않는다
+        if (app.get("lifecycle") or {}).get("stage") == 0:
+            return False
         # 스토어에 있거나, 큐레이션 카피가 있는 앱(예: 준비 중인 개발자 도구)만 노출
         return bool((app.get("_store") or {}).get("url")) or bool(
             copy_map.get(app["_slug"])
@@ -1236,7 +1243,11 @@ APPS_END = "<!-- APPS:END -->"
 
 
 def render_readme_section(apps):
-    released = [a for a in apps if (a.get("_store") or {}).get("url")]
+    released = [
+        a for a in apps
+        if (a.get("_store") or {}).get("url")
+        and (a.get("lifecycle") or {}).get("stage") != 0
+    ]
     released.sort(
         key=lambda a: (
             -(((a.get("_store") or {}).get("ratingCount")) or 0),
@@ -1310,7 +1321,10 @@ def main():
     html = render(apps, content, content_en, problem_map)
     OUT_FILE.write_text(html, encoding="utf-8")
     update_readme(apps)
-    released = sum(1 for a in apps if (a.get("_store") or {}).get("url"))
+    released = sum(
+        1 for a in apps
+        if (a.get("_store") or {}).get("url") and (a.get("lifecycle") or {}).get("stage") != 0
+    )
     print(f"✅ 생성 완료: {OUT_FILE.relative_to(ROOT)} (출시 {released} / 전체 {len(apps)})")
 
 

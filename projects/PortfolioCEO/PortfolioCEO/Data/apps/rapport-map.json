@@ -318,7 +318,7 @@
     "멘토링이나 어떤 특정 태그처럼 속성 중에 멘토링 케이스를 추가할 수 있었으면 좋겠음"
   ],
   "notes": "[2026-07-05 스토어 동기화] v1.0.1 (2025-11-19 출시)",
-  "name": "라포 맵",
+  "name": "라포맵",
   "githubRepo": "https://github.com/M1zz/RapportMap",
   "bundleId": "com.ysoup.RapportMap",
   "localProjectPath": "../../../../../RapportMap",
@@ -398,5 +398,14 @@
     "pricingModel": "free",
     "hasInAppPurchases": false
   },
-  "supportUrl": "https://leeo75.notion.site/2abe264a0fdc8049bad6f86954bca20d"
+  "supportUrl": "https://leeo75.notion.site/2abe264a0fdc8049bad6f86954bca20d",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "C",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 283일 경과 → 정지",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 283
+  }
 }

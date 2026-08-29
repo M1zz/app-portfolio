@@ -12,7 +12,7 @@
   "name": "LeeoCon",
   "nameEn": "LeeoCon",
   "nextTasks": [],
-  "notes": "[2026-07-05 스토어 동기화로 자동 등록] The new sticker for iMessage app user.  (스토어명: LeeoCon, 2022-06-01 최신 버전 출시)",
+  "notes": "[2026-07-05 스토어 동기화로 자동 등록] The new sticker for iMessage app user.  (스토어명: LeeoCon, 2022-06-01 최신 버전 출시) [2026-08-30] 수명주기 판정 보정: 판매 성과가 목적이 아닌 브랜드 친밀감 표시용 장치로 의도적 유지 중 — 정지(2-C)로 읽지 말 것.",
   "price": {
     "isFree": false,
     "priceKRW": 1100,
@@ -30,5 +30,15 @@
     "totalTasks": 0
   },
   "status": "active",
-  "supportUrl": "https://dev200ok.blogspot.com/2022/06/leeo-con.html"
+  "supportUrl": "https://dev200ok.blogspot.com/2022/06/leeo-con.html",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "C",
+    "basis": "의도적 유지 — 판매용이 아니라 브랜드 친밀감을 표시하는 장치로 운영 중(사용자 확인). 업데이트 없음은 방치가 아닌 설계된 상태. 기계적 판정으로는 외부 평점 0개 · 최종 업데이트 1550일 경과",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 1550,
+    "intent": "branding"
+  }
 }

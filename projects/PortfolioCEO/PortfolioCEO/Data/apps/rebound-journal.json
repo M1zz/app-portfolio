@@ -240,19 +240,19 @@
     "머지 컨플릭트 PR"
   ],
   "notes": "[2026-07-05 스토어 동기화] v1.0.10 (2025-12-02 출시), 평점 5(1개)",
-  "name": "리바운드 저널",
+  "name": "징검돌",
   "githubRepo": "https://github.com/Code-Ward/Rebound-Journal",
   "bundleId": "com.leeo.ReboundJournal",
   "localProjectPath": "../Rebound-Journal",
   "status": "active",
   "appStoreId": "6450388408",
   "priority": "high",
-  "nameEn": "Rebound Journal",
+  "nameEn": "Jinggeomdol",
   "recentlyCompleted": [
     "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "1.0.10 배포"
   ],
-  "currentVersion": "1.0.10",
+  "currentVersion": "2.0.0",
   "appStoreUrl": "https://apps.apple.com/kr/app/id6450388408",
   "sharedModules": [],
   "stats": {
@@ -320,5 +320,14 @@
     "pricingModel": "free",
     "hasInAppPurchases": false
   },
-  "supportUrl": "https://dev200ok.blogspot.com/2023/06/blog-post_82.html"
+  "supportUrl": "https://dev200ok.blogspot.com/2023/06/blog-post_82.html",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "외부 평점 1개(유저 반응 신호 없음) · 최종 업데이트 28일 경과 → 개선 중",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 1,
+    "daysSinceUpdate": 28
+  }
 }

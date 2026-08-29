@@ -1,6 +1,6 @@
 {
   "bundleId": "com.leeo.quiz",
-  "status": "planning",
+  "status": "abandoned",
   "nameEn": "Quiz",
   "currentVersion": "1.0.5",
   "localProjectPath": "../Level1Kuiz",
@@ -340,5 +340,14 @@
         "기업의 직원 교육 투자 증가"
       ]
     }
+  },
+  "lifecycle": {
+    "stage": 0,
+    "label": "abandoned",
+    "tier": null,
+    "evaluatedAt": "2026-08-29",
+    "basis": "미출시 상태로 개발 중단",
+    "ratingCount": 0,
+    "daysSinceUpdate": null
   }
 }

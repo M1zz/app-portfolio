@@ -86,6 +86,21 @@
               "gapEn": "No tool that visualizes the recovery process"
             }
           ]
+        },
+        {
+          "slug": "sky-dex",
+          "problems": [
+            {
+              "pain": "매일 본 하늘이 아무 기록도 남기지 못하고 사라짐",
+              "painEn": "The sky you see every day leaves no record behind",
+              "who": "기록 습관을 들이고 싶은 사람",
+              "whoEn": "People trying to build a journaling habit",
+              "when": "출퇴근길·창밖을 볼 때 등 하루 한 번의 짧은 순간",
+              "whenEn": "A brief daily moment — a commute, a glance out the window",
+              "gap": "사진첩은 쌓이기만 할 뿐 시간의 변화를 보여주지 않음",
+              "gapEn": "Photo libraries only accumulate; they never show change over time"
+            }
+          ]
         }
       ]
     },
@@ -332,6 +347,21 @@
               "whenEn": "When capturing slides during a talk",
               "gap": "장표 전용 촬영·정리 도구 부재",
               "gapEn": "No dedicated tool for shooting and organizing slides"
+            }
+          ]
+        },
+        {
+          "slug": "sticky-presenter-remote",
+          "problems": [
+            {
+              "pain": "발표 중 슬라이드를 넘기려 매번 노트북으로 돌아가야 함",
+              "painEn": "Every slide change drags the speaker back to the laptop",
+              "who": "강연·수업·데모를 진행하는 발표자",
+              "whoEn": "Speakers running talks, classes, and demos",
+              "when": "청중과 가까이서 이야기하다 다음 장으로 넘어갈 때",
+              "whenEn": "When moving to the next slide while engaging the audience up close",
+              "gap": "발표자 노트와 슬라이드 제어가 노트북에 묶여 무대 이동을 제약함",
+              "gapEn": "Notes and slide control stay tied to the laptop, restricting movement on stage"
             }
           ]
         }
@@ -776,21 +806,6 @@
           ]
         },
         {
-          "slug": "probability-calculator",
-          "problems": [
-            {
-              "pain": "복잡한 확률을 손으로 계산하기 번거로움",
-              "painEn": "Complex probabilities are tedious to work out by hand",
-              "who": "게임·통계·의사결정에 확률이 필요한 사람",
-              "whoEn": "People who need odds for games, stats, and decisions",
-              "when": "당첨·성공 확률을 따질 때",
-              "whenEn": "When weighing odds of winning or success",
-              "gap": "직관적인 확률 계산 도구 부재",
-              "gapEn": "No intuitive probability calculator"
-            }
-          ]
-        },
-        {
           "slug": "kid-calendar",
           "problems": [
             {
@@ -804,6 +819,21 @@
               "gapEn": "No way to snap paper schedules and manage them digitally"
             }
           ]
+        },
+        {
+          "slug": "wifi-snap",
+          "problems": [
+            {
+              "pain": "손님마다 와이파이 비밀번호를 소리 내어 불러줘야 함",
+              "painEn": "Reading out the Wi-Fi password to every guest",
+              "who": "손님 초대가 잦은 가정·소규모 매장",
+              "whoEn": "Households with frequent guests, small shops",
+              "when": "손님이 도착해 \"와이파이 뭐야?\"라고 묻는 순간",
+              "whenEn": "The moment a guest asks \"what's the Wi-Fi?\"",
+              "gap": "OS에 저장된 와이파이를 손쉽게 꺼내 공유하는 표준 경로가 없음",
+              "gapEn": "No easy standard path to surface and share a network already saved on the device"
+            }
+          ]
         }
       ]
     },
@@ -814,21 +844,6 @@
       "titleEn": "Developer Tools",
       "color": "#e17055",
       "apps": [
-        {
-          "slug": "review-manager",
-          "problems": [
-            {
-              "pain": "여러 앱의 리뷰·평점이 흩어져 대응 우선순위를 못 정함",
-              "painEn": "Reviews and ratings scatter across apps, so triage is guesswork",
-              "who": "여러 앱을 운영하는 인디 개발자",
-              "whoEn": "Indie developers running multiple apps",
-              "when": "매일 리뷰를 확인하고 대응할 때",
-              "whenEn": "When checking and answering reviews daily",
-              "gap": "리뷰를 한곳에 모아 우선순위를 짚어주는 도구 부재",
-              "gapEn": "No tool that gathers reviews and points to today's priority"
-            }
-          ]
-        },
         {
           "slug": "tetra-tint",
           "problems": [

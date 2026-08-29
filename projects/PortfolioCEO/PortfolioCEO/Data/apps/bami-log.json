@@ -15,7 +15,7 @@
   "githubRepo": "https://github.com/M1zz/BamiLog",
   "bundleId": "com.leeo.bamilog",
   "localProjectPath": "../BamiLog",
-  "status": "planning",
+  "status": "abandoned",
   "appStoreId": "",
   "priority": "medium",
   "nameEn": "Bami Log",
@@ -319,5 +319,14 @@
         "원격 의료 확대"
       ]
     }
+  },
+  "lifecycle": {
+    "stage": 0,
+    "label": "abandoned",
+    "tier": null,
+    "evaluatedAt": "2026-08-29",
+    "basis": "미출시 상태로 개발 중단",
+    "ratingCount": 0,
+    "daysSinceUpdate": null
   }
 }

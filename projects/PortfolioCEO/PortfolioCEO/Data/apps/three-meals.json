@@ -14,7 +14,7 @@
   "sharedModules": [],
   "priority": "high",
   "status": "active",
-  "currentVersion": "1.0.4",
+  "currentVersion": "1.0.6",
   "nameEn": "Three Meals",
   "minimumOS": "16.0",
   "appStoreId": "6755164924",
@@ -262,5 +262,14 @@
     "pricingModel": "free",
     "hasInAppPurchases": false
   },
-  "supportUrl": "https://leeo75.notion.site/2a9e264a0fdc807d8afbd18a7dab17f2"
+  "supportUrl": "https://leeo75.notion.site/2a9e264a0fdc807d8afbd18a7dab17f2",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 9일 경과 → 개선 중",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 9
+  }
 }

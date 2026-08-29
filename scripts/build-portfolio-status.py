@@ -232,6 +232,7 @@ def collect(cached=False):
             "stats": {"done": done, "inProgress": stats.get("inProgress", 0), "todo": stats.get("todo", 0),
                       "notStarted": stats.get("notStarted", 0), "totalTasks": total},
             "maturity": sum(parts.values()), "parts": parts,
+            "lifecycle": d.get("lifecycle") or {},
             "feedbackHub": fl.get("feedbackHub", False), "feedbackSoft": fl.get("feedbackSoft", False),
             "analytics": fl.get("analytics", False), "analyticsLocalOnly": fl.get("analyticsLocalOnly", False),
             "reviewPrompt": fl.get("reviewPrompt", False),
@@ -478,6 +479,70 @@ def insights(apps, kit_count):
     return "".join('<div class="insight%s">%s</div>' % ((" " + c) if c else "", t) for c, t in out)
 
 
+# ── 제품 수명주기(Lifecycle) 5단계 ────────────────────────────────
+LC_META = {
+    5: ("Maturity", "정상궤도", "안정적 유저·매출이 유지되고 신규 개발보다 유지·최적화 중심",
+        "안정 매출·리텐션 확인 (수동 판정)"),
+    4: ("Growth", "마케팅 확장", "획득 채널에 투자해 체급만큼 유저를 늘리는 단계",
+        "마케팅 실제 발행·캠페인·유료획득 실행 (수동 판정)"),
+    3: ("PMF 탐색", "유저 반응 기반 개선", "실유저 반응을 받아 제품을 반복 개선하는 단계",
+        "외부 평점 2개 이상 = 복수의 실유저 반응"),
+    2: ("Problem–Solution Fit", "출시·동작함", "제품은 완성되어 돌아가지만 유저 반응 신호가 아직 없는 단계",
+        "출시 완료 + 외부 평점 0~1개. 하위 등급은 최종 업데이트 경과일 (A ≤30일 · B 31–90일 · C 90일 초과)"),
+    1: ("Pre-MVP", "빌드 중", "아직 출시 전, MVP를 완성해야 하는 단계", "미출시 + 개발 진행 중"),
+    0: ("Abandoned", "폐기", "개발을 중단했거나 스토어에서 내린 앱 — 피라미드 집계 제외", "사용자 확인"),
+}
+TIER_KR = {"A": "개선 중", "B": "소강", "C": "정지"}
+
+
+def lifecycle_pyramid(apps):
+    buckets = {k: [] for k in LC_META}
+    for a in apps:
+        buckets.setdefault((a.get("lifecycle") or {}).get("stage", 1), []).append(a)
+    live = sum(len(v) for k, v in buckets.items() if k >= 1)
+
+    def chips(items):
+        out = []
+        for a in sorted(items, key=lambda a: ((a.get("lifecycle") or {}).get("daysSinceUpdate") or 9999)):
+            lc = a.get("lifecycle") or {}
+            keep = ' lckeep' if lc.get("intent") else ''
+            mark = ' <b>· 의도적 유지</b>' if lc.get("intent") else ''
+            out.append('<span class="lcchip%s" title="%s">%s%s</span>'
+                       % (keep, esc(lc.get("basis", "")), esc(a["name"]), mark))
+        return "".join(out)
+
+    rows = []
+    for st in (5, 4, 3, 2, 1):
+        en, kr, desc, crit = LC_META[st]
+        items = buckets.get(st, [])
+        n = len(items)
+        pct = (n / live * 100) if live else 0
+        if st == 2:
+            body = ""
+            for tier in ("A", "B", "C"):
+                sub = [a for a in items if (a.get("lifecycle") or {}).get("tier") == tier]
+                if not sub:
+                    continue
+                body += ('<div class="lcsub"><span class="lctier t%s">2-%s %s · %d</span>%s</div>'
+                         % (tier, tier, TIER_KR[tier], len(sub), chips(sub)))
+        else:
+            body = chips(items) or '<span class="lcempty">해당 앱 없음</span>'
+        rows.append(
+            '<tr class="lcrow%s"><td class="lcnum"><b>%d</b></td>'
+            '<td class="lcname"><b>%s</b><i>%s</i><em>%s</em></td>'
+            '<td class="lccount"><b>%d</b><i>%.0f%%</i></td>'
+            '<td class="lcapps">%s<div class="lccrit">판정: %s</div></td></tr>'
+            % (" lcz" if not n else "", st, en, kr, desc, n, pct, body, crit))
+
+    dead = buckets.get(0, [])
+    dead_html = ('<div class="lcdead"><b>별도 · 폐기(Abandoned) %d개</b> %s</div>'
+                 % (len(dead), chips(dead))) if dead else ""
+    return ('<div class="tbl-scroll"><table class="lctbl">'
+            '<thead><tr><th class="ctr">단계</th><th>이름</th><th class="ctr">앱 수</th>'
+            '<th>해당 앱</th></tr></thead><tbody>%s</tbody></table></div>%s'
+            % ("".join(rows), dead_html))
+
+
 def build_status(apps, kit_count, today, head):
     scanned = [a for a in apps if a["scanned"]]
     ns, nt = len(scanned), len(apps)
@@ -537,7 +602,15 @@ def build_status(apps, kit_count, today, head):
 </section>
 
 <section>
-  <h2><span class="hn">3</span>완성도 체크리스트 <span style="font-weight:400;color:var(--muted);font-size:12px">· 탄탄한 서비스가 갖출 8개 영역 · 소스 %(ns)d개 / 포트폴리오 %(nt)d개 기준</span></h2>
+  <h2><span class="hn">3</span>제품 수명주기 <span style="font-weight:400;color:var(--muted);font-size:12px">· Lifecycle 5단계 · Problem–Solution Fit → PMF → Growth → Maturity · 폐기 제외 %(nlive)d개 기준</span></h2>
+  <div class="panel">
+    %(pyramid)s
+    <p style="margin:14px 0 0;font-size:12.5px;color:var(--muted)">아래 「4 완성도 체크리스트」가 <b>제품이 얼마나 탄탄한가</b>를 본다면, 이 축은 <b>제품이 시장에서 어디까지 왔는가</b>를 본다. 앱 이름에 마우스를 올리면 판정 근거가 보인다. 원본은 <code>Data/apps/*.json</code>의 <code>lifecycle</code> 필드.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="hn">4</span>완성도 체크리스트 <span style="font-weight:400;color:var(--muted);font-size:12px">· 탄탄한 서비스가 갖출 8개 영역 · 소스 %(ns)d개 / 포트폴리오 %(nt)d개 기준</span></h2>
   <div class="cats">%(cats)s</div>
   <div class="covlegend">
     <span><span class="cov cok" style="margin:0">n/n</span> 커버리지 60%%↑</span>
@@ -548,7 +621,7 @@ def build_status(apps, kit_count, today, head):
 </section>
 
 <section>
-  <h2><span class="hn">4</span>주요 인사이트 · 우선순위</h2>
+  <h2><span class="hn">5</span>주요 인사이트 · 우선순위</h2>
   <div class="panel">
     %(insights)s
   </div>
@@ -593,9 +666,11 @@ def build_status(apps, kit_count, today, head):
         "nt": nt, "ns": ns, "today": today, "kpis": kpi_html, "segs": segs, "legend": legend,
         "rev": rev, "revpct": round(rev / nt * 100), "rows": status_rows(apps),
         "cats": checklist(apps, kit_count), "insights": insights(apps, kit_count),
+        "pyramid": lifecycle_pyramid(apps),
+        "nlive": sum(1 for a in apps if (a.get("lifecycle") or {}).get("stage", 1) >= 1),
     }
     head = re.sub(r"<title>[^<]*</title>", "<title>포트폴리오 디벨롭 현황 · %s</title>" % today, head)
-    return head + "<body>\n" + body
+    return head + '\n<style>\n  .lctbl{width:100%;border-collapse:collapse;font-size:13px}\n  .lctbl th{text-align:left;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);\n    padding:0 10px 8px;border-bottom:1px solid var(--line);font-weight:600}\n  .lctbl td{padding:13px 10px;border-bottom:1px solid var(--line);vertical-align:top}\n  .lctbl tr:last-child td{border-bottom:0}\n  .lcrow.lcz{opacity:.45}\n  .lcnum{width:44px;text-align:center}\n  .lcnum b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;\n    background:var(--accent);color:#fff;font-size:15px;font-weight:700}\n  .lcrow.lcz .lcnum b{background:var(--line);color:var(--muted)}\n  .lcname{width:210px}\n  .lcname b{display:block;font-size:13.5px}\n  .lcname i{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:1px}\n  .lcname em{display:block;font-style:normal;font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.45}\n  .lccount{width:62px;text-align:center}\n  .lccount b{font-size:19px;font-weight:700}\n  .lccount i{display:block;font-style:normal;font-size:11px;color:var(--muted)}\n  .lcchip{display:inline-block;margin:0 4px 4px 0;padding:3px 8px;border-radius:6px;font-size:12px;\n    border:1px solid var(--line);background:rgba(127,127,127,.06);cursor:help}\n  .lcchip.lckeep{border-color:var(--accent);color:var(--accent);background:rgba(58,122,232,.08)}\n  .lcchip.lckeep b{font-weight:700;font-size:10.5px}\n  .lcempty{font-size:12px;color:var(--muted);font-style:italic}\n  .lcsub{margin-bottom:8px}\n  .lcsub:last-child{margin-bottom:0}\n  .lctier{display:inline-block;margin:0 6px 4px 0;padding:3px 9px;border-radius:6px;font-size:11.5px;font-weight:700}\n  .lctier.tA{background:rgba(31,168,120,.16);color:var(--ok)}\n  .lctier.tB{background:rgba(214,160,30,.16);color:var(--mid)}\n  .lctier.tC{background:rgba(214,74,64,.16);color:var(--no)}\n  .lccrit{margin-top:7px;font-size:11.5px;color:var(--muted);line-height:1.5}\n  .lcdead{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}\n  .lcdead b{display:block;margin-bottom:6px;color:var(--ink)}\n  @media (max-width:760px){.lcname{width:auto}.lctbl td{padding:10px 6px}}\n</style>\n' + "<body>\n" + body
 
 
 def build_explorer(apps, today, existing):

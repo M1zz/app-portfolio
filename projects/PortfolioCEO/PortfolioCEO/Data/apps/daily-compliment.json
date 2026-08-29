@@ -340,5 +340,14 @@
     "pricingModel": "paid",
     "hasInAppPurchases": false
   },
-  "supportUrl": "https://dev200ok.blogspot.com/2023/06/blog-post_30.html"
+  "supportUrl": "https://dev200ok.blogspot.com/2023/06/blog-post_30.html",
+  "lifecycle": {
+    "stage": 3,
+    "label": "pmf-search",
+    "tier": null,
+    "basis": "외부 평점 6개(복수 반응) · 평점 5.0 · v1.0.3",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 6,
+    "daysSinceUpdate": 278
+  }
 }

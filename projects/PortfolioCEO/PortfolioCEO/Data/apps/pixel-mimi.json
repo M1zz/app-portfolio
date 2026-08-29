@@ -361,5 +361,14 @@
       ]
     }
   },
-  "supportUrl": "https://www.blogger.com/blog/posts/3814466872646756794"
+  "supportUrl": "https://www.blogger.com/blog/posts/3814466872646756794",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "C",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 179일 경과 → 정지",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 179
+  }
 }

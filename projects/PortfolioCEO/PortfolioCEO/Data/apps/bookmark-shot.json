@@ -7,7 +7,7 @@
     "라이프스타일",
     "도서"
   ],
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.1",
   "folderId": "bookmark-shot",
   "githubRepo": "",
   "localProjectPath": "",
@@ -32,5 +32,14 @@
     "totalTasks": 0
   },
   "status": "active",
-  "supportUrl": null
+  "supportUrl": null,
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "B",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 38일 경과 → 소강",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 38
+  }
 }

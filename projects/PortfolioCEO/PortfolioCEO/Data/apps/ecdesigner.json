@@ -186,7 +186,7 @@
     "totalTasks": 7,
     "todo": 0
   },
-  "status": "active",
+  "status": "abandoned",
   "testChecklist": [
     {
       "category": "캔버스 배경",
@@ -297,5 +297,14 @@
         "AI 디자인 기술 발전"
       ]
     }
+  },
+  "lifecycle": {
+    "stage": 0,
+    "label": "abandoned",
+    "tier": null,
+    "evaluatedAt": "2026-08-29",
+    "basis": "미출시 상태로 개발 중단",
+    "ratingCount": 0,
+    "daysSinceUpdate": null
   }
 }

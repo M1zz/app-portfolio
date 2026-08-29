@@ -1,0 +1,46 @@
+{
+  "allTasks": [],
+  "appStoreId": "6803358945",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6803358945",
+  "bundleId": "com.leeo.StickyPresenter.Remote",
+  "categories": [
+    "라이프스타일",
+    "생산성"
+  ],
+  "currentVersion": "1.0.8",
+  "folderId": "sticky-presenter-remote",
+  "githubRepo": "",
+  "localProjectPath": "",
+  "minimumOS": "17.0",
+  "name": "StickyPresenterRemote",
+  "nameEn": "StickyPresenterRemote",
+  "nextTasks": [],
+  "notes": "[2026-08-29 스토어 동기화로 추가] StickyPresenter 본체를 원격 조작하는 리모컨 앱. 본체(sticky-presenter)와 한 세트로 운영 (스토어명: StickyPresenterRemote, 2026-08-26 출시)",
+  "price": {
+    "isFree": false,
+    "pricingModel": "paid",
+    "hasInAppPurchases": false,
+    "priceLabel": "￦49,000"
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": "https://developeracademy-postech.github.io/StickyPresenter/remote.html",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 2일 경과 → 개선 중",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 2
+  }
+}

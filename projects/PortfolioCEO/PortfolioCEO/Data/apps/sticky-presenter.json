@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6778457299",
   "bundleId": "com.leeo.StickyPresenter",
   "categories": [],
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.8",
   "folderId": "sticky-presenter",
   "githubRepo": "",
   "localProjectPath": "",
@@ -38,5 +38,14 @@
     "totalTasks": 1
   },
   "status": "active",
-  "supportUrl": "https://developeracademy-postech.github.io/StickyPresenter/support.html"
+  "supportUrl": "https://developeracademy-postech.github.io/StickyPresenter/support.html",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 2일 경과 → 개선 중",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 2
+  }
 }

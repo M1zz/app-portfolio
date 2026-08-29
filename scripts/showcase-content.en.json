@@ -302,16 +302,6 @@
       "hook": "If you need directions that respect accessibility",
       "highlight": "Wayfinding designed accessibility-first"
     },
-    "probability-calculator": {
-      "tagline": "Probabilities computed from past numbers",
-      "problem": "You pick numbers on gut feeling alone, with no way to check the odds — even just for fun.",
-      "stakeholders": "People who enjoy number and probability games",
-      "persona": "Kwangsoo (45), a lotto fan who agonizes over his numbers every week",
-      "context": "He picks combinations purely on instinct and always wonders if there's a better way.",
-      "solution": "Generates new numbers from past draws and calculates probabilities, adding a layer of fun.",
-      "hook": "If you're picking numbers on gut feeling alone",
-      "highlight": "Probability in graphs, no formulas needed"
-    },
     "rapport-map": {
       "tagline": "A compass that records the context of your relationships",
       "problem": "Contacts hold only names — when you met and what you talked about gets lost.",
@@ -330,16 +320,6 @@
       "context": "Not knowing where each other is, they trade phone calls about location — tedious.",
       "solution": "Check the other person's location and connect meetups and mentoring effortlessly.",
       "hook": "If figuring out where the other person is before meeting is a hassle"
-    },
-    "review-manager": {
-      "tagline": "A review command center for indie developers",
-      "problem": "Run several apps and reviews and ratings scatter — you end up triaging by gut feeling.",
-      "stakeholders": "Indie developers and small studios running multiple apps",
-      "persona": "Leeo (35), a solo developer running 10 apps alone",
-      "context": "Hopping between App Store Connect pages per app, he misses a bad review on an important app.",
-      "solution": "Gathers all app reviews in one place and auto-recommends 'the app to watch now' with risk/opportunity scores.",
-      "hook": "If reviews scattered across apps are hard to manage",
-      "highlight": "Risk and opportunity scores point to today's priority app"
     },
     "tetra-tint": {
       "tagline": "A contrast color tool for developers",
@@ -441,6 +421,36 @@
       "solution": "Snap the cover to auto-detect title and author, then swipe over a sentence to scrap just that one line — highlighter-style — into your library.",
       "hook": "If good lines in books slip away because jotting them down is a chore",
       "highlight": "Swipe over a sentence to grab just that line"
+    },
+    "wifi-snap": {
+      "tagline": "Share your Wi-Fi with a screen, not a spelled-out password",
+      "problem": "Every guest means digging behind the router or reading out a password letter by letter.",
+      "stakeholders": "Households with frequent guests, small cafés and studios, guesthouse hosts",
+      "persona": "Minjae (29), three years on his own, who checks the back of his router every weekend",
+      "context": "Hands full of food, he hears \"what's the Wi-Fi?\" and misreads the symbol-laden password three times.",
+      "solution": "Pick a saved network and turn it into a QR code or share link. Guests just point a camera — no password ever said out loud.",
+      "hook": "If you read out your Wi-Fi password to every guest",
+      "highlight": "Sharing that ends with one QR code, no password spoken"
+    },
+    "sky-dex": {
+      "tagline": "Collect each day's sky as a color, building your own field guide",
+      "problem": "You see a different sky every day, yet days later nothing remains of what it looked like.",
+      "stakeholders": "People building a journaling habit; anyone who responds to photos and color",
+      "persona": "Suyeon (31), who has hundreds of commute-time sky photos she never revisits",
+      "context": "She shoots because she likes it, but the photos sink into her library and ordinary days simply vanish.",
+      "solution": "Take one photo of the sky and it extracts that day's signature color into your field guide. It stacks as an array of colors, not an album — so a whole season is visible at a glance.",
+      "hook": "If you photograph the sky daily but never look back",
+      "highlight": "A guide that accumulates in color, not photos — seasons you can see"
+    },
+    "sticky-presenter-remote": {
+      "tagline": "During a talk you belong in front of the audience, not the laptop",
+      "problem": "Speaker notes keep you tethered to the laptop, and every slide change sends you back to the screen.",
+      "stakeholders": "Speakers running talks, classes, and demos; educators; conference presenters",
+      "persona": "Taehyun (36), a conference speaker who wants the whole stage but stays chained to his laptop",
+      "context": "He steps toward the audience to take a question, then walks back to the podium just to advance a slide.",
+      "solution": "Drive StickyPresenter from the iPhone in your hand. Slide control and speaker notes travel with you, so your eyes stay on the room.",
+      "hook": "If you walk back to the laptop for every slide",
+      "highlight": "A companion to the main app — notes in hand, stage yours"
     }
   }
 }

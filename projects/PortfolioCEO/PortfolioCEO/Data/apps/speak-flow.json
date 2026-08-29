@@ -39,5 +39,14 @@
     "totalTasks": 1
   },
   "status": "active",
-  "supportUrl": "https://leeo75.notion.site/2f7e264a0fdc80d0a6bbe30ad3ce048a"
+  "supportUrl": "https://leeo75.notion.site/2f7e264a0fdc80d0a6bbe30ad3ce048a",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "C",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 207일 경과 → 정지",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 207
+  }
 }

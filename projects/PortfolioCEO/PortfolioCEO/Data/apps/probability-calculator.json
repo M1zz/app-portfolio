@@ -239,12 +239,12 @@
   "nextTasks": [
     "앱 재 배포시도"
   ],
-  "notes": "[2026-07-05 스토어 동기화] v1.0.1 (2026-02-06 출시). 한국 스토어 미노출, 미국 스토어에서 $1.99로 판매 중",
+  "notes": "[2026-07-05 스토어 동기화] v1.0.1 (2026-02-06 출시). 한국 스토어 미노출, 미국 스토어에서 $1.99로 판매 중 [2026-08-30] 개발 중단 확인. 단 App Store에서 KR 미판매 상태로 해외에는 노출 중 — 내림 처리 검토 필요.",
   "name": "확률계산기",
   "githubRepo": "https://github.com/M1zz/LottoChecker",
   "bundleId": "com.lottochecker.app",
   "localProjectPath": "../LottoChecker",
-  "status": "active",
+  "status": "abandoned",
   "appStoreId": "6755651803",
   "priority": "medium",
   "nameEn": "Probability Calculator",
@@ -321,5 +321,14 @@
     "pricingModel": "paid",
     "hasInAppPurchases": false
   },
-  "supportUrl": "https://leeo75.notion.site/2b4e264a0fdc80e7b973ff62e2b2361e"
+  "supportUrl": "https://leeo75.notion.site/2b4e264a0fdc80e7b973ff62e2b2361e",
+  "lifecycle": {
+    "stage": 0,
+    "label": "abandoned",
+    "tier": null,
+    "evaluatedAt": "2026-08-29",
+    "basis": "개발 중단(사용자 확인) · 다만 스토어에는 살아있음 — KR 미판매, US·JP·GB 등에서 v1.0.1(2026-02-06) 판매 중 → 스토어 내림(Sunset) 처리 필요 — 내림 여부는 보류(사용자 판단 예정)",
+    "ratingCount": 0,
+    "daysSinceUpdate": null
+  }
 }

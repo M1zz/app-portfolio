@@ -39,5 +39,14 @@
     "totalTasks": 1
   },
   "status": "active",
-  "supportUrl": "https://m1zz.github.io/FireTracker/"
+  "supportUrl": "https://m1zz.github.io/FireTracker/",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "B",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 41일 경과 → 소강",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 41
+  }
 }

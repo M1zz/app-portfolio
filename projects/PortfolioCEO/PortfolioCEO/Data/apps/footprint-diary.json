@@ -6,13 +6,13 @@
   "categories": [
     "라이프스타일"
   ],
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.3",
   "folderId": "footprint-diary",
   "githubRepo": "",
   "localProjectPath": "",
   "minimumOS": "17.0",
-  "name": "발자국일기",
-  "nameEn": "Footprint Diary",
+  "name": "벅터벅터",
+  "nameEn": "Beokteo Beokteo",
   "nextTasks": [],
   "notes": "[2026-07-18 스토어 동기화로 추가] 내가 돌아다닌 위치를 발자국으로 표시해주는 앱 (스토어명: 발자국일기)",
   "price": {
@@ -31,5 +31,14 @@
     "totalTasks": 0
   },
   "status": "active",
-  "supportUrl": null
+  "supportUrl": null,
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 3일 경과 → 개선 중",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 3
+  }
 }

@@ -322,5 +322,14 @@
       }
     ]
   },
-  "supportUrl": "https://leeo75.notion.site/2bde264a0fdc80cabd97c8fceaca5307"
+  "supportUrl": "https://leeo75.notion.site/2bde264a0fdc80cabd97c8fceaca5307",
+  "lifecycle": {
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "B",
+    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 66일 경과 → 소강",
+    "evaluatedAt": "2026-08-29",
+    "ratingCount": 0,
+    "daysSinceUpdate": 66
+  }
 }
