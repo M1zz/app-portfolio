@@ -1,49 +1,151 @@
 {
   "_comment": "포트폴리오 허브 페이지의 수동 관리 링크. build-portfolio-hub.py 가 읽는다. 앱별 지원페이지는 Data/apps/*.json 의 supportUrl 에서 자동 수집하므로 여기 적지 않는다.",
   "overview": [
-    {"title": "공개 쇼케이스", "url": "https://m1zz.github.io/app-portfolio/", "local": "docs/index.html",
-     "kind": "공개", "desc": "출시작 전체를 문제→솔루션 케이스 스터디로 소개하는 대외용 사이트. 한/영 전환, 문제 해결 지도 포함", "auto": "build-portfolio-site.py"},
-    {"title": "포트폴리오 디벨롭 현황", "url": "", "local": "reports/portfolio-status.html",
-     "kind": "내부", "desc": "KPI·유료화 분포·제품 수명주기 피라미드·완성도 체크리스트 8영역·우선순위 인사이트", "auto": "build-portfolio-status.py"},
-    {"title": "앱별 완성도 탐색기", "url": "", "local": "reports/portfolio-explorer.html",
-     "kind": "내부", "desc": "앱 카드 그리드. 수명주기순 정렬·단계 필터, 클릭 시 앱별 8축 성숙도와 체크리스트 상세", "auto": "build-portfolio-status.py"},
-    {"title": "시장성 분석 보고서 2026-07", "url": "https://claude.ai/code/artifact/49a2beb1-6b0b-4a7e-8eb6-15f65fb766f6",
-     "local": "docs/market-analysis-2026-07.html", "kind": "공개", "stale": "2026-07-05 · 20개 앱 기준 — 이후 신규 앱 미반영",
-     "desc": "20개 앱 6개 카테고리 시장성 점수. 7점(집중 투자): 달빛·징검돌·클립키보드"},
-    {"title": "앱 배포 현황판", "url": "https://claude.ai/code/artifact/2894735d-7de2-4e8b-8442-9ed415308cf1",
-     "local": "", "kind": "아티팩트", "stale": "2026-07-20 · 이후 미갱신",
-     "desc": "출시 현황을 한 장으로 본 초기 현황판"},
-    {"title": "구버전 대시보드", "url": "", "local": "visualization/index.html",
-     "kind": "레거시", "stale": "현재 미사용 — 현황 리포트로 대체됨", "desc": "초기 그라디언트 대시보드"}
+    {
+      "title": "공개 쇼케이스",
+      "url": "https://m1zz.github.io/app-portfolio/",
+      "local": "docs/index.html",
+      "kind": "공개",
+      "desc": "출시작 전체를 문제→솔루션 케이스 스터디로 소개하는 대외용 사이트. 한/영 전환, 문제 해결 지도 포함",
+      "auto": "build-portfolio-site.py"
+    },
+    {
+      "title": "포트폴리오 디벨롭 현황",
+      "url": "",
+      "local": "reports/portfolio-status.html",
+      "kind": "내부",
+      "desc": "KPI·유료화 분포·제품 수명주기 피라미드·완성도 체크리스트 8영역·우선순위 인사이트",
+      "auto": "build-portfolio-status.py"
+    },
+    {
+      "title": "앱별 완성도 탐색기",
+      "url": "",
+      "local": "reports/portfolio-explorer.html",
+      "kind": "내부",
+      "desc": "앱 카드 그리드. 수명주기순 정렬·단계 필터, 클릭 시 앱별 8축 성숙도와 체크리스트 상세",
+      "auto": "build-portfolio-status.py"
+    }
   ],
   "artifacts": [
-    {"app": "clip-keyboard", "items": [
-      {"t": "ClipKeyboard 4.4.5 QA — 액션과 목적", "u": "https://claude.ai/code/artifact/4ea1643e-4916-4bc5-bc30-14aad7a063e5", "d": "2026-08-09"},
-      {"t": "날인의 쾌감 / Delight 시스템", "u": "https://claude.ai/code/artifact/fee49ce3-662c-47e9-b056-dc35276a2ef7", "d": "2026-08-04"},
-      {"t": "보석 키캡 스킨 시안", "u": "https://claude.ai/code/artifact/425089ad-9c03-4807-a0cd-cc33080576aa", "d": "2026-08-06"},
-      {"t": "생활 레이어 — 살아있는 스킨 4안", "u": "https://claude.ai/code/artifact/e76f2867-a942-4a07-8c9f-b8878c0f91cb", "d": "2026-08-05"},
-      {"t": "단축어 카드를 키캡으로 — 3안 비교", "u": "https://claude.ai/code/artifact/62ea519a-5cb4-4dd2-8f1d-67bddc798741", "d": "2026-08-05"},
-      {"t": "컨셉 — 도시에 / DOSSIER", "u": "https://claude.ai/code/artifact/3269afe2-42f2-4045-9afb-b7f04a40ee6c", "d": "2026-08-04"},
-      {"t": "컨셉 & 무드 탐색", "u": "https://claude.ai/code/artifact/4b81675a-111f-4c9b-88ad-52fa6c441e83", "d": "2026-08-04"},
-      {"t": "스크린샷이 팔리게 — 시각적 Delight 시안", "u": "https://claude.ai/code/artifact/c1613660-f466-490d-b0d8-520a32c88524", "d": "2026-08-05"}
-    ]},
-    {"app": "sky-dex", "items": [
-      {"t": "SkyDex 구슬 판", "u": "https://claude.ai/code/artifact/9fb86b03-ae5e-4257-9b34-b1cdaa6ed642", "d": "2026-08-11"},
-      {"t": "SkyDex 컬렉션 화면 시안", "u": "https://claude.ai/code/artifact/50e88587-bfeb-4e07-9a26-6d55ab1f813d", "d": "2026-08-11"}
-    ]},
-    {"app": "double-reminder", "items": [
-      {"t": "Rereminder 구간 막대", "u": "https://claude.ai/code/artifact/5f6cafa1-0150-456f-82f5-04ef390cc607", "d": "2026-08-21"},
-      {"t": "구간 타이머 판독 실험실", "u": "https://claude.ai/code/artifact/890c32ab-2ea8-408b-b491-143b1dc04dd0", "d": "2026-08-21"},
-      {"t": "뽀모도로 타이머 QA 체크리스트", "u": "https://claude.ai/code/artifact/68c34b53-96c7-44fb-8ee5-eb0195234f6d", "d": "2026-08-16"}
-    ]},
-    {"app": "", "items": [
-      {"t": "먹빛 전환", "u": "https://claude.ai/code/artifact/9d2f76e0-c575-4413-8f8a-c8033c3ab0cd", "d": "2026-08-25"},
-      {"t": "깨물어 꺼내기", "u": "https://claude.ai/code/artifact/cf8baa79-8533-46bb-9973-68e8f62e8ebd", "d": "2026-08-20"},
-      {"t": "문질러 담기", "u": "https://claude.ai/code/artifact/43319fd2-b7eb-48fc-b767-d81d27dcc6f4", "d": "2026-08-24"},
-      {"t": "iPad 레이아웃 전환 5선", "u": "https://claude.ai/code/artifact/aeb98cfb-8e4a-4786-9fe7-38c46ca69101", "d": "2026-08-22"},
-      {"t": "껍데기와 알맹이", "u": "https://claude.ai/code/artifact/3c49ef38-1463-4568-b3c5-438e701cf440", "d": "2026-08-20"},
-      {"t": "설정 화면 재배치 시안", "u": "https://claude.ai/code/artifact/e34e7b4a-208a-45a3-ba59-95a018120987", "d": "2026-08-12"},
-      {"t": "dongsi-naembi", "u": "https://claude.ai/code/artifact/83811f52-8f93-41dc-95b3-d252333a9643", "d": "2026-07-16"}
-    ]}
+    {
+      "app": "clip-keyboard",
+      "items": [
+        {
+          "t": "ClipKeyboard 4.4.5 QA — 액션과 목적",
+          "u": "https://claude.ai/code/artifact/4ea1643e-4916-4bc5-bc30-14aad7a063e5",
+          "d": "2026-08-09"
+        },
+        {
+          "t": "날인의 쾌감 / Delight 시스템",
+          "u": "https://claude.ai/code/artifact/fee49ce3-662c-47e9-b056-dc35276a2ef7",
+          "d": "2026-08-04"
+        },
+        {
+          "t": "보석 키캡 스킨 시안",
+          "u": "https://claude.ai/code/artifact/425089ad-9c03-4807-a0cd-cc33080576aa",
+          "d": "2026-08-06"
+        },
+        {
+          "t": "생활 레이어 — 살아있는 스킨 4안",
+          "u": "https://claude.ai/code/artifact/e76f2867-a942-4a07-8c9f-b8878c0f91cb",
+          "d": "2026-08-05"
+        },
+        {
+          "t": "단축어 카드를 키캡으로 — 3안 비교",
+          "u": "https://claude.ai/code/artifact/62ea519a-5cb4-4dd2-8f1d-67bddc798741",
+          "d": "2026-08-05"
+        },
+        {
+          "t": "컨셉 — 도시에 / DOSSIER",
+          "u": "https://claude.ai/code/artifact/3269afe2-42f2-4045-9afb-b7f04a40ee6c",
+          "d": "2026-08-04"
+        },
+        {
+          "t": "컨셉 & 무드 탐색",
+          "u": "https://claude.ai/code/artifact/4b81675a-111f-4c9b-88ad-52fa6c441e83",
+          "d": "2026-08-04"
+        },
+        {
+          "t": "스크린샷이 팔리게 — 시각적 Delight 시안",
+          "u": "https://claude.ai/code/artifact/c1613660-f466-490d-b0d8-520a32c88524",
+          "d": "2026-08-05"
+        }
+      ]
+    },
+    {
+      "app": "sky-dex",
+      "items": [
+        {
+          "t": "SkyDex 구슬 판",
+          "u": "https://claude.ai/code/artifact/9fb86b03-ae5e-4257-9b34-b1cdaa6ed642",
+          "d": "2026-08-11"
+        },
+        {
+          "t": "SkyDex 컬렉션 화면 시안",
+          "u": "https://claude.ai/code/artifact/50e88587-bfeb-4e07-9a26-6d55ab1f813d",
+          "d": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "app": "double-reminder",
+      "items": [
+        {
+          "t": "Rereminder 구간 막대",
+          "u": "https://claude.ai/code/artifact/5f6cafa1-0150-456f-82f5-04ef390cc607",
+          "d": "2026-08-21"
+        },
+        {
+          "t": "구간 타이머 판독 실험실",
+          "u": "https://claude.ai/code/artifact/890c32ab-2ea8-408b-b491-143b1dc04dd0",
+          "d": "2026-08-21"
+        },
+        {
+          "t": "뽀모도로 타이머 QA 체크리스트",
+          "u": "https://claude.ai/code/artifact/68c34b53-96c7-44fb-8ee5-eb0195234f6d",
+          "d": "2026-08-16"
+        }
+      ]
+    },
+    {
+      "app": "",
+      "items": [
+        {
+          "t": "먹빛 전환",
+          "u": "https://claude.ai/code/artifact/9d2f76e0-c575-4413-8f8a-c8033c3ab0cd",
+          "d": "2026-08-25"
+        },
+        {
+          "t": "깨물어 꺼내기",
+          "u": "https://claude.ai/code/artifact/cf8baa79-8533-46bb-9973-68e8f62e8ebd",
+          "d": "2026-08-20"
+        },
+        {
+          "t": "문질러 담기",
+          "u": "https://claude.ai/code/artifact/43319fd2-b7eb-48fc-b767-d81d27dcc6f4",
+          "d": "2026-08-24"
+        },
+        {
+          "t": "iPad 레이아웃 전환 5선",
+          "u": "https://claude.ai/code/artifact/aeb98cfb-8e4a-4786-9fe7-38c46ca69101",
+          "d": "2026-08-22"
+        },
+        {
+          "t": "껍데기와 알맹이",
+          "u": "https://claude.ai/code/artifact/3c49ef38-1463-4568-b3c5-438e701cf440",
+          "d": "2026-08-20"
+        },
+        {
+          "t": "설정 화면 재배치 시안",
+          "u": "https://claude.ai/code/artifact/e34e7b4a-208a-45a3-ba59-95a018120987",
+          "d": "2026-08-12"
+        },
+        {
+          "t": "dongsi-naembi",
+          "u": "https://claude.ai/code/artifact/83811f52-8f93-41dc-95b3-d252333a9643",
+          "d": "2026-07-16"
+        }
+      ]
+    }
   ]
 }
