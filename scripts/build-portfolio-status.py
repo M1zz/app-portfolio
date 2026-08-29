@@ -577,7 +577,7 @@ def build_status(apps, kit_count, today, head):
   <h1>앱 포트폴리오 디벨롭 현황 점검</h1>
   <div class="sub">전체 %(nt)d개 앱 · 기준일 %(today)s · 출처: <code>Data/apps/*.json</code> + 로컬 소스 스캔(%(ns)d/%(nt)d) + 라이브 App Store 조회</div>
   <div class="local-note">🔒 어디에도 배포하지 않는 로컬 점검용 문서. 목표: <b>완성도 높은 서비스</b>. 판정 기준은 하단 「평가 기준」.</div>
-  <div style="margin-top:12px"><a href="portfolio-explorer.html" style="display:inline-block;font-size:13px;font-weight:600;color:#fff;background:var(--accent);padding:8px 14px;border-radius:9px;text-decoration:none">🔍 앱별 완성도 탐색기 열기 →</a></div>
+  <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a href="portfolio-explorer.html" style="display:inline-block;font-size:13px;font-weight:600;color:#fff;background:var(--accent);padding:8px 14px;border-radius:9px;text-decoration:none">🔍 앱별 완성도 탐색기 →</a><a href="portfolio-hub.html" style="display:inline-block;font-size:13px;font-weight:600;color:var(--ink);border:1px solid var(--line);padding:8px 14px;border-radius:9px;text-decoration:none">🗂 포트폴리오 허브 →</a></div>
   </header>
 
 <section><div class="kpis">
