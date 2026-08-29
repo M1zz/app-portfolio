@@ -106,13 +106,37 @@ def esc(s):
     return html.escape(str(s or ""), quote=True)
 
 
+def load_icons():
+    """build-portfolio-site.py 가 남긴 App Store 캐시에서 앱 아이콘 URL을 가져온다."""
+    path = os.path.join(ROOT, "scripts/.appstore-cache.json")
+    if not os.path.exists(path):
+        return {}
+    cache = json.load(open(path, encoding="utf-8"))
+    return {k: v.get("icon") for k, v in cache.items() if isinstance(v, dict) and v.get("icon")}
+
+
 def load_apps():
+    icons = load_icons()
     out = []
     for f in sorted(glob.glob(os.path.join(APPS, "*.json"))):
         d = json.load(open(f, encoding="utf-8"))
         d["_slug"] = os.path.basename(f)[:-5]
+        d["_icon"] = icons.get(str(d.get("appStoreId") or ""))
         out.append(d)
     return out
+
+
+def icon_img(app, cls="ic"):
+    """앱 아이콘. 캐시에 없으면 이름 첫 글자로 대체한다."""
+    if app.get("_icon"):
+        return ('<img class="%s" src="%s" alt="" loading="lazy" decoding="async">'
+                % (cls, esc(app["_icon"])))
+    return '<span class="%s fb">%s</span>' % (cls, esc((app.get("name") or "?")[:1]))
+
+
+def intro_link(app):
+    """쇼케이스 안의 앱 소개 카드로 가는 앵커."""
+    return "index.html#app-%s" % esc(app["_slug"])
 
 
 def live(apps):
@@ -150,23 +174,23 @@ def page(title, desc, body, active, extra_css=""):
 LIFE_CSS = """
   .st{display:grid;grid-template-columns:78px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--border)}
   .st:first-of-type{border-top:0}
-  .st.empty{opacity:.42}
   .stn{text-align:center}
   .stn b{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:13px;
     background:linear-gradient(140deg,var(--accent),var(--accent-2));color:#fff;font-size:1.25rem;font-weight:800}
-  .st.empty .stn b{background:var(--bg-soft);border:1px solid var(--border);color:var(--muted)}
   .stn i{display:block;font-style:normal;font-size:.72rem;color:var(--muted);margin-top:7px;font-weight:700}
   .sth{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   .sth b{font-size:1.02rem}
   .sth em{font-style:normal;font-size:.83rem;color:var(--muted)}
   .stq{color:var(--muted);font-size:.88rem;margin:5px 0 12px;max-width:640px}
-  .apps{display:flex;flex-wrap:wrap;gap:7px}
-  .ac{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--text);
-    background:var(--card);border:1px solid var(--border);border-radius:9px;
-    padding:6px 11px;font-size:.85rem;font-weight:600;transition:.14s}
+  .apps{display:flex;flex-wrap:wrap;gap:8px}
+  .ac{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);
+    background:var(--card);border:1px solid var(--border);border-radius:11px;
+    padding:6px 12px 6px 7px;font-size:.85rem;font-weight:600;transition:.14s}
   .ac:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
-  .ac span{font-size:.72rem;font-weight:700;color:var(--muted)}
-  .none{color:var(--muted);font-size:.85rem;font-style:italic}
+  .ac em{font-style:normal;font-size:.72rem;font-weight:700;color:var(--muted)}
+  .ic{width:26px;height:26px;border-radius:7px;flex:none;object-fit:cover;
+    background:var(--bg-soft);border:1px solid var(--border)}
+  .ic.fb{display:inline-grid;place-items:center;font-size:.8rem;font-weight:800;color:var(--muted)}
   .barwrap{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:22px 0 8px;
     border:1px solid var(--border)}
   .barwrap i{display:block}
@@ -194,28 +218,30 @@ def lifecycle_page(apps):
         leg += ('<span><span class="dot" style="background:%s"></span>%d %s <b>%d</b></span>'
                 % (c, st, esc(en), n))
 
+    def chip(a):
+        rc = (a.get("lifecycle") or {}).get("ratingCount") or 0
+        note = "<em>리뷰 %d</em>" % rc if rc else ""
+        return ('<a class="ac" href="%s">%s<span>%s</span>%s</a>'
+                % (intro_link(a), icon_img(a), esc(a["name"]), note))
+
+    # 해당 앱이 없는 단계는 아예 내보내지 않는다 — 빈 칸이 남으면 미완성처럼 보인다
     rows = []
     for st, en, kr, why in STAGES:
         items = sorted(buckets.get(st, []), key=lambda a: a["name"])
-        def chip(a):
-            rc = (a.get("lifecycle") or {}).get("ratingCount") or 0
-            note = '<span>리뷰 %d</span>' % rc if rc else ""
-            return ('<a class="ac" href="%s" target="_blank" rel="noopener">%s%s</a>'
-                    % (esc(a.get("appStoreUrl") or "#"), esc(a["name"]), note))
-
-        chips = ("".join(chip(a) for a in items)
-                 or '<span class="none">아직 이 단계에 있는 앱이 없습니다.</span>')
+        if not items:
+            continue
         rows.append(
-            '<div class="st%s"><div class="stn"><b>%d</b><i>%d개</i></div><div>'
+            '<div class="st"><div class="stn"><b>%d</b><i>%d개</i></div><div>'
             '<div class="sth"><b>%s</b><em>%s</em></div><p class="stq">%s</p>'
             '<div class="apps">%s</div></div></div>'
-            % ("" if items else " empty", st, len(items), esc(en), esc(kr), esc(why), chips))
+            % (st, len(items), esc(en), esc(kr), esc(why),
+               "".join(chip(a) for a in items)))
 
     head = ('<div class="eyebrow">Product Lifecycle</div><h1>제품 여정</h1>'
             '<p>만든 앱 %d개가 지금 어느 단계에 있는지. 아이디어에서 출시로, 출시에서 '
-            '사용자의 반응으로 — 제품이 자리 잡기까지 거치는 다섯 단계로 나눠 봤습니다.</p>' % total)
+            '사용자의 반응으로 — 제품이 자리 잡기까지의 단계로 나눠 봤습니다.</p>' % total)
     main = ('<section><div class="barwrap">%s</div><div class="barleg">%s</div>'
-            '<p class="lead">아래로 갈수록 이른 단계입니다. 앱 이름을 누르면 App Store로 이동합니다.</p>'
+            '<p class="lead">아래로 갈수록 이른 단계입니다. 앱을 누르면 소개를 볼 수 있습니다.</p>'
             '%s</section>' % (bar, leg, "".join(rows)))
     return page("제품 여정 — 리이오의 앱 포트폴리오",
                 "만든 앱 %d개가 제품 여정의 어느 단계에 있는지 5단계로 정리했습니다." % total,
@@ -242,6 +268,10 @@ HUB_CSS = """
   .sup:hover{background:var(--bg-soft);color:var(--accent)}
   .sup b{font-weight:600}
   .sup i{margin-left:auto;font-style:normal;font-size:.72rem;color:var(--muted)}
+  .ic{width:24px;height:24px;border-radius:6px;flex:none;object-fit:cover;
+    background:var(--bg-soft);border:1px solid var(--border)}
+  .ic.fb{display:inline-grid;place-items:center;font-size:.75rem;font-weight:800;color:var(--muted)}
+  .ic.sm{width:22px;height:22px;border-radius:6px}
 """
 
 
@@ -253,8 +283,8 @@ def support_blocks(apps, public=True):
     out = ""
     for (name, color), items in sorted(groups.items(), key=lambda kv: -len(kv[1])):
         rows = "".join(
-            '<a class="sup" href="%s" target="_blank" rel="noopener"><b>%s</b><i>%s</i></a>'
-            % (esc(a["supportUrl"]), esc(a["name"]),
+            '<a class="sup" href="%s" target="_blank" rel="noopener">%s<b>%s</b><i>%s</i></a>'
+            % (esc(a["supportUrl"]), icon_img(a, "ic sm"), esc(a["name"]),
                esc("" if public else (a.get("lifecycle") or {}).get("tier") or ""))
             for a in sorted(items, key=lambda a: a["name"])
         )
