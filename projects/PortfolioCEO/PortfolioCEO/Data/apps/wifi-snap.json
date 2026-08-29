@@ -34,12 +34,14 @@
   "status": "active",
   "supportUrl": "https://m1zz.github.io/WifiSnap/",
   "lifecycle": {
-    "stage": 2,
-    "label": "problem-solution-fit",
-    "tier": "A",
-    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 11일 경과 → 개선 중",
-    "evaluatedAt": "2026-08-29",
+    "stage": 1,
+    "label": "pre-mvp",
+    "tier": null,
+    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 12일 경과",
+    "evaluatedAt": "2026-08-30",
     "ratingCount": 0,
-    "daysSinceUpdate": 11
+    "daysSinceUpdate": 11,
+    "manual": true,
+    "refineDays": 0
   }
 }
