@@ -359,12 +359,13 @@
   },
   "supportUrl": "https://m1zz.github.io/Dalbit/support.html",
   "lifecycle": {
-    "stage": 3,
-    "label": "pmf-search",
-    "tier": null,
-    "basis": "외부 평점 7개(복수 반응) · 평점 5.0 · v4.1.0",
-    "evaluatedAt": "2026-08-29",
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "수동 판정(사용자 확인) — 외부 평점 7개가 있으나 반응 기반 개선 단계로 보기엔 이르다고 판단해 2단계로 둔다. 최종 업데이트 13일 경과",
+    "evaluatedAt": "2026-08-30",
     "ratingCount": 7,
-    "daysSinceUpdate": 13
+    "daysSinceUpdate": 13,
+    "manual": true
   }
 }

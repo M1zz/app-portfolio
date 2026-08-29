@@ -363,9 +363,10 @@
     "stage": 3,
     "label": "pmf-search",
     "tier": null,
-    "basis": "외부 평점 13개(복수 반응) · 평점 4.7 · v5.0.4",
-    "evaluatedAt": "2026-08-29",
+    "basis": "수동 판정(사용자 확인) — 브랜드 축 — 반응을 받아 반복 개선 중. 외부 평점 13개 · 최종 업데이트 2일 경과",
+    "evaluatedAt": "2026-08-30",
     "ratingCount": 13,
-    "daysSinceUpdate": 2
+    "daysSinceUpdate": 2,
+    "manual": true
   }
 }

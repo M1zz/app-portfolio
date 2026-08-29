@@ -342,12 +342,13 @@
   },
   "supportUrl": "https://dev200ok.blogspot.com/2023/06/blog-post_30.html",
   "lifecycle": {
-    "stage": 3,
-    "label": "pmf-search",
-    "tier": null,
-    "basis": "외부 평점 6개(복수 반응) · 평점 5.0 · v1.0.3",
-    "evaluatedAt": "2026-08-29",
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "C",
+    "basis": "수동 판정(사용자 확인) — 외부 평점 6개가 있으나 반응 기반 개선 단계로 보기엔 이르다고 판단해 2단계로 둔다. 최종 업데이트 278일 경과",
+    "evaluatedAt": "2026-08-30",
     "ratingCount": 6,
-    "daysSinceUpdate": 278
+    "daysSinceUpdate": 278,
+    "manual": true
   }
 }

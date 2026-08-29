@@ -41,12 +41,13 @@
   "status": "active",
   "supportUrl": "https://dev200ok.blogspot.com/2020/12/tokenmemo.html",
   "lifecycle": {
-    "stage": 2,
-    "label": "problem-solution-fit",
-    "tier": "A",
-    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 2일 경과 → 개선 중",
-    "evaluatedAt": "2026-08-29",
+    "stage": 3,
+    "label": "pmf-search",
+    "tier": null,
+    "basis": "수동 판정(사용자 확인) — 클립키보드 계열 — 반응을 받아 반복 개선 중. 외부 평점 0개 · 최종 업데이트 2일 경과",
+    "evaluatedAt": "2026-08-30",
     "ratingCount": 0,
-    "daysSinceUpdate": 2
+    "daysSinceUpdate": 2,
+    "manual": true
   }
 }

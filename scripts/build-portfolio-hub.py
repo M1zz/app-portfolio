@@ -172,25 +172,30 @@ def page(title, desc, body, active, extra_css=""):
 
 # ── 공개: 수명주기 ────────────────────────────────────────────────
 LIFE_CSS = """
-  .st{display:grid;grid-template-columns:78px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--border)}
-  .st:first-of-type{border-top:0}
-  .stn{text-align:center}
-  .stn b{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:13px;
-    background:linear-gradient(140deg,var(--accent),var(--accent-2));color:#fff;font-size:1.25rem;font-weight:800}
-  .stn i{display:block;font-style:normal;font-size:.72rem;color:var(--muted);margin-top:7px;font-weight:700}
-  .sth{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-  .sth b{font-size:1.02rem}
+  .st{padding:24px 0;border-top:1px solid var(--border)}
+  .st:first-of-type{border-top:0;padding-top:6px}
+  .sth{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .sth>b{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:11px;flex:none;
+    background:linear-gradient(140deg,var(--accent),var(--accent-2));color:#fff;font-size:1.1rem;font-weight:800}
+  .sth strong{font-size:1.02rem}
   .sth em{font-style:normal;font-size:.83rem;color:var(--muted)}
-  .stq{color:var(--muted);font-size:.88rem;margin:5px 0 12px;max-width:640px}
-  .apps{display:flex;flex-wrap:wrap;gap:8px}
-  .ac{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);
-    background:var(--card);border:1px solid var(--border);border-radius:11px;
-    padding:6px 12px 6px 7px;font-size:.85rem;font-weight:600;transition:.14s}
-  .ac:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
-  .ac em{font-style:normal;font-size:.72rem;font-weight:700;color:var(--muted)}
-  .ic{width:26px;height:26px;border-radius:7px;flex:none;object-fit:cover;
+  .stc{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--muted);
+    background:var(--bg-soft);border:1px solid var(--border);padding:2px 11px;border-radius:999px}
+  .stq{color:var(--muted);font-size:.88rem;margin:9px 0 14px;max-width:660px}
+  .apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:9px}
+  .ac{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:8px;text-align:center;text-decoration:none;color:var(--text);
+    background:var(--card);border:1px solid var(--border);border-radius:15px;
+    padding:9px 7px;transition:.14s}
+  .ac:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+  .ac span{font-size:.76rem;font-weight:600;line-height:1.3;word-break:keep-all;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .ac em{font-style:normal;font-size:.66rem;font-weight:700;color:var(--muted);margin-top:-4px}
+  .ic{width:44px;height:44px;border-radius:11px;flex:none;object-fit:cover;
     background:var(--bg-soft);border:1px solid var(--border)}
-  .ic.fb{display:inline-grid;place-items:center;font-size:.8rem;font-weight:800;color:var(--muted)}
+  .ic.fb{display:inline-grid;place-items:center;font-size:1.1rem;font-weight:800;color:var(--muted)}
+  @media(max-width:560px){.apps{grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:7px}
+    .ic{width:38px;height:38px}.ac span{font-size:.71rem}}
   .barwrap{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:22px 0 8px;
     border:1px solid var(--border)}
   .barwrap i{display:block}
@@ -231,10 +236,10 @@ def lifecycle_page(apps):
         if not items:
             continue
         rows.append(
-            '<div class="st"><div class="stn"><b>%d</b><i>%d개</i></div><div>'
-            '<div class="sth"><b>%s</b><em>%s</em></div><p class="stq">%s</p>'
-            '<div class="apps">%s</div></div></div>'
-            % (st, len(items), esc(en), esc(kr), esc(why),
+            '<div class="st"><div class="sth"><b>%d</b><strong>%s</strong><em>%s</em>'
+            '<span class="stc">%d개</span></div><p class="stq">%s</p>'
+            '<div class="apps">%s</div></div>'
+            % (st, esc(en), esc(kr), len(items), esc(why),
                "".join(chip(a) for a in items)))
 
     head = ('<div class="eyebrow">Product Lifecycle</div><h1>제품 여정</h1>'
