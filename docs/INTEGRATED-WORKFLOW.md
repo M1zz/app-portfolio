@@ -213,7 +213,7 @@ User 입력 "두 번 알림 업데이트"
 16. 욕망의 무지개 (Rainbow of Desire)
 17. 라포 맵 (Rapport Map) ⭐
 18. 리바운드 저널 (Rebound Journal)
-19. 릴렉스 온 (Relax On)
+19. 달빛 (Dalbit)
 20. 내마음에저장 (Save In My Heart)
 21. 일정비서 (Schedule Assistant) ⭐
 22. 공유일 설계자 (Shared Day Designer)

@@ -1,0 +1,61 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>페이지 모음 — 리이오의 앱 포트폴리오</title><meta name="description" content="앱 44개의 지원 페이지와 포트폴리오 페이지를 한자리에 모았습니다."><style>
+  :root{--bg:#0b0d12;--bg-soft:#151821;--card:#1a1e29;--border:#262b38;--text:#e8eaf0;
+    --muted:#8b90a0;--accent:#5b8def;--accent-2:#a78bfa;--ok:#34c48a;--warn:#e0a53a;
+    color-scheme:dark}
+  html[data-theme=light]{--bg:#f6f7fb;--bg-soft:#edeff6;--card:#fff;--border:#e2e5ee;
+    --text:#1c2030;--muted:#5d6474;color-scheme:light}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  .theme-btn{position:fixed;top:14px;right:14px;z-index:9;background:var(--card);color:var(--text);
+    border:1px solid var(--border);border-radius:999px;padding:7px 13px;font-size:13px;cursor:pointer}
+  header.hero{padding:66px 0 34px;background:
+    radial-gradient(120% 130% at 50% 0%,rgba(91,141,239,.15),transparent),var(--bg-soft);
+    border-bottom:1px solid var(--border)}
+  .eyebrow{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  h1{margin:9px 0 8px;font-size:2.1rem;letter-spacing:-.02em;line-height:1.2;
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);font-size:1rem;max-width:640px}
+  nav.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  nav.bar a{font-size:.83rem;font-weight:700;text-decoration:none;color:var(--text);
+    background:var(--card);border:1px solid var(--border);padding:7px 13px;border-radius:999px}
+  nav.bar a:hover{border-color:var(--accent);color:var(--accent)}
+  nav.bar a.on{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent}
+  main{padding:44px 0 30px}
+  section{margin-bottom:46px}
+  h2{font-size:1.18rem;display:flex;align-items:center;gap:9px;margin-bottom:5px}
+  .lead{color:var(--muted);font-size:.9rem;margin-bottom:17px;max-width:680px}
+  .hc{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--muted);
+    background:var(--bg-soft);border:1px solid var(--border);padding:2px 10px;border-radius:999px}
+  footer{border-top:1px solid var(--border);padding:26px 0 54px;color:var(--muted);font-size:.8rem}
+  footer a{color:var(--muted)}
+  @media(max-width:640px){header.hero{padding:44px 0 26px}h1{font-size:1.6rem}}
+
+  .ovgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:13px}
+  .ov{display:block;background:var(--card);border:1px solid var(--border);border-radius:13px;
+    padding:17px 18px;text-decoration:none;color:inherit;transition:.14s}
+  .ov:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .ov b{font-size:.97rem;display:block;margin-bottom:6px}
+  .ov p{color:var(--muted);font-size:.85rem}
+  .hostblk{background:var(--card);border:1px solid var(--border);border-radius:13px;
+    padding:16px 18px;margin-bottom:12px}
+  .hosth{font-size:.9rem;font-weight:700;display:flex;align-items:center;gap:9px;
+    margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+  .hosth::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--c)}
+  .hc{margin-left:auto}
+  .suplist{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px}
+  .sup{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;
+    text-decoration:none;color:inherit;font-size:.86rem}
+  .sup:hover{background:var(--bg-soft);color:var(--accent)}
+  .sup b{font-weight:600}
+  .sup i{margin-left:auto;font-style:normal;font-size:.72rem;color:var(--muted)}
+</style></head><body><button class="theme-btn" id="themeBtn" aria-label="테마 전환">◐</button><header class="hero"><div class="wrap"><div class="eyebrow">Portfolio Hub</div><h1>페이지 모음</h1><p>앱 44개에 딸린 페이지들이 여러 곳에 흩어져 있어 한자리에 모았습니다. 찾던 앱의 지원 페이지를 여기서 바로 열 수 있습니다.</p><nav class="bar"><a href="index.html">쇼케이스</a><a href="lifecycle.html">제품 여정</a><a href="hub.html" class="on">페이지 모음</a></nav></div></header><main><div class="wrap"><section><h2>포트폴리오 둘러보기</h2><p class="lead">전체를 한눈에 보는 두 페이지입니다.</p><div class="ovgrid"><a class="ov" href="index.html"><b>쇼케이스</b><p>출시한 앱 전체를 문제 → 해결 방식의 이야기로 소개합니다. 한국어·영어 전환과 문제 해결 지도를 함께 제공합니다.</p></a><a class="ov" href="lifecycle.html"><b>제품 여정</b><p>만든 앱들이 제품 여정의 어느 단계에 있는지 다섯 단계로 정리했습니다.</p></a></div></section><section><h2>앱별 지원 페이지<span class="hc">44</span></h2><p class="lead">App Store에 등록된 문의·안내 페이지입니다. 만든 시기에 따라 호스팅한 곳이 4군데로 나뉘어 있어, 서비스별로 묶어 두었습니다.</p><div class="hostblk"><div class="hosth" style="--c:#5b8def">GitHub Pages<span class="hc">25</span></div><div class="suplist"><a class="sup" href="https://m1zz.github.io/tetratint/support.html" target="_blank" rel="noopener"><b>TetraTint</b><i></i></a><a class="sup" href="https://m1zz.github.io/LeaveWise/support.html" target="_blank" rel="noopener"><b>골드위크</b><i></i></a><a class="sup" href="https://m1zz.github.io/HandsFreeMetronome/" target="_blank" rel="noopener"><b>낫마템포</b><i></i></a><a class="sup" href="https://m1zz.github.io/Dalbit/support.html" target="_blank" rel="noopener"><b>달빛</b><i></i></a><a class="sup" href="https://m1zz.github.io/MoonlitOrder/" target="_blank" rel="noopener"><b>달빛 오락실</b><i></i></a><a class="sup" href="https://m1zz.github.io/WifiSnap/" target="_blank" rel="noopener"><b>마이파이</b><i></i></a><a class="sup" href="https://m1zz.github.io/ScheduleDensity/" target="_blank" rel="noopener"><b>무지개 공작소</b><i></i></a><a class="sup" href="https://m1zz.github.io/BookmarkShot/support.html" target="_blank" rel="noopener"><b>밑줄</b><i></i></a><a class="sup" href="https://m1zz.github.io/FootprintDiary/support.html" target="_blank" rel="noopener"><b>벅터벅터</b><i></i></a><a class="sup" href="https://m1zz.github.io/BurningParchment/" target="_blank" rel="noopener"><b>불타는 내인생</b><i></i></a><a class="sup" href="https://m1zz.github.io/IndonesianSmallTalk/" target="_blank" rel="noopener"><b>사노라면</b><i></i></a><a class="sup" href="https://m1zz.github.io/JuniorDevMistakes/" target="_blank" rel="noopener"><b>실수 100</b><i></i></a><a class="sup" href="https://m1zz.github.io/FamilyBank/support.html" target="_blank" rel="noopener"><b>쑥쑥용돈</b><i></i></a><a class="sup" href="https://m1zz.github.io/CalendarSnap/support.html" target="_blank" rel="noopener"><b>아이일정</b><i></i></a><a class="sup" href="https://m1zz.github.io/FamilyCourt/support.html" target="_blank" rel="noopener"><b>억울해요</b><i></i></a><a class="sup" href="https://m1zz.github.io/ThinkFlow/" target="_blank" rel="noopener"><b>이어생각</b><i></i></a><a class="sup" href="https://m1zz.github.io/SlideSnap/" target="_blank" rel="noopener"><b>장표스냅</b><i></i></a><a class="sup" href="https://m1zz.github.io/StaffSinger/support.html" target="_blank" rel="noopener"><b>초견</b><i></i></a><a class="sup" href="https://m1zz.github.io/ClipKeyboard/" target="_blank" rel="noopener"><b>클립키보드</b><i></i></a><a class="sup" href="https://m1zz.github.io/FireTracker/" target="_blank" rel="noopener"><b>퇴사각</b><i></i></a><a class="sup" href="https://m1zz.github.io/RotoscopeIPad/" target="_blank" rel="noopener"><b>팔랑북</b><i></i></a><a class="sup" href="https://m1zz.github.io/StampCamera/support.html" target="_blank" rel="noopener"><b>펀칭</b><i></i></a><a class="sup" href="https://m1zz.github.io/SkyDex/support.html" target="_blank" rel="noopener"><b>하늘색</b><i></i></a><a class="sup" href="https://m1zz.github.io/KORA/" target="_blank" rel="noopener"><b>한국길찾기</b><i></i></a><a class="sup" href="https://m1zz.github.io/SunlightTracker/" target="_blank" rel="noopener"><b>햇빛바라기</b><i></i></a></div></div><div class="hostblk"><div class="hosth" style="--c:#a78bfa">Notion<span class="hc">11</span></div><div class="suplist"><a class="sup" href="https://leeo75.notion.site/2bce264a0fdc8044b384df35d57af8d6" target="_blank" rel="noopener"><b>꿈을 찾아서</b><i></i></a><a class="sup" href="https://leeo75.notion.site/26fe264a0fdc803ebf57e96ac4b1ed0b" target="_blank" rel="noopener"><b>두번알림</b><i></i></a><a class="sup" href="https://leeo75.notion.site/2abe264a0fdc8049bad6f86954bca20d" target="_blank" rel="noopener"><b>라포맵</b><i></i></a><a class="sup" href="https://leeo75.notion.site/2f7e264a0fdc80a092c4e745402af1ff" target="_blank" rel="noopener"><b>링롱</b><i></i></a><a class="sup" href="https://leeo75.notion.site/2a9e264a0fdc807d8afbd18a7dab17f2" target="_blank" rel="noopener"><b>세끼</b><i></i></a><a class="sup" href="https://leeo75.notion.site/2f7e264a0fdc80d0a6bbe30ad3ce048a" target="_blank" rel="noopener"><b>스픽플로우</b><i></i></a><a class="sup" href="https://leeo75.notion.site/2abe264a0fdc80fa8012e587eb06ba98" target="_blank" rel="noopener"><b>욕망의 무지개</b><i></i></a><a class="sup" href="https://leeo75.notion.site/2cce264a0fdc807f9967ef3b24975c4e" target="_blank" rel="noopener"><b>인생 맛집</b><i></i></a><a class="sup" href="https://www.notion.so/leeo75/2cbe264a0fdc809ea8dfd726ffd08135" target="_blank" rel="noopener"><b>일정 비서</b><i></i></a><a class="sup" href="https://leeo75.notion.site/2f1e264a0fdc802ea2d0ea71ee60f41a" target="_blank" rel="noopener"><b>잊지마</b><i></i></a><a class="sup" href="https://leeo75.notion.site/2bde264a0fdc80cabd97c8fceaca5307" target="_blank" rel="noopener"><b>쿨타임</b><i></i></a></div></div><div class="hostblk"><div class="hosth" style="--c:#d6a01e">Blogspot<span class="hc">6</span></div><div class="suplist"><a class="sup" href="https://dev200ok.blogspot.com/2022/06/leeo-con.html" target="_blank" rel="noopener"><b>LeeoCon</b><i></i></a><a class="sup" href="https://dev200ok.blogspot.com/2023/06/blog-post_17.html" target="_blank" rel="noopener"><b>돈꼬마트</b><i></i></a><a class="sup" href="https://dev200ok.blogspot.com/2023/06/blog-post_30.html" target="_blank" rel="noopener"><b>오늘의 주접</b><i></i></a><a class="sup" href="https://dev200ok.blogspot.com/2023/06/blog-post_82.html" target="_blank" rel="noopener"><b>징검돌</b><i></i></a><a class="sup" href="https://dev200ok.blogspot.com/2020/12/tokenmemo.html" target="_blank" rel="noopener"><b>탭클립 키보드</b><i></i></a><a class="sup" href="https://www.blogger.com/blog/posts/3814466872646756794" target="_blank" rel="noopener"><b>픽셀 미미</b><i></i></a></div></div><div class="hostblk"><div class="hosth" style="--c:#1fa878">POSTECH Pages<span class="hc">2</span></div><div class="suplist"><a class="sup" href="https://developeracademy-postech.github.io/StickyPresenter/support.html" target="_blank" rel="noopener"><b>StickyPresenter</b><i></i></a><a class="sup" href="https://developeracademy-postech.github.io/StickyPresenter/remote.html" target="_blank" rel="noopener"><b>StickyPresenterRemote</b><i></i></a></div></div></section></div></main><footer><div class="wrap">리이오(Leeo) · <a href="https://m1zz.github.io/app-portfolio/">쇼케이스</a> · 갱신 2026-08-30</div></footer>
+<script>
+(function(){var k='leeo-theme';try{var t=localStorage.getItem(k);if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}
+document.addEventListener('click',function(e){var b=e.target.closest('#themeBtn');if(!b)return;
+var r=document.documentElement,n=r.getAttribute('data-theme')==='light'?'dark':'light';
+r.setAttribute('data-theme',n);try{localStorage.setItem(k,n);}catch(e){}});})();
+</script>
+</body></html>

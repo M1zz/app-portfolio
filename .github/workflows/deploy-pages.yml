@@ -6,6 +6,8 @@ on:
     paths:
       - 'projects/PortfolioCEO/PortfolioCEO/Data/apps/**'
       - 'scripts/build-portfolio-site.py'
+      - 'scripts/build-portfolio-hub.py'
+      - 'scripts/hub-links.json'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:  # 수동 실행
 
@@ -34,6 +36,9 @@ jobs:
 
       - name: Build portfolio site (앱스토어 정보 수집 + HTML 생성)
         run: python3 scripts/build-portfolio-site.py
+
+      - name: Build hub & lifecycle pages (공개 안전 버전)
+        run: python3 scripts/build-portfolio-hub.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

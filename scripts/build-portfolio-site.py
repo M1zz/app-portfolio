@@ -987,6 +987,9 @@ try {{
 
   .exhibit {{ scroll-margin-top: 20px; }}
 
+  .sitenav {{ margin-bottom: 10px; }}
+  .sitenav a {{ font-weight: 700; color: var(--accent); text-decoration: none; }}
+  .sitenav a:hover {{ text-decoration: underline; }}
   .category {{ margin-top: 72px; }}
   .category:first-child {{ margin-top: 16px; }}
   .cat-head {{ display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }}
@@ -1198,6 +1201,7 @@ try {{
   </main>
 
   <footer>
+    <p class="sitenav"><a href="lifecycle.html">{bi("제품 여정", "Product Journey")}</a> · <a href="hub.html">{bi("페이지 모음", "All Pages")}</a></p>
     <p>{bi(f"마지막 업데이트 {updated}", f"Last updated {updated}")} · <a href="https://github.com/M1zz/app-portfolio" target="_blank" rel="noopener">GitHub</a></p>
   </footer>
 

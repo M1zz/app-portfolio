@@ -13,7 +13,7 @@
 | 라포 맵 | `claude-projects/rapport-map` | `~/Documents/workspace/code/RapportMap` |
 | 리바운드 저널 | `claude-projects/rebound-journal` | `~/Documents/workspace/code/Rebound-Journal` |
 | 돈꼬마트 | `claude-projects/donkko-mart` | `~/Documents/workspace/code/DontGoMart` |
-| 릴렉스 온 | `claude-projects/relax-on` | `~/Documents/workspace/code/RelaxOn` |
+| 달빛 | `claude-projects/relax-on` | `~/Documents/workspace/Auto/달빛` |
 | 인생 맛집 | `claude-projects/life-restaurant` | `~/Documents/workspace/code/RestaurantMap` |
 | 속삭 | `claude-projects/whisper` | `~/Documents/workspace/code/Soksak` |
 | 일정비서 | `claude-projects/schedule-assistant` | `~/Documents/workspace/code/ScheduleDensity` |
@@ -213,8 +213,8 @@ git checkout -- MapView.swift
 - **특징**: 일기 + 감정 분석
 - **주의**: CoreData 마이그레이션
 
-### 릴렉스 온 (relax-on)
-- **소스**: `~/Documents/workspace/code/RelaxOn`
+### 달빛 (relax-on)
+- **소스**: `~/Documents/workspace/Auto/달빛`
 - **특징**: 명상 타이머
 - **주의**: 오디오 세션 관리
 

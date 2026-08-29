@@ -1,0 +1,68 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>제품 여정 — 리이오의 앱 포트폴리오</title><meta name="description" content="만든 앱 44개가 제품 여정의 어느 단계에 있는지 5단계로 정리했습니다."><style>
+  :root{--bg:#0b0d12;--bg-soft:#151821;--card:#1a1e29;--border:#262b38;--text:#e8eaf0;
+    --muted:#8b90a0;--accent:#5b8def;--accent-2:#a78bfa;--ok:#34c48a;--warn:#e0a53a;
+    color-scheme:dark}
+  html[data-theme=light]{--bg:#f6f7fb;--bg-soft:#edeff6;--card:#fff;--border:#e2e5ee;
+    --text:#1c2030;--muted:#5d6474;color-scheme:light}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  .theme-btn{position:fixed;top:14px;right:14px;z-index:9;background:var(--card);color:var(--text);
+    border:1px solid var(--border);border-radius:999px;padding:7px 13px;font-size:13px;cursor:pointer}
+  header.hero{padding:66px 0 34px;background:
+    radial-gradient(120% 130% at 50% 0%,rgba(91,141,239,.15),transparent),var(--bg-soft);
+    border-bottom:1px solid var(--border)}
+  .eyebrow{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  h1{margin:9px 0 8px;font-size:2.1rem;letter-spacing:-.02em;line-height:1.2;
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);font-size:1rem;max-width:640px}
+  nav.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  nav.bar a{font-size:.83rem;font-weight:700;text-decoration:none;color:var(--text);
+    background:var(--card);border:1px solid var(--border);padding:7px 13px;border-radius:999px}
+  nav.bar a:hover{border-color:var(--accent);color:var(--accent)}
+  nav.bar a.on{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent}
+  main{padding:44px 0 30px}
+  section{margin-bottom:46px}
+  h2{font-size:1.18rem;display:flex;align-items:center;gap:9px;margin-bottom:5px}
+  .lead{color:var(--muted);font-size:.9rem;margin-bottom:17px;max-width:680px}
+  .hc{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--muted);
+    background:var(--bg-soft);border:1px solid var(--border);padding:2px 10px;border-radius:999px}
+  footer{border-top:1px solid var(--border);padding:26px 0 54px;color:var(--muted);font-size:.8rem}
+  footer a{color:var(--muted)}
+  @media(max-width:640px){header.hero{padding:44px 0 26px}h1{font-size:1.6rem}}
+
+  .st{display:grid;grid-template-columns:78px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--border)}
+  .st:first-of-type{border-top:0}
+  .st.empty{opacity:.42}
+  .stn{text-align:center}
+  .stn b{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:13px;
+    background:linear-gradient(140deg,var(--accent),var(--accent-2));color:#fff;font-size:1.25rem;font-weight:800}
+  .st.empty .stn b{background:var(--bg-soft);border:1px solid var(--border);color:var(--muted)}
+  .stn i{display:block;font-style:normal;font-size:.72rem;color:var(--muted);margin-top:7px;font-weight:700}
+  .sth{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .sth b{font-size:1.02rem}
+  .sth em{font-style:normal;font-size:.83rem;color:var(--muted)}
+  .stq{color:var(--muted);font-size:.88rem;margin:5px 0 12px;max-width:640px}
+  .apps{display:flex;flex-wrap:wrap;gap:7px}
+  .ac{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--text);
+    background:var(--card);border:1px solid var(--border);border-radius:9px;
+    padding:6px 11px;font-size:.85rem;font-weight:600;transition:.14s}
+  .ac:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+  .ac span{font-size:.72rem;font-weight:700;color:var(--muted)}
+  .none{color:var(--muted);font-size:.85rem;font-style:italic}
+  .barwrap{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:22px 0 8px;
+    border:1px solid var(--border)}
+  .barwrap i{display:block}
+  .barleg{display:flex;flex-wrap:wrap;gap:14px;font-size:.78rem;color:var(--muted);margin-bottom:8px}
+  .barleg b{color:var(--text)}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+</style></head><body><button class="theme-btn" id="themeBtn" aria-label="테마 전환">◐</button><header class="hero"><div class="wrap"><div class="eyebrow">Product Lifecycle</div><h1>제품 여정</h1><p>만든 앱 44개가 지금 어느 단계에 있는지. 아이디어에서 출시로, 출시에서 사용자의 반응으로 — 제품이 자리 잡기까지 거치는 다섯 단계로 나눠 봤습니다.</p><nav class="bar"><a href="index.html">쇼케이스</a><a href="lifecycle.html" class="on">제품 여정</a><a href="hub.html">페이지 모음</a></nav></div></header><main><div class="wrap"><section><div class="barwrap"><i style="flex:3;background:#a78bfa"></i><i style="flex:41;background:#5b8def"></i></div><div class="barleg"><span><span class="dot" style="background:#a78bfa"></span>3 Product–Market Fit 탐색 <b>3</b></span><span><span class="dot" style="background:#5b8def"></span>2 Problem–Solution Fit <b>41</b></span></div><p class="lead">아래로 갈수록 이른 단계입니다. 앱 이름을 누르면 App Store로 이동합니다.</p><div class="st empty"><div class="stn"><b>5</b><i>0개</i></div><div><div class="sth"><b>Maturity</b><em>안정적으로 자리 잡은 단계</em></div><p class="stq">사용자와 매출이 안정적으로 유지되어, 새로 만들기보다 다듬고 지키는 데 집중합니다.</p><div class="apps"><span class="none">아직 이 단계에 있는 앱이 없습니다.</span></div></div></div><div class="st empty"><div class="stn"><b>4</b><i>0개</i></div><div><div class="sth"><b>Growth</b><em>사용자를 넓히는 단계</em></div><p class="stq">제품이 통한다는 확신 위에서, 알리는 채널에 힘을 싣습니다.</p><div class="apps"><span class="none">아직 이 단계에 있는 앱이 없습니다.</span></div></div></div><div class="st"><div class="stn"><b>3</b><i>3개</i></div><div><div class="sth"><b>Product–Market Fit 탐색</b><em>반응을 받아 다듬는 단계</em></div><p class="stq">실제 사용자의 반응이 도착했고, 그 반응을 근거로 제품을 고쳐 나갑니다.</p><div class="apps"><a class="ac" href="https://apps.apple.com/kr/app/달빛-수면-백색-소음-자연의-소리/id1626715109" target="_blank" rel="noopener">달빛<span>리뷰 7</span></a><a class="ac" href="https://apps.apple.com/kr/app/id6450839961" target="_blank" rel="noopener">오늘의 주접<span>리뷰 6</span></a><a class="ac" href="https://apps.apple.com/kr/app/id1543660502" target="_blank" rel="noopener">클립키보드<span>리뷰 13</span></a></div></div></div><div class="st"><div class="stn"><b>2</b><i>41개</i></div><div><div class="sth"><b>Problem–Solution Fit</b><em>출시하고 반응을 기다리는 단계</em></div><p class="stq">문제를 푸는 제품이 완성되어 App Store에서 동작합니다. 아직 사용자 반응은 모이지 않았습니다.</p><div class="apps"><a class="ac" href="https://apps.apple.com/kr/app/id1627216318" target="_blank" rel="noopener">LeeoCon</a><a class="ac" href="https://apps.apple.com/kr/app/id6778457299" target="_blank" rel="noopener">StickyPresenter</a><a class="ac" href="https://apps.apple.com/kr/app/id6803358945" target="_blank" rel="noopener">StickyPresenterRemote</a><a class="ac" href="https://apps.apple.com/kr/app/id6789206198" target="_blank" rel="noopener">TetraTint</a><a class="ac" href="https://apps.apple.com/kr/app/id6755983135" target="_blank" rel="noopener">골드위크</a><a class="ac" href="https://apps.apple.com/kr/app/id6755934506" target="_blank" rel="noopener">꿈을 찾아서</a><a class="ac" href="https://apps.apple.com/kr/app/id6781537149" target="_blank" rel="noopener">낫마템포</a><a class="ac" href="https://apps.apple.com/kr/app/id6790137862" target="_blank" rel="noopener">달빛 오락실</a><a class="ac" href="https://apps.apple.com/kr/app/id6450387984" target="_blank" rel="noopener">돈꼬마트</a><a class="ac" href="https://apps.apple.com/kr/app/id6752551268" target="_blank" rel="noopener">두번알림<span>리뷰 1</span></a><a class="ac" href="https://apps.apple.com/kr/app/id6754888089" target="_blank" rel="noopener">라포맵</a><a class="ac" href="https://apps.apple.com/kr/app/id6758373947" target="_blank" rel="noopener">링롱</a><a class="ac" href="https://apps.apple.com/kr/app/id6793472383" target="_blank" rel="noopener">마이파이</a><a class="ac" href="https://apps.apple.com/kr/app/id6777737322" target="_blank" rel="noopener">무지개 공작소</a><a class="ac" href="https://apps.apple.com/kr/app/id6792787106" target="_blank" rel="noopener">밑줄</a><a class="ac" href="https://apps.apple.com/kr/app/id6789952970" target="_blank" rel="noopener">벅터벅터</a><a class="ac" href="https://apps.apple.com/kr/app/id6758995390" target="_blank" rel="noopener">불타는 내인생</a><a class="ac" href="https://apps.apple.com/kr/app/id6764088776" target="_blank" rel="noopener">사노라면</a><a class="ac" href="https://apps.apple.com/kr/app/id6755164924" target="_blank" rel="noopener">세끼</a><a class="ac" href="https://apps.apple.com/kr/app/id6758270016" target="_blank" rel="noopener">스픽플로우</a><a class="ac" href="https://apps.apple.com/kr/app/id6759643878" target="_blank" rel="noopener">실수 100<span>리뷰 1</span></a><a class="ac" href="https://apps.apple.com/kr/app/id6790130891" target="_blank" rel="noopener">쑥쑥용돈</a><a class="ac" href="https://apps.apple.com/kr/app/id6789881830" target="_blank" rel="noopener">아이일정</a><a class="ac" href="https://apps.apple.com/kr/app/id6790131247" target="_blank" rel="noopener">억울해요</a><a class="ac" href="https://apps.apple.com/kr/app/id6755280882" target="_blank" rel="noopener">욕망의 무지개<span>리뷰 1</span></a><a class="ac" href="https://apps.apple.com/kr/app/id6779270691" target="_blank" rel="noopener">이어생각</a><a class="ac" href="https://apps.apple.com/kr/app/id6755934548" target="_blank" rel="noopener">인생 맛집</a><a class="ac" href="https://apps.apple.com/kr/app/id6756593712" target="_blank" rel="noopener">일정 비서</a><a class="ac" href="https://apps.apple.com/kr/app/id6758198267" target="_blank" rel="noopener">잊지마</a><a class="ac" href="https://apps.apple.com/kr/app/id6790835318" target="_blank" rel="noopener">장표스냅</a><a class="ac" href="https://apps.apple.com/kr/app/id6450388408" target="_blank" rel="noopener">징검돌<span>리뷰 1</span></a><a class="ac" href="https://apps.apple.com/kr/app/id6779262832" target="_blank" rel="noopener">초견</a><a class="ac" href="https://apps.apple.com/kr/app/id6755988507" target="_blank" rel="noopener">쿨타임</a><a class="ac" href="https://apps.apple.com/kr/app/id6756433372" target="_blank" rel="noopener">탭클립 키보드</a><a class="ac" href="https://apps.apple.com/kr/app/id6779654854" target="_blank" rel="noopener">퇴사각</a><a class="ac" href="https://apps.apple.com/kr/app/id6789852144" target="_blank" rel="noopener">팔랑북</a><a class="ac" href="https://apps.apple.com/kr/app/id6779659029" target="_blank" rel="noopener">펀칭</a><a class="ac" href="https://apps.apple.com/kr/app/id6449769987" target="_blank" rel="noopener">픽셀 미미</a><a class="ac" href="https://apps.apple.com/kr/app/id6802295390" target="_blank" rel="noopener">하늘색</a><a class="ac" href="https://apps.apple.com/kr/app/id6775176578" target="_blank" rel="noopener">한국길찾기</a><a class="ac" href="https://apps.apple.com/kr/app/id6758931631" target="_blank" rel="noopener">햇빛바라기</a></div></div></div><div class="st empty"><div class="stn"><b>1</b><i>0개</i></div><div><div class="sth"><b>Pre-MVP</b><em>만들고 있는 단계</em></div><p class="stq">아직 출시 전, 쓸 만한 최소한의 모습을 갖추는 중입니다.</p><div class="apps"><span class="none">아직 이 단계에 있는 앱이 없습니다.</span></div></div></div></section></div></main><footer><div class="wrap">리이오(Leeo) · <a href="https://m1zz.github.io/app-portfolio/">쇼케이스</a> · 갱신 2026-08-30</div></footer>
+<script>
+(function(){var k='leeo-theme';try{var t=localStorage.getItem(k);if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}
+document.addEventListener('click',function(e){var b=e.target.closest('#themeBtn');if(!b)return;
+var r=document.documentElement,n=r.getAttribute('data-theme')==='light'?'dark':'light';
+r.setAttribute('data-theme',n);try{localStorage.setItem(k,n);}catch(e){}});})();
+</script>
+</body></html>
