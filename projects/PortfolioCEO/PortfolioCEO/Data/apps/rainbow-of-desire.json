@@ -255,12 +255,13 @@
   },
   "supportUrl": "https://leeo75.notion.site/2abe264a0fdc80fa8012e587eb06ba98",
   "lifecycle": {
-    "stage": 2,
-    "label": "problem-solution-fit",
+    "stage": 3,
+    "label": "pmf-search",
     "tier": "A",
-    "basis": "외부 평점 1개(유저 반응 신호 없음) · 최종 업데이트 1일 경과 → 개선 중",
-    "evaluatedAt": "2026-08-29",
+    "basis": "수동 판정(사용자 확인) — 반응을 받아 반복 개선 중. 외부 평점 1개 · 최종 업데이트 1일 경과",
+    "evaluatedAt": "2026-08-30",
     "ratingCount": 1,
-    "daysSinceUpdate": 1
+    "daysSinceUpdate": 1,
+    "manual": true
   }
 }

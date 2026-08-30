@@ -40,10 +40,10 @@
   "status": "active",
   "supportUrl": "https://m1zz.github.io/ScheduleDensity/",
   "lifecycle": {
-    "stage": 1,
-    "label": "pre-mvp",
+    "stage": 3,
+    "label": "pmf-search",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 72일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.7 · 최종 업데이트 6일 경과",
+    "basis": "수동 판정(사용자 확인) — 반응을 받아 반복 개선 중. 출시 후 다듬은 기간 72일",
     "evaluatedAt": "2026-08-30",
     "ratingCount": 0,
     "daysSinceUpdate": 5,
