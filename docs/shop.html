@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<script>
+try {
+  var _t = localStorage.getItem('portfolio-theme')
+    || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', _t);
+} catch (e) {}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리이오 생활도구점 — Leeo's Everyday Tools</title>
+<meta name="description" content="일상에서 실제로 쓰려고 만든 작은 도구들. 물건마다 생긴 이유가 적혀 있습니다.">
+<meta property="og:title" content="리이오 생활도구점 — Leeo's Everyday Tools">
+<meta property="og:description" content="낯선 도구에는 사연이 있습니다. 이야기를 읽고, 필요하면 데려가세요.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --bg: #f7f3ec;
+    --paper: #fffdf8;
+    --shelf: #e9e0d0;
+    --line: #ddd2bf;
+    --ink: #221d16;
+    --muted: #6b6255;
+    --tag: #ffd84d;
+    --tag-ink: #2a2206;
+    --sign: #1f5f4a;
+    --sign-ink: #fdf8ec;
+    --clip: #2f6fdb;
+    --quote: #f1ebe0;
+    color-scheme: light;
+  }
+  html[data-theme="dark"] {
+    --bg: #15130f;
+    --paper: #1e1b16;
+    --shelf: #2a2620;
+    --line: #37312a;
+    --ink: #eee7da;
+    --muted: #a59b8b;
+    --tag: #f5cf45;
+    --tag-ink: #221b03;
+    --sign: #2d7a60;
+    --sign-ink: #f7f2e6;
+    --clip: #6b9cf0;
+    --quote: #26221c;
+    color-scheme: dark;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 17px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* 언어: 기본 한국어. .ko / .en 은 인라인·블록 모두 가능 */
+  html[data-lang="en"] .ko { display: none !important; }
+  html[data-lang="ko"] .en { display: none !important; }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+  /* ── 상단 간판 ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--sign); color: var(--sign-ink);
+    border-bottom: 4px solid var(--tag);
+  }
+  .topbar .wrap { display: flex; align-items: center; gap: 12px; min-height: 58px; }
+  .brand { font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; text-decoration: none; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .brand small { font-weight: 500; opacity: .75; font-size: .9rem; margin-left: 6px; }
+  .tools { display: flex; gap: 4px; flex-shrink: 0; }
+  .tbtn {
+    background: transparent; color: var(--sign-ink); border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px; padding: 5px 11px; font-size: .88rem; cursor: pointer; font-family: inherit; text-decoration: none;
+  }
+  .tbtn:hover { background: rgba(255,255,255,.12); }
+  html[data-lang="ko"] .tbtn[data-set-lang="ko"],
+  html[data-lang="en"] .tbtn[data-set-lang="en"] { background: var(--tag); color: var(--tag-ink); border-color: var(--tag); }
+  html[data-theme="dark"] .ti-light, html[data-theme="light"] .ti-dark { display: none; }
+
+  /* ── 입구 ── */
+  .entrance { padding: 64px 0 36px; }
+  .eyebrow { display: inline-block; font-weight: 700; font-size: .92rem; color: var(--sign); letter-spacing: .04em; margin-bottom: 14px; }
+  html[data-theme="dark"] .eyebrow { color: var(--tag); }
+  .entrance h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.2; letter-spacing: -.03em; font-weight: 800; margin-bottom: 20px; }
+  .entrance h1 mark { background: linear-gradient(transparent 58%, var(--tag) 58%); color: inherit; padding: 0 2px; }
+  .entrance p { font-size: 1.1rem; color: var(--muted); max-width: 620px; }
+  .entrance p + p { margin-top: 12px; }
+
+  /* 안내판: 이 가게 이용법 */
+  .howto { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px; }
+  .howto div { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .howto b { display: block; font-size: 1rem; margin-bottom: 2px; }
+  .howto span { color: var(--muted); font-size: .95rem; }
+  .howto .n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--sign); color: var(--sign-ink); font-weight: 800; font-size: .88rem; margin-bottom: 8px; }
+
+  /* 매장 안내도 */
+  .floor { margin: 40px 0 8px; }
+  .floor h2 { font-size: 1rem; color: var(--muted); font-weight: 700; margin-bottom: 10px; }
+  .aisles { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .aisle-link {
+    display: flex; gap: 14px; align-items: center; text-decoration: none;
+    background: var(--shelf); border-radius: 14px; padding: 14px 16px; border: 1px solid var(--line);
+    transition: transform .15s ease;
+  }
+  .aisle-link:hover { transform: translateY(-2px); }
+  .aisle-link .no { font-size: 1.6rem; font-weight: 900; color: var(--sign); min-width: 44px; }
+  html[data-theme="dark"] .aisle-link .no { color: var(--tag); }
+  .aisle-link b { display: block; }
+  .aisle-link span { color: var(--muted); font-size: .95rem; }
+  .aisle-link.soon { opacity: .6; border-style: dashed; background: transparent; }
+
+  /* ── 코너 ── */
+  .corner { scroll-margin-top: 60px; padding: 56px 0 24px; border-top: 1px solid var(--line); margin-top: 48px; }
+  .corner-sign {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--sign); color: var(--sign-ink);
+    padding: 7px 16px 7px 8px; border-radius: 999px; font-weight: 700; font-size: .95rem;
+  }
+  .corner-sign .no { background: var(--tag); color: var(--tag-ink); border-radius: 999px; padding: 1px 10px; font-weight: 900; }
+  .corner h2 { font-size: clamp(1.6rem, 4.6vw, 2.4rem); line-height: 1.3; letter-spacing: -.02em; margin: 18px 0 10px; }
+  .corner .lead { color: var(--muted); font-size: 1.08rem; max-width: 680px; }
+  .cover { margin: 28px 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--shelf); aspect-ratio: 2752 / 1536; }
+  .cover img { width: 100%; height: 100%; object-fit: cover; }
+
+  .story { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 8px 0 20px; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .card h3 { font-size: 1.05rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .chip { font-size: .85rem; font-weight: 700; padding: 1px 9px; border-radius: 6px; background: var(--quote); color: var(--muted); }
+  .card p + p { margin-top: 10px; }
+  .card ul { padding-left: 1.1em; }
+  .card li + li { margin-top: 6px; }
+  .card.wide { grid-column: 1 / -1; }
+
+  blockquote {
+    background: var(--quote); border-left: 4px solid var(--tag);
+    padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 4px 0 20px;
+    font-size: 1.12rem; font-weight: 600; line-height: 1.6;
+  }
+  blockquote cite { display: block; font-style: normal; font-weight: 500; font-size: .92rem; color: var(--muted); margin-top: 6px; }
+
+  /* 전후 비교 */
+  .ba { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; margin: 20px 0; }
+  .ba > div { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  .ba .arrow { display: grid; place-items: center; background: none; border: 0; padding: 0; font-size: 1.6rem; color: var(--muted); }
+  .ba .label { font-size: .9rem; font-weight: 700; color: var(--muted); }
+  .ba .big { font-size: 2.2rem; font-weight: 900; letter-spacing: -.03em; line-height: 1.2; margin: 4px 0; }
+  .ba .after .big { color: var(--sign); }
+  html[data-theme="dark"] .ba .after .big { color: var(--tag); }
+  .ba .sub { color: var(--muted); font-size: .95rem; }
+  .steps { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .steps span { font-size: .88rem; background: var(--quote); border-radius: 6px; padding: 1px 8px; }
+
+  /* 진열대: 상품 */
+  .shelf-title { font-weight: 800; font-size: 1.15rem; margin: 36px 0 12px; }
+  .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
+  .product {
+    position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: 18px;
+    padding: 22px 20px 20px; display: flex; flex-direction: column; gap: 12px;
+    box-shadow: 0 8px 0 -4px var(--shelf);
+  }
+  .product .top { display: flex; gap: 14px; align-items: center; }
+  .product .icon { width: 68px; height: 68px; border-radius: 16px; border: 1px solid var(--line); background: var(--shelf); flex-shrink: 0; overflow: hidden; }
+  .product .icon img { width: 100%; height: 100%; }
+  .product .name { font-weight: 800; font-size: 1.12rem; line-height: 1.3; }
+  .product .platform { color: var(--muted); font-size: .92rem; }
+  .product .desc { color: var(--muted); font-size: .98rem; flex: 1; }
+  .pricetag {
+    position: absolute; top: -12px; right: 16px;
+    background: var(--tag); color: var(--tag-ink); font-weight: 900; font-size: .98rem;
+    padding: 4px 14px 4px 20px; border-radius: 4px 8px 8px 4px;
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 50%);
+    transform: rotate(3deg);
+  }
+  .buy {
+    display: block; text-align: center; text-decoration: none; font-weight: 800;
+    background: var(--ink); color: var(--bg); border-radius: 12px; padding: 12px 16px; font-size: 1rem;
+  }
+  .buy:hover { opacity: .88; }
+  .product.pair { border-style: dashed; box-shadow: none; }
+  .pair-note { font-size: .9rem; font-weight: 700; color: var(--sign); }
+  html[data-theme="dark"] .pair-note { color: var(--tag); }
+
+  .readmore {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    margin-top: 28px; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--line); background: var(--shelf);
+  }
+  .readmore p { font-weight: 600; }
+  .readmore a { font-weight: 800; text-decoration: none; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; white-space: nowrap; }
+
+  /* 무지개 코너 색 */
+  .rainbow-bar { height: 8px; border-radius: 999px; margin: 18px 0 0; max-width: 320px;
+    background: linear-gradient(90deg, #ef4444, #f97316, #eab308, #22c55e, #3b82f6, #6366f1, #a855f7); }
+  .progress { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+  .progress div { display: flex; align-items: center; gap: 10px; font-size: .98rem; }
+  .progress i { font-style: normal; width: 22px; height: 22px; border-radius: 6px; display: inline-grid; place-items: center; font-size: .8rem; font-weight: 800; flex-shrink: 0; }
+  .progress .done i { background: var(--shelf); color: var(--muted); }
+  .progress .done { color: var(--muted); text-decoration: line-through; }
+  .progress .now i { background: var(--tag); color: var(--tag-ink); }
+  .progress .now { font-weight: 800; }
+  .progress .next i { border: 1.5px dashed var(--line); }
+  .progress .next { color: var(--muted); }
+
+  /* 출구 */
+  .exit { margin: 72px 0 0; padding: 40px 0 64px; border-top: 4px solid var(--tag); background: var(--sign); color: var(--sign-ink); }
+  .exit h2 { font-size: 1.5rem; margin-bottom: 8px; }
+  .exit p { opacity: .85; max-width: 620px; }
+  .exit .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .exit .links a { text-decoration: none; font-weight: 700; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 9px 18px; }
+  .exit .links a.primary { background: var(--tag); color: var(--tag-ink); border-color: var(--tag); }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .entrance { padding-top: 40px; }
+    .howto, .story { grid-template-columns: 1fr; }
+    .ba { grid-template-columns: 1fr; }
+    .ba .arrow { transform: rotate(90deg); }
+    .brand small { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="ko">리이오 생활도구점</span><span class="en">Leeo's Everyday Tools</span><small class="ko">Leeo's Everyday Tools</small></a>
+    <div class="tools" role="group" aria-label="언어 · 테마 / Language · Theme">
+      <button type="button" class="tbtn" data-set-lang="ko">한국어</button>
+      <button type="button" class="tbtn" data-set-lang="en">EN</button>
+      <button type="button" class="tbtn" id="themeBtn" aria-label="테마 전환 / Toggle theme"><span class="ti-dark">☀️</span><span class="ti-light">🌙</span></button>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+  <section class="entrance">
+    <div class="wrap">
+      <span class="eyebrow"><span class="ko">어서 오세요</span><span class="en">WELCOME IN</span></span>
+      <h1 class="ko">낯선 도구에는<br><mark>사연</mark>이 있습니다</h1>
+      <h1 class="en">Every odd little tool<br>has a <mark>story</mark></h1>
+      <p class="ko">이 가게의 물건은 전부 제가 일상에서 불편해서 직접 만든 것들입니다. 앱스토어에서 아이콘 하나만 보면 “이게 뭐지?” 싶을 수 있어서, 물건마다 왜 만들게 됐는지를 옆에 붙여 두었습니다.</p>
+      <p class="ko">이야기를 읽어 보시고, 나도 같은 곳에서 막혀 있었다면 그때 데려가시면 됩니다.</p>
+      <p class="en">Everything on these shelves is something I built because a small part of my day kept annoying me. A lone icon on the App Store rarely explains itself, so each item comes with the story of why it exists.</p>
+      <p class="en">Read the story first. If you've been stuck in the same spot, take one home.</p>
+
+      <div class="howto">
+        <div><span class="n">1</span><b class="ko">사연을 읽고</b><b class="en">Read the story</b><span class="ko">어떤 불편에서 시작됐는지</span><span class="en">What problem started it</span></div>
+        <div><span class="n">2</span><b class="ko">내 얘기인지 보고</b><b class="en">See if it's you</b><span class="ko">나도 같은 곳에서 막히는지</span><span class="en">Do you get stuck there too?</span></div>
+        <div><span class="n">3</span><b class="ko">필요하면 데려가기</b><b class="en">Take it home</b><span class="ko">대부분 무료로 써볼 수 있어요</span><span class="en">Most are free to try</span></div>
+      </div>
+
+      <nav class="floor" aria-label="매장 안내 / Store map">
+        <h2 class="ko">매장 안내</h2><h2 class="en">Store map</h2>
+        <div class="aisles">
+          <a class="aisle-link" href="#corner-1">
+            <span class="no">1</span>
+            <div><b class="ko">반복을 없애는 코너</b><b class="en">The anti-repetition aisle</b><span class="ko">클립키보드 · 탭클립 키보드</span><span class="en">Clip Keyboard · TapClip Keyboard</span></div>
+          </a>
+          <a class="aisle-link" href="#corner-2">
+            <span class="no">2</span>
+            <div><b class="ko">조각 시간을 쓰는 코너</b><b class="en">The spare-minutes aisle</b><span class="ko">욕망의 무지개 · 무지개 공방</span><span class="en">Rainbow of Desire · Rainbow Workshop</span></div>
+          </a>
+          <div class="aisle-link soon">
+            <span class="no">3</span>
+            <div><b class="ko">진열 준비 중</b><b class="en">Stocking soon</b><span class="ko">큰 시간의 공백 만들기</span><span class="en">Carving out big blocks of time</span></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ───────── 1번 코너: 클립키보드 ───────── -->
+  <section class="corner" id="corner-1">
+    <div class="wrap">
+      <span class="corner-sign"><span class="no">1</span><span class="ko">반복을 없애는 코너</span><span class="en">The anti-repetition aisle</span></span>
+      <h2 class="ko">저는 의지가 부족한 게 아니라<br>시스템이 없었네요</h2>
+      <h2 class="en">It wasn't a lack of willpower.<br>I just didn't have a system.</h2>
+      <p class="lead ko">시간을 아끼겠다는 다짐은 늘 한 달을 못 갔습니다. 그래서 한 번 만들어 두면 제가 노력하지 않아도 시간을 돌려주는 것, 시스템을 만들기로 했습니다. 첫 칸은 “이미 결과를 아는데 과정을 또 밟는 일”, 반복이었습니다.</p>
+      <p class="lead en">Every resolution to “save time” died within a month. So I decided to build a system instead: something that keeps giving time back without relying on willpower. The first target was repetition, retracing steps to a result I already knew.</p>
+
+      <div class="cover"><img src="https://substackcdn.com/image/fetch/$s_!Nwx_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F83546538-f8e2-4480-a1f6-b03744df7ffc_2752x1536.png" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div>
+
+      <div class="ba">
+        <div>
+          <div class="label ko">“어머님 계좌번호 좀 줘봐”</div>
+          <div class="label en">“Can you send me Mom's account number?”</div>
+          <div class="big">42<span class="ko">초</span><span class="en">s</span></div>
+          <div class="sub ko">여덟 단계 중 타이핑은 0번</div>
+          <div class="sub en">8 steps, zero of them typing</div>
+          <div class="steps ko"><span>메신저 나가기</span><span>은행 앱</span><span>인증</span><span>계좌 찾기</span><span>복사</span><span>돌아오기</span><span>붙여넣기</span><span>다시 읽기</span></div>
+          <div class="steps en"><span>leave chat</span><span>bank app</span><span>log in</span><span>find account</span><span>copy</span><span>go back</span><span>paste</span><span>re-read</span></div>
+        </div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="after">
+          <div class="label ko">키보드에서 탭 한 번</div>
+          <div class="label en">One tap on the keyboard</div>
+          <div class="big">1<span class="ko">초</span><span class="en">s</span></div>
+          <div class="sub ko">메신저를 나가지 않으니, 같이 말하려던 두 번째 용건도 안 까먹습니다.</div>
+          <div class="sub en">And since you never leave the chat, you don't forget the second thing you meant to say.</div>
+        </div>
+      </div>
+
+      <blockquote class="ko">진짜 비용은 치는 시간이 아니라, 값을 찾으러 갔다 오는 시간이었습니다.<cite>그래서 빨리 치는 게 아니라, 갔다 오는 일 자체를 없애기로 했습니다.</cite></blockquote>
+      <blockquote class="en">The real cost wasn't typing. It was the round trip to go find the value.<cite>So the goal wasn't typing faster. It was never leaving at all.</cite></blockquote>
+
+      <div class="story">
+        <div class="card">
+          <h3><span class="chip ko">먼저 써본 것</span><span class="chip en">Tried first</span><span class="ko">폰에 있는 걸로 다 해봤습니다</span><span class="en">Everything already on the phone</span></h3>
+          <ul class="ko">
+            <li><b>텍스트 대치</b> 15개를 넘으니 뭘 등록했는지 기억이 안 남</li>
+            <li><b>메모 앱</b> 담기는 쉬운데 꺼내려면 또 앱을 나감</li>
+            <li><b>암호 앱</b> 잠금은 완벽, 자동완성은 로그인 칸에서만</li>
+            <li><b>단축어</b> 만드는 데 저녁 한 번, 값 20개면 단축어도 20개</li>
+            <li><b>나에게 보내기</b> 3주 전 메시지 스크롤이 은행 앱보다 느림</li>
+          </ul>
+          <ul class="en">
+            <li><b>Text Replacement</b> past 15 shortcuts I forgot what I'd saved</li>
+            <li><b>Notes</b> easy to store, but you still leave the app to get it</li>
+            <li><b>Passwords</b> great lock, but autofill only in login fields</li>
+            <li><b>Shortcuts</b> a whole evening to set up, one shortcut per value</li>
+            <li><b>Message to self</b> scrolling back 3 weeks beats nothing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="chip ko">남은 조건</span><span class="chip en">Requirements</span><span class="ko">다섯 번 막히고 나온 다섯 가지</span><span class="en">Five fails, five conditions</span></h3>
+          <ul class="ko">
+            <li>지금 타이핑하는 <b>그 키보드 안에서</b> 꺼낼 것</li>
+            <li>저장이 <b>숙제가 되지 않을 것</b></li>
+            <li><b>외울 것이 없을 것</b> (보고 고르기)</li>
+            <li>계좌·카드 같은 <b>민감한 값도 잠가서</b> 담을 것</li>
+            <li>이름·주소·연락처처럼 <b>여러 값을 순서대로</b></li>
+          </ul>
+          <ul class="en">
+            <li>Retrieve it <b>inside the keyboard</b> you're already typing on</li>
+            <li>Saving must <b>not become a chore</b></li>
+            <li><b>Nothing to memorize</b>: pick by sight</li>
+            <li><b>Lock sensitive values</b> like accounts and cards</li>
+            <li>Fill <b>several values in order</b> (name, address, phone)</li>
+          </ul>
+        </div>
+        <div class="card wide">
+          <h3><span class="chip ko">솔직한 사용 설명서</span><span class="chip en">Honest label</span><span class="ko">이걸로 다 되지는 않습니다</span><span class="en">What it won't do</span></h3>
+          <ul class="ko">
+            <li>비밀번호 칸에서는 iOS 정책상 커스텀 키보드가 뜨지 않습니다. 로그인은 여전히 비밀번호 관리자 몫입니다.</li>
+            <li>“네”, “ok”처럼 짧은 건 그냥 치는 게 빠릅니다. 그래서 절약 시간도 네 글자 미만은 아예 세지 않습니다.</li>
+            <li>정말 자주 쓰는 서너 개는 텍스트 대치가 더 빠릅니다. 저도 같이 씁니다.</li>
+          </ul>
+          <ul class="en">
+            <li>iOS doesn't allow custom keyboards in password fields, so logins stay with your password manager.</li>
+            <li>Short things like “ok” are faster to just type. Anything under four characters isn't even counted as time saved.</li>
+            <li>For your three or four most-used phrases, Text Replacement is still quicker. I use both.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="shelf-title ko">이 코너의 물건</div>
+      <div class="shelf-title en">On this shelf</div>
+      <div class="products">
+        <article class="product">
+          <span class="pricetag"><span class="ko">무료</span><span class="en">Free</span></span>
+          <div class="top">
+            <div class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9e/20/4f/9e204fb4-533c-e85d-4731-91360df63e6c/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"></div>
+            <div><div class="name ko">클립키보드</div><div class="name en">Clip Keyboard</div><div class="platform">iPhone · iPad</div></div>
+          </div>
+          <p class="desc ko">복사한 게 알아서 쌓이고 계좌·주소·이메일로 분류됩니다. 키보드를 올려 탭 한 번. 보안 항목은 Face ID로 잠기고, 계정 가입 없이 기기와 내 iCloud 밖으로 나가지 않습니다.</p>
+          <p class="desc en">Copies pile up on their own and get sorted into accounts, addresses and emails. Raise the keyboard, tap once. Secure items sit behind Face ID; no sign-up, nothing leaves your device and iCloud.</p>
+          <a class="buy" href="https://apps.apple.com/kr/app/id1543660502" target="_blank" rel="noopener"><span class="ko">앱스토어에서 받기</span><span class="en">Get it on the App Store</span></a>
+        </article>
+        <article class="product pair">
+          <span class="pricetag">₩4,400</span>
+          <div class="top">
+            <div class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/df/1a/39/df1a39eb-b089-1836-ee07-78c9414126e2/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" alt="" loading="lazy"></div>
+            <div><div class="name ko">탭클립 키보드</div><div class="name en">TapClip Keyboard</div><div class="platform">Mac</div></div>
+          </div>
+          <div class="pair-note ko">함께 쓰면 좋아요</div>
+          <div class="pair-note en">Goes well with</div>
+          <p class="desc ko">아이폰 클립키보드에 담아 둔 값을 맥에서도 그대로 꺼내 씁니다. 책상에서 일할 때도 같은 창고를 씁니다.</p>
+          <p class="desc en">Use everything you saved in Clip Keyboard on your Mac, too. Same pantry, desk edition.</p>
+          <a class="buy" href="https://apps.apple.com/kr/app/id6756433372?mt=12" target="_blank" rel="noopener"><span class="ko">Mac App Store에서 받기</span><span class="en">Get it on the Mac App Store</span></a>
+        </article>
+      </div>
+
+      <div class="readmore">
+        <p class="ko">시간을 세 종류로 나눈 이야기부터, 전체 사연 읽기</p>
+        <p class="en">The full story (in Korean), from sorting time into three kinds</p>
+        <a href="https://leeo25.substack.com/p/187?r=7dpffj" target="_blank" rel="noopener"><span class="ko">전체 이야기 →</span><span class="en">Read →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── 2번 코너: 무지개 ───────── -->
+  <section class="corner" id="corner-2">
+    <div class="wrap">
+      <span class="corner-sign"><span class="no">2</span><span class="ko">조각 시간을 쓰는 코너</span><span class="en">The spare-minutes aisle</span></span>
+      <h2 class="ko">조각난 시간은<br>돈처럼 통장에 안 쌓입니다</h2>
+      <h2 class="en">Scraps of time don't pile up<br>like money in a bank</h2>
+      <div class="rainbow-bar" aria-hidden="true"></div>
+      <p class="lead ko" style="margin-top:16px">반복을 없애서 일주일에 한 시간쯤을 벌었습니다. 그런데 글 쓸 시간은 여전히 없었습니다. 번 시간이 40초, 30초, 2분짜리 조각으로 흩어져 들어왔고, 그 조각은 대부분 SNS 스크롤로 샜습니다.</p>
+      <p class="lead en" style="margin-top:16px">Cutting repetition won me about an hour a week. Yet I still had no time to write. The time came back as 40-second, 30-second, 2-minute scraps scattered across the day, and most of them leaked into scrolling.</p>
+
+      <div class="cover"><img src="https://substackcdn.com/image/fetch/$s_!1bxB!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1394f991-37b5-4ee9-b437-4725dc8f3113_2752x1536.png" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div>
+
+      <blockquote class="ko">100원씩 12번 벌면 1,200원이지만, 5분을 12번 벌었다고 1시간짜리 일을 할 수 있는 건 아니었습니다.<cite>오후 2시에 번 5분은 2시 5분이 되면 사라집니다. 시간에는 통장이 없습니다.</cite></blockquote>
+      <blockquote class="en">Earn ₩100 twelve times and you have ₩1,200. Earn 5 minutes twelve times and you still can't do an hour of work.<cite>The 5 minutes you gain at 2:00 are gone by 2:05. Time has no bank account.</cite></blockquote>
+
+      <div class="story">
+        <div class="card">
+          <h3><span class="chip ko">알고 보니</span><span class="chip en">Turns out</span><span class="ko">제 의지 문제가 아니었습니다</span><span class="en">Not a willpower problem</span></h3>
+          <p class="ko"><b>타임 컨페티</b>: 총량은 있는데 색종이처럼 흩어져 있으면 없는 것과 같다. 게다가 중단된 일로 완전히 돌아오는 데는 평균 23분이 걸린다는 연구도 있었습니다. 5분짜리 조각에 23분짜리 시동이 필요한 일을 넣으면, 시동만 걸다 끝납니다.</p>
+          <p class="en"><b>Time confetti</b>: time that exists in total but is scattered like confetti is as good as gone. Research also found it takes about 23 minutes to fully return to an interrupted task. Put a 23-minute warm-up task into a 5-minute scrap and you only ever warm up.</p>
+        </div>
+        <div class="card">
+          <h3><span class="chip ko">판정 기준</span><span class="chip en">The test</span><span class="ko">조각에 넣어도 되는 일</span><span class="en">What fits in a scrap</span></h3>
+          <ul class="ko">
+            <li><b>시동 없이</b> 바로 시작할 수 있는가</li>
+            <li>조각 안에서 <b>완전히 끝나는가</b></li>
+            <li>그리고 <b>미리 정해져 있는가</b>. 5분이 생긴 뒤에 고르면 고르다 끝납니다.</li>
+          </ul>
+          <ul class="en">
+            <li>Can it start <b>with no warm-up</b>?</li>
+            <li>Does it <b>fully finish</b> inside the scrap?</li>
+            <li>Is it <b>decided in advance</b>? Choose after the 5 minutes appear and choosing eats them.</li>
+          </ul>
+        </div>
+        <div class="card wide">
+          <h3><span class="chip ko">그래서 만든 것</span><span class="chip en">So I built</span><span class="ko">할 일 목록이 아니라, 지금 어느 단계인지</span><span class="en">Not a to-do list, but where you are</span></h3>
+          <p class="ko">보통 할 일 앱에 “글쓰기”를 넣으면 단계 네 개가 따로따로 쌓입니다. 욕망의 무지개는 과정을 하나로 묶고, 지금 할 단계만 보여 줍니다. 그리고 “이건 맥락 없이 그냥 하면 되는 일”이라고 표시해 둔 것들만 따로 모아, 조각 시간이 생겼을 때 바로 집을 수 있게 합니다.</p>
+          <p class="en">Put “write a post” in a normal to-do app and you get four loose items. Rainbow of Desire keeps them as one process and shows only the step you're on. Anything you mark as “just do it, no context needed” is gathered separately, ready to grab the moment a spare few minutes show up.</p>
+          <div class="progress" aria-hidden="true">
+            <div class="done"><i>✓</i><span class="ko">글 컨텐츠 정리하기</span><span class="en">Outline the content</span></div>
+            <div class="done"><i>✓</i><span class="ko">글 작성하기</span><span class="en">Write the draft</span></div>
+            <div class="now"><i>3/4</i><span class="ko">글 다듬기 ← 지금 여기</span><span class="en">Polish it ← you are here</span></div>
+            <div class="next"><i></i><span class="ko">글 올리기</span><span class="en">Publish</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shelf-title ko">이 코너의 물건</div>
+      <div class="shelf-title en">On this shelf</div>
+      <div class="products">
+        <article class="product">
+          <span class="pricetag"><span class="ko">무료</span><span class="en">Free</span></span>
+          <div class="top">
+            <div class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/4b/4f/0e4b4fee-aa08-f368-80a9-02628e82d867/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" loading="lazy"></div>
+            <div><div class="name ko">욕망의 무지개</div><div class="name en">Rainbow of Desire</div><div class="platform">iPhone · iPad</div></div>
+          </div>
+          <p class="desc ko">일을 벌이는 나를 눈으로 보게 해 주는 도구. 할 일을 단계로 쪼개 지금 단계만 보여 주고, 바로 하면 되는 일은 따로 모아 둡니다. 무지개 뷰에서 지금 얼마나 많은 일을 들고 있는지 한눈에 봅니다.</p>
+          <p class="desc en">A tool for seeing how much you've taken on. Break tasks into steps, see only the current one, and keep “just do it” items in their own list. The rainbow view shows how loaded you are at a glance.</p>
+          <a class="buy" href="https://apps.apple.com/kr/app/id6755280882" target="_blank" rel="noopener"><span class="ko">앱스토어에서 받기</span><span class="en">Get it on the App Store</span></a>
+        </article>
+        <article class="product">
+          <span class="pricetag"><span class="ko">무료</span><span class="en">Free</span></span>
+          <div class="top">
+            <div class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6c/59/31/6c5931da-6818-e162-ed7d-6954f897461a/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" alt="" loading="lazy"></div>
+            <div><div class="name ko">무지개 공방</div><div class="name en">Rainbow Workshop</div><div class="platform">Mac</div></div>
+          </div>
+          <p class="desc ko">나의 일주일을 블록으로 쌓아 시간 밀도로 봅니다. 일정이 겹칠수록 색이 진해지는 격자로, 큰 화면에서 한 주를 설계할 때 씁니다.</p>
+          <p class="desc en">Stack your week as blocks and see it as time density: the more things overlap, the deeper the color. Made for planning the week on a big screen.</p>
+          <a class="buy" href="https://apps.apple.com/kr/app/id6777737322?mt=12" target="_blank" rel="noopener"><span class="ko">Mac App Store에서 받기</span><span class="en">Get it on the Mac App Store</span></a>
+        </article>
+      </div>
+
+      <div class="readmore">
+        <p class="ko">타임 컨페티, 주의 잔여물, 그리고 조각에 맞는 일 이야기 전체 읽기</p>
+        <p class="en">The full story (in Korean): time confetti, attention residue, and what fits in a scrap</p>
+        <a href="https://leeo25.substack.com/p/197?r=7dpffj" target="_blank" rel="noopener"><span class="ko">전체 이야기 →</span><span class="en">Read →</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="exit">
+  <div class="wrap">
+    <h2 class="ko">다음 물건은 진열 준비 중입니다</h2>
+    <h2 class="en">More items are being shelved</h2>
+    <p class="ko">다음 이야기는 조각 시간이 아니라, 좀 더 큰 시간의 공백을 만들어 내는 방법입니다. 새 물건이 들어오면 뉴스레터로 먼저 알려 드릴게요.</p>
+    <p class="en">Next up: not scraps, but carving out larger blocks of time. Subscribe to hear when a new item arrives.</p>
+    <div class="links">
+      <a class="primary" href="https://leeo25.substack.com/?r=7dpffj" target="_blank" rel="noopener"><span class="ko">뉴스레터 구독</span><span class="en">Subscribe</span></a>
+      <a href="index.html"><span class="ko">전체 앱 쇼케이스</span><span class="en">All apps</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function apply(lang) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'en' ? 'en' : 'ko');
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('portfolio-lang'); } catch (e) {}
+  apply((saved === 'ko' || saved === 'en')
+    ? saved
+    : ((navigator.language || '').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en'));
+  var btns = document.querySelectorAll('.tbtn[data-set-lang]');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function () {
+      var l = this.getAttribute('data-set-lang');
+      apply(l);
+      try { localStorage.setItem('portfolio-lang', l); } catch (e) {}
+    });
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('portfolio-theme', next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

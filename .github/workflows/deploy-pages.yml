@@ -9,6 +9,7 @@ on:
       - 'scripts/build-portfolio-hub.py'
       - 'scripts/hub-links.json'
       - '.github/workflows/deploy-pages.yml'
+      - 'docs/shop.html'
   workflow_dispatch:  # 수동 실행
 
 # GitHub Pages 배포에 필요한 권한
