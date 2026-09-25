@@ -88,6 +88,19 @@ try {
   .chip .count { opacity: .6; margin-left: 4px; }
   .search { width: 220px; max-width: 100%; border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 16px; font-size: .95rem; }
   .search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .ask { width: 100%; font-weight: 800; font-size: 1.05rem; }
+
+  /* 내 경우 계산기 */
+  .calc { background: var(--paper); border: 2px solid var(--tag); border-radius: 16px; padding: 18px 20px; margin: 22px 0 6px; }
+  .calc .k { font-weight: 800; color: var(--accent); font-size: .95rem; margin-bottom: 4px; }
+  .calc .q { display: block; font-weight: 700; font-size: 1.05rem; }
+  .calc .row { display: flex; align-items: center; gap: 14px; margin: 10px 0 4px; }
+  .calc input[type="range"] { flex: 1; min-width: 0; accent-color: var(--brand); height: 28px; }
+  .calc .n { flex-shrink: 0; min-width: 7.5em; text-align: right; font-weight: 800; }
+  .calc .n .v-n { font-size: 1.4rem; font-weight: 900; }
+  .calc .res { font-size: 1.1rem; margin-top: 6px; }
+  .calc .res b { font-weight: 900; background: linear-gradient(transparent 58%, var(--tag) 58%); padding: 0 2px; }
+  .calc .note { color: var(--muted); font-size: .9rem; margin-top: 8px; }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; padding: 22px 0 64px; }
   .item {
@@ -181,8 +194,10 @@ try {
   @media (max-width: 640px) {
     body { font-size: 16px; }
     .intro { padding-top: 30px; }
-    .search { width: 100%; order: -1; }
-    .controls { top: 60px; }
+    .search { width: 100%; }
+    .controls { position: static; }
+    .item .meta { justify-content: flex-end; }
+    .item .meta .pf { display: none; }
     .grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     .item { padding: 16px 14px 12px; }
     .item .icons img { width: 48px; height: 48px; }
@@ -213,13 +228,14 @@ try {
     <div class="wrap">
       <h1 class="ko">낯선 도구에는 <mark>사연</mark>이 있습니다</h1>
       <h1 class="en">Every odd little tool has a <mark>story</mark></h1>
-      <p class="ko">제가 일상에서 불편해서 직접 만든 도구들입니다. 아이콘만 봐서는 뭔지 모를 수 있어서, 하나씩 왜 만들었는지를 붙여 두었습니다.</p>
-      <p class="en">Tools I built because something in my day kept getting in the way. An icon alone rarely explains itself, so each one comes with the story of why it exists.</p>
+      <p class="ko">제가 일상에서 막혀서 직접 만든 도구들입니다. 아이콘만 봐서는 뭔지 모를 수 있으니, 도구가 아니라 당신이 막히는 순간에서 골라 보세요.</p>
+      <p class="en">Tools I built because I kept getting stuck in everyday moments. Icons rarely explain themselves, so start from the moment you get stuck, not the tool.</p>
     </div>
   </section>
   <div class="wrap">
     <div class="controls">
-      <div class="chips" id="chips" role="group" aria-label="분류 / Category"></div>
+      <div class="ask"><span class="ko">요즘 제일 불편한 순간은?</span><span class="en">Where do you get stuck lately?</span></div>
+      <div class="chips" id="chips" role="group" aria-label="불편한 순간 / Moments"></div>
       <input class="search" id="search" type="search" placeholder="검색 / Search" aria-label="검색 / Search">
     </div>
     <div class="grid" id="grid"></div>
@@ -246,27 +262,29 @@ try {
 /*
  * 도구 목록. 새 도구는 이 배열에 항목 하나만 추가하면 된다.
  *  - id: 상세 주소 (shop.html#id)
- *  - tags: CATEGORIES 의 key
- *  - hook: 카드에 보이는 한 줄 (어떤 불편인지)
+ *  - tags: MOMENTS 의 key (이 도구가 필요한 순간)
+ *  - hook: 카드에 보이는 한 줄. 내 얘기가 아니라 읽는 사람이 겪는 장면으로 쓴다
+ *  - story.calc: 상세의 '내 경우엔?' 계산기. 하루 횟수 × secPer × 365 로 연간 시간을 계산.
+ *      label/result 의 {n} 횟수, {h} 연간 시간, {d} 8시간 근무일 환산
  *  - apps: 실제로 받을 앱들 (첫 번째가 대표). price: 유료 가격 또는 null(무료), iap: 앱 내 구입 여부
  *  - story: 상세 화면. blocks 의 type = ba | quote | list | text | steps
  *  - date: 이야기 발행일, 최신순 정렬에 사용
  */
-var CATEGORIES = {
-  time:     { ko: '시간 아끼기', en: 'Save time' },
-  typing:   { ko: '입력 · 키보드', en: 'Typing' },
-  planning: { ko: '계획 · 할 일', en: 'Planning' }
+var MOMENTS = {
+  repeat:   { ko: '같은 걸 또 입력할 때', en: 'Typing the same thing again' },
+  scraps:   { ko: '자투리 시간이 흐지부지될 때', en: 'Spare minutes slip away' },
+  overload: { ko: '할 일이 너무 많을 때', en: 'Too much on your plate' }
 };
 
 var ITEMS = [
   {
     id: 'rainbow',
     date: '2026-09-19',
-    tags: ['time', 'planning'],
+    tags: ['scraps', 'overload'],
     name: { ko: '욕망의 무지개', en: 'Rainbow of Desire' },
     hook: {
-      ko: '시간을 아꼈는데 정작 글 쓸 시간은 없었습니다. 조각난 시간에 맞는 일만 골라 두는 도구.',
-      en: 'I saved time, yet never had time to write. A tool that lines up tasks that fit spare minutes.'
+      ko: '5분이 생겼는데 뭘 할지 고르다가 결국 폰만 보고 끝난 적 있죠?',
+      en: 'Ever get 5 free minutes, spend them deciding what to do, and end up just scrolling?'
     },
     apps: [
       { name: { ko: '욕망의 무지개', en: 'Rainbow of Desire' }, platform: 'iPhone · iPad', price: null, iap: true,
@@ -285,6 +303,19 @@ var ITEMS = [
       },
       cover: 'https://substackcdn.com/image/fetch/$s_!1bxB!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1394f991-37b5-4ee9-b437-4725dc8f3113_2752x1536.png',
       url: 'https://leeo25.substack.com/p/197?r=7dpffj',
+      calc: {
+        q: { ko: '하루에 5분쯤 비는 자투리 시간이 몇 번 생기세요?', en: 'How many 5-minute gaps show up in your day?' },
+        min: 1, max: 15, value: 6, secPer: 300,
+        label: { ko: '하루 {n}번', en: '{n} a day' },
+        result: {
+          ko: '1년이면 약 <b>{h}시간</b>, 근무일로 치면 <b>{d}일</b>이 색종이처럼 흩어집니다.',
+          en: 'That\'s about <b>{h} hours</b> a year, or <b>{d} workdays</b>, scattered like confetti.'
+        },
+        note: {
+          ko: '한 번에 5분 기준입니다. 미리 정해 둔 일이 없을 때, 제 경우엔 이 시간 대부분이 스크롤로 샜습니다.',
+          en: 'Assumes 5 minutes each. Without tasks picked in advance, most of mine leaked into scrolling.'
+        }
+      },
       blocks: [
         { type: 'quote',
           ko: '100원씩 12번 벌면 1,200원이지만, 5분을 12번 벌었다고 1시간짜리 일을 할 수 있는 건 아니었습니다.',
@@ -310,11 +341,11 @@ var ITEMS = [
   {
     id: 'clip-keyboard',
     date: '2026-08-21',
-    tags: ['time', 'typing'],
+    tags: ['repeat'],
     name: { ko: '클립키보드', en: 'Clip Keyboard' },
     hook: {
-      ko: '계좌번호 하나 보내는 데 42초. 앱을 나가지 않고 키보드에서 바로 꺼내 씁니다.',
-      en: '42 seconds to send one account number. Pull it straight from the keyboard instead.'
+      ko: '계좌번호 달라는 카톡 올 때마다 은행 앱 열고, 복사하고, 돌아오시죠?',
+      en: 'Every time someone asks for your account number, you open the bank app, copy, and switch back, right?'
     },
     apps: [
       { name: { ko: '클립키보드', en: 'Clip Keyboard' }, platform: 'iPhone · iPad', price: null,
@@ -333,6 +364,19 @@ var ITEMS = [
       },
       cover: 'https://substackcdn.com/image/fetch/$s_!Nwx_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F83546538-f8e2-4480-a1f6-b03744df7ffc_2752x1536.png',
       url: 'https://leeo25.substack.com/p/187?r=7dpffj',
+      calc: {
+        q: { ko: '계좌번호·주소·자주 쓰는 문구, 하루에 몇 번 보내세요?', en: 'How often do you send an account number, address or stock phrase a day?' },
+        min: 1, max: 20, value: 3, secPer: 41,
+        label: { ko: '하루 {n}번', en: '{n} a day' },
+        result: {
+          ko: '1년이면 약 <b>{h}시간</b>, 근무일로 치면 <b>{d}일</b>을 값 찾으러 다른 앱에 다녀오는 데 씁니다.',
+          en: 'That\'s about <b>{h} hours</b> a year, or <b>{d} workdays</b>, spent fetching values from other apps.'
+        },
+        note: {
+          ko: '제가 직접 재본 왕복 42초에서, 키보드에서 꺼내는 1초를 뺀 41초 기준입니다.',
+          en: 'Based on the 42-second round trip I timed, minus the 1 second it takes from the keyboard.'
+        }
+      },
       blocks: [
         { type: 'ba',
           before: { label: { ko: '“어머님 계좌번호 좀 줘봐”', en: '“Send me Mom\'s account number?”' }, big: { ko: '42초', en: '42s' },
@@ -398,9 +442,9 @@ var ITEMS = [
   function renderChips() {
     var counts = { all: items.length };
     items.forEach(function (it) { it.tags.forEach(function (k) { counts[k] = (counts[k] || 0) + 1; }); });
-    var keys = ['all'].concat(Object.keys(CATEGORIES).filter(function (k) { return counts[k]; }));
+    var keys = ['all'].concat(Object.keys(MOMENTS).filter(function (k) { return counts[k]; }));
     document.getElementById('chips').innerHTML = keys.map(function (k) {
-      var label = k === 'all' ? { ko: '전체', en: 'All' } : CATEGORIES[k];
+      var label = k === 'all' ? { ko: '전체 보기', en: 'See all' } : MOMENTS[k];
       return '<button type="button" class="chip" data-tag="' + k + '" aria-pressed="' + (state.tag === k) + '">' +
         t(label) + '<span class="count">' + counts[k] + '</span></button>';
     }).join('');
@@ -410,6 +454,7 @@ var ITEMS = [
     if (state.tag !== 'all' && item.tags.indexOf(state.tag) < 0) return false;
     if (!state.q) return true;
     var hay = [item.name.ko, item.name.en, item.hook.ko, item.hook.en]
+      .concat(item.tags.map(function (k) { return MOMENTS[k] ? MOMENTS[k].ko + ' ' + MOMENTS[k].en : ''; }))
       .concat(item.apps.map(function (a) { return a.name.ko + ' ' + a.name.en; })).join(' ').toLowerCase();
     return hay.indexOf(state.q) >= 0;
   }
@@ -470,6 +515,36 @@ var ITEMS = [
       '<a class="get" href="' + a.url + '" target="_blank" rel="noopener">' + t({ ko: '받기', en: 'Get' }) + '</a></div>';
   }
 
+  function calcBox(c) {
+    function fill(o) {
+      return t({
+        ko: o.ko.replace('{n}', '<span class="v-n"></span>').replace('{h}', '<span class="v-h"></span>').replace('{d}', '<span class="v-d"></span>'),
+        en: o.en.replace('{n}', '<span class="v-n"></span>').replace('{h}', '<span class="v-h"></span>').replace('{d}', '<span class="v-d"></span>')
+      }, 'span', true);
+    }
+    return '<div class="calc" data-sec="' + c.secPer + '">' +
+      '<div class="k">' + t({ ko: '내 경우엔 얼마나?', en: 'What about you?' }) + '</div>' +
+      '<label class="q" for="calcIn">' + t(c.q) + '</label>' +
+      '<div class="row"><input id="calcIn" type="range" min="' + c.min + '" max="' + c.max + '" value="' + c.value + '">' +
+      '<span class="n">' + fill(c.label) + '</span></div>' +
+      '<p class="res">' + fill(c.result) + '</p>' +
+      (c.note ? '<p class="note">' + t(c.note) + '</p>' : '') +
+    '</div>';
+  }
+
+  function updateCalc() {
+    var box = document.querySelector('#detail .calc'); if (!box) return;
+    var n = +box.querySelector('input').value;
+    var hours = n * (+box.getAttribute('data-sec')) * 365 / 3600;
+    var h = hours >= 10 ? Math.round(hours).toLocaleString() : hours.toFixed(1);
+    var d = hours / 8 >= 10 ? Math.round(hours / 8) : (hours / 8).toFixed(1);
+    function set(cls, v) { Array.prototype.forEach.call(box.querySelectorAll(cls), function (el) { el.textContent = v; }); }
+    set('.v-n', n); set('.v-h', h); set('.v-d', d);
+  }
+  document.getElementById('detail').addEventListener('input', function (e) {
+    if (e.target.id === 'calcIn') updateCalc();
+  });
+
   function renderDetail(item) {
     var s = item.story;
     var others = items.filter(function (x) { return x !== item; }).slice(0, 4);
@@ -480,6 +555,7 @@ var ITEMS = [
         '<h1>' + t(s.title) + '</h1>' +
         '<p class="lead">' + t(s.lead) + '</p>' +
       '</header>' +
+      (s.calc ? calcBox(s.calc) : '') +
       '<div class="buybox">' + item.apps.map(appRow).join('') + '</div>' +
       (s.cover ? '<div class="cover"><img src="' + s.cover + '" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'"></div>' : '') +
       s.blocks.map(function (b) { return '<section class="block">' + block(b) + '</section>'; }).join('') +
@@ -487,6 +563,7 @@ var ITEMS = [
       (s.url ? '<div class="readmore"><p>' + t({ ko: '전체 이야기는 뉴스레터에', en: 'Full story in the newsletter (Korean)' }) + '</p>' +
         '<a href="' + s.url + '" target="_blank" rel="noopener">' + t({ ko: '읽으러 가기 →', en: 'Read →' }) + '</a></div>' : '') +
       (others.length ? '<section class="others"><h2>' + t({ ko: '다른 도구', en: 'More tools' }) + '</h2><div class="grid">' + others.map(card).join('') + '</div></section>' : '');
+    updateCalc();
   }
 
   /* ── 라우팅: #id 면 상세, 아니면 목록 ── */
