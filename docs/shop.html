@@ -248,7 +248,7 @@ try {
  *  - id: 상세 주소 (shop.html#id)
  *  - tags: CATEGORIES 의 key
  *  - hook: 카드에 보이는 한 줄 (어떤 불편인지)
- *  - apps: 실제로 받을 앱들 (첫 번째가 대표)
+ *  - apps: 실제로 받을 앱들 (첫 번째가 대표). price: 유료 가격 또는 null(무료), iap: 앱 내 구입 여부
  *  - story: 상세 화면. blocks 의 type = ba | quote | list | text | steps
  *  - date: 이야기 발행일, 최신순 정렬에 사용
  */
@@ -269,7 +269,7 @@ var ITEMS = [
       en: 'I saved time, yet never had time to write. A tool that lines up tasks that fit spare minutes.'
     },
     apps: [
-      { name: { ko: '욕망의 무지개', en: 'Rainbow of Desire' }, platform: 'iPhone · iPad', price: null,
+      { name: { ko: '욕망의 무지개', en: 'Rainbow of Desire' }, platform: 'iPhone · iPad', price: null, iap: true,
         icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/4b/4f/0e4b4fee-aa08-f368-80a9-02628e82d867/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg',
         url: 'https://apps.apple.com/kr/app/id6755280882' },
       { name: { ko: '무지개 공방', en: 'Rainbow Workshop' }, platform: 'Mac', price: null,
@@ -370,8 +370,9 @@ var ITEMS = [
   }
   function priceOf(item) {
     var paid = item.apps.filter(function (a) { return a.price; });
-    if (!paid.length) return t(FREE);
-    return paid.length === item.apps.length ? esc(paid[0].price) : t({ ko: '무료부터', en: 'From free' });
+    var anyIap = item.apps.some(function (a) { return a.iap; });
+    if (paid.length === item.apps.length) return esc(paid[0].price);
+    return (paid.length || anyIap) ? t({ ko: '무료부터', en: 'From free' }) : t(FREE);
   }
   function platformsOf(item) {
     var seen = [];
@@ -465,7 +466,7 @@ var ITEMS = [
   function appRow(a) {
     return '<div class="app"><img src="' + a.icon + '" alt="" loading="lazy">' +
       '<div class="info"><div class="n">' + t(a.name) + '</div>' +
-      '<div class="s"><b>' + (a.price ? esc(a.price) : t(FREE)) + '</b> · ' + esc(a.platform) + (a.note ? ' · ' + t(a.note) : '') + '</div></div>' +
+      '<div class="s"><b>' + (a.price ? esc(a.price) : t(FREE)) + (a.iap ? t({ ko: ' · 앱 내 구입', en: ' · In-app purchases' }) : '') + '</b> · ' + esc(a.platform) + (a.note ? ' · ' + t(a.note) : '') + '</div></div>' +
       '<a class="get" href="' + a.url + '" target="_blank" rel="noopener">' + t({ ko: '받기', en: 'Get' }) + '</a></div>';
   }
 
