@@ -368,5 +368,26 @@
     "ratingCount": 13,
     "daysSinceUpdate": 2,
     "manual": true
+  },
+  "globalReach": {
+    "level": 3,
+    "label": "multilingual",
+    "languages": [
+      "DE",
+      "EN",
+      "ES",
+      "JA",
+      "KO",
+      "RU",
+      "TH",
+      "VI",
+      "ZH"
+    ],
+    "languageCount": 9,
+    "englishPage": true,
+    "storefronts": 18,
+    "storefrontsChecked": 18,
+    "basis": "앱 언어 DE, EN, ES, JA, KO, RU, TH, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-05"
   }
 }

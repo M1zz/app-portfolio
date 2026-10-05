@@ -17,7 +17,7 @@
 
 데이터 출처:
   scripts/hub-links.json          수동 관리 링크(개요·아티팩트)
-  Data/apps/*.json                supportUrl · lifecycle (자동 수집)
+  Data/apps/*.json                supportUrl · lifecycle · globalReach (자동 수집)
 """
 import glob
 import html
@@ -55,7 +55,16 @@ STAGES = [
      "App Store에 올려 두고 다듬는 중입니다. 올렸다고 다 만든 것은 아니라서, "
      "‘이만하면 됐다’ 싶은 모습까지는 아직 손볼 곳이 남아 있습니다."),
 ]
+STAGE_SHORT = {5: "자리 잡음", 4: "넓히는 중", 3: "PMF 탐색", 2: "PS Fit", 1: "Pre-MVP"}
 TIER_KR = {"A": "개선 중", "B": "소강", "C": "정지"}
+
+# 글로벌 지원 축 — sync-global-reach.py 가 앱 JSON globalReach 에 기록한다.
+GLOBAL = [
+    (3, "다국어", "앱이 3개 이상 언어를 지원합니다.", "#34c48a"),
+    (2, "한·영", "앱 안에서 한국어와 영어를 모두 지원합니다.", "#5b8def"),
+    (1, "영문 스토어", "앱은 한 언어지만, 스토어 소개는 영어로 준비했습니다.", "#e0a53a"),
+    (0, "국내 중심", "한국어 사용자를 먼저 생각하며 만들었습니다.", "#8b90a0"),
+]
 
 CSS_TOKENS = """
   :root{--bg:#0b0d12;--bg-soft:#151821;--card:#1a1e29;--border:#262b38;--text:#e8eaf0;
@@ -149,7 +158,7 @@ def host_of(url):
     return HOSTS.get(urlparse(url).netloc, (urlparse(url).netloc or "기타", "#8b90a0"))
 
 
-def page(title, desc, body, active, extra_css=""):
+def page(title, desc, body, active, extra_css="", extra_js=""):
     nav = "".join(
         '<a href="%s"%s>%s</a>' % (h, ' class="on"' if k == active else "", t)
         for k, h, t in [("home", "index.html", "쇼케이스"),
@@ -165,9 +174,9 @@ def page(title, desc, body, active, extra_css=""):
         '<header class="hero"><div class="wrap">%s<nav class="bar">%s</nav></div></header>'
         '<main><div class="wrap">%s</div></main>'
         '<footer><div class="wrap">리이오(Leeo) · <a href="%s">쇼케이스</a> · '
-        '갱신 %s</div></footer>%s</body></html>'
+        '갱신 %s</div></footer>%s%s</body></html>'
         % (esc(title), esc(desc), CSS_TOKENS, extra_css, body["head"], nav,
-           body["main"], SITE, date.today().isoformat(), THEME_JS)
+           body["main"], SITE, date.today().isoformat(), THEME_JS, extra_js)
     )
 
 
@@ -203,7 +212,75 @@ LIFE_CSS = """
   .barleg{display:flex;flex-wrap:wrap;gap:14px;font-size:.78rem;color:var(--muted);margin-bottom:8px}
   .barleg b{color:var(--text)}
   .dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  .ac{position:relative}
+  .gb{position:absolute;top:6px;right:6px;font-style:normal;font-size:.6rem;font-weight:800;
+    line-height:1;padding:3px 6px;border-radius:999px;color:#fff;background:var(--c)}
+  .axes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px}
+  .axis{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+  .axis h3{font-size:.95rem;margin-bottom:2px}
+  .axis p{color:var(--muted);font-size:.8rem}
+  .axis .barwrap{margin:12px 0 8px}
+  @media(max-width:700px){.axes{grid-template-columns:1fr}}
+  .mx{width:100%;border-collapse:separate;border-spacing:5px;table-layout:fixed}
+  .mxw{overflow-x:auto;margin:0 -5px}
+  .mx th{font-size:.74rem;font-weight:700;color:var(--muted);text-align:left;padding:2px 6px}
+  .mx thead th{border-bottom:3px solid var(--c);padding-bottom:6px}
+  .mx thead th:first-child{border:0;width:116px}
+  .mx tbody th{vertical-align:top;padding-top:10px;color:var(--text)}
+  .mx tbody th b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;
+    margin-right:6px;font-size:.75rem;color:#fff;background:linear-gradient(140deg,var(--accent),var(--accent-2))}
+  .mx td{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:8px;
+    vertical-align:top;min-width:96px}
+  .mx td.z{background:transparent;border-style:dashed}
+  .mx td a{display:inline-block;margin:2px;border-radius:9px;transition:.12s}
+  .mx td a:hover{transform:translateY(-2px)}
+  .mx .ic{width:34px;height:34px;border-radius:9px}
+  .mx .ic.fb{font-size:.85rem}
+  .mx td .n{display:block;font-size:.7rem;font-weight:700;color:var(--muted);margin-bottom:3px}
+  .mx td::before{display:none;content:attr(data-l);font-size:.7rem;font-weight:700;
+    color:var(--muted);border-left:3px solid var(--c);padding-left:6px;margin-bottom:4px}
+  @media(max-width:560px){
+    .mx,.mx tbody{display:block}.mx thead{display:none}
+    .mx tr{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
+    .mx tbody th{grid-column:1/-1;padding:0}
+    .mx td{min-width:0}.mx td::before{display:block}
+    .mx td.z{display:none}
+    .mx .ic{width:30px;height:30px;border-radius:8px}}
+  .gf{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 6px}
+  .gf button{font:inherit;font-size:.78rem;font-weight:700;cursor:pointer;color:var(--text);
+    background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:999px}
+  .gf button:hover{border-color:var(--accent)}
+  .gf button[aria-pressed=true]{background:var(--text);color:var(--bg);border-color:var(--text)}
+  [data-gf] .ac{opacity:.16}
+  [data-gf="0"] .ac[data-g="0"],[data-gf="1"] .ac[data-g="1"],
+  [data-gf="2"] .ac[data-g="2"],[data-gf="3"] .ac[data-g="3"]{opacity:1}
 """
+
+GF_JS = """
+<script>
+(function(){var box=document.getElementById('journey');if(!box)return;
+document.addEventListener('click',function(e){var b=e.target.closest('.gf button');if(!b)return;
+var v=b.getAttribute('data-v');document.querySelectorAll('.gf button').forEach(function(x){
+x.setAttribute('aria-pressed',x===b?'true':'false');});
+if(v==='all')box.removeAttribute('data-gf');else box.setAttribute('data-gf',v);});})();
+</script>
+"""
+
+
+def reach(app):
+    """글로벌 지원 단계. 수집 전이면 None."""
+    g = app.get("globalReach")
+    return g.get("level") if g else None
+
+
+def reach_badge(app):
+    g = app.get("globalReach")
+    if not g:
+        return ""
+    lv = g["level"]
+    text = "%d개 언어" % g["languageCount"] if lv == 3 else {2: "한·영", 1: "EN", 0: "KO"}[lv]
+    color = dict((k, c) for k, _, _, c in GLOBAL)[lv]
+    return '<i class="gb" style="--c:%s">%s</i>' % (color, esc(text))
 
 
 def lifecycle_page(apps):
@@ -227,8 +304,10 @@ def lifecycle_page(apps):
     def chip(a):
         rc = (a.get("lifecycle") or {}).get("ratingCount") or 0
         note = "<em>리뷰 %d</em>" % rc if rc else ""
-        return ('<a class="ac" href="%s">%s<span>%s</span>%s</a>'
-                % (intro_link(a), icon_img(a), esc(a["name"]), note))
+        g = reach(a)
+        return ('<a class="ac" href="%s"%s>%s%s<span>%s</span>%s</a>'
+                % (intro_link(a), ' data-g="%d"' % g if g is not None else "",
+                   reach_badge(a), icon_img(a), esc(a["name"]), note))
 
     # 해당 앱이 없는 단계는 아예 내보내지 않는다 — 빈 칸이 남으면 미완성처럼 보인다
     rows = []
@@ -243,15 +322,73 @@ def lifecycle_page(apps):
             % (st, esc(en), esc(kr), len(items), esc(why),
                "".join(chip(a) for a in items)))
 
-    head = ('<div class="eyebrow">Product Lifecycle</div><h1>제품 여정</h1>'
-            '<p>만든 앱 %d개가 지금 어느 단계에 있는지. 아이디어에서 출시로, 출시에서 '
-            '사용자의 반응으로 — 제품이 자리 잡기까지의 단계로 나눠 봤습니다.</p>' % total)
-    main = ('<section><div class="barwrap">%s</div><div class="barleg">%s</div>'
-            '<p class="lead">아래로 갈수록 이른 단계입니다. 앱을 누르면 소개를 볼 수 있습니다.</p>'
-            '%s</section>' % (bar, leg, "".join(rows)))
+    # ── 글로벌 지원 축 ──
+    gcount = {lv: sum(1 for a in ls if reach(a) == lv) for lv, _, _, _ in GLOBAL}
+    gbar, gleg = "", ""
+    for lv, name, _, c in GLOBAL:
+        if gcount[lv]:
+            gbar += '<i style="flex:%d;background:%s"></i>' % (gcount[lv], c)
+            gleg += ('<span><span class="dot" style="background:%s"></span>%s <b>%d</b></span>'
+                     % (c, esc(name), gcount[lv]))
+    n_global = sum(1 for a in ls if (reach(a) or 0) >= 1)
+    n_multi = gcount[3] + gcount[2]
+
+    axes = (
+        '<div class="axes">'
+        '<div class="axis"><h3>제품 여정</h3><p>시장에서 어디까지 왔나</p>'
+        '<div class="barwrap">%s</div><div class="barleg">%s</div></div>'
+        '<div class="axis"><h3>글로벌 지원</h3><p>어디까지 닿을 수 있나 · 영어권 준비 %d개</p>'
+        '<div class="barwrap">%s</div><div class="barleg">%s</div></div>'
+        '</div>' % (bar, leg, n_global, gbar, gleg))
+
+    # 단계 × 글로벌 지원 지도
+    cols = [g for g in GLOBAL if gcount[g[0]]]
+    gname = {lv: n for lv, n, _, _ in GLOBAL}
+    gcolor = {lv: c for lv, _, _, c in GLOBAL}
+    thead = "<tr><th></th>%s</tr>" % "".join(
+        '<th style="--c:%s">%s</th>' % (c, esc(name)) for _, name, _, c in cols)
+    tbody = ""
+    for st, en, kr, _ in STAGES:
+        items = buckets.get(st, [])
+        if not items:
+            continue
+        cells = ""
+        for lv, _, _, _ in cols:
+            hit = sorted((a for a in items if reach(a) == lv), key=lambda a: a["name"])
+            if not hit:
+                cells += '<td class="z"></td>'
+                continue
+            cells += '<td data-l="%s" style="--c:%s"><span class="n">%d</span>%s</td>' % (
+                esc(gname[lv]), gcolor[lv], len(hit), "".join(
+                '<a href="%s" title="%s">%s</a>' % (intro_link(a), esc(a["name"]), icon_img(a))
+                for a in hit))
+        tbody += '<tr><th><b>%d</b>%s</th>%s</tr>' % (st, esc(STAGE_SHORT[st]), cells)
+    matrix = ('<section><h2>두 축으로 보기</h2>'
+              '<p class="lead">세로는 제품 여정, 가로는 글로벌 지원입니다. 오른쪽 위로 갈수록 '
+              '더 많은 사람에게, 더 단단하게 닿는 앱입니다.</p>'
+              '<div class="mxw"><table class="mx"><thead>%s</thead><tbody>%s</tbody></table></div>'
+              '<p class="lead" style="margin-top:12px">%s</p></section>'
+              % (thead, tbody, " ".join(
+                  "<b>%s</b> %s" % (esc(name), esc(why)) for _, name, why, _ in cols)))
+
+    filters = ('<div class="gf" role="group" aria-label="글로벌 지원으로 강조">'
+               '<button data-v="all" aria-pressed="true">전체</button>%s</div>'
+               % "".join('<button data-v="%d" aria-pressed="false">%s %d</button>'
+                         % (lv, esc(name), gcount[lv]) for lv, name, _, _ in cols))
+
+    head = ('<div class="eyebrow">Product Lifecycle · Global Reach</div><h1>제품 여정</h1>'
+            '<p>만든 앱 %d개가 지금 어느 단계에 있는지, 그리고 한국 밖의 사람에게도 닿을 '
+            '준비가 되어 있는지. 두 축으로 나눠 봤습니다. 지금은 %d개가 영어권에 나갈 준비를 '
+            '마쳤고, 그중 %d개는 앱 안에서도 여러 언어를 지원합니다.</p>'
+            % (total, n_global, n_multi))
+    main = ('<section>%s</section>%s'
+            '<section id="journey"><h2>단계별로 보기</h2>'
+            '<p class="lead">아래로 갈수록 이른 단계입니다. 오른쪽 위 표시는 글로벌 지원 수준이고, '
+            '앱을 누르면 소개를 볼 수 있습니다.</p>%s%s</section>'
+            % (axes, matrix, filters, "".join(rows)))
     return page("제품 여정 — 리이오의 앱 포트폴리오",
-                "만든 앱 %d개가 제품 여정의 어느 단계에 있는지 5단계로 정리했습니다." % total,
-                {"head": head, "main": main}, "life", LIFE_CSS)
+                "만든 앱 %d개를 제품 여정 5단계와 글로벌 지원 수준, 두 축으로 정리했습니다." % total,
+                {"head": head, "main": main}, "life", LIFE_CSS, GF_JS)
 
 
 # ── 공개: 허브 ────────────────────────────────────────────────────
@@ -313,7 +450,7 @@ def hub_page(apps):
         '<p>출시한 앱 전체를 문제 → 해결 방식의 이야기로 소개합니다. 한국어·영어 전환과 '
         '문제 해결 지도를 함께 제공합니다.</p></a>'
         '<a class="ov" href="lifecycle.html"><b>제품 여정</b>'
-        '<p>만든 앱들이 제품 여정의 어느 단계에 있는지 다섯 단계로 정리했습니다.</p></a>'
+        '<p>만든 앱들을 제품 여정 다섯 단계와 글로벌 지원 수준, 두 축으로 정리했습니다.</p></a>'
         '</div></section>'
         '<section><h2>앱별 지원 페이지<span class="hc">%d</span></h2>'
         '<p class="lead">App Store에 등록된 문의·안내 페이지입니다. 만든 시기에 따라 '
@@ -359,7 +496,7 @@ def internal_hub(apps, links):
         '<div class="ovgrid">'
         '<a class="ov" href="%(site)sindex.html"><b>쇼케이스</b><p>출시작 전체 케이스 스터디. '
         '재생성: <code>build-portfolio-site.py</code></p></a>'
-        '<a class="ov" href="%(site)slifecycle.html"><b>제품 여정</b><p>수명주기 5단계 공개판. '
+        '<a class="ov" href="%(site)slifecycle.html"><b>제품 여정</b><p>수명주기 5단계 × 글로벌 지원 공개판. '
         '재생성: <code>build-portfolio-hub.py</code></p></a>'
         '<a class="ov" href="%(site)shub.html"><b>페이지 모음</b><p>공개 허브(안전 버전). '
         '재생성: <code>build-portfolio-hub.py</code></p></a>'

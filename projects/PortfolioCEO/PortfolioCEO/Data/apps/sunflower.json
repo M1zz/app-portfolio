@@ -42,5 +42,18 @@
     "daysSinceUpdate": 46,
     "manual": true,
     "refineDays": 0
+  },
+  "globalReach": {
+    "level": 0,
+    "label": "korea-first",
+    "languages": [
+      "EN"
+    ],
+    "languageCount": 1,
+    "englishPage": false,
+    "storefronts": 18,
+    "storefrontsChecked": 18,
+    "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-05"
   }
 }
