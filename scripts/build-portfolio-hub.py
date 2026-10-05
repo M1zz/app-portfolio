@@ -64,8 +64,10 @@ GLOBAL = [
     (3, "다국어", "앱이 3개 이상 언어를 지원합니다.", "#34c48a"),
     (2, "한·영", "앱 안에서 한국어와 영어를 모두 지원합니다.", "#5b8def"),
     (1, "영문 스토어", "앱은 한 언어지만, 스토어 소개는 영어로 준비했습니다.", "#e0a53a"),
-    (0, "국내 중심", "한국어 사용자를 먼저 생각하며 만들었습니다.", "#8b90a0"),
+    (0, "한국어만", "앱과 스토어 소개 모두 한국어로만 준비했습니다.", "#8b90a0"),
 ]
+# 두 축 지도 열 이름 밑에 붙이는 짧은 뜻 — 칸이 서로 겹치지 않는다는 걸 드러낸다
+GLOBAL_SUB = {3: "3개 이상 언어", 2: "한국어+영어", 1: "앱 1개 언어 · 영어 소개", 0: "한국어로만"}
 
 CSS_TOKENS = """
   :root{--bg:#0b0d12;--bg-soft:#151821;--card:#1a1e29;--border:#262b38;--text:#e8eaf0;
@@ -228,6 +230,8 @@ LIFE_CSS = """
   .mx th{font-size:.74rem;font-weight:700;color:var(--muted);text-align:left;padding:2px 6px}
   .mx thead th{border-bottom:3px solid var(--c);padding-bottom:6px}
   .mx thead th:first-child{border:0;width:116px}
+  .mx thead th em{display:block;font-style:normal;font-weight:600;font-size:.66rem;opacity:.8}
+  .mx td.z::after{content:"없음";font-size:.68rem;color:var(--muted);opacity:.6}
   .mx tbody th{vertical-align:top;padding-top:10px;color:var(--text)}
   .mx tbody th b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;
     margin-right:6px;font-size:.75rem;color:#fff;background:linear-gradient(140deg,var(--accent),var(--accent-2))}
@@ -256,7 +260,6 @@ LIFE_CSS = """
   [data-gf] .ac{opacity:.16}
   [data-gf="0"] .ac[data-g="0"],[data-gf="1"] .ac[data-g="1"],
   [data-gf="2"] .ac[data-g="2"],[data-gf="3"] .ac[data-g="3"]{opacity:1}
-  .lbars{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 16px}
   .lr{display:grid;grid-template-columns:104px 1fr 28px;align-items:center;gap:4px 10px;
     padding:7px 0;border-top:1px solid var(--border)}
   .lr:first-child{border-top:0}
@@ -271,6 +274,25 @@ LIFE_CSS = """
   .li .ic{width:26px;height:26px;border-radius:7px}
   .li .ic.fb{font-size:.7rem}
   .li a{border-radius:7px;transition:.12s}.li a:hover{transform:translateY(-2px)}
+  .lbt td,.lbt th{vertical-align:top;white-space:normal}
+  .lbt tbody th{min-width:96px}
+  .lbt tbody th b{display:block;font-size:.84rem}
+  .lbt tbody th em{font-style:normal;font-size:.66rem;color:var(--muted);font-weight:700}
+  .lbt td.lc{width:84px;text-align:left}
+  .lbt td.lc b{font-size:.95rem}
+  .lbt td.lc .lt{display:block;margin-top:6px}
+  .lbt td.lc .lt i{display:block;height:100%;border-radius:999px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .lnames{display:flex;flex-wrap:wrap;gap:5px;text-align:left}
+  .lnames a{display:inline-flex;align-items:center;gap:5px;padding:3px 9px 3px 3px;border-radius:999px;
+    background:var(--bg-soft);border:1px solid var(--border);border-left:3px solid var(--c);
+    color:var(--text);text-decoration:none;font-size:.74rem;font-weight:600;white-space:nowrap}
+  .lnames a:hover{border-color:var(--accent);color:var(--accent)}
+  .lnames .ic{width:20px;height:20px;border-radius:5px}
+  .lnames .ic.fb{font-size:.6rem}
+  .lbt tbody tr:hover>*{background:transparent}
+  @media(max-width:560px){.lg.lbt th:first-child{min-width:62px;padding-left:10px}
+    .lbt td.lc{width:40px}.lnames a{white-space:normal}}
   .lh{font-size:.95rem;margin:26px 0 3px}
   .lgw{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card)}
   .lg{border-collapse:collapse;width:100%;font-size:.76rem}
@@ -353,17 +375,21 @@ def lang_section(ls):
     top = max(count.values())
     gcolor = {lv: c for lv, _, _, c in GLOBAL}
 
-    # 언어별 앱 수 — 막대 + 그 언어를 지원하는 앱 아이콘 (한국어·영어는 많아서 수만)
-    bars = ""
+    # 언어 × 앱 이름 표 — 언어마다 그 언어로 쓸 수 있는 앱을 이름으로 모두 적는다
+    trs = ""
     for l in order:
-        users = sorted((a for a in reached if l in app_langs(a)), key=lambda a: a["name"])
-        icons = "" if l in ("KO", "EN") else "".join(
-            '<a href="%s" title="%s">%s</a>' % (intro_link(a), esc(a["name"]), icon_img(a))
-            for a in users)
-        bars += ('<div class="lr"><span class="ln">%s<em>%s</em></span>'
-                 '<span class="lt"><i style="width:%.1f%%"></i></span><b>%d</b>'
-                 '<span class="li">%s</span></div>'
-                 % (esc(LANG_KR.get(l, l)), esc(l), 100.0 * count[l] / top, count[l], icons))
+        users = sorted((a for a in ls if reach(a) is not None and l in app_langs(a)),
+                       key=lambda a: (-(reach(a) or 0), a["name"]))
+        chips = "".join(
+            '<a href="%s" style="--c:%s">%s<span>%s</span></a>'
+            % (intro_link(a), gcolor[reach(a)], icon_img(a), esc(a["name"])) for a in users)
+        trs += ('<tr><th><b>%s</b><em>%s</em></th><td class="lc"><b>%d</b>'
+                '<span class="lt"><i style="width:%.1f%%"></i></span></td>'
+                '<td><div class="lnames">%s</div></td></tr>'
+                % (esc(LANG_KR.get(l, l)), esc(l), count[l], 100.0 * count[l] / top, chips))
+    bars = ('<div class="lgw"><table class="lg lbt"><thead><tr><th>언어</th><th>앱 수</th>'
+            '<th style="text-align:left">그 언어로 쓸 수 있는 앱</th></tr></thead>'
+            '<tbody>%s</tbody></table></div>' % trs)
 
     # 앱 × 언어 표 — 영어권 준비를 마친 앱만
     reached.sort(key=lambda a: (-reach(a), -len(app_langs(a)), a["name"]))
@@ -383,9 +409,9 @@ def lang_section(ls):
                      "영어" if g.get("englishPage") else "한국어"))
     rest = sum(1 for a in ls if reach(a) == 0)
     return ('<section><h2>언어별로 보기<span class="hc">%d개 언어</span></h2>'
-            '<p class="lead">App Store에 공개된 앱 언어 정보 기준입니다. 막대는 그 언어로 쓸 수 있는 '
-            '앱 수이고, 아이콘은 한국어·영어 밖으로 넓힌 앱입니다.</p>'
-            '<div class="lbars">%s</div>'
+            '<p class="lead">App Store에 공개된 앱 언어 정보 기준입니다. 언어마다 그 언어로 쓸 수 있는 '
+            '앱을 모두 적었고, 이름 앞 색은 글로벌 지원 수준입니다.</p>'
+            '%s'
             '<h3 class="lh">앱마다 지원하는 언어</h3>'
             '<p class="lead">영어권 준비를 마친 앱 %d개입니다. 점 색은 글로벌 지원 수준이고, '
             '나머지 %d개는 아직 한국어로만 쓸 수 있습니다.</p>'
@@ -452,11 +478,13 @@ def lifecycle_page(apps):
         '</div>' % (bar, leg, n_global, gbar, gleg))
 
     # 단계 × 글로벌 지원 지도
-    cols = [g for g in GLOBAL if gcount[g[0]]]
+    # 왼쪽(한국어만) → 오른쪽(다국어)으로 넓어지게 놓는다 — '오른쪽 위'가 가장 멀리 닿는 칸
+    cols = [g for g in reversed(GLOBAL) if gcount[g[0]]]
     gname = {lv: n for lv, n, _, _ in GLOBAL}
     gcolor = {lv: c for lv, _, _, c in GLOBAL}
     thead = "<tr><th></th>%s</tr>" % "".join(
-        '<th style="--c:%s">%s</th>' % (c, esc(name)) for _, name, _, c in cols)
+        '<th style="--c:%s">%s<em>%s</em></th>' % (c, esc(name), esc(GLOBAL_SUB[lv]))
+        for lv, name, _, c in cols)
     tbody = ""
     for st, en, kr, _ in STAGES:
         items = buckets.get(st, [])
@@ -475,8 +503,9 @@ def lifecycle_page(apps):
                 for a in hit))
         tbody += '<tr><th><b>%d</b>%s</th>%s</tr>' % (st, esc(STAGE_SHORT[st]), cells)
     matrix = ('<section><h2>두 축으로 보기</h2>'
-              '<p class="lead">세로는 제품 여정, 가로는 글로벌 지원입니다. 오른쪽 위로 갈수록 '
-              '더 많은 사람에게, 더 단단하게 닿는 앱입니다.</p>'
+              '<p class="lead">세로는 제품 여정, 가로는 글로벌 지원입니다. 오른쪽으로 갈수록 더 많은 '
+              '언어로, 위로 갈수록 더 단단하게 닿는 앱입니다. 앱은 지금 닿는 가장 넓은 칸 하나에만 '
+              '들어갑니다. 다국어 칸의 앱도 한국어를 지원하므로 한국어만 칸에는 다시 넣지 않습니다.</p>'
               '<div class="mxw"><table class="mx"><thead>%s</thead><tbody>%s</tbody></table></div>'
               '<p class="lead" style="margin-top:12px">%s</p></section>'
               % (thead, tbody, " ".join(
