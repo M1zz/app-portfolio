@@ -254,6 +254,38 @@ LIFE_CSS = """
   [data-gf] .ac{opacity:.16}
   [data-gf="0"] .ac[data-g="0"],[data-gf="1"] .ac[data-g="1"],
   [data-gf="2"] .ac[data-g="2"],[data-gf="3"] .ac[data-g="3"]{opacity:1}
+  .lbars{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 16px}
+  .lr{display:grid;grid-template-columns:104px 1fr 28px;align-items:center;gap:4px 10px;
+    padding:7px 0;border-top:1px solid var(--border)}
+  .lr:first-child{border-top:0}
+  .ln{font-size:.82rem;font-weight:700}
+  .ln em{font-style:normal;font-size:.68rem;color:var(--muted);margin-left:6px}
+  .lt{height:8px;border-radius:999px;background:var(--bg-soft);overflow:hidden}
+  .lt i{display:block;height:100%;border-radius:999px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .lr>b{font-size:.8rem;text-align:right}
+  .li{grid-column:2/-1;display:flex;flex-wrap:wrap;gap:4px}
+  .li:empty{display:none}
+  .li .ic{width:26px;height:26px;border-radius:7px}
+  .li .ic.fb{font-size:.7rem}
+  .li a{border-radius:7px;transition:.12s}.li a:hover{transform:translateY(-2px)}
+  .lh{font-size:.95rem;margin:26px 0 3px}
+  .lgw{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card)}
+  .lg{border-collapse:collapse;width:100%;font-size:.76rem}
+  .lg th,.lg td{padding:7px 6px;text-align:center;border-bottom:1px solid var(--border);white-space:nowrap}
+  .lg tbody tr:last-child>*{border-bottom:0}
+  .lg thead th{font-size:.68rem;color:var(--muted);font-weight:800;letter-spacing:.03em}
+  .lg th:first-child{text-align:left;position:sticky;left:0;background:var(--card);z-index:1;
+    padding-left:12px;min-width:150px}
+  .lg tbody th a{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:600}
+  .lg tbody th a:hover{color:var(--accent)}
+  .lg tbody th .ic{width:24px;height:24px;border-radius:6px}
+  .lg tbody th .ic.fb{font-size:.65rem}
+  .lg td i{display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--c)}
+  .lg .ls{color:var(--muted);padding-right:12px}
+  .lg tbody tr:hover>*{background:var(--bg-soft)}
+  @media(max-width:560px){.lr{grid-template-columns:84px 1fr 24px}.lg th:first-child{min-width:120px}
+    .lg tbody th span{max-width:84px;overflow:hidden;text-overflow:ellipsis}}
 """
 
 GF_JS = """
@@ -273,6 +305,26 @@ def reach(app):
     return g.get("level") if g else None
 
 
+LANG_KR = {"KO": "한국어", "EN": "영어", "ZH": "중국어", "JA": "일본어", "DE": "독일어",
+           "ES": "스페인어", "FR": "프랑스어", "IT": "이탈리아어", "PT": "포르투갈어",
+           "RU": "러시아어", "TH": "태국어", "VI": "베트남어", "AR": "아랍어",
+           "HI": "힌디어", "ID": "인도네시아어", "NL": "네덜란드어", "TR": "튀르키예어"}
+
+
+def app_langs(app):
+    """앱이 실제로 지원하는 언어. EN 단독 번들은 개발 기본 언어일 뿐이라
+    스토어 소개가 영어일 때만 영어로, 아니면 한국어 앱으로 본다."""
+    g = app.get("globalReach") or {}
+    langs = g.get("languages") or []
+    if langs == ["EN"]:
+        return ["EN"] if g.get("englishPage") else ["KO"]
+    return langs
+
+
+def lang_names(app):
+    return ", ".join(LANG_KR.get(l, l) for l in app_langs(app))
+
+
 def reach_badge(app):
     g = app.get("globalReach")
     if not g:
@@ -280,7 +332,63 @@ def reach_badge(app):
     lv = g["level"]
     text = "%d개 언어" % g["languageCount"] if lv == 3 else {2: "한·영", 1: "EN", 0: "KO"}[lv]
     color = dict((k, c) for k, _, _, c in GLOBAL)[lv]
-    return '<i class="gb" style="--c:%s">%s</i>' % (color, esc(text))
+    return '<i class="gb" style="--c:%s" title="%s">%s</i>' % (
+        color, esc("지원 언어: " + lang_names(app)), esc(text))
+
+
+def lang_section(ls):
+    """언어별로 보기 — 언어마다 몇 개 앱이 닿는지, 앱마다 어떤 언어를 지원하는지."""
+    reached = [a for a in ls if (reach(a) or 0) >= 1]
+    if not reached:
+        return ""
+    count = {}
+    for a in ls:
+        if reach(a) is None:
+            continue
+        for l in app_langs(a):
+            count[l] = count.get(l, 0) + 1
+    order = sorted(count, key=lambda l: (-count[l], l))
+    top = max(count.values())
+    gcolor = {lv: c for lv, _, _, c in GLOBAL}
+
+    # 언어별 앱 수 — 막대 + 그 언어를 지원하는 앱 아이콘 (한국어·영어는 많아서 수만)
+    bars = ""
+    for l in order:
+        users = sorted((a for a in reached if l in app_langs(a)), key=lambda a: a["name"])
+        icons = "" if l in ("KO", "EN") else "".join(
+            '<a href="%s" title="%s">%s</a>' % (intro_link(a), esc(a["name"]), icon_img(a))
+            for a in users)
+        bars += ('<div class="lr"><span class="ln">%s<em>%s</em></span>'
+                 '<span class="lt"><i style="width:%.1f%%"></i></span><b>%d</b>'
+                 '<span class="li">%s</span></div>'
+                 % (esc(LANG_KR.get(l, l)), esc(l), 100.0 * count[l] / top, count[l], icons))
+
+    # 앱 × 언어 표 — 영어권 준비를 마친 앱만
+    reached.sort(key=lambda a: (-reach(a), -len(app_langs(a)), a["name"]))
+    thead = '<tr><th>앱</th>%s<th class="ls">스토어 소개</th></tr>' % "".join(
+        '<th title="%s">%s</th>' % (esc(LANG_KR.get(l, l)), esc(l)) for l in order)
+    tbody = ""
+    for a in reached:
+        al = app_langs(a)
+        g = a["globalReach"]
+        tbody += ('<tr><th><a href="%s">%s<span>%s</span></a></th>%s'
+                  '<td class="ls">%s</td></tr>'
+                  % (intro_link(a), icon_img(a), esc(a["name"]),
+                     "".join('<td>%s</td>' % (
+                         '<i style="--c:%s" title="%s"></i>' % (
+                             gcolor[g["level"]], esc(LANG_KR.get(l, l))) if l in al else "")
+                         for l in order),
+                     "영어" if g.get("englishPage") else "한국어"))
+    rest = sum(1 for a in ls if reach(a) == 0)
+    return ('<section><h2>언어별로 보기<span class="hc">%d개 언어</span></h2>'
+            '<p class="lead">App Store에 공개된 앱 언어 정보 기준입니다. 막대는 그 언어로 쓸 수 있는 '
+            '앱 수이고, 아이콘은 한국어·영어 밖으로 넓힌 앱입니다.</p>'
+            '<div class="lbars">%s</div>'
+            '<h3 class="lh">앱마다 지원하는 언어</h3>'
+            '<p class="lead">영어권 준비를 마친 앱 %d개입니다. 점 색은 글로벌 지원 수준이고, '
+            '나머지 %d개는 아직 한국어로만 쓸 수 있습니다.</p>'
+            '<div class="lgw"><table class="lg"><thead>%s</thead><tbody>%s</tbody></table></div>'
+            '</section>' % (len(order), bars, len(reached), rest, thead, tbody))
 
 
 def lifecycle_page(apps):
@@ -360,7 +468,8 @@ def lifecycle_page(apps):
                 continue
             cells += '<td data-l="%s" style="--c:%s"><span class="n">%d</span>%s</td>' % (
                 esc(gname[lv]), gcolor[lv], len(hit), "".join(
-                '<a href="%s" title="%s">%s</a>' % (intro_link(a), esc(a["name"]), icon_img(a))
+                '<a href="%s" title="%s">%s</a>' % (
+                    intro_link(a), esc("%s · %s" % (a["name"], lang_names(a))), icon_img(a))
                 for a in hit))
         tbody += '<tr><th><b>%d</b>%s</th>%s</tr>' % (st, esc(STAGE_SHORT[st]), cells)
     matrix = ('<section><h2>두 축으로 보기</h2>'
@@ -370,6 +479,8 @@ def lifecycle_page(apps):
               '<p class="lead" style="margin-top:12px">%s</p></section>'
               % (thead, tbody, " ".join(
                   "<b>%s</b> %s" % (esc(name), esc(why)) for _, name, why, _ in cols)))
+
+    languages = lang_section(ls)
 
     filters = ('<div class="gf" role="group" aria-label="글로벌 지원으로 강조">'
                '<button data-v="all" aria-pressed="true">전체</button>%s</div>'
@@ -381,11 +492,11 @@ def lifecycle_page(apps):
             '준비가 되어 있는지. 두 축으로 나눠 봤습니다. 지금은 %d개가 영어권에 나갈 준비를 '
             '마쳤고, 그중 %d개는 앱 안에서도 여러 언어를 지원합니다.</p>'
             % (total, n_global, n_multi))
-    main = ('<section>%s</section>%s'
+    main = ('<section>%s</section>%s%s'
             '<section id="journey"><h2>단계별로 보기</h2>'
             '<p class="lead">아래로 갈수록 이른 단계입니다. 오른쪽 위 표시는 글로벌 지원 수준이고, '
             '앱을 누르면 소개를 볼 수 있습니다.</p>%s%s</section>'
-            % (axes, matrix, filters, "".join(rows)))
+            % (axes, matrix, languages, filters, "".join(rows)))
     return page("제품 여정 — 리이오의 앱 포트폴리오",
                 "만든 앱 %d개를 제품 여정 5단계와 글로벌 지원 수준, 두 축으로 정리했습니다." % total,
                 {"head": head, "main": main}, "life", LIFE_CSS, GF_JS)
