@@ -33,6 +33,16 @@
   footer a{color:var(--muted)}
   @media(max-width:640px){header.hero{padding:44px 0 26px}h1{font-size:1.6rem}}
 
+  .lnames{display:flex;flex-wrap:wrap;gap:5px;text-align:left}
+  .lnames a{display:inline-flex;align-items:center;gap:5px;padding:3px 9px 3px 3px;border-radius:999px;
+    background:var(--bg-soft);border:1px solid var(--border);border-left:3px solid var(--c);
+    color:var(--text);text-decoration:none;font-size:.74rem;font-weight:600;white-space:nowrap}
+  .lnames a:hover{border-color:var(--accent);color:var(--accent)}
+  .lnames .ic{width:20px;height:20px;border-radius:5px}
+  .lnames .ic.fb{font-size:.6rem}
+  .lnames .none{font-size:.76rem;color:var(--muted)}
+  @media(max-width:560px){.lnames a{white-space:normal}}
+
   .st{padding:24px 0;border-top:1px solid var(--border)}
   .st:first-of-type{border-top:0;padding-top:6px}
   .sth{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
@@ -130,16 +140,9 @@
   .lbt td.lc .lt{display:block;margin-top:6px}
   .lbt td.lc .lt i{display:block;height:100%;border-radius:999px;
     background:linear-gradient(90deg,var(--accent),var(--accent-2))}
-  .lnames{display:flex;flex-wrap:wrap;gap:5px;text-align:left}
-  .lnames a{display:inline-flex;align-items:center;gap:5px;padding:3px 9px 3px 3px;border-radius:999px;
-    background:var(--bg-soft);border:1px solid var(--border);border-left:3px solid var(--c);
-    color:var(--text);text-decoration:none;font-size:.74rem;font-weight:600;white-space:nowrap}
-  .lnames a:hover{border-color:var(--accent);color:var(--accent)}
-  .lnames .ic{width:20px;height:20px;border-radius:5px}
-  .lnames .ic.fb{font-size:.6rem}
   .lbt tbody tr:hover>*{background:transparent}
   @media(max-width:560px){.lg.lbt th:first-child{min-width:62px;padding-left:10px}
-    .lbt td.lc{width:40px}.lnames a{white-space:normal}}
+    .lbt td.lc{width:40px}}
   .lh{font-size:.95rem;margin:26px 0 3px}
   .lgw{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card)}
   .lg{border-collapse:collapse;width:100%;font-size:.76rem}

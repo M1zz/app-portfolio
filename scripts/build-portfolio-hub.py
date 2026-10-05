@@ -185,7 +185,20 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
 
 
 # ── 공개: 수명주기 ────────────────────────────────────────────────
-LIFE_CSS = """
+# 앱 이름 칩 — 왼쪽 색 띠는 글로벌 지원 수준. 제품 여정·서비스 숙성도가 같이 쓴다.
+NAMES_CSS = """
+  .lnames{display:flex;flex-wrap:wrap;gap:5px;text-align:left}
+  .lnames a{display:inline-flex;align-items:center;gap:5px;padding:3px 9px 3px 3px;border-radius:999px;
+    background:var(--bg-soft);border:1px solid var(--border);border-left:3px solid var(--c);
+    color:var(--text);text-decoration:none;font-size:.74rem;font-weight:600;white-space:nowrap}
+  .lnames a:hover{border-color:var(--accent);color:var(--accent)}
+  .lnames .ic{width:20px;height:20px;border-radius:5px}
+  .lnames .ic.fb{font-size:.6rem}
+  .lnames .none{font-size:.76rem;color:var(--muted)}
+  @media(max-width:560px){.lnames a{white-space:normal}}
+"""
+
+LIFE_CSS = NAMES_CSS + """
   .st{padding:24px 0;border-top:1px solid var(--border)}
   .st:first-of-type{border-top:0;padding-top:6px}
   .sth{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
@@ -283,16 +296,9 @@ LIFE_CSS = """
   .lbt td.lc .lt{display:block;margin-top:6px}
   .lbt td.lc .lt i{display:block;height:100%;border-radius:999px;
     background:linear-gradient(90deg,var(--accent),var(--accent-2))}
-  .lnames{display:flex;flex-wrap:wrap;gap:5px;text-align:left}
-  .lnames a{display:inline-flex;align-items:center;gap:5px;padding:3px 9px 3px 3px;border-radius:999px;
-    background:var(--bg-soft);border:1px solid var(--border);border-left:3px solid var(--c);
-    color:var(--text);text-decoration:none;font-size:.74rem;font-weight:600;white-space:nowrap}
-  .lnames a:hover{border-color:var(--accent);color:var(--accent)}
-  .lnames .ic{width:20px;height:20px;border-radius:5px}
-  .lnames .ic.fb{font-size:.6rem}
   .lbt tbody tr:hover>*{background:transparent}
   @media(max-width:560px){.lg.lbt th:first-child{min-width:62px;padding-left:10px}
-    .lbt td.lc{width:40px}.lnames a{white-space:normal}}
+    .lbt td.lc{width:40px}}
   .lh{font-size:.95rem;margin:26px 0 3px}
   .lgw{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card)}
   .lg{border-collapse:collapse;width:100%;font-size:.76rem}
@@ -597,7 +603,7 @@ COUNTRIES = [
     ("mx", "🇲🇽", "멕시코", ["ES"]),
 ]
 
-MAT_CSS = """
+MAT_CSS = NAMES_CSS + """
   .tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:22px;
     scrollbar-width:none;position:sticky;top:0;z-index:5;background:var(--bg);padding-top:10px}
   .tabs::-webkit-scrollbar{display:none}
@@ -613,6 +619,7 @@ MAT_CSS = """
   .kp div{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:12px 14px}
   .kp b{display:block;font-size:1.35rem;letter-spacing:-.01em}
   .kp span{font-size:.76rem;color:var(--muted);font-weight:600}
+  .kp b u{text-decoration:none;font-size:.75rem;color:var(--muted);font-weight:600;margin-left:3px}
   .kp small{display:block;height:5px;border-radius:999px;background:var(--bg-soft);margin-top:8px;overflow:hidden}
   .kp small i{display:block;height:100%;background:var(--c,var(--accent))}
   .tw{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card)}
@@ -657,25 +664,24 @@ MAT_CSS = """
   .ov2 thead tr:first-child th+th.gh{border-left:2px solid var(--border)}
   .ov2 .y,.ov2 .n,.ov2 .u{width:16px;height:16px;font-size:.6rem}
   .ov2 td.pct{padding-right:12px;border-left:2px solid var(--border)}
+  .ct td,.ct th{vertical-align:top;white-space:normal}
+  .ct tbody th{min-width:96px}
+  .ct tbody th b{display:block;font-size:.84rem}
+  .ct tbody th em{font-style:normal;font-size:.66rem;color:var(--muted);font-weight:700}
+  .ct td.cp{text-align:left;font-size:.74rem;color:var(--muted);min-width:110px}
+  .ct td.cp span{display:block;white-space:nowrap;line-height:1.7}
+  .ct td.lc{width:84px;text-align:left}
+  .ct td.lc b{font-size:.95rem}
+  .ct td.lc .lt{display:block;height:6px;border-radius:999px;background:var(--bg-soft);overflow:hidden;margin-top:6px}
+  .ct td.lc .lt i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .ct tr.zero{opacity:.6}
+  .ct tbody tr:hover>*{background:transparent}
+  @media(max-width:560px){.mt.ct th:first-child{min-width:62px;padding-left:10px}
+    .ct td.cp{min-width:84px}.ct td.lc{width:40px}}
   .note{color:var(--muted);font-size:.78rem;margin-top:10px;max-width:720px}
   .lgd{display:flex;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--muted);margin:0 0 10px}
   .lgd span{display:inline-flex;align-items:center;gap:6px}
   .lgd .y,.lgd .n,.lgd .u{width:16px;height:16px;font-size:.6rem}
-  .cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
-  .cc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:13px 15px}
-  .cch{display:flex;align-items:center;gap:9px}
-  .cch .fl{font-size:1.4rem;line-height:1}
-  .cch strong{font-size:.92rem}
-  .cch em{font-style:normal;font-size:.72rem;color:var(--muted)}
-  .cch b{margin-left:auto;font-size:.95rem}
-  .cch b small{font-size:.7rem;color:var(--muted);font-weight:600}
-  .cc .bar{height:6px;border-radius:999px;background:var(--bg-soft);overflow:hidden;margin:9px 0 8px}
-  .cc .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
-  .cc .why{font-size:.74rem;color:var(--muted)}
-  .cc .icons{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
-  .cc .icons .ic{width:26px;height:26px;border-radius:7px}
-  .cc .icons .ic.fb{font-size:.7rem}
-  .cc.zero{opacity:.62}
   @media(max-width:560px){.mt th:first-child{min-width:118px}
     .mt tbody th span{max-width:80px;overflow:hidden;text-overflow:ellipsis}
     .kp{grid-template-columns:1fr 1fr}}
@@ -772,8 +778,7 @@ def area_panel(key, name, why, items, apps):
             app_th(a), "".join("<td>%s</td>" % cell(vals[k], lbl) for k, lbl in items),
             "" if key == "devices" else "<td>%s</td>" % score_cell(*area_score(a, key)))
     kp = "".join(
-        '<div><span>%s</span><b>%d<small style="display:inline;background:none;font-size:.75rem;'
-        'color:var(--muted);margin-left:3px">/ %d</small></b><small><i style="width:%d%%"></i></small></div>'
+        '<div><span>%s</span><b>%d<u>/ %d</u></b><small><i style="width:%d%%"></i></small></div>'
         % (esc(lbl), counts[k], known[k], round(100 * counts[k] / known[k]) if known[k] else 0)
         for k, lbl in items)
     notes = {
@@ -792,37 +797,44 @@ def area_panel(key, name, why, items, apps):
 
 
 def country_panel(apps):
+    """국가별 언어 — 같은 말을 쓰는 나라를 한 줄로 묶어, 그 말로 쓸 수 있는 앱을 이름으로 적는다."""
     n = len(apps)
-    cards = []
+    gcolor = {lv: c for lv, _, _, c in GLOBAL}
+    by_lang = {}
     for code, flag, name, langs in COUNTRIES:
-        hit = sorted((a for a in apps if set(app_langs(a)) & set(langs)), key=lambda a: a["name"])
-        sold = sum(1 for a in apps if (a.get("globalReach") or {}).get("storefronts", 0)
-                   >= (a.get("globalReach") or {}).get("storefrontsChecked", 99))
-        lang_txt = "·".join(LANG_KR.get(l, l) for l in langs)
-        if code == "kr" or "KO" in langs:
-            why = "한국어로 쓸 수 있는 앱"
-        elif "EN" in langs:
-            store_en = sum(1 for a in apps if (a.get("globalReach") or {}).get("englishPage"))
-            why = "앱을 영어로 쓸 수 있는 앱 · 스토어 소개가 영어인 앱 %d개" % store_en
-        else:
-            why = "앱을 %s로 쓸 수 있는 앱" % lang_txt
-        icons = "" if code in ("kr",) or len(hit) > 24 else "".join(
-            '<a href="%s" title="%s">%s</a>' % (intro_link(a), esc(a["name"]), icon_img(a)) for a in hit)
-        cards.append((len(hit), code,
-            '<div class="cc%s"><div class="cch"><span class="fl">%s</span><div><strong>%s</strong>'
-            '<br><em>%s · 판매 %d</em></div><b>%d<small> / %d</small></b></div>'
-            '<div class="bar"><i style="width:%.1f%%"></i></div><div class="why">%s</div>'
-            '<div class="icons">%s</div></div>'
-            % ("" if hit else " zero", flag, esc(name), esc(lang_txt), sold, len(hit), n,
-               100.0 * len(hit) / n if n else 0, esc(why), icons)))
-    covered = sum(1 for c in cards if c[0])
-    cards.sort(key=lambda c: (-c[0], [x[0] for x in COUNTRIES].index(c[1])))
-    return ('<p class="lead">주요 18개국 App Store에서 판매하는 앱 가운데, 그 나라 말로 쓸 수 있는 앱이 '
-            '몇 개인지 봅니다. 18개국 중 %d개국은 현지어로 쓸 수 있는 앱이 하나 이상 있습니다.</p>'
-            '<div class="cg">%s</div>'
-            '<p class="note">App Store에 공개된 앱 언어 정보 기준입니다. 중국어는 간체·번체를 나누지 않고 '
-            '한 언어로 셉니다. 인도는 영어·힌디어, 캐나다는 영어·프랑스어를 현지어로 봅니다.</p>'
-            % (covered, "".join(c[2] for c in cards)))
+        for l in langs:
+            by_lang.setdefault(l, []).append((flag, name))
+    rows = []
+    for l, places in by_lang.items():
+        users = sorted((a for a in apps if l in app_langs(a)),
+                       key=lambda a: (-(reach(a) or 0), a["name"]))
+        rows.append((len(users), l, places, users))
+    rows.sort(key=lambda r: (-r[0], [c[3][0] for c in COUNTRIES].index(r[1])
+                             if r[1] in [c[3][0] for c in COUNTRIES] else 99))
+    covered = sum(1 for _, _, _, langs in COUNTRIES
+                  if any(l in app_langs(a) for a in apps for l in langs))
+    trs = ""
+    for cnt, l, places, users in rows:
+        chips = "".join(
+            '<a href="%s" style="--c:%s">%s<span>%s</span></a>'
+            % (intro_link(a), gcolor.get(reach(a), "#8b90a0"), icon_img(a), esc(a["name"]))
+            for a in users) or '<span class="none">아직 없습니다</span>'
+        trs += ('<tr%s><th><b>%s</b><em>%s</em></th><td class="cp">%s</td>'
+                '<td class="lc"><b>%d</b><span class="lt"><i style="width:%.1f%%"></i></span></td>'
+                '<td><div class="lnames">%s</div></td></tr>'
+                % ("" if cnt else ' class="zero"', esc(LANG_KR.get(l, l)), esc(l),
+                   "".join('<span>%s %s</span>' % (f, esc(nm)) for f, nm in places),
+                   cnt, 100.0 * cnt / n if n else 0, chips))
+    store_en = sum(1 for a in apps if (a.get("globalReach") or {}).get("englishPage"))
+    return ('<p class="lead">주요 18개국 App Store에서 판매하는 앱 %d개 가운데, 그 나라 말로 쓸 수 있는 앱을 '
+            '언어별로 모았습니다. 같은 말을 쓰는 나라는 한 줄로 묶었고, 18개국 중 %d개국은 현지어로 쓸 수 '
+            '있는 앱이 하나 이상 있습니다. 이름 앞 색은 글로벌 지원 수준입니다.</p>'
+            '<div class="tw"><table class="mt ct"><thead><tr><th>언어</th><th>쓰는 나라</th><th>앱 수</th>'
+            '<th style="text-align:left">그 말로 쓸 수 있는 앱</th></tr></thead><tbody>%s</tbody></table></div>'
+            '<p class="note">App Store에 공개된 앱 언어 정보 기준이며, 18개국 모두에서 판매 중입니다. '
+            '영어권에서는 앱 언어와 별개로 스토어 소개를 영어로 준비한 앱이 %d개 있습니다. 중국어는 간체·번체를 '
+            '나누지 않고 한 언어로 셉니다. 인도는 영어·힌디어, 캐나다는 영어·프랑스어를 현지어로 봅니다.</p>'
+            % (n, covered, trs, store_en))
 
 
 # 한눈에 표의 짧은 열 이름 — 탭의 긴 이름은 ITEM_HELP 툴팁으로 보여 준다
