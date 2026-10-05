@@ -48,5 +48,41 @@
     "evaluatedAt": "2026-08-29",
     "ratingCount": 0,
     "daysSinceUpdate": 74
+  },
+  "serviceMaturity": {
+    "source": false,
+    "feedback": {
+      "inAppFeedback": null,
+      "mailContact": null,
+      "instagram": null,
+      "reviewPrompt": null,
+      "writeReview": null
+    },
+    "ops": {
+      "analytics": null,
+      "crash": null,
+      "killSwitch": null,
+      "leeoKit": null,
+      "tests": null
+    },
+    "ux": {
+      "widgets": null,
+      "shortcuts": null,
+      "cloudSync": null,
+      "tips": null,
+      "accessibility": null,
+      "onboarding": null
+    },
+    "devices": null,
+    "support": {
+      "registered": true,
+      "reachable": true,
+      "privacy": null,
+      "english": null,
+      "contact": null,
+      "host": "leeo75.notion.site",
+      "status": 200
+    },
+    "evaluatedAt": "2026-10-05"
   }
 }

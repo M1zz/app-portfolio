@@ -363,5 +363,52 @@
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
     "evaluatedAt": "2026-10-05"
+  },
+  "serviceMaturity": {
+    "source": true,
+    "feedback": {
+      "inAppFeedback": false,
+      "mailContact": true,
+      "instagram": true,
+      "reviewPrompt": false,
+      "writeReview": false
+    },
+    "ops": {
+      "analytics": false,
+      "crash": false,
+      "killSwitch": false,
+      "leeoKit": false,
+      "tests": false
+    },
+    "ux": {
+      "widgets": true,
+      "shortcuts": false,
+      "cloudSync": false,
+      "tips": false,
+      "accessibility": false,
+      "onboarding": false
+    },
+    "devices": {
+      "iphone": true,
+      "ipad": true,
+      "mac": false,
+      "watch": false,
+      "vision": false,
+      "_macViaDesignedForIPad": true
+    },
+    "counts": {
+      "accessibilityLabels": 0,
+      "testFiles": 0
+    },
+    "support": {
+      "registered": true,
+      "reachable": true,
+      "privacy": false,
+      "english": true,
+      "contact": false,
+      "host": "dev200ok.blogspot.com",
+      "status": 200
+    },
+    "evaluatedAt": "2026-10-05"
   }
 }

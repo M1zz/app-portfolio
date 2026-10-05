@@ -383,5 +383,52 @@
     "storefrontsChecked": 18,
     "basis": "앱 언어 KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
     "evaluatedAt": "2026-10-05"
+  },
+  "serviceMaturity": {
+    "source": true,
+    "feedback": {
+      "inAppFeedback": true,
+      "mailContact": true,
+      "instagram": true,
+      "reviewPrompt": true,
+      "writeReview": true
+    },
+    "ops": {
+      "analytics": false,
+      "crash": false,
+      "killSwitch": false,
+      "leeoKit": true,
+      "tests": true
+    },
+    "ux": {
+      "widgets": false,
+      "shortcuts": false,
+      "cloudSync": false,
+      "tips": false,
+      "accessibility": true,
+      "onboarding": true
+    },
+    "devices": {
+      "iphone": true,
+      "ipad": false,
+      "mac": false,
+      "watch": false,
+      "vision": false,
+      "_macViaDesignedForIPad": true
+    },
+    "counts": {
+      "accessibilityLabels": 65,
+      "testFiles": 1
+    },
+    "support": {
+      "registered": true,
+      "reachable": true,
+      "privacy": false,
+      "english": true,
+      "contact": true,
+      "host": "www.blogger.com",
+      "status": 200
+    },
+    "evaluatedAt": "2026-10-05"
   }
 }

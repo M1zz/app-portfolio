@@ -296,5 +296,52 @@
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
     "evaluatedAt": "2026-10-05"
+  },
+  "serviceMaturity": {
+    "source": true,
+    "feedback": {
+      "inAppFeedback": false,
+      "mailContact": true,
+      "instagram": true,
+      "reviewPrompt": false,
+      "writeReview": true
+    },
+    "ops": {
+      "analytics": false,
+      "crash": false,
+      "killSwitch": false,
+      "leeoKit": false,
+      "tests": false
+    },
+    "ux": {
+      "widgets": false,
+      "shortcuts": false,
+      "cloudSync": false,
+      "tips": false,
+      "accessibility": false,
+      "onboarding": true
+    },
+    "devices": {
+      "iphone": true,
+      "ipad": false,
+      "mac": false,
+      "watch": false,
+      "vision": false,
+      "_macViaDesignedForIPad": false
+    },
+    "counts": {
+      "accessibilityLabels": 0,
+      "testFiles": 0
+    },
+    "support": {
+      "registered": true,
+      "reachable": true,
+      "privacy": null,
+      "english": null,
+      "contact": null,
+      "host": "leeo75.notion.site",
+      "status": 200
+    },
+    "evaluatedAt": "2026-10-05"
   }
 }

@@ -389,5 +389,52 @@
     "storefrontsChecked": 18,
     "basis": "앱 언어 DE, EN, ES, JA, KO, RU, TH, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
     "evaluatedAt": "2026-10-05"
+  },
+  "serviceMaturity": {
+    "source": true,
+    "feedback": {
+      "inAppFeedback": true,
+      "mailContact": true,
+      "instagram": true,
+      "reviewPrompt": true,
+      "writeReview": true
+    },
+    "ops": {
+      "analytics": true,
+      "crash": true,
+      "killSwitch": false,
+      "leeoKit": true,
+      "tests": true
+    },
+    "ux": {
+      "widgets": true,
+      "shortcuts": true,
+      "cloudSync": true,
+      "tips": true,
+      "accessibility": true,
+      "onboarding": true
+    },
+    "devices": {
+      "iphone": true,
+      "ipad": true,
+      "mac": false,
+      "watch": false,
+      "vision": false,
+      "_macViaDesignedForIPad": false
+    },
+    "counts": {
+      "accessibilityLabels": 335,
+      "testFiles": 112
+    },
+    "support": {
+      "registered": true,
+      "reachable": true,
+      "privacy": true,
+      "english": true,
+      "contact": true,
+      "host": "m1zz.github.io",
+      "status": 200
+    },
+    "evaluatedAt": "2026-10-05"
   }
 }
