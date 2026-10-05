@@ -615,6 +615,19 @@ MAT_CSS = """
     overflow:hidden;text-decoration:none}
   .sc s i{display:block;height:100%;background:var(--c)}
   .pct{font-weight:800}
+  .ov2 th,.ov2 td{padding:6px 2px}
+  .wrap{max-width:1240px}
+  .ov2 thead th{white-space:normal;word-break:keep-all;min-width:34px;font-size:.64rem;line-height:1.25}
+  .ov2 thead th em{font-size:.68rem}
+  .ov2 thead tr:first-child th{vertical-align:middle}
+  .ov2 thead tr:nth-child(2) th:first-child{position:static;text-align:center;min-width:34px;padding-left:3px}
+  .ov2 th.ap{min-width:112px}
+  .ov2 tbody th span{max-width:104px;overflow:hidden;text-overflow:ellipsis}
+  .ov2 .gh{color:var(--text);font-size:.72rem;border-bottom:3px solid var(--c);padding:7px 4px}
+  .ov2 .g0{border-left:2px solid var(--border)}
+  .ov2 thead tr:first-child th+th.gh{border-left:2px solid var(--border)}
+  .ov2 .y,.ov2 .n,.ov2 .u{width:16px;height:16px;font-size:.6rem}
+  .ov2 td.pct{padding-right:12px;border-left:2px solid var(--border)}
   .note{color:var(--muted);font-size:.78rem;margin-top:10px;max-width:720px}
   .lgd{display:flex;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--muted);margin:0 0 10px}
   .lgd span{display:inline-flex;align-items:center;gap:6px}
@@ -706,8 +719,8 @@ def score_cell(got, known):
 
 
 def app_th(a):
-    return ('<th><a href="%s">%s<span>%s</span></a></th>'
-            % (intro_link(a), icon_img(a), esc(a["name"])))
+    return ('<th><a href="%s" title="%s">%s<span>%s</span></a></th>'
+            % (intro_link(a), esc(a["name"]), icon_img(a), esc(a["name"])))
 
 
 LEGEND = ('<div class="lgd"><span><i class="y"></i>있음</span><span><i class="n"></i>없음</span>'
@@ -783,7 +796,22 @@ def country_panel(apps):
             % (covered, "".join(c[2] for c in cards)))
 
 
+# 한눈에 표의 짧은 열 이름 — 탭의 긴 이름은 ITEM_HELP 툴팁으로 보여 준다
+SHORT = {
+    "registered": "등록", "reachable": "열림", "privacy": "개인정보", "english": "영어",
+    "contact": "문의", "inAppFeedback": "앱 안", "mailContact": "메일", "instagram": "인스타",
+    "reviewPrompt": "리뷰 요청", "writeReview": "리뷰 쓰기", "analytics": "통계",
+    "crash": "크래시", "killSwitch": "원격 끄기", "tests": "테스트", "leeoKit": "LeeoKit",
+    "widgets": "위젯", "shortcuts": "단축어", "cloudSync": "iCloud", "tips": "팁",
+    "accessibility": "VoiceOver", "onboarding": "첫 안내", "iphone": "iPhone", "ipad": "iPad",
+    "mac": "Mac", "watch": "Watch", "vision": "Vision",
+}
+AREA_COLOR = {"support": "#5b8def", "feedback": "#34c48a", "ops": "#e0a53a",
+              "ux": "#a78bfa", "devices": "#8b90a0"}
+
+
 def overview_panel(apps):
+    """앱 × 전체 항목 한 표. 영역별로 머리줄을 묶고, 첫 열은 고정한 채 가로로 넘긴다."""
     # 소스를 못 찾은 앱은 지원 페이지만으로 비율이 매겨져 순위가 왜곡되므로 종합을 비우고 맨 아래에 둔다
     def rank(a):
         if not mat(a).get("source"):
@@ -791,36 +819,55 @@ def overview_panel(apps):
         got, known = total_score(a)
         return (0, -(got / (known or 1)), -got, a["name"])
     rows = sorted(apps, key=rank)
-    area_names = [(k, n) for k, n, _, _ in AREAS if k in SCORED]
-    thead = '<tr><th>앱</th><th>언어</th>%s<th>기기</th><th>종합</th></tr>' % "".join(
-        "<th>%s</th>" % esc(n) for _, n in area_names)
+
+    groups = '<tr><th rowspan="2" class="ap">앱</th><th rowspan="2">언어</th>%s' \
+             '<th rowspan="2">종합</th></tr>' % "".join(
+                 '<th colspan="%d" class="gh" style="--c:%s">%s</th>'
+                 % (len(items), AREA_COLOR[k], esc(n)) for k, n, _, items in AREAS)
+    cols, col = "", 2  # tbody 의 칸 순서: 앱(0) · 언어(1) · 항목들(2~) · 종합
+    for k, _, _, items in AREAS:
+        for i, (item, lbl) in enumerate(items):
+            have = sum(1 for a in apps if area_vals(a, k).get(item))
+            known = sum(1 for a in apps if area_vals(a, k).get(item) is not None)
+            cols += ('<th data-c="%d"%s title="%s — %s">%s<em>%d</em></th>'
+                     % (col, ' class="g0"' if i == 0 else "", esc(lbl),
+                        esc(ITEM_HELP.get(item, "있는 앱 %d / %d" % (have, known))),
+                        esc(SHORT.get(item, lbl)), have))
+            col += 1
+    thead = groups + "<tr>%s</tr>" % cols
+
     tbody = ""
-    dev_items = dict((a[0], a[3]) for a in AREAS)["devices"]
     for a in rows:
         got, known = total_score(a)
-        devs = area_vals(a, "devices")
-        dev_txt = "·".join(lbl.replace("Apple ", "") for k, lbl in dev_items if devs.get(k)) or "?"
         langs = app_langs(a)
-        tbody += '<tr>%s<td>%s</td>%s<td>%s</td><td class="pct" style="color:%s">%s</td></tr>' % (
-            app_th(a), "%d개" % len(langs) if langs else '<i class="u"></i>',
-            "".join("<td>%s</td>" % score_cell(*area_score(a, k)) for k, _ in area_names),
-            esc(dev_txt), score_color(got / known) if known else "var(--muted)",
-            "%d%%" % round(100 * got / known) if known and mat(a).get("source") else
+        cells = ""
+        for k, _, _, items in AREAS:
+            vals = area_vals(a, k)
+            cells += "".join('<td%s>%s</td>' % (' class="g0"' if i == 0 else "", cell(vals[item], lbl))
+                             for i, (item, lbl) in enumerate(items))
+        ok = known and mat(a).get("source")
+        tbody += '<tr>%s<td title="%s">%s</td>%s<td class="pct" style="color:%s">%s</td></tr>' % (
+            app_th(a), esc(lang_names(a)), len(langs) if langs else '<i class="u"></i>', cells,
+            score_color(got / known) if ok else "var(--muted)",
+            "%d%%" % round(100 * got / known) if ok else
             '<i class="u" title="앱 소스를 확인하지 못했습니다"></i>')
-    # 영역별 평균
+
     kp = ""
-    for k, n in area_names:
+    for k, n, _, _ in AREAS:
+        if k not in SCORED:
+            continue
         g = sum(area_score(a, k)[0] for a in apps)
         t = sum(area_score(a, k)[1] for a in apps)
         r = g / t if t else 0
         kp += ('<div><span>%s</span><b>%d%%</b><small><i style="width:%d%%;--c:%s"></i></small></div>'
                % (esc(n), round(r * 100), round(r * 100), score_color(r)))
-    return ('<p class="lead">앱마다 지원 페이지·피드백 수집·운영·사용 경험을 얼마나 갖췄는지 한 줄로 '
-            '모았습니다. 종합은 확인할 수 있었던 항목 가운데 갖춘 비율입니다. 자세한 항목은 위 탭에서 '
-            '볼 수 있습니다.</p><div class="kp">%s</div>'
-            '<div class="tw"><table class="mt"><thead>%s</thead><tbody>%s</tbody></table></div>'
+    return ('<p class="lead">앱 %d개가 항목 %d개 중 무엇을 갖췄는지 한 표에 모았습니다. 열 제목 아래 숫자는 '
+            '그 항목을 갖춘 앱 수이고, 종합은 기기를 뺀 항목 가운데 갖춘 비율입니다.</p>'
+            '<div class="kp">%s</div>%s'
+            '<div class="tw"><table class="mt ov2"><thead>%s</thead><tbody>%s</tbody></table></div>'
             '<p class="note">소스 코드를 찾지 못한 앱은 앱 안의 기능을 ‘확인 불가’로 두고 종합 비율의 '
-            '분모에서 뺍니다.</p>' % (kp, thead, tbody))
+            '분모에서 뺍니다. 각 항목의 뜻은 열 제목에 마우스를 올리거나 위 탭에서 볼 수 있습니다.</p>'
+            % (len(apps), col - 2, kp, LEGEND, thead, tbody))
 
 
 def maturity_page(apps):
