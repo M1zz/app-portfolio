@@ -24,6 +24,7 @@ import glob
 import html
 import json
 import os
+import re
 from datetime import date
 from urllib.parse import urlparse
 
@@ -265,6 +266,28 @@ LIFE_CSS = NAMES_CSS + """
     .mx td{min-width:0}.mx td::before{display:block}
     .mx td.z{display:none}
     .mx .ic{width:30px;height:30px;border-radius:8px}}
+  .mx td a.nx{position:relative;box-shadow:0 0 0 2px var(--warn)}
+  .mx td a.nx::after{content:"↗";position:absolute;top:-6px;right:-6px;width:15px;height:15px;
+    border-radius:50%;background:var(--warn);color:#fff;font-size:.6rem;font-weight:800;
+    display:grid;place-items:center;line-height:1}
+  .nxk{font-style:normal;display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;
+    background:var(--warn);color:#fff;font-size:.62rem;font-weight:800;vertical-align:1px}
+  .nxt th,.nxt td{text-align:left;white-space:normal;vertical-align:middle}
+  .nxt tr.grp th{position:static;background:var(--bg-soft);font-size:.74rem;color:var(--muted);
+    font-weight:800;padding:8px 12px}
+  .nxt tr.grp b{color:var(--text);margin-left:4px}
+  .nxt tbody th{min-width:150px}
+  .nxt td.nw{color:var(--muted);white-space:nowrap}
+  .nxt td.ar{color:var(--warn);font-weight:800;width:14px;padding:0}
+  .nxt td.nx-to{font-weight:800;white-space:nowrap}
+  .nxt td.wy{color:var(--muted);font-size:.74rem;min-width:200px}
+  .nxt .pg{display:block;height:5px;max-width:220px;border-radius:999px;background:var(--bg-soft);
+    overflow:hidden;margin-top:5px}
+  .nxt .pg i{display:block;height:100%;background:var(--warn)}
+  .sg{display:inline-block;padding:1px 7px;border-radius:999px;margin:1px 2px;font-weight:700;
+    background:rgba(52,196,138,.15);color:var(--ok)}
+  .sg.off{background:var(--bg-soft);color:var(--muted);text-decoration:line-through}
+  @media(max-width:560px){.nxt tbody th{min-width:110px}.nxt td.wy{min-width:160px}}
   .gf{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 6px}
   .gf button{font:inherit;font-size:.78rem;font-weight:700;cursor:pointer;color:var(--text);
     background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:999px}
@@ -425,6 +448,92 @@ def lang_section(ls):
             '</section>' % (len(order), bars, len(reached), rest, thead, tbody))
 
 
+# ── 다음 단계 후보 ──
+# 두 축 지도에서 '다음 칸으로 넘어갈 앱'을 뽑는다. 3단계는 사람이 정하므로 '검토 후보'로만 보인다.
+POLISH_RULE = 90      # 1→2: 출시 후 다듬은 기간이 이 일수를 넘으면 2단계 (사용자 확정 기준)
+POLISH_NEAR = 45      # 이 일수 이상 다듬었으면 '다가가는 중'으로 본다
+FRESH_DAYS = 30       # 2→3 후보는 최근 이 기간 안에 업데이트한 앱만
+
+
+def polish_days(app):
+    lc = app.get("lifecycle") or {}
+    if lc.get("polishDays") is not None:
+        return lc["polishDays"]
+    m = re.search(r"다듬은 기간 (\d+)일", lc.get("basis") or "")
+    return int(m.group(1)) if m else None
+
+
+def maturity_pct(app):
+    if not (app.get("serviceMaturity") or {}).get("source"):
+        return None
+    got, known = total_score(app)
+    return round(100 * got / known) if known else None
+
+
+def next_steps(ls):
+    """(단계 이동 후보, 글로벌 이동 후보) — 각 항목은 (앱, 지금, 다음, 근거 html, 진행률 0~1)."""
+    stage_rows, global_rows = [], []
+    gname = {lv: n for lv, n, _, _ in GLOBAL}
+    for a in ls:
+        lc = a.get("lifecycle") or {}
+        st, g = lc.get("stage"), reach(a)
+        since = lc.get("daysSinceUpdate")
+        if st == 1 and not lc.get("intent"):
+            pd = polish_days(a)
+            if pd is not None and pd >= POLISH_NEAR and (since is None or since <= 60):
+                why = "출시 후 %d일 다듬음 · %d일 더 다듬으면 2단계" % (pd, max(POLISH_RULE - pd, 0))
+                stage_rows.append((a, "1 Pre-MVP", "2 PS Fit", why, min(pd / POLISH_RULE, 1)))
+        elif st == 2 and not lc.get("intent") and since is not None and since <= FRESH_DAYS:
+            mp = maturity_pct(a)
+            sig = [("평점 %d개" % lc.get("ratingCount", 0), (lc.get("ratingCount") or 0) >= 1),
+                   ("%s" % gname.get(g, "언어 미확인"), (g or 0) >= 2),
+                   ("숙성도 %s" % ("%d%%" % mp if mp is not None else "?"), (mp or 0) >= 60)]
+            hit = sum(1 for _, ok in sig if ok)
+            if hit >= 2:
+                why = "최근 %d일 안에 업데이트 · " % since + " ".join(
+                    '<span class="sg%s">%s</span>' % ("" if ok else " off", esc(t)) for t, ok in sig)
+                stage_rows.append((a, "2 PS Fit", "3 PMF 탐색 검토", why, hit / 3))
+        if st and st >= 2 and g is not None and g <= 1 and not lc.get("intent"):
+            global_rows.append((a, gname[g], "한·영",
+                                "%d단계까지 왔지만 앱을 %s로만 쓸 수 있음"
+                                % (st, "한국어" if g == 0 else "한 언어"), None))
+        elif st and st >= 3 and g == 2:
+            global_rows.append((a, "한·영", "다국어", "3단계 앱 · 세 번째 언어 추가 후보", None))
+    stage_rows.sort(key=lambda r: (r[1], -r[4], r[0]["name"]))
+    global_rows.sort(key=lambda r: (-(r[0].get("lifecycle") or {}).get("stage", 0), r[0]["name"]))
+    return stage_rows, global_rows
+
+
+def next_table(ls):
+    stage_rows, global_rows = next_steps(ls)
+    if not stage_rows and not global_rows:
+        return "", set()
+
+    def tr(r, kind):
+        a, now, nxt, why, prog = r
+        bar = ('<span class="pg"><i style="width:%d%%"></i></span>' % round(prog * 100)
+               if prog is not None and kind == "stage" and nxt.startswith("2") else "")
+        return ('<tr><th><a href="%s" title="%s">%s<span>%s</span></a></th>'
+                '<td class="nw">%s</td><td class="ar">→</td><td class="nx-to">%s</td>'
+                '<td class="wy">%s%s</td></tr>'
+                % (intro_link(a), esc(a["name"]), icon_img(a), esc(a["name"]),
+                   esc(now), esc(nxt), why if "<span" in why else esc(why), bar))
+    body = ""
+    if stage_rows:
+        body += ('<tr class="grp"><th colspan="5">제품 여정 · 다음 단계 <b>%d</b></th></tr>%s'
+                 % (len(stage_rows), "".join(tr(r, "stage") for r in stage_rows)))
+    if global_rows:
+        body += ('<tr class="grp"><th colspan="5">글로벌 지원 · 다음 칸 <b>%d</b></th></tr>%s'
+                 % (len(global_rows), "".join(tr(r, "global") for r in global_rows)))
+    html_ = ('<h3 class="lh">다음 단계 후보</h3>'
+             '<p class="lead">지도에서 <i class="nxk">↗</i> 표시가 붙은 앱입니다. 제품 여정은 출시 후 %d일 넘게 '
+             '다듬으면 2단계로 넘어가고, 3단계는 반응을 보고 직접 정하므로 신호가 모인 앱을 검토 후보로 '
+             '올립니다. 글로벌 지원은 단계에 비해 언어가 좁은 앱을 골랐습니다.</p>'
+             '<div class="lgw"><table class="lg nxt"><tbody>%s</tbody></table></div>'
+             % (POLISH_RULE, body))
+    return html_, {r[0]["_slug"] for r in stage_rows + global_rows}
+
+
 def lifecycle_page(apps):
     ls = live(apps)
     buckets = {}
@@ -484,6 +593,7 @@ def lifecycle_page(apps):
         '</div>' % (bar, leg, n_global, gbar, gleg))
 
     # 단계 × 글로벌 지원 지도
+    nxt_html, nx = next_table(ls)
     # 왼쪽(한국어만) → 오른쪽(다국어)으로 넓어지게 놓는다 — '오른쪽 위'가 가장 멀리 닿는 칸
     cols = [g for g in reversed(GLOBAL) if gcount[g[0]]]
     gname = {lv: n for lv, n, _, _ in GLOBAL}
@@ -504,8 +614,10 @@ def lifecycle_page(apps):
                 continue
             cells += '<td data-l="%s" style="--c:%s"><span class="n">%d</span>%s</td>' % (
                 esc(gname[lv]), gcolor[lv], len(hit), "".join(
-                '<a href="%s" title="%s">%s</a>' % (
-                    intro_link(a), esc("%s · %s" % (a["name"], lang_names(a))), icon_img(a))
+                '<a href="%s" title="%s"%s>%s</a>' % (
+                    intro_link(a), esc("%s · %s%s" % (a["name"], lang_names(a),
+                                                      " · 다음 단계 후보" if a["_slug"] in nx else "")),
+                    ' class="nx"' if a["_slug"] in nx else "", icon_img(a))
                 for a in hit))
         tbody += '<tr><th><b>%d</b>%s</th>%s</tr>' % (st, esc(STAGE_SHORT[st]), cells)
     matrix = ('<section><h2>두 축으로 보기</h2>'
@@ -513,9 +625,9 @@ def lifecycle_page(apps):
               '언어로, 위로 갈수록 더 단단하게 닿는 앱입니다. 앱은 지금 닿는 가장 넓은 칸 하나에만 '
               '들어갑니다. 다국어 칸의 앱도 한국어를 지원하므로 한국어만 칸에는 다시 넣지 않습니다.</p>'
               '<div class="mxw"><table class="mx"><thead>%s</thead><tbody>%s</tbody></table></div>'
-              '<p class="lead" style="margin-top:12px">%s</p></section>'
+              '<p class="lead" style="margin-top:12px">%s</p>%s</section>'
               % (thead, tbody, " ".join(
-                  "<b>%s</b> %s" % (esc(name), esc(why)) for _, name, why, _ in cols)))
+                  "<b>%s</b> %s" % (esc(name), esc(why)) for _, name, why, _ in cols), nxt_html))
 
     languages = lang_section(ls)
 
