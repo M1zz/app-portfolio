@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6756433372",
   "bundleId": "com.ysoup.TokenMemo-tap",
   "categories": [],
-  "currentVersion": "5.0.4",
+  "currentVersion": "5.1.6",
   "folderId": "tap-clip-keyboard",
   "githubRepo": "",
   "localProjectPath": "",
@@ -45,10 +45,13 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 클립키보드 계열 — 반응을 받아 반복 개선 중. 외부 평점 0개 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-08-30",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
-    "manual": true
+    "daysSinceUpdate": 8,
+    "manual": true,
+    "polishDays": 286,
+    "releasedAt": "2025-12-16",
+    "updatedAt": "2026-09-28"
   },
   "globalReach": {
     "level": 3,
@@ -63,7 +66,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -110,6 +113,6 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

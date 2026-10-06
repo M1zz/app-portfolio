@@ -273,7 +273,7 @@
     "최근관심",
     "다국어지원"
   ],
-  "currentVersion": "2.2.0",
+  "currentVersion": "2.3.1",
   "folderId": "double-reminder",
   "githubRepo": "https://github.com/M1zz/toki",
   "localProjectPath": "../toki",
@@ -371,10 +371,13 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 반응을 받아 반복 개선 중. 외부 평점 1개 · 최종 업데이트 5일 경과",
-    "evaluatedAt": "2026-08-30",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 1,
-    "daysSinceUpdate": 5,
-    "manual": true
+    "daysSinceUpdate": 1,
+    "manual": true,
+    "polishDays": 378,
+    "releasedAt": "2025-09-22",
+    "updatedAt": "2026-10-05"
   },
   "globalReach": {
     "level": 3,
@@ -395,7 +398,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 DE, EN, ES, FR, IT, JA, KO, PT, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -442,6 +445,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

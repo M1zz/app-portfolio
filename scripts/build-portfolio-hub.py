@@ -481,7 +481,11 @@ def next_steps(ls):
         if st == 1 and not lc.get("intent"):
             pd = polish_days(a)
             if pd is not None and pd >= POLISH_NEAR and (since is None or since <= 60):
-                why = "출시 후 %d일 다듬음 · %d일 더 다듬으면 2단계" % (pd, max(POLISH_RULE - pd, 0))
+                # 다듬은 기간은 업데이트를 내야 늘어난다 — 출시 90일이 지났으면 다음 업데이트 한 번이면 된다
+                age = pd + (since or 0)
+                why = ("출시 후 %d일까지 다듬음 · 출시 %d일째라 다음 업데이트를 내면 2단계" % (pd, age)
+                       if age > POLISH_RULE else
+                       "출시 후 %d일까지 다듬음 · 출시 %d일 뒤에 업데이트하면 2단계" % (pd, POLISH_RULE))
                 stage_rows.append((a, "1 Pre-MVP", "2 PS Fit", why, min(pd / POLISH_RULE, 1)))
         elif st == 2 and not lc.get("intent") and since is not None and since <= FRESH_DAYS:
             mp = maturity_pct(a)

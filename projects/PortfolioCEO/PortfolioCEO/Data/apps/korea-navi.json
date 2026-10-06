@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6775176578",
   "bundleId": "com.kora.leeo",
   "categories": [],
-  "currentVersion": "1.0.4",
+  "currentVersion": "1.0.5",
   "folderId": "korea-navi",
   "githubRepo": "",
   "localProjectPath": "",
@@ -40,15 +40,17 @@
   "status": "active",
   "supportUrl": "https://m1zz.github.io/KORA/",
   "lifecycle": {
-    "stage": 1,
-    "label": "pre-mvp",
-    "tier": null,
-    "basis": "출시 후 다듬은 기간 39일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.4 · 최종 업데이트 48일 경과",
-    "evaluatedAt": "2026-08-30",
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "출시 후 다듬은 기간 108일 · 외부 평점 0개 · 최종 업데이트 16일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 0,
-    "daysSinceUpdate": 47,
-    "manual": true,
-    "refineDays": 39
+    "daysSinceUpdate": 16,
+    "refineDays": 39,
+    "polishDays": 108,
+    "releasedAt": "2026-06-04",
+    "updatedAt": "2026-09-20"
   },
   "globalReach": {
     "level": 3,
@@ -64,7 +66,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, JA, KO, ZH · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -111,6 +113,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

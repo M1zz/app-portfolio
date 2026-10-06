@@ -266,7 +266,7 @@
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "5.0.4",
+  "currentVersion": "5.1.8",
   "folderId": "clip-keyboard",
   "githubRepo": "https://github.com/Code-Ward/Token-memo",
   "localProjectPath": "../Token-memo",
@@ -364,10 +364,13 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 브랜드 축 — 반응을 받아 반복 개선 중. 외부 평점 13개 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-08-30",
-    "ratingCount": 13,
-    "daysSinceUpdate": 2,
-    "manual": true
+    "evaluatedAt": "2026-10-06",
+    "ratingCount": 16,
+    "daysSinceUpdate": 1,
+    "manual": true,
+    "polishDays": 2126,
+    "releasedAt": "2020-12-09",
+    "updatedAt": "2026-10-05"
   },
   "globalReach": {
     "level": 3,
@@ -388,7 +391,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 DE, EN, ES, JA, KO, RU, TH, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -423,8 +426,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 335,
-      "testFiles": 112
+      "accessibilityLabels": 336,
+      "testFiles": 113
     },
     "support": {
       "registered": true,
@@ -435,6 +438,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

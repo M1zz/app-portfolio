@@ -1,7 +1,7 @@
 {
   "status": "active",
   "folderId": "donkko-mart",
-  "currentVersion": "2.0.6",
+  "currentVersion": "2.0.7",
   "stats": {
     "done": 6,
     "inProgress": 0,
@@ -362,11 +362,14 @@
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
-    "tier": "B",
-    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 46일 경과 → 소강",
-    "evaluatedAt": "2026-08-29",
-    "ratingCount": 0,
-    "daysSinceUpdate": 46
+    "tier": "A",
+    "basis": "출시 후 다듬은 기간 1179일 · 외부 평점 1개 · 최종 업데이트 26일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-06",
+    "ratingCount": 1,
+    "daysSinceUpdate": 26,
+    "polishDays": 1179,
+    "releasedAt": "2023-06-19",
+    "updatedAt": "2026-09-10"
   },
   "globalReach": {
     "level": 2,
@@ -380,7 +383,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -427,6 +430,6 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

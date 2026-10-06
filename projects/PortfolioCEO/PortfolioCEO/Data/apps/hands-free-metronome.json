@@ -53,12 +53,15 @@
     "stage": 1,
     "label": "pre-mvp",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 24일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.5 · 최종 업데이트 49일 경과",
-    "evaluatedAt": "2026-08-30",
+    "basis": "출시 후 다듬은 기간 24일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.5 · 최종 업데이트 86일 경과",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 0,
-    "daysSinceUpdate": 48,
+    "daysSinceUpdate": 86,
     "manual": true,
-    "refineDays": 24
+    "refineDays": 24,
+    "polishDays": 24,
+    "releasedAt": "2026-06-18",
+    "updatedAt": "2026-07-12"
   },
   "globalReach": {
     "level": 1,
@@ -71,7 +74,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -118,6 +121,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

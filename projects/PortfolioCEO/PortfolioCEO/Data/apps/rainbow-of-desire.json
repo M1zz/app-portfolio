@@ -169,7 +169,7 @@
   "categories": [
     "다국어지원예정"
   ],
-  "currentVersion": "1.0.9",
+  "currentVersion": "1.1.9",
   "githubRepo": "https://github.com/M1zz/ScheduleDensity",
   "localProjectPath": "../ScheduleDensity",
   "minimumOS": "16.0",
@@ -259,10 +259,13 @@
     "label": "pmf-search",
     "tier": "A",
     "basis": "수동 판정(사용자 확인) — 반응을 받아 반복 개선 중. 외부 평점 1개 · 최종 업데이트 1일 경과",
-    "evaluatedAt": "2026-08-30",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 1,
-    "daysSinceUpdate": 1,
-    "manual": true
+    "daysSinceUpdate": 2,
+    "manual": true,
+    "polishDays": 324,
+    "releasedAt": "2025-11-14",
+    "updatedAt": "2026-10-04"
   },
   "globalReach": {
     "level": 3,
@@ -277,7 +280,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -324,6 +327,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

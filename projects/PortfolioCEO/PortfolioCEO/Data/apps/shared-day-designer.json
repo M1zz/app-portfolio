@@ -274,7 +274,7 @@
   "notes": "[2026-07-05 스토어 동기화] v2.0.7 (2026-06-20 출시). '휴가 플래너'에서 '골드위크 - 황금연휴 플래너'로 리브랜딩 (연차 관리/황금연휴 조합 특화)",
   "bundleId": "com.Ysoup.LeaveWise",
   "status": "active",
-  "currentVersion": "2.1.2",
+  "currentVersion": "2.1.5",
   "stats": {
     "done": 3,
     "inProgress": 0,
@@ -338,13 +338,17 @@
   },
   "supportUrl": "https://m1zz.github.io/LeaveWise/support.html",
   "lifecycle": {
-    "stage": 2,
-    "label": "problem-solution-fit",
-    "tier": "A",
-    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 12일 경과 → 개선 중",
-    "evaluatedAt": "2026-08-29",
+    "stage": 3,
+    "label": "pmf-search",
+    "tier": null,
+    "basis": "수동 판정(사용자 확인, 2026-10-06) — 반응을 받아 반복 개선 중. 외부 평점 0개 · 출시 후 다듬은 기간 306일 · 최종 업데이트 2일 경과",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 0,
-    "daysSinceUpdate": 12
+    "daysSinceUpdate": 2,
+    "polishDays": 306,
+    "releasedAt": "2025-12-02",
+    "updatedAt": "2026-10-04",
+    "manual": true
   },
   "globalReach": {
     "level": 3,
@@ -365,7 +369,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 DE, EN, ES, FR, IT, JA, KO, PT, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -400,7 +404,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 122,
+      "accessibilityLabels": 124,
       "testFiles": 5
     },
     "support": {
@@ -412,6 +416,6 @@
       "host": "m1zz.github.io",
       "status": 404
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

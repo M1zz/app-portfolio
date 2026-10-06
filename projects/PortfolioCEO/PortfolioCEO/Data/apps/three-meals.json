@@ -14,7 +14,7 @@
   "sharedModules": [],
   "priority": "high",
   "status": "active",
-  "currentVersion": "1.0.6",
+  "currentVersion": "1.1.0",
   "nameEn": "Three Meals",
   "minimumOS": "16.0",
   "appStoreId": "6755164924",
@@ -267,10 +267,13 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 9일 경과 → 개선 중",
-    "evaluatedAt": "2026-08-29",
-    "ratingCount": 0,
-    "daysSinceUpdate": 9
+    "basis": "출시 후 다듬은 기간 307일 · 외부 평점 1개 · 최종 업데이트 19일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-06",
+    "ratingCount": 1,
+    "daysSinceUpdate": 19,
+    "polishDays": 307,
+    "releasedAt": "2025-11-14",
+    "updatedAt": "2026-09-17"
   },
   "globalReach": {
     "level": 0,
@@ -283,7 +286,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -330,6 +333,6 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

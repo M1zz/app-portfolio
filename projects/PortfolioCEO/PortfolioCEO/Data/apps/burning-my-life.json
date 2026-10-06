@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6758995390",
   "bundleId": "com.burningparchment.app",
   "categories": [],
-  "currentVersion": "1.0.7",
+  "currentVersion": "1.1.2",
   "folderId": "burning-my-life",
   "githubRepo": "",
   "localProjectPath": "",
@@ -43,10 +43,13 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "외부 평점 0개(유저 반응 신호 없음) · 최종 업데이트 11일 경과 → 개선 중",
-    "evaluatedAt": "2026-08-29",
+    "basis": "출시 후 다듬은 기간 141일 · 외부 평점 0개 · 최종 업데이트 5일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 0,
-    "daysSinceUpdate": 11
+    "daysSinceUpdate": 5,
+    "polishDays": 141,
+    "releasedAt": "2026-05-13",
+    "updatedAt": "2026-10-01"
   },
   "globalReach": {
     "level": 2,
@@ -60,7 +63,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -107,6 +110,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

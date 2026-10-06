@@ -36,10 +36,13 @@
     "label": "problem-solution-fit",
     "tier": "C",
     "basis": "의도적 유지 — 판매용이 아니라 브랜드 친밀감을 표시하는 장치로 운영 중(사용자 확인). 업데이트 없음은 방치가 아닌 설계된 상태. 기계적 판정으로는 외부 평점 0개 · 최종 업데이트 1550일 경과",
-    "evaluatedAt": "2026-08-29",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 0,
-    "daysSinceUpdate": 1550,
-    "intent": "branding"
+    "daysSinceUpdate": 1588,
+    "intent": "branding",
+    "polishDays": 0,
+    "releasedAt": "2022-06-01",
+    "updatedAt": "2022-06-01"
   },
   "globalReach": {
     "level": 1,
@@ -52,7 +55,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": false,
@@ -88,6 +91,6 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

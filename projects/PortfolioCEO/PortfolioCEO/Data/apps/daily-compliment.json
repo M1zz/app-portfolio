@@ -346,10 +346,13 @@
     "label": "problem-solution-fit",
     "tier": "C",
     "basis": "수동 판정(사용자 확인) — 외부 평점 6개가 있으나 반응 기반 개선 단계로 보기엔 이르다고 판단해 2단계로 둔다. 최종 업데이트 278일 경과",
-    "evaluatedAt": "2026-08-30",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 6,
-    "daysSinceUpdate": 278,
-    "manual": true
+    "daysSinceUpdate": 316,
+    "manual": true,
+    "polishDays": 874,
+    "releasedAt": "2023-07-04",
+    "updatedAt": "2025-11-24"
   },
   "globalReach": {
     "level": 0,
@@ -362,7 +365,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -409,6 +412,6 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }

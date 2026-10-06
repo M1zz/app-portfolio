@@ -252,7 +252,7 @@
     "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "1.0.10 배포"
   ],
-  "currentVersion": "2.0.0",
+  "currentVersion": "2.1.0",
   "appStoreUrl": "https://apps.apple.com/kr/app/id6450388408",
   "sharedModules": [],
   "stats": {
@@ -325,10 +325,13 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "외부 평점 1개(유저 반응 신호 없음) · 최종 업데이트 28일 경과 → 개선 중",
-    "evaluatedAt": "2026-08-29",
+    "basis": "출시 후 다듬은 기간 1201일 · 외부 평점 1개 · 최종 업데이트 4일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-06",
     "ratingCount": 1,
-    "daysSinceUpdate": 28
+    "daysSinceUpdate": 4,
+    "polishDays": 1201,
+    "releasedAt": "2023-06-19",
+    "updatedAt": "2026-10-02"
   },
   "globalReach": {
     "level": 2,
@@ -342,7 +345,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   },
   "serviceMaturity": {
     "source": true,
@@ -389,6 +392,6 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-05"
+    "evaluatedAt": "2026-10-06"
   }
 }
