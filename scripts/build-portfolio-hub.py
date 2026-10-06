@@ -25,7 +25,7 @@ import html
 import json
 import os
 import re
-from datetime import date
+from datetime import date, timedelta
 from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -272,7 +272,9 @@ LIFE_CSS = NAMES_CSS + """
     display:grid;place-items:center;line-height:1}
   .nxk{font-style:normal;display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;
     background:var(--warn);color:#fff;font-size:.62rem;font-weight:800;vertical-align:1px}
-  .nxt th,.nxt td{text-align:left;white-space:normal;vertical-align:middle}
+  .lg.nxt th,.lg.nxt td{text-align:left;white-space:normal;vertical-align:middle}
+  .lg.nxt td.wy{width:100%}
+  .lg.nxt td.nw,.lg.nxt td.nx-to,.lg.nxt td.rd{white-space:nowrap}
   .nxt tr.grp th{position:static;background:var(--bg-soft);font-size:.74rem;color:var(--muted);
     font-weight:800;padding:8px 12px}
   .nxt tr.grp b{color:var(--text);margin-left:4px}
@@ -284,6 +286,28 @@ LIFE_CSS = NAMES_CSS + """
   .nxt .pg{display:block;height:5px;max-width:220px;border-radius:999px;background:var(--bg-soft);
     overflow:hidden;margin-top:5px}
   .nxt .pg i{display:block;height:100%;background:var(--warn)}
+  .nxt td.rd{white-space:nowrap;font-size:.74rem;color:var(--muted);min-width:120px}
+  .nxt td.rd b{font-size:.76rem}
+  .nxt .grpn{font-weight:800;font-size:.8rem}
+  .axt{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--card);
+    border:1px solid var(--border);margin:6px 0 12px}
+  .axt button{font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--muted);
+    background:none;border:0;padding:6px 14px;border-radius:999px}
+  .axt button[aria-selected=true]{background:var(--text);color:var(--bg)}
+  [data-axp][hidden]{display:none}
+  .gts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+  .gt{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:13px 15px}
+  .gt b{display:block;font-size:.9rem}
+  .gt em{font-style:normal;font-size:.74rem;color:var(--accent);font-weight:700}
+  .gt p{font-size:.76rem;color:var(--muted);margin:6px 0}
+  .gt span{font-size:.76rem;line-height:1.7}
+  .tip{position:fixed;z-index:20;max-width:300px;padding:10px 12px;border-radius:11px;
+    background:var(--text);color:var(--bg);font-size:.76rem;line-height:1.5;white-space:pre-line;
+    box-shadow:0 8px 24px rgba(0,0,0,.28);pointer-events:none}
+  .tip b{display:block;font-size:.82rem}
+  .todo{display:inline-block;padding:1px 8px;border-radius:999px;margin:1px 2px;font-weight:700;
+    border:1px dashed var(--warn);color:var(--text);font-size:.74rem}
+  .todo::before{content:"＋ ";color:var(--warn)}
   .sg{display:inline-block;padding:1px 7px;border-radius:999px;margin:1px 2px;font-weight:700;
     background:rgba(52,196,138,.15);color:var(--ok)}
   .sg.off{background:var(--bg-soft);color:var(--muted);text-decoration:line-through}
@@ -342,6 +366,26 @@ LIFE_CSS = NAMES_CSS + """
 """
 
 GF_JS = """
+<script>
+document.addEventListener('click',function(e){var b=e.target.closest('.axt button');if(!b)return;
+var v=b.getAttribute('data-ax'),sec=b.closest('section');
+sec.querySelectorAll('.axt button').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+sec.querySelectorAll('[data-axp]').forEach(function(p){p.hidden=p.getAttribute('data-axp')!==v});});
+</script>
+<script>
+(function(){var tip=null;
+function hide(){if(tip){tip.remove();tip=null;}}
+function show(a){hide();tip=document.createElement('div');tip.className='tip';
+var t=a.getAttribute('data-tip').split('\\n');var b=document.createElement('b');b.textContent=t.shift();
+tip.appendChild(b);tip.appendChild(document.createTextNode(t.join('\\n')));document.body.appendChild(tip);
+var r=a.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight;
+var x=Math.min(Math.max(8,r.left+r.width/2-w/2),innerWidth-w-8),y=r.top-h-10;if(y<8)y=r.bottom+10;
+tip.style.left=x+'px';tip.style.top=y+'px';}
+document.addEventListener('mouseover',function(e){var a=e.target.closest('[data-tip]');if(a)show(a);});
+document.addEventListener('mouseout',function(e){if(e.target.closest('[data-tip]'))hide();});
+document.addEventListener('focusin',function(e){var a=e.target.closest('[data-tip]');if(a)show(a);});
+document.addEventListener('focusout',hide);window.addEventListener('scroll',hide,{passive:true});})();
+</script>
 <script>
 (function(){var box=document.getElementById('journey');if(!box)return;
 document.addEventListener('click',function(e){var b=e.target.closest('.gf button');if(!b)return;
@@ -470,72 +514,203 @@ def maturity_pct(app):
     return round(100 * got / known) if known else None
 
 
-def next_steps(ls):
-    """(단계 이동 후보, 글로벌 이동 후보) — 각 항목은 (앱, 지금, 다음, 근거 html, 진행률 0~1)."""
-    stage_rows, global_rows = [], []
-    gname = {lv: n for lv, n, _, _ in GLOBAL}
+# 다음 단계 관문 — 단계마다 '다음으로 가려면 갖출 것'. 항목을 바꾸려면 여기만 고친다.
+# 각 항목: (키, 이름, 판정 함수(app) → True/False/None). None 은 '확인 불가'라 분모에서 뺀다.
+def _m(area, key):
+    return lambda a: area_vals(a, area).get(key)
+
+
+def _any(*fns):
+    def f(a):
+        vals = [fn(a) for fn in fns]
+        if any(v for v in vals):
+            return True
+        return None if all(v is None for v in vals) else False
+    return f
+
+
+def _lc(fn):
+    return lambda a: fn(a.get("lifecycle") or {})
+
+
+def _reach_at_least(n):
+    return lambda a: None if reach(a) is None else reach(a) >= n
+
+
+GATES = {
+    2: ("쓸 수 있는 제품", "출시 후 90일 넘게 다듬으면 자동으로 2단계가 됩니다.", [
+        ("polish", "출시 후 90일 넘게 다듬기",
+         lambda a: None if polish_days(a) is None else polish_days(a) > POLISH_RULE),
+        ("supportOpen", "지원 페이지 열림", _m("support", "reachable")),
+        ("contact", "앱 안 문의 수단", _any(_m("feedback", "inAppFeedback"), _m("feedback", "mailContact"),
+                                       _m("feedback", "instagram"))),
+        ("review", "리뷰 부탁", _any(_m("feedback", "reviewPrompt"), _m("feedback", "writeReview"))),
+    ]),
+    3: ("반응을 듣고 고치는 제품", "3단계는 쓰는 사람의 반응을 보고 직접 정합니다. 모두 갖추면 검토 후보입니다.", [
+        ("fresh", "최근 %d일 안에 업데이트" % FRESH_DAYS,
+         _lc(lambda lc: None if lc.get("daysSinceUpdate") is None else lc["daysSinceUpdate"] <= FRESH_DAYS)),
+        ("rating", "외부 평점 1개 이상", _lc(lambda lc: (lc.get("ratingCount") or 0) >= 1)),
+        ("inAppFeedback", "앱 안 피드백", _m("feedback", "inAppFeedback")),
+        ("analytics", "사용 통계", _m("ops", "analytics")),
+        ("crash", "크래시 진단", _m("ops", "crash")),
+        ("bilingual", "한·영 이상", _reach_at_least(2)),
+    ]),
+    4: ("넓혀도 버티는 제품", "4단계는 사용자를 넓혀 가는 단계입니다. 모두 갖추면 검토 후보입니다.", [
+        ("multi", "다국어(3개 언어 이상)", _reach_at_least(3)),
+        ("killSwitch", "원격 기능 끄기", _m("ops", "killSwitch")),
+        ("tests", "자동 테스트", _m("ops", "tests")),
+        ("supportEn", "영어 지원 페이지", _m("support", "english")),
+        ("privacy", "개인정보 처리방침 안내", _m("support", "privacy")),
+        ("surface", "위젯·단축어", _any(_m("ux", "widgets"), _m("ux", "shortcuts"))),
+        ("a11y", "VoiceOver 대응", _m("ux", "accessibility")),
+        ("ratings10", "외부 평점 10개 이상", _lc(lambda lc: (lc.get("ratingCount") or 0) >= 10)),
+    ]),
+}
+STAGE_NAME = {2: "PS Fit", 3: "PMF 탐색", 4: "넓히는 중", 5: "자리 잡음"}
+# 준비도 칸 — 왼쪽에서 오른쪽으로 다음 단계에 가까워진다
+READY_COLS = [
+    ("low", "갖출 것 많음", "절반 미만", "#8b90a0"),
+    ("half", "절반 넘음", "50% 이상", "#e0a53a"),
+    ("near", "거의 다 옴", "75% 이상", "#5b8def"),
+    ("ready", "준비 완료", "관문 모두 통과", "#34c48a"),
+]
+
+
+def readiness(app):
+    """{next, have, known, missing:[이름], unknown:[이름], ratio, col} — 의도적 유지 앱은 None."""
+    lc = app.get("lifecycle") or {}
+    st = lc.get("stage")
+    if lc.get("intent") or st not in (1, 2, 3, 4) or st + 1 not in GATES:
+        return None
+    nxt = st + 1
+    have, missing, unknown = [], [], []
+    for key, label, fn in GATES[nxt][2]:
+        v = fn(app)
+        (unknown if v is None else have if v else missing).append(label)
+    known = len(have) + len(missing)
+    ratio = len(have) / known if known else 0
+    col = ("ready" if known and not missing else "near" if ratio >= .75
+           else "half" if ratio >= .5 else "low")
+    return {"next": nxt, "have": len(have), "known": known, "missing": missing,
+            "unknown": unknown, "ratio": ratio, "col": col}
+
+
+def polish_hint(app):
+    """1→2 의 핵심 할 일 — 다듬은 기간은 업데이트를 내야만 늘어난다."""
+    lc = app.get("lifecycle") or {}
+    pd, since, rel = polish_days(app), lc.get("daysSinceUpdate"), lc.get("releasedAt")
+    if pd is None:
+        return None
+    if pd + (since or 0) > POLISH_RULE:
+        return "업데이트를 한 번 더 내면 90일 기준을 넘깁니다"
+    if rel:
+        due = date.fromisoformat(rel) + timedelta(days=POLISH_RULE + 1)
+        return "%d월 %d일 이후에 업데이트를 내면 90일 기준을 넘깁니다" % (due.month, due.day)
+    return None
+
+
+def readiness_tip(app, r):
+    lines = ["다음: %d %s · 관문 %d/%d" % (r["next"], STAGE_NAME[r["next"]], r["have"], r["known"])]
+    if r["missing"]:
+        todo = list(r["missing"])
+        if "출시 후 90일 넘게 다듬기" in todo and polish_hint(app):
+            todo[todo.index("출시 후 90일 넘게 다듬기")] = polish_hint(app)
+        lines.append("할 일 · " + " / ".join(todo))
+    else:
+        lines.append("관문을 모두 통과했습니다" + (" — 단계를 올릴지 검토할 때입니다" if r["next"] >= 3 else ""))
+    if r["unknown"]:
+        lines.append("확인 불가 · " + ", ".join(r["unknown"]))
+    return "\n".join(lines)
+
+
+def ready_table(ls):
+    """다음 단계에 가까운 앱 — 준비 완료 · 거의 다 옴. 업데이트 한 번만 남은 1단계 앱은 한 줄로 묶는다."""
+    rows, one_update = [], []
     for a in ls:
-        lc = a.get("lifecycle") or {}
-        st, g = lc.get("stage"), reach(a)
-        since = lc.get("daysSinceUpdate")
-        if st == 1 and not lc.get("intent"):
-            pd = polish_days(a)
-            if pd is not None and pd >= POLISH_NEAR and (since is None or since <= 60):
-                # 다듬은 기간은 업데이트를 내야 늘어난다 — 출시 90일이 지났으면 다음 업데이트 한 번이면 된다
-                age = pd + (since or 0)
-                why = ("출시 후 %d일까지 다듬음 · 출시 %d일째라 다음 업데이트를 내면 2단계" % (pd, age)
-                       if age > POLISH_RULE else
-                       "출시 후 %d일까지 다듬음 · 출시 %d일 뒤에 업데이트하면 2단계" % (pd, POLISH_RULE))
-                stage_rows.append((a, "1 Pre-MVP", "2 PS Fit", why, min(pd / POLISH_RULE, 1)))
-        elif st == 2 and not lc.get("intent") and since is not None and since <= FRESH_DAYS:
-            mp = maturity_pct(a)
-            sig = [("평점 %d개" % lc.get("ratingCount", 0), (lc.get("ratingCount") or 0) >= 1),
-                   ("%s" % gname.get(g, "언어 미확인"), (g or 0) >= 2),
-                   ("숙성도 %s" % ("%d%%" % mp if mp is not None else "?"), (mp or 0) >= 60)]
-            hit = sum(1 for _, ok in sig if ok)
-            if hit >= 2:
-                why = "최근 %d일 안에 업데이트 · " % since + " ".join(
-                    '<span class="sg%s">%s</span>' % ("" if ok else " off", esc(t)) for t, ok in sig)
-                stage_rows.append((a, "2 PS Fit", "3 PMF 탐색 검토", why, hit / 3))
-        if st and st >= 2 and g is not None and g <= 1 and not lc.get("intent"):
-            global_rows.append((a, gname[g], "한·영",
-                                "%d단계까지 왔지만 앱을 %s로만 쓸 수 있음"
-                                % (st, "한국어" if g == 0 else "한 언어"), None))
-        elif st and st >= 3 and g == 2:
-            global_rows.append((a, "한·영", "다국어", "3단계 앱 · 세 번째 언어 추가 후보", None))
-    stage_rows.sort(key=lambda r: (r[1], -r[4], r[0]["name"]))
-    global_rows.sort(key=lambda r: (-(r[0].get("lifecycle") or {}).get("stage", 0), r[0]["name"]))
-    return stage_rows, global_rows
-
-
-def next_table(ls):
-    stage_rows, global_rows = next_steps(ls)
-    if not stage_rows and not global_rows:
-        return "", set()
-
-    def tr(r, kind):
-        a, now, nxt, why, prog = r
-        bar = ('<span class="pg"><i style="width:%d%%"></i></span>' % round(prog * 100)
-               if prog is not None and kind == "stage" and nxt.startswith("2") else "")
-        return ('<tr><th><a href="%s" title="%s">%s<span>%s</span></a></th>'
-                '<td class="nw">%s</td><td class="ar">→</td><td class="nx-to">%s</td>'
-                '<td class="wy">%s%s</td></tr>'
+        r = readiness(a)
+        if not r or r["col"] not in ("near", "ready"):
+            continue
+        if r["next"] == 2 and r["missing"] == ["출시 후 90일 넘게 다듬기"]:
+            one_update.append(a)
+        else:
+            rows.append((a, r))
+    if not rows and not one_update:
+        return ""
+    order = {c[0]: i for i, c in enumerate(READY_COLS)}
+    rows.sort(key=lambda x: (-order[x[1]["col"]], -(x[0].get("lifecycle") or {}).get("stage", 0),
+                             -x[1]["ratio"], x[0]["name"]))
+    color = {c[0]: c[3] for c in READY_COLS}
+    label = {c[0]: c[1] for c in READY_COLS}
+    trs = ""
+    for a, r in rows:
+        st = (a.get("lifecycle") or {}).get("stage")
+        todo = list(r["missing"])
+        if "출시 후 90일 넘게 다듬기" in todo and polish_hint(a):
+            todo[todo.index("출시 후 90일 넘게 다듬기")] = polish_hint(a)
+        chips = "".join('<span class="todo">%s</span>' % esc(t) for t in todo) or \
+            '<span class="sg">관문 모두 통과%s</span>' % (" · 검토 후보" if r["next"] >= 3 else "")
+        trs += ('<tr><th><a href="%s" title="%s">%s<span>%s</span></a></th>'
+                '<td class="nw">%d %s</td><td class="ar">→</td><td class="nx-to">%d %s</td>'
+                '<td class="rd"><b style="color:%s">%s</b> %d/%d'
+                '<span class="pg"><i style="width:%d%%;background:%s"></i></span></td>'
+                '<td class="wy">%s</td></tr>'
                 % (intro_link(a), esc(a["name"]), icon_img(a), esc(a["name"]),
-                   esc(now), esc(nxt), why if "<span" in why else esc(why), bar))
-    body = ""
-    if stage_rows:
-        body += ('<tr class="grp"><th colspan="5">제품 여정 · 다음 단계 <b>%d</b></th></tr>%s'
-                 % (len(stage_rows), "".join(tr(r, "stage") for r in stage_rows)))
-    if global_rows:
-        body += ('<tr class="grp"><th colspan="5">글로벌 지원 · 다음 칸 <b>%d</b></th></tr>%s'
-                 % (len(global_rows), "".join(tr(r, "global") for r in global_rows)))
-    html_ = ('<h3 class="lh">다음 단계 후보</h3>'
-             '<p class="lead">지도에서 <i class="nxk">↗</i> 표시가 붙은 앱입니다. 제품 여정은 출시 후 %d일 넘게 '
-             '다듬으면 2단계로 넘어가고, 3단계는 반응을 보고 직접 정하므로 신호가 모인 앱을 검토 후보로 '
-             '올립니다. 글로벌 지원은 단계에 비해 언어가 좁은 앱을 골랐습니다.</p>'
-             '<div class="lgw"><table class="lg nxt"><tbody>%s</tbody></table></div>'
-             % (POLISH_RULE, body))
-    return html_, {r[0]["_slug"] for r in stage_rows + global_rows}
+                   st, esc(STAGE_SHORT[st]), r["next"], esc(STAGE_NAME[r["next"]]),
+                   color[r["col"]], esc(label[r["col"]]), r["have"], r["known"],
+                   round(r["ratio"] * 100), color[r["col"]], chips))
+    if one_update:
+        one_update.sort(key=lambda a: a["name"])
+        later = [a for a in one_update if "이후에" in (polish_hint(a) or "")]
+        tips = {a["_slug"]: polish_hint(a) or "" for a in one_update}
+        trs += ('<tr><th colspan="2"><span class="grpn">1 Pre-MVP · %d개</span></th>'
+                '<td class="ar">→</td><td class="nx-to">2 PS Fit</td>'
+                '<td class="rd"><b style="color:%s">%s</b> 관문 3/4</td>'
+                '<td class="wy"><span class="todo">업데이트 한 번</span> 나머지 관문은 모두 통과했고, '
+                '출시 90일이 지난 뒤 업데이트를 한 번 내면 2단계로 넘어갑니다.%s'
+                '<div class="lnames" style="margin-top:7px">%s</div></td></tr>'
+                % (len(one_update), color["near"], esc(label["near"]),
+                   (" 다만 %s %d개는 출시 90일이 아직 안 돼, 그 뒤에 내야 합니다(이름에 마우스를 올리면 날짜가 보입니다)."
+                    % ("·".join(esc(a["name"]) for a in later), len(later)))
+                   if later else "",
+                   "".join('<a href="%s" style="--c:%s" data-tip="%s">%s<span>%s</span></a>'
+                           % (intro_link(a), color["near"], esc("%s\n%s" % (a["name"], tips[a["_slug"]])),
+                              icon_img(a), esc(a["name"]))
+                           for a in one_update)))
+    gate_doc = "".join(
+        '<div class="gt"><b>→ %d %s</b><em>%s</em><p>%s</p><span>%s</span></div>'
+        % (n, esc(STAGE_NAME[n]), esc(title), esc(note), " · ".join(esc(l) for _, l, _ in items))
+        for n, (title, note, items) in sorted(GATES.items()))
+    return ('<h3 class="lh">다음 단계에 가까운 앱 <span class="hc">%d</span></h3>'
+            '<p class="lead">관문을 75%% 넘게 통과한 앱입니다. 오른쪽 칸은 아직 갖추지 못한 것, 곧 할 일입니다.</p>'
+            '<div class="lgw"><table class="lg nxt"><tbody>%s</tbody></table></div>'
+            '<h3 class="lh">단계별 관문</h3><div class="gts">%s</div>'
+            % (len(rows) + len(one_update), trs, gate_doc))
+
+
+def stage_map(buckets, cols, col_of, tip_of, mark_of=lambda a: False):
+    """제품 여정(세로) × 임의의 가로축 지도. cols: [(키, 이름, 짧은 뜻, 색)]"""
+    thead = "<tr><th></th>%s</tr>" % "".join(
+        '<th style="--c:%s">%s<em>%s</em></th>' % (c, esc(name), esc(sub)) for _, name, sub, c in cols)
+    tbody = ""
+    for st, _, _, _ in STAGES:
+        items = buckets.get(st, [])
+        if not items:
+            continue
+        cells = ""
+        for key, name, _, c in cols:
+            hit = sorted((a for a in items if col_of(a) == key), key=lambda a: a["name"])
+            if not hit:
+                cells += '<td class="z"></td>'
+                continue
+            cells += '<td data-l="%s" style="--c:%s"><span class="n">%d</span>%s</td>' % (
+                esc(name), c, len(hit), "".join(
+                    '<a href="%s"%s aria-label="%s" data-tip="%s">%s</a>' % (
+                        intro_link(a), ' class="nx"' if mark_of(a) else "", esc(a["name"]),
+                        esc("%s\n%s" % (a["name"], tip_of(a))), icon_img(a))
+                    for a in hit))
+        tbody += '<tr><th><b>%d</b>%s</th>%s</tr>' % (st, esc(STAGE_SHORT[st]), cells)
+    return '<div class="mxw"><table class="mx"><thead>%s</thead><tbody>%s</tbody></table></div>' % (
+        thead, tbody)
 
 
 def lifecycle_page(apps):
@@ -596,49 +771,52 @@ def lifecycle_page(apps):
         '<div class="barwrap">%s</div><div class="barleg">%s</div></div>'
         '</div>' % (bar, leg, n_global, gbar, gleg))
 
-    # 단계 × 글로벌 지원 지도
-    nxt_html, nx = next_table(ls)
-    # 왼쪽(한국어만) → 오른쪽(다국어)으로 넓어지게 놓는다 — '오른쪽 위'가 가장 멀리 닿는 칸
-    cols = [g for g in reversed(GLOBAL) if gcount[g[0]]]
-    gname = {lv: n for lv, n, _, _ in GLOBAL}
-    gcolor = {lv: c for lv, _, _, c in GLOBAL}
-    thead = "<tr><th></th>%s</tr>" % "".join(
-        '<th style="--c:%s">%s<em>%s</em></th>' % (c, esc(name), esc(GLOBAL_SUB[lv]))
-        for lv, name, _, c in cols)
-    tbody = ""
-    for st, en, kr, _ in STAGES:
-        items = buckets.get(st, [])
-        if not items:
-            continue
-        cells = ""
-        for lv, _, _, _ in cols:
-            hit = sorted((a for a in items if reach(a) == lv), key=lambda a: a["name"])
-            if not hit:
-                cells += '<td class="z"></td>'
-                continue
-            cells += '<td data-l="%s" style="--c:%s"><span class="n">%d</span>%s</td>' % (
-                esc(gname[lv]), gcolor[lv], len(hit), "".join(
-                '<a href="%s" title="%s"%s>%s</a>' % (
-                    intro_link(a), esc("%s · %s%s" % (a["name"], lang_names(a),
-                                                      " · 다음 단계 후보" if a["_slug"] in nx else "")),
-                    ' class="nx"' if a["_slug"] in nx else "", icon_img(a))
-                for a in hit))
-        tbody += '<tr><th><b>%d</b>%s</th>%s</tr>' % (st, esc(STAGE_SHORT[st]), cells)
-    matrix = ('<section><h2>두 축으로 보기</h2>'
-              '<p class="lead">세로는 제품 여정, 가로는 글로벌 지원입니다. 오른쪽으로 갈수록 더 많은 '
-              '언어로, 위로 갈수록 더 단단하게 닿는 앱입니다. 앱은 지금 닿는 가장 넓은 칸 하나에만 '
-              '들어갑니다. 다국어 칸의 앱도 한국어를 지원하므로 한국어만 칸에는 다시 넣지 않습니다.</p>'
-              '<div class="mxw"><table class="mx"><thead>%s</thead><tbody>%s</tbody></table></div>'
-              '<p class="lead" style="margin-top:12px">%s</p>%s</section>'
-              % (thead, tbody, " ".join(
-                  "<b>%s</b> %s" % (esc(name), esc(why)) for _, name, why, _ in cols), nxt_html))
+    # 두 축 지도 — 가로축을 '다음 단계 준비도'(종합)와 '글로벌 지원'(언어) 중에서 고른다
+    mapped = [a for a in ls if reach(a) is not None]   # 스토어에서 내려간 앱은 뺀다
+    mb = {}
+    for a in mapped:
+        mb.setdefault((a.get("lifecycle") or {}).get("stage", 1), []).append(a)
+
+    def ready_col(a):
+        r = readiness(a)
+        return r["col"] if r else "low"
+
+    def ready_tip(a):
+        r = readiness(a)
+        return readiness_tip(a, r) if r else "브랜드 소개용으로 지금 모습을 유지하는 앱입니다"
+
+    # 브랜드 소개용으로 지금 모습을 유지하는 앱(intent)은 준비도로 재지 않는다
+    rb = {st: [a for a in items if readiness(a)] for st, items in mb.items()}
+    ready_map = stage_map(rb, READY_COLS, ready_col, ready_tip,
+                         mark_of=lambda a: ready_col(a) in ("near", "ready") and readiness(a) is not None)
+    gcols = [(lv, name, GLOBAL_SUB[lv], c) for lv, name, _, c in reversed(GLOBAL) if gcount[lv]]
+    lang_map = stage_map(mb, gcols, reach, lambda a: "지원 언어 · " + lang_names(a))
+    n_ready = sum(1 for a in mapped if ready_col(a) == "ready" and readiness(a))
+    n_near = sum(1 for a in mapped if ready_col(a) == "near" and readiness(a))
+    matrix = (
+        '<section><h2>두 축으로 보기</h2>'
+        '<div class="axt" role="tablist" aria-label="가로축">'
+        '<button role="tab" aria-selected="true" data-ax="ready">종합 준비도</button>'
+        '<button role="tab" aria-selected="false" data-ax="lang">글로벌 지원</button></div>'
+        '<div data-axp="ready"><p class="lead">세로는 제품 여정, 가로는 <b>다음 단계 준비도</b>입니다. '
+        '단계마다 다음으로 가려면 갖출 관문(지원 페이지·피드백·안정성·언어 등)을 정해 두고, 앱이 그중 '
+        '얼마나 통과했는지로 칸을 나눴습니다. 오른쪽으로 갈수록 다음 단계에 가깝고, 지금 준비를 마친 앱은 '
+        '%d개, 거의 다 온 앱은 %d개입니다. <i class="nxk">↗</i> 아이콘에 마우스를 올리면 남은 할 일이 보입니다.</p>'
+        '%s%s</div>'
+        '<div data-axp="lang" hidden><p class="lead">세로는 제품 여정, 가로는 글로벌 지원입니다. 오른쪽으로 '
+        '갈수록 더 많은 언어로 닿습니다. 앱은 지금 닿는 가장 넓은 칸 하나에만 들어갑니다. 다국어 칸의 앱도 '
+        '한국어를 지원하므로 한국어만 칸에는 다시 넣지 않습니다.</p>%s'
+        '<p class="lead" style="margin-top:12px">%s</p></div></section>'
+        % (n_ready, n_near, ready_map, ready_table(ls), lang_map,
+           " ".join("<b>%s</b> %s" % (esc(name), esc(why))
+                    for lv, name, why, _ in reversed(GLOBAL) if gcount[lv])))
 
     languages = lang_section(ls)
 
     filters = ('<div class="gf" role="group" aria-label="글로벌 지원으로 강조">'
                '<button data-v="all" aria-pressed="true">전체</button>%s</div>'
                % "".join('<button data-v="%d" aria-pressed="false">%s %d</button>'
-                         % (lv, esc(name), gcount[lv]) for lv, name, _, _ in cols))
+                         % (lv, esc(name), gcount[lv]) for lv, name, _, _ in GLOBAL if gcount[lv]))
 
     head = ('<div class="eyebrow">Product Lifecycle · Global Reach</div><h1>제품 여정</h1>'
             '<p>만든 앱 %d개가 지금 어느 단계에 있는지, 그리고 한국 밖의 사람에게도 닿을 '
