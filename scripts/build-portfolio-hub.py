@@ -8,6 +8,7 @@
   docs/hub.html               공개 허브 — 쇼케이스·수명주기·앱별 지원페이지 (GitHub Pages 배포)
   docs/lifecycle.html         공개 수명주기 — 제품 여정 5단계 (GitHub Pages 배포)
   docs/maturity.html          공개 서비스 숙성도 — 국가별 언어·지원 페이지·피드백·운영·경험·기기 탭
+  docs/business.html          공개 비즈니스 모델 — 결제 시점 × 방식 · 페이월 · 앱별 Lean Canvas
   reports/portfolio-hub.html  내부 허브 — 위 + 아티팩트·로컬 파일 링크 (비배포)
 
 ⚠️ docs/ 는 통째로 공개된다. 공개 페이지에는 다음을 넣지 않는다:
@@ -18,7 +19,8 @@
 
 데이터 출처:
   scripts/hub-links.json          수동 관리 링크(개요·아티팩트)
-  Data/apps/*.json                supportUrl · lifecycle · globalReach · serviceMaturity (자동 수집)
+  Data/apps/*.json                supportUrl · lifecycle · globalReach · serviceMaturity · price (자동 수집)
+  scripts/paywalls.json           앱별 페이월(문구·혜택·무료 몫·시점) — 소스를 읽어 정리
 """
 import glob
 import html
@@ -168,6 +170,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
         for k, h, t in [("home", "index.html", "쇼케이스"),
                         ("life", "lifecycle.html", "제품 여정"),
                         ("maturity", "maturity.html", "서비스 숙성도"),
+                        ("biz", "business.html", "비즈니스 모델"),
                         ("hub", "hub.html", "페이지 모음")]
     )
     return (
@@ -1300,6 +1303,9 @@ def hub_page(apps):
         '<a class="ov" href="maturity.html"><b>서비스 숙성도</b>'
         '<p>국가별 언어·지원 페이지·피드백 수집·운영·사용 경험·기기를 앱마다 무엇을 갖췄는지 '
         '기능별 탭으로 보여 줍니다.</p></a>'
+        '<a class="ov" href="business.html"><b>비즈니스 모델</b>'
+        '<p>앱마다 누구에게, 언제, 무엇에 돈을 받는지 — 결제 시점 × 방식 프레임워크와 페이월, '
+        'Lean Canvas로 정리했습니다.</p></a>'
         '</div></section>'
         '<section><h2>앱별 지원 페이지<span class="hc">%d</span></h2>'
         '<p class="lead">App Store에 등록된 문의·안내 페이지입니다. 만든 시기에 따라 '
@@ -1308,6 +1314,325 @@ def hub_page(apps):
     return page("페이지 모음 — 리이오의 앱 포트폴리오",
                 "앱 %d개의 지원 페이지와 포트폴리오 페이지를 한자리에 모았습니다." % n_live,
                 {"head": head, "main": main}, "hub", HUB_CSS)
+
+
+# ── 공개: 비즈니스 모델 ───────────────────────────────────────────
+# 가격(price)은 sync-pricing.py 가 스토어 실데이터로, 페이월(scripts/paywalls.json)은 소스를 읽어 정리한다.
+# 공개 페이지에는 상품 ID · 소스 경로 · 내부 메모(notes) · 결제 동작 여부(reachable)를 넣지 않는다.
+MODELS = [
+    # key, 이름, 결제 시점, 결제 방식, 한 줄 공식, 잘 맞는 경우, 조심할 점, 색
+    ("paid", "유료 앱", "설치할 때", "한 번",
+     "가치를 알아본 사람이 설치 전에 한 번 낸다",
+     "스토어 소개만으로 쓸모가 분명하고, 한 번 사면 오래 쓰는 도구",
+     "써 보기 전에 결정해야 하니 스크린샷과 소개 문구가 곧 영업이다", "#e0a53a"),
+    ("freemium", "부분 유료", "써 보고 나서", "한 번",
+     "무료로 쓰다가 더 쓰고 싶어진 사람이 한 번 연다",
+     "핵심은 무료로 충분하고, 많이 쓰는 사람에게 한도나 고급 기능이 필요한 앱",
+     "무료 몫이 너무 크면 아무도 열지 않고, 너무 작으면 써 보기 전에 떠난다", "#5b8def"),
+    ("freemium-subscription", "무료 + 구독", "써 보고 나서", "계속",
+     "무료로 쓰다가 계속 쓰는 사람이 기간마다 낸다",
+     "콘텐츠가 늘거나 매일 여는 습관형 앱 — 내는 만큼 계속 받는다는 느낌이 있어야 한다",
+     "매달 다시 결정받는 구조라, 업데이트가 멈추면 해지가 바로 따라온다", "#a78bfa"),
+    ("paid+subscription", "유료 + 구독", "설치할 때", "계속",
+     "설치할 때 한 번, 더 깊게 쓰는 사람은 기간마다 한 번 더",
+     "기본 도구 값은 받고, 생성·저장처럼 쓸수록 비용이 드는 기능은 따로 받는 앱",
+     "두 번 내라는 구조라 무엇이 기본이고 무엇이 추가인지 선이 분명해야 한다", "#34c48a"),
+    ("paid+iap", "유료 + 인앱", "설치할 때", "한 번 더",
+     "설치할 때 한 번, 필요한 사람은 추가 기능을 한 번 더",
+     "기본 도구에 확장팩이 붙는 앱", "기본 몫이 줄어 보이면 유료 앱 값이 아깝게 느껴진다", "#34c48a"),
+]
+MODEL_BY = {m[0]: m for m in MODELS}
+FREE_MODEL = ("free", "무료", "—", "—", "아직 돈을 받지 않는다 — 쓰는 사람과 반응을 먼저 모은다",
+              "완성해 가는 단계의 앱, 브랜드를 알리는 앱", "언제 무엇에 돈을 받을지 정하지 않은 채 오래 두면 "
+              "나중에 유료화할 때 '원래 무료였던 것'을 빼앗는 느낌이 든다", "#8b90a0")
+KIND_KR = {"one-time-unlock": "한 번 잠금 해제", "subscription": "구독", "tip-jar": "후원",
+           "consumable-pack": "소모성 팩", "mixed": "여러 방식"}
+
+BIZ_CSS = NAMES_CSS + """
+  .wrap{max-width:1160px}
+  .kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:8px}
+  .kp div{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:12px 14px}
+  .kp b{display:block;font-size:1.35rem;letter-spacing:-.01em}
+  .kp span{font-size:.76rem;color:var(--muted);font-weight:600}
+  .grid2{display:grid;grid-template-columns:110px minmax(0,1fr) minmax(0,1fr);gap:8px}
+  .cell .when{display:none;font-size:.7rem;color:var(--muted);font-weight:800;margin-bottom:2px}
+  .grid2 .ax{font-size:.74rem;font-weight:800;color:var(--muted);display:flex;align-items:center;
+    justify-content:center;text-align:center}
+  .cell{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--c);
+    border-radius:13px;padding:13px 14px;min-height:140px}
+  .cell.empty{opacity:.45;border-top-color:var(--border)}
+  .cell h3{font-size:.95rem;display:flex;gap:7px;align-items:baseline}
+  .cell h3 i{font-style:normal;font-size:.74rem;color:var(--muted);font-weight:700}
+  .cell .f{font-size:.8rem;color:var(--muted);margin:3px 0 9px}
+  .freeband{margin-top:8px;background:var(--card);border:1px dashed var(--border);border-radius:13px;padding:13px 14px}
+  .freeband h3{font-size:.95rem}
+  .mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+  .mod{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:13px;padding:13px 15px}
+  .mod b{font-size:.92rem}
+  .mod dl{font-size:.78rem;margin-top:6px}
+  .mod dt{color:var(--muted);font-weight:800;font-size:.68rem;margin-top:6px}
+  .xt{border-collapse:collapse;width:100%;font-size:.8rem;background:var(--card);border-radius:13px;overflow:hidden}
+  .tw{overflow-x:auto;border:1px solid var(--border);border-radius:14px}
+  .xt th,.xt td{border-bottom:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top}
+  .xt thead th{font-size:.7rem;color:var(--muted);font-weight:800}
+  .xt tbody th{white-space:nowrap;font-size:.8rem}
+  .xt tbody tr:last-child>*{border-bottom:0}
+  .xt td .lnames{min-width:120px}
+  .pws{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .pw{background:var(--card);border:1px solid var(--border);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+  .pw .top{padding:18px 18px 14px;background:radial-gradient(120% 120% at 50% 0%,
+    color-mix(in srgb,var(--c) 22%,transparent),transparent)}
+  .pw .app{display:flex;align-items:center;gap:9px;font-size:.8rem;font-weight:700;color:var(--muted)}
+  .pw .app .ic{width:30px;height:30px;border-radius:8px}
+  .pw .app em{margin-left:auto;font-style:normal;font-size:.68rem;padding:2px 9px;border-radius:999px;
+    background:var(--bg-soft);border:1px solid var(--border)}
+  .pw h3{font-size:1.12rem;margin-top:12px;line-height:1.35;word-break:keep-all}
+  .pw .sub{font-size:.8rem;color:var(--muted);margin-top:4px;word-break:keep-all}
+  .pw ul{list-style:none;padding:0 18px;font-size:.8rem}
+  .pw ul li{padding:3px 0 3px 22px;position:relative;word-break:keep-all}
+  .pw ul li::before{content:"✓";position:absolute;left:2px;color:var(--c);font-weight:900}
+  .tiers{padding:12px 18px 4px;display:grid;gap:6px}
+  .tier{display:flex;align-items:center;gap:8px;border:1.5px solid var(--border);border-radius:12px;padding:8px 11px;font-size:.8rem}
+  .tier b{margin-left:auto;font-variant-numeric:tabular-nums}
+  .tier small{font-size:.68rem;color:var(--muted)}
+  .tier.off{opacity:.55;border-style:dashed}
+  .cta{margin:10px 18px 6px;text-align:center;border-radius:12px;padding:10px;font-weight:800;font-size:.85rem;
+    color:#fff;background:var(--c)}
+  .fine{text-align:center;font-size:.68rem;color:var(--muted);padding:0 18px 14px}
+  .gate{border-top:1px solid var(--border);padding:12px 18px 16px;font-size:.76rem;display:grid;gap:8px;margin-top:auto}
+  .gate h4{font-size:.66rem;color:var(--muted);font-weight:800;letter-spacing:.04em}
+  .gate p{margin:1px 0;word-break:keep-all}
+  .gate .when span{display:inline-block;background:var(--bg-soft);border:1px solid var(--border);
+    border-radius:999px;padding:1px 8px;margin:2px 3px 0 0;font-size:.7rem}
+  .canv{display:grid;gap:8px}
+  .canv details{background:var(--card);border:1px solid var(--border);border-radius:13px}
+  .canv summary{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;list-style:none;font-size:.85rem}
+  .canv summary::-webkit-details-marker{display:none}
+  .canv summary .ic{width:28px;height:28px;border-radius:7px}
+  .canv summary b{font-weight:700}
+  .canv summary .m{font-size:.7rem;font-weight:800;color:#fff;background:var(--c);border-radius:999px;padding:2px 9px}
+  .canv summary .pr{margin-left:auto;font-size:.76rem;color:var(--muted);text-align:right}
+  .lc{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:auto auto auto;gap:1px;
+    background:var(--border);border-top:1px solid var(--border);border-radius:0 0 13px 13px;overflow:hidden}
+  .lc>div{background:var(--card);padding:10px 12px;font-size:.78rem;word-break:keep-all}
+  .lc h4{font-size:.64rem;letter-spacing:.06em;color:var(--muted);font-weight:800;margin-bottom:3px}
+  .lc .pb{grid-column:1;grid-row:1/3}.lc .so{grid-column:2;grid-row:1}.lc .km{grid-column:2;grid-row:2}
+  .lc .uv{grid-column:3;grid-row:1/3}.lc .ch{grid-column:4;grid-row:2}.lc .ad{grid-column:4;grid-row:1}
+  .lc .cs{grid-column:5;grid-row:1/3}.lc .co{grid-column:1/3;grid-row:3}.lc .rv{grid-column:3/6;grid-row:3}
+  .lc .na{color:var(--muted)}
+  .note{color:var(--muted);font-size:.78rem;margin-top:10px;max-width:760px}
+  @media(max-width:760px){.lc{grid-template-columns:1fr 1fr}
+    .lc>div{grid-column:auto!important;grid-row:auto!important}.lc .uv,.lc .rv{grid-column:1/3!important}
+    .grid2{grid-template-columns:minmax(0,1fr)}.grid2 .ax{display:none}.cell{min-height:0}.cell .when{display:block}
+    .lnames a{white-space:normal}}
+"""
+
+
+def load_paywalls():
+    path = os.path.join(ROOT, "scripts/paywalls.json")
+    if not os.path.exists(path):
+        return {}
+    return json.load(open(path, encoding="utf-8")).get("apps", {})
+
+
+def load_showcase():
+    path = os.path.join(ROOT, "scripts/showcase-content.json")
+    return json.load(open(path, encoding="utf-8")).get("apps", {}) if os.path.exists(path) else {}
+
+
+def model_of(app):
+    return MODEL_BY.get((app.get("price") or {}).get("pricingModel")) or FREE_MODEL
+
+
+def price_text(app):
+    """가격 사다리 — 앱 가격 + 스토어에 있는 인앱결제 상품."""
+    p = app.get("price") or {}
+    parts = []
+    if p.get("priceKRW"):
+        parts.append("앱 ￦{:,}".format(p["priceKRW"]))
+    elif p.get("priceUSD"):
+        parts.append("앱 ${}".format(p["priceUSD"]))
+    for it in p.get("iapItems") or []:
+        parts.append("%s %s" % (it["name"], it["price"]))
+    return parts
+
+
+def chips(ls):
+    if not ls:
+        return '<span class="none">없음</span>'
+    return '<div class="lnames">%s</div>' % "".join(
+        '<a href="#bm-%s" style="--c:%s">%s%s</a>' % (esc(a["_slug"]), model_of(a)[7], icon_img(a), esc(a["name"]))
+        for a in ls)
+
+
+def paywall_card(app, pw):
+    m = model_of(app)
+    store = {it["name"]: it["price"] for it in (app.get("price") or {}).get("iapItems") or []}
+    tiers = pw.get("tiers") or []
+    rows = ""
+    for t in tiers:
+        price = t.get("price") or ""
+        rows += ('<div class="tier%s"><span>%s%s</span><b>%s</b></div>'
+                 % ("" if t.get("live") else " off", esc(t.get("label") or t.get("period") or "상품"),
+                    " <small>· %s</small>" % esc(t["period"]) if t.get("period") and t.get("period") not in (t.get("label") or "") else "",
+                    esc(price) if t.get("live") else "<small>스토어 준비 중</small>" + (" " + esc(price) if price else "")))
+    if not tiers and store:
+        rows = "".join('<div class="tier"><span>%s</span><b>%s</b></div>' % (esc(k), esc(v)) for k, v in store.items())
+    bl = "".join("<li>%s</li>" % esc(b) for b in (pw.get("benefits") or [])[:6])
+    free = "".join("<p>%s</p>" % esc(x) for x in (pw.get("free") or [])[:4]) or "<p>—</p>"
+    lock = "".join("<p>%s</p>" % esc(x) for x in (pw.get("locked") or [])[:4]) or "<p>—</p>"
+    when = "".join("<span>%s</span>" % esc(x) for x in (pw.get("triggers") or [])[:4]) or "<span>—</span>"
+    fine = " · ".join(x for x in [pw.get("trial"), "구매 복원" if pw.get("restore") else None] if x)
+    return (
+        '<article class="pw" id="pw-%s" style="--c:%s"><div class="top"><div class="app">%s%s<em>%s</em></div>'
+        '<h3>%s</h3>%s</div>%s<div class="tiers">%s</div>%s%s'
+        '<div class="gate"><div><h4>무료로 주는 것</h4>%s</div><div><h4>돈을 내면 열리는 것</h4>%s</div>'
+        '<div class="when"><h4>언제 보이나</h4>%s</div></div></article>'
+        % (esc(app["_slug"]), m[7], icon_img(app), esc(app["name"]), esc(KIND_KR.get(pw.get("kind"), m[1])),
+           esc(pw.get("headline") or app["name"]),
+           '<p class="sub">%s</p>' % esc(pw["subheadline"]) if pw.get("subheadline") else "",
+           "<ul>%s</ul>" % bl if bl else "", rows,
+           '<div class="cta">%s</div>' % esc(pw["cta"]) if pw.get("cta") else "",
+           '<div class="fine">%s</div>' % esc(fine) if fine else "",
+           free, lock, when))
+
+
+def canvas(app, sc, pw):
+    m = model_of(app)
+    lc = app.get("lifecycle") or {}
+    g = app.get("globalReach") or {}
+    na = '<span class="na">—</span>'
+
+    def cell(cls, title, body):
+        return '<div class="%s"><h4>%s</h4>%s</div>' % (cls, title, body or na)
+
+    metrics = []
+    if lc.get("stage"):
+        metrics.append("제품 여정 %d단계 · %s" % (lc["stage"], STAGE_SHORT.get(lc["stage"], "")))
+    if lc.get("polishDays") is not None:
+        metrics.append("출시 후 다듬은 기간 %d일" % lc["polishDays"])
+    metrics.append("스토어 평점 %d개" % (lc.get("ratingCount") or 0))
+    ch = ["App Store%s" % (" · %d개국 판매" % g["storefronts"] if g.get("storefronts") else "")]
+    if g:
+        ch.append("앱 언어: " + lang_names(app))
+    rv = "<b>%s</b> — %s<br>%s" % (esc(m[1]), esc(m[4]), esc(" · ".join(price_text(app)) or "받는 돈 없음"))
+    if pw and pw.get("locked"):
+        rv += "<br><span class='na'>유료로 여는 것: %s</span>" % esc(" · ".join(pw["locked"][:3]))
+    summary = ('<summary>%s<b>%s</b><span class="m" style="--c:%s">%s</span><span class="pr">%s</span></summary>'
+               % (icon_img(app), esc(app["name"]), m[7], esc(m[1]),
+                  esc(" · ".join(price_text(app)[:2]) or "무료")))
+    return ('<details id="bm-%s">%s<div class="lc">%s%s%s%s%s%s%s%s%s</div></details>'
+            % (esc(app["_slug"]), summary,
+               cell("pb", "문제", esc(sc.get("problem"))),
+               cell("so", "솔루션", esc(sc.get("solution"))),
+               cell("km", "핵심 지표", "<br>".join(esc(x) for x in metrics)),
+               cell("uv", "고유 가치 제안", "<b>%s</b><br>%s" % (esc(sc.get("highlight") or ""), esc(sc.get("tagline") or ""))
+                    if sc else ""),
+               cell("ad", "경쟁 우위", ""),
+               cell("ch", "채널", "<br>".join(esc(x) for x in ch)),
+               cell("cs", "고객", "%s<br><span class='na'>%s</span>" % (esc(sc.get("stakeholders") or ""), esc(sc.get("persona") or ""))
+                    if sc else ""),
+               cell("co", "비용 구조", "1인 개발 · Apple 개발자 프로그램 연 1회 · 서버 비용은 앱마다 다름"),
+               cell("rv", "수익원", rv)))
+
+
+def business_page(apps):
+    ls = [a for a in live(apps) if (a.get("price") or {}).get("evaluatedAt")]
+    pws = load_paywalls()
+    scs = load_showcase()
+    by = {}
+    for a in ls:
+        by.setdefault(model_of(a)[0], []).append(a)
+    n = len(ls)
+    paying = n - len(by.get("free", []))
+    subs = len(by.get("freemium-subscription", [])) + len(by.get("paid+subscription", []))
+
+    def has_paywall(a):
+        pw = pws.get(a["_slug"]) or {}
+        return pw.get("kind") not in (None, "none") and (pw.get("headline") or pw.get("benefits") or pw.get("locked"))
+
+    def selling(a):  # 스토어에 상품이 있고, 출시 빌드에서 결제 화면이 켜져 있다
+        return (a.get("price") or {}).get("hasInAppPurchases") and not pws[a["_slug"]].get("hidden")
+
+    live_pw = [a for a in ls if has_paywall(a) and selling(a)]
+    prep_pw = [a for a in ls if has_paywall(a) and not selling(a)]
+
+    head = ('<div class="eyebrow">Business Model</div><h1>비즈니스 모델</h1>'
+            '<p>앱 %d개가 누구에게, 언제, 무엇에 돈을 받는지 정리했습니다. 가격은 App Store 실데이터, '
+            '페이월은 앱 소스에서 읽었습니다.</p>' % n)
+
+    kp = '<div class="kp">%s</div>' % "".join(
+        '<div><b>%s</b><span>%s</span></div>' % (v, esc(k)) for k, v in [
+            ("돈을 받는 앱", "%d / %d" % (paying, n)), ("설치할 때 받는 앱", len(by.get("paid", [])) + len(by.get("paid+subscription", []))),
+            ("써 본 뒤 받는 앱", len(by.get("freemium", [])) + len(by.get("freemium-subscription", []))),
+            ("구독이 있는 앱", subs), ("앱 안 결제 화면", len(live_pw))])
+
+    # 프레임워크 — 결제 시점 × 결제 방식
+    def cell_for(key):
+        mm = MODEL_BY[key]
+        a = by.get(key, [])
+        return ('<div class="cell%s" style="--c:%s"><div class="when">%s · %s 낸다</div><h3>%s<i>%d개</i></h3><p class="f">%s</p>%s</div>'
+                % ("" if a else " empty", mm[7], esc(mm[2]), esc(mm[3]), esc(mm[1]), len(a), esc(mm[4]), chips(a)))
+
+    paid_sub = by.get("paid+subscription", []) + by.get("paid+iap", [])
+    sub_cell = ('<div class="cell%s" style="--c:%s"><div class="when">설치할 때 · 계속 낸다</div><h3>유료 + 구독·인앱<i>%d개</i></h3><p class="f">%s</p>%s</div>'
+                % ("" if paid_sub else " empty", MODEL_BY["paid+subscription"][7], len(paid_sub),
+                   esc(MODEL_BY["paid+subscription"][4]), chips(paid_sub)))
+    grid = ('<div class="grid2"><div></div><div class="ax">한 번 낸다</div><div class="ax">계속 낸다</div>'
+            '<div class="ax">설치할 때</div>%s%s'
+            '<div class="ax">써 보고 나서</div>%s%s</div>'
+            '<div class="freeband"><h3>아직 받지 않음 · 무료 <span class="hc">%d개</span></h3>'
+            '<p class="f note" style="margin:3px 0 9px">%s</p>%s</div>'
+            % (cell_for("paid"), sub_cell, cell_for("freemium"), cell_for("freemium-subscription"),
+               len(by.get("free", [])), esc(FREE_MODEL[4]), chips(by.get("free", []))))
+
+    mods = '<div class="mods">%s</div>' % "".join(
+        '<div class="mod" style="--c:%s"><b>%s</b><dl><dt>누가 · 언제 · 어떻게</dt><dd>%s · %s</dd>'
+        '<dt>공식</dt><dd>%s</dd><dt>잘 맞는 앱</dt><dd>%s</dd><dt>조심할 점</dt><dd>%s</dd></dl></div>'
+        % (mm[7], esc(mm[1]), esc(mm[2]), esc(mm[3]), esc(mm[4]), esc(mm[5]), esc(mm[6]))
+        for mm in [FREE_MODEL] + MODELS[:4])
+
+    # 수익 모델 × 제품 여정 단계
+    stages = sorted({(a.get("lifecycle") or {}).get("stage") for a in ls if (a.get("lifecycle") or {}).get("stage")},
+                    reverse=True)
+    order = [FREE_MODEL] + MODELS[:4]
+    xt = ('<div class="tw"><table class="xt"><thead><tr><th>단계</th>%s</tr></thead><tbody>%s</tbody></table></div>'
+          % ("".join("<th>%s</th>" % esc(mm[1]) for mm in order),
+             "".join("<tr><th>%d · %s</th>%s</tr>" % (st, esc(STAGE_SHORT.get(st, "")), "".join(
+                 "<td>%s</td>" % chips([a for a in by.get(mm[0], []) if (a.get("lifecycle") or {}).get("stage") == st])
+                 for mm in order)) for st in stages)))
+
+    pw_live = '<div class="pws">%s</div>' % "".join(paywall_card(a, pws[a["_slug"]]) for a in live_pw)
+    pw_prep = '<div class="pws">%s</div>' % "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw)
+
+    groups = ""
+    for mm in MODELS + [FREE_MODEL]:
+        a = by.get(mm[0], [])
+        if not a:
+            continue
+        groups += ('<h3 style="margin:18px 0 8px;font-size:.95rem">%s <span class="hc">%d</span></h3><div class="canv">%s</div>'
+                   % (esc(mm[1]), len(a), "".join(canvas(x, scs.get(x["_slug"]) or {}, pws.get(x["_slug"])) for x in a)))
+
+    main = (
+        '<section>%s</section>'
+        '<section><h2>결제 시점 × 결제 방식</h2><p class="lead">돈을 <b>언제</b>(설치할 때 / 써 보고 나서) '
+        '<b>어떻게</b>(한 번 / 계속) 받느냐로 나누면 네 칸이 됩니다. 칸마다 사용자에게 하는 약속이 다릅니다.</p>%s</section>'
+        '<section><h2>모델별 공식</h2><p class="lead">같은 칸에 있는 앱은 같은 질문에 답해야 합니다.</p>%s</section>'
+        '<section><h2>수익 모델 × 제품 여정</h2><p class="lead">단계가 올라갈수록 돈을 받는 방식이 분명해지는지 봅니다. '
+        '아직 완성해 가는 단계(1단계)라면 무료로 반응을 먼저 모으는 것이 자연스럽습니다.</p>%s</section>'
+        '<section><h2>페이월<span class="hc">%d</span></h2><p class="lead">앱 안에서 결제를 권하는 화면입니다. '
+        '앱 소스에서 문구와 혜택, 무료 몫, 화면이 뜨는 시점을 읽어 그대로 옮겼습니다. 가격은 App Store 기준입니다.</p>%s</section>'
+        '%s'
+        '<section><h2>앱별 비즈니스 모델 캔버스</h2><p class="lead">Lean Canvas 아홉 칸으로 앱마다 펼쳐 볼 수 있습니다. '
+        '문제·고객·가치 제안은 쇼케이스 소개에서, 수익원은 스토어에서, 핵심 지표는 제품 여정에서 가져왔습니다.</p>%s'
+        '<p class="note">경쟁 우위 칸은 앱마다 근거 있는 자료가 아직 없어 비워 두었습니다. 비용 구조는 1인 개발이라 앱마다 거의 같습니다.</p></section>'
+        % (kp, grid, mods, xt, len(live_pw), pw_live,
+           ('<section><h2>준비 중인 페이월<span class="hc">%d</span></h2><p class="lead">결제 화면은 만들어 두었지만 '
+            '아직 판매를 열지 않은 앱입니다.</p>%s</section>' % (len(prep_pw), pw_prep)) if prep_pw else "",
+           groups))
+    return page("비즈니스 모델 — 리이오의 앱 포트폴리오",
+                "앱 %d개의 수익 모델과 페이월을 결제 시점 × 결제 방식 프레임워크와 Lean Canvas로 정리했습니다." % n,
+                {"head": head, "main": main}, "biz", BIZ_CSS)
 
 
 # ── 내부: 전체 허브 ───────────────────────────────────────────────
@@ -1374,6 +1699,7 @@ def main():
     outs = [
         (os.path.join(DOCS, "lifecycle.html"), lifecycle_page(apps), "공개"),
         (os.path.join(DOCS, "maturity.html"), maturity_page(apps), "공개"),
+        (os.path.join(DOCS, "business.html"), business_page(apps), "공개"),
         (os.path.join(DOCS, "hub.html"), hub_page(apps), "공개"),
         (os.path.join(REPORTS, "portfolio-hub.html"), internal_hub(apps, links), "내부"),
     ]

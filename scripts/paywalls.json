@@ -1,0 +1,969 @@
+{
+  "_comment": "앱별 페이월 — 앱 소스를 읽어 정리 (2026-10-13). business.html 이 읽는다. productId·paywallFiles·notes·reachable 은 내부용이라 공개 페이지에 내보내지 않는다. hidden=true 는 스토어에 상품이 있어도 출시 빌드에서 결제 화면이 꺼져 있다는 뜻.",
+  "apps": {
+    "burning-my-life": {
+      "slug": "burning-my-life",
+      "paywallFiles": [
+        "BurningParchment/Views/PaywallView.swift",
+        "BurningParchment/Models/StoreManager.swift",
+        "BurningParchment/BurningParchmentSpec.swift",
+        "BurningParchment/Views/DeadlineListView.swift",
+        "BurningParchment/Views/AshYearView.swift",
+        "BurningParchment/Views/FragmentCollectionView.swift",
+        "BurningParchment/Views/ReflectionBookView.swift",
+        "BurningParchment/Views/SettingsView.swift",
+        "BurningParchment/Models/ParchmentStyle.swift",
+        "Config/BurningParchment.storekit"
+      ],
+      "kind": "one-time-unlock",
+      "headline": "불타는 내인생 프로",
+      "subheadline": "하루를 남김없이 담아보세요",
+      "benefits": [
+        "양피지·불꽃 테마 — 달빛 한지·청자·노을 빛깔로 양피지가 타요",
+        "조각 카드·포스터 — 모은 조각을 카드와 포스터 이미지로 공유해요",
+        "회고 책 PDF — 회고를 날짜별 페이지의 PDF 로 묶어요",
+        "한 해의 재 흐름 — 지난 12개월의 재를 달마다 나눠 보여줘요",
+        "데드라인 무제한 — 여러 목표를 동시에 카운트다운해요",
+        "앞으로의 프로 기능 — 새로 추가되는 프로 기능도 모두 포함돼요"
+      ],
+      "free": [
+        "데드라인 1개",
+        "기본 테마 '불타는 양피지'",
+        "항아리(회고)는 기간과 상관없이 모두 무료"
+      ],
+      "locked": [
+        "데드라인 2개 이상",
+        "양피지·불꽃 테마 3종 (달빛 한지·청자·노을)",
+        "조각 카드·포스터 내보내기",
+        "회고 책 PDF 내보내기",
+        "한 해의 재 (12개월 흐름 분석, 무료는 블러 처리)"
+      ],
+      "tiers": [
+        {
+          "productId": "com.burningparchment.app.pro",
+          "label": "평생 이용권",
+          "price": "$9.99",
+          "period": "평생",
+          "live": false
+        }
+      ],
+      "triggers": [
+        "데드라인 목록에서 + 를 눌렀는데 무료 1개를 넘을 때 (머리말 '데드라인을 더 세우려면')",
+        "설정에서 프로 테마를 고를 때 ('다른 빛깔로 태워 보세요')",
+        "조각 카드·포스터 내보내기 ('모은 조각을 꺼내 보세요')",
+        "회고 책 PDF 내보내기 ('회고 책을 손에 쥐어 보세요')",
+        "한 해의 재 잠금 오버레이 '프로에서 한 해의 흐름을 열어요' ('한 해의 재를 한눈에')",
+        "설정 ▸ 프로 ▸ '프로로 업그레이드'"
+      ],
+      "cta": "평생 이용권 구매",
+      "trial": null,
+      "restore": true,
+      "reachable": true,
+      "notes": "페이월을 숨기는 플래그가 없어 설정의 '프로로 업그레이드'와 각 잠금 지점에서 바로 열린다. 상품이 스토어에 없으니 실제로는 가격을 못 받아 '가격 다시 불러오기' 버튼만 보이고 구매가 불가능한 상태다."
+    },
+    "clip-keyboard": {
+      "slug": "clip-keyboard",
+      "paywallFiles": [
+        "ClipKeyboard/Screens/PaywallView.swift",
+        "ClipKeyboard/Screens/FreeUsePaywallView.swift",
+        "ClipKeyboard/Screens/FreeUseScreens.swift",
+        "ClipKeyboard/Screens/DiscountOfferView.swift",
+        "ClipKeyboard/Screens/ProBenefitsView.swift",
+        "ClipKeyboard/Service/StoreManager.swift",
+        "ClipKeyboard/Service/ProFeatureManager.swift",
+        "ClipKeyboard/Service/FreeUse.swift",
+        "ClipKeyboard/Service/SlotPack.swift",
+        "ClipKeyboard/Service/ProUpgrade.swift",
+        "ClipKeyboard/Service/DiscountOfferManager.swift",
+        "ClipKeyboard/Service/ClipKeyboardSpec.swift"
+      ],
+      "kind": "mixed",
+      "headline": "ClipKeyboard Pro",
+      "subheadline": "한번 구매, 평생 사용",
+      "benefits": [
+        "IBAN·타임존·계좌 응대를 무제한 저장, 어떤 앱에서든 탭 한 번",
+        "프로페셔널 영어 템플릿을 마음껏: 비원어민도 유창하게",
+        "iCloud 백업·스택·보안 단축어·macOS 앱까지 전부",
+        "이미 ClipKeyboard로 N분을 아꼈어요. Pro로 무제한으로 계속 아끼세요."
+      ],
+      "free": [
+        "단축어를 100번 넣기 전까지는 모든 기능 무료",
+        "문턱 이후에도 이미 만든 단축어는 계속 사용",
+        "문턱 이후 새로 만들기: 단축어 10개 · 스택 3개 · 템플릿 3개 · 이미지 단축어 5개",
+        "클립보드 기록 50개",
+        "키보드 익스텐션·테마·이미지 메모 무료"
+      ],
+      "locked": [
+        "단축어 10개 초과(칸 추가로 +5씩 최대 3팩)",
+        "스택 3개 초과",
+        "템플릿 3개 초과",
+        "이미지 단축어 5개 초과",
+        "iCloud 백업",
+        "생체인증 잠금(보안 단축어)",
+        "기기 간 동기화(Pro 또는 두 대째 상품)"
+      ],
+      "tiers": [
+        {
+          "productId": "com.Ysoup.TokenMemo.pro",
+          "label": "평생 Pro",
+          "price": "￦17,000",
+          "period": "평생",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.pro.halfoff",
+          "label": "반값 평생 Pro (한 번 제안)",
+          "price": "￦7,700",
+          "period": "평생",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.pro.upgrade",
+          "label": "Pro 업그레이드 (칸 추가 구매자)",
+          "price": "￦12,000",
+          "period": "평생",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.slots5.pack",
+          "label": "5칸 더 늘리기",
+          "price": "￦4,400",
+          "period": "1회",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.twodevice",
+          "label": "두 기기에서 같이 쓰기",
+          "price": "￦11,000",
+          "period": "평생",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.pro.yearly",
+          "label": "연 구독",
+          "price": null,
+          "period": "연",
+          "live": false
+        }
+      ],
+      "triggers": [
+        "단축어 100번째 사용 뒤 한 번 — '지난 N일 동안 단축어를 N번 넣었어요'",
+        "단축어·템플릿·이미지를 한도 넘게 추가할 때",
+        "보안 단축어 잠금 · iCloud 백업을 켤 때",
+        "두 번째 기기에서 열 때",
+        "한도 한 칸 앞에서 7일 지낸 사람에게 반값 제안 한 번"
+      ],
+      "cta": "Pro 업그레이드",
+      "trial": "7일 무료 체험 (1회)",
+      "restore": true,
+      "notes": "페이월이 3종(일반 한도 페이월, 무료 사용 문턱 영수증 페이월, 반값 제안)이며 칸 추가·두 대째는 Pro 권한을 열지 않고 개수/동기화만 연다. 연 구독(pro.yearly)과 비소모성 slots5는 코드에 있으나 스토어에 없어 해당 칸이 숨겨지며, 업그레이드 상품은 칸을 산 비Pro 사용자에게만 노출."
+    },
+    "cooltime": {
+      "slug": "cooltime",
+      "paywallFiles": [],
+      "kind": "none",
+      "headline": null,
+      "subheadline": null,
+      "benefits": [],
+      "free": [
+        "모든 기능 무료"
+      ],
+      "locked": [],
+      "tiers": [
+        {
+          "productId": null,
+          "label": "평생구매",
+          "price": "￦9,900",
+          "period": "평생",
+          "live": true
+        }
+      ],
+      "triggers": [],
+      "cta": null,
+      "trial": null,
+      "restore": null,
+      "notes": "코드에 StoreKit·페이월·구매 코드가 전혀 없고 CoolTimeSpec.monetization = .free로 선언되어 있음(주석 확인). 스토어의 '평생구매 ￦9,900'은 앱에서 구매할 경로가 없는 고아 상품이며 상품 ID도 코드에 없음."
+    },
+    "donkko-mart": {
+      "slug": "donkko-mart",
+      "paywallFiles": [
+        "DontGoMart/Manager/StoreKitManager.swift",
+        "DontGoMart/Screen/SettingsView.swift",
+        "DontGoMart/Screen/ClosedDaysView.swift"
+      ],
+      "kind": "tip-jar",
+      "headline": "오늘 헛걸음을 막아드렸어요",
+      "subheadline": "도움이 되셨다면 커피 한 잔으로 응원해주세요.",
+      "benefits": [
+        "후원자 배지 + ☕️ ×N 누적 표시",
+        "구매 후 콘페티·감사 카드 연출"
+      ],
+      "free": [
+        "모든 기능 무료 — 후원은 순수한 응원이며 몇 번이든 보낼 수 있어요"
+      ],
+      "locked": [],
+      "tiers": [
+        {
+          "productId": "com.dontgomart.tip.coffee",
+          "label": "커피 한 잔",
+          "price": "₩1,100",
+          "period": "1회",
+          "live": true
+        },
+        {
+          "productId": "com.dontgomart.tip.cake",
+          "label": "케이크 한 조각",
+          "price": "￦6,600",
+          "period": "1회",
+          "live": true
+        },
+        {
+          "productId": "com.dontgomart.tip.meal",
+          "label": "든든한 한 끼",
+          "price": "￦12,000",
+          "period": "1회",
+          "live": true
+        }
+      ],
+      "triggers": [
+        "휴무인 마트가 있는 날, 앱을 5번 이상 열고 3번 이상 쓴 사람에게 커피 카드 ('다음에' 누르면 30일 쉼)",
+        "설정 ▸ 응원하기",
+        "후원자에게는 120일마다 감사 인사"
+      ],
+      "cta": "커피 사주기",
+      "trial": null,
+      "restore": false,
+      "notes": "기능 잠금 없는 순수 소모성 팁. 스토어의 '클로즈드 Pro ￦4,400'은 판매 코드 경로가 없음(현지화 문자열 '%@ Closed Pro' 내비 제목과 레거시 비소비성 com.dontgomart.Coffee 복원만 남아 있어 옛 Pro 상품의 잔재로 보이나 ID 대응은 확인 불가). '구매복원' 문자열은 정의만 있고 복원 버튼은 없으며 레거시 권한은 앱 시작 시 자동 조회."
+    },
+    "double-reminder": {
+      "slug": "double-reminder",
+      "paywallFiles": [
+        "Rereminder/Views/PaywallView.swift",
+        "Shared/Modules/ProGate.swift",
+        "Shared/Modules/StoreManager.swift",
+        "Shared/Modules/TrialCounter.swift",
+        "Rereminder/Modules/FoundingSupporter.swift",
+        "Rereminder/Modules/LegacyFreeNotice.swift"
+      ],
+      "kind": "one-time-unlock",
+      "headline": "두번알림 Pro",
+      "subheadline": "앱이 당신의 설정을 기억합니다",
+      "benefits": [
+        "한 번 결제로 평생 사용",
+        "저장한 설정",
+        "마지막 타이머 기억",
+        "세션 모드",
+        "구간 대본",
+        "오버타임 추적",
+        "타이머 기록"
+      ],
+      "free": [
+        "타이머",
+        "예비 알림 무제한(∞)",
+        "Live Activity",
+        "워치 / 위젯",
+        "커스텀 메시지·소리/진동·테마",
+        "세션 모드·오버타임·타이머 기록은 5회 체험 + '5회 더 사용해보기'로 최대 10회"
+      ],
+      "locked": [
+        "템플릿(설정) 저장·불러오기",
+        "마지막 설정 복원(무료는 앱 재실행 시 다이얼이 기본값으로 돌아감)",
+        "세션 모드(구간 이름·대본)",
+        "오버타임 추적",
+        "타이머 기록 및 통계"
+      ],
+      "tiers": [
+        {
+          "productId": "com.xa.toki.pro",
+          "label": "Pro (일회성 구매)",
+          "price": "￦17,000",
+          "period": "평생",
+          "live": true
+        }
+      ],
+      "triggers": [
+        "세션 모드 진입 시 체험 소진(5회/10회)",
+        "타이머 종료 후 오버타임 진입 시 체험 소진",
+        "타이머 기록 화면 진입 시 체험 소진",
+        "템플릿 저장·불러오기(템플릿 화면, 퀵바, 기억 회상 줄) 탭 시 즉시",
+        "설정 화면 Pro(왕관) 행",
+        "기존 무료 사용자 안내(LegacyFreeNotice)에서 Pro 보기"
+      ],
+      "cta": "Pro로 업그레이드",
+      "trial": "기능별 5회 체험 + '5회 더 사용해보기'",
+      "restore": true,
+      "notes": "파는 축을 '알림 개수'에서 '설정 기억(세션 운영)'으로 바꾼 5+5 체험 모델이며, Pro 도입 전 기존 사용자는 그랜드파더링(평생 무료)과 창단 후원자 자격으로 영구 보호. 로컬 .storekit 가격은 4900이지만 스토어는 ￦17,000, macOS·DEBUG·TestFlight는 자동 Pro."
+    },
+    "flip-book": {
+      "slug": "flip-book",
+      "paywallFiles": [
+        "RotoscopeiPad/Views/UnlockSheet.swift",
+        "RotoscopeiPad/Models/FreeTier.swift",
+        "RotoscopeiPad/RotoscopeiPadSpec.swift",
+        "RotoscopeiPad/Views/HomeView.swift",
+        "RotoscopeiPad/Views/ContentView.swift",
+        "RotoscopeiPad/Views/RotoscopeiPadSupportView.swift",
+        "Products.storekit"
+      ],
+      "kind": "one-time-unlock",
+      "headline": "팔랑북 평생 이용권",
+      "subheadline": "한 번 결제로 팔랑북의 모든 기능을 계속 쓸 수 있어요.",
+      "benefits": [
+        "따라 그리기 N세트 전부, 앞으로 나올 세트도",
+        "작품을 개수 제한 없이 보관",
+        "빈 종이 플립북 장수 제한 없음",
+        "내 동영상으로 그리기 무제한",
+        "목소리 녹음 시간 제한 없음",
+        "저장한 영상 끝에 팔랑북 카드 없음"
+      ],
+      "free": [
+        "작품 3개 보관",
+        "빈 종이 플립북 10장",
+        "동영상 불러오기 1번 (설치 기준 누적)",
+        "목소리 녹음 15초",
+        "따라 그리기 3세트 (01_ball·02_bunny·05_flower)"
+      ],
+      "locked": [
+        "작품 4개 이상 보관",
+        "빈 종이 플립북 11장 이상",
+        "동영상 2번째 불러오기부터",
+        "15초 넘는 녹음",
+        "나머지 따라 그리기 세트 (프로 전용)",
+        "저장 영상 끝 팔랑북 카드 제거"
+      ],
+      "tiers": [
+        {
+          "productId": "com.leeo.RotoscopeiPad.lifetime",
+          "label": "평생 이용권",
+          "price": "₩9,900",
+          "period": "평생",
+          "live": false
+        }
+      ],
+      "triggers": [
+        "홈에서 새 작품을 만들 때 무료 3개를 넘으면",
+        "잠긴 따라 그리기 세트를 누를 때",
+        "동영상 불러오기 한도 초과 시",
+        "빈 종이 플립북에 11번째 장을 추가할 때",
+        "녹음이 15초 한도에 닿을 때",
+        "설정 ▸ 이용권 ▸ '평생 이용권'",
+        "구매 전 보호자 확인 ('어른에게 보여 주세요')"
+      ],
+      "cta": "한 번 결제로 평생",
+      "trial": null,
+      "restore": true,
+      "reachable": true,
+      "notes": "숨김 플래그 없이 각 한도와 설정에서 보호자 확인 뒤 구매 화면이 열린다. 상품이 스토어에 없어 실제로는 '상품을 불러오지 못했어요.'와 '다시 시도'만 보이며, 무료 시절 설치자는 isLegacyUser로 전부 열린다."
+    },
+    "hands-free-metronome": {
+      "slug": "hands-free-metronome",
+      "paywallFiles": [
+        "HandsFreeMetronome/PaywallView.swift",
+        "HandsFreeMetronome/ProStore.swift",
+        "HandsFreeMetronome/ContentView.swift",
+        "HandsFreeMetronome/HandsFreeMetronomeSpec.swift"
+      ],
+      "kind": "mixed",
+      "headline": "Not My Tempo Pro",
+      "subheadline": "연습 도구 3가지를 한 번에 잠금 해제",
+      "benefits": [
+        "연습 모드: 몇 마디마다 템포를 자동으로 올려 손 안 대고 속도 훈련",
+        "악센트 에디터·프리셋: 마디의 모든 클릭을 강/약/무음으로 설계하고 곡별 패턴 저장",
+        "크로매틱 튜너: '튠'이라고 말하고 연주하면 음·센트·정음 구간 표시"
+      ],
+      "free": [
+        "메트로놈 전체(모든 템포·박자·세분)",
+        "비트 화면 3종",
+        "탭 템포",
+        "타이밍 체크",
+        "핸즈프리 음성 제어 전부",
+        "접근성 기능 전부"
+      ],
+      "locked": [
+        "연습 모드(스피드 트레이너)",
+        "악센트 에디터 + 프리셋",
+        "크로매틱 튜너"
+      ],
+      "tiers": [
+        {
+          "productId": "com.leeo.HandsFreeMetronome.pro.yearly",
+          "label": "연간",
+          "price": "￦4,400",
+          "period": "연",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.HandsFreeMetronome.pro.lifetime",
+          "label": "평생",
+          "price": "￦17,000",
+          "period": "평생",
+          "live": true
+        }
+      ],
+      "triggers": [
+        "튜너·연습 모드·악센트 에디터를 열 때 — 버튼·음성 명령·더블탭 어디서든",
+        "음성 명령 도움말의 'Unlock Pro'"
+      ],
+      "cta": "Try free for a week",
+      "trial": "연간 1주 무료 체험",
+      "restore": true,
+      "notes": "앱 UI에 한국어 현지화가 없어(xcstrings에 ko 없음) 한국 사용자도 영어 페이월을 본다. 1.0.4까지 유료 앱이었고 빌드 3 미만 최초 다운로드 사용자는 AppTransaction으로 Pro 영구 부여(그랜드파더), 페이월은 막힌 기능을 맨 위에 두고 무료 범위를 명시한다."
+    },
+    "junior-mistakes": {
+      "slug": "junior-mistakes",
+      "paywallFiles": [
+        "JuniorDevMistakes/PaywallView.swift",
+        "JuniorDevMistakes/StoreKitManager.swift",
+        "JuniorDevMistakes/CategoryListView.swift",
+        "JuniorDevMistakes/ContentView.swift"
+      ],
+      "kind": "mixed",
+      "headline": "PRO로 업그레이드",
+      "subheadline": "실수 70개가 더 기다리고 있어요\n지금 잠금을 해제하세요",
+      "benefits": [
+        "카테고리 4-10 완전 잠금 해제",
+        "실수 #031-100 전체 학습",
+        "280개 추가 회고 질문",
+        "100개 완전한 성장 추적",
+        "향후 모든 콘텐츠 업데이트"
+      ],
+      "free": [
+        "카테고리 10개 중 앞 3개(실수 #001-030, 30개) 무료 학습"
+      ],
+      "locked": [
+        "카테고리 4-10(실수 #031-100, 70개)",
+        "잠긴 카테고리의 회고 질문 280개",
+        "100개 전체 성장 추적"
+      ],
+      "tiers": [
+        {
+          "productId": "com.leeo.JuniorDevMistakes.pro.1monthly",
+          "label": "월간 구독",
+          "price": "￦4,400",
+          "period": "월",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.JuniorDevMistakes.pro.1yearly",
+          "label": "연간 구독 · 인기",
+          "price": "￦25,000",
+          "period": "연",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.JuniorDevMistakes.pro.1lifetime",
+          "label": "평생 이용권",
+          "price": "￦33,000",
+          "period": "평생",
+          "live": true
+        }
+      ],
+      "triggers": [
+        "잠긴 카테고리(4번째부터)를 누를 때",
+        "목록 위 배너 '7개 카테고리가 잠겨 있습니다'",
+        "설정 ▸ PRO로 업그레이드"
+      ],
+      "cta": "지금 시작하기",
+      "trial": null,
+      "restore": true,
+      "notes": "세 상품이 하나의 PRO 권한을 열며 연간이 기본 선택·'인기' 배지로 강조된다. 로컬 .storekit 가격(월 3,900·연 24,900·평생 39,900)은 스토어 실가격과 다르다."
+    },
+    "korea-navi": {
+      "slug": "korea-navi",
+      "paywallFiles": [
+        "KORA/Sources/Features/Subway/KORAPaywallView.swift",
+        "KORA/Sources/Common/Services/KORAPro.swift",
+        "KORA/KORASpec.swift",
+        "KORA/Sources/Features/Subway/SubwayNavigatorView.swift",
+        "KORA/Sources/Features/Subway/SubwayNavigatorCatalog.swift",
+        "KORA.storekit"
+      ],
+      "kind": "one-time-unlock",
+      "headline": "내릴 역, 이제 놓치지 마세요",
+      "subheadline": "KORA Pro가 탑승 내내 위치를 따라가며 내릴 때를 알려 드려요.",
+      "benefits": [
+        "잠금 화면과 Dynamic Island에서 진행 상황 확인",
+        "차내 안내방송으로 현재 역과 내리는 문 방향 확인",
+        "내릴 역이 가까워질 때와 내릴 때 진동 알림",
+        "서울 지하철 1~8호선 역의 출구 번호와 가까운 장소를 알려 드려요.",
+        "한 번 결제하면 다음 여행에도 계속 쓸 수 있어요. 구독이 아니에요."
+      ],
+      "free": [
+        "길찾기·타는 방향·실시간 도착·카메라 방향 확인은 항상 무료",
+        "안내 탑승(잠금 화면 라이브 액티비티·안내방송 인식·하차 진동) 여정 3회",
+        "무료 안내 탑승이 남아 있는 동안 출구 안내"
+      ],
+      "locked": [
+        "4번째 여정부터 안내 탑승 (잠금 화면·안내방송 인식·하차 진동)",
+        "무료 회차를 다 쓴 뒤 출구 안내"
+      ],
+      "tiers": [
+        {
+          "productId": "com.kora.leeo.pro",
+          "label": "KORA Pro",
+          "price": "$6.99",
+          "period": "평생",
+          "live": false
+        }
+      ],
+      "triggers": [
+        "마지막 무료 안내 탑승으로 도착한 직후 한 번",
+        "도착 화면의 'KORA Pro 알아보기'",
+        "잠긴 출구 안내 버튼",
+        "언어 선택 시트의 KORA Pro"
+      ],
+      "cta": "잠금 해제",
+      "trial": "여정 3회 무료 안내 탑승",
+      "restore": true,
+      "reachable": true,
+      "notes": "숨김 플래그가 없어 언어 선택 시트와 무료 3회 소진 후 도착 화면 등에서 결제 화면이 열린다. 상품이 스토어에 없어 실제로는 '가격을 불러오지 못했어요…' 문구와 재시도 버튼만 보이며, 빌드 8 이하 기존 설치자는 자동 Pro라 보지 못한다."
+    },
+    "pixel-mimi": {
+      "slug": "pixel-mimi",
+      "paywallFiles": [
+        "PixelMe/Views/PaywallView.swift",
+        "PixelMe/Manager/SubscriptionManager.swift",
+        "PixelMe/PixelMeSpec.swift",
+        "PixelMe/AppConfig.swift",
+        "PixelMe/Manager/FeatureGating.swift",
+        "PixelMe/Manager/FreeUsageManager.swift",
+        "PixelMe/CreatorContentView.swift",
+        "PixelMe/PixelatedPhotoView.swift",
+        "PixelMe/Manager/FilterPackManager.swift",
+        "PixelMe/Views/FilterPackStoreView.swift",
+        "PixelMe/Views/ExportPaywallView.swift",
+        "PixelMe/Views/PreviewWallView.swift",
+        "PixelMe/Manager/PurchaseManager.swift"
+      ],
+      "kind": "mixed",
+      "headline": null,
+      "subheadline": null,
+      "benefits": [
+        "Pro의 모든 기능",
+        "레이어 무제한",
+        "GIF 애니메이션",
+        "스프라이트 시트",
+        "AI 팔레트",
+        "워터마크 없음"
+      ],
+      "free": [
+        "픽셀 크기 3종",
+        "원본 색상만 (팔레트 없음)",
+        "필터 1종 (CRT)",
+        "PNG·JPEG 내보내기, 최대 1080p",
+        "저장 이미지에 'Made with PixelMe' 워터마크"
+      ],
+      "locked": [
+        "큰 픽셀 크기 3종",
+        "레트로 팔레트 8종 (게임보이·NES·베이퍼웨이브 등)",
+        "필터 5종 (스캔라인·글리치·VHS 등)",
+        "디더링",
+        "워터마크 제거"
+      ],
+      "tiers": [
+        {
+          "productId": "com.pixelme.pro.yearly",
+          "label": "연간 (기본 선택)",
+          "price": "￦33,000",
+          "period": "연",
+          "live": true
+        },
+        {
+          "productId": "com.pixelme.pro.monthly",
+          "label": "월간",
+          "price": "￦7,700",
+          "period": "월",
+          "live": true
+        },
+        {
+          "productId": "com.pixelme.pro.weekly",
+          "label": "주간",
+          "price": "￦1,100",
+          "period": "주",
+          "live": true
+        },
+        {
+          "productId": "com.pixelme.pro.lifetime",
+          "label": "평생",
+          "price": "￦99,000",
+          "period": "평생",
+          "live": true
+        }
+      ],
+      "triggers": [
+        "홈 화면 아래 Pro 배너 'Pro 잠금 해제 · 픽셀화 무제한 · 워터마크 없음 · 4K 내보내기'"
+      ],
+      "cta": "7일 무료 체험 시작",
+      "trial": "연간·월간 7일 무료 체험 표기",
+      "restore": true,
+      "notes": "유료 앱(￦6,600)인데 앱 안에서 다시 구독을 팔며, 'Save 64%' 배지는 실제 가격(주 1,100×52=57,200 대비 연 33,000 → 약 42%)과 맞지 않고 무료 체험 문구도 하드코딩이다. 하루 3회 변환 제한(FreeUsageManager)·ExportPaywallView·PreviewWallView·GIF/레이어/일괄처리 게이트는 정의만 있고 호출되지 않아 사실상 죽은 코드이며, 필터 팩 3종은 스토어 목록에 없다."
+    },
+    "rainbow-of-desire": {
+      "slug": "rainbow-of-desire",
+      "paywallFiles": [
+        "ScheduleDensityApp/Views/PaywallView.swift",
+        "ScheduleDensityApp/Services/PurchaseManager.swift",
+        "ScheduleDensityApp/Shared/ProEntitlement.swift",
+        "ScheduleDensityApp/Shared/ProMark.swift",
+        "ScheduleDensityApp/ScheduleDensityAppSpec.swift",
+        "ScheduleDensityApp/Products.storekit"
+      ],
+      "kind": "mixed",
+      "headline": "쌓여야 보이는 것을 엽니다",
+      "subheadline": "오늘을 사는 데 필요한 것은 그대로 무료입니다. 맥 '무지개 공방'과 오가는 것도 무료입니다.",
+      "benefits": [
+        "홈·잠금 화면 위젯 — 지금 할 단계와 무지개를 앱을 안 열고도 봅니다.",
+        "캘린더에서 가져오기 — 시스템 캘린더의 일정을 무지개로 들여옵니다.",
+        "일정 공유 — 내 일정을 읽기 전용으로 나눠 봅니다.",
+        "일정 통계 — 쌓인 일정을 통째로 들여다봅니다.",
+        "회수 장부 — 이번 주에 무엇을 되찾았는지 셉니다."
+      ],
+      "free": [
+        "무지개 — 일정이 겹칠수록 진해지는 격자. 개수 제한 없습니다.",
+        "할 일과 단계 쪼개기 — 두 질문으로 조각과 덩어리를 가르는 것까지 전부.",
+        "타이머 — 계획에 적힌 시간을 거꾸로 셉니다.",
+        "맥과 오가기 — 같은 Apple 계정이면 양쪽에서 보입니다.",
+        "회수 장부 최근 2주"
+      ],
+      "locked": [
+        "홈·잠금 화면 위젯 4종(잠긴 위젯으로 표시)",
+        "캘린더에서 가져오기·캘린더 연동(하루 타임라인에 캘린더 일정 비추기 포함)",
+        "일정 공유(공유 탭)",
+        "일정 통계",
+        "회수 장부 2주보다 이전 주"
+      ],
+      "tiers": [
+        {
+          "productId": "com.example.ScheduleDensityApp.pro",
+          "label": "평생",
+          "price": "￦17,000",
+          "period": "평생",
+          "live": true
+        },
+        {
+          "productId": "com.example.ScheduleDensityApp.pro.annual",
+          "label": "연간",
+          "price": null,
+          "period": "연",
+          "live": false
+        },
+        {
+          "productId": "com.example.ScheduleDensityApp.pro.monthly",
+          "label": "월간",
+          "price": null,
+          "period": "월",
+          "live": false
+        }
+      ],
+      "triggers": [
+        "설정 맨 위 '무지개 Pro'",
+        "잠긴 설정 항목(일정 통계·캘린더 연동·공유)",
+        "회수 장부에서 2주보다 이전 주로 넘길 때",
+        "잠긴 위젯을 누를 때"
+      ],
+      "cta": "결제",
+      "trial": null,
+      "restore": true,
+      "notes": "코드는 연간(추천·기본 선택)→평생→월간 3단 사다리를 세우지만 스토어엔 평생(pro) 하나만 있어 실제로는 평생 1개만 노출된다(로컬 storekit 가격 4,900원은 옛값). 맥 '무지개 공방'에서 산 Pro도 iCloud 표(ProMark)로 인정한다."
+    },
+    "rainbow-workshop": {
+      "slug": "rainbow-workshop",
+      "paywallFiles": [
+        "WeekBlocks/PaywallView.swift",
+        "WeekBlocks/MacEntitlement.swift",
+        "WeekBlocks/WeekBlocksSpec.swift",
+        "WeekBlocks/ProMark.swift",
+        "WeekBlocks.storekit"
+      ],
+      "kind": "mixed",
+      "headline": "무지개 공방 Pro",
+      "subheadline": "지난 주들이 쌓이면 보이는 것을 엽니다.",
+      "benefits": [
+        "계획 대비 실제 — 계획한 시간 중 해낸 시간, 일마다 계획보다 얼마나 더 걸리는지 봅니다.",
+        "회고 추세 8주 — 잘 되는 요일과 시간대, 번번이 미루는 일까지. 무료로는 지난 2주가 보입니다.",
+        "다른 주 계획 가져오기 — 잘 굴러간 주의 계획을 이번 주에 한 번에 깝니다.",
+        "회고 내보내기 — 한 주의 회고를 글로 복사해 노트나 보고서에 붙입니다.",
+        "내 일정 공유 — 내 주간 일정을 보기 전용 링크로 보냅니다."
+      ],
+      "free": [
+        "주간·일간 계획과 루틴, 할 일 — 개수 제한 없이 적고 배치합니다.",
+        "회고와 타이머, 다음 첫 동작 — 매일 돌아보는 데 값을 받지 않습니다.",
+        "내일 미리 정하기",
+        "아이폰과 오가기 — 같은 Apple 계정이면 양쪽에서 보입니다.",
+        "회고 추세 지난 2주"
+      ],
+      "locked": [
+        "회고 추세 3~8주 및 요일별·시간대별·계획 대비 실제 카드",
+        "다른 주 계획 가져오기",
+        "회고 내보내기(복사)",
+        "내 일정 공유(보기 전용 링크)"
+      ],
+      "tiers": [
+        {
+          "productId": "com.devkoan.ScheduleDensityApp.pro.lifetime",
+          "label": "평생",
+          "price": "￦17,000",
+          "period": "평생",
+          "live": true
+        },
+        {
+          "productId": "com.devkoan.ScheduleDensityApp.pro.yearly",
+          "label": "연간",
+          "price": null,
+          "period": "연",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.ScheduleDensityApp.pro.monthly",
+          "label": "월간",
+          "price": null,
+          "period": "월",
+          "live": false
+        }
+      ],
+      "triggers": [
+        "설정 '무지개 공방 Pro' 섹션의 'Pro 보기' 버튼",
+        "회고 추세 화면의 '지난 8주까지 넓혀 보기' 배너 'Pro 보기'",
+        "다른 주 계획 가져오기 시트의 'Pro로 가져오기'",
+        "회고 복사 버튼(비Pro 시)",
+        "공유 섹션 '내 일정 공유 시작 (Pro)'"
+      ],
+      "cta": "결제",
+      "trial": null,
+      "restore": true,
+      "notes": "출시 빌드는 MacEntitlement.sellsPro가 false라 페이월·Pro 진입점이 통째로 숨겨져, 스토어의 Pro(￦17,000) 상품을 앱 안에서 살 길이 없다(죽은 페이월; 라이브 상품은 평생으로 추정). 아이폰 '욕망의 무지개'에서 산 Pro도 iCloud 표(ProMark)로 인정한다.",
+      "hidden": true
+    },
+    "rebound-journal": {
+      "slug": "rebound-journal",
+      "paywallFiles": [
+        "ZinggumDol/Features/Pro/ProFeature.swift",
+        "ZinggumDol/App/ZinggumDolSpec.swift",
+        "Products.storekit"
+      ],
+      "kind": "one-time-unlock",
+      "headline": "징검돌 프로",
+      "subheadline": "무료로 쓰던 건 그대로, 몇 가지가 더 열려요.",
+      "benefits": [
+        "목표를 개수 제한 없이 적어 둬요",
+        "조약돌의 결을 여섯 가지 중에서 골라요",
+        "지나온 기록을 파일로 내보내요",
+        "한 번 사면 계속 써요. 구독이 아니에요"
+      ],
+      "free": [
+        "조약돌과의 대화, 기록, 지나온 길, 비밀번호 잠금, 알림 전부",
+        "목표 3개까지(대화 중 스스로 쪼갠 목표는 제한 없음)",
+        "기본 조약돌 1종"
+      ],
+      "locked": [
+        "4번째 이후 새 목표",
+        "조약돌 결 5종 추가(내 조약돌 고르기)",
+        "기록 내보내기(글 파일)"
+      ],
+      "tiers": [
+        {
+          "productId": "com.leeo.ReboundJournal.pro",
+          "label": "징검돌 프로 (평생)",
+          "price": "￦7,900",
+          "period": "평생",
+          "live": true
+        }
+      ],
+      "triggers": [
+        "새 목표를 네 번째로 적으려 할 때(세 번째에 '무료로는 목표를 세 개까지 품을 수 있어요. 이게 세 번째예요.' 미리 안내)",
+        "설정에서 잠긴 조약돌 결을 고를 때",
+        "설정에서 기록 내보내기를 누를 때",
+        "설정 '징검돌 프로' 카드의 '알아보기'"
+      ],
+      "cta": "구매하기",
+      "trial": null,
+      "restore": true,
+      "notes": "대화 중에는 페이월을 절대 띄우지 않고 '손을 뻗은 자리'에만 둔다는 원칙. 기능에서 열리면 제목·부제가 그 기능명(예: '목표를 원하는 만큼')으로 바뀐다(LeeoKit 공용 페이월)."
+    },
+    "relax-on": {
+      "slug": "relax-on",
+      "paywallFiles": [
+        "Dalbit/App/Features/Subscription/SubscriptionView.swift",
+        "Dalbit/App/Features/Subscription/SubscriptionManager.swift",
+        "Dalbit/App/Features/Player/SavedSoundsListView.swift",
+        "Dalbit/App/Bootstrap/DalbitSpec.swift"
+      ],
+      "kind": "subscription",
+      "headline": "달빛 프리미엄",
+      "subheadline": "모든 사운드와 카테고리를 잠금 해제하고\n완벽한 백색소음 경험을 만들어보세요",
+      "benefits": [
+        "커스텀 사운드 무제한",
+        "모든 사운드 카테고리"
+      ],
+      "free": [
+        "직접 만든 사운드 3개까지 ('내 사운드 N / 3')",
+        "프리셋 사운드 재생"
+      ],
+      "locked": [
+        "직접 만든 사운드 4개째부터"
+      ],
+      "tiers": [
+        {
+          "productId": "month",
+          "label": "월 구독",
+          "price": "￦1,100",
+          "period": "월",
+          "live": true
+        }
+      ],
+      "triggers": [
+        "저장한 사운드 목록 상단에 무료 사용자에게 항상 보이는 '프리미엄으로 업그레이드' 배지 탭",
+        "커스텀 사운드가 3개인 상태에서 새 사운드 만들기를 누를 때"
+      ],
+      "cta": "지금 구독하기",
+      "trial": null,
+      "restore": true,
+      "notes": "페이월에 '무료 사용 코드가 있나요?' 입력란이 있어 고정 코드 DALBIT-MOON 을 넣으면 1개월 프리미엄이 열리며(로컬 저장, 서버 검증 없음) 지표에서는 결제와 따로 집계된다. isCategoryLocked(6개 중 ASMR만 유료)는 어디서도 호출되지 않고, 비교표의 '기본 카테고리 2개'도 코드(5개 무료)와 맞지 않는다."
+    },
+    "shared-day-designer": {
+      "slug": "shared-day-designer",
+      "paywallFiles": [
+        "Goldweek/Views/PaywallView.swift",
+        "Goldweek/Services/ProManager.swift",
+        "Goldweek/Utilities/Strings.swift"
+      ],
+      "kind": "one-time-unlock",
+      "headline": "골드위크 Pro",
+      "subheadline": "모든 기능을 잠금해제하세요",
+      "benefits": [
+        "모든 연차 추천 보기",
+        "모든 연도 보기",
+        "보너스 연차 관리",
+        "iCloud 백업",
+        "시스템 캘린더 연동",
+        "최적 연간 휴가 플래너",
+        "1회 구매, 평생 사용 · 구독 없음"
+      ],
+      "free": [
+        "기본 연차 관리",
+        "올해 추천 보기, 추천 중 3개까지 일정에 추가",
+        "올해 기록"
+      ],
+      "locked": [
+        "추천 4번째부터 일정에 추가",
+        "올해 외 다른 연도 추천 보기",
+        "보너스 연차 추가·관리",
+        "시스템 캘린더 연동(내보내기·자동 동기화)",
+        "캘린더 자동 감지(휴가 일정 자동 찾기)",
+        "최적 연간 휴가 플래너"
+      ],
+      "tiers": [
+        {
+          "productId": "com.Ysoup.LeaveWise.pro",
+          "label": "골드위크 Pro (1회 구매)",
+          "price": "￦17,000",
+          "period": "평생",
+          "live": true
+        }
+      ],
+      "triggers": [
+        "홈 Pro 배너 (7일 간격, 상황별 문구)",
+        "다른 연도 자물쇠를 누를 때",
+        "4번째 추천을 일정에 넣을 때",
+        "보너스 연차·캘린더 동기화를 켤 때",
+        "설정 ▸ 플랜 ▸ 업그레이드"
+      ],
+      "cta": "구매하기",
+      "trial": null,
+      "restore": true,
+      "notes": "TestFlight(샌드박스 영수증) 빌드는 자동으로 Pro가 열린다. 페이월 비교표가 'iCloud 백업'을 Pro 전용으로 적지만 코드에서 이를 잠그는 isPro 검사는 찾지 못했다."
+    },
+    "three-meals": {
+      "slug": "three-meals",
+      "paywallFiles": [
+        "RoutineCamera/View/SettingsView.swift",
+        "RoutineCamera/Service/SubscriptionManager.swift",
+        "RoutineCamera/Service/CoinManager.swift",
+        "RoutineCamera/StoreKitManager.swift",
+        "RoutineCamera/RoutineCameraSpec.swift",
+        "RoutineCamera/View/PhotoDetailView.swift",
+        "RoutineCamera/View/CameraPickerView.swift"
+      ],
+      "kind": "mixed",
+      "headline": "분석 코인",
+      "subheadline": null,
+      "benefits": [
+        "월간 구독 — 매달 99코인 충전",
+        "1회 OpenAI 분석 = 1코인 · 월 $2 구독 시 매달 99코인 자동 충전"
+      ],
+      "free": [
+        "식단 사진 기록 등 기본 기능",
+        "무료 식단 분석 5회"
+      ],
+      "locked": [
+        "무료 5회 뒤 AI 식단 분석 (1회 1코인)"
+      ],
+      "tiers": [
+        {
+          "productId": "com.ysoup.routinecamera.monthly.99coins",
+          "label": "월간 구독 · 매달 99코인",
+          "price": "$2.00/월",
+          "period": "월",
+          "live": false
+        }
+      ],
+      "triggers": [
+        "설정 ▸ 고급 ▸ AI 음식 분석 ▸ 분석 코인"
+      ],
+      "cta": "월간 구독",
+      "trial": null,
+      "restore": true,
+      "reachable": true,
+      "notes": "설정 ▸ 고급 ▸ AI 음식 분석에 플래그 없이 '월간 구독 $2.00/월' 버튼이 늘 보이지만 상품이 없어 눌러도 아무 반응이 없고(가격은 하드코딩), OpenAI 분석은 사용자가 직접 API 키를 넣어야 동작한다. 팁 상품(placeholder ID)용 StoreKitManager는 코드 주석대로 앱 어디에서도 쓰이지 않는다."
+    },
+    "worry-parking": {
+      "slug": "worry-parking",
+      "paywallFiles": [
+        "WorryParking/Views/PaywallView.swift",
+        "WorryParking/Services/StoreManager.swift",
+        "WorryParking/App/AppConfig.swift",
+        "WorryParking/Views/ParkingLotView.swift",
+        "WorryParking/Views/ParkWorryView.swift",
+        "WorryParking/Views/ExitLogView.swift",
+        "WorryParking/Views/SettingsView.swift",
+        "Products.storekit"
+      ],
+      "kind": "subscription",
+      "headline": "걱정 주차장 Pro",
+      "subheadline": "생각이 많은 날엔, 더 넓은 주차장.",
+      "benefits": [
+        "주차 칸 무제한 — 3개 제한 없이 모든 걱정을 주차해요.",
+        "출차 시간 직접 지정 — 감당할 수 있을 때 정확히 그 시간에 꺼내요.",
+        "출차 인사이트 — 걱정한 일 중 실제로 일어난 게 얼마나 되는지 확인해요."
+      ],
+      "free": [
+        "주차 칸 3개",
+        "기본 출차 시간 프리셋"
+      ],
+      "locked": [
+        "4번째 이후 주차 칸",
+        "출차 시간 직접 지정",
+        "출차 인사이트"
+      ],
+      "tiers": [
+        {
+          "productId": "com.devkoan.worryparking.pro.monthly",
+          "label": "월 구독",
+          "price": "$3.99",
+          "period": "월",
+          "live": false
+        }
+      ],
+      "triggers": [
+        "무료 3칸이 찬 뒤 주차하려 할 때",
+        "출차 시간을 직접 정하려 할 때",
+        "출차 기록의 인사이트를 열 때"
+      ],
+      "cta": null,
+      "trial": "1주 무료 체험",
+      "restore": true,
+      "reachable": false,
+      "notes": "AppConfig.subscriptionsEnabled = false 이고 isPro 초기값이 !subscriptionsEnabled(=true)라 현재 빌드는 모든 기능이 무료로 열려 있고 페이월·설정 Pro 섹션이 보이지 않는다. 페이월은 Apple 기본 SubscriptionStoreView라 구매 버튼 문구는 시스템 기본값이다."
+    }
+  }
+}
