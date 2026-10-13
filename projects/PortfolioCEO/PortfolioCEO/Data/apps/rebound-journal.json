@@ -317,8 +317,28 @@
   },
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "징검돌 프로 (평생)",
+        "price": "￦7,900"
+      }
+    ],
+    "code": {
+      "storeKit": false,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.leeo.ReboundJournal.pro",
+          "type": "nonconsumable"
+        }
+      ]
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "supportUrl": "https://dev200ok.blogspot.com/2023/06/blog-post_82.html",
   "lifecycle": {

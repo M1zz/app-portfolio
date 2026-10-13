@@ -288,7 +288,22 @@
         "name": "monthly",
         "price": "￦1,100"
       }
-    ]
+    ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "month",
+          "type": "subscription",
+          "period": "P1M"
+        }
+      ]
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "high",
   "recentlyCompleted": [

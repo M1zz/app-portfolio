@@ -270,7 +270,16 @@
     "isFree": false,
     "priceKRW": 4400,
     "pricingModel": "paid",
-    "hasInAppPurchases": false
+    "hasInAppPurchases": false,
+    "code": {
+      "storeKit": false,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": []
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "supportUrl": "https://leeo75.notion.site/2bce264a0fdc8044b384df35d57af8d6",
   "lifecycle": {

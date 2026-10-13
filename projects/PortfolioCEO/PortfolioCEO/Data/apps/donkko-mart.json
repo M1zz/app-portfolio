@@ -288,7 +288,33 @@
         "name": "클로즈드 Pro",
         "price": "￦4,400"
       }
-    ]
+    ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.dontgomart.Coffee",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.dontgomart.tip.coffee",
+          "type": "consumable"
+        },
+        {
+          "id": "com.dontgomart.tip.cake",
+          "type": "consumable"
+        },
+        {
+          "id": "com.dontgomart.tip.meal",
+          "type": "consumable"
+        }
+      ]
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "nextTasks": [],
   "recentlyCompleted": [

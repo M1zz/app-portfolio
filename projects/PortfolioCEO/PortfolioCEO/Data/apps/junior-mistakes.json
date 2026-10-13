@@ -32,7 +32,31 @@
         "name": "1달 구독",
         "price": "￦4,400"
       }
-    ]
+    ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.leeo.JuniorDevMistakes.pro.1lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.JuniorDevMistakes.pro.1monthly",
+          "type": "subscription",
+          "period": null
+        },
+        {
+          "id": "com.leeo.JuniorDevMistakes.pro.1yearly",
+          "type": "subscription",
+          "period": null
+        }
+      ]
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "medium",
   "recentlyCompleted": [],

@@ -396,7 +396,16 @@
   "price": {
     "isFree": true,
     "pricingModel": "free",
-    "hasInAppPurchases": false
+    "hasInAppPurchases": false,
+    "code": {
+      "storeKit": false,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": []
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "supportUrl": "https://leeo75.notion.site/2abe264a0fdc8049bad6f86954bca20d",
   "lifecycle": {

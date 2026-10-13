@@ -23,7 +23,22 @@
   "price": {
     "isFree": true,
     "pricingModel": "free",
-    "hasInAppPurchases": false
+    "hasInAppPurchases": false,
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.kora.leeo.pro",
+          "type": "nonconsumable"
+        }
+      ]
+    },
+    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "medium",
   "recentlyCompleted": [

@@ -250,8 +250,38 @@
   },
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "pro",
+        "price": "￦17,000"
+      }
+    ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.example.ScheduleDensityApp.pro",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.pro.annual",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        }
+      ]
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "supportUrl": "https://m1zz.github.io/ScheduleDensity/",
   "lifecycle": {

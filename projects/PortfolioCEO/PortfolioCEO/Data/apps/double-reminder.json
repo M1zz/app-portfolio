@@ -294,9 +294,23 @@
     "iapItems": [
       {
         "name": "두번알림 pro",
-        "price": "￦11,000"
+        "price": "￦17,000"
       }
-    ]
+    ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.xa.toki.pro",
+          "type": "nonconsumable"
+        }
+      ]
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "high",
   "recentlyCompleted": [

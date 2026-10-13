@@ -18,14 +18,24 @@
   "notes": "[2026-10-13 스토어 동기화로 추가] CBT 걱정 미루기 기법을 주차장 메타포로 — 걱정을 주차해 두고 Worry Time에 출차 알림으로 돌려받는 앱 (스토어명: WorryParking, 2026-10-01 출시)",
   "price": {
     "isFree": true,
-    "pricingModel": "freemium-subscription",
-    "hasInAppPurchases": true,
-    "iapItems": [
-      {
-        "name": "Pro 월간 (README 기준)",
-        "price": "$3.99"
-      }
-    ]
+    "pricingModel": "free",
+    "hasInAppPurchases": false,
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": true,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.devkoan.worryparking.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        }
+      ]
+    },
+    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "medium",
   "recentlyCompleted": [],

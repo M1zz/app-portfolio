@@ -31,9 +31,28 @@
       },
       {
         "name": "Pro",
-        "price": "￦11,000"
+        "price": "￦17,000"
       }
-    ]
+    ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.leeo.HandsFreeMetronome.pro.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.HandsFreeMetronome.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        }
+      ]
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "high",
   "recentlyCompleted": [

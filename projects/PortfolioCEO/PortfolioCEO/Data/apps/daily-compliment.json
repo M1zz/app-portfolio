@@ -338,7 +338,16 @@
     "isFree": false,
     "priceKRW": 3300,
     "pricingModel": "paid",
-    "hasInAppPurchases": false
+    "hasInAppPurchases": false,
+    "code": {
+      "storeKit": false,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": []
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "supportUrl": "https://dev200ok.blogspot.com/2023/06/blog-post_30.html",
   "lifecycle": {

@@ -283,8 +283,58 @@
       {
         "name": "클립키보드 Pro",
         "price": "￦17,000"
+      },
+      {
+        "name": "twodevice",
+        "price": "￦11,000"
+      },
+      {
+        "name": "com.Ysoup.TokenMemo.pro.upgrade",
+        "price": "￦12,000"
+      },
+      {
+        "name": "slots 5pack",
+        "price": "￦4,400"
+      },
+      {
+        "name": "Half price",
+        "price": "￦7,700"
       }
-    ]
+    ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.Ysoup.TokenMemo.pro",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.pro.halfoff",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.slots5",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.slots5.pack",
+          "type": "consumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.twodevice",
+          "type": "nonconsumable"
+        }
+      ]
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "low",
   "recentlyCompleted": [

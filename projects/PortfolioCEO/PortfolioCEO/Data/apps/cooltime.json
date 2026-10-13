@@ -320,7 +320,17 @@
         "name": "평생구매",
         "price": "￦9,900"
       }
-    ]
+    ],
+    "code": {
+      "storeKit": false,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": []
+    },
+    "gap": "스토어에 인앱결제가 있지만 소스에서 결제 코드를 찾지 못함",
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "supportUrl": "https://leeo75.notion.site/2bde264a0fdc80cabd97c8fceaca5307",
   "lifecycle": {

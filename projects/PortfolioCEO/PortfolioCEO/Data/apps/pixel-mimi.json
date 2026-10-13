@@ -294,7 +294,16 @@
         "name": "Life time",
         "price": "￦99,000"
       }
-    ]
+    ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": []
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "medium",
   "recentlyCompleted": [

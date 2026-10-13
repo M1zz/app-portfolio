@@ -23,7 +23,16 @@
   "price": {
     "isFree": true,
     "pricingModel": "free",
-    "hasInAppPurchases": false
+    "hasInAppPurchases": false,
+    "code": {
+      "storeKit": false,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": []
+    },
+    "store": "kr",
+    "evaluatedAt": "2026-10-13"
   },
   "priority": "low",
   "recentlyCompleted": [
