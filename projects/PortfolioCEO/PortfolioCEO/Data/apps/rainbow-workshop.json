@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6777737322",
   "bundleId": "com.devkoan.ScheduleDensityApp",
   "categories": [],
-  "currentVersion": "1.1.9",
+  "currentVersion": "1.1.10",
   "folderId": "rainbow-workshop",
   "githubRepo": "",
   "localProjectPath": "",
@@ -44,29 +44,48 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 반응을 받아 반복 개선 중. 출시 후 다듬은 기간 72일",
-    "evaluatedAt": "2026-10-06",
+    "evaluatedAt": "2026-10-13",
     "ratingCount": 0,
     "daysSinceUpdate": 3,
     "manual": true,
     "refineDays": 72,
-    "polishDays": 112,
+    "polishDays": 119,
     "releasedAt": "2026-06-13",
-    "updatedAt": "2026-10-03"
+    "updatedAt": "2026-10-10"
   },
   "globalReach": {
     "level": 3,
     "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
+      "DE",
+      "EL",
       "EN",
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
+      "JA",
       "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
       "ZH"
     ],
-    "languageCount": 3,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN, KO, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-07"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-13"
   },
   "serviceMaturity": {
     "source": true,
@@ -113,6 +132,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-06"
+    "evaluatedAt": "2026-10-13"
   }
 }

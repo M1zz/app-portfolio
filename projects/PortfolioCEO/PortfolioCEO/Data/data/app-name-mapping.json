@@ -26,11 +26,21 @@
       "folder": "ecdesigner",
       "bundleId": "com.leeo.ecDesigner"
     },
+    "걱정 주차장": {
+      "nameEn": "WorryParking",
+      "folder": "worry-parking",
+      "bundleId": "com.devkoan.worryparking"
+    },
     "골드위크": {
       "nameEn": "Goldweek",
       "folder": "shared-day-designer",
       "bundleId": "com.Ysoup.LeaveWise",
       "formerName": "공유일 설계자/휴가 플래너 (Shared Day Designer)"
+    },
+    "그사이에": {
+      "nameEn": "Geusaie",
+      "folder": "geusaie",
+      "bundleId": "com.leeo.geusaie"
     },
     "꿈을 찾아서": {
       "nameEn": "Bucket Climb",
@@ -156,10 +166,20 @@
       "folder": "kid-calendar",
       "bundleId": "com.devkoan.CalendarSnap"
     },
+    "앱 디자인 실습": {
+      "nameEn": "HigGym",
+      "folder": "hig-gym",
+      "bundleId": "com.leeo.higgym"
+    },
     "억울해요": {
       "nameEn": "Family Court",
       "folder": "family-court",
       "bundleId": "com.family.familycourt"
+    },
+    "여울": {
+      "nameEn": "Yeoul",
+      "folder": "yeoul",
+      "bundleId": "com.leeo.yeoul"
     },
     "오늘의 주접": {
       "nameEn": "Daily Compliment",
@@ -205,6 +225,11 @@
       "nameEn": "SlideSnap",
       "folder": "slide-snap",
       "bundleId": "com.leeo.slidesnap"
+    },
+    "질문노트": {
+      "nameEn": "LectureQ",
+      "folder": "lecture-q",
+      "bundleId": "com.lectureq.LectureQ"
     },
     "징검돌": {
       "nameEn": "Jinggeomdol",

@@ -267,10 +267,10 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 307일 · 외부 평점 1개 · 최종 업데이트 19일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-06",
+    "basis": "출시 후 다듬은 기간 307일 · 외부 평점 1개 · 최종 업데이트 26일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-13",
     "ratingCount": 1,
-    "daysSinceUpdate": 19,
+    "daysSinceUpdate": 26,
     "polishDays": 307,
     "releasedAt": "2025-11-14",
     "updatedAt": "2026-09-17"
@@ -286,7 +286,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-07"
+    "evaluatedAt": "2026-10-13"
   },
   "serviceMaturity": {
     "source": true,
@@ -333,6 +333,6 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-06"
+    "evaluatedAt": "2026-10-13"
   }
 }

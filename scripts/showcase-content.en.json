@@ -451,6 +451,56 @@
       "solution": "Drive StickyPresenter from the iPhone in your hand. Slide control and speaker notes travel with you, so your eyes stay on the room.",
       "hook": "If you walk back to the laptop for every slide",
       "highlight": "A companion to the main app — notes in hand, stage yours"
+    },
+    "hig-gym": {
+      "tagline": "Learn the HIG by touching screens that break it, not by reading it",
+      "problem": "The Human Interface Guidelines sound right when you read them, yet you can't tell where your own screen went wrong.",
+      "stakeholders": "iOS developers building with SwiftUI, solo developers shipping without a designer, design beginners studying the HIG",
+      "persona": "Doyun (27), a junior iOS developer who built apps from tutorials but can't explain why his screens feel off",
+      "context": "When a review says 'this doesn't follow the HIG,' he has no idea which line to fix, so he nudges spacing by feel.",
+      "solution": "Use a deliberately broken screen at real size, write what you felt first, then compare the reasoning and the fixed screen side by side. 23 lessons, 68 topics, 100 mistakes and 5 labs build one decision at a time.",
+      "hook": "If you've read the HIG and still can't say why your screen feels wrong",
+      "highlight": "Touch the broken screen first, then see why — it sticks as instinct, not rules"
+    },
+    "yeoul": {
+      "tagline": "A personal timeline where gaps grow as long as the time that actually passed",
+      "problem": "Journals and photo libraries pile up by date but never show which seasons of life were dense and which were empty.",
+      "stakeholders": "People recording long arcs like a child's growth, a relationship or a career; parents who want to print family history",
+      "persona": "Haeun (36), a parent who wants the moments since her child was born on a single timeline",
+      "context": "She has thousands of photos, yet looking back she can't feel how close the first steps were to the first day of daycare.",
+      "solution": "A vertical timeline spaces three days and five days at 3 to 5 and folds long gaps like two years into a dotted line. Attach that day's photos and story, split timelines by theme, link them with hashtags and print them.",
+      "hook": "If you have plenty of photos but can't see the rhythm of the time behind you",
+      "highlight": "Spacing is time — dense seasons and quiet ones at a glance"
+    },
+    "worry-parking": {
+      "tagline": "Park your bedtime worries and pick them up at a time you choose",
+      "problem": "Worries that surface before sleep can't be solved right now, yet they keep circling and keep you awake.",
+      "stakeholders": "People who struggle to fall asleep because of worry, anyone practicing CBT worry postponement, clients continuing therapy homework",
+      "persona": "Jiho (33), an office worker whose worries about tomorrow's meeting start the moment he lies down",
+      "context": "The harder he tries not to think about it, the sharper it gets; even writing it in a note just makes him reopen it.",
+      "solution": "Issue a worry as a parking ticket and it stays hidden until your Worry Time. When the exit alert arrives, spend 15 minutes checking whether it actually happened, then let it go, plan a next step or park it again. Over time it shows how many worries never came true.",
+      "hook": "If you can't sleep because you can't stop worrying",
+      "highlight": "It doesn't tell you to stop worrying — it gives worry its own time"
+    },
+    "geusaie": {
+      "tagline": "A cooking timer that finishes the sauce while the pasta boils",
+      "problem": "Cooking is hard not because your hands are slow, but because the pasta pot and the sauce pan don't run on one line of time.",
+      "stakeholders": "Beginner cooks who miss the timing even with a recipe, people living alone who cook a quick dinner after work",
+      "persona": "Seojun (29), three years into living alone, whose pasta always ends up soggy or with the sauce running late",
+      "context": "With a single timer he only tracks the noodles and guesses what to start in between, and when.",
+      "solution": "It shows the one thing to do now in large type and counts time separately for each pot. Start the burner late and the steps after shift with it; with wet hands, just say 'next' to move on.",
+      "hook": "If your pasta is always soggy or your sauce is always late",
+      "highlight": "It plans the order, not just the time — one task at a time, front and center"
+    },
+    "lecture-q": {
+      "tagline": "A Mac notebook that turns questions from lectures into things you learned",
+      "problem": "Questions that come up mid-lecture go unwritten while you keep up, and afterward you forget what you even wondered about.",
+      "stakeholders": "Students and professionals learning from online courses and seminars, self-taught programmers, study group leaders",
+      "persona": "Yujin (30), who studies development through online courses after work but keeps every question in her head",
+      "context": "Her notes only transcribe the lecture, so the parts she didn't understand are recorded nowhere and she gets lost again when reviewing.",
+      "solution": "One shortcut drops a question beside the note for that moment, and follow-up questions branch beneath it. Five-step AI prompts help find answers; put them in your own words and they become what you learned, reviewed through a graph and summary.",
+      "hook": "If you finish a lecture and can't remember what you were curious about",
+      "highlight": "Built around questions, not notes — what you didn't know becomes what you learned"
     }
   }
 }

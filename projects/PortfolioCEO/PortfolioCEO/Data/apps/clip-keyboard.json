@@ -266,7 +266,7 @@
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "5.1.8",
+  "currentVersion": "5.1.10",
   "folderId": "clip-keyboard",
   "githubRepo": "https://github.com/Code-Ward/Token-memo",
   "localProjectPath": "../Token-memo",
@@ -364,34 +364,47 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 브랜드 축 — 반응을 받아 반복 개선 중. 외부 평점 13개 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-10-06",
-    "ratingCount": 16,
+    "evaluatedAt": "2026-10-13",
+    "ratingCount": 17,
     "daysSinceUpdate": 1,
     "manual": true,
-    "polishDays": 2126,
+    "polishDays": 2133,
     "releasedAt": "2020-12-09",
-    "updatedAt": "2026-10-05"
+    "updatedAt": "2026-10-12"
   },
   "globalReach": {
     "level": 3,
     "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
       "DE",
+      "EL",
       "EN",
       "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
       "JA",
       "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
       "RU",
+      "SV",
       "TH",
+      "TR",
       "VI",
       "ZH"
     ],
-    "languageCount": 9,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 DE, EN, ES, JA, KO, RU, TH, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-07"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-13"
   },
   "serviceMaturity": {
     "source": true,
@@ -427,7 +440,7 @@
     },
     "counts": {
       "accessibilityLabels": 336,
-      "testFiles": 113
+      "testFiles": 115
     },
     "support": {
       "registered": true,
@@ -438,6 +451,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-06"
+    "evaluatedAt": "2026-10-13"
   }
 }

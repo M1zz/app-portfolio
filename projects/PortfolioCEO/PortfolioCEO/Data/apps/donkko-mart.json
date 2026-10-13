@@ -1,7 +1,7 @@
 {
   "status": "active",
   "folderId": "donkko-mart",
-  "currentVersion": "2.0.7",
+  "currentVersion": "2.0.8",
   "stats": {
     "done": 6,
     "inProgress": 0,
@@ -363,13 +363,13 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 1179일 · 외부 평점 1개 · 최종 업데이트 26일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-06",
+    "basis": "출시 후 다듬은 기간 1206일 · 외부 평점 1개 · 최종 업데이트 6일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-13",
     "ratingCount": 1,
-    "daysSinceUpdate": 26,
-    "polishDays": 1179,
+    "daysSinceUpdate": 6,
+    "polishDays": 1206,
     "releasedAt": "2023-06-19",
-    "updatedAt": "2026-09-10"
+    "updatedAt": "2026-10-07"
   },
   "globalReach": {
     "level": 2,
@@ -383,7 +383,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-07"
+    "evaluatedAt": "2026-10-13"
   },
   "serviceMaturity": {
     "source": true,
@@ -397,7 +397,7 @@
     "ops": {
       "analytics": true,
       "crash": false,
-      "killSwitch": false,
+      "killSwitch": true,
       "leeoKit": true,
       "tests": true
     },
@@ -418,8 +418,8 @@
       "_macViaDesignedForIPad": true
     },
     "counts": {
-      "accessibilityLabels": 49,
-      "testFiles": 1
+      "accessibilityLabels": 64,
+      "testFiles": 2
     },
     "support": {
       "registered": true,
@@ -430,6 +430,6 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-06"
+    "evaluatedAt": "2026-10-13"
   }
 }

@@ -274,7 +274,7 @@
   "notes": "[2026-07-05 스토어 동기화] v2.0.7 (2026-06-20 출시). '휴가 플래너'에서 '골드위크 - 황금연휴 플래너'로 리브랜딩 (연차 관리/황금연휴 조합 특화)",
   "bundleId": "com.Ysoup.LeaveWise",
   "status": "active",
-  "currentVersion": "2.1.5",
+  "currentVersion": "2.3.0",
   "stats": {
     "done": 3,
     "inProgress": 0,
@@ -342,12 +342,12 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인, 2026-10-06) — 반응을 받아 반복 개선 중. 외부 평점 0개 · 출시 후 다듬은 기간 306일 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-10-06",
+    "evaluatedAt": "2026-10-13",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
-    "polishDays": 306,
+    "daysSinceUpdate": 1,
+    "polishDays": 314,
     "releasedAt": "2025-12-02",
-    "updatedAt": "2026-10-04",
+    "updatedAt": "2026-10-12",
     "manual": true
   },
   "globalReach": {
@@ -372,15 +372,17 @@
       "PT",
       "RU",
       "SV",
+      "TH",
       "TR",
+      "VI",
       "ZH"
     ],
-    "languageCount": 20,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TR, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-07"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-13"
   },
   "serviceMaturity": {
     "source": true,
@@ -415,7 +417,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 124,
+      "accessibilityLabels": 138,
       "testFiles": 5
     },
     "support": {
@@ -427,6 +429,6 @@
       "host": "m1zz.github.io",
       "status": 404
     },
-    "evaluatedAt": "2026-10-06"
+    "evaluatedAt": "2026-10-13"
   }
 }

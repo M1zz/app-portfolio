@@ -1,0 +1,116 @@
+{
+  "allTasks": [],
+  "appStoreId": "6813391278",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6813391278",
+  "bundleId": "com.devkoan.worryparking",
+  "categories": [
+    "라이프스타일",
+    "유틸리티"
+  ],
+  "currentVersion": "1.0",
+  "folderId": "worry-parking",
+  "githubRepo": "https://github.com/M1zz/WorryParking",
+  "localProjectPath": "",
+  "minimumOS": "17.0",
+  "name": "걱정 주차장",
+  "nameEn": "WorryParking",
+  "nextTasks": [],
+  "notes": "[2026-10-13 스토어 동기화로 추가] CBT 걱정 미루기 기법을 주차장 메타포로 — 걱정을 주차해 두고 Worry Time에 출차 알림으로 돌려받는 앱 (스토어명: WorryParking, 2026-10-01 출시)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "Pro 월간 (README 기준)",
+        "price": "$3.99"
+      }
+    ]
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": "https://m1zz.github.io/WorryParking/ko/support.html",
+  "lifecycle": {
+    "stage": 1,
+    "label": "pre-mvp",
+    "ratingCount": 0,
+    "daysSinceUpdate": 12,
+    "polishDays": 0,
+    "releasedAt": "2026-10-01",
+    "updatedAt": "2026-10-01",
+    "evaluatedAt": "2026-10-13",
+    "tier": null,
+    "manual": true,
+    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 12일 경과"
+  },
+  "globalReach": {
+    "level": 2,
+    "label": "bilingual",
+    "languages": [
+      "EN",
+      "KO"
+    ],
+    "languageCount": 2,
+    "englishPage": true,
+    "storefronts": 18,
+    "storefrontsChecked": 18,
+    "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-13"
+  },
+  "serviceMaturity": {
+    "source": true,
+    "feedback": {
+      "inAppFeedback": false,
+      "mailContact": false,
+      "instagram": false,
+      "reviewPrompt": false,
+      "writeReview": false
+    },
+    "ops": {
+      "analytics": false,
+      "crash": false,
+      "killSwitch": false,
+      "leeoKit": false,
+      "tests": false
+    },
+    "ux": {
+      "widgets": false,
+      "shortcuts": false,
+      "cloudSync": false,
+      "tips": false,
+      "accessibility": true,
+      "onboarding": true
+    },
+    "devices": {
+      "iphone": true,
+      "ipad": false,
+      "mac": false,
+      "watch": false,
+      "vision": false,
+      "_macViaDesignedForIPad": false
+    },
+    "counts": {
+      "accessibilityLabels": 21,
+      "testFiles": 0
+    },
+    "support": {
+      "registered": true,
+      "reachable": true,
+      "privacy": true,
+      "english": true,
+      "contact": true,
+      "host": "m1zz.github.io",
+      "status": 200
+    },
+    "evaluatedAt": "2026-10-13"
+  }
+}

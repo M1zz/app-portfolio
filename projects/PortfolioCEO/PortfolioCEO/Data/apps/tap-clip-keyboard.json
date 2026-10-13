@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6756433372",
   "bundleId": "com.ysoup.TokenMemo-tap",
   "categories": [],
-  "currentVersion": "5.1.6",
+  "currentVersion": "5.1.7",
   "folderId": "tap-clip-keyboard",
   "githubRepo": "",
   "localProjectPath": "",
@@ -45,28 +45,47 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 클립키보드 계열 — 반응을 받아 반복 개선 중. 외부 평점 0개 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-10-06",
+    "evaluatedAt": "2026-10-13",
     "ratingCount": 0,
-    "daysSinceUpdate": 8,
+    "daysSinceUpdate": 3,
     "manual": true,
-    "polishDays": 286,
+    "polishDays": 298,
     "releasedAt": "2025-12-16",
-    "updatedAt": "2026-09-28"
+    "updatedAt": "2026-10-10"
   },
   "globalReach": {
     "level": 3,
     "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
+      "DE",
+      "EL",
       "EN",
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
+      "JA",
       "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
       "ZH"
     ],
-    "languageCount": 3,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN, KO, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-07"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-13"
   },
   "serviceMaturity": {
     "source": true,
@@ -78,7 +97,7 @@
       "writeReview": true
     },
     "ops": {
-      "analytics": false,
+      "analytics": true,
       "crash": false,
       "killSwitch": false,
       "leeoKit": true,
@@ -113,6 +132,6 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-06"
+    "evaluatedAt": "2026-10-13"
   }
 }

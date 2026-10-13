@@ -101,6 +101,21 @@
               "gapEn": "Photo libraries only accumulate; they never show change over time"
             }
           ]
+        },
+        {
+          "slug": "worry-parking",
+          "problems": [
+            {
+              "pain": "잠들기 전 걱정이 머릿속을 맴돌아 잠들지 못함",
+              "painEn": "Bedtime worries keep circling and prevent sleep",
+              "who": "걱정이 많아 수면을 방해받는 사람",
+              "whoEn": "People whose worries disrupt their sleep",
+              "when": "자기 직전, 당장 해결할 수 없는 걱정이 떠오를 때",
+              "whenEn": "Right before bed, when an unsolvable worry surfaces",
+              "gap": "메모장은 걱정을 다시 열어 보게 만들 뿐, 다룰 시간을 정해 주지 않음",
+              "gapEn": "Notes apps invite you to reopen worries but never schedule a time to handle them"
+            }
+          ]
         }
       ]
     },
@@ -218,6 +233,21 @@
               "whenEn": "When you hit a passage worth keeping in a paper book",
               "gap": "표지 촬영으로 책을 자동 인식하고 문장만 형광펜처럼 스캔·소장하는 도구 부재",
               "gapEn": "No tool that auto-identifies the book from its cover and scans just the highlighted sentence to keep"
+            }
+          ]
+        },
+        {
+          "slug": "yeoul",
+          "problems": [
+            {
+              "pain": "기록은 쌓이는데 인생의 시간 간격과 리듬이 보이지 않음",
+              "painEn": "Records pile up but the spacing and rhythm of life stay invisible",
+              "who": "성장·연애·이직 같은 긴 흐름을 남기고 싶은 사람",
+              "whoEn": "People recording long arcs like growth, relationships or careers",
+              "when": "지난 시간을 한 장으로 돌아보거나 출력해 간직하고 싶을 때",
+              "whenEn": "When looking back on a stretch of time or printing it to keep",
+              "gap": "일기·사진첩은 날짜순 나열이라 사건 사이의 거리를 표현하지 못함",
+              "gapEn": "Journals and albums list by date and can't show the distance between events"
             }
           ]
         }
@@ -611,6 +641,21 @@
               "gapEn": "No tool to tap in notes and hear them instantly"
             }
           ]
+        },
+        {
+          "slug": "lecture-q",
+          "problems": [
+            {
+              "pain": "강의 중 생긴 질문이 기록되지 않고 사라짐",
+              "painEn": "Questions raised during lectures vanish unrecorded",
+              "who": "인강·세미나로 공부하는 대학생과 직장인",
+              "whoEn": "Students and professionals learning from online courses",
+              "when": "강의를 들으며 필기하는 중 궁금증이 떠오를 때",
+              "whenEn": "When a question pops up while taking lecture notes",
+              "gap": "필기 앱은 내용을 받아 적는 데 맞춰져 있어 질문과 답을 따로 다루지 못함",
+              "gapEn": "Note apps are built for transcription, not for tracking questions and answers"
+            }
+          ]
         }
       ]
     },
@@ -834,6 +879,21 @@
               "gapEn": "No easy standard path to surface and share a network already saved on the device"
             }
           ]
+        },
+        {
+          "slug": "geusaie",
+          "problems": [
+            {
+              "pain": "면과 소스의 타이밍이 어긋나 요리를 망침",
+              "painEn": "Pasta and sauce timing drifts apart and the dish suffers",
+              "who": "퇴근 후 혼자 한 끼를 만드는 요리 초보",
+              "whoEn": "Beginner cooks making a solo dinner after work",
+              "when": "냄비 두 개를 동시에 돌리는 파스타를 만들 때",
+              "whenEn": "When cooking pasta with two pots going at once",
+              "gap": "일반 타이머는 시간 하나만 재고, 무엇을 언제 시작할지는 알려 주지 않음",
+              "gapEn": "A regular timer tracks one duration and never says what to start when"
+            }
+          ]
         }
       ]
     },
@@ -871,6 +931,21 @@
               "whenEn": "When a mistake leads to self-blame",
               "gap": "흔한 실수를 미리 배우는 자료 부재",
               "gapEn": "No resource for learning common mistakes in advance"
+            }
+          ]
+        },
+        {
+          "slug": "hig-gym",
+          "problems": [
+            {
+              "pain": "가이드라인을 읽어도 내 화면의 어디가 어긋났는지 알아채지 못함",
+              "painEn": "Reading the guidelines doesn't reveal where your own screen goes wrong",
+              "who": "디자이너 없이 앱을 만드는 iOS 개발자",
+              "whoEn": "iOS developers building apps without a designer",
+              "when": "화면을 만들거나 리뷰에서 HIG 지적을 받았을 때",
+              "whenEn": "While building a screen or after a review flags the HIG",
+              "gap": "문서는 규칙을 설명할 뿐, 어긴 화면을 직접 겪어 볼 기회를 주지 않음",
+              "gapEn": "Docs explain rules but never let you experience a screen that breaks them"
             }
           ]
         }

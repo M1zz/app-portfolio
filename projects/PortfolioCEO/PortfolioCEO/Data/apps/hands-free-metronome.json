@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6781537149",
   "bundleId": "com.leeo.HandsFreeMetronome",
   "categories": [],
-  "currentVersion": "1.0.5",
+  "currentVersion": "1.0.6",
   "folderId": "hands-free-metronome",
   "githubRepo": "",
   "localProjectPath": "",
@@ -50,18 +50,17 @@
   "status": "active",
   "supportUrl": "https://m1zz.github.io/HandsFreeMetronome/",
   "lifecycle": {
-    "stage": 1,
-    "label": "pre-mvp",
-    "tier": null,
-    "basis": "출시 후 다듬은 기간 24일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.5 · 최종 업데이트 86일 경과",
-    "evaluatedAt": "2026-10-06",
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "출시 후 다듬은 기간 116일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-13",
     "ratingCount": 0,
-    "daysSinceUpdate": 86,
-    "manual": true,
+    "daysSinceUpdate": 1,
     "refineDays": 24,
-    "polishDays": 24,
+    "polishDays": 116,
     "releasedAt": "2026-06-18",
-    "updatedAt": "2026-07-12"
+    "updatedAt": "2026-10-12"
   },
   "globalReach": {
     "level": 1,
@@ -74,7 +73,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-07"
+    "evaluatedAt": "2026-10-13"
   },
   "serviceMaturity": {
     "source": true,
@@ -109,7 +108,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 47,
+      "accessibilityLabels": 48,
       "testFiles": 0
     },
     "support": {
@@ -121,6 +120,6 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-06"
+    "evaluatedAt": "2026-10-13"
   }
 }

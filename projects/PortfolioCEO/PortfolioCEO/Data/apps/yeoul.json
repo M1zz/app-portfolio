@@ -1,0 +1,109 @@
+{
+  "allTasks": [],
+  "appStoreId": "6808471728",
+  "appStoreUrl": "https://apps.apple.com/kr/app/id6808471728",
+  "bundleId": "com.leeo.yeoul",
+  "categories": [
+    "라이프스타일",
+    "그래픽 및 디자인"
+  ],
+  "currentVersion": "1.0",
+  "folderId": "yeoul",
+  "githubRepo": "https://github.com/M1zz/Gyeol",
+  "localProjectPath": "",
+  "minimumOS": "17.0",
+  "name": "여울",
+  "nameEn": "Yeoul",
+  "nextTasks": [],
+  "notes": "[2026-10-13 스토어 동기화로 추가] 사건 사이 간격이 실제로 흐른 시간만큼 벌어지는 세로 인생 타임라인 — 사진·해시태그로 엮고 출력 (스토어명: 여울, 2026-09-13 출시)",
+  "price": {
+    "isFree": true,
+    "pricingModel": "free",
+    "hasInAppPurchases": false
+  },
+  "priority": "medium",
+  "recentlyCompleted": [],
+  "sharedModules": [],
+  "stats": {
+    "done": 0,
+    "inProgress": 0,
+    "todo": 0,
+    "notStarted": 0,
+    "totalTasks": 0
+  },
+  "status": "active",
+  "supportUrl": "https://m1zz.github.io/Gyeol/support.html",
+  "lifecycle": {
+    "stage": 1,
+    "label": "pre-mvp",
+    "ratingCount": 0,
+    "daysSinceUpdate": 30,
+    "polishDays": 0,
+    "releasedAt": "2026-09-13",
+    "updatedAt": "2026-09-13",
+    "evaluatedAt": "2026-10-13",
+    "tier": null,
+    "manual": true,
+    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 30일 경과"
+  },
+  "globalReach": {
+    "level": 0,
+    "label": "korea-first",
+    "languages": [
+      "KO"
+    ],
+    "languageCount": 1,
+    "englishPage": false,
+    "storefronts": 18,
+    "storefrontsChecked": 18,
+    "basis": "앱 언어 KO · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-13"
+  },
+  "serviceMaturity": {
+    "source": true,
+    "feedback": {
+      "inAppFeedback": false,
+      "mailContact": false,
+      "instagram": false,
+      "reviewPrompt": false,
+      "writeReview": false
+    },
+    "ops": {
+      "analytics": false,
+      "crash": false,
+      "killSwitch": false,
+      "leeoKit": true,
+      "tests": false
+    },
+    "ux": {
+      "widgets": false,
+      "shortcuts": false,
+      "cloudSync": true,
+      "tips": false,
+      "accessibility": true,
+      "onboarding": false
+    },
+    "devices": {
+      "iphone": true,
+      "ipad": true,
+      "mac": true,
+      "watch": false,
+      "vision": false,
+      "_macViaDesignedForIPad": false
+    },
+    "counts": {
+      "accessibilityLabels": 6,
+      "testFiles": 0
+    },
+    "support": {
+      "registered": true,
+      "reachable": true,
+      "privacy": true,
+      "english": false,
+      "contact": true,
+      "host": "m1zz.github.io",
+      "status": 200
+    },
+    "evaluatedAt": "2026-10-13"
+  }
+}
