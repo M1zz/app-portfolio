@@ -10,7 +10,7 @@
   docs/maturity.html          공개 서비스 숙성도 — 국가별 언어·지원 페이지·피드백·운영·경험·기기 탭
   docs/business.html          공개 비즈니스 모델 — 결제 시점 × 방식 · 페이월 · 앱별 Lean Canvas
   reports/portfolio-hub.html  내부 허브 — 위 + 아티팩트·로컬 파일 링크 (비배포)
-  docs/reddit-launch.html     공개 레딧 출격 — 영어권 유입을 받아도 되는 앱 판정 (메뉴에는 없음)
+  docs/reddit-launch.html     공개 레딧 출격 — 영어권 유입을 받아도 되는 앱 판정 (상단 메뉴·페이지 모음에 연결)
 
 ⚠️ docs/ 는 통째로 공개된다. 공개 페이지에는 다음을 넣지 않는다:
   · 아티팩트 URL (기본 비공개지만 링크를 알면 열리므로 사실상 전체 공개가 된다)
@@ -172,6 +172,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
                         ("life", "lifecycle.html", "제품 여정"),
                         ("maturity", "maturity.html", "서비스 숙성도"),
                         ("biz", "business.html", "비즈니스 모델"),
+                        ("reddit", "reddit-launch.html", "레딧 출격"),
                         ("hub", "hub.html", "페이지 모음")]
     )
     return (
@@ -1307,6 +1308,9 @@ def hub_page(apps):
         '<a class="ov" href="business.html"><b>비즈니스 모델</b>'
         '<p>앱마다 누구에게, 언제, 무엇에 돈을 받는지 — 결제 시점 × 방식 프레임워크와 페이월, '
         'Lean Canvas로 정리했습니다.</p></a>'
+        '<a class="ov" href="reddit-launch.html"><b>레딧 출격</b>'
+        '<p>영어권(레딧)에서 사람을 데려와도 새지 않는 앱을 판정합니다. 미국 App Store 기준으로 '
+        '영어로 읽히는지, 무료로 받아 결제까지 갈 수 있는지 봅니다.</p></a>'
         '</div></section>'
         '<section><h2>앱별 지원 페이지<span class="hc">%d</span></h2>'
         '<p class="lead">App Store에 등록된 문의·안내 페이지입니다. 만든 시기에 따라 '
@@ -1700,7 +1704,7 @@ def internal_hub(apps, links):
 # ── 내부: 레딧 출격 ───────────────────────────────────────────────
 # 영어권 커뮤니티로 사람을 데려와도 되는 앱인가. 데려온 사람이 보는 것은 미국 스토어라
 # sync-us-store.py 가 남긴 usStore 와 sync-global-reach.py 의 globalReach 로 판정한다.
-# 사용자 요청으로 docs/ 에 배포한다(2026-10-15). 메뉴에는 걸지 않고 주소로만 연다.
+# 사용자 요청으로 docs/ 에 배포한다(2026-10-15). 찾아갈 수 있게 상단 메뉴와 페이지 모음에 건다.
 REDDIT_GATES = [
     ("us", "미국 판매", "미국 스토어에 올리기"),
     ("store", "영어 소개", "미국 스토어 소개를 영어로"),
@@ -1844,7 +1848,7 @@ def reddit_page(apps):
            if block_html else "",
            max(((a.get("usStore") or {}).get("evaluatedAt") or "") for a, _, _ in rows) if rows else "-",
            ("<br>스토어에서 내려가 표에서 뺀 앱: " + " · ".join(esc(a["name"]) for a in gone)) if gone else ""))
-    return page("레딧 출격", "레딧에 올릴 앱 판정", {"head": head, "main": main}, "",
+    return page("레딧 출격", "레딧에 올릴 앱 판정", {"head": head, "main": main}, "reddit",
                 LIFE_CSS + REDDIT_CSS, GF_JS)
 
 
