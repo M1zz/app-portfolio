@@ -1,3 +1,16 @@
+# TODO — 레딧 출격 판정 (2026-10-15)
+
+## 목표
+영어권(레딧) 유입을 받아도 새지 않는 앱을 한눈에 — 영어 페이지 · 부분 유료 여부
+
+## 작업
+- [x] `scripts/sync-us-store.py` 작성 · 실행 → 앱 JSON `usStore`(미국 판매 · 가격 · 인앱 목록 · 평가) 기록 (`price` 는 sync-pricing.py 몫이라 건드리지 않음)
+- [x] `build-portfolio-hub.py` 에 `docs/reddit-launch.html` 추가 (메뉴에는 없음, 주소로만), 내부 허브에 링크
+- [ ] FeedbackHub Viewer 사용자 수 · 결제 수 반영 (캐시가 앱 보호 폴더라 스크립트가 못 읽음 — 내보내기 필요)
+- [x] 커밋 & push → GitHub Pages 배포
+
+---
+
 # TODO — 글로벌 지원 축 재조회 (2026-10-07)
 
 ## 목표

@@ -10,6 +10,7 @@
   docs/maturity.html          공개 서비스 숙성도 — 국가별 언어·지원 페이지·피드백·운영·경험·기기 탭
   docs/business.html          공개 비즈니스 모델 — 결제 시점 × 방식 · 페이월 · 앱별 Lean Canvas
   reports/portfolio-hub.html  내부 허브 — 위 + 아티팩트·로컬 파일 링크 (비배포)
+  docs/reddit-launch.html     공개 레딧 출격 — 영어권 유입을 받아도 되는 앱 판정 (메뉴에는 없음)
 
 ⚠️ docs/ 는 통째로 공개된다. 공개 페이지에는 다음을 넣지 않는다:
   · 아티팩트 URL (기본 비공개지만 링크를 알면 열리므로 사실상 전체 공개가 된다)
@@ -1677,6 +1678,10 @@ def internal_hub(apps, links):
         '<a class="ov" href="%(site)shub.html"><b>페이지 모음</b><p>공개 허브(안전 버전). '
         '재생성: <code>build-portfolio-hub.py</code></p></a>'
         '</div></section>'
+        '<section><h2>내부 판정</h2><div class="ovgrid">'
+        '<a class="ov" href="%(site)sreddit-launch.html"><b>레딧 출격</b><p>영어권 유입을 받아도 되는 앱. '
+        '재수집: <code>sync-us-store.py</code> → 재생성: <code>build-portfolio-hub.py</code></p></a>'
+        '</div></section>'
         '<section><h2>앱별 지원 페이지<span class="hc">%(ns)d</span></h2>'
         '<p class="lead">호스트 %(nh)d곳에 분산 — 일괄 수정이 어려우니 이 목록이 지도 역할.</p>%(sup)s</section>'
         '<section><h2>디자인 · QA 아티팩트<span class="hc">%(na)d</span></h2>'
@@ -1692,6 +1697,182 @@ def internal_hub(apps, links):
                 "", HUB_CSS)
 
 
+# ── 내부: 레딧 출격 ───────────────────────────────────────────────
+# 영어권 커뮤니티로 사람을 데려와도 되는 앱인가. 데려온 사람이 보는 것은 미국 스토어라
+# sync-us-store.py 가 남긴 usStore 와 sync-global-reach.py 의 globalReach 로 판정한다.
+# 사용자 요청으로 docs/ 에 배포한다(2026-10-15). 메뉴에는 걸지 않고 주소로만 연다.
+REDDIT_GATES = [
+    ("us", "미국 판매", "미국 스토어에 올리기"),
+    ("store", "영어 소개", "미국 스토어 소개를 영어로"),
+    ("app", "앱 영어", "앱에 영어 넣기"),
+    ("free", "무료 다운로드", "무료 다운로드 + 인앱 구입으로 바꾸기"),
+    ("iap", "인앱 구입", "인앱 구입(Pro) 붙이기"),
+    ("iapen", "인앱 이름 영어", "인앱 구입 표시 이름을 영어로"),
+]
+REDDIT_VERDICT = [
+    (0, "지금 올리기", "다섯 관문을 다 넘었습니다. 데려온 사람이 영어로 읽고, 무료로 받고, 결제까지 갑니다.", "#34c48a"),
+    (1, "하나만 고치면", "한 가지만 고치면 올릴 수 있습니다. 고칠 것이 표 오른쪽에 있습니다.", "#e0a53a"),
+    (2, "준비 더 필요", "두 가지 이상 빠졌습니다. 지금 사람을 데려오면 새어 나갑니다.", "#8b90a0"),
+]
+
+
+def reddit_gates(app):
+    """관문별 통과 여부. True 통과 · False 막힘 · None 판정 불가(앞 관문에서 막힘)."""
+    us = app.get("usStore") or {}
+    g = app.get("globalReach") or {}
+    if not us.get("available"):
+        return {"us": False, "store": None, "app": None, "free": None, "iap": None, "iapen": None}
+    has_iap = bool(us.get("iap"))
+    return {
+        "us": True,
+        "store": bool(g.get("englishPage")),
+        "app": "EN" in app_langs(app),
+        "free": us.get("price", 0) == 0,
+        "iap": has_iap,
+        "iapen": us.get("iapEnglish") if has_iap else None,
+    }
+
+
+def reddit_page(apps):
+    rows, gone = [], []
+    for a in live(apps):
+        if not a.get("usStore"):
+            continue
+        if not a.get("globalReach") and not a["usStore"].get("available"):
+            gone.append(a)  # 어느 스토어에서도 안 보인다 — 내려간 앱
+            continue
+        gates = reddit_gates(a)
+        miss = [k for k, v in gates.items() if v is False]
+        if gates["us"] is False:
+            miss = ["us"]
+        if gates["free"] is False and "iap" in miss:
+            miss.remove("iap")  # 유료 앱을 무료+인앱으로 바꾸는 것은 한 가지 일이다
+        rows.append((a, gates, miss))
+    stage = lambda a: (a.get("lifecycle") or {}).get("stage") or 0
+    rows.sort(key=lambda r: (min(len(r[2]), 2), -stage(r[0]),
+                             -((r[0].get("usStore") or {}).get("ratingCount") or 0),
+                             len(r[2]), r[0]["name"]))
+    tier = lambda r: min(len(r[2]), 2)
+    counts = {t: sum(1 for r in rows if tier(r) == t) for t, *_ in REDDIT_VERDICT}
+
+    def mark(v):
+        if v is None:
+            return '<td class="na">–</td>'
+        return '<td class="%s">%s</td>' % ("ok" if v else "no", "✓" if v else "✕")
+
+    def price_txt(a):
+        us = a.get("usStore") or {}
+        if not us.get("available"):
+            return ""
+        p = us.get("price", 0)
+        base = "무료" if p == 0 else "$%.2f" % p
+        iap = us.get("iap") or []
+        if iap:
+            base += " · 인앱 %d개" % len(iap)
+        return base
+
+    def iap_tip(a):
+        iap = (a.get("usStore") or {}).get("iap") or []
+        return "\n".join("%s  %s" % (i["name"], i["price"]) for i in iap)
+
+    body, cur = "", None
+    for r in rows:
+        a, gates, miss = r
+        t = tier(r)
+        if t != cur:
+            cur = t
+            _, name, why, color = REDDIT_VERDICT[t]
+            body += ('<tr class="grp" style="--c:%s"><th colspan="%d"><i></i>%s<b>%d</b>'
+                     '<em>%s</em></th></tr>' % (color, len(REDDIT_GATES) + 4, esc(name), counts[t], esc(why)))
+        fix = "".join('<span class="todo">%s</span>' % esc(dict((k, f) for k, _, f in REDDIT_GATES)[k])
+                      for k in miss) or '<span class="go">올리기</span>'
+        us = a.get("usStore") or {}
+        tip = iap_tip(a)
+        body += (
+            '<tr><th><a href="%s" target="_blank" rel="noopener">%s<span>%s<em>%s</em></span></a></th>'
+            '%s<td class="pr"%s>%s</td><td class="rc">%s</td><td class="sg">%s</td><td class="fx">%s</td></tr>'
+            % (esc(a.get("appStoreUrl") or ""), icon_img(a), esc(a["name"]), esc(a.get("nameEn") or ""),
+               "".join(mark(gates[k]) for k, _, _ in REDDIT_GATES),
+               ' data-tip="%s"' % esc("인앱 구입 (미국 스토어)\n" + tip) if tip else "",
+               esc(price_txt(a)),
+               esc(us.get("ratingCount") or "–"),
+               esc(STAGE_SHORT.get(stage(a), "")), fix))
+
+    # 한 칸만 고치면 되는 앱이 어느 관문에 걸렸는지 — 가장 싼 일부터 보이게
+    blockers = {}
+    for a, gates, miss in rows:
+        if len(miss) == 1:
+            blockers.setdefault(miss[0], []).append(a)
+    block_html = "".join(
+        '<div class="bk"><b>%s</b><span>%s</span></div>'
+        % (esc(dict((k, f) for k, _, f in REDDIT_GATES)[k]),
+           " · ".join(esc(a["name"]) for a in blockers[k]))
+        for k, _, _ in REDDIT_GATES if k in blockers)
+
+    cards = "".join(
+        '<div class="vc" style="--c:%s"><b>%d</b><span>%s</span></div>' % (c, counts[t], esc(n))
+        for t, n, _, c in REDDIT_VERDICT)
+    head = ('<div class="eyebrow">Reddit Launch</div><h1>레딧 출격</h1>'
+            '<p>영어권에서 사람을 데려와도 새지 않는 앱이 무엇인지. 데려온 사람이 보는 미국 '
+            'App Store 기준으로, 영어로 읽히는지와 무료로 받아 결제까지 갈 수 있는지(부분 유료)를 봅니다.</p>'
+            '<div class="vcs">%s</div>' % cards)
+    main = (
+        '<section><h2>앱별 판정<span class="hc">%d</span></h2>'
+        '<p class="lead">초록 줄부터 올리세요. 같은 판정 안에서는 제품 여정 단계가 높고 미국 평가가 '
+        '많은 앱이 위입니다. 가격 칸에 마우스를 올리면 인앱 구입 목록이 나옵니다.</p>'
+        '<div class="lgw"><table class="lg rd"><thead><tr><th>앱</th>%s'
+        '<th>미국 가격</th><th>미국 평가</th><th>단계</th><th class="fx">할 일</th></tr></thead>'
+        '<tbody>%s</tbody></table></div></section>'
+        '%s'
+        '<section><h2>판정 기준</h2><p class="lead">'
+        '<b>미국 판매</b> 미국 스토어 페이지가 열린다 · <b>영어 소개</b> 미국 스토어 소개에 한글이 없다 · '
+        '<b>앱 영어</b> 앱 번들에 영어가 있다(EN 하나뿐이면 스토어 소개가 영어일 때만) · '
+        '<b>무료 다운로드</b> 미국 가격 $0 · <b>인앱 구입</b> 스토어에 인앱 구입이 있다 · '
+        '<b>인앱 이름 영어</b> 미국 사용자가 결제 화면에서 보는 인앱 이름에 한글이 없다.<br>'
+        '출처: <code>sync-us-store.py</code>(미국 스토어 %s) · <code>sync-global-reach.py</code>. '
+        '사용자 수·결제 수는 아직 넣지 못했습니다 — FeedbackHub Viewer 캐시는 앱 보호 폴더에 있어 '
+        '스크립트가 읽지 못합니다.%s</p></section>'
+        % (len(rows), "".join("<th>%s</th>" % esc(n) for _, n, _ in REDDIT_GATES), body,
+           ('<section><h2>한 가지만 고치면 되는 앱</h2><p class="lead">고칠 것별로 묶었습니다. '
+            '같은 일을 한 번에 몰아서 하면 빠릅니다.</p><div class="bks">%s</div></section>' % block_html)
+           if block_html else "",
+           max(((a.get("usStore") or {}).get("evaluatedAt") or "") for a, _, _ in rows) if rows else "-",
+           ("<br>스토어에서 내려가 표에서 뺀 앱: " + " · ".join(esc(a["name"]) for a in gone)) if gone else ""))
+    return page("레딧 출격", "레딧에 올릴 앱 판정", {"head": head, "main": main}, "",
+                LIFE_CSS + REDDIT_CSS, GF_JS)
+
+
+REDDIT_CSS = """
+  .vcs{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .vc{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--c);
+    border-radius:14px;padding:12px 18px;min-width:130px}
+  .vc b{display:block;font-size:1.8rem;line-height:1.1;color:var(--c)}
+  .vc span{font-size:.85rem;font-weight:700}
+  .lg.rd{font-size:.86rem}
+  .lg.rd thead th{font-size:.76rem}
+  .lg.rd tbody th a span{display:flex;flex-direction:column;line-height:1.25}
+  .lg.rd tbody th em{font-style:normal;font-size:.72rem;color:var(--muted);font-weight:600}
+  .lg.rd td.ok{color:var(--ok);font-weight:800}
+  .lg.rd td.no{color:#e5534b;font-weight:800;background:rgba(229,83,75,.08)}
+  .lg.rd td.na{color:var(--muted);opacity:.5}
+  .lg.rd td.pr,.lg.rd td.rc,.lg.rd td.sg{color:var(--muted)}
+  .lg.rd td.pr[data-tip]{text-decoration:underline dotted;cursor:help;color:var(--text)}
+  .lg.rd th.fx,.lg.rd td.fx{text-align:left;white-space:normal;min-width:200px}
+  .lg.rd .todo{font-size:.78rem}
+  .lg.rd .go{display:inline-block;padding:1px 9px;border-radius:999px;font-weight:800;font-size:.78rem;
+    background:rgba(52,196,138,.15);color:var(--ok)}
+  .rd tr.grp th{position:static;background:var(--bg-soft);text-align:left;padding:10px 12px;
+    font-size:.86rem;font-weight:800;white-space:normal}
+  .rd tr.grp i{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:7px}
+  .rd tr.grp b{margin:0 8px 0 6px;color:var(--c)}
+  .rd tr.grp em{font-style:normal;font-weight:600;color:var(--muted);font-size:.8rem}
+  .bks{display:grid;gap:8px}
+  .bk{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:11px 14px}
+  .bk b{display:block;font-size:.9rem;margin-bottom:2px}
+  .bk span{font-size:.86rem;color:var(--muted)}
+"""
+
+
 def main():
     links = json.load(open(os.path.join(ROOT, "scripts/hub-links.json"), encoding="utf-8"))
     apps = load_apps()
@@ -1702,6 +1883,7 @@ def main():
         (os.path.join(DOCS, "business.html"), business_page(apps), "공개"),
         (os.path.join(DOCS, "hub.html"), hub_page(apps), "공개"),
         (os.path.join(REPORTS, "portfolio-hub.html"), internal_hub(apps, links), "내부"),
+        (os.path.join(DOCS, "reddit-launch.html"), reddit_page(apps), "공개"),
     ]
     for path, content, kind in outs:
         with open(path, "w", encoding="utf-8") as fh:

@@ -142,5 +142,12 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 9.99,
+    "iap": [],
+    "iapEnglish": true,
+    "evaluatedAt": "2026-10-15"
   }
 }

@@ -457,5 +457,29 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 0.0,
+    "iap": [
+      {
+        "name": "buy me a meal",
+        "price": "$7.99"
+      },
+      {
+        "name": "buy me a cake",
+        "price": "$3.99"
+      },
+      {
+        "name": "buy me a coffee",
+        "price": "$0.99"
+      },
+      {
+        "name": "Klosed pro",
+        "price": "$2.99"
+      }
+    ],
+    "iapEnglish": true,
+    "evaluatedAt": "2026-10-15"
   }
 }

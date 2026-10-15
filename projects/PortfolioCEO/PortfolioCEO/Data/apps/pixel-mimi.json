@@ -442,5 +442,29 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 3.99,
+    "iap": [
+      {
+        "name": "pixelmeme pro weekly",
+        "price": "$0.99"
+      },
+      {
+        "name": "yearly",
+        "price": "$19.99"
+      },
+      {
+        "name": "monthly",
+        "price": "$4.99"
+      },
+      {
+        "name": "Life time",
+        "price": "$59.99"
+      }
+    ],
+    "iapEnglish": true,
+    "evaluatedAt": "2026-10-15"
   }
 }

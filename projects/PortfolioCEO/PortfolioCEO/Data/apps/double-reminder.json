@@ -473,5 +473,19 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 0.0,
+    "rating": 4.4,
+    "ratingCount": 5,
+    "iap": [
+      {
+        "name": "두번알림 pro",
+        "price": "$9.99"
+      }
+    ],
+    "iapEnglish": false,
+    "evaluatedAt": "2026-10-15"
   }
 }

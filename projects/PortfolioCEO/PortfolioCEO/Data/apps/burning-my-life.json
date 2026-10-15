@@ -126,5 +126,17 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 0.0,
+    "iap": [
+      {
+        "name": "Pro",
+        "price": "$9.99"
+      }
+    ],
+    "iapEnglish": true,
+    "evaluatedAt": "2026-10-15"
   }
 }

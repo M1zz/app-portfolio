@@ -439,5 +439,19 @@
       "status": 404
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 0.0,
+    "rating": 5.0,
+    "ratingCount": 1,
+    "iap": [
+      {
+        "name": "휴가플래너 pro",
+        "price": "$9.99"
+      }
+    ],
+    "iapEnglish": false,
+    "evaluatedAt": "2026-10-15"
   }
 }

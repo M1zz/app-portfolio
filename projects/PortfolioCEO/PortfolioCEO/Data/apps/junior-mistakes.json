@@ -143,5 +143,25 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 0.0,
+    "iap": [
+      {
+        "name": "평생 구매",
+        "price": "$19.99"
+      },
+      {
+        "name": "1년 구독",
+        "price": "$14.99"
+      },
+      {
+        "name": "1달 구독",
+        "price": "$2.99"
+      }
+    ],
+    "iapEnglish": false,
+    "evaluatedAt": "2026-10-15"
   }
 }

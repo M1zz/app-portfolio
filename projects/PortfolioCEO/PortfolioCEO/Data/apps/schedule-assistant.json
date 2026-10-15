@@ -385,5 +385,9 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": false,
+    "evaluatedAt": "2026-10-15"
   }
 }

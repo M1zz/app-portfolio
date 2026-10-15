@@ -377,5 +377,25 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 0.0,
+    "iap": [
+      {
+        "name": "pro",
+        "price": "$9.99"
+      },
+      {
+        "name": "Rainbow pro annual",
+        "price": "$3.99"
+      },
+      {
+        "name": "Rainbow pro monthly",
+        "price": "$0.99"
+      }
+    ],
+    "iapEnglish": true,
+    "evaluatedAt": "2026-10-15"
   }
 }

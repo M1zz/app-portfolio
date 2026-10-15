@@ -502,5 +502,43 @@
       "status": 200
     },
     "evaluatedAt": "2026-10-13"
+  },
+  "usStore": {
+    "available": true,
+    "price": 0.0,
+    "rating": 4.8,
+    "ratingCount": 11,
+    "iap": [
+      {
+        "name": "클립키보드 Pro",
+        "price": "$9.99"
+      },
+      {
+        "name": "Clipkeyboard pro yearly",
+        "price": "$4.99"
+      },
+      {
+        "name": "twodevice",
+        "price": "$6.99"
+      },
+      {
+        "name": "com.Ysoup.TokenMemo.pro.upgrade",
+        "price": "$7.99"
+      },
+      {
+        "name": "slots 5pack",
+        "price": "$2.99"
+      },
+      {
+        "name": "Add Slot 5",
+        "price": "$5.99"
+      },
+      {
+        "name": "Half price",
+        "price": "$4.99"
+      }
+    ],
+    "iapEnglish": false,
+    "evaluatedAt": "2026-10-15"
   }
 }
