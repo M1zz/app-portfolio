@@ -8,6 +8,7 @@ on:
       - 'scripts/build-portfolio-site.py'
       - 'scripts/build-portfolio-hub.py'
       - 'scripts/hub-links.json'
+      - 'scripts/paywalls.json'
       - '.github/workflows/deploy-pages.yml'
       - 'docs/shop.html'
   workflow_dispatch:  # 수동 실행

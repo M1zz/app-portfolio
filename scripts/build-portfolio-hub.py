@@ -9,6 +9,7 @@
   docs/lifecycle.html         공개 수명주기 — 제품 여정 5단계 (GitHub Pages 배포)
   docs/maturity.html          공개 서비스 숙성도 — 국가별 언어·지원 페이지·피드백·운영·경험·기기 탭
   docs/business.html          공개 비즈니스 모델 — 결제 시점 × 방식 · 페이월 · 앱별 Lean Canvas
+  docs/paywalls.html          공개 페이월 모음 — 앱별 가격 사다리 비교표 · 페이월 카드
   reports/portfolio-hub.html  내부 허브 — 위 + 아티팩트·로컬 파일 링크 (비배포)
   docs/reddit-launch.html     공개 레딧 출격 — 영어권 유입을 받아도 되는 앱 판정 (상단 메뉴·페이지 모음에 연결)
 
@@ -172,6 +173,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
                         ("life", "lifecycle.html", "제품 여정"),
                         ("maturity", "maturity.html", "서비스 숙성도"),
                         ("biz", "business.html", "비즈니스 모델"),
+                        ("pw", "paywalls.html", "페이월"),
                         ("reddit", "reddit-launch.html", "레딧 출격"),
                         ("hub", "hub.html", "페이지 모음")]
     )
@@ -1311,6 +1313,8 @@ def hub_page(apps):
         '<a class="ov" href="reddit-launch.html"><b>레딧 출격</b>'
         '<p>영어권(레딧)에서 사람을 데려와도 새지 않는 앱을 판정합니다. 미국 App Store 기준으로 '
         '영어로 읽히는지, 무료로 받아 결제까지 갈 수 있는지 봅니다.</p></a>'
+        '<a class="ov" href="paywalls.html"><b>페이월 모음</b>'
+        '<p>앱 안에서 결제를 권하는 화면과 가격 사다리를 한자리에 모아 앱끼리 가격을 비교합니다.</p></a>'
         '</div></section>'
         '<section><h2>앱별 지원 페이지<span class="hc">%d</span></h2>'
         '<p class="lead">App Store에 등록된 문의·안내 페이지입니다. 만든 시기에 따라 '
@@ -1640,6 +1644,130 @@ def business_page(apps):
                 {"head": head, "main": main}, "biz", BIZ_CSS)
 
 
+# ── 공개: 페이월 모음 ─────────────────────────────────────────────
+# 비즈니스 모델 페이지의 페이월 카드만 모으고, 앱끼리 가격을 견줄 수 있게 기간별 비교표를 붙인다.
+# 공개 페이지라 내부 판정(가격이 맞나·고칠 곳)은 넣지 않는다 — 사실(가격·기간·무료 몫)만.
+PERIODS = [("주", "주간"), ("월", "월간"), ("연", "연간"), ("평생", "평생"), ("1회", "1회")]
+PW_CSS = BIZ_CSS + """
+  .pt{border-collapse:collapse;width:100%;font-size:.8rem;background:var(--card)}
+  .pt th,.pt td{border-bottom:1px solid var(--border);padding:9px 10px;text-align:right;white-space:nowrap;
+    font-variant-numeric:tabular-nums}
+  .pt thead th{font-size:.7rem;color:var(--muted);font-weight:800}
+  .pt th:first-child,.pt td.k{text-align:left}
+  .pt tbody th{text-align:left}
+  .pt tbody th a{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:600}
+  .pt tbody th a:hover{color:var(--accent)}
+  .pt tbody th .ic{width:24px;height:24px;border-radius:6px}
+  .pt tbody tr:last-child>*{border-bottom:0}
+  .pt td.k{color:var(--muted);font-size:.74rem}
+  .pt td.r{color:var(--muted);font-size:.74rem;text-align:left;white-space:normal;min-width:150px}
+  .pt td small{display:block;font-size:.66rem;color:var(--muted);font-weight:600}
+  .pt td.off{color:var(--muted)}
+  .pt td.off b{font-weight:500;text-decoration:line-through dashed}
+  .pt .na{color:var(--border)}
+  .pt tr.grp th{background:var(--bg-soft);font-size:.72rem;color:var(--muted);font-weight:800;text-align:left;padding:6px 10px}
+"""
+
+
+def krw(price):
+    """'￦17,000' · '₩1,100' → 17000. 달러 등 다른 통화는 None."""
+    if not price or not re.search(r"[￦₩]", price):
+        return None
+    d = re.sub(r"[^\d]", "", price)
+    return int(d) if d else None
+
+
+def ladder_row(app, pw):
+    by = {}
+    for t in pw.get("tiers") or []:
+        by.setdefault(t.get("period"), []).append(t)
+    cells = ""
+    for key, _ in PERIODS:
+        ts = by.get(key) or []
+        if not ts:
+            cells += '<td><span class="na">—</span></td>'
+            continue
+        t = ts[0]
+        extra = " 외 %d" % (len(ts) - 1) if len(ts) > 1 else ""
+        if t.get("live"):
+            cells += "<td><b>%s</b><small>%s%s</small></td>" % (esc(t.get("price")), esc(t.get("label") or ""), extra)
+        else:
+            cells += ('<td class="off"><b>%s</b><small>스토어 준비 중</small></td>'
+                      % esc(t.get("price") or "—"))
+    # 기간끼리의 비율 — 팔리는 상품끼리만 견준다
+    live_p = {t.get("period"): krw(t.get("price")) for t in (pw.get("tiers") or []) if t.get("live")}
+    rel = []
+    if live_p.get("평생") and live_p.get("연"):
+        rel.append("평생 = 연간 %.1f년치" % (live_p["평생"] / live_p["연"]))
+    if live_p.get("연") and live_p.get("월"):
+        rel.append("연간 = 월간 %.1f개월치" % (live_p["연"] / live_p["월"]))
+    if live_p.get("월") and live_p.get("주"):
+        rel.append("월간 = 주간 %.1f주치" % (live_p["월"] / live_p["주"]))
+    p = app.get("price") or {}
+    ap = "￦{:,}".format(p["priceKRW"]) if p.get("priceKRW") else "무료"
+    return ('<tr><th><a href="#pw-%s">%s<span>%s</span></a></th><td class="k">%s</td><td>%s</td>%s<td class="r">%s</td></tr>'
+            % (esc(app["_slug"]), icon_img(app), esc(app["name"]),
+               esc(KIND_KR.get(pw.get("kind"), "")), ap, cells, esc(" · ".join(rel)) or "—"))
+
+
+def paywalls_page(apps):
+    ls = [a for a in live(apps) if (a.get("price") or {}).get("evaluatedAt")]
+    pws = load_paywalls()
+
+    def has_paywall(a):
+        pw = pws.get(a["_slug"]) or {}
+        return pw.get("kind") not in (None, "none") and (pw.get("headline") or pw.get("benefits") or pw.get("locked"))
+
+    def selling(a):
+        return (a.get("price") or {}).get("hasInAppPurchases") and not pws[a["_slug"]].get("hidden")
+
+    kind_order = {"one-time-unlock": 0, "mixed": 1, "subscription": 2, "tip-jar": 3}
+    key = lambda a: (kind_order.get(pws[a["_slug"]].get("kind"), 9), a["name"])
+    live_pw = sorted([a for a in ls if has_paywall(a) and selling(a)], key=key)
+    prep_pw = sorted([a for a in ls if has_paywall(a) and not selling(a)], key=key)
+
+    lifetimes = sorted(krw(t.get("price")) for a in live_pw for t in pws[a["_slug"]].get("tiers") or []
+                       if t.get("live") and t.get("period") == "평생" and krw(t.get("price")))
+    subs = sum(1 for a in live_pw if any(t.get("live") and t.get("period") in ("주", "월", "연")
+                                          for t in pws[a["_slug"]].get("tiers") or []))
+    mid = lifetimes[len(lifetimes) // 2] if lifetimes else 0
+
+    head = ('<div class="eyebrow">Paywalls</div><h1>페이월 모음</h1>'
+            '<p>앱 %d개가 앱 안에서 결제를 권하는 화면을 한자리에 모았습니다. 가격은 App Store 실데이터, '
+            '문구와 무료 몫은 앱 소스에서 읽었습니다.</p>' % (len(live_pw) + len(prep_pw)))
+    kp = '<div class="kp">%s</div>' % "".join(
+        '<div><b>%s</b><span>%s</span></div>' % (v, esc(k)) for k, v in [
+            ("판매 중인 페이월", len(live_pw)), ("준비 중인 페이월", len(prep_pw)),
+            ("구독 상품이 있는 앱", subs),
+            ("평생 이용권 가격 중앙값", "￦{:,}".format(mid) if mid else "—"),
+            ("평생 이용권 가격 폭", "￦{:,} ~ ￦{:,}".format(lifetimes[0], lifetimes[-1]) if lifetimes else "—")])
+
+    thead = "<tr><th>앱</th><th>방식</th><th>앱 가격</th>%s<th>기간끼리 견주면</th></tr>" % "".join(
+        "<th>%s</th>" % esc(t) for _, t in PERIODS)
+    body = "".join(ladder_row(a, pws[a["_slug"]]) for a in live_pw)
+    if prep_pw:
+        body += '<tr class="grp"><th colspan="%d">준비 중 — 결제 화면은 있지만 아직 판매를 열지 않음</th></tr>' % (len(PERIODS) + 4)
+        body += "".join(ladder_row(a, pws[a["_slug"]]) for a in prep_pw)
+    table = '<div class="tw"><table class="pt"><thead>%s</thead><tbody>%s</tbody></table></div>' % (thead, body)
+
+    main = (
+        '<section>%s</section>'
+        '<section><h2>가격 비교표</h2><p class="lead">기간별로 무엇을 얼마에 파는지 나란히 놓았습니다. '
+        '한 기간에 상품이 여럿이면 대표 하나와 나머지 개수를 적었습니다. 오른쪽 칸은 같은 앱 안에서 '
+        '긴 기간 상품이 짧은 기간의 몇 배인지 보여 줍니다.</p>%s'
+        '<p class="note">달러로 적힌 가격은 앱 코드에 적힌 값이라 스토어 실가격과 다를 수 있습니다.</p></section>'
+        '<section><h2>판매 중인 페이월<span class="hc">%d</span></h2><p class="lead">문구와 혜택, 무료로 주는 몫, '
+        '화면이 뜨는 시점을 앱 소스에서 그대로 옮겼습니다.</p><div class="pws">%s</div></section>'
+        '%s'
+        % (kp, table, len(live_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in live_pw),
+           ('<section><h2>준비 중인 페이월<span class="hc">%d</span></h2><p class="lead">결제 화면은 만들어 두었지만 '
+            '아직 판매를 열지 않은 앱입니다.</p><div class="pws">%s</div></section>'
+            % (len(prep_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw))) if prep_pw else ""))
+    return page("페이월 모음 — 리이오의 앱 포트폴리오",
+                "앱 %d개의 페이월과 가격 사다리를 모아 앱끼리 가격을 비교합니다." % (len(live_pw) + len(prep_pw)),
+                {"head": head, "main": main}, "pw", PW_CSS)
+
+
 # ── 내부: 전체 허브 ───────────────────────────────────────────────
 def internal_hub(apps, links):
     sup, n_sup, n_host = support_blocks(apps, public=False)
@@ -1891,6 +2019,7 @@ def main():
         (os.path.join(DOCS, "lifecycle.html"), lifecycle_page(apps), "공개"),
         (os.path.join(DOCS, "maturity.html"), maturity_page(apps), "공개"),
         (os.path.join(DOCS, "business.html"), business_page(apps), "공개"),
+        (os.path.join(DOCS, "paywalls.html"), paywalls_page(apps), "공개"),
         (os.path.join(DOCS, "hub.html"), hub_page(apps), "공개"),
         (os.path.join(REPORTS, "portfolio-hub.html"), internal_hub(apps, links), "내부"),
         (os.path.join(DOCS, "reddit-launch.html"), reddit_page(apps), "공개"),
