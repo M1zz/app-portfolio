@@ -1713,7 +1713,13 @@ REDDIT_VERDICT = [
     (0, "지금 올리기", "다섯 관문을 다 넘었습니다. 데려온 사람이 영어로 읽고, 무료로 받고, 결제까지 갑니다.", "#34c48a"),
     (1, "하나만 고치면", "한 가지만 고치면 올릴 수 있습니다. 고칠 것이 표 오른쪽에 있습니다.", "#e0a53a"),
     (2, "준비 더 필요", "두 가지 이상 빠졌습니다. 지금 사람을 데려오면 새어 나갑니다.", "#8b90a0"),
+    (3, "이미 올림", "레딧에 올린 앱입니다. 빨간 칸이 남아 있으면 들어온 사람이 새는 자리입니다.", "#a78bfa"),
 ]
+
+
+def reddit_posted(app):
+    """레딧에 이미 올렸는가 — 앱 JSON marketing.reddit.posted (수동 기록)."""
+    return bool(((app.get("marketing") or {}).get("reddit") or {}).get("posted"))
 
 
 def reddit_gates(app):
@@ -1749,10 +1755,10 @@ def reddit_page(apps):
             miss.remove("iap")  # 유료 앱을 무료+인앱으로 바꾸는 것은 한 가지 일이다
         rows.append((a, gates, miss))
     stage = lambda a: (a.get("lifecycle") or {}).get("stage") or 0
-    rows.sort(key=lambda r: (min(len(r[2]), 2), -stage(r[0]),
+    tier = lambda r: 3 if reddit_posted(r[0]) else min(len(r[2]), 2)
+    rows.sort(key=lambda r: (tier(r), -stage(r[0]),
                              -((r[0].get("usStore") or {}).get("ratingCount") or 0),
                              len(r[2]), r[0]["name"]))
-    tier = lambda r: min(len(r[2]), 2)
     counts = {t: sum(1 for r in rows if tier(r) == t) for t, *_ in REDDIT_VERDICT}
 
     def mark(v):
@@ -1785,7 +1791,7 @@ def reddit_page(apps):
             body += ('<tr class="grp" style="--c:%s"><th colspan="%d"><i></i>%s<b>%d</b>'
                      '<em>%s</em></th></tr>' % (color, len(REDDIT_GATES) + 4, esc(name), counts[t], esc(why)))
         fix = "".join('<span class="todo">%s</span>' % esc(dict((k, f) for k, _, f in REDDIT_GATES)[k])
-                      for k in miss) or '<span class="go">올리기</span>'
+                      for k in miss) or ('<span class="go">올림 ✓</span>' if t == 3 else '<span class="go">올리기</span>')
         us = a.get("usStore") or {}
         tip = iap_tip(a)
         body += (
@@ -1801,7 +1807,7 @@ def reddit_page(apps):
     # 한 칸만 고치면 되는 앱이 어느 관문에 걸렸는지 — 가장 싼 일부터 보이게
     blockers = {}
     for a, gates, miss in rows:
-        if len(miss) == 1:
+        if len(miss) == 1 and not reddit_posted(a):
             blockers.setdefault(miss[0], []).append(a)
     block_html = "".join(
         '<div class="bk"><b>%s</b><span>%s</span></div>'

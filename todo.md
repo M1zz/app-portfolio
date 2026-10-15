@@ -8,6 +8,8 @@
 - [x] `build-portfolio-hub.py` 에 `docs/reddit-launch.html` 추가 (메뉴에는 없음, 주소로만), 내부 허브에 링크
 - [ ] FeedbackHub Viewer 사용자 수 · 결제 수 반영 (캐시가 앱 보호 폴더라 스크립트가 못 읽음 — 내보내기 필요)
 - [x] 커밋 & push → GitHub Pages 배포
+- [x] 이미 올린 6개(클립키보드 · 욕망의 무지개 · 무지개 공방 · 두번알림 · 골드위크 · 낫마템포) `marketing.reddit.posted` 기록, 페이지에 '이미 올림' 묶음
+- [ ] 올린 날짜 · 서브레딧 기록 (유입 전후 비교용)
 
 ---
 

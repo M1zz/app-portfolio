@@ -156,5 +156,12 @@
     ],
     "iapEnglish": true,
     "evaluatedAt": "2026-10-15"
+  },
+  "marketing": {
+    "reddit": {
+      "posted": true,
+      "recordedAt": "2026-10-15",
+      "note": "사용자 확인 — 게시일·서브레딧 미기록"
+    }
   }
 }
