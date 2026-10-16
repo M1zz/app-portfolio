@@ -95,7 +95,7 @@
     "ux": {
       "widgets": true,
       "shortcuts": false,
-      "cloudSync": true,
+      "cloudSync": false,
       "tips": true,
       "accessibility": false,
       "onboarding": false
@@ -109,7 +109,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 2,
+      "accessibilityLabels": 4,
       "testFiles": 0
     },
     "support": {

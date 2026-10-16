@@ -73,26 +73,26 @@
   "serviceMaturity": {
     "source": true,
     "feedback": {
-      "inAppFeedback": false,
-      "mailContact": false,
-      "instagram": false,
-      "reviewPrompt": false,
-      "writeReview": false
+      "inAppFeedback": true,
+      "mailContact": true,
+      "instagram": true,
+      "reviewPrompt": true,
+      "writeReview": true
     },
     "ops": {
-      "analytics": false,
-      "crash": false,
-      "killSwitch": false,
-      "leeoKit": false,
-      "tests": false
+      "analytics": true,
+      "crash": true,
+      "killSwitch": true,
+      "leeoKit": true,
+      "tests": true
     },
     "ux": {
       "widgets": false,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": false,
-      "tips": false,
-      "accessibility": false,
-      "onboarding": false
+      "tips": true,
+      "accessibility": true,
+      "onboarding": true
     },
     "devices": {
       "iphone": false,
@@ -103,8 +103,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 4,
-      "testFiles": 0
+      "accessibilityLabels": 13,
+      "testFiles": 1
     },
     "support": {
       "registered": true,

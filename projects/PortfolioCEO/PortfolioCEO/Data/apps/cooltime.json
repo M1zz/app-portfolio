@@ -378,7 +378,7 @@
     "ux": {
       "widgets": true,
       "shortcuts": false,
-      "cloudSync": true,
+      "cloudSync": false,
       "tips": false,
       "accessibility": true,
       "onboarding": true

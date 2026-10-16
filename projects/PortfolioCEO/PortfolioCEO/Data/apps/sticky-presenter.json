@@ -47,7 +47,7 @@
     "totalTasks": 1
   },
   "status": "active",
-  "supportUrl": "https://developeracademy-postech.github.io/StickyPresenter/support.html",
+  "supportUrl": "https://m1zz.github.io/StickyPresenter/support.html",
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
@@ -87,17 +87,17 @@
     "ops": {
       "analytics": true,
       "crash": true,
-      "killSwitch": false,
+      "killSwitch": true,
       "leeoKit": true,
       "tests": true
     },
     "ux": {
       "widgets": true,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": false,
-      "tips": false,
+      "tips": true,
       "accessibility": true,
-      "onboarding": false
+      "onboarding": true
     },
     "devices": {
       "iphone": false,
@@ -108,17 +108,17 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 17,
+      "accessibilityLabels": 20,
       "testFiles": 2
     },
     "support": {
       "registered": true,
-      "reachable": false,
-      "privacy": false,
-      "english": false,
-      "contact": false,
-      "host": "developeracademy-postech.github.io",
-      "status": 404
+      "reachable": true,
+      "privacy": true,
+      "english": true,
+      "contact": true,
+      "host": "m1zz.github.io",
+      "status": 200
     },
     "evaluatedAt": "2026-10-17"
   },

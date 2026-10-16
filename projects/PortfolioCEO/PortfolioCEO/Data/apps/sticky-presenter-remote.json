@@ -41,7 +41,7 @@
     "totalTasks": 0
   },
   "status": "active",
-  "supportUrl": "https://developeracademy-postech.github.io/StickyPresenter/remote.html",
+  "supportUrl": "https://m1zz.github.io/StickyPresenter/remote.html",
   "lifecycle": {
     "stage": 1,
     "label": "pre-mvp",
@@ -72,47 +72,47 @@
   "serviceMaturity": {
     "source": true,
     "feedback": {
-      "inAppFeedback": false,
-      "mailContact": false,
-      "instagram": false,
-      "reviewPrompt": false,
-      "writeReview": false
+      "inAppFeedback": true,
+      "mailContact": true,
+      "instagram": true,
+      "reviewPrompt": true,
+      "writeReview": true
     },
     "ops": {
-      "analytics": false,
-      "crash": false,
-      "killSwitch": false,
-      "leeoKit": false,
-      "tests": false
+      "analytics": true,
+      "crash": true,
+      "killSwitch": true,
+      "leeoKit": true,
+      "tests": true
     },
     "ux": {
       "widgets": false,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": false,
-      "tips": false,
-      "accessibility": false,
-      "onboarding": false
+      "tips": true,
+      "accessibility": true,
+      "onboarding": true
     },
     "devices": {
       "iphone": true,
-      "ipad": false,
+      "ipad": true,
       "mac": false,
       "watch": false,
       "vision": false,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 2,
-      "testFiles": 0
+      "accessibilityLabels": 12,
+      "testFiles": 2
     },
     "support": {
       "registered": true,
-      "reachable": false,
-      "privacy": false,
-      "english": false,
+      "reachable": true,
+      "privacy": true,
+      "english": true,
       "contact": false,
-      "host": "developeracademy-postech.github.io",
-      "status": 404
+      "host": "m1zz.github.io",
+      "status": 200
     },
     "evaluatedAt": "2026-10-17"
   },

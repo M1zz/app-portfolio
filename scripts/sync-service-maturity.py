@@ -39,7 +39,7 @@ SKIP_DIRS = {"build", ".build", "DerivedData", "checkouts", "SourcePackages", "P
 SRC = {
     "feedback": {
         "inAppFeedback": r"LeeoFeedbackView|LeeoSupportSection|struct FeedbackView\b",
-        "mailContact": r"mailto:|MFMailComposeViewController|LeeoMailComposer",
+        "mailContact": r"mailto:|scheme\s*=\s*\"mailto\"|MFMailComposeViewController|LeeoMailComposer",
         "instagram": r"instagram\.com/",
         "reviewPrompt": r"requestReview|SKStoreReviewController|leeoSatisfactionCheck|"
                         r"leeoReviewGate|LeeoReviewRequest",
@@ -55,7 +55,8 @@ SRC = {
     "ux": {
         "widgets": r"WidgetConfiguration|:\s*Widget\b|WidgetBundle",
         "shortcuts": r"AppShortcutsProvider|:\s*AppIntent\b|AppIntent\s*\{",
-        "cloudSync": r"privateCloudDatabase|NSPersistentCloudKitContainer|cloudKitDatabase|"
+        "cloudSync": r"privateCloudDatabase|NSPersistentCloudKitContainer|"
+                     r"cloudKitDatabase:\s*\.(?:private|automatic)|"
                      r"NSUbiquitousKeyValueStore|CKSyncEngine",
         "tips": r"import TipKit",
         "accessibility": r"\.accessibilityLabel|\.accessibilityHint|\.accessibilityValue|"

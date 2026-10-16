@@ -78,25 +78,25 @@
     "source": true,
     "feedback": {
       "inAppFeedback": true,
-      "mailContact": false,
-      "instagram": false,
+      "mailContact": true,
+      "instagram": true,
       "reviewPrompt": true,
       "writeReview": true
     },
     "ops": {
-      "analytics": false,
-      "crash": false,
-      "killSwitch": false,
+      "analytics": true,
+      "crash": true,
+      "killSwitch": true,
       "leeoKit": true,
-      "tests": false
+      "tests": true
     },
     "ux": {
       "widgets": false,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": false,
-      "tips": false,
-      "accessibility": false,
-      "onboarding": false
+      "tips": true,
+      "accessibility": true,
+      "onboarding": true
     },
     "devices": {
       "iphone": false,
@@ -107,8 +107,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 0,
-      "testFiles": 0
+      "accessibilityLabels": 32,
+      "testFiles": 2
     },
     "support": {
       "registered": true,
