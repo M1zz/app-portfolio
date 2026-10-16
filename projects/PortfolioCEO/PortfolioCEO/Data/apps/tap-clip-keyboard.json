@@ -129,7 +129,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 13,
+      "accessibilityLabels": 17,
       "testFiles": 0
     },
     "support": {
@@ -141,7 +141,7 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "usStore": {
     "available": true,

@@ -88,7 +88,7 @@
       "widgets": true,
       "shortcuts": false,
       "cloudSync": true,
-      "tips": false,
+      "tips": true,
       "accessibility": true,
       "onboarding": true
     },
@@ -101,7 +101,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 38,
+      "accessibilityLabels": 44,
       "testFiles": 0
     },
     "support": {
@@ -113,7 +113,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "usStore": {
     "available": true,

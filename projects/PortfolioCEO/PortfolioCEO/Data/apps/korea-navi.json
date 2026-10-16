@@ -112,7 +112,7 @@
     },
     "ops": {
       "analytics": true,
-      "crash": false,
+      "crash": true,
       "killSwitch": false,
       "leeoKit": true,
       "tests": false
@@ -134,7 +134,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 15,
+      "accessibilityLabels": 20,
       "testFiles": 0
     },
     "support": {
@@ -146,7 +146,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "usStore": {
     "available": true,

@@ -85,7 +85,7 @@
       "writeReview": true
     },
     "ops": {
-      "analytics": false,
+      "analytics": true,
       "crash": true,
       "killSwitch": false,
       "leeoKit": true,
@@ -120,7 +120,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "usStore": {
     "available": true,

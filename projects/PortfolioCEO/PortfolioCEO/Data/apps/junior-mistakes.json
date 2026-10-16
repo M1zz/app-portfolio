@@ -123,8 +123,8 @@
     },
     "devices": {
       "iphone": true,
-      "ipad": false,
-      "mac": false,
+      "ipad": true,
+      "mac": true,
       "watch": false,
       "vision": false,
       "_macViaDesignedForIPad": false
@@ -142,7 +142,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "usStore": {
     "available": true,
