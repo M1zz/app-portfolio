@@ -401,8 +401,10 @@
   "marketing": {
     "reddit": {
       "posted": true,
-      "recordedAt": "2026-10-15",
-      "note": "사용자 확인 — 게시일·서브레딧 미기록"
+      "recordedAt": "2026-10-16",
+      "note": "사용자 확인 — 게시 링크 기록",
+      "subreddit": "r/AppHookup",
+      "url": "https://www.reddit.com/r/AppHookup/comments/1wp9ayu/macosios_rainbow_craft_rainbow_of_desirepro_free/"
     }
   }
 }

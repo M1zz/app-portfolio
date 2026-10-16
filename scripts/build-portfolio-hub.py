@@ -1854,6 +1854,11 @@ def reddit_posted(app):
     return bool(((app.get("marketing") or {}).get("reddit") or {}).get("posted"))
 
 
+def reddit_url(app):
+    """올린 레딧 글 주소 — 앱 JSON marketing.reddit.url (수동 기록)."""
+    return ((app.get("marketing") or {}).get("reddit") or {}).get("url")
+
+
 def reddit_gates(app):
     """관문별 통과 여부. True 통과 · False 막힘 · None 판정 불가(앞 관문에서 막힘)."""
     us = app.get("usStore") or {}
@@ -1924,6 +1929,9 @@ def reddit_page(apps):
                      '<em>%s</em></th></tr>' % (color, len(REDDIT_GATES) + 4, esc(name), counts[t], esc(why)))
         fix = "".join('<span class="todo">%s</span>' % esc(dict((k, f) for k, _, f in REDDIT_GATES)[k])
                       for k in miss) or ('<span class="go">올림 ✓</span>' if t == 3 else '<span class="go">올리기</span>')
+        post = reddit_url(a)
+        if post:
+            fix += '<a class="post" href="%s" target="_blank" rel="noopener">레딧 글 ↗</a>' % esc(post)
         us = a.get("usStore") or {}
         tip = iap_tip(a)
         body += (
@@ -1997,6 +2005,9 @@ REDDIT_CSS = """
   .lg.rd td.pr[data-tip]{text-decoration:underline dotted;cursor:help;color:var(--text)}
   .lg.rd th.fx,.lg.rd td.fx{text-align:left;white-space:normal;min-width:200px}
   .lg.rd .todo{font-size:.78rem}
+  .lg.rd .post{display:inline-block;margin-left:6px;padding:1px 9px;border-radius:999px;font-weight:700;
+    font-size:.78rem;color:#ff4500;border:1px solid #ff450066;text-decoration:none}
+  .lg.rd .post:hover{background:#ff45001a}
   .lg.rd .go{display:inline-block;padding:1px 9px;border-radius:999px;font-weight:800;font-size:.78rem;
     background:rgba(52,196,138,.15);color:var(--ok)}
   .rd tr.grp th{position:static;background:var(--bg-soft);text-align:left;padding:10px 12px;
