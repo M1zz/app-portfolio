@@ -1187,10 +1187,22 @@
     },
     "a11y": {
       "voiceOver": null,
-      "structure": null,
+      "voiceControl": null,
       "dynamicType": null,
+      "darkMode": null,
+      "differentiate": null,
+      "contrast": null,
       "reduceMotion": null,
-      "contrast": null
+      "captions": null,
+      "structure": null,
+      "actions": null,
+      "announcements": null,
+      "largeLayout": null,
+      "reduceTransparency": null,
+      "boldText": null,
+      "invertColors": null,
+      "keyboard": null,
+      "a11yAudit": null
     },
     "money": {
       "paywall": null,

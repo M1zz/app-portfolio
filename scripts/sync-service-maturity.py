@@ -68,17 +68,32 @@ SRC = {
         "onboarding": r"(?:struct|class) \w*Onboarding\w*|hasSeenOnboarding|hasCompletedOnboarding",
         "backup": r"\.fileExporter\(|exportBackup|UIDocumentPickerViewController\(forExporting",
     },
+    # 접근성 — App Store 접근성 정보 9개 항목(VoiceOver · 음성 제어 · 큰 텍스트 · 다크 인터페이스 · 색상 없이 구별 ·
+    # 충분한 대비 · 동작 줄이기 · 자막 · 오디오 설명)에, 접근성이 좋은 앱이 더 갖추는 것을 덧붙였다.
     "a11y": {
         "voiceOver": r"\.accessibilityLabel|\.accessibilityHint|\.accessibilityValue|"
                      r"accessibilityElement",
-        "structure": r"accessibilityElement\(children|accessibilityAddTraits|accessibilitySortPriority|"
-                     r"\.accessibilityAction|accessibilityRotor|accessibilityHeading|accessibilityRepresentation",
+        "voiceControl": r"accessibilityInputLabels|accessibilityUserInputLabels",
         "dynamicType": r"@ScaledMetric|\.dynamicTypeSize|UIFontMetrics|relativeTo:|"
-                       r"adjustsFontForContentSizeCategory|isAccessibilitySize|isAccessibilityCategory",
+                       r"adjustsFontForContentSizeCategory|preferredFont\(forTextStyle",
+        "darkMode": r"@Environment\(\\\.colorScheme\)|colorScheme\s*==|userInterfaceStyle\s*==|"
+                    r"preferredColorScheme\(\s*\.dark|\.preferredColorScheme\(\s*[a-z]",
+        "differentiate": r"accessibilityDifferentiateWithoutColor|shouldDifferentiateWithoutColor",
+        "contrast": r"colorSchemeContrast|isDarkerSystemColorsEnabled|accessibilityContrast",
         "reduceMotion": r"accessibilityReduceMotion|isReduceMotionEnabled",
-        "contrast": r"accessibilityDifferentiateWithoutColor|colorSchemeContrast|"
-                    r"accessibilityReduceTransparency|shouldDifferentiateWithoutColor|"
-                    r"isDarkerSystemColorsEnabled|accessibilityInvertColors",
+        "captions": r"AVMediaCharacteristic\.(?:legible|describesVideoForAccessibility)|\.legible\b|"
+                    r"closedCaption|AVPlayerViewController|describesVideoForAccessibility",
+        "structure": r"accessibilityElement\(children|accessibilityAddTraits|accessibilitySortPriority|"
+                     r"accessibilityHeading|accessibilityHidden\(true\)|accessibilityRepresentation",
+        "actions": r"\.accessibilityAction|accessibilityAdjustableAction|accessibilityRotor|"
+                   r"accessibilityCustomActions|accessibilityScrollAction",
+        "announcements": r"AccessibilityNotification|UIAccessibility\.post\(|\.announcement\b",
+        "largeLayout": r"isAccessibilitySize|isAccessibilityCategory|ViewThatFits|"
+                       r"accessibilityShowsLargeContentViewer|>=\s*\.accessibility\d",
+        "reduceTransparency": r"accessibilityReduceTransparency|isReduceTransparencyEnabled",
+        "boldText": r"legibilityWeight|isBoldTextEnabled",
+        "invertColors": r"accessibilityIgnoresInvertColors|accessibilityInvertColors",
+        "keyboard": r"\.focusable\(|focusSection|keyboardShortcut\(|UIKeyCommand",
     },
     # 수익화 — 클립키보드에서 다듬은 장치들(2026-09~10)을 다른 앱에도 같은 잣대로 본다
     "money": {
@@ -121,6 +136,10 @@ REPO_FILES = {
     "ci": re.compile(r"^\.github/workflows/|(^|/)ci_scripts/"),
 }
 UI_TEST = re.compile(r"XCUIApplication")
+A11Y_AUDIT = re.compile(r"performAccessibilityAudit")
+VIDEO = re.compile(r"VideoPlayer\(|\bAVPlayer\b|AVPlayerLayer|AVPlayerViewController")
+FORCED_LIGHT = re.compile(r"\.preferredColorScheme\(\s*\.light\s*\)")
+PLIST_LIGHT = re.compile(r"UIUserInterfaceStyle\s*=\s*\"?Light|<key>UIUserInterfaceStyle</key>\s*<string>Light")
 ACCESSIBILITY_MIN = 5  # VoiceOver 설명이 이 수 이상이면 '갖췄다'로 본다 (한두 개는 우연)
 BOOTSTRAP = re.compile(r"LeeoKit\.bootstrap\(([^)]*)\)")
 
@@ -158,6 +177,8 @@ def swift_files(root, exclude_roots):
 def scan_source(root, exclude_roots):
     found = {k: {i: False for i in items} for k, items in SRC.items()}
     found["more"].update({"uiTests": False, **{k: False for k in REPO_FILES}})
+    found["a11y"].update({"a11yAudit": False, "_video": False})
+    forced_light = False
     pats = {(k, i): re.compile(p, re.M) for k, items in SRC.items() for i, p in items.items()}
     a11y = 0
     tests = 0
@@ -173,7 +194,13 @@ def scan_source(root, exclude_roots):
                 tests += 1
             if UI_TEST.search(text):
                 found["more"]["uiTests"] = True
+            if A11Y_AUDIT.search(text):
+                found["a11y"]["a11yAudit"] = True
             continue
+        if VIDEO.search(text):
+            found["a11y"]["_video"] = True
+        if FORCED_LIGHT.search(text):
+            forced_light = True
         for (k, i), p in pats.items():
             if i == "voiceOver":
                 a11y += len(p.findall(text))
@@ -185,6 +212,7 @@ def scan_source(root, exclude_roots):
             if "flags:" in args:
                 found["ops"]["killSwitch"] = True
     found["a11y"]["voiceOver"] = a11y >= ACCESSIBILITY_MIN
+    scan_appearance(root, exclude_roots, found["a11y"], forced_light)
     found["ops"]["crash"] = found["ops"]["crash"] or crash_by_bootstrap
     found["ops"]["tests"] = tests > 0
     top = os.popen("git -C '%s' rev-parse --show-toplevel 2>/dev/null" % root).read().strip() or root
@@ -199,6 +227,33 @@ def scan_source(root, exclude_roots):
         f == "PrivacyInfo.xcprivacy" for dp, ds, fs in os.walk(root)
         if not any(x in dp.split(os.sep) for x in SKIP_DIRS) for f in fs)
     return found, {"accessibilityLabels": a11y, "testFiles": tests}
+
+
+def scan_appearance(root, exclude_roots, a11y, forced_light):
+    """에셋 카탈로그의 어두운·고대비 모양과 Info.plist 의 밝은 모드 고정을 읽어 다크 모드·대비를 판정한다."""
+    dark_asset = high_asset = False
+    for dirpath, dirs, files in os.walk(root):
+        dirs[:] = [d for d in dirs if d not in SKIP_DIRS and not d.startswith(".")
+                   and os.path.join(dirpath, d) not in exclude_roots]
+        for f in files:
+            path = os.path.join(dirpath, f)
+            if f == "Contents.json" and ".xcassets" in dirpath:
+                try:
+                    t = open(path, errors="ignore").read()
+                except OSError:
+                    continue
+                dark_asset = dark_asset or re.search(r'"value"\s*:\s*"dark"', t) is not None
+                high_asset = high_asset or re.search(r'"value"\s*:\s*"high"', t) is not None
+            elif f.endswith((".plist", ".pbxproj")):
+                try:
+                    if PLIST_LIGHT.search(open(path, errors="ignore").read()):
+                        forced_light = True
+                except OSError:
+                    pass
+    # 밝은 모드로 고정하면 어두운 색을 준비해 둬도 쓰는 사람은 볼 수 없다
+    a11y["darkMode"] = (a11y["darkMode"] or dark_asset) and not forced_light
+    a11y["contrast"] = a11y["contrast"] or high_asset
+    a11y["_forcedLight"] = forced_light
 
 
 def scan_devices(pbx_texts, bundle_id):
@@ -307,6 +362,7 @@ def main():
                 m[k] = {i: None for i in items}
             m["ops"]["tests"] = None
             m["ops"]["privacyManifest"] = None
+            m["a11y"]["a11yAudit"] = None
             m["devices"] = None
         if args.offline and prev.get("support"):
             m["support"] = prev["support"]

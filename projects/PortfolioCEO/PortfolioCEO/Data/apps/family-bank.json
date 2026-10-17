@@ -1027,10 +1027,24 @@
     },
     "a11y": {
       "voiceOver": false,
-      "structure": false,
+      "voiceControl": false,
       "dynamicType": false,
+      "darkMode": true,
+      "differentiate": false,
+      "contrast": false,
       "reduceMotion": false,
-      "contrast": false
+      "captions": false,
+      "structure": false,
+      "actions": false,
+      "announcements": false,
+      "largeLayout": false,
+      "reduceTransparency": false,
+      "boldText": false,
+      "invertColors": false,
+      "keyboard": false,
+      "a11yAudit": false,
+      "_video": false,
+      "_forcedLight": false
     },
     "money": {
       "paywall": false,

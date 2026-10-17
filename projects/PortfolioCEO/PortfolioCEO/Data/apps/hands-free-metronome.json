@@ -923,10 +923,24 @@
     },
     "a11y": {
       "voiceOver": true,
-      "structure": true,
+      "voiceControl": true,
       "dynamicType": true,
+      "darkMode": true,
+      "differentiate": true,
+      "contrast": false,
       "reduceMotion": true,
-      "contrast": true
+      "captions": false,
+      "structure": true,
+      "actions": true,
+      "announcements": true,
+      "largeLayout": false,
+      "reduceTransparency": false,
+      "boldText": false,
+      "invertColors": false,
+      "keyboard": false,
+      "a11yAudit": false,
+      "_video": false,
+      "_forcedLight": false
     },
     "money": {
       "paywall": true,

@@ -865,18 +865,22 @@ AREAS = [
      [("widgets", "위젯"), ("shortcuts", "단축어·Siri"), ("cloudSync", "iCloud 동기화"),
       ("tips", "사용 팁"), ("onboarding", "첫 실행 안내")]),
     ("a11y", "접근성",
-     "눈이 불편하거나, 큰 글씨가 필요하거나, 움직임에 민감한 사람도 똑같이 쓸 수 있는지 봅니다.",
-     [("voiceOver", "VoiceOver 설명"), ("structure", "읽는 순서·역할"), ("dynamicType", "큰 글씨 대응"),
-      ("reduceMotion", "움직임 줄이기"), ("contrast", "대비·색 구분")]),
+     "눈이 불편하거나, 손을 쓰기 어렵거나, 큰 글씨가 필요하거나, 움직임에 민감한 사람도 똑같이 쓸 수 있는지 봅니다.",
+     [("voiceOver", "VoiceOver 설명"), ("dynamicType", "큰 글씨 따라가기"), ("darkMode", "다크 모드"),
+      ("voiceControl", "음성 제어 이름"), ("structure", "읽는 순서·역할"), ("actions", "VoiceOver 동작"),
+      ("announcements", "바뀐 내용 알려 주기"), ("largeLayout", "큰 글씨 배치 바꾸기"),
+      ("reduceMotion", "애니메이션 줄이기"), ("differentiate", "색 없이 구별"), ("contrast", "대비 높이기"),
+      ("reduceTransparency", "투명도 줄이기"), ("a11yAudit", "접근성 자동 점검")]),
     ("devices", "기기",
      "어떤 기기에서 쓸 수 있도록 만들었는지 봅니다. 모든 앱이 모든 기기를 지원할 필요는 "
      "없어서 숙성도 점수에는 넣지 않았습니다.",
      [("iphone", "iPhone"), ("ipad", "iPad"), ("mac", "Mac"), ("watch", "Apple Watch"),
       ("vision", "Vision Pro")]),
 ]
-A11Y_NOTE = ("VoiceOver 설명은 화면 읽기용 설명이 5곳 이상 붙어 있을 때 있음으로 봅니다. 나머지는 앱 소스 코드에서 "
-             "해당 설정을 읽거나 따르는지로 판정했습니다. 시스템 글자 스타일만 써도 큰 글씨는 어느 정도 따라가지만, "
-             "여기서는 크기를 직접 맞춘 흔적이 있을 때만 셉니다.")
+A11Y_NOTE = ("VoiceOver 설명은 화면 읽기용 설명이 5곳 이상 붙어 있을 때 있음으로 봅니다. 다크 모드는 어두운 화면용 색을 "
+             "따로 준비했거나 화면 모드에 따라 그리는 흔적이 있을 때 있음으로 보고, 밝은 모드로 고정한 앱은 없음입니다. "
+             "큰 글씨는 시스템 글자 스타일만 써도 어느 정도 따라가지만, 크기를 직접 맞춘 흔적이 있을 때만 셉니다. "
+             "나머지는 앱 소스 코드에서 해당 설정을 읽거나 따르는지로 판정했고, 자막·음성 해설은 영상이 있는 앱만 봅니다.")
 SCORED = ("support", "feedback", "ops", "ux", "a11y")
 ITEM_HELP = {
     "registered": "App Store에 지원 페이지 주소가 등록되어 있습니다.",
@@ -900,10 +904,22 @@ ITEM_HELP = {
     "tips": "처음 보는 기능을 알맞은 때에 알려 줍니다.",
     "onboarding": "처음 열었을 때 쓰는 법을 안내합니다.",
     "voiceOver": "화면 읽기(VoiceOver)용 설명을 붙였습니다.",
-    "structure": "VoiceOver가 읽는 순서와 묶음, 버튼·제목 같은 역할을 정해 두었습니다.",
     "dynamicType": "설정에서 글자를 키우면 앱 글자와 크기도 함께 커집니다.",
+    "darkMode": "어두운 화면에서 쓸 색을 따로 준비했습니다.",
+    "voiceControl": "음성 제어로 부를 이름을 버튼에 붙였습니다.",
+    "structure": "VoiceOver가 읽는 순서와 묶음, 버튼·제목 같은 역할을 정해 두었습니다.",
+    "actions": "밀기·길게 누르기 같은 동작을 VoiceOver에서도 고를 수 있습니다.",
+    "announcements": "화면 내용이 바뀌면 VoiceOver가 소리 내어 알려 줍니다.",
+    "largeLayout": "글자가 아주 커지면 가로 배치를 세로로 바꾸는 식으로 화면을 다시 짭니다.",
     "reduceMotion": "‘동작 줄이기’를 켜면 화면 움직임을 줄입니다.",
-    "contrast": "‘대비 증가’나 ‘색상 없이 구별’을 켰을 때 화면을 맞춥니다.",
+    "differentiate": "‘색상 없이 구별’을 켜면 색 대신 모양·글자로도 상태를 알려 줍니다.",
+    "contrast": "‘대비 증가’를 켜면 더 진한 색으로 바꿉니다.",
+    "reduceTransparency": "‘투명도 줄이기’를 켜면 비치는 배경을 불투명하게 바꿉니다.",
+    "a11yAudit": "자동 테스트가 화면의 접근성 문제를 찾아냅니다.",
+    "captions": "영상에 자막과 화면 해설을 켤 수 있습니다.",
+    "boldText": "‘굵은 텍스트’를 켜면 직접 그린 글자도 굵게 바꿉니다.",
+    "invertColors": "‘스마트 반전’을 켜도 사진과 그림은 원래 색으로 둡니다.",
+    "keyboard": "키보드나 스위치로 화면을 옮겨 다니며 쓸 수 있습니다.",
     "iphone": "iPhone에서 쓰도록 만들었습니다.",
     "ipad": "iPad 화면에 맞춰 쓸 수 있습니다.",
     "mac": "Mac용으로 직접 만들었습니다.",
@@ -933,17 +949,24 @@ ITEM_WHY = {
     "shortcuts": "단축어 앱이나 Siri에게 말해서 앱의 핵심 동작을 바로 부릅니다.",
     "cloudSync": "iPhone·iPad·Mac에서 같은 기록을 이어 쓰고, 기기를 바꿔도 데이터가 남습니다.",
     "tips": "처음 보는 기능을 쓸 만한 때에 짧게 알려 주고, 한 번 써 보면 다시 띄우지 않습니다.",
-    "voiceOver": "화면을 보기 어려운 사람도 VoiceOver로 버튼과 내용을 들을 수 있습니다. "
-                 "그림만 있는 버튼에 이름이 없으면 ‘버튼’이라고만 읽혀 무엇인지 알 수 없습니다.",
-    "structure": "카드 하나를 한 번에 읽거나, 제목에서 제목으로 건너뛰거나, 길게 누르는 대신 고를 수 있는 동작을 "
-                 "알려 줍니다. 설명이 있어도 순서가 뒤섞이면 화면을 머릿속에 그리기 어렵습니다.",
-    "dynamicType": "작은 글씨가 잘 안 보이는 사람은 시스템 설정에서 글자를 키웁니다. 앱이 이를 따르지 않으면 "
-                   "그 사람에게만 화면이 작게 남습니다.",
-    "reduceMotion": "확대·회전·튀는 효과는 어지럼을 일으킬 수 있습니다. ‘동작 줄이기’를 켠 사람에게는 "
-                    "움직임을 빼거나 부드럽게 바꿔 보여 줍니다.",
-    "contrast": "색만으로 상태를 구분하면 색을 구별하기 어려운 사람은 놓칩니다. 대비를 높이거나 모양·글자로도 "
-                "알려 줍니다.",
     "onboarding": "처음 연 사람에게 무엇을 하는 앱이고 어떻게 시작하는지 몇 장으로 보여 줍니다.",
+    "voiceOver": "화면을 보기 어려운 사람도 VoiceOver로 버튼과 내용을 들을 수 있습니다. 그림만 있는 버튼에 이름이 없으면 ‘버튼’이라고만 읽혀 무엇인지 알 수 없습니다.",
+    "dynamicType": "작은 글씨가 잘 안 보이는 사람은 시스템 설정에서 글자를 키웁니다. 앱이 이를 따르지 않으면 그 사람에게만 화면이 작게 남습니다.",
+    "darkMode": "빛에 민감하거나 밤에 쓰는 사람은 어두운 화면을 켭니다. 밝은 모드로 고정하거나 어두운 색을 준비하지 않으면 눈부시거나 글자가 묻힙니다.",
+    "voiceControl": "손을 쓰기 어려운 사람은 ‘저장 탭’처럼 말로 화면을 조작합니다. 화면에 보이는 말과 부르는 이름이 다르거나 그림만 있는 버튼이면 부를 방법이 없어, 부를 이름을 따로 붙여 둡니다.",
+    "structure": "카드 하나를 한 번에 읽거나 제목에서 제목으로 건너뛸 수 있게 합니다. 꾸밈 그림은 읽지 않게 숨깁니다. 설명이 있어도 순서가 뒤섞이면 화면을 머릿속에 그리기 어렵습니다.",
+    "actions": "VoiceOver를 켜면 밀어서 지우기나 끌어 놓기 같은 몸짓을 쓰기 어렵습니다. 같은 일을 동작 목록에서 고르거나 위아래로 값을 바꿀 수 있게 합니다.",
+    "announcements": "저장이 끝났거나 타이머가 끝난 것처럼 눈으로만 보이는 변화를, 화면을 보지 않는 사람도 놓치지 않게 합니다.",
+    "largeLayout": "가장 큰 글자 크기에서는 한 줄에 들어가던 것이 잘리거나 겹칩니다. 배치를 바꾸거나, 아이콘을 길게 누르면 크게 보여 줘서 잘림 없이 읽게 합니다.",
+    "reduceMotion": "확대·회전·튀는 효과는 어지럼을 일으킬 수 있습니다. ‘동작 줄이기’를 켠 사람에게는 움직임을 빼거나 부드럽게 바꿔 보여 줍니다.",
+    "differentiate": "빨강·초록처럼 색만으로 맞고 틀림을 나누면 색을 구별하기 어려운 사람은 놓칩니다. 아이콘이나 글자를 함께 보여 줍니다.",
+    "contrast": "흐린 회색 글자나 옅은 테두리는 시력이 약한 사람에게 보이지 않습니다. 대비를 높인 색을 따로 준비해 둡니다.",
+    "reduceTransparency": "뒤가 비치는 흐린 배경 위의 글자는 읽기 어렵습니다. 이 설정을 켠 사람에게는 단색 배경으로 보여 줍니다.",
+    "a11yAudit": "설명 빠진 버튼, 잘리는 글자, 너무 낮은 대비를 사람이 매번 다 볼 수는 없습니다. 테스트가 돌 때마다 자동으로 찾아 새 문제가 섞여 들어가지 않게 합니다.",
+    "captions": "소리를 듣기 어려운 사람은 자막으로, 화면을 보기 어려운 사람은 음성 해설로 영상을 따라갑니다. 영상이 없는 앱은 해당 없음으로 둡니다.",
+    "boldText": "시스템 글자는 저절로 굵어지지만, 앱이 직접 그린 글자나 숫자는 따로 맞춰야 같이 굵어집니다.",
+    "invertColors": "화면 색을 뒤집어 쓰는 사람에게 사진까지 뒤집혀 보이면 알아볼 수 없습니다. 사진·그림은 반전에서 빼 둡니다.",
+    "keyboard": "화면을 직접 누르기 어려운 사람은 키보드나 스위치 장치로 앱을 씁니다. 단축키와 옮겨 다닐 순서를 정해 두면 손가락 없이도 쓸 수 있습니다.",
 }
 
 
@@ -1250,8 +1273,11 @@ SHORT = {
     "reviewPrompt": "리뷰 요청", "writeReview": "리뷰 쓰기", "analytics": "통계",
     "crash": "크래시", "killSwitch": "원격 끄기", "tests": "테스트", "leeoKit": "LeeoKit",
     "widgets": "위젯", "shortcuts": "단축어", "cloudSync": "iCloud", "tips": "팁",
-    "onboarding": "첫 안내", "voiceOver": "VoiceOver", "structure": "읽는 순서", "dynamicType": "큰 글씨",
-    "reduceMotion": "움직임", "contrast": "대비", "iphone": "iPhone", "ipad": "iPad",
+    "onboarding": "첫 안내", "voiceOver": "VoiceOver", "dynamicType": "큰 글씨", "darkMode": "다크",
+    "voiceControl": "음성 제어", "structure": "읽는 순서", "actions": "VO 동작", "announcements": "변화 알림",
+    "largeLayout": "큰 배치", "reduceMotion": "애니메이션", "differentiate": "색 없이", "contrast": "대비",
+    "reduceTransparency": "투명도", "a11yAudit": "자동 점검", "captions": "자막", "boldText": "굵게",
+    "invertColors": "색 반전", "keyboard": "키보드", "iphone": "iPhone", "ipad": "iPad",
     "mac": "Mac", "watch": "Watch", "vision": "Vision",
 }
 LANG_SHORT = {"KO": "한국어", "EN": "영어", "JA": "일본어", "DE": "독일어", "FR": "프랑스어",
@@ -1270,8 +1296,11 @@ CHECK_SHORT = {
     "leeoKit": "LeeoKit", "privacyManifest": "매니페스트", "killSwitch": "원격 끄기", "crashLoop": "크래시 보호",
     "performance": "성능", "logging": "로그", "funnel": "퍼널", "appSpec": "계약", "preflight": "사전 점검",
     "abTesting": "A/B", "tests": "테스트", "uiTests": "UI 테스트", "swiftlint": "SwiftLint", "ci": "CI",
-    "onboarding": "첫 안내", "voiceOver": "VoiceOver", "structure": "읽는 순서", "dynamicType": "큰 글씨",
-    "reduceMotion": "움직임", "contrast": "대비", "tips": "팁", "emptyStates": "빈 화면", "haptics": "햅틱",
+    "onboarding": "첫 안내", "voiceOver": "VoiceOver", "dynamicType": "큰 글씨", "darkMode": "다크",
+    "voiceControl": "음성 제어", "structure": "읽는 순서", "actions": "VO 동작", "announcements": "변화 알림",
+    "largeLayout": "큰 배치", "reduceMotion": "애니메이션", "differentiate": "색 없이", "contrast": "대비",
+    "reduceTransparency": "투명도", "a11yAudit": "자동 점검", "captions": "자막", "boldText": "굵게",
+    "invertColors": "색 반전", "keyboard": "키보드", "tips": "팁", "emptyStates": "빈 화면", "haptics": "햅틱",
     "widgets": "위젯", "shortcuts": "단축어", "cloudSync": "iCloud", "biometricLock": "생체 잠금",
     "notifications": "알림", "fold": "폴더블", "backup": "백업", "schemaMigration": "구조 이전", "restore": "복원",
     "paywall": "페이월", "tiers": "등급", "freeGate": "무료 문턱", "discount": "할인", "tipJar": "후원",
@@ -1285,7 +1314,9 @@ CAT_WHY = {
     "infra": "출시한 뒤에도 문제를 먼저 알아채고, 심사 없이 대응하고, 숫자로 판단할 수 있는지 봅니다.",
     "quality": "고치다 다른 곳을 망가뜨리지 않도록 자동으로 확인하는 장치가 있는지 봅니다.",
     "feature": "앱을 열지 않아도, 처음 열어도 편하게 쓸 수 있는지 봅니다.",
-    "a11y": "눈이 불편하거나, 큰 글씨가 필요하거나, 움직임에 민감한 사람도 똑같이 쓸 수 있는지 봅니다.",
+    "a11y": "눈이 불편하거나, 손을 쓰기 어렵거나, 큰 글씨가 필요하거나, 움직임에 민감한 사람도 똑같이 쓸 수 있는지 "
+            "봅니다. App Store 제품 페이지의 접근성 정보 항목(VoiceOver·음성 제어·큰 텍스트·다크 인터페이스·색상 없이 "
+            "구별·충분한 대비·동작 줄이기·자막·오디오 설명)에, 접근성이 좋은 앱이 더 갖추는 것을 더했습니다.",
     "data": "쓰는 사람의 데이터를 잃지 않고 옮기고 지킬 수 있는지 봅니다.",
     "money": "돈을 받는 길이 공정하고 막힘없이 설계되어 있는지 봅니다. 파는 상품이 없는 앱은 등급·할인·선물 같은 항목을 ‘해당 없음’으로 둡니다.",
     "comms": "업데이트와 계획, 답장을 쓰는 사람에게 돌려주는지 봅니다.",
@@ -2306,8 +2337,35 @@ CHECK_TIERS = [
     ("rec", "권장", "기본을 갖춘 다음 차례로 갖출 것입니다."),
     ("opt", "선택", "앱 성격에 맞을 때만 — 빠져 있어도 할 일로 세지 않습니다."),
 ]
+
+
+def _a11y_captions(a):
+    """영상이 있는 앱만 자막·음성 해설을 묻는다."""
+    m = mat(a).get("a11y") or {}
+    if not m:
+        return None
+    return m.get("captions") if m.get("_video") else NA
+
+
 # (등급, 분류, 키, 이름, 판정 함수 → True/False/None)
 CHECKLIST = [
+    ("base", "a11y", "voiceOver", "VoiceOver 설명", _m("a11y", "voiceOver")),
+    ("base", "a11y", "dynamicType", "큰 글씨 따라가기", _m("a11y", "dynamicType")),
+    ("base", "a11y", "darkMode", "다크 모드", _m("a11y", "darkMode")),
+    ("rec", "a11y", "voiceControl", "음성 제어 이름", _m("a11y", "voiceControl")),
+    ("rec", "a11y", "structure", "읽는 순서·역할", _m("a11y", "structure")),
+    ("rec", "a11y", "actions", "VoiceOver 동작", _m("a11y", "actions")),
+    ("rec", "a11y", "announcements", "바뀐 내용 알려 주기", _m("a11y", "announcements")),
+    ("rec", "a11y", "largeLayout", "큰 글씨 배치 바꾸기", _m("a11y", "largeLayout")),
+    ("rec", "a11y", "reduceMotion", "애니메이션 줄이기", _m("a11y", "reduceMotion")),
+    ("rec", "a11y", "differentiate", "색 없이 구별", _m("a11y", "differentiate")),
+    ("rec", "a11y", "contrast", "대비 높이기", _m("a11y", "contrast")),
+    ("rec", "a11y", "reduceTransparency", "투명도 줄이기", _m("a11y", "reduceTransparency")),
+    ("rec", "a11y", "a11yAudit", "접근성 자동 점검", _src("a11y", "a11yAudit")),
+    ("opt", "a11y", "captions", "자막·음성 해설", _a11y_captions),
+    ("opt", "a11y", "boldText", "굵은 텍스트", _src("a11y", "boldText")),
+    ("opt", "a11y", "invertColors", "색 반전 보호", _src("a11y", "invertColors")),
+    ("opt", "a11y", "keyboard", "키보드로 조작", _src("a11y", "keyboard")),
     ("base", "lang", "appEn", "앱 영어 지원", _lang(lambda a: "EN" in app_langs(a))),
     ("base", "lang", "storeEn", "영어 스토어 소개", _lang(lambda a: bool(a["globalReach"].get("englishPage")))),
     ("base", "support", "registered", "지원 페이지 등록", _m("support", "registered")),
@@ -2329,11 +2387,6 @@ CHECKLIST = [
     ("rec", "feedback", "writeReview", "리뷰 쓰기 바로가기", _m("feedback", "writeReview")),
     ("rec", "infra", "killSwitch", "원격 기능 끄기", _m("ops", "killSwitch")),
     ("rec", "quality", "tests", "자동 테스트", _m("ops", "tests")),
-    ("rec", "a11y", "voiceOver", "VoiceOver 설명", _m("a11y", "voiceOver")),
-    ("rec", "a11y", "structure", "읽는 순서·역할", _m("a11y", "structure")),
-    ("rec", "a11y", "dynamicType", "큰 글씨 대응", _m("a11y", "dynamicType")),
-    ("rec", "a11y", "reduceMotion", "움직임 줄이기", _m("a11y", "reduceMotion")),
-    ("rec", "a11y", "contrast", "대비·색 구분", _m("a11y", "contrast")),
     ("rec", "feature", "tips", "사용 팁", _m("ux", "tips")),
     ("rec", "infra", "crashLoop", "연속 크래시 보호", _src("ops", "crashLoop")),
     ("rec", "money", "paywall", "페이월 화면", _src("money", "paywall")),
