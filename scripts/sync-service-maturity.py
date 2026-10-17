@@ -10,7 +10,8 @@
 
   feedback   피드백 수집     인앱 피드백 · 메일 문의 · 인스타그램 DM · 리뷰 요청 · 리뷰 작성 바로가기
   ops        운영·안정성     사용 통계 · 크래시 진단 · 원격 킬스위치 · 자동 테스트 · LeeoKit 계약
-  ux         사용 경험       위젯 · 단축어(App Intents) · iCloud 동기화 · 사용 팁(TipKit) · 접근성 · 온보딩
+  ux         사용 경험       위젯 · 단축어(App Intents) · iCloud 동기화 · 사용 팁(TipKit) · 온보딩
+  a11y       접근성         VoiceOver 설명 · 읽는 순서·역할 · 큰 글씨 · 움직임 줄이기 · 대비·색 구분
   money      수익화         페이월 · 기능 등급 · 무료 문턱 · 구매 복원 · 할인 제안 · 후원 · 후원 부탁 · 선물
   more       더 갖출 것     마이그레이션 · 빈 상태 · 생체 잠금 · 알림 · 성능 · 로그 · 퍼널 · A/B · 햅틱 · 사전 점검 ·
                             완성도 계약 · 앱 가족 · 폴더블 · UI 테스트 · SwiftLint · CI
@@ -64,10 +65,20 @@ SRC = {
                      r"cloudKitDatabase:\s*\.(?:private|automatic)|"
                      r"NSUbiquitousKeyValueStore|CKSyncEngine",
         "tips": r"import TipKit",
-        "accessibility": r"\.accessibilityLabel|\.accessibilityHint|\.accessibilityValue|"
-                         r"accessibilityElement",
         "onboarding": r"(?:struct|class) \w*Onboarding\w*|hasSeenOnboarding|hasCompletedOnboarding",
         "backup": r"\.fileExporter\(|exportBackup|UIDocumentPickerViewController\(forExporting",
+    },
+    "a11y": {
+        "voiceOver": r"\.accessibilityLabel|\.accessibilityHint|\.accessibilityValue|"
+                     r"accessibilityElement",
+        "structure": r"accessibilityElement\(children|accessibilityAddTraits|accessibilitySortPriority|"
+                     r"\.accessibilityAction|accessibilityRotor|accessibilityHeading|accessibilityRepresentation",
+        "dynamicType": r"@ScaledMetric|\.dynamicTypeSize|UIFontMetrics|relativeTo:|"
+                       r"adjustsFontForContentSizeCategory|isAccessibilitySize|isAccessibilityCategory",
+        "reduceMotion": r"accessibilityReduceMotion|isReduceMotionEnabled",
+        "contrast": r"accessibilityDifferentiateWithoutColor|colorSchemeContrast|"
+                    r"accessibilityReduceTransparency|shouldDifferentiateWithoutColor|"
+                    r"isDarkerSystemColorsEnabled|accessibilityInvertColors",
     },
     # 수익화 — 클립키보드에서 다듬은 장치들(2026-09~10)을 다른 앱에도 같은 잣대로 본다
     "money": {
@@ -110,7 +121,7 @@ REPO_FILES = {
     "ci": re.compile(r"^\.github/workflows/|(^|/)ci_scripts/"),
 }
 UI_TEST = re.compile(r"XCUIApplication")
-ACCESSIBILITY_MIN = 5  # 접근성 레이블이 이 수 이상이면 '갖췄다'로 본다 (한두 개는 우연)
+ACCESSIBILITY_MIN = 5  # VoiceOver 설명이 이 수 이상이면 '갖췄다'로 본다 (한두 개는 우연)
 BOOTSTRAP = re.compile(r"LeeoKit\.bootstrap\(([^)]*)\)")
 
 
@@ -164,7 +175,7 @@ def scan_source(root, exclude_roots):
                 found["more"]["uiTests"] = True
             continue
         for (k, i), p in pats.items():
-            if i == "accessibility":
+            if i == "voiceOver":
                 a11y += len(p.findall(text))
             elif not found[k][i] and p.search(text):
                 found[k][i] = True
@@ -173,7 +184,7 @@ def scan_source(root, exclude_roots):
                 crash_by_bootstrap = True
             if "flags:" in args:
                 found["ops"]["killSwitch"] = True
-    found["ux"]["accessibility"] = a11y >= ACCESSIBILITY_MIN
+    found["a11y"]["voiceOver"] = a11y >= ACCESSIBILITY_MIN
     found["ops"]["crash"] = found["ops"]["crash"] or crash_by_bootstrap
     found["ops"]["tests"] = tests > 0
     top = os.popen("git -C '%s' rev-parse --show-toplevel 2>/dev/null" % root).read().strip() or root
@@ -310,9 +321,9 @@ def main():
         def mark(d):
             return "".join("·" if v is None else ("●" if v else "○")
                            for k, v in (d or {}).items() if not k.startswith("_"))
-        print("  %-24s 소스 %s  피드백 %s  운영 %s  경험 %s  기기 %s  지원 %s" % (
+        print("  %-24s 소스 %s  피드백 %s  운영 %s  경험 %s  접근성 %s  기기 %s  지원 %s" % (
             os.path.basename(path)[:-5], "O" if root else "-", mark(m["feedback"]), mark(m["ops"]),
-            mark(m["ux"]), mark(m["devices"]),
+            mark(m["ux"]), mark(m["a11y"]), mark(m["devices"]),
             mark({k: v for k, v in m["support"].items() if k in
                   ("registered", "reachable", "privacy", "english", "contact")})))
 

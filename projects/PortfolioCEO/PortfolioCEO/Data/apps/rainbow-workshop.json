@@ -135,8 +135,8 @@
       "crash": true,
       "killSwitch": false,
       "leeoKit": true,
-      "tests": false,
       "crashLoop": false,
+      "tests": false,
       "privacyManifest": true
     },
     "ux": {
@@ -144,9 +144,48 @@
       "shortcuts": false,
       "cloudSync": true,
       "tips": true,
-      "accessibility": true,
       "onboarding": true,
       "backup": false
+    },
+    "a11y": {
+      "voiceOver": true,
+      "structure": true,
+      "dynamicType": false,
+      "reduceMotion": true,
+      "contrast": false
+    },
+    "money": {
+      "paywall": true,
+      "tiers": false,
+      "freeGate": true,
+      "restore": true,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": true,
+      "biometricLock": false,
+      "notifications": true,
+      "performance": false,
+      "logging": false,
+      "funnel": true,
+      "abTesting": true,
+      "haptics": false,
+      "preflight": false,
+      "appSpec": true,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
     },
     "devices": {
       "iphone": true,
@@ -169,41 +208,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17",
-    "money": {
-      "paywall": true,
-      "tiers": false,
-      "freeGate": true,
-      "restore": true,
-      "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
-      "gift": false
-    },
-    "comms": {
-      "whatsNew": false,
-      "roadmap": false,
-      "feedbackReply": false
-    },
-    "extrasFrom": "원격 최신 코드(origin)",
-    "more": {
-      "schemaMigration": false,
-      "emptyStates": true,
-      "biometricLock": false,
-      "notifications": true,
-      "performance": false,
-      "logging": false,
-      "funnel": true,
-      "abTesting": true,
-      "haptics": false,
-      "preflight": false,
-      "appSpec": true,
-      "family": false,
-      "fold": false,
-      "uiTests": false,
-      "swiftlint": false,
-      "ci": false
-    }
+    "evaluatedAt": "2026-10-17"
   },
   "usStore": {
     "available": true,

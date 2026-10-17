@@ -82,15 +82,57 @@
       "crash": true,
       "killSwitch": true,
       "leeoKit": true,
-      "tests": true
+      "crashLoop": false,
+      "tests": true,
+      "privacyManifest": false
     },
     "ux": {
       "widgets": false,
       "shortcuts": true,
       "cloudSync": false,
       "tips": true,
-      "accessibility": true,
-      "onboarding": true
+      "onboarding": true,
+      "backup": false
+    },
+    "a11y": {
+      "voiceOver": true,
+      "structure": true,
+      "dynamicType": false,
+      "reduceMotion": false,
+      "contrast": false
+    },
+    "money": {
+      "paywall": false,
+      "tiers": false,
+      "freeGate": false,
+      "restore": false,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": false,
+      "notifications": false,
+      "performance": false,
+      "logging": true,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": false,
+      "preflight": false,
+      "appSpec": true,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
     },
     "devices": {
       "iphone": true,

@@ -90,8 +90,8 @@
       "crash": false,
       "killSwitch": false,
       "leeoKit": false,
-      "tests": false,
       "crashLoop": false,
+      "tests": false,
       "privacyManifest": false
     },
     "ux": {
@@ -99,9 +99,48 @@
       "shortcuts": false,
       "cloudSync": false,
       "tips": false,
-      "accessibility": false,
       "onboarding": false,
       "backup": false
+    },
+    "a11y": {
+      "voiceOver": false,
+      "structure": false,
+      "dynamicType": false,
+      "reduceMotion": false,
+      "contrast": false
+    },
+    "money": {
+      "paywall": false,
+      "tiers": false,
+      "freeGate": false,
+      "restore": false,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": false,
+      "notifications": false,
+      "performance": false,
+      "logging": false,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": false,
+      "preflight": false,
+      "appSpec": false,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
     },
     "devices": {
       "iphone": true,
@@ -124,41 +163,7 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17",
-    "money": {
-      "paywall": false,
-      "tiers": false,
-      "freeGate": false,
-      "restore": false,
-      "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
-      "gift": false
-    },
-    "comms": {
-      "whatsNew": false,
-      "roadmap": false,
-      "feedbackReply": false
-    },
-    "extrasFrom": "원격 최신 코드(origin)",
-    "more": {
-      "schemaMigration": false,
-      "emptyStates": false,
-      "biometricLock": false,
-      "notifications": false,
-      "performance": false,
-      "logging": false,
-      "funnel": false,
-      "abTesting": false,
-      "haptics": false,
-      "preflight": false,
-      "appSpec": false,
-      "family": false,
-      "fold": false,
-      "uiTests": false,
-      "swiftlint": false,
-      "ci": false
-    }
+    "evaluatedAt": "2026-10-17"
   },
   "usStore": {
     "available": true,

@@ -572,7 +572,7 @@ GATES = {
         ("supportEn", "영어 지원 페이지", _m("support", "english")),
         ("privacy", "개인정보 처리방침 안내", _m("support", "privacy")),
         ("surface", "위젯·단축어", _any(_m("ux", "widgets"), _m("ux", "shortcuts"))),
-        ("a11y", "VoiceOver 대응", _m("ux", "accessibility")),
+        ("a11y", "VoiceOver 대응", _m("a11y", "voiceOver")),
         ("ratings10", "외부 평점 10개 이상", _lc(lambda lc: (lc.get("ratingCount") or 0) >= 10)),
     ]),
 }
@@ -861,16 +861,23 @@ AREAS = [
      [("analytics", "사용 통계"), ("crash", "크래시 진단"), ("killSwitch", "원격 기능 끄기"),
       ("tests", "자동 테스트"), ("leeoKit", "공통 서비스 기반")]),
     ("ux", "사용 경험",
-     "앱을 열지 않아도, 기기를 바꿔도, 눈이 불편해도 쓸 수 있는지 봅니다.",
+     "앱을 열지 않아도, 기기를 바꿔도, 처음 열어도 쓰기 편한지 봅니다.",
      [("widgets", "위젯"), ("shortcuts", "단축어·Siri"), ("cloudSync", "iCloud 동기화"),
-      ("tips", "사용 팁"), ("accessibility", "VoiceOver 대응"), ("onboarding", "첫 실행 안내")]),
+      ("tips", "사용 팁"), ("onboarding", "첫 실행 안내")]),
+    ("a11y", "접근성",
+     "눈이 불편하거나, 큰 글씨가 필요하거나, 움직임에 민감한 사람도 똑같이 쓸 수 있는지 봅니다.",
+     [("voiceOver", "VoiceOver 설명"), ("structure", "읽는 순서·역할"), ("dynamicType", "큰 글씨 대응"),
+      ("reduceMotion", "움직임 줄이기"), ("contrast", "대비·색 구분")]),
     ("devices", "기기",
      "어떤 기기에서 쓸 수 있도록 만들었는지 봅니다. 모든 앱이 모든 기기를 지원할 필요는 "
      "없어서 숙성도 점수에는 넣지 않았습니다.",
      [("iphone", "iPhone"), ("ipad", "iPad"), ("mac", "Mac"), ("watch", "Apple Watch"),
       ("vision", "Vision Pro")]),
 ]
-SCORED = ("support", "feedback", "ops", "ux")
+A11Y_NOTE = ("VoiceOver 설명은 화면 읽기용 설명이 5곳 이상 붙어 있을 때 있음으로 봅니다. 나머지는 앱 소스 코드에서 "
+             "해당 설정을 읽거나 따르는지로 판정했습니다. 시스템 글자 스타일만 써도 큰 글씨는 어느 정도 따라가지만, "
+             "여기서는 크기를 직접 맞춘 흔적이 있을 때만 셉니다.")
+SCORED = ("support", "feedback", "ops", "ux", "a11y")
 ITEM_HELP = {
     "registered": "App Store에 지원 페이지 주소가 등록되어 있습니다.",
     "reachable": "등록한 주소가 실제로 열립니다.",
@@ -891,8 +898,12 @@ ITEM_HELP = {
     "shortcuts": "단축어 앱과 Siri에서 기능을 부를 수 있습니다.",
     "cloudSync": "iCloud로 기기 사이에 데이터를 맞춥니다.",
     "tips": "처음 보는 기능을 알맞은 때에 알려 줍니다.",
-    "accessibility": "화면 읽기(VoiceOver)용 설명을 붙였습니다.",
     "onboarding": "처음 열었을 때 쓰는 법을 안내합니다.",
+    "voiceOver": "화면 읽기(VoiceOver)용 설명을 붙였습니다.",
+    "structure": "VoiceOver가 읽는 순서와 묶음, 버튼·제목 같은 역할을 정해 두었습니다.",
+    "dynamicType": "설정에서 글자를 키우면 앱 글자와 크기도 함께 커집니다.",
+    "reduceMotion": "‘동작 줄이기’를 켜면 화면 움직임을 줄입니다.",
+    "contrast": "‘대비 증가’나 ‘색상 없이 구별’을 켰을 때 화면을 맞춥니다.",
     "iphone": "iPhone에서 쓰도록 만들었습니다.",
     "ipad": "iPad 화면에 맞춰 쓸 수 있습니다.",
     "mac": "Mac용으로 직접 만들었습니다.",
@@ -922,7 +933,16 @@ ITEM_WHY = {
     "shortcuts": "단축어 앱이나 Siri에게 말해서 앱의 핵심 동작을 바로 부릅니다.",
     "cloudSync": "iPhone·iPad·Mac에서 같은 기록을 이어 쓰고, 기기를 바꿔도 데이터가 남습니다.",
     "tips": "처음 보는 기능을 쓸 만한 때에 짧게 알려 주고, 한 번 써 보면 다시 띄우지 않습니다.",
-    "accessibility": "화면을 보기 어려운 사람도 VoiceOver로 버튼과 내용을 들을 수 있습니다.",
+    "voiceOver": "화면을 보기 어려운 사람도 VoiceOver로 버튼과 내용을 들을 수 있습니다. "
+                 "그림만 있는 버튼에 이름이 없으면 ‘버튼’이라고만 읽혀 무엇인지 알 수 없습니다.",
+    "structure": "카드 하나를 한 번에 읽거나, 제목에서 제목으로 건너뛰거나, 길게 누르는 대신 고를 수 있는 동작을 "
+                 "알려 줍니다. 설명이 있어도 순서가 뒤섞이면 화면을 머릿속에 그리기 어렵습니다.",
+    "dynamicType": "작은 글씨가 잘 안 보이는 사람은 시스템 설정에서 글자를 키웁니다. 앱이 이를 따르지 않으면 "
+                   "그 사람에게만 화면이 작게 남습니다.",
+    "reduceMotion": "확대·회전·튀는 효과는 어지럼을 일으킬 수 있습니다. ‘동작 줄이기’를 켠 사람에게는 "
+                    "움직임을 빼거나 부드럽게 바꿔 보여 줍니다.",
+    "contrast": "색만으로 상태를 구분하면 색을 구별하기 어려운 사람은 놓칩니다. 대비를 높이거나 모양·글자로도 "
+                "알려 줍니다.",
     "onboarding": "처음 연 사람에게 무엇을 하는 앱이고 어떻게 시작하는지 몇 장으로 보여 줍니다.",
 }
 
@@ -1172,7 +1192,8 @@ def area_panel(key, name, why, items, apps):
         "feedback": "앱 소스 코드에서 해당 기능을 부르는지로 판정했습니다.",
         "ops": "사용 통계와 크래시 진단은 개인을 식별하지 않는 방식만 씁니다. "
                "공통 서비스 기반은 피드백·리뷰·정책 링크를 한 번에 갖추게 해 주는 자체 패키지(LeeoKit)입니다.",
-        "ux": "VoiceOver 대응은 화면 읽기용 설명이 %d곳 이상 붙어 있을 때 있음으로 봅니다." % 5,
+        "ux": "앱 소스 코드에서 해당 기능을 부르는지로 판정했습니다.",
+        "a11y": A11Y_NOTE,
         "devices": "Mac은 Mac용으로 직접 빌드한 경우만 셉니다. Apple 실리콘 Mac에서 iPad 앱을 그대로 "
                    "여는 경우는 넣지 않았습니다.",
     }
@@ -1229,14 +1250,15 @@ SHORT = {
     "reviewPrompt": "리뷰 요청", "writeReview": "리뷰 쓰기", "analytics": "통계",
     "crash": "크래시", "killSwitch": "원격 끄기", "tests": "테스트", "leeoKit": "LeeoKit",
     "widgets": "위젯", "shortcuts": "단축어", "cloudSync": "iCloud", "tips": "팁",
-    "accessibility": "VoiceOver", "onboarding": "첫 안내", "iphone": "iPhone", "ipad": "iPad",
+    "onboarding": "첫 안내", "voiceOver": "VoiceOver", "structure": "읽는 순서", "dynamicType": "큰 글씨",
+    "reduceMotion": "움직임", "contrast": "대비", "iphone": "iPhone", "ipad": "iPad",
     "mac": "Mac", "watch": "Watch", "vision": "Vision",
 }
 LANG_SHORT = {"KO": "한국어", "EN": "영어", "JA": "일본어", "DE": "독일어", "FR": "프랑스어",
               "ZH": "중국어", "ES": "스페인어", "PT": "포르투갈어", "HI": "힌디어", "IT": "이탈리아어",
               "VI": "베트남어", "TH": "태국어", "ID": "인니어"}
 AREA_COLOR = {"lang": "#ef6aa0", "support": "#5b8def", "feedback": "#34c48a", "ops": "#e0a53a",
-              "ux": "#a78bfa", "devices": "#8b90a0"}
+              "ux": "#a78bfa", "a11y": "#e8789a", "devices": "#8b90a0"}
 
 
 # 서비스 숙성도는 CHECKLIST(앱별 할 일과 같은 피처 목록)로 잰다. 종합은 기본·권장 가운데 갖춘 비율.
@@ -1248,7 +1270,8 @@ CHECK_SHORT = {
     "leeoKit": "LeeoKit", "privacyManifest": "매니페스트", "killSwitch": "원격 끄기", "crashLoop": "크래시 보호",
     "performance": "성능", "logging": "로그", "funnel": "퍼널", "appSpec": "계약", "preflight": "사전 점검",
     "abTesting": "A/B", "tests": "테스트", "uiTests": "UI 테스트", "swiftlint": "SwiftLint", "ci": "CI",
-    "onboarding": "첫 안내", "accessibility": "VoiceOver", "tips": "팁", "emptyStates": "빈 화면", "haptics": "햅틱",
+    "onboarding": "첫 안내", "voiceOver": "VoiceOver", "structure": "읽는 순서", "dynamicType": "큰 글씨",
+    "reduceMotion": "움직임", "contrast": "대비", "tips": "팁", "emptyStates": "빈 화면", "haptics": "햅틱",
     "widgets": "위젯", "shortcuts": "단축어", "cloudSync": "iCloud", "biometricLock": "생체 잠금",
     "notifications": "알림", "fold": "폴더블", "backup": "백업", "schemaMigration": "구조 이전", "restore": "복원",
     "paywall": "페이월", "tiers": "등급", "freeGate": "무료 문턱", "discount": "할인", "tipJar": "후원",
@@ -1261,7 +1284,8 @@ CAT_WHY = {
     "feedback": "쓰는 사람의 목소리가 만든 사람에게 닿는 길이 몇 개나 열려 있는지 봅니다.",
     "infra": "출시한 뒤에도 문제를 먼저 알아채고, 심사 없이 대응하고, 숫자로 판단할 수 있는지 봅니다.",
     "quality": "고치다 다른 곳을 망가뜨리지 않도록 자동으로 확인하는 장치가 있는지 봅니다.",
-    "feature": "앱을 열지 않아도, 처음 열어도, 눈이 불편해도 편하게 쓸 수 있는지 봅니다.",
+    "feature": "앱을 열지 않아도, 처음 열어도 편하게 쓸 수 있는지 봅니다.",
+    "a11y": "눈이 불편하거나, 큰 글씨가 필요하거나, 움직임에 민감한 사람도 똑같이 쓸 수 있는지 봅니다.",
     "data": "쓰는 사람의 데이터를 잃지 않고 옮기고 지킬 수 있는지 봅니다.",
     "money": "돈을 받는 길이 공정하고 막힘없이 설계되어 있는지 봅니다. 파는 상품이 없는 앱은 등급·할인·선물 같은 항목을 ‘해당 없음’으로 둡니다.",
     "comms": "업데이트와 계획, 답장을 쓰는 사람에게 돌려주는지 봅니다.",
@@ -1271,7 +1295,7 @@ CAT_NOTE = {
     "support": "노션으로 만든 페이지는 본문을 스크립트로 그려서 자동으로 읽을 수 없어 ‘확인 불가’로 둡니다.",
     "feedback": "앱 소스 코드에서 해당 기능을 부르는지로 판정했습니다.",
     "infra": "사용 통계와 크래시 진단은 개인을 식별하지 않는 방식만 씁니다.",
-    "feature": "VoiceOver 대응은 화면 읽기용 설명이 5곳 이상 붙어 있을 때 있음으로 봅니다.",
+    "a11y": A11Y_NOTE,
 }
 
 
@@ -1439,11 +1463,11 @@ def maturity_page(apps):
     allt = sum(check_score(a)[1] for a in ls)
     head = ('<div class="eyebrow">Service Maturity</div><h1>서비스 숙성도</h1>'
             '<p>앱 %d개가 ‘출시한 앱’을 넘어 ‘운영하는 서비스’로 얼마나 갖춰졌는지, 갖춰야 할 피처 %d개로 재 봤습니다. '
-            '언어·지원 페이지·피드백·인프라·품질·기능·데이터·수익화·소통·홍보로 나눴고, 할 일 탭에서 앱마다 남은 일을 볼 수 있습니다. '
+            '언어·지원 페이지·피드백·인프라·품질·기능·접근성·데이터·수익화·소통·홍보로 나눴고, 할 일 탭에서 앱마다 남은 일을 볼 수 있습니다. '
             '지금 전체로는 기본·권장 피처의 %d%%를 갖췄습니다.</p>'
             % (n, len(CHECKLIST) + len(PLANNED), round(100 * allg / allt) if allt else 0))
     return page("서비스 숙성도 — 리이오의 앱 포트폴리오",
-                "앱 %d개의 언어·지원 페이지·피드백·인프라·품질·기능·데이터·수익화·소통·홍보 피처와 앱별 할 일을 정리했습니다." % n,
+                "앱 %d개의 언어·지원 페이지·피드백·인프라·품질·기능·접근성·데이터·수익화·소통·홍보 피처와 앱별 할 일을 정리했습니다." % n,
                 {"head": head, "main": bar + panels}, "maturity",
                 MAT_CSS + APPS_CSS + "  .wrap{max-width:1480px}\n", MAT_JS + APPS_JS)
 
@@ -1509,7 +1533,7 @@ def hub_page(apps):
         '<a class="ov" href="lifecycle.html"><b>제품 여정</b>'
         '<p>만든 앱들을 제품 여정 다섯 단계와 글로벌 지원 수준, 두 축으로 정리했습니다.</p></a>'
         '<a class="ov" href="maturity.html"><b>서비스 숙성도</b>'
-        '<p>갖춰야 할 피처(언어·지원 페이지·피드백·인프라·품질·기능·데이터·수익화·소통·홍보)를 '
+        '<p>갖춰야 할 피처(언어·지원 페이지·피드백·인프라·품질·기능·접근성·데이터·수익화·소통·홍보)를 '
         '앱마다 무엇을 갖췄는지 한 표로 보고, 할 일 탭에서 앱별로 남은 일을 봅니다.</p></a>'
         '<a class="ov" href="business.html"><b>비즈니스 모델</b>'
         '<p>앱마다 누구에게, 언제, 무엇에 돈을 받는지 — 결제 시점 × 방식 프레임워크와 페이월, '
@@ -2248,7 +2272,7 @@ def _lang(fn):
 
 CHECK_CATS = [
     ("lang", "언어", "#ef6aa0"), ("support", "지원 페이지", "#5b8def"), ("feedback", "피드백", "#34c48a"),
-    ("infra", "인프라", "#e0a53a"), ("feature", "기능", "#a78bfa"), ("money", "수익화", "#f08c4a"),
+    ("infra", "인프라", "#e0a53a"), ("feature", "기능", "#a78bfa"), ("a11y", "접근성", "#e8789a"), ("money", "수익화", "#f08c4a"),
     ("comms", "소통", "#3fb8c9"), ("quality", "품질", "#7c8cff"), ("data", "데이터", "#9aa5b1"),
     ("marketing", "홍보", "#d65db1"),
 ]
@@ -2305,7 +2329,11 @@ CHECKLIST = [
     ("rec", "feedback", "writeReview", "리뷰 쓰기 바로가기", _m("feedback", "writeReview")),
     ("rec", "infra", "killSwitch", "원격 기능 끄기", _m("ops", "killSwitch")),
     ("rec", "quality", "tests", "자동 테스트", _m("ops", "tests")),
-    ("rec", "feature", "accessibility", "VoiceOver 대응", _m("ux", "accessibility")),
+    ("rec", "a11y", "voiceOver", "VoiceOver 설명", _m("a11y", "voiceOver")),
+    ("rec", "a11y", "structure", "읽는 순서·역할", _m("a11y", "structure")),
+    ("rec", "a11y", "dynamicType", "큰 글씨 대응", _m("a11y", "dynamicType")),
+    ("rec", "a11y", "reduceMotion", "움직임 줄이기", _m("a11y", "reduceMotion")),
+    ("rec", "a11y", "contrast", "대비·색 구분", _m("a11y", "contrast")),
     ("rec", "feature", "tips", "사용 팁", _m("ux", "tips")),
     ("rec", "infra", "crashLoop", "연속 크래시 보호", _src("ops", "crashLoop")),
     ("rec", "money", "paywall", "페이월 화면", _src("money", "paywall")),

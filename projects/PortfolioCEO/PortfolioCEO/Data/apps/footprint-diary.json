@@ -82,8 +82,8 @@
       "crash": false,
       "killSwitch": false,
       "leeoKit": true,
-      "tests": false,
       "crashLoop": false,
+      "tests": false,
       "privacyManifest": false
     },
     "ux": {
@@ -91,32 +91,16 @@
       "shortcuts": false,
       "cloudSync": true,
       "tips": true,
-      "accessibility": true,
       "onboarding": true,
       "backup": false
     },
-    "devices": {
-      "iphone": true,
-      "ipad": false,
-      "mac": false,
-      "watch": false,
-      "vision": false,
-      "_macViaDesignedForIPad": false
+    "a11y": {
+      "voiceOver": true,
+      "structure": true,
+      "dynamicType": false,
+      "reduceMotion": false,
+      "contrast": false
     },
-    "counts": {
-      "accessibilityLabels": 44,
-      "testFiles": 0
-    },
-    "support": {
-      "registered": true,
-      "reachable": true,
-      "privacy": true,
-      "english": false,
-      "contact": true,
-      "host": "m1zz.github.io",
-      "status": 200
-    },
-    "evaluatedAt": "2026-10-17",
     "money": {
       "paywall": false,
       "tiers": false,
@@ -132,7 +116,6 @@
       "roadmap": false,
       "feedbackReply": false
     },
-    "extrasFrom": "원격 최신 코드(origin)",
     "more": {
       "schemaMigration": false,
       "emptyStates": false,
@@ -150,7 +133,29 @@
       "uiTests": false,
       "swiftlint": false,
       "ci": false
-    }
+    },
+    "devices": {
+      "iphone": true,
+      "ipad": false,
+      "mac": false,
+      "watch": false,
+      "vision": false,
+      "_macViaDesignedForIPad": false
+    },
+    "counts": {
+      "accessibilityLabels": 45,
+      "testFiles": 0
+    },
+    "support": {
+      "registered": true,
+      "reachable": true,
+      "privacy": true,
+      "english": false,
+      "contact": true,
+      "host": "m1zz.github.io",
+      "status": 200
+    },
+    "evaluatedAt": "2026-10-17"
   },
   "usStore": {
     "available": true,

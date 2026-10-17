@@ -364,15 +364,54 @@
       "crash": null,
       "killSwitch": null,
       "leeoKit": null,
-      "tests": null
+      "crashLoop": null,
+      "tests": null,
+      "privacyManifest": null
     },
     "ux": {
       "widgets": null,
       "shortcuts": null,
       "cloudSync": null,
       "tips": null,
-      "accessibility": null,
-      "onboarding": null
+      "onboarding": null,
+      "backup": null
+    },
+    "a11y": {
+      "voiceOver": null,
+      "structure": null,
+      "dynamicType": null,
+      "reduceMotion": null,
+      "contrast": null
+    },
+    "money": {
+      "paywall": null,
+      "tiers": null,
+      "freeGate": null,
+      "restore": null,
+      "discount": null,
+      "tipJar": null,
+      "tipAsk": null,
+      "gift": null
+    },
+    "comms": {
+      "whatsNew": null,
+      "roadmap": null,
+      "feedbackReply": null
+    },
+    "more": {
+      "schemaMigration": null,
+      "emptyStates": null,
+      "biometricLock": null,
+      "notifications": null,
+      "performance": null,
+      "logging": null,
+      "funnel": null,
+      "abTesting": null,
+      "haptics": null,
+      "preflight": null,
+      "appSpec": null,
+      "family": null,
+      "fold": null
     },
     "devices": null,
     "support": {
