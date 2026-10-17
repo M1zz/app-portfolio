@@ -110,7 +110,7 @@
       "reachable": true,
       "privacy": true,
       "english": true,
-      "contact": false,
+      "contact": true,
       "host": "m1zz.github.io",
       "status": 200
     },

@@ -890,7 +890,46 @@ ITEM_HELP = {
     "tips": "처음 보는 기능을 알맞은 때에 알려 줍니다.",
     "accessibility": "화면 읽기(VoiceOver)용 설명을 붙였습니다.",
     "onboarding": "처음 열었을 때 쓰는 법을 안내합니다.",
+    "iphone": "iPhone에서 쓰도록 만들었습니다.",
+    "ipad": "iPad 화면에 맞춰 쓸 수 있습니다.",
+    "mac": "Mac용으로 직접 만들었습니다.",
+    "watch": "Apple Watch에서 쓸 수 있습니다.",
+    "vision": "Apple Vision Pro에서 쓸 수 있습니다.",
 }
+# 열 제목을 누르면 뜨는 설명 — ITEM_HELP(무엇인가) 아래에 '왜 필요한가'를 한두 문장으로 덧붙인다
+ITEM_WHY = {
+    "registered": "App Store 제품 페이지의 ‘지원’ 링크가 이 주소로 갑니다. 없으면 쓰는 사람이 물어볼 곳을 찾지 못합니다.",
+    "reachable": "주소를 등록해 두어도 페이지가 사라지면, 링크를 누른 사람은 빈 화면을 보게 됩니다.",
+    "privacy": "어떤 정보를 모으고 어디에 쓰는지 밝히는 글입니다. App Store 심사에서도 꼭 필요합니다.",
+    "english": "한국어를 모르는 사람도 쓰는 법과 문의 방법을 읽을 수 있어야 해외에서도 안심하고 씁니다.",
+    "contact": "문제가 생겼을 때 만든 사람에게 직접 닿을 방법입니다.",
+    "inAppFeedback": "앱을 나가지 않고 설정에서 바로 의견이나 버그를 보냅니다. 기기 정보가 함께 붙어 원인을 찾기 쉽습니다.",
+    "mailContact": "받는 사람과 제목이 채워진 메일이 열려, 긴 이야기나 사진을 보내기 좋습니다.",
+    "instagram": "메일보다 가볍게 말을 걸 수 있는 창구입니다.",
+    "reviewPrompt": "앱을 즐겁게 쓴 순간에만 별점을 부탁합니다. 아쉬워하는 사람에게는 별점 대신 의견 보내기를 권합니다.",
+    "writeReview": "설정의 ‘리뷰 남기기’를 누르면 App Store 리뷰 작성 화면이 바로 열립니다.",
+    "analytics": "하루에 몇 명이 앱을 여는지처럼 누구인지 알 수 없는 숫자만 모읍니다. 어떤 기능을 다듬을지 정하는 근거가 됩니다.",
+    "crash": "앱이 갑자기 꺼지거나 멈춘 기록을 받아, 쓰는 사람이 알려 주기 전에 먼저 고칠 수 있습니다.",
+    "killSwitch": "새 버전의 어떤 기능에 문제가 생기면, 앱 업데이트와 심사를 기다리지 않고 서버의 스위치로 그 기능만 잠시 끕니다. "
+                  "나머지 기능은 그대로 쓸 수 있고, 스위치를 읽지 못하면 켜진 채로 둡니다.",
+    "tests": "코드를 고칠 때마다 핵심 계산이 여전히 맞는지 자동으로 확인해, 고치다 다른 곳을 망가뜨리는 일을 줄입니다.",
+    "leeoKit": "피드백·리뷰·통계·원격 끄기 같은 기능을 여러 앱이 똑같이 쓰도록 묶은 자체 패키지입니다. "
+               "한 곳을 고치면 모든 앱이 함께 좋아집니다.",
+    "widgets": "앱을 열지 않고 홈 화면이나 잠금 화면에서 바로 내용을 봅니다.",
+    "shortcuts": "단축어 앱이나 Siri에게 말해서 앱의 핵심 동작을 바로 부릅니다.",
+    "cloudSync": "iPhone·iPad·Mac에서 같은 기록을 이어 쓰고, 기기를 바꿔도 데이터가 남습니다.",
+    "tips": "처음 보는 기능을 쓸 만한 때에 짧게 알려 주고, 한 번 써 보면 다시 띄우지 않습니다.",
+    "accessibility": "화면을 보기 어려운 사람도 VoiceOver로 버튼과 내용을 들을 수 있습니다.",
+    "onboarding": "처음 연 사람에게 무엇을 하는 앱이고 어떻게 시작하는지 몇 장으로 보여 줍니다.",
+}
+
+
+def help_attrs(item, label, have, known):
+    """열 제목에 붙이는 설명 속성 — 누르면 MAT_JS 가 이것으로 설명 창을 띄운다."""
+    return (' tabindex="0" role="button" aria-haspopup="dialog" data-k="%s" data-n="%s" data-h="%s" '
+            'data-w="%s" data-s="%s"' % (
+                esc(item), esc(label), esc(ITEM_HELP.get(item, "")), esc(ITEM_WHY.get(item, "")),
+                esc("앱 %d개 중 %d개가 갖췄습니다." % (known, have) if known else "")))
 
 # 주요 18개국 스토어 — sync-global-reach.py 의 STOREFRONTS 와 같은 순서
 COUNTRIES = [
@@ -929,8 +968,18 @@ MAT_CSS = NAMES_CSS + """
   .mt tbody tr:last-child>*{border-bottom:0}
   .mt thead th{font-size:.7rem;color:var(--muted);font-weight:800;vertical-align:bottom;line-height:1.35}
   .mt thead th em{display:block;font-style:normal;font-weight:700;color:var(--text);font-size:.74rem;margin-top:2px}
-  .mt thead th[data-c]{cursor:pointer}
-  .mt thead th[data-c]:hover,.mt thead th.on{color:var(--accent)}
+  .mt thead th[data-k]{cursor:help}
+  .mt thead th[data-k]:hover,.mt thead th[data-k]:focus-visible,.mt thead th.on{color:var(--accent);outline:none}
+  .hp{position:fixed;z-index:20;max-width:300px;background:var(--card);color:var(--text);
+    border:1px solid var(--border);border-radius:14px;padding:14px 16px 12px;
+    box-shadow:0 12px 32px rgba(0,0,0,.18);font-size:.82rem;line-height:1.55;white-space:normal;text-align:left}
+  .hp[hidden]{display:none}
+  .hp b{display:block;font-size:.92rem;margin-bottom:4px;padding-right:22px}
+  .hp p{margin:0 0 6px}
+  .hp .w{color:var(--muted)}
+  .hp small{display:block;color:var(--muted);font-weight:700;font-size:.72rem;margin-top:4px}
+  .hp button{position:absolute;top:8px;right:8px;border:0;background:none;color:var(--muted);
+    font-size:1.1rem;line-height:1;cursor:pointer;padding:4px}
   .mt th:first-child{text-align:left;position:sticky;left:0;background:var(--card);z-index:1;
     padding-left:12px;min-width:150px}
   .mt tbody th a{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:600}
@@ -945,8 +994,6 @@ MAT_CSS = NAMES_CSS + """
   .n{border:1.5px solid var(--muted);opacity:.45}
   .u{color:var(--muted)}
   .u::before{content:"?"}
-  [data-focus] tbody tr{opacity:.22}
-  [data-focus] tbody tr.miss{opacity:1}
   .sc{display:inline-flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
   .sc s{display:inline-block;width:38px;height:6px;border-radius:999px;background:var(--bg-soft);
     overflow:hidden;text-decoration:none}
@@ -996,15 +1043,31 @@ if(on)hit=true;b.setAttribute('aria-selected',on?'true':'false');
 document.getElementById('t-'+b.getAttribute('data-t')).hidden=!on;});return hit;}
 var h=location.hash.slice(1);if(!h||!show(h))show(tabs[0].getAttribute('data-t'));
 document.addEventListener('click',function(e){var b=e.target.closest('.tabs button');
-if(b){var id=b.getAttribute('data-t');show(id);history.replaceState(null,'','#'+id);return;}
-var th=e.target.closest('th[data-c]');if(!th)return;var t=th.closest('table'),c=th.getAttribute('data-c');
-t.querySelectorAll('th.on').forEach(function(x){if(x!==th)x.classList.remove('on')});
-if(t.getAttribute('data-focus')===c){t.removeAttribute('data-focus');th.classList.remove('on');
-t.querySelectorAll('tr.miss').forEach(function(r){r.classList.remove('miss')});return;}
-t.setAttribute('data-focus',c);th.classList.add('on');
-t.querySelectorAll('tbody tr').forEach(function(r){var td=r.children[+c];
-r.classList.toggle('miss',!!td&&!!td.querySelector('.n'));});});
-window.addEventListener('hashchange',function(){show(location.hash.slice(1))});})();
+if(b){var id=b.getAttribute('data-t');hide();show(id);history.replaceState(null,'','#'+id);return;}
+if(e.target.closest('.hp'))return;var th=e.target.closest('th[data-k]');
+if(!th||th===cur){hide();return;}open(th);});
+var hp=document.createElement('div'),cur=null;hp.className='hp';hp.hidden=true;
+hp.setAttribute('role','dialog');document.body.appendChild(hp);
+function add(tag,cls,txt){if(!txt)return;var x=document.createElement(tag);if(cls)x.className=cls;
+x.textContent=txt;hp.appendChild(x);}
+function open(th){hide();cur=th;th.classList.add('on');hp.textContent='';
+var x=document.createElement('button');x.type='button';x.setAttribute('aria-label','닫기');x.textContent='×';
+x.onclick=function(){var t=cur;hide();if(t)t.focus();};hp.appendChild(x);
+add('b','',th.getAttribute('data-n'));add('p','',th.getAttribute('data-h'));
+add('p','w',th.getAttribute('data-w'));add('small','',th.getAttribute('data-s'));
+hp.setAttribute('aria-label',th.getAttribute('data-n'));hp.hidden=false;place();}
+function place(){if(!cur)return;var r=cur.getBoundingClientRect();
+if(r.bottom<0||r.top>window.innerHeight){hide();return;}
+var w=hp.offsetWidth,h=hp.offsetHeight,vw=document.documentElement.clientWidth;
+var left=Math.min(Math.max(8,r.left+r.width/2-w/2),vw-w-8),top=r.bottom+8;
+if(top+h>window.innerHeight-8)top=Math.max(8,r.top-h-8);
+hp.style.left=left+'px';hp.style.top=top+'px';}
+function hide(){if(cur)cur.classList.remove('on');cur=null;hp.hidden=true;}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur){var t=cur;hide();t.focus();return;}
+var th=e.target.closest&&e.target.closest('th[data-k]');
+if(th&&(e.key==='Enter'||e.key===' ')){e.preventDefault();th===cur?hide():open(th);}});
+window.addEventListener('scroll',place,true);window.addEventListener('resize',place);
+window.addEventListener('hashchange',function(){hide();show(location.hash.slice(1))});})();
 </script>
 """
 
@@ -1060,7 +1123,7 @@ def app_th(a):
 
 
 LEGEND = ('<div class="lgd"><span><i class="y"></i>있음</span><span><i class="n"></i>없음</span>'
-          '<span><i class="u"></i>확인 불가</span><span>열 제목을 누르면 그 항목이 없는 앱만 남깁니다.</span></div>')
+          '<span><i class="u"></i>확인 불가</span><span>열 제목을 누르면 그 항목이 무엇인지 설명이 뜹니다.</span></div>')
 
 
 def area_panel(key, name, why, items, apps):
@@ -1068,9 +1131,9 @@ def area_panel(key, name, why, items, apps):
     counts = {k: sum(1 for a in apps if area_vals(a, key).get(k)) for k, _ in items}
     known = {k: sum(1 for a in apps if area_vals(a, key).get(k) is not None) for k, _ in items}
     thead = '<tr><th>앱</th>%s%s</tr>' % (
-        "".join('<th data-c="%d" title="%s">%s<em>%d/%d</em></th>'
-                % (i + 1, esc(ITEM_HELP.get(k, "")), esc(lbl), counts[k], known[k])
-                for i, (k, lbl) in enumerate(items)),
+        "".join('<th%s>%s<em>%d/%d</em></th>'
+                % (help_attrs(k, lbl, counts[k], known[k]), esc(lbl), counts[k], known[k])
+                for k, lbl in items),
         "" if key == "devices" else "<th>갖춘 정도</th>")
     tbody = ""
     for a in rows:
@@ -1138,7 +1201,7 @@ def country_panel(apps):
             % (n, covered, trs, store_en))
 
 
-# 한눈에 표의 짧은 열 이름 — 탭의 긴 이름은 ITEM_HELP 툴팁으로 보여 준다
+# 한눈에 표의 짧은 열 이름 — 누르면 긴 이름과 설명(ITEM_HELP · ITEM_WHY)이 뜬다
 SHORT = {
     "registered": "등록", "reachable": "열림", "privacy": "개인정보", "english": "영어",
     "contact": "문의", "inAppFeedback": "앱 안", "mailContact": "메일", "instagram": "인스타",
@@ -1171,9 +1234,8 @@ def overview_panel(apps):
         for i, (item, lbl) in enumerate(items):
             have = sum(1 for a in apps if area_vals(a, k).get(item))
             known = sum(1 for a in apps if area_vals(a, k).get(item) is not None)
-            cols += ('<th data-c="%d"%s title="%s — %s">%s<em>%d</em></th>'
-                     % (col, ' class="g0"' if i == 0 else "", esc(lbl),
-                        esc(ITEM_HELP.get(item, "있는 앱 %d / %d" % (have, known))),
+            cols += ('<th%s%s>%s<em>%d</em></th>'
+                     % (' class="g0"' if i == 0 else "", help_attrs(item, lbl, have, known),
                         esc(SHORT.get(item, lbl)), have))
             col += 1
     thead = groups + "<tr>%s</tr>" % cols
@@ -1208,7 +1270,7 @@ def overview_panel(apps):
             '<div class="kp">%s</div>%s'
             '<div class="tw"><table class="mt ov2"><thead>%s</thead><tbody>%s</tbody></table></div>'
             '<p class="note">소스 코드를 찾지 못한 앱은 앱 안의 기능을 ‘확인 불가’로 두고 종합 비율의 '
-            '분모에서 뺍니다. 각 항목의 뜻은 열 제목에 마우스를 올리거나 위 탭에서 볼 수 있습니다.</p>'
+            '분모에서 뺍니다. 각 항목의 뜻은 열 제목을 누르면 볼 수 있습니다.</p>'
             % (len(apps), col - 2, kp, LEGEND, thead, tbody))
 
 
