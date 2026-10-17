@@ -443,6 +443,18 @@
       "_video": false,
       "_forcedLight": false
     },
+    "craft": {
+      "moments": false,
+      "sheets": true,
+      "liveNumbers": false,
+      "localeFormat": false,
+      "textOverflow": false,
+      "inputFlow": false,
+      "textCopy": false,
+      "purchaseTest": false,
+      "releaseTags": false,
+      "steadyUpdates": false
+    },
     "money": {
       "paywall": true,
       "tiers": false,
@@ -455,7 +467,7 @@
     },
     "comms": {
       "whatsNew": false,
-      "roadmap": false,
+      "roadmap": true,
       "feedbackReply": false
     },
     "more": {

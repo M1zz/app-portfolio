@@ -503,6 +503,18 @@
       "_video": true,
       "_forcedLight": false
     },
+    "craft": {
+      "moments": true,
+      "sheets": true,
+      "liveNumbers": true,
+      "localeFormat": true,
+      "textOverflow": true,
+      "inputFlow": true,
+      "textCopy": true,
+      "purchaseTest": true,
+      "releaseTags": true,
+      "steadyUpdates": true
+    },
     "money": {
       "paywall": true,
       "tiers": true,

@@ -903,6 +903,16 @@ ITEM_HELP = {
     "cloudSync": "iCloud로 기기 사이에 데이터를 맞춥니다.",
     "tips": "처음 보는 기능을 알맞은 때에 알려 줍니다.",
     "onboarding": "처음 열었을 때 쓰는 법을 안내합니다.",
+    "moments": "앱을 잘 쓴 순간을 세어 두었다가 알맞은 때에만 별점·후원을 부탁합니다.",
+    "sheets": "아래에서 올라오는 화면에 알맞은 높이와 손잡이를 정해 두었습니다.",
+    "liveNumbers": "숫자가 바뀔 때 자리마다 굴러가듯 바뀝니다.",
+    "localeFormat": "날짜·숫자·돈을 쓰는 사람의 지역 방식대로 적습니다.",
+    "textOverflow": "글자가 길어도 잘리는 자리를 정해 두어 중요한 부분이 남습니다.",
+    "inputFlow": "키보드의 확인 키 이름과 키보드 내리기를 상황에 맞춰 두었습니다.",
+    "textCopy": "앱이 보여 준 결과 글을 길게 눌러 복사할 수 있습니다.",
+    "purchaseTest": "실제 결제 없이 구매·복원·환불 흐름을 미리 돌려 볼 설정이 있습니다.",
+    "releaseTags": "버전을 낼 때마다 코드에 표시를 남깁니다.",
+    "steadyUpdates": "최근 90일 동안 꾸준히 고치고 다듬었습니다.",
     "voiceOver": "화면 읽기(VoiceOver)용 설명을 붙였습니다.",
     "dynamicType": "설정에서 글자를 키우면 앱 글자와 크기도 함께 커집니다.",
     "darkMode": "어두운 화면에서 쓸 색을 따로 준비했습니다.",
@@ -950,6 +960,16 @@ ITEM_WHY = {
     "cloudSync": "iPhone·iPad·Mac에서 같은 기록을 이어 쓰고, 기기를 바꿔도 데이터가 남습니다.",
     "tips": "처음 보는 기능을 쓸 만한 때에 짧게 알려 주고, 한 번 써 보면 다시 띄우지 않습니다.",
     "onboarding": "처음 연 사람에게 무엇을 하는 앱이고 어떻게 시작하는지 몇 장으로 보여 줍니다.",
+    "moments": "처음 연 날이나 막 실수한 때에 부탁하면 귀찮은 앱이 됩니다. 기록을 끝냈거나 여러 번 잘 쓴 뒤처럼 기분 좋은 순간을 골라 부탁합니다.",
+    "sheets": "짧은 내용이 화면 가득 올라오면 흐름이 끊깁니다. 필요한 만큼만 올리고 손잡이를 보여 주면 끌어 내려 닫을 수 있다는 걸 바로 압니다.",
+    "liveNumbers": "합계나 남은 시간이 툭 바뀌면 무엇이 달라졌는지 놓치기 쉽습니다. 바뀌는 자리만 움직여 눈이 따라가게 합니다.",
+    "localeFormat": "같은 날짜도 나라마다 쓰는 순서가 다릅니다. 기기 지역 설정을 따라 적으면 번역을 늘려도 어색한 표기가 남지 않습니다.",
+    "textOverflow": "긴 이름이나 다른 언어로 바뀐 문구가 화면을 넘칠 때, 어디를 줄일지 정하지 않으면 뒤쪽의 중요한 말이 사라집니다.",
+    "inputFlow": "‘완료’·‘다음’·‘검색’처럼 누르면 무엇이 되는지 키에 적혀 있고, 화면을 밀면 키보드가 내려가 입력이 막히지 않습니다.",
+    "textCopy": "만든 결과를 메시지나 메모로 옮기고 싶을 때, 복사가 막혀 있으면 다시 손으로 써야 합니다.",
+    "purchaseTest": "돈이 오가는 화면은 한 번 틀리면 바로 별점으로 돌아옵니다. 출시 전에 살 때와 되살릴 때를 직접 시험합니다. 파는 상품이 없는 앱은 해당 없음입니다.",
+    "releaseTags": "어느 버전에 무엇이 들어갔는지 바로 찾아, 문제가 생긴 버전을 되짚거나 되돌리기 쉽습니다.",
+    "steadyUpdates": "출시하고 멈춘 앱은 새 기기와 새 iOS에서 조금씩 어긋납니다. 계속 손보는 앱이 쓰는 사람의 의견도 빨리 반영합니다.",
     "voiceOver": "화면을 보기 어려운 사람도 VoiceOver로 버튼과 내용을 들을 수 있습니다. 그림만 있는 버튼에 이름이 없으면 ‘버튼’이라고만 읽혀 무엇인지 알 수 없습니다.",
     "dynamicType": "작은 글씨가 잘 안 보이는 사람은 시스템 설정에서 글자를 키웁니다. 앱이 이를 따르지 않으면 그 사람에게만 화면이 작게 남습니다.",
     "darkMode": "빛에 민감하거나 밤에 쓰는 사람은 어두운 화면을 켭니다. 밝은 모드로 고정하거나 어두운 색을 준비하지 않으면 눈부시거나 글자가 묻힙니다.",
@@ -1306,6 +1326,16 @@ CHECK_SHORT = {
     "paywall": "페이월", "tiers": "등급", "freeGate": "무료 문턱", "discount": "할인", "tipJar": "후원",
     "tipAsk": "후원 부탁", "gift": "선물", "iapEnglish": "인앱 영어", "whatsNew": "새 기능", "roadmap": "로드맵",
     "feedbackReply": "답장", "family": "다른 앱",
+    "moments": "순간 세기",
+    "sheets": "시트",
+    "liveNumbers": "숫자 효과",
+    "localeFormat": "지역 표기",
+    "textOverflow": "긴 글자",
+    "inputFlow": "입력 흐름",
+    "textCopy": "복사",
+    "purchaseTest": "구매 시험",
+    "releaseTags": "출시 기록",
+    "steadyUpdates": "꾸준함",
 }
 CAT_WHY = {
     "lang": "한국어 밖의 사람도 쓸 수 있는지 봅니다.",
@@ -1314,6 +1344,8 @@ CAT_WHY = {
     "infra": "출시한 뒤에도 문제를 먼저 알아채고, 심사 없이 대응하고, 숫자로 판단할 수 있는지 봅니다.",
     "quality": "고치다 다른 곳을 망가뜨리지 않도록 자동으로 확인하는 장치가 있는지 봅니다.",
     "feature": "앱을 열지 않아도, 처음 열어도 편하게 쓸 수 있는지 봅니다.",
+    "craft": "종합 점수가 높은 앱들이 공통으로 갖췄고 낮은 앱에는 드문 것을 모았습니다. 기능 목록에는 잘 안 보이지만 "
+             "쓰는 사람이 ‘잘 만든 앱’이라고 느끼는 손질입니다.",
     "a11y": "눈이 불편하거나, 손을 쓰기 어렵거나, 큰 글씨가 필요하거나, 움직임에 민감한 사람도 똑같이 쓸 수 있는지 "
             "봅니다. App Store 제품 페이지의 접근성 정보 항목(VoiceOver·음성 제어·큰 텍스트·다크 인터페이스·색상 없이 "
             "구별·충분한 대비·동작 줄이기·자막·오디오 설명)에, 접근성이 좋은 앱이 더 갖추는 것을 더했습니다.",
@@ -1327,6 +1359,8 @@ CAT_NOTE = {
     "feedback": "앱 소스 코드에서 해당 기능을 부르는지로 판정했습니다.",
     "infra": "사용 통계와 크래시 진단은 개인을 식별하지 않는 방식만 씁니다.",
     "a11y": A11Y_NOTE,
+    "craft": "종합 상위 10개 앱과 하위 20개 앱의 코드를 견주어, 상위 앱 절반 이상이 갖췄고 하위 앱에는 드문 것을 골랐습니다. "
+             "버전별 출시 기록은 버전 표시가 3개 이상, 꾸준한 손질은 최근 90일 동안 고친 기록이 20번 이상일 때 있음으로 봅니다.",
 }
 
 
@@ -1494,11 +1528,11 @@ def maturity_page(apps):
     allt = sum(check_score(a)[1] for a in ls)
     head = ('<div class="eyebrow">Service Maturity</div><h1>서비스 숙성도</h1>'
             '<p>앱 %d개가 ‘출시한 앱’을 넘어 ‘운영하는 서비스’로 얼마나 갖춰졌는지, 갖춰야 할 피처 %d개로 재 봤습니다. '
-            '언어·지원 페이지·피드백·인프라·품질·기능·접근성·데이터·수익화·소통·홍보로 나눴고, 할 일 탭에서 앱마다 남은 일을 볼 수 있습니다. '
+            '언어·지원 페이지·피드백·인프라·품질·기능·접근성·다듬기·데이터·수익화·소통·홍보로 나눴고, 할 일 탭에서 앱마다 남은 일을 볼 수 있습니다. '
             '지금 전체로는 기본·권장 피처의 %d%%를 갖췄습니다.</p>'
             % (n, len(CHECKLIST) + len(PLANNED), round(100 * allg / allt) if allt else 0))
     return page("서비스 숙성도 — 리이오의 앱 포트폴리오",
-                "앱 %d개의 언어·지원 페이지·피드백·인프라·품질·기능·접근성·데이터·수익화·소통·홍보 피처와 앱별 할 일을 정리했습니다." % n,
+                "앱 %d개의 언어·지원 페이지·피드백·인프라·품질·기능·접근성·다듬기·데이터·수익화·소통·홍보 피처와 앱별 할 일을 정리했습니다." % n,
                 {"head": head, "main": bar + panels}, "maturity",
                 MAT_CSS + APPS_CSS + "  .wrap{max-width:1480px}\n", MAT_JS + APPS_JS)
 
@@ -1564,7 +1598,7 @@ def hub_page(apps):
         '<a class="ov" href="lifecycle.html"><b>제품 여정</b>'
         '<p>만든 앱들을 제품 여정 다섯 단계와 글로벌 지원 수준, 두 축으로 정리했습니다.</p></a>'
         '<a class="ov" href="maturity.html"><b>서비스 숙성도</b>'
-        '<p>갖춰야 할 피처(언어·지원 페이지·피드백·인프라·품질·기능·접근성·데이터·수익화·소통·홍보)를 '
+        '<p>갖춰야 할 피처(언어·지원 페이지·피드백·인프라·품질·기능·접근성·다듬기·데이터·수익화·소통·홍보)를 '
         '앱마다 무엇을 갖췄는지 한 표로 보고, 할 일 탭에서 앱별로 남은 일을 봅니다.</p></a>'
         '<a class="ov" href="business.html"><b>비즈니스 모델</b>'
         '<p>앱마다 누구에게, 언제, 무엇에 돈을 받는지 — 결제 시점 × 방식 프레임워크와 페이월, '
@@ -2303,7 +2337,8 @@ def _lang(fn):
 
 CHECK_CATS = [
     ("lang", "언어", "#ef6aa0"), ("support", "지원 페이지", "#5b8def"), ("feedback", "피드백", "#34c48a"),
-    ("infra", "인프라", "#e0a53a"), ("feature", "기능", "#a78bfa"), ("a11y", "접근성", "#e8789a"), ("money", "수익화", "#f08c4a"),
+    ("infra", "인프라", "#e0a53a"), ("feature", "기능", "#a78bfa"), ("a11y", "접근성", "#e8789a"), ("craft", "다듬기", "#c9a227"),
+    ("money", "수익화", "#f08c4a"),
     ("comms", "소통", "#3fb8c9"), ("quality", "품질", "#7c8cff"), ("data", "데이터", "#9aa5b1"),
     ("marketing", "홍보", "#d65db1"),
 ]
@@ -2349,6 +2384,16 @@ def _a11y_captions(a):
 
 # (등급, 분류, 키, 이름, 판정 함수 → True/False/None)
 CHECKLIST = [
+    ("rec", "craft", "moments", "만족한 순간 세기", _src("craft", "moments")),
+    ("rec", "craft", "sheets", "시트 다듬기", _src("craft", "sheets")),
+    ("rec", "craft", "liveNumbers", "숫자 바뀜 효과", _src("craft", "liveNumbers")),
+    ("rec", "craft", "localeFormat", "지역 맞춤 표기", _src("craft", "localeFormat")),
+    ("rec", "craft", "textOverflow", "긴 글자 처리", _src("craft", "textOverflow")),
+    ("rec", "craft", "inputFlow", "입력 흐름 다듬기", _src("craft", "inputFlow")),
+    ("rec", "craft", "textCopy", "글자 복사 허용", _src("craft", "textCopy")),
+    ("rec", "craft", "purchaseTest", "구매 흐름 시험", _if_sells(_src("craft", "purchaseTest"))),
+    ("rec", "craft", "releaseTags", "버전별 출시 기록", _src("craft", "releaseTags")),
+    ("rec", "craft", "steadyUpdates", "꾸준한 손질", _src("craft", "steadyUpdates")),
     ("base", "a11y", "voiceOver", "VoiceOver 설명", _m("a11y", "voiceOver")),
     ("base", "a11y", "dynamicType", "큰 글씨 따라가기", _m("a11y", "dynamicType")),
     ("base", "a11y", "darkMode", "다크 모드", _m("a11y", "darkMode")),

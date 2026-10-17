@@ -123,6 +123,18 @@
       "_video": false,
       "_forcedLight": false
     },
+    "craft": {
+      "moments": false,
+      "sheets": true,
+      "liveNumbers": false,
+      "localeFormat": true,
+      "textOverflow": false,
+      "inputFlow": true,
+      "textCopy": false,
+      "purchaseTest": true,
+      "releaseTags": false,
+      "steadyUpdates": false
+    },
     "money": {
       "paywall": true,
       "tiers": false,

@@ -104,6 +104,18 @@
       "keyboard": null,
       "a11yAudit": null
     },
+    "craft": {
+      "moments": null,
+      "sheets": null,
+      "liveNumbers": null,
+      "localeFormat": null,
+      "textOverflow": null,
+      "inputFlow": null,
+      "textCopy": null,
+      "purchaseTest": null,
+      "releaseTags": null,
+      "steadyUpdates": null
+    },
     "money": {
       "paywall": null,
       "tiers": null,

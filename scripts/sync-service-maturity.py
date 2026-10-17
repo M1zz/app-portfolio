@@ -16,6 +16,8 @@
   more       더 갖출 것     마이그레이션 · 빈 상태 · 생체 잠금 · 알림 · 성능 · 로그 · 퍼널 · A/B · 햅틱 · 사전 점검 ·
                             완성도 계약 · 앱 가족 · 폴더블 · UI 테스트 · SwiftLint · CI
   comms      소통           새 기능 알림 · 로드맵 · 의견 답장
+  craft      다듬기         만족한 순간 세기 · 시트 다듬기 · 숫자 바뀜 효과 · 지역 맞춤 표기 · 긴 글자 처리 ·
+                            입력 흐름 · 글자 복사 · 구매 흐름 시험 · 버전별 출시 기록 · 꾸준한 손질
   devices    기기           iPhone · iPad · Mac · Apple Watch · Vision Pro
   support    지원 페이지     등록 · 접속 · 개인정보 처리방침 · 영어 안내 · 문의 수단
 
@@ -95,6 +97,17 @@ SRC = {
         "invertColors": r"accessibilityIgnoresInvertColors|accessibilityInvertColors",
         "keyboard": r"\.focusable\(|focusSection|keyboardShortcut\(|UIKeyCommand",
     },
+    # 다듬기 — 종합 상위 앱들이 공통으로 갖췄는데 하위 앱에는 드문 것 (2026-10-17 상위 10 · 하위 20 비교)
+    "craft": {
+        "moments": r"LeeoEngagement|registerSignificantEvent",
+        "sheets": r"presentationDragIndicator|presentationDetents",
+        "liveNumbers": r"\.numericText",
+        "localeFormat": r"setLocalizedDateFormatFromTemplate|\.formatted\(\.dateTime|Date\.FormatStyle|"
+                        r"\.formatted\(\.number|\.currency\(code:",
+        "textOverflow": r"truncationMode|allowsTightening",
+        "inputFlow": r"submitLabel|scrollDismissesKeyboard",
+        "textCopy": r"textSelection\(\.enabled\)",
+    },
     # 수익화 — 클립키보드에서 다듬은 장치들(2026-09~10)을 다른 앱에도 같은 잣대로 본다
     "money": {
         "paywall": r"(?:struct|class) \w*Paywall\w*\s*:\s*View|LeeoPaywall",
@@ -131,6 +144,8 @@ SRC = {
     },
 }
 # 파일로 판정하는 것 — 저장소 맨 위 기준 경로
+RELEASE_TAGS_MIN = 3     # 버전 태그가 이만큼 있으면 출시마다 기록을 남긴다고 본다
+STEADY_COMMITS_MIN = 20  # 최근 90일 커밋이 이만큼 있으면 꾸준히 손본다고 본다
 REPO_FILES = {
     "swiftlint": re.compile(r"(^|/)\.swiftlint\.ya?ml$"),
     "ci": re.compile(r"^\.github/workflows/|(^|/)ci_scripts/"),
@@ -178,6 +193,7 @@ def scan_source(root, exclude_roots):
     found = {k: {i: False for i in items} for k, items in SRC.items()}
     found["more"].update({"uiTests": False, **{k: False for k in REPO_FILES}})
     found["a11y"].update({"a11yAudit": False, "_video": False})
+    found["craft"]["purchaseTest"] = False
     forced_light = False
     pats = {(k, i): re.compile(p, re.M) for k, items in SRC.items() for i, p in items.items()}
     a11y = 0
@@ -223,6 +239,12 @@ def scan_source(root, exclude_roots):
             for k, p in REPO_FILES.items():
                 if p.search(rel):
                     found["more"][k] = True
+            if f.endswith(".storekit"):
+                found["craft"]["purchaseTest"] = True
+    tags = os.popen("git -C '%s' tag 2>/dev/null" % top).read().split()
+    found["craft"]["releaseTags"] = len(tags) >= RELEASE_TAGS_MIN
+    recent = os.popen("git -C '%s' log --since=90.days --oneline 2>/dev/null" % top).read().splitlines()
+    found["craft"]["steadyUpdates"] = len(recent) >= STEADY_COMMITS_MIN
     found["ops"]["privacyManifest"] = any(
         f == "PrivacyInfo.xcprivacy" for dp, ds, fs in os.walk(root)
         if not any(x in dp.split(os.sep) for x in SKIP_DIRS) for f in fs)
@@ -363,6 +385,7 @@ def main():
             m["ops"]["tests"] = None
             m["ops"]["privacyManifest"] = None
             m["a11y"]["a11yAudit"] = None
+            m["craft"].update({"purchaseTest": None, "releaseTags": None, "steadyUpdates": None})
             m["devices"] = None
         if args.offline and prev.get("support"):
             m["support"] = prev["support"]

@@ -447,6 +447,18 @@
       "_video": false,
       "_forcedLight": false
     },
+    "craft": {
+      "moments": true,
+      "sheets": false,
+      "liveNumbers": false,
+      "localeFormat": false,
+      "textOverflow": false,
+      "inputFlow": true,
+      "textCopy": true,
+      "purchaseTest": true,
+      "releaseTags": true,
+      "steadyUpdates": true
+    },
     "money": {
       "paywall": true,
       "tiers": false,
@@ -459,7 +471,7 @@
     },
     "comms": {
       "whatsNew": false,
-      "roadmap": false,
+      "roadmap": true,
       "feedbackReply": true
     },
     "more": {
@@ -489,7 +501,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 84,
+      "accessibilityLabels": 85,
       "testFiles": 3
     },
     "support": {
