@@ -6,9 +6,9 @@
 
 출력 3종:
   docs/hub.html               공개 허브 — 쇼케이스·수명주기·앱별 지원페이지 (GitHub Pages 배포)
-  docs/apps.html              공개 앱별 할 일 — 기본·권장 체크리스트로 앱마다 된 것·안 된 것·할 일
+  docs/apps.html              옛 주소 — 서비스 숙성도 할 일 탭으로 넘긴다
   docs/lifecycle.html         공개 수명주기 — 제품 여정 5단계 (GitHub Pages 배포)
-  docs/maturity.html          공개 서비스 숙성도 — 국가별 언어·지원 페이지·피드백·운영·경험·기기 탭
+  docs/maturity.html          공개 서비스 숙성도 — 피처 체크리스트 한눈에 · 할 일 · 국가별 언어 · 분류별 · 기기 탭
   docs/business.html          공개 비즈니스 모델 — 결제 시점 × 방식 · 페이월 · 앱별 Lean Canvas
   docs/paywalls.html          공개 페이월 모음 — 앱별 가격 사다리 비교표 · 페이월 카드
   reports/portfolio-hub.html  내부 허브 — 위 + 아티팩트·로컬 파일 링크 (비배포)
@@ -171,7 +171,6 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
     nav = "".join(
         '<a href="%s"%s>%s</a>' % (h, ' class="on"' if k == active else "", t)
         for k, h, t in [("home", "index.html", "쇼케이스"),
-                        ("apps", "apps.html", "앱별 할 일"),
                         ("life", "lifecycle.html", "제품 여정"),
                         ("maturity", "maturity.html", "서비스 숙성도"),
                         ("biz", "business.html", "비즈니스 모델"),
@@ -928,12 +927,15 @@ ITEM_WHY = {
 }
 
 
-def help_attrs(item, label, have, known):
+def help_attrs(item, label, have, known, tier=None):
     """열 제목에 붙이는 설명 속성 — 누르면 MAT_JS 가 이것으로 설명 창을 띄운다."""
+    summary = "앱 %d개 중 %d개가 갖췄습니다." % (known, have) if known else ""
+    if tier:
+        summary = ("%s 항목 · %s" % (TIER_NAME[tier], summary)).strip(" ·")
     return (' tabindex="0" role="button" aria-haspopup="dialog" data-k="%s" data-n="%s" data-h="%s" '
             'data-w="%s" data-s="%s"' % (
-                esc(item), esc(label), esc(ITEM_HELP.get(item, "")), esc(ITEM_WHY.get(item, "")),
-                esc("앱 %d개 중 %d개가 갖췄습니다." % (known, have) if known else "")))
+                esc(item), esc(label), esc(ITEM_HELP.get(item) or CHECK_HELP.get(item, "")),
+                esc(ITEM_WHY.get(item, "") if ITEM_HELP.get(item) else ""), esc(summary)))
 
 # 주요 18개국 스토어 — sync-global-reach.py 의 STOREFRONTS 와 같은 순서
 COUNTRIES = [
@@ -1008,6 +1010,10 @@ MAT_CSS = NAMES_CSS + """
   .n{border:1.5px solid var(--muted);opacity:.45}
   .u{color:var(--muted)}
   .u::before{content:"?"}
+  .na{display:inline-grid;place-items:center;width:20px;height:20px;font-style:normal;color:var(--muted)}
+  .na::before{content:"–"}
+  .ov2 .na{width:16px;height:16px}
+  .mt thead th.t-opt{opacity:.6}
   .sc{display:inline-flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
   .sc s{display:inline-block;width:38px;height:6px;border-radius:999px;background:var(--bg-soft);
     overflow:hidden;text-decoration:none}
@@ -1233,88 +1239,193 @@ AREA_COLOR = {"lang": "#ef6aa0", "support": "#5b8def", "feedback": "#34c48a", "o
               "ux": "#a78bfa", "devices": "#8b90a0"}
 
 
+# 서비스 숙성도는 CHECKLIST(앱별 할 일과 같은 피처 목록)로 잰다. 종합은 기본·권장 가운데 갖춘 비율.
+TIER_ORDER = {"base": 0, "rec": 1, "opt": 2}
+CHECK_SHORT = {
+    "appEn": "앱 영어", "storeEn": "스토어 영어", "multi": "3개+ 언어", "registered": "등록", "reachable": "열림",
+    "privacy": "개인정보", "contact": "문의", "english": "영어 안내", "inAppFeedback": "앱 안", "reviewPrompt": "리뷰 요청",
+    "mailContact": "메일", "writeReview": "리뷰 쓰기", "instagram": "인스타", "analytics": "통계", "crash": "크래시",
+    "leeoKit": "LeeoKit", "privacyManifest": "매니페스트", "killSwitch": "원격 끄기", "crashLoop": "크래시 보호",
+    "performance": "성능", "logging": "로그", "funnel": "퍼널", "appSpec": "계약", "preflight": "사전 점검",
+    "abTesting": "A/B", "tests": "테스트", "uiTests": "UI 테스트", "swiftlint": "SwiftLint", "ci": "CI",
+    "onboarding": "첫 안내", "accessibility": "VoiceOver", "tips": "팁", "emptyStates": "빈 화면", "haptics": "햅틱",
+    "widgets": "위젯", "shortcuts": "단축어", "cloudSync": "iCloud", "biometricLock": "생체 잠금",
+    "notifications": "알림", "fold": "폴더블", "backup": "백업", "schemaMigration": "구조 이전", "restore": "복원",
+    "paywall": "페이월", "tiers": "등급", "freeGate": "무료 문턱", "discount": "할인", "tipJar": "후원",
+    "tipAsk": "후원 부탁", "gift": "선물", "iapEnglish": "인앱 영어", "whatsNew": "새 기능", "roadmap": "로드맵",
+    "feedbackReply": "답장", "family": "다른 앱",
+}
+CAT_WHY = {
+    "lang": "한국어 밖의 사람도 쓸 수 있는지 봅니다.",
+    "support": "App Store에 등록한 문의·안내 페이지가 열리고, 필요한 내용을 담고 있는지 봅니다.",
+    "feedback": "쓰는 사람의 목소리가 만든 사람에게 닿는 길이 몇 개나 열려 있는지 봅니다.",
+    "infra": "출시한 뒤에도 문제를 먼저 알아채고, 심사 없이 대응하고, 숫자로 판단할 수 있는지 봅니다.",
+    "quality": "고치다 다른 곳을 망가뜨리지 않도록 자동으로 확인하는 장치가 있는지 봅니다.",
+    "feature": "앱을 열지 않아도, 처음 열어도, 눈이 불편해도 편하게 쓸 수 있는지 봅니다.",
+    "data": "쓰는 사람의 데이터를 잃지 않고 옮기고 지킬 수 있는지 봅니다.",
+    "money": "돈을 받는 길이 공정하고 막힘없이 설계되어 있는지 봅니다. 파는 상품이 없는 앱은 등급·할인·선물 같은 항목을 ‘해당 없음’으로 둡니다.",
+    "comms": "업데이트와 계획, 답장을 쓰는 사람에게 돌려주는지 봅니다.",
+    "marketing": "앱 밖에서 사람을 데려오는 길이 있는지 봅니다.",
+}
+CAT_NOTE = {
+    "support": "노션으로 만든 페이지는 본문을 스크립트로 그려서 자동으로 읽을 수 없어 ‘확인 불가’로 둡니다.",
+    "feedback": "앱 소스 코드에서 해당 기능을 부르는지로 판정했습니다.",
+    "infra": "사용 통계와 크래시 진단은 개인을 식별하지 않는 방식만 씁니다.",
+    "feature": "VoiceOver 대응은 화면 읽기용 설명이 5곳 이상 붙어 있을 때 있음으로 봅니다.",
+}
+
+
+def check_items(cat=None):
+    """(등급, 분류, 키, 이름) — 분류 순서 → 등급 순서."""
+    order = {c: i for i, (c, _, _) in enumerate(CHECK_CATS)}
+    rows = [(t, c, k, n) for t, c, k, n, _ in CHECKLIST if cat is None or c == cat]
+    return sorted(rows, key=lambda r: (order[r[1]], TIER_ORDER[r[0]]))
+
+
+def check_score(app, cat=None):
+    """기본·권장 가운데 (갖춘 수, 판정한 수). 선택·해당 없음·확인 불가는 뺀다."""
+    ck = checklist(app)
+    vals = [v for t, c, _, v in ck.values() if t != "opt" and (cat is None or c == cat) and v not in (None, NA)]
+    return sum(1 for v in vals if v is True), len(vals)
+
+
+def mcell(v, label=""):
+    if v == NA:
+        return '<i class="na" title="%s 해당 없음"></i>' % esc(label)
+    return cell(v, label)
+
+
+def _item_head(t, k, n, apps, short=True):
+    have = sum(1 for a in apps if checklist(a)[k][3] is True)
+    known = sum(1 for a in apps if checklist(a)[k][3] not in (None, NA))
+    return '<th class="t-%s"%s>%s<em>%d</em></th>' % (
+        t, help_attrs(k, n, have, known, t), esc(CHECK_SHORT.get(k, n) if short else n), have)
+
+
 def overview_panel(apps):
-    """앱 × 전체 항목 한 표. 영역별로 머리줄을 묶고, 첫 열은 고정한 채 가로로 넘긴다."""
-    # 줄에 찬 원(✓)이 많은 앱부터 — 언어 열과 기기까지 표에 보이는 원을 모두 센다
-    def filled(a):
+    """앱 × 피처 전체 한 표. 분류별로 머리줄을 묶고, 첫 열은 고정한 채 가로로 넘긴다."""
+    cks = {a["_slug"]: checklist(a) for a in apps}
+    dev_items = dict((x[0], x[3]) for x in AREAS)["devices"]
+
+    def filled(a):  # 줄에 찬 원(✓)이 많은 앱부터
         langs = app_langs(a)
         return (sum(1 for l in MAIN_LANGS if l in langs)
-                + sum(1 for k, _, _, items in AREAS for v in area_vals(a, k).values() if v))
-    rows = sorted(apps, key=lambda a: (-filled(a), -total_score(a)[0], a["name"]))
+                + sum(1 for v in cks[a["_slug"]].values() if v[3] is True)
+                + sum(1 for v in area_vals(a, "devices").values() if v))
+    rows = sorted(apps, key=lambda a: (-filled(a), -check_score(a)[0], a["name"]))
 
-    groups = '<tr><th rowspan="2" class="ap">앱</th>%s%s<th rowspan="2">종합</th></tr>' % (
-        '<th colspan="%d" class="gh" style="--c:%s">언어</th>' % (len(MAIN_LANGS) + 1, AREA_COLOR["lang"]),
-        "".join('<th colspan="%d" class="gh" style="--c:%s">%s</th>'
-                % (len(items), AREA_COLOR[k], esc(n)) for k, n, _, items in AREAS))
-    # 언어 열: 언어 수 · 주요 언어별 지원 여부 — 숙성도 종합에는 넣지 않는다
-    cols = '<th class="g0"%s>언어 수<em>%d</em></th>' % (
-        help_attrs("langCount", "언어 수", 0, 0), sum(1 for a in apps if len(app_langs(a)) > 1))
-    for l in MAIN_LANGS:
-        have = sum(1 for a in apps if l in app_langs(a))
-        cols += '<th%s>%s<em>%d</em></th>' % (
-            help_attrs("lang" + l, LANG_KR.get(l, l), have, len(apps)), esc(LANG_SHORT.get(l, l)), have)
-    col = 2  # 종합 비율 분모가 되는 항목 수 = col - 2
-    for k, _, _, items in AREAS:
-        for i, (item, lbl) in enumerate(items):
-            have = sum(1 for a in apps if area_vals(a, k).get(item))
-            known = sum(1 for a in apps if area_vals(a, k).get(item) is not None)
-            cols += ('<th%s%s>%s<em>%d</em></th>'
-                     % (' class="g0"' if i == 0 else "", help_attrs(item, lbl, have, known),
-                        esc(SHORT.get(item, lbl)), have))
-            col += 1
+    groups = '<tr><th rowspan="2" class="ap">앱</th>'
+    cols = ""
+    for c, cn, color in CHECK_CATS:
+        its = check_items(c)
+        extra = len(MAIN_LANGS) + 1 if c == "lang" else 0
+        groups += '<th colspan="%d" class="gh" style="--c:%s">%s</th>' % (len(its) + extra, color, esc(cn))
+        for i, (t, _, k, n) in enumerate(its):
+            h = _item_head(t, k, n, apps)
+            cols += h.replace('<th class="', '<th class="g0 ', 1) if i == 0 else h
+        if c == "lang":
+            cols += '<th%s>언어 수<em>%d</em></th>' % (
+                help_attrs("langCount", "언어 수", 0, 0), sum(1 for a in apps if len(app_langs(a)) > 1))
+            for l in MAIN_LANGS:
+                have = sum(1 for a in apps if l in app_langs(a))
+                cols += '<th class="t-opt"%s>%s<em>%d</em></th>' % (
+                    help_attrs("lang" + l, LANG_KR.get(l, l), have, len(apps)), esc(LANG_SHORT.get(l, l)), have)
+    groups += '<th colspan="%d" class="gh" style="--c:%s">기기</th><th rowspan="2">종합</th></tr>' % (
+        len(dev_items), AREA_COLOR["devices"])
+    for i, (k, lbl) in enumerate(dev_items):
+        have = sum(1 for a in apps if area_vals(a, "devices").get(k))
+        known = sum(1 for a in apps if area_vals(a, "devices").get(k) is not None)
+        cols += '<th%s%s>%s<em>%d</em></th>' % (' class="g0"' if i == 0 else "", help_attrs(k, lbl, have, known),
+                                               esc(SHORT.get(k, lbl)), have)
     thead = groups + "<tr>%s</tr>" % cols
 
     tbody = ""
     for a in rows:
-        got, known = total_score(a)
+        ck = cks[a["_slug"]]
         langs = app_langs(a)
         cells = ""
-        for k, _, _, items in AREAS:
-            vals = area_vals(a, k)
-            cells += "".join('<td%s>%s</td>' % (' class="g0"' if i == 0 else "", cell(vals[item], lbl))
-                             for i, (item, lbl) in enumerate(items))
+        for c, _, _ in CHECK_CATS:
+            for i, (t, _, k, n) in enumerate(check_items(c)):
+                cells += '<td%s>%s</td>' % (' class="g0"' if i == 0 else "", mcell(ck[k][3], n))
+            if c == "lang":
+                cells += '<td class="lc2" title="%s">%s</td>' % (esc(lang_names(a)), len(langs) if langs else '<i class="u"></i>')
+                cells += "".join('<td>%s</td>' % (cell(l in langs, LANG_KR.get(l, l)) if langs else cell(None))
+                                 for l in MAIN_LANGS)
+        dv = area_vals(a, "devices")
+        cells += "".join('<td%s>%s</td>' % (' class="g0"' if i == 0 else "", cell(dv[k], lbl))
+                         for i, (k, lbl) in enumerate(dev_items))
+        got, known = check_score(a)
         ok = known and mat(a).get("source")
-        lcells = '<td class="g0 lc2" title="%s">%s</td>' % (
-            esc(lang_names(a)), len(langs) if langs else '<i class="u"></i>')
-        lcells += "".join('<td>%s</td>' % (cell(l in langs, LANG_KR.get(l, l)) if langs else cell(None))
-                          for l in MAIN_LANGS)
-        tbody += '<tr>%s%s%s<td class="pct" style="color:%s">%s</td></tr>' % (
-            app_th(a), lcells, cells,
-            score_color(got / known) if ok else "var(--muted)",
-            "%d%%" % round(100 * got / known) if ok else
-            '<i class="u" title="앱 소스를 확인하지 못했습니다"></i>')
+        tbody += '<tr>%s%s<td class="pct" style="color:%s">%s</td></tr>' % (
+            app_th(a), cells, score_color(got / known) if ok else "var(--muted)",
+            "%d%%" % round(100 * got / known) if ok else '<i class="u" title="앱 소스를 확인하지 못했습니다"></i>')
 
     kp = ""
-    for k, n, _, _ in AREAS:
-        if k not in SCORED:
-            continue
-        g = sum(area_score(a, k)[0] for a in apps)
-        t = sum(area_score(a, k)[1] for a in apps)
-        r = g / t if t else 0
+    for c, cn, color in CHECK_CATS:
+        g = sum(check_score(a, c)[0] for a in apps)
+        t = sum(check_score(a, c)[1] for a in apps)
+        if not t:
+            continue  # 선택 항목만 있는 분류는 비율이 없다
+        r = g / t
         kp += ('<div><span>%s</span><b>%d%%</b><small><i style="width:%d%%;--c:%s"></i></small></div>'
-               % (esc(n), round(r * 100), round(r * 100), score_color(r)))
-    return ('<p class="lead">앱 %d개가 항목 %d개 중 무엇을 갖췄는지 한 표에 모았습니다. 열 제목 아래 숫자는 '
-            '그 항목을 갖춘 앱 수이고, 종합은 기기를 뺀 항목 가운데 갖춘 비율입니다.</p>'
+               % (esc(cn), round(r * 100), round(r * 100), score_color(r)))
+    legend = ('<div class="lgd"><span><i class="y"></i>있음</span><span><i class="n"></i>없음</span>'
+              '<span><i class="u"></i>확인 불가</span><span><i class="na"></i>해당 없음</span>'
+              '<span>흐린 열 제목은 선택 항목</span><span>열 제목을 누르면 설명이 뜹니다.</span></div>')
+    return ('<p class="lead">앱 %d개가 피처 %d개 가운데 무엇을 갖췄는지 한 표에 모았습니다. 찬 원이 많은 앱부터 놓았고, '
+            '열 제목 아래 숫자는 그 피처를 갖춘 앱 수입니다. 종합은 기본·권장 피처 가운데 갖춘 비율입니다.</p>'
             '<div class="kp">%s</div>%s'
             '<div class="tw"><table class="mt ov2"><thead>%s</thead><tbody>%s</tbody></table></div>'
-            '<p class="note">언어 열은 주요 18개국에서 쓰는 말만 따로 보여 주고, 언어 수는 그 밖의 언어까지 '
-            '모두 셉니다. 언어는 종합 비율에 넣지 않았습니다. 소스 코드를 찾지 못한 앱은 앱 안의 기능을 ‘확인 불가’로 두고 종합 비율의 '
-            '분모에서 뺍니다. 각 항목의 뜻은 열 제목을 누르면 볼 수 있습니다.</p>'
-            % (len(apps), col - 2, kp, LEGEND, thead, tbody))
+            '<p class="note">언어 묶음의 나라별 열은 주요 18개국에서 쓰는 말만 따로 보여 주고, 언어 수는 그 밖의 언어까지 셉니다. '
+            '나라별 언어와 기기는 종합 비율에 넣지 않았습니다. 소스 코드를 찾지 못한 앱은 앱 안의 기능을 ‘확인 불가’로 두고 '
+            '분모에서 뺍니다. 판정 방법이 아직 없는 도입 예정 피처는 할 일 탭의 피처 지도에 있습니다.</p>'
+            % (len(apps), len(CHECKLIST), kp, legend, thead, tbody))
+
+
+def check_panel(cat, apps):
+    """분류 하나 — 앱 × 그 분류의 피처."""
+    its = check_items(cat)
+    rows = sorted(apps, key=lambda a: (-sum(1 for v in checklist(a).values() if v[1] == cat and v[3] is True),
+                                       a["name"]))
+    scored = any(t != "opt" for t, _, _, _ in its)
+    thead = '<tr><th>앱</th>%s%s</tr>' % ("".join(_item_head(t, k, n, apps, short=False) for t, _, k, n in its),
+                                         "<th>갖춘 정도</th>" if scored else "")
+    tbody = ""
+    for a in rows:
+        ck = checklist(a)
+        tbody += "<tr>%s%s%s</tr>" % (
+            app_th(a), "".join("<td>%s</td>" % mcell(ck[k][3], n) for _, _, k, n in its),
+            "<td>%s</td>" % score_cell(*check_score(a, cat)) if scored else "")
+    kp = ""
+    for t, _, k, n in its:
+        have = sum(1 for a in apps if checklist(a)[k][3] is True)
+        known = sum(1 for a in apps if checklist(a)[k][3] not in (None, NA))
+        kp += ('<div><span>%s · %s</span><b>%d<u>/ %d</u></b><small><i style="width:%d%%"></i></small></div>'
+               % (esc(n), esc(TIER_NAME[t]), have, known, round(100 * have / known) if known else 0))
+    legend = ('<div class="lgd"><span><i class="y"></i>있음</span><span><i class="n"></i>없음</span>'
+              '<span><i class="u"></i>확인 불가</span><span><i class="na"></i>해당 없음</span>'
+              '<span>%s</span></div>' % ("갖춘 정도는 기본·권장만 셉니다." if scored else
+                                         "모두 선택 항목이라 앱 성격에 맞을 때만 갖추면 됩니다."))
+    return ('<p class="lead">%s</p><div class="kp">%s</div>%s'
+            '<div class="tw"><table class="mt"><thead>%s</thead><tbody>%s</tbody></table></div>%s'
+            % (esc(CAT_WHY.get(cat, "")), kp, legend, thead, tbody,
+               '<p class="note">%s</p>' % esc(CAT_NOTE[cat]) if cat in CAT_NOTE else ""))
 
 
 def maturity_page(apps):
     # 스토어에서 내려간 앱(글로벌 지원 판정 없음)은 뺀다 — 제품 여정의 글로벌 축과 같은 기준
     ls = [a for a in live(apps) if a.get("serviceMaturity") and a.get("globalReach")]
     n = len(ls)
+    todo_n = sum(len(todo_of(a)[1]) for a in ls)
     tabs = [("overview", "한눈에", None, overview_panel(ls)),
+            ("todo", "할 일", "%d건" % todo_n, todo_panel(ls)),
             ("country", "국가별 언어", "%d개국" % len(COUNTRIES), country_panel(ls))]
-    for key, name, why, items in AREAS:
-        if key == "devices":
+    for c, cn, _ in CHECK_CATS:
+        if c == "lang":
             continue
-        g = sum(area_score(a, key)[0] for a in ls)
-        t = sum(area_score(a, key)[1] for a in ls)
-        tabs.append((key, name, "%d%%" % round(100 * g / t) if t else "", area_panel(key, name, why, items, ls)))
+        g = sum(check_score(a, c)[0] for a in ls)
+        t = sum(check_score(a, c)[1] for a in ls)
+        tabs.append((c, cn, "%d%%" % round(100 * g / t) if t else "", check_panel(c, ls)))
     key, name, why, items = AREAS[-1]
     tabs.append((key, name, None, area_panel(key, name, why, items, ls)))
 
@@ -1324,15 +1435,17 @@ def maturity_page(apps):
         for i, (k, nm, sub, _) in enumerate(tabs))
     panels = "".join('<section role="tabpanel" id="t-%s"%s>%s</section>'
                      % (k, "" if i == 0 else " hidden", body) for i, (k, _, _, body) in enumerate(tabs))
-    allg = sum(total_score(a)[0] for a in ls)
-    allt = sum(total_score(a)[1] for a in ls)
+    allg = sum(check_score(a)[0] for a in ls)
+    allt = sum(check_score(a)[1] for a in ls)
     head = ('<div class="eyebrow">Service Maturity</div><h1>서비스 숙성도</h1>'
-            '<p>앱 %d개가 ‘출시한 앱’을 넘어 ‘운영하는 서비스’로 얼마나 갖춰졌는지 기능별로 나눠 봤습니다. '
-            '어느 앱이 무엇을 지원하고 무엇이 아직 비어 있는지 탭마다 볼 수 있습니다. '
-            '지금 전체로는 확인한 항목의 %d%%를 갖췄습니다.</p>' % (n, round(100 * allg / allt) if allt else 0))
+            '<p>앱 %d개가 ‘출시한 앱’을 넘어 ‘운영하는 서비스’로 얼마나 갖춰졌는지, 갖춰야 할 피처 %d개로 재 봤습니다. '
+            '언어·지원 페이지·피드백·인프라·품질·기능·데이터·수익화·소통·홍보로 나눴고, 할 일 탭에서 앱마다 남은 일을 볼 수 있습니다. '
+            '지금 전체로는 기본·권장 피처의 %d%%를 갖췄습니다.</p>'
+            % (n, len(CHECKLIST) + len(PLANNED), round(100 * allg / allt) if allt else 0))
     return page("서비스 숙성도 — 리이오의 앱 포트폴리오",
-                "앱 %d개의 국가별 언어·지원 페이지·피드백 수집·운영·사용 경험·기기 지원 현황을 기능별로 정리했습니다." % n,
-                {"head": head, "main": bar + panels}, "maturity", MAT_CSS, MAT_JS)
+                "앱 %d개의 언어·지원 페이지·피드백·인프라·품질·기능·데이터·수익화·소통·홍보 피처와 앱별 할 일을 정리했습니다." % n,
+                {"head": head, "main": bar + panels}, "maturity",
+                MAT_CSS + APPS_CSS + "  .wrap{max-width:1480px}\n", MAT_JS + APPS_JS)
 
 
 # ── 공개: 허브 ────────────────────────────────────────────────────
@@ -1393,14 +1506,11 @@ def hub_page(apps):
         '<a class="ov" href="index.html"><b>쇼케이스</b>'
         '<p>출시한 앱 전체를 문제 → 해결 방식의 이야기로 소개합니다. 한국어·영어 전환과 '
         '문제 해결 지도를 함께 제공합니다.</p></a>'
-        '<a class="ov" href="apps.html"><b>앱별 할 일</b>'
-        '<p>앱마다 갖춰야 할 언어 지원·지원 페이지·피드백·인프라·기능 가운데 된 것과 안 된 것, '
-        '남은 할 일을 모았습니다. 항목을 누르면 그게 빠진 앱만 남습니다.</p></a>'
         '<a class="ov" href="lifecycle.html"><b>제품 여정</b>'
         '<p>만든 앱들을 제품 여정 다섯 단계와 글로벌 지원 수준, 두 축으로 정리했습니다.</p></a>'
         '<a class="ov" href="maturity.html"><b>서비스 숙성도</b>'
-        '<p>국가별 언어·지원 페이지·피드백 수집·운영·사용 경험·기기를 앱마다 무엇을 갖췄는지 '
-        '기능별 탭으로 보여 줍니다.</p></a>'
+        '<p>갖춰야 할 피처(언어·지원 페이지·피드백·인프라·품질·기능·데이터·수익화·소통·홍보)를 '
+        '앱마다 무엇을 갖췄는지 한 표로 보고, 할 일 탭에서 앱별로 남은 일을 봅니다.</p></a>'
         '<a class="ov" href="business.html"><b>비즈니스 모델</b>'
         '<p>앱마다 누구에게, 언제, 무엇에 돈을 받는지 — 결제 시점 × 방식 프레임워크와 페이월, '
         'Lean Canvas로 정리했습니다.</p></a>'
@@ -1899,7 +2009,6 @@ def internal_hub(apps, links):
         '재생성: <code>build-portfolio-site.py</code></p></a>'
         '<a class="ov" href="%(site)slifecycle.html"><b>제품 여정</b><p>수명주기 5단계 × 글로벌 지원 공개판. '
         '재생성: <code>build-portfolio-hub.py</code></p></a>'
-        '<a class="ov" href="%(site)sapps.html"><b>앱별 할 일</b><p>앱마다 된 것 · 안 된 것 · 할 일.</p></a>'
         '<a class="ov" href="%(site)smaturity.html"><b>서비스 숙성도</b><p>기능별 탭 공개판. '
         '재수집: <code>sync-service-maturity.py</code> → 재생성: <code>build-portfolio-hub.py</code></p></a>'
         '<a class="ov" href="%(site)shub.html"><b>페이지 모음</b><p>공개 허브(안전 버전). '
@@ -2315,13 +2424,9 @@ def tier_score(ck, tier):
 
 APPS_CSS = NAMES_CSS + """
   .wrap{max-width:1160px}
-  .y,.n,.u{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;
+  .tdw .y,.tdw .n,.tdw .u{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;
     font-size:.58rem;font-weight:800;font-style:normal;flex:none}
-  .y{background:var(--ok);color:#fff}
-  .y::before{content:"✓"}
-  .n{border:1.5px solid #e5675f}
-  .u{color:var(--muted)}
-  .u::before{content:"?"}
+  .tdw .n{border:1.5px solid #e5675f;opacity:1}
   .na{display:inline-grid;place-items:center;width:16px;height:16px;font-style:normal;color:var(--muted);flex:none}
   .na::before{content:"–"}
   .mu{color:var(--muted)}
@@ -2342,7 +2447,7 @@ APPS_CSS = NAMES_CSS + """
   .it.plan{cursor:default;border-style:dashed;border-left-style:solid;opacity:.75}
   .it.plan:hover{border-color:var(--border);border-left-color:var(--c)}
   .tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:26px 0 10px;
-    position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0}
+    position:sticky;top:52px;z-index:5;background:var(--bg);padding:10px 0}
   .tool input{font:inherit;font-size:.9rem;flex:1 1 200px;min-width:0;color:var(--text);background:var(--card);
     border:1px solid var(--border);border-radius:999px;padding:8px 15px}
   .tool input:focus{outline:none;border-color:var(--accent)}
@@ -2372,8 +2477,8 @@ APPS_CSS = NAMES_CSS + """
     overflow:hidden;text-overflow:ellipsis}
   .bd{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:.76rem;white-space:nowrap}
   .bd::before{content:"";width:8px;height:8px;border-radius:3px;background:var(--c,var(--muted));flex:none}
-  .sc b{font-variant-numeric:tabular-nums;font-size:.86rem}
-  .sc b.done{color:var(--ok)}
+  .tsc b{font-variant-numeric:tabular-nums;font-size:.86rem}
+  .tsc b.done{color:var(--ok)}
   .pbar{display:block;height:5px;border-radius:999px;background:var(--bg-soft);overflow:hidden;margin-top:4px}
   .pbar i{display:block;height:100%;background:var(--c)}
   .miss{display:flex;flex-wrap:wrap;gap:4px;min-width:0}
@@ -2445,7 +2550,8 @@ var x=e.target.closest('#all');if(x){var open=x.getAttribute('aria-pressed')!=='
 x.setAttribute('aria-pressed',open?'true':'false');x.textContent=open?'모두 접기':'모두 펼치기';
 list.forEach(function(d){if(!d.hidden)d.open=open;});}});
 function hash(){var h=location.hash.slice(1);if(!h)return;var d=document.getElementById(h);
-if(d&&d.classList.contains('ap')){d.hidden=false;d.open=true;d.scrollIntoView({block:'start'});}}
+if(d&&d.classList.contains('ap')){var tb=document.querySelector('.tabs button[data-t="todo"]');if(tb)tb.click();
+d.hidden=false;d.open=true;d.scrollIntoView({block:'start'});}}
 run();hash();window.addEventListener('hashchange',hash);})();
 </script>
 """
@@ -2505,8 +2611,9 @@ def _app_detail(a, ck, miss, unk):
     return '<div class="body"><div>%s</div><div>%s</div></div>' % (left, right)
 
 
-def apps_page(apps):
-    ls = live(apps)
+def todo_panel(ls):
+    """서비스 숙성도의 '할 일' 탭 — 피처 지도 + 앱별 할 일 목록."""
+    ls = sorted(ls, key=lambda a: a["name"])
     ls.sort(key=lambda a: (-((a.get("lifecycle") or {}).get("stage") or 0), a["name"]))
     data = [(a,) + todo_of(a) for a in ls]
 
@@ -2550,7 +2657,7 @@ def apps_page(apps):
         rows += ('<details class="ap" id="%s" data-q="%s" data-s="%s" data-miss="%s" data-n="%d" data-o="%d"><summary>'
                  '<span class="nm">%s<span><b>%s</b><small>%s</small></span></span>'
                  '<span data-l="제품 여정"><span class="bd" style="--c:%s">%s</span></span>'
-                 '<span class="sc" data-l="기본">%s</span><span class="sc" data-l="권장">%s</span>'
+                 '<span class="tsc" data-l="기본">%s</span><span class="tsc" data-l="권장">%s</span>'
                  '<span class="miss" data-l="할 일 %d개">%s</span></summary>%s</details>'
                  % (esc(a["_slug"]), esc(q), st or 0, " ".join(miss), len(base_miss) * 100 + len(miss), i,
                     icon_img(a), esc(a["name"]), esc(sub), STAGE_COLOR.get(st, "var(--muted)"),
@@ -2578,13 +2685,18 @@ def apps_page(apps):
             '<span>할 일 (기본 먼저, 점선은 권장)</span><span></span></div>'
             '<div id="list">%s<p class="empty" id="emp" hidden>조건에 맞는 앱이 없습니다.</p></div>'
             % (len(CHECKLIST) + len(PLANNED), len(CHECKLIST), len(nobody), len(PLANNED), items, filt, rows))
-    head = ('<div class="eyebrow">To-do by App</div><h1>앱별 할 일</h1>'
-            '<p>앱 %d개가 갖춰야 할 언어 지원·지원 페이지·피드백·인프라·기능·수익화·소통 가운데 무엇이 되었고 무엇이 '
-            '안 되었는지 봅니다. 기본 항목을 모두 갖춘 앱은 %d개이고, 남은 할 일은 기본 %d건 · 권장 %d건입니다. '
-            '줄을 누르면 그 앱의 할 일 목록이 펼쳐집니다.</p>' % (len(ls), base_done, total_base, total_rec))
-    return page("앱별 할 일 — 리이오의 앱 포트폴리오",
-                "앱 %d개마다 언어 지원·지원 페이지·피드백·인프라·기능 중 된 것과 안 된 것, 남은 할 일을 모았습니다." % len(ls),
-                {"head": head, "main": main}, "apps", APPS_CSS, APPS_JS)
+    lead = ('<p class="lead">기본 항목을 모두 갖춘 앱은 %d개이고, 남은 할 일은 기본 %d건 · 권장 %d건입니다. '
+            '줄을 누르면 그 앱의 할 일 목록이 펼쳐집니다.</p>' % (base_done, total_base, total_rec))
+    return '<div class="tdw">%s%s</div>' % (lead, main)
+
+
+def apps_page(apps):
+    """옛 '앱별 할 일' 주소 — 서비스 숙성도의 할 일 탭으로 넘긴다. 앱 앵커(#slug)는 그대로 살린다."""
+    head = '<div class="eyebrow">Moved</div><h1>서비스 숙성도로 옮겼습니다</h1>' \
+           '<p>앱별 할 일은 이제 <a href="maturity.html#todo">서비스 숙성도의 할 일 탭</a>에 있습니다.</p>'
+    js = "<script>location.replace('maturity.html'+(location.hash&&location.hash!=='#'?location.hash:'#todo'));</script>"
+    return page("서비스 숙성도로 옮김 — 리이오의 앱 포트폴리오", "앱별 할 일은 서비스 숙성도 페이지의 할 일 탭으로 옮겼습니다.",
+                {"head": head, "main": ""}, "maturity", "", js)
 
 
 def main():

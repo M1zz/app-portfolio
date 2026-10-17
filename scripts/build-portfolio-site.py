@@ -1201,7 +1201,7 @@ try {{
   </main>
 
   <footer>
-    <p class="sitenav"><a href="apps.html">{bi("앱별 할 일", "To-do by App")}</a> · <a href="lifecycle.html">{bi("제품 여정", "Product Journey")}</a> · <a href="maturity.html">{bi("서비스 숙성도", "Service Maturity")}</a> · <a href="business.html">{bi("비즈니스 모델", "Business Model")}</a> · <a href="reddit-launch.html">{bi("레딧 출격", "Reddit Launch")}</a> · <a href="hub.html">{bi("페이지 모음", "All Pages")}</a></p>
+    <p class="sitenav"><a href="lifecycle.html">{bi("제품 여정", "Product Journey")}</a> · <a href="maturity.html">{bi("서비스 숙성도", "Service Maturity")}</a> · <a href="business.html">{bi("비즈니스 모델", "Business Model")}</a> · <a href="reddit-launch.html">{bi("레딧 출격", "Reddit Launch")}</a> · <a href="hub.html">{bi("페이지 모음", "All Pages")}</a></p>
     <p>{bi(f"마지막 업데이트 {updated}", f"Last updated {updated}")} · <a href="https://github.com/M1zz/app-portfolio" target="_blank" rel="noopener">GitHub</a></p>
   </footer>
 
