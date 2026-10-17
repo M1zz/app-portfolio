@@ -6,6 +6,7 @@
 
 출력 3종:
   docs/hub.html               공개 허브 — 쇼케이스·수명주기·앱별 지원페이지 (GitHub Pages 배포)
+  docs/apps.html              공개 앱별 보기 — 앱 하나에 여정·언어·숙성도·비즈니스·페이월·레딧·링크를 모은다
   docs/lifecycle.html         공개 수명주기 — 제품 여정 5단계 (GitHub Pages 배포)
   docs/maturity.html          공개 서비스 숙성도 — 국가별 언어·지원 페이지·피드백·운영·경험·기기 탭
   docs/business.html          공개 비즈니스 모델 — 결제 시점 × 방식 · 페이월 · 앱별 Lean Canvas
@@ -170,6 +171,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
     nav = "".join(
         '<a href="%s"%s>%s</a>' % (h, ' class="on"' if k == active else "", t)
         for k, h, t in [("home", "index.html", "쇼케이스"),
+                        ("apps", "apps.html", "앱별 보기"),
                         ("life", "lifecycle.html", "제품 여정"),
                         ("maturity", "maturity.html", "서비스 숙성도"),
                         ("biz", "business.html", "비즈니스 모델"),
@@ -412,7 +414,9 @@ def reach(app):
 LANG_KR = {"KO": "한국어", "EN": "영어", "ZH": "중국어", "JA": "일본어", "DE": "독일어",
            "ES": "스페인어", "FR": "프랑스어", "IT": "이탈리아어", "PT": "포르투갈어",
            "RU": "러시아어", "TH": "태국어", "VI": "베트남어", "AR": "아랍어",
-           "HI": "힌디어", "ID": "인도네시아어", "NL": "네덜란드어", "TR": "튀르키예어"}
+           "HI": "힌디어", "ID": "인도네시아어", "NL": "네덜란드어", "TR": "튀르키예어",
+           "CS": "체코어", "DA": "덴마크어", "EL": "그리스어", "FI": "핀란드어", "NB": "노르웨이어",
+           "PL": "폴란드어", "SV": "스웨덴어"}
 
 
 def app_langs(app):
@@ -943,6 +947,16 @@ COUNTRIES = [
     ("mx", "🇲🇽", "멕시코", ["ES"]),
 ]
 
+# 한눈에 표의 언어 열 — 주요 18개국에서 쓰는 말만, COUNTRIES 순서대로 한 번씩
+MAIN_LANGS = list(dict.fromkeys(l for _, _, _, langs in COUNTRIES for l in langs))
+for _l in MAIN_LANGS:
+    ITEM_HELP["lang" + _l] = "%s로 쓸 수 있습니다." % LANG_KR.get(_l, _l)
+    ITEM_WHY["lang" + _l] = "이 말을 쓰는 주요 나라: %s." % ", ".join(
+        nm for _, _, nm, langs in COUNTRIES if _l in langs)
+ITEM_HELP["langCount"] = ("앱이 지원하는 언어 수입니다. 주요 18개국 밖의 언어까지 모두 셉니다. "
+                          "제목 아래 숫자는 두 가지 이상 언어로 쓸 수 있는 앱 수입니다.")
+ITEM_WHY["langCount"] = "숫자에 마우스를 올리면 지원하는 언어 이름을 모두 볼 수 있습니다."
+
 MAT_CSS = NAMES_CSS + """
   .tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:22px;
     scrollbar-width:none;position:sticky;top:0;z-index:5;background:var(--bg);padding-top:10px}
@@ -1012,6 +1026,7 @@ MAT_CSS = NAMES_CSS + """
   .ov2 thead tr:first-child th+th.gh{border-left:2px solid var(--border)}
   .ov2 .y,.ov2 .n,.ov2 .u{width:16px;height:16px;font-size:.6rem}
   .ov2 td.pct{padding-right:12px;border-left:2px solid var(--border)}
+  .ov2 td.lc2{font-weight:800;font-variant-numeric:tabular-nums}
   .ct td,.ct th{vertical-align:top;white-space:normal}
   .ct tbody th{min-width:96px}
   .ct tbody th b{display:block;font-size:.84rem}
@@ -1211,7 +1226,10 @@ SHORT = {
     "accessibility": "VoiceOver", "onboarding": "첫 안내", "iphone": "iPhone", "ipad": "iPad",
     "mac": "Mac", "watch": "Watch", "vision": "Vision",
 }
-AREA_COLOR = {"support": "#5b8def", "feedback": "#34c48a", "ops": "#e0a53a",
+LANG_SHORT = {"KO": "한국어", "EN": "영어", "JA": "일본어", "DE": "독일어", "FR": "프랑스어",
+              "ZH": "중국어", "ES": "스페인어", "PT": "포르투갈어", "HI": "힌디어", "IT": "이탈리아어",
+              "VI": "베트남어", "TH": "태국어", "ID": "인니어"}
+AREA_COLOR = {"lang": "#ef6aa0", "support": "#5b8def", "feedback": "#34c48a", "ops": "#e0a53a",
               "ux": "#a78bfa", "devices": "#8b90a0"}
 
 
@@ -1225,11 +1243,18 @@ def overview_panel(apps):
         return (0, -(got / (known or 1)), -got, a["name"])
     rows = sorted(apps, key=rank)
 
-    groups = '<tr><th rowspan="2" class="ap">앱</th><th rowspan="2">언어</th>%s' \
-             '<th rowspan="2">종합</th></tr>' % "".join(
-                 '<th colspan="%d" class="gh" style="--c:%s">%s</th>'
-                 % (len(items), AREA_COLOR[k], esc(n)) for k, n, _, items in AREAS)
-    cols, col = "", 2  # tbody 의 칸 순서: 앱(0) · 언어(1) · 항목들(2~) · 종합
+    groups = '<tr><th rowspan="2" class="ap">앱</th>%s%s<th rowspan="2">종합</th></tr>' % (
+        '<th colspan="%d" class="gh" style="--c:%s">언어</th>' % (len(MAIN_LANGS) + 1, AREA_COLOR["lang"]),
+        "".join('<th colspan="%d" class="gh" style="--c:%s">%s</th>'
+                % (len(items), AREA_COLOR[k], esc(n)) for k, n, _, items in AREAS))
+    # 언어 열: 언어 수 · 주요 언어별 지원 여부 — 숙성도 종합에는 넣지 않는다
+    cols = '<th class="g0"%s>언어 수<em>%d</em></th>' % (
+        help_attrs("langCount", "언어 수", 0, 0), sum(1 for a in apps if len(app_langs(a)) > 1))
+    for l in MAIN_LANGS:
+        have = sum(1 for a in apps if l in app_langs(a))
+        cols += '<th%s>%s<em>%d</em></th>' % (
+            help_attrs("lang" + l, LANG_KR.get(l, l), have, len(apps)), esc(LANG_SHORT.get(l, l)), have)
+    col = 2  # 종합 비율 분모가 되는 항목 수 = col - 2
     for k, _, _, items in AREAS:
         for i, (item, lbl) in enumerate(items):
             have = sum(1 for a in apps if area_vals(a, k).get(item))
@@ -1250,8 +1275,12 @@ def overview_panel(apps):
             cells += "".join('<td%s>%s</td>' % (' class="g0"' if i == 0 else "", cell(vals[item], lbl))
                              for i, (item, lbl) in enumerate(items))
         ok = known and mat(a).get("source")
-        tbody += '<tr>%s<td title="%s">%s</td>%s<td class="pct" style="color:%s">%s</td></tr>' % (
-            app_th(a), esc(lang_names(a)), len(langs) if langs else '<i class="u"></i>', cells,
+        lcells = '<td class="g0 lc2" title="%s">%s</td>' % (
+            esc(lang_names(a)), len(langs) if langs else '<i class="u"></i>')
+        lcells += "".join('<td>%s</td>' % (cell(l in langs, LANG_KR.get(l, l)) if langs else cell(None))
+                          for l in MAIN_LANGS)
+        tbody += '<tr>%s%s%s<td class="pct" style="color:%s">%s</td></tr>' % (
+            app_th(a), lcells, cells,
             score_color(got / known) if ok else "var(--muted)",
             "%d%%" % round(100 * got / known) if ok else
             '<i class="u" title="앱 소스를 확인하지 못했습니다"></i>')
@@ -1269,7 +1298,8 @@ def overview_panel(apps):
             '그 항목을 갖춘 앱 수이고, 종합은 기기를 뺀 항목 가운데 갖춘 비율입니다.</p>'
             '<div class="kp">%s</div>%s'
             '<div class="tw"><table class="mt ov2"><thead>%s</thead><tbody>%s</tbody></table></div>'
-            '<p class="note">소스 코드를 찾지 못한 앱은 앱 안의 기능을 ‘확인 불가’로 두고 종합 비율의 '
+            '<p class="note">언어 열은 주요 18개국에서 쓰는 말만 따로 보여 주고, 언어 수는 그 밖의 언어까지 '
+            '모두 셉니다. 언어는 종합 비율에 넣지 않았습니다. 소스 코드를 찾지 못한 앱은 앱 안의 기능을 ‘확인 불가’로 두고 종합 비율의 '
             '분모에서 뺍니다. 각 항목의 뜻은 열 제목을 누르면 볼 수 있습니다.</p>'
             % (len(apps), col - 2, kp, LEGEND, thead, tbody))
 
@@ -1364,6 +1394,9 @@ def hub_page(apps):
         '<a class="ov" href="index.html"><b>쇼케이스</b>'
         '<p>출시한 앱 전체를 문제 → 해결 방식의 이야기로 소개합니다. 한국어·영어 전환과 '
         '문제 해결 지도를 함께 제공합니다.</p></a>'
+        '<a class="ov" href="apps.html"><b>앱별 보기</b>'
+        '<p>앱 하나를 펼치면 제품 여정·언어·서비스 숙성도·비즈니스 모델·페이월·레딧 판정·링크가 '
+        '한 화면에 모여 있습니다.</p></a>'
         '<a class="ov" href="lifecycle.html"><b>제품 여정</b>'
         '<p>만든 앱들을 제품 여정 다섯 단계와 글로벌 지원 수준, 두 축으로 정리했습니다.</p></a>'
         '<a class="ov" href="maturity.html"><b>서비스 숙성도</b>'
@@ -1867,6 +1900,7 @@ def internal_hub(apps, links):
         '재생성: <code>build-portfolio-site.py</code></p></a>'
         '<a class="ov" href="%(site)slifecycle.html"><b>제품 여정</b><p>수명주기 5단계 × 글로벌 지원 공개판. '
         '재생성: <code>build-portfolio-hub.py</code></p></a>'
+        '<a class="ov" href="%(site)sapps.html"><b>앱별 보기</b><p>앱 하나에 모든 축을 모은 공개판.</p></a>'
         '<a class="ov" href="%(site)smaturity.html"><b>서비스 숙성도</b><p>기능별 탭 공개판. '
         '재수집: <code>sync-service-maturity.py</code> → 재생성: <code>build-portfolio-hub.py</code></p></a>'
         '<a class="ov" href="%(site)shub.html"><b>페이지 모음</b><p>공개 허브(안전 버전). '
@@ -1938,6 +1972,24 @@ def reddit_gates(app):
     }
 
 
+def reddit_miss(gates):
+    """막힌 관문 키 — 고칠 일 단위로 센다."""
+    miss = [k for k, v in gates.items() if v is False]
+    if gates["us"] is False:
+        miss = ["us"]
+    if gates["free"] is False and "iap" in miss:
+        miss.remove("iap")  # 유료 앱을 무료+인앱으로 바꾸는 것은 한 가지 일이다
+    return miss
+
+
+def reddit_tier(app):
+    """레딧 출격 판정 칸(REDDIT_VERDICT 키). 미국 스토어 정보가 없으면 None."""
+    if not app.get("usStore"):
+        return None, []
+    miss = reddit_miss(reddit_gates(app))
+    return (3 if reddit_posted(app) else min(len(miss), 2)), miss
+
+
 def reddit_page(apps):
     rows, gone = [], []
     for a in live(apps):
@@ -1947,12 +1999,7 @@ def reddit_page(apps):
             gone.append(a)  # 어느 스토어에서도 안 보인다 — 내려간 앱
             continue
         gates = reddit_gates(a)
-        miss = [k for k, v in gates.items() if v is False]
-        if gates["us"] is False:
-            miss = ["us"]
-        if gates["free"] is False and "iap" in miss:
-            miss.remove("iap")  # 유료 앱을 무료+인앱으로 바꾸는 것은 한 가지 일이다
-        rows.append((a, gates, miss))
+        rows.append((a, gates, reddit_miss(gates)))
     stage = lambda a: (a.get("lifecycle") or {}).get("stage") or 0
     tier = lambda r: 3 if reddit_posted(r[0]) else min(len(r[2]), 2)
     rows.sort(key=lambda r: (tier(r), -stage(r[0]),
@@ -2084,11 +2131,298 @@ REDDIT_CSS = """
 """
 
 
+# ── 공개: 앱별 보기 ───────────────────────────────────────────────
+# 다른 페이지가 축(여정·숙성도·비즈니스·레딧)마다 앱을 나눠 보여 준다면, 여기는 앱 하나에 모든 축을 모은다.
+# 새 데이터를 만들지 않고 위 페이지들이 쓰는 판정 함수를 그대로 부른다 — 숫자가 페이지끼리 어긋나지 않게.
+APPS_CSS = NAMES_CSS + """
+  .wrap{max-width:1160px}
+  .tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;
+    position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0}
+  .tool input{font:inherit;font-size:.9rem;flex:1 1 220px;min-width:0;color:var(--text);background:var(--card);
+    border:1px solid var(--border);border-radius:999px;padding:8px 15px}
+  .tool input:focus{outline:none;border-color:var(--accent)}
+  .tool button{font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--text);
+    background:var(--card);border:1px solid var(--border);padding:7px 12px;border-radius:999px;white-space:nowrap}
+  .tool button:hover{border-color:var(--accent)}
+  .tool button[aria-pressed=true]{background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    color:#fff;border-color:transparent}
+  .cnt{font-size:.8rem;color:var(--muted);font-weight:700;margin:0 0 8px}
+  .hd,.ap>summary{display:grid;grid-template-columns:minmax(170px,1.6fr) 1fr 1fr 1fr .8fr 1.3fr 1fr 18px;
+    gap:10px;align-items:center;padding:10px 14px}
+  .hd{font-size:.7rem;color:var(--muted);font-weight:800;padding-top:0;padding-bottom:6px}
+  .ap{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:8px}
+  .ap[hidden]{display:none}
+  .ap>summary{cursor:pointer;list-style:none;font-size:.82rem}
+  .ap>summary::-webkit-details-marker{display:none}
+  .ap>summary::after{content:"▾";color:var(--muted);transition:.15s}
+  .ap[open]>summary::after{transform:rotate(180deg)}
+  .ap>summary:hover{background:var(--bg-soft);border-radius:14px}
+  .ap[open]>summary{border-bottom:1px solid var(--border);border-radius:14px 14px 0 0}
+  .nm{display:flex;align-items:center;gap:9px;min-width:0}
+  .nm .ic{width:34px;height:34px;border-radius:9px}
+  .nm b{display:block;font-size:.92rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nm small{display:block;font-size:.7rem;color:var(--muted);font-weight:600;white-space:nowrap;
+    overflow:hidden;text-overflow:ellipsis}
+  .nm>span{min-width:0}
+  .bd{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:.78rem;white-space:nowrap}
+  .bd::before{content:"";width:8px;height:8px;border-radius:3px;background:var(--c,var(--muted));flex:none}
+  .bd em{font-style:normal;color:var(--muted);font-weight:600}
+  .pbar{display:block;height:5px;border-radius:999px;background:var(--bg-soft);overflow:hidden;margin-top:4px;max-width:90px}
+  .pbar i{display:block;height:100%;background:var(--c,var(--accent))}
+  .mu{color:var(--muted)}
+  .body{padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+  .box{border:1px solid var(--border);border-top:3px solid var(--c,var(--border));border-radius:12px;
+    padding:12px 14px;font-size:.82rem;min-width:0}
+  .box.wide{grid-column:1/-1}
+  .box h4{font-size:.86rem;display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+  .box h4 a{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--muted);text-decoration:none}
+  .box h4 a:hover{color:var(--accent)}
+  .box dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+  .box dt{color:var(--muted);font-weight:700;font-size:.76rem}
+  .box dd{word-break:keep-all}
+  .chk{list-style:none;display:grid;gap:3px;margin-top:6px}
+  .chk li{display:flex;gap:7px;align-items:center}
+  .tags{display:flex;flex-wrap:wrap;gap:5px}
+  .tags span{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;padding:3px 9px 3px 4px;
+    border-radius:999px;background:var(--bg-soft);border:1px solid var(--border)}
+  .tags span.off{opacity:.5;border-style:dashed}
+  .tags span.q{padding-left:9px}
+  .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .areas h5{font-size:.78rem;margin-bottom:6px;display:flex;gap:8px;align-items:center}
+  .areas h5::before{content:"";width:8px;height:8px;border-radius:3px;background:var(--c)}
+  .areas h5 em{font-style:normal;color:var(--muted);font-weight:700;margin-left:auto}
+  .y,.n,.u{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;
+    font-size:.58rem;font-weight:800;font-style:normal;flex:none}
+  .y{background:var(--ok);color:#fff}
+  .y::before{content:"✓"}
+  .n{border:1.5px solid var(--muted);opacity:.45}
+  .u{color:var(--muted)}
+  .u::before{content:"?"}
+  .lk{display:flex;flex-wrap:wrap;gap:6px}
+  .lk a{font-size:.78rem;font-weight:700;text-decoration:none;color:var(--text);background:var(--bg-soft);
+    border:1px solid var(--border);padding:5px 11px;border-radius:999px}
+  .lk a:hover{border-color:var(--accent);color:var(--accent)}
+  .none{color:var(--muted)}
+  .empty{padding:30px;text-align:center;color:var(--muted)}
+  @media(max-width:860px){.hd{display:none}
+    .ap>summary{grid-template-columns:1fr 1fr 18px;row-gap:6px}
+    .ap>summary .nm{grid-column:1/3}
+    .ap>summary::after{grid-column:3;grid-row:1}
+    .ap>summary>[data-l]::before{content:attr(data-l);display:block;font-size:.66rem;color:var(--muted);font-weight:800}}
+"""
+
+APPS_JS = """
+<script>
+(function(){var q=document.getElementById('q'),list=document.querySelectorAll('.ap'),cnt=document.getElementById('cnt'),
+emp=document.getElementById('emp'),st='all';
+function run(){var t=(q.value||'').trim().toLowerCase(),n=0;list.forEach(function(d){
+var ok=(!t||d.getAttribute('data-q').indexOf(t)>=0)&&(st==='all'||d.getAttribute('data-s')===st);
+d.hidden=!ok;if(ok)n++;});cnt.textContent=n+'개 앱';emp.hidden=n>0;}
+q.addEventListener('input',run);
+document.addEventListener('click',function(e){var b=e.target.closest('[data-st]');
+if(b){st=b.getAttribute('data-st');document.querySelectorAll('[data-st]').forEach(function(x){
+x.setAttribute('aria-pressed',x===b?'true':'false');});run();return;}
+var x=e.target.closest('#all');if(x){var open=x.getAttribute('aria-pressed')!=='true';
+x.setAttribute('aria-pressed',open?'true':'false');x.textContent=open?'모두 접기':'모두 펼치기';
+list.forEach(function(d){if(!d.hidden)d.open=open;});}});
+function hash(){var h=location.hash.slice(1);if(!h)return;var d=document.getElementById(h);
+if(d&&d.classList.contains('ap')){d.hidden=false;d.open=true;d.scrollIntoView({block:'start'});}}
+hash();window.addEventListener('hashchange',hash);run();})();
+</script>
+"""
+
+STAGE_COLOR = {5: "#34c48a", 4: "#5b8def", 3: "#a78bfa", 2: "#e0a53a", 1: "#8b90a0"}
+
+
+def _mark(v):
+    return '<i class="%s"></i>' % ("u" if v is None else "y" if v else "n")
+
+
+def _journey_box(a):
+    lc = a.get("lifecycle") or {}
+    st = lc.get("stage")
+    dl = [("단계", "%d · %s" % (st, STAGE_SHORT.get(st, "")) if st else "판정 전")]
+    if lc.get("releasedAt"):
+        dl.append(("첫 출시", lc["releasedAt"]))
+    if lc.get("polishDays") is not None:
+        dl.append(("다듬은 기간", "%d일" % lc["polishDays"]))
+    if lc.get("daysSinceUpdate") is not None:
+        dl.append(("최근 업데이트", "%d일 전" % lc["daysSinceUpdate"]))
+    dl.append(("스토어 평점", "%d개" % (lc.get("ratingCount") or 0)))
+    if a.get("currentVersion"):
+        dl.append(("버전", a["currentVersion"]))
+    r = readiness(a)
+    gate = ""
+    if r:
+        rows = "".join('<li>%s%s</li>' % (_mark(fn(a)), esc(lbl)) for _, lbl, fn in GATES[r["next"]][2])
+        gate = ('<p style="margin-top:10px"><b>다음: %d %s</b> <span class="mu">관문 %d/%d</span></p>'
+                '<ul class="chk">%s</ul>' % (r["next"], esc(STAGE_NAME[r["next"]]), r["have"], r["known"], rows))
+        hint = polish_hint(a) if "출시 후 90일 넘게 다듬기" in r["missing"] else None
+        if hint:
+            gate += '<p class="mu" style="margin-top:6px">%s</p>' % esc(hint)
+    elif lc.get("intent"):
+        gate = '<p class="mu" style="margin-top:10px">지금 단계를 의도적으로 유지하는 앱입니다.</p>'
+    return ('<div class="box" style="--c:%s"><h4>제품 여정<a href="lifecycle.html">제품 여정 →</a></h4>'
+            '<dl>%s</dl>%s</div>' % (STAGE_COLOR.get(st, "var(--border)"),
+                                     "".join("<dt>%s</dt><dd>%s</dd>" % (esc(k), esc(v)) for k, v in dl), gate))
+
+
+def _lang_box(a):
+    g = a.get("globalReach")
+    if not g:
+        return ('<div class="box"><h4>언어 · 판매</h4><p class="none">지금 App Store에서 찾을 수 없어 '
+                '언어와 판매 국가를 확인하지 못했습니다.</p></div>')
+    lv = g.get("level")
+    gname, gcolor = {k: (n, c) for k, n, _, c in GLOBAL}.get(lv, ("", "var(--border)"))
+    langs = app_langs(a)
+    tags = "".join('<span class="q">%s</span>' % esc(LANG_KR.get(l, l)) for l in langs)
+    dl = [("글로벌 지원", gname), ("판매 국가", "주요 %d개국 중 %d개국" % (g.get("storefrontsChecked") or 18,
+                                                              g.get("storefronts") or 0)),
+          ("영어 스토어 소개", "있음" if g.get("englishPage") else "없음"), ("앱 언어", "%d개" % len(langs))]
+    return ('<div class="box" style="--c:%s"><h4>언어 · 판매<a href="maturity.html#country">국가별 언어 →</a></h4>'
+            '<dl>%s</dl><div class="tags" style="margin-top:9px">%s</div></div>'
+            % (gcolor, "".join("<dt>%s</dt><dd>%s</dd>" % (esc(k), esc(v)) for k, v in dl), tags))
+
+
+def _maturity_box(a):
+    pct = maturity_pct(a)
+    areas = ""
+    for key, name, _, items in AREAS:
+        vals = area_vals(a, key)
+        got, known = area_score(a, key)
+        areas += ('<div><h5 style="--c:%s">%s<em>%s</em></h5><div class="tags">%s</div></div>'
+                  % (AREA_COLOR[key], esc(name), "" if key == "devices" else "%d/%d" % (got, known),
+                     "".join('<span%s>%s%s</span>' % ("" if vals[k] else ' class="off"', _mark(vals[k]), esc(lbl))
+                             for k, lbl in items)))
+    head = ("%d%%" % pct) if pct is not None else "앱 소스 확인 불가"
+    return ('<div class="box wide" style="--c:%s"><h4>서비스 숙성도 <span class="mu">%s</span>'
+            '<a href="maturity.html">서비스 숙성도 →</a></h4><div class="areas">%s</div></div>'
+            % (score_color(pct / 100) if pct is not None else "var(--border)", esc(head), areas))
+
+
+def _biz_box(a, pw):
+    m = model_of(a)
+    ladder = price_text(a)
+    body = '<dl><dt>수익 모델</dt><dd><b>%s</b> — %s</dd><dt>가격</dt><dd>%s</dd></dl>' % (
+        esc(m[1]), esc(m[4]), esc(" · ".join(ladder)) if ladder else "받는 돈 없음")
+    if pw:
+        if pw.get("headline"):
+            body += '<p style="margin-top:9px"><b>페이월</b> “%s”</p>' % esc(pw["headline"])
+        for t, key in (("무료로 주는 것", "free"), ("돈을 내면 열리는 것", "locked"), ("언제 보이나", "triggers")):
+            if pw.get(key):
+                body += '<p style="margin-top:5px"><span class="mu">%s</span> · %s</p>' % (
+                    esc(t), esc(" / ".join(pw[key][:4])))
+    links = '<a href="business.html#bm-%s">비즈니스 모델 →</a>' % esc(a["_slug"])
+    return '<div class="box" style="--c:%s"><h4>비즈니스 · 페이월%s</h4>%s</div>' % (m[7], links, body)
+
+
+def _reddit_box(a):
+    tier, miss = reddit_tier(a)
+    if tier is None:
+        return ('<div class="box"><h4>레딧 출격</h4><p class="none">미국 스토어 정보를 아직 모으지 않았습니다.</p></div>')
+    _, name, why, color = REDDIT_VERDICT[tier]
+    gates = reddit_gates(a)
+    rows = "".join('<li>%s%s</li>' % (_mark(gates[k]), esc(lbl)) for k, lbl, _ in REDDIT_GATES)
+    todo = [fix for k, _, fix in REDDIT_GATES if k in miss]
+    extra = ""
+    if todo:
+        extra = '<p style="margin-top:7px"><span class="mu">고칠 것</span> · %s</p>' % esc(" / ".join(todo))
+    if reddit_url(a):
+        extra += '<p style="margin-top:5px"><a href="%s" target="_blank" rel="noopener">올린 글 보기</a></p>' % esc(reddit_url(a))
+    return ('<div class="box" style="--c:%s"><h4>레딧 출격 <span class="mu">%s</span>'
+            '<a href="reddit-launch.html">레딧 출격 →</a></h4><p class="mu">%s</p><ul class="chk">%s</ul>%s</div>'
+            % (color, esc(name), esc(why), rows, extra))
+
+
+def _links_box(a, pw):
+    ls = [("쇼케이스 소개", intro_link(a), False)]
+    if a.get("appStoreUrl"):
+        ls.append(("App Store", a["appStoreUrl"], True))
+    if a.get("supportUrl"):
+        ls.append(("지원 페이지", a["supportUrl"], True))
+    if pw:
+        ls.append(("페이월", "paywalls.html#pw-%s" % a["_slug"], False))
+    if reddit_url(a):
+        ls.append(("레딧 글", reddit_url(a), True))
+    return '<div class="box"><h4>링크</h4><div class="lk">%s</div></div>' % "".join(
+        '<a href="%s"%s>%s</a>' % (esc(u), ' target="_blank" rel="noopener"' if ext else "", esc(t))
+        for t, u, ext in ls)
+
+
+def apps_page(apps):
+    ls = live(apps)
+    pws = load_paywalls()
+
+    def order(a):
+        pct = maturity_pct(a)
+        return (-((a.get("lifecycle") or {}).get("stage") or 0), -(pct if pct is not None else -1), a["name"])
+    ls.sort(key=order)
+
+    rows = ""
+    for a in ls:
+        lc = a.get("lifecycle") or {}
+        st = lc.get("stage")
+        pw = pws.get(a["_slug"])
+        r = readiness(a)
+        pct = maturity_pct(a)
+        g = a.get("globalReach")
+        m = model_of(a)
+        tier, _ = reddit_tier(a)
+        langs = app_langs(a)
+        sub = " · ".join(x for x in [a.get("nameEn"), ("v" + a["currentVersion"]) if a.get("currentVersion") else ""] if x)
+        cells = [
+            '<span class="nm">%s<span><b>%s</b><small>%s</small></span></span>' % (icon_img(a), esc(a["name"]), esc(sub)),
+            '<span data-l="제품 여정"><span class="bd" style="--c:%s">%s</span></span>'
+            % (STAGE_COLOR.get(st, "var(--muted)"), "%d %s" % (st, esc(STAGE_SHORT.get(st, ""))) if st else "—"),
+            '<span data-l="다음 단계">%s</span>' % (
+                '<span class="bd" style="--c:%s">%d<em>단계 관문 %d/%d</em></span><span class="pbar"><i style="width:%d%%"></i></span>'
+                % (score_color(r["ratio"]), r["next"], r["have"], r["known"], round(100 * r["ratio"]))
+                if r else '<span class="mu">—</span>'),
+            '<span data-l="언어"><span class="bd" style="--c:%s" title="%s">%s</span></span>' % (
+                {k: c for k, _, _, c in GLOBAL}.get(reach(a), "var(--muted)"), esc(lang_names(a)),
+                ("%d개 언어" % len(langs) if len(langs) > 2 else " · ".join(LANG_KR.get(l, l) for l in langs))
+                if g else "스토어에 없음"),
+            '<span data-l="숙성도">%s</span>' % (
+                '<b style="color:%s">%d%%</b><span class="pbar"><i style="width:%d%%;--c:%s"></i></span>'
+                % (score_color(pct / 100), pct, pct, score_color(pct / 100)) if pct is not None
+                else '<span class="mu">확인 불가</span>'),
+            '<span data-l="수익 모델"><span class="bd" style="--c:%s">%s<em>%s</em></span></span>' % (
+                m[7], esc(m[1]), esc((price_text(a) or [""])[0])),
+            '<span data-l="레딧">%s</span>' % (
+                '<span class="bd" style="--c:%s">%s</span>' % (REDDIT_VERDICT[tier][3], esc(REDDIT_VERDICT[tier][1]))
+                if tier is not None else '<span class="mu">—</span>'),
+        ]
+        q = " ".join(x for x in [a["name"], a.get("nameEn") or "", a["_slug"]]).lower()
+        rows += ('<details class="ap" id="%s" data-q="%s" data-s="%s"><summary>%s</summary>'
+                 '<div class="body">%s%s%s%s%s%s</div></details>'
+                 % (esc(a["_slug"]), esc(q), st or 0, "".join(cells),
+                    _journey_box(a), _lang_box(a), _maturity_box(a), _biz_box(a, pw), _reddit_box(a), _links_box(a, pw)))
+
+    stages = sorted({(a.get("lifecycle") or {}).get("stage") or 0 for a in ls}, reverse=True)
+    filt = '<button type="button" data-st="all" aria-pressed="true">전체</button>' + "".join(
+        '<button type="button" data-st="%d" aria-pressed="false">%s</button>'
+        % (s_, esc("%d %s" % (s_, STAGE_SHORT.get(s_, "")) if s_ else "판정 전")) for s_ in stages)
+    hd = ('<div class="hd"><span>앱</span><span>제품 여정</span><span>다음 단계</span><span>언어</span>'
+          '<span>숙성도</span><span>수익 모델 · 가격</span><span>레딧</span><span></span></div>')
+    main = ('<div class="tool"><input id="q" type="search" placeholder="앱 이름으로 찾기" aria-label="앱 이름으로 찾기">'
+            '%s<button type="button" id="all" aria-pressed="false">모두 펼치기</button></div>'
+            '<p class="cnt" id="cnt"></p>%s%s<p class="empty" id="emp" hidden>찾는 앱이 없습니다.</p>'
+            % (filt, hd, rows))
+    head = ('<div class="eyebrow">Apps</div><h1>앱별 보기</h1>'
+            '<p>앱 %d개를 한 줄씩 놓았습니다. 줄을 누르면 그 앱의 제품 여정·언어·서비스 숙성도·비즈니스 모델·'
+            '페이월·레딧 판정·링크가 한 화면에 펼쳐집니다. 단계가 높은 앱부터, 같은 단계에서는 숙성도가 높은 앱부터 놓았습니다.</p>'
+            % len(ls))
+    return page("앱별 보기 — 리이오의 앱 포트폴리오",
+                "앱 %d개 각각의 제품 여정·언어·서비스 숙성도·비즈니스 모델·레딧 판정을 한 화면에 모았습니다." % len(ls),
+                {"head": head, "main": main}, "apps", APPS_CSS, APPS_JS)
+
+
 def main():
     links = json.load(open(os.path.join(ROOT, "scripts/hub-links.json"), encoding="utf-8"))
     apps = load_apps()
     os.makedirs(REPORTS, exist_ok=True)
     outs = [
+        (os.path.join(DOCS, "apps.html"), apps_page(apps), "공개"),
         (os.path.join(DOCS, "lifecycle.html"), lifecycle_page(apps), "공개"),
         (os.path.join(DOCS, "maturity.html"), maturity_page(apps), "공개"),
         (os.path.join(DOCS, "business.html"), business_page(apps), "공개"),
