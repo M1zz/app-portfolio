@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6756433372",
   "bundleId": "com.ysoup.TokenMemo-tap",
   "categories": [],
-  "currentVersion": "5.1.7",
+  "currentVersion": "5.1.8",
   "folderId": "tap-clip-keyboard",
   "githubRepo": "",
   "localProjectPath": "",
@@ -54,13 +54,13 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 클립키보드 계열 — 반응을 받아 반복 개선 중. 외부 평점 0개 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-10-13",
+    "evaluatedAt": "2026-10-17",
     "ratingCount": 0,
     "daysSinceUpdate": 3,
     "manual": true,
-    "polishDays": 298,
+    "polishDays": 302,
     "releasedAt": "2025-12-16",
-    "updatedAt": "2026-10-10"
+    "updatedAt": "2026-10-14"
   },
   "globalReach": {
     "level": 3,
@@ -110,7 +110,9 @@
       "crash": false,
       "killSwitch": false,
       "leeoKit": true,
-      "tests": false
+      "tests": false,
+      "crashLoop": false,
+      "privacyManifest": false
     },
     "ux": {
       "widgets": false,
@@ -118,7 +120,8 @@
       "cloudSync": true,
       "tips": false,
       "accessibility": true,
-      "onboarding": true
+      "onboarding": true,
+      "backup": true
     },
     "devices": {
       "iphone": false,
@@ -141,7 +144,41 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": false,
+      "tiers": false,
+      "freeGate": false,
+      "restore": false,
+      "discount": true,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": true,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": true,
+      "notifications": true,
+      "performance": false,
+      "logging": true,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": false,
+      "preflight": false,
+      "appSpec": true,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
+    }
   },
   "usStore": {
     "available": true,

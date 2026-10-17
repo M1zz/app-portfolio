@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6775176578",
   "bundleId": "com.kora.leeo",
   "categories": [],
-  "currentVersion": "1.0.6",
+  "currentVersion": "1.0.8",
   "folderId": "korea-navi",
   "githubRepo": "",
   "localProjectPath": "",
@@ -58,14 +58,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 128일 · 외부 평점 0개 · 최종 업데이트 3일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-13",
+    "basis": "출시 후 다듬은 기간 133일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-17",
     "ratingCount": 0,
-    "daysSinceUpdate": 3,
+    "daysSinceUpdate": 2,
     "refineDays": 39,
-    "polishDays": 128,
+    "polishDays": 133,
     "releasedAt": "2026-06-04",
-    "updatedAt": "2026-10-10"
+    "updatedAt": "2026-10-15"
   },
   "globalReach": {
     "level": 3,
@@ -99,7 +99,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "serviceMaturity": {
     "source": true,
@@ -115,7 +115,9 @@
       "crash": true,
       "killSwitch": false,
       "leeoKit": true,
-      "tests": false
+      "tests": false,
+      "crashLoop": false,
+      "privacyManifest": true
     },
     "ux": {
       "widgets": true,
@@ -123,7 +125,8 @@
       "cloudSync": false,
       "tips": true,
       "accessibility": true,
-      "onboarding": false
+      "onboarding": false,
+      "backup": false
     },
     "devices": {
       "iphone": true,
@@ -146,7 +149,41 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": true,
+      "tiers": false,
+      "freeGate": true,
+      "restore": true,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": false,
+      "notifications": true,
+      "performance": false,
+      "logging": false,
+      "funnel": true,
+      "abTesting": false,
+      "haptics": true,
+      "preflight": false,
+      "appSpec": true,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
+    }
   },
   "usStore": {
     "available": true,

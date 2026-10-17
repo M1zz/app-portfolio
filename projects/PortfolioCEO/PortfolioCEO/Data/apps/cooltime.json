@@ -337,10 +337,10 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "C",
-    "basis": "출시 후 다듬은 기간 204일 · 외부 평점 0개 · 최종 업데이트 111일 경과 → 정지",
-    "evaluatedAt": "2026-10-13",
+    "basis": "출시 후 다듬은 기간 204일 · 외부 평점 0개 · 최종 업데이트 115일 경과 → 정지",
+    "evaluatedAt": "2026-10-17",
     "ratingCount": 0,
-    "daysSinceUpdate": 111,
+    "daysSinceUpdate": 115,
     "polishDays": 204,
     "releasedAt": "2025-12-02",
     "updatedAt": "2026-06-24"
@@ -357,7 +357,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "serviceMaturity": {
     "source": true,
@@ -373,7 +373,9 @@
       "crash": true,
       "killSwitch": false,
       "leeoKit": true,
-      "tests": false
+      "tests": false,
+      "crashLoop": false,
+      "privacyManifest": false
     },
     "ux": {
       "widgets": true,
@@ -381,7 +383,8 @@
       "cloudSync": false,
       "tips": false,
       "accessibility": true,
-      "onboarding": true
+      "onboarding": true,
+      "backup": false
     },
     "devices": {
       "iphone": true,
@@ -404,7 +407,41 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": true,
+      "tiers": false,
+      "freeGate": false,
+      "restore": true,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": false,
+      "notifications": true,
+      "performance": false,
+      "logging": false,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": true,
+      "preflight": false,
+      "appSpec": false,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
+    }
   },
   "usStore": {
     "available": true,

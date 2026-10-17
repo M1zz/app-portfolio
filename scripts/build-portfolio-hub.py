@@ -6,7 +6,7 @@
 
 출력 3종:
   docs/hub.html               공개 허브 — 쇼케이스·수명주기·앱별 지원페이지 (GitHub Pages 배포)
-  docs/apps.html              공개 앱별 보기 — 앱 하나에 여정·언어·숙성도·비즈니스·페이월·레딧·링크를 모은다
+  docs/apps.html              공개 앱별 할 일 — 기본·권장 체크리스트로 앱마다 된 것·안 된 것·할 일
   docs/lifecycle.html         공개 수명주기 — 제품 여정 5단계 (GitHub Pages 배포)
   docs/maturity.html          공개 서비스 숙성도 — 국가별 언어·지원 페이지·피드백·운영·경험·기기 탭
   docs/business.html          공개 비즈니스 모델 — 결제 시점 × 방식 · 페이월 · 앱별 Lean Canvas
@@ -171,7 +171,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
     nav = "".join(
         '<a href="%s"%s>%s</a>' % (h, ' class="on"' if k == active else "", t)
         for k, h, t in [("home", "index.html", "쇼케이스"),
-                        ("apps", "apps.html", "앱별 보기"),
+                        ("apps", "apps.html", "앱별 할 일"),
                         ("life", "lifecycle.html", "제품 여정"),
                         ("maturity", "maturity.html", "서비스 숙성도"),
                         ("biz", "business.html", "비즈니스 모델"),
@@ -1235,13 +1235,12 @@ AREA_COLOR = {"lang": "#ef6aa0", "support": "#5b8def", "feedback": "#34c48a", "o
 
 def overview_panel(apps):
     """앱 × 전체 항목 한 표. 영역별로 머리줄을 묶고, 첫 열은 고정한 채 가로로 넘긴다."""
-    # 소스를 못 찾은 앱은 지원 페이지만으로 비율이 매겨져 순위가 왜곡되므로 종합을 비우고 맨 아래에 둔다
-    def rank(a):
-        if not mat(a).get("source"):
-            return (1, 0, 0, a["name"])
-        got, known = total_score(a)
-        return (0, -(got / (known or 1)), -got, a["name"])
-    rows = sorted(apps, key=rank)
+    # 줄에 찬 원(✓)이 많은 앱부터 — 언어 열과 기기까지 표에 보이는 원을 모두 센다
+    def filled(a):
+        langs = app_langs(a)
+        return (sum(1 for l in MAIN_LANGS if l in langs)
+                + sum(1 for k, _, _, items in AREAS for v in area_vals(a, k).values() if v))
+    rows = sorted(apps, key=lambda a: (-filled(a), -total_score(a)[0], a["name"]))
 
     groups = '<tr><th rowspan="2" class="ap">앱</th>%s%s<th rowspan="2">종합</th></tr>' % (
         '<th colspan="%d" class="gh" style="--c:%s">언어</th>' % (len(MAIN_LANGS) + 1, AREA_COLOR["lang"]),
@@ -1394,9 +1393,9 @@ def hub_page(apps):
         '<a class="ov" href="index.html"><b>쇼케이스</b>'
         '<p>출시한 앱 전체를 문제 → 해결 방식의 이야기로 소개합니다. 한국어·영어 전환과 '
         '문제 해결 지도를 함께 제공합니다.</p></a>'
-        '<a class="ov" href="apps.html"><b>앱별 보기</b>'
-        '<p>앱 하나를 펼치면 제품 여정·언어·서비스 숙성도·비즈니스 모델·페이월·레딧 판정·링크가 '
-        '한 화면에 모여 있습니다.</p></a>'
+        '<a class="ov" href="apps.html"><b>앱별 할 일</b>'
+        '<p>앱마다 갖춰야 할 언어 지원·지원 페이지·피드백·인프라·기능 가운데 된 것과 안 된 것, '
+        '남은 할 일을 모았습니다. 항목을 누르면 그게 빠진 앱만 남습니다.</p></a>'
         '<a class="ov" href="lifecycle.html"><b>제품 여정</b>'
         '<p>만든 앱들을 제품 여정 다섯 단계와 글로벌 지원 수준, 두 축으로 정리했습니다.</p></a>'
         '<a class="ov" href="maturity.html"><b>서비스 숙성도</b>'
@@ -1900,7 +1899,7 @@ def internal_hub(apps, links):
         '재생성: <code>build-portfolio-site.py</code></p></a>'
         '<a class="ov" href="%(site)slifecycle.html"><b>제품 여정</b><p>수명주기 5단계 × 글로벌 지원 공개판. '
         '재생성: <code>build-portfolio-hub.py</code></p></a>'
-        '<a class="ov" href="%(site)sapps.html"><b>앱별 보기</b><p>앱 하나에 모든 축을 모은 공개판.</p></a>'
+        '<a class="ov" href="%(site)sapps.html"><b>앱별 할 일</b><p>앱마다 된 것 · 안 된 것 · 할 일.</p></a>'
         '<a class="ov" href="%(site)smaturity.html"><b>서비스 숙성도</b><p>기능별 탭 공개판. '
         '재수집: <code>sync-service-maturity.py</code> → 재생성: <code>build-portfolio-hub.py</code></p></a>'
         '<a class="ov" href="%(site)shub.html"><b>페이지 모음</b><p>공개 허브(안전 버전). '
@@ -2131,14 +2130,220 @@ REDDIT_CSS = """
 """
 
 
-# ── 공개: 앱별 보기 ───────────────────────────────────────────────
-# 다른 페이지가 축(여정·숙성도·비즈니스·레딧)마다 앱을 나눠 보여 준다면, 여기는 앱 하나에 모든 축을 모은다.
-# 새 데이터를 만들지 않고 위 페이지들이 쓰는 판정 함수를 그대로 부른다 — 숫자가 페이지끼리 어긋나지 않게.
+# ── 공개: 앱별 할 일 ──────────────────────────────────────────────
+# 목적: 앱마다 '갖춰야 할 것' 중 무엇이 되었고 무엇이 안 되었는지 — 곧 그 앱의 할 일 — 를 한눈에.
+# 판정값은 서비스 숙성도·글로벌 지원과 같은 데이터를 쓴다. 기준(기본·권장·선택)은 CHECKLIST 만 고치면 된다.
+def _lang(fn):
+    return lambda a: fn(a) if a.get("globalReach") else None
+
+
+CHECK_CATS = [
+    ("lang", "언어", "#ef6aa0"), ("support", "지원 페이지", "#5b8def"), ("feedback", "피드백", "#34c48a"),
+    ("infra", "인프라", "#e0a53a"), ("feature", "기능", "#a78bfa"), ("money", "수익화", "#f08c4a"),
+    ("comms", "소통", "#3fb8c9"), ("quality", "품질", "#7c8cff"), ("data", "데이터", "#9aa5b1"),
+    ("marketing", "홍보", "#d65db1"),
+]
+NA = "na"  # 해당 없음 — 이 앱에는 물을 필요가 없는 항목. 분모에서 뺀다.
+
+
+def _src(area, key):
+    """sync-service-maturity.py 가 남긴 값. 그 칸을 아직 재지 않았으면 None(확인 불가)."""
+    return lambda a: (mat(a).get(area) or {}).get(key)
+
+
+def _sells(a):
+    p = a.get("price") or {}
+    return bool(p.get("hasInAppPurchases") or p.get("iapItems"))
+
+
+def _if_sells(fn):
+    """파는 상품이 있어야 뜻이 있는 항목 — 인앱 구입이 없으면 해당 없음."""
+    return lambda a: fn(a) if _sells(a) else NA
+
+
+_restore = _if_sells(_src("money", "restore"))
+
+
+def _tip_jar(a):
+    v = _src("money", "tipJar")(a)
+    kind = (load_paywalls().get(a["_slug"]) or {}).get("kind")
+    return True if kind == "tip-jar" else v
+CHECK_TIERS = [
+    ("base", "기본", "모든 앱이 갖출 것 — 빠져 있으면 먼저 할 일입니다."),
+    ("rec", "권장", "기본을 갖춘 다음 차례로 갖출 것입니다."),
+    ("opt", "선택", "앱 성격에 맞을 때만 — 빠져 있어도 할 일로 세지 않습니다."),
+]
+# (등급, 분류, 키, 이름, 판정 함수 → True/False/None)
+CHECKLIST = [
+    ("base", "lang", "appEn", "앱 영어 지원", _lang(lambda a: "EN" in app_langs(a))),
+    ("base", "lang", "storeEn", "영어 스토어 소개", _lang(lambda a: bool(a["globalReach"].get("englishPage")))),
+    ("base", "support", "registered", "지원 페이지 등록", _m("support", "registered")),
+    ("base", "support", "reachable", "지원 페이지 열림", _m("support", "reachable")),
+    ("base", "support", "privacy", "개인정보 처리방침", _m("support", "privacy")),
+    ("base", "support", "contact", "문의 수단 안내", _m("support", "contact")),
+    ("base", "feedback", "inAppFeedback", "앱 안 피드백", _m("feedback", "inAppFeedback")),
+    ("base", "feedback", "reviewPrompt", "리뷰 요청", _m("feedback", "reviewPrompt")),
+    ("base", "infra", "analytics", "사용 통계", _m("ops", "analytics")),
+    ("base", "infra", "crash", "크래시 진단", _m("ops", "crash")),
+    ("base", "infra", "leeoKit", "LeeoKit 적용", _m("ops", "leeoKit")),
+    ("base", "feature", "onboarding", "첫 실행 안내", _m("ux", "onboarding")),
+    ("base", "infra", "privacyManifest", "개인정보 매니페스트", _src("ops", "privacyManifest")),
+    ("base", "money", "restore", "구매 복원", _restore),
+    ("base", "comms", "whatsNew", "새 기능 알림", _src("comms", "whatsNew")),
+    ("rec", "lang", "multi", "3개 이상 언어", _lang(lambda a: len(app_langs(a)) >= 3)),
+    ("rec", "support", "english", "영어 지원 페이지", _m("support", "english")),
+    ("rec", "feedback", "mailContact", "메일 문의", _m("feedback", "mailContact")),
+    ("rec", "feedback", "writeReview", "리뷰 쓰기 바로가기", _m("feedback", "writeReview")),
+    ("rec", "infra", "killSwitch", "원격 기능 끄기", _m("ops", "killSwitch")),
+    ("rec", "quality", "tests", "자동 테스트", _m("ops", "tests")),
+    ("rec", "feature", "accessibility", "VoiceOver 대응", _m("ux", "accessibility")),
+    ("rec", "feature", "tips", "사용 팁", _m("ux", "tips")),
+    ("rec", "infra", "crashLoop", "연속 크래시 보호", _src("ops", "crashLoop")),
+    ("rec", "money", "paywall", "페이월 화면", _src("money", "paywall")),
+    ("rec", "money", "tiers", "유료 등급 설계", _if_sells(_src("money", "tiers"))),
+    ("rec", "money", "freeGate", "써 보고 결제(무료 문턱)", _if_sells(_src("money", "freeGate"))),
+    ("rec", "money", "discount", "할인 제안", _if_sells(_src("money", "discount"))),
+    ("rec", "money", "tipJar", "후원 받기", _tip_jar),
+    ("rec", "money", "tipAsk", "후원 부탁 장치", _src("money", "tipAsk")),
+    ("rec", "money", "gift", "선물하기", _if_sells(_src("money", "gift"))),
+    ("rec", "comms", "roadmap", "로드맵 공개", _src("comms", "roadmap")),
+    ("rec", "comms", "feedbackReply", "의견에 답장", _src("comms", "feedbackReply")),
+    ("rec", "money", "iapEnglish", "인앱 상품 이름 영어", _if_sells(lambda a: (a.get("usStore") or {}).get("iapEnglish"))),
+    ("rec", "infra", "performance", "성능 측정", _src("more", "performance")),
+    ("rec", "infra", "logging", "구조적 로그", _src("more", "logging")),
+    ("rec", "infra", "funnel", "전환 퍼널 측정", _src("more", "funnel")),
+    ("rec", "infra", "appSpec", "완성도 계약 선언", _src("more", "appSpec")),
+    ("rec", "infra", "preflight", "출시 전 자동 점검", _src("more", "preflight")),
+    ("rec", "quality", "uiTests", "UI 자동 테스트", _src("more", "uiTests")),
+    ("rec", "quality", "swiftlint", "정적 분석(SwiftLint)", _src("more", "swiftlint")),
+    ("rec", "quality", "ci", "CI 자동 빌드", _src("more", "ci")),
+    ("rec", "feature", "emptyStates", "빈 화면 안내", _src("more", "emptyStates")),
+    ("rec", "feature", "haptics", "햅틱 피드백", _src("more", "haptics")),
+    ("rec", "marketing", "family", "내 다른 앱 소개", _src("more", "family")),
+    ("opt", "feature", "widgets", "위젯", _m("ux", "widgets")),
+    ("opt", "feature", "shortcuts", "단축어·Siri", _m("ux", "shortcuts")),
+    ("opt", "feature", "cloudSync", "iCloud 동기화", _m("ux", "cloudSync")),
+    ("opt", "feedback", "instagram", "인스타그램 DM", _m("feedback", "instagram")),
+    ("opt", "data", "backup", "백업·내보내기", _src("ux", "backup")),
+    ("opt", "data", "schemaMigration", "데이터 구조 이전", _src("more", "schemaMigration")),
+    ("opt", "feature", "biometricLock", "생체 잠금", _src("more", "biometricLock")),
+    ("opt", "feature", "notifications", "알림·재참여", _src("more", "notifications")),
+    ("opt", "feature", "fold", "폴더블(아이폰 듀오) 대응", _src("more", "fold")),
+    ("opt", "infra", "abTesting", "A/B 테스트", _src("more", "abTesting")),
+]
+# 갖춰야 하지만 아직 자동으로 판정할 길이 없는 피처 — LeeoCapability 계약 · 클립키보드 운영에서 나온 것.
+# 판정 방법이 생기면 CHECKLIST 로 옮긴다.
+PLANNED = [
+    ("data", "동기화 충돌 처리", "두 기기에서 같은 것을 고쳤을 때 어느 쪽도 잃지 않게 합니다."),
+    ("data", "데이터 무결성 검증", "저장된 값이 깨졌는지 확인하고 고칩니다."),
+    ("data", "자동저장·작업 복구", "쓰다 앱이 꺼져도 하던 일이 남아 있습니다."),
+    ("infra", "네트워크 재시도·타임아웃", "연결이 잠깐 끊겨도 다시 시도하고, 오래 걸리면 알려 줍니다."),
+    ("infra", "전역 에러 폴백 화면", "예상 못한 오류에서도 빈 화면 대신 돌아갈 길을 보여 줍니다."),
+    ("infra", "롤백 전략", "새 버전에 문제가 있을 때 되돌릴 방법을 정해 둡니다."),
+    ("infra", "릴리즈 건강 기준", "출시 뒤 크래시율·실행 실패율이 넘으면 안 되는 선을 정해 두고 봅니다."),
+    ("infra", "핵심지표 대시보드", "앱의 핵심 숫자를 한 화면에서 매일 봅니다."),
+    ("infra", "리텐션·코호트 분석", "처음 온 사람이 며칠 뒤에도 남아 있는지 봅니다."),
+    ("quality", "베타 테스트(TestFlight)", "출시 전에 실제 사람에게 먼저 써 보게 합니다."),
+    ("quality", "회귀 테스트 루틴", "출시 전마다 핵심 흐름을 정해진 순서로 다시 확인합니다."),
+    ("quality", "코드 리뷰", "합치기 전에 다른 눈으로 바뀐 코드를 봅니다."),
+    ("infra", "전송·저장 암호화", "민감한 값을 기기와 서버 사이, 기기 안에서 암호화합니다."),
+    ("infra", "최소 권한 요청", "꼭 필요한 권한만, 필요한 순간에 묻습니다."),
+    ("data", "데이터 삭제 경로", "쓰는 사람이 자기 데이터를 앱 안에서 지울 수 있습니다."),
+    ("feature", "다크 모드 점검", "어두운 화면에서도 글자와 버튼이 묻히지 않는지 확인합니다."),
+    ("feature", "앱 버전 표시", "설정 화면에서 버전과 빌드 번호를 볼 수 있어 문의할 때 편합니다."),
+    ("marketing", "언어별 스토어 스크린샷", "지원하는 언어마다 그 언어 화면으로 스크린샷을 찍어 올립니다."),
+    ("marketing", "미리보기 영상", "스토어 첫 칸에서 앱이 움직이는 모습을 보여 줍니다."),
+    ("marketing", "ASO 키워드 최적화", "검색어에 맞춰 이름·부제·키워드를 다듬습니다."),
+    ("marketing", "홍보 채널 다변화", "스토어 밖에서 사람을 데려올 길을 여러 개 둡니다."),
+    ("marketing", "이벤트·캠페인", "할인·무료 기간 같은 행사로 사람을 모읍니다."),
+    ("marketing", "커뮤니티·제휴", "같은 관심사를 가진 모임·사람과 함께 알립니다."),
+]
+
+CHECK_HELP = {"appEn": "앱 화면을 영어로 쓸 수 있습니다.",
+              "storeEn": "App Store 소개(이름·설명·스크린샷 문구)를 영어로 준비했습니다.",
+              "multi": "한국어·영어 말고도 한 가지 이상 언어를 더 지원합니다.",
+              "privacyManifest": "앱이 어떤 정보를 왜 쓰는지 Apple에 밝히는 파일(PrivacyInfo)입니다. 심사에서 요구합니다.",
+              "restore": "기기를 바꾸거나 앱을 다시 깔아도 산 것을 되찾는 버튼입니다. 인앱 구입이 있으면 Apple이 요구합니다.",
+              "whatsNew": "업데이트 뒤 처음 열 때 무엇이 새로 생겼는지 알려 줍니다. 새 기능이 쓰이지 않고 묻히는 것을 막습니다.",
+              "crashLoop": "앱이 뜨자마자 연달아 꺼지면 가벼운 모드로 열어, 쓰는 사람이 앱에 갇히지 않게 합니다.",
+              "paywall": "무엇이 무료이고 무엇을 돈 내고 여는지 보여 주는 결제 화면입니다.",
+              "tiers": "무료 · Plus · Pro처럼 등급마다 열리는 기능을 나눠, 쓰는 만큼 고를 수 있게 합니다.",
+              "freeGate": "처음부터 막지 않고 일정 횟수까지 다 써 보게 한 뒤, 쓸모를 느낀 사람에게 결제를 묻습니다.",
+              "discount": "망설이는 사람에게 할인을 한 번 제안해 결제로 이어지게 합니다.",
+              "tipJar": "기능을 잠그지 않고, 고마운 사람이 원하는 만큼 개발자를 응원할 수 있게 합니다.",
+              "tipAsk": "오래 잘 쓴 사람에게 드물게, 알맞은 순간에 응원을 부탁하는 카드입니다.",
+              "gift": "산 것을 다른 사람에게 선물하고, 받은 코드를 앱에서 넣을 수 있습니다.",
+              "roadmap": "앞으로 만들 기능을 앱 안에서 보여 줘, 쓰는 사람이 다음을 기대하게 합니다.",
+              "feedbackReply": "보낸 의견에 개발자가 단 답장을 앱 안에서 다시 볼 수 있습니다.",
+              "backup": "데이터를 파일로 내보내거나 다시 들여올 수 있습니다.",
+              "iapEnglish": "미국 스토어에서 인앱 상품 이름이 영어로 보입니다. 한국어로 남아 있으면 결제 직전에 떠납니다.",
+              "performance": "앱이 느려지는 곳을 재서 기록합니다(OSSignposter·MetricKit).",
+              "logging": "무슨 일이 있었는지 나중에 따라갈 수 있게 분류된 로그를 남깁니다.",
+              "funnel": "설치부터 핵심 기능을 처음 쓰기까지 어디서 떠나는지 단계별로 셉니다.",
+              "appSpec": "이 앱이 무엇을 갖췄는지 LeeoKit 완성도 계약(LeeoAppSpec)으로 선언합니다.",
+              "preflight": "출시 전에 계약·설정을 자동으로 점검해 빠진 것을 알려 줍니다(LeeoPreflight).",
+              "uiTests": "화면을 실제로 눌러 보는 자동 테스트로 핵심 흐름이 끝까지 가는지 확인합니다.",
+              "swiftlint": "코드 규칙을 자동으로 검사합니다.",
+              "ci": "올릴 때마다 자동으로 빌드하고 테스트합니다(GitHub Actions·Xcode Cloud).",
+              "emptyStates": "내용이 없거나 불러오지 못했을 때 빈 화면 대신 안내를 보여 줍니다.",
+              "haptics": "눌렀을 때 손끝으로 느껴지는 반응을 줍니다.",
+              "family": "앱 안에서 내가 만든 다른 앱을 소개합니다(LeeoFamily).",
+              "schemaMigration": "저장 구조가 바뀌어도 이전 데이터를 새 구조로 옮깁니다.",
+              "biometricLock": "Face ID·Touch ID로 앱이나 민감한 내용을 잠급니다.",
+              "notifications": "알림으로 다시 찾아오게 합니다.",
+              "fold": "펼치는 아이폰(아이폰 듀오) 화면에 맞춰 두 쪽으로 나눠 보여 줍니다(LeeoFold).",
+              "abTesting": "두 가지 안을 나눠 보여 주고 어느 쪽이 나은지 숫자로 비교합니다."}
+
+
+def checklist(app):
+    """{키: (등급, 분류, 이름, 값)} — CHECKLIST 순서."""
+    return {k: (t, c, n, fn(app)) for t, c, k, n, fn in CHECKLIST}
+
+
+def todo_of(app):
+    """할 일 = 기본·권장 중 없는 것. 확인 불가는 따로."""
+    ck = checklist(app)
+    miss = [k for k, (t, _, _, v) in ck.items() if t != "opt" and v is False]  # NA 는 False 가 아니라 빠진다
+    unk = [k for k, (t, _, _, v) in ck.items() if t != "opt" and v is None]
+    return ck, miss, unk
+
+
+def tier_score(ck, tier):
+    vals = [v for t, _, _, v in ck.values() if t == tier and v is not None and v != NA]
+    return sum(1 for v in vals if v), len(vals)
+
+
 APPS_CSS = NAMES_CSS + """
   .wrap{max-width:1160px}
-  .tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;
+  .y,.n,.u{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;
+    font-size:.58rem;font-weight:800;font-style:normal;flex:none}
+  .y{background:var(--ok);color:#fff}
+  .y::before{content:"✓"}
+  .n{border:1.5px solid #e5675f}
+  .u{color:var(--muted)}
+  .u::before{content:"?"}
+  .na{display:inline-grid;place-items:center;width:16px;height:16px;font-style:normal;color:var(--muted);flex:none}
+  .na::before{content:"–"}
+  .mu{color:var(--muted)}
+  .tierh{display:flex;align-items:baseline;gap:9px;margin:14px 0 7px;font-size:.86rem}
+  .tierh span{color:var(--muted);font-size:.76rem}
+  .items{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:6px}
+  .it{font:inherit;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--text);
+    background:var(--card);border:1px solid var(--border);border-left:3px solid var(--c);border-radius:10px;
+    padding:7px 10px;font-size:.8rem}
+  .it:hover{border-color:var(--accent);border-left-color:var(--c)}
+  .it[aria-pressed=true]{background:var(--bg-soft);outline:2px solid var(--accent)}
+  .it b{font-weight:700;flex:1}
+  .it em{font-style:normal;font-weight:800;font-variant-numeric:tabular-nums;color:#e5675f}
+  .it em.z{color:var(--ok)}
+  .it small{font-size:.68rem;color:var(--muted);font-weight:700;white-space:nowrap}
+  .it.zero{border-style:dashed;border-left-style:solid}
+  .it.zero small{color:#e5675f}
+  .it.plan{cursor:default;border-style:dashed;border-left-style:solid;opacity:.75}
+  .it.plan:hover{border-color:var(--border);border-left-color:var(--c)}
+  .tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:26px 0 10px;
     position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0}
-  .tool input{font:inherit;font-size:.9rem;flex:1 1 220px;min-width:0;color:var(--text);background:var(--card);
+  .tool input{font:inherit;font-size:.9rem;flex:1 1 200px;min-width:0;color:var(--text);background:var(--card);
     border:1px solid var(--border);border-radius:999px;padding:8px 15px}
   .tool input:focus{outline:none;border-color:var(--accent)}
   .tool button{font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--text);
@@ -2146,9 +2351,10 @@ APPS_CSS = NAMES_CSS + """
   .tool button:hover{border-color:var(--accent)}
   .tool button[aria-pressed=true]{background:linear-gradient(120deg,var(--accent),var(--accent-2));
     color:#fff;border-color:transparent}
-  .cnt{font-size:.8rem;color:var(--muted);font-weight:700;margin:0 0 8px}
-  .hd,.ap>summary{display:grid;grid-template-columns:minmax(170px,1.6fr) 1fr 1fr 1fr .8fr 1.3fr 1fr 18px;
-    gap:10px;align-items:center;padding:10px 14px}
+  .cnt{font-size:.82rem;color:var(--muted);font-weight:700;margin:0 0 8px}
+  .cnt b{color:var(--text)}
+  .hd,.ap>summary{display:grid;grid-template-columns:minmax(160px,1.3fr) 90px 92px 92px minmax(0,2.4fr) 18px;
+    gap:12px;align-items:center;padding:10px 14px}
   .hd{font-size:.7rem;color:var(--muted);font-weight:800;padding-top:0;padding-bottom:6px}
   .ap{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:8px}
   .ap[hidden]{display:none}
@@ -2159,261 +2365,225 @@ APPS_CSS = NAMES_CSS + """
   .ap>summary:hover{background:var(--bg-soft);border-radius:14px}
   .ap[open]>summary{border-bottom:1px solid var(--border);border-radius:14px 14px 0 0}
   .nm{display:flex;align-items:center;gap:9px;min-width:0}
-  .nm .ic{width:34px;height:34px;border-radius:9px}
-  .nm b{display:block;font-size:.92rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nm .ic{width:32px;height:32px;border-radius:8px}
+  .nm>span{min-width:0}
+  .nm b{display:block;font-size:.9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .nm small{display:block;font-size:.7rem;color:var(--muted);font-weight:600;white-space:nowrap;
     overflow:hidden;text-overflow:ellipsis}
-  .nm>span{min-width:0}
-  .bd{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:.78rem;white-space:nowrap}
+  .bd{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:.76rem;white-space:nowrap}
   .bd::before{content:"";width:8px;height:8px;border-radius:3px;background:var(--c,var(--muted));flex:none}
-  .bd em{font-style:normal;color:var(--muted);font-weight:600}
-  .pbar{display:block;height:5px;border-radius:999px;background:var(--bg-soft);overflow:hidden;margin-top:4px;max-width:90px}
-  .pbar i{display:block;height:100%;background:var(--c,var(--accent))}
-  .mu{color:var(--muted)}
-  .body{padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
-  .box{border:1px solid var(--border);border-top:3px solid var(--c,var(--border));border-radius:12px;
-    padding:12px 14px;font-size:.82rem;min-width:0}
-  .box.wide{grid-column:1/-1}
-  .box h4{font-size:.86rem;display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
-  .box h4 a{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--muted);text-decoration:none}
-  .box h4 a:hover{color:var(--accent)}
-  .box dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
-  .box dt{color:var(--muted);font-weight:700;font-size:.76rem}
-  .box dd{word-break:keep-all}
-  .chk{list-style:none;display:grid;gap:3px;margin-top:6px}
-  .chk li{display:flex;gap:7px;align-items:center}
-  .tags{display:flex;flex-wrap:wrap;gap:5px}
-  .tags span{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;padding:3px 9px 3px 4px;
-    border-radius:999px;background:var(--bg-soft);border:1px solid var(--border)}
-  .tags span.off{opacity:.5;border-style:dashed}
-  .tags span.q{padding-left:9px}
-  .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-  .areas h5{font-size:.78rem;margin-bottom:6px;display:flex;gap:8px;align-items:center}
-  .areas h5::before{content:"";width:8px;height:8px;border-radius:3px;background:var(--c)}
-  .areas h5 em{font-style:normal;color:var(--muted);font-weight:700;margin-left:auto}
-  .y,.n,.u{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;
-    font-size:.58rem;font-weight:800;font-style:normal;flex:none}
-  .y{background:var(--ok);color:#fff}
-  .y::before{content:"✓"}
-  .n{border:1.5px solid var(--muted);opacity:.45}
-  .u{color:var(--muted)}
-  .u::before{content:"?"}
-  .lk{display:flex;flex-wrap:wrap;gap:6px}
-  .lk a{font-size:.78rem;font-weight:700;text-decoration:none;color:var(--text);background:var(--bg-soft);
-    border:1px solid var(--border);padding:5px 11px;border-radius:999px}
+  .sc b{font-variant-numeric:tabular-nums;font-size:.86rem}
+  .sc b.done{color:var(--ok)}
+  .pbar{display:block;height:5px;border-radius:999px;background:var(--bg-soft);overflow:hidden;margin-top:4px}
+  .pbar i{display:block;height:100%;background:var(--c)}
+  .miss{display:flex;flex-wrap:wrap;gap:4px;min-width:0}
+  .miss span{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;
+    border:1px solid var(--border);border-left:3px solid var(--c);background:var(--bg-soft)}
+  .miss span.r{opacity:.65;border-style:dashed;border-left-style:solid}
+  .miss .ok{color:var(--ok);font-weight:800;font-size:.78rem}
+  .miss .more{color:var(--muted);border:0;background:none;padding:2px 2px}
+  .body{padding:16px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:16px}
+  .body h4{font-size:.86rem;margin-bottom:8px;display:flex;gap:8px;align-items:baseline}
+  .body h4 span{color:var(--muted);font-size:.74rem;font-weight:700}
+  .todo{list-style:none;display:grid;gap:6px;counter-reset:t}
+  .todo li{display:grid;grid-template-columns:22px 1fr;gap:4px 8px;font-size:.82rem;counter-increment:t;
+    border:1px solid var(--border);border-left:3px solid var(--c);border-radius:10px;padding:8px 10px}
+  .todo li::before{content:counter(t);font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+  .todo li b{font-weight:700}
+  .todo li b i{font-style:normal;font-size:.68rem;font-weight:800;color:var(--muted);margin-left:6px}
+  .todo li p{grid-column:2;color:var(--muted);font-size:.76rem;line-height:1.5}
+  .todo li.rec{border-style:dashed;border-left-style:solid}
+  .allgood{color:var(--ok);font-weight:700;font-size:.85rem}
+  .unk{margin-top:10px;font-size:.78rem;color:var(--muted)}
+  .cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+  .cats h5{font-size:.78rem;display:flex;align-items:center;gap:7px;margin-bottom:5px}
+  .cats h5::before{content:"";width:8px;height:8px;border-radius:3px;background:var(--c)}
+  .cats h5 em{margin-left:auto;font-style:normal;color:var(--muted)}
+  .cats ul{list-style:none;display:grid;gap:3px}
+  .cats li{display:flex;align-items:center;gap:7px;font-size:.78rem}
+  .cats li small{margin-left:auto;font-size:.64rem;color:var(--muted);font-weight:700}
+  .cats li.opt{opacity:.7}
+  .lk{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .lk a{font-size:.76rem;font-weight:700;text-decoration:none;color:var(--text);background:var(--bg-soft);
+    border:1px solid var(--border);padding:4px 10px;border-radius:999px}
   .lk a:hover{border-color:var(--accent);color:var(--accent)}
-  .none{color:var(--muted)}
   .empty{padding:30px;text-align:center;color:var(--muted)}
   @media(max-width:860px){.hd{display:none}
-    .ap>summary{grid-template-columns:1fr 1fr 18px;row-gap:6px}
-    .ap>summary .nm{grid-column:1/3}
-    .ap>summary::after{grid-column:3;grid-row:1}
-    .ap>summary>[data-l]::before{content:attr(data-l);display:block;font-size:.66rem;color:var(--muted);font-weight:800}}
+    .ap>summary{grid-template-columns:1fr 1fr 1fr 18px;row-gap:8px}
+    .ap>summary .nm{grid-column:1/4}
+    .ap>summary::after{grid-column:4;grid-row:1}
+    .ap>summary .miss{grid-column:1/-1}
+    .ap>summary>[data-l]::before{content:attr(data-l);display:block;font-size:.66rem;color:var(--muted);font-weight:800}
+    .body{grid-template-columns:1fr}}
 """
 
 APPS_JS = """
 <script>
-(function(){var q=document.getElementById('q'),list=document.querySelectorAll('.ap'),cnt=document.getElementById('cnt'),
-emp=document.getElementById('emp'),st='all';
+(function(){var q=document.getElementById('q'),list=[].slice.call(document.querySelectorAll('.ap')),
+box=document.getElementById('list'),cnt=document.getElementById('cnt'),emp=document.getElementById('emp'),
+st='all',item=null,sort='stage';
 function run(){var t=(q.value||'').trim().toLowerCase(),n=0;list.forEach(function(d){
-var ok=(!t||d.getAttribute('data-q').indexOf(t)>=0)&&(st==='all'||d.getAttribute('data-s')===st);
-d.hidden=!ok;if(ok)n++;});cnt.textContent=n+'개 앱';emp.hidden=n>0;}
+var ok=(!t||d.getAttribute('data-q').indexOf(t)>=0)&&(st==='all'||d.getAttribute('data-s')===st)
+&&(!item||(' '+d.getAttribute('data-miss')+' ').indexOf(' '+item+' ')>=0);
+d.hidden=!ok;if(ok)n++;});
+var lbl=item?document.querySelector('.it[data-k="'+item+'"] b').textContent:'';
+cnt.innerHTML='';var b=document.createElement('b');b.textContent=n+'개 앱';cnt.appendChild(b);
+if(item)cnt.appendChild(document.createTextNode(' — ‘'+lbl+'’이(가) 빠진 앱'));emp.hidden=n>0;}
+function resort(){var key=sort==='todo'?function(d){return -(+d.getAttribute('data-n'))}:function(d){return +d.getAttribute('data-o')};
+list.slice().sort(function(a,b){return key(a)-key(b)||(+a.getAttribute('data-o'))-(+b.getAttribute('data-o'))})
+.forEach(function(d){box.appendChild(d)});box.appendChild(emp);}
 q.addEventListener('input',run);
 document.addEventListener('click',function(e){var b=e.target.closest('[data-st]');
 if(b){st=b.getAttribute('data-st');document.querySelectorAll('[data-st]').forEach(function(x){
 x.setAttribute('aria-pressed',x===b?'true':'false');});run();return;}
+b=e.target.closest('[data-sort]');if(b){sort=b.getAttribute('data-sort');document.querySelectorAll('[data-sort]')
+.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});resort();return;}
+b=e.target.closest('.it');if(b){var k=b.getAttribute('data-k');item=item===k?null:k;
+document.querySelectorAll('.it').forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-k')===item?'true':'false');});
+run();if(item)document.getElementById('tool').scrollIntoView({block:'start',behavior:'smooth'});return;}
 var x=e.target.closest('#all');if(x){var open=x.getAttribute('aria-pressed')!=='true';
 x.setAttribute('aria-pressed',open?'true':'false');x.textContent=open?'모두 접기':'모두 펼치기';
 list.forEach(function(d){if(!d.hidden)d.open=open;});}});
 function hash(){var h=location.hash.slice(1);if(!h)return;var d=document.getElementById(h);
 if(d&&d.classList.contains('ap')){d.hidden=false;d.open=true;d.scrollIntoView({block:'start'});}}
-hash();window.addEventListener('hashchange',hash);run();})();
+run();hash();window.addEventListener('hashchange',hash);})();
 </script>
 """
 
 STAGE_COLOR = {5: "#34c48a", 4: "#5b8def", 3: "#a78bfa", 2: "#e0a53a", 1: "#8b90a0"}
+CAT_COLOR = {k: c for k, _, c in CHECK_CATS}
+CAT_NAME = {k: n for k, n, _ in CHECK_CATS}
+TIER_NAME = {k: n for k, n, _ in CHECK_TIERS}
 
 
 def _mark(v):
+    if v == NA:
+        return '<i class="na" title="해당 없음"></i>'
     return '<i class="%s"></i>' % ("u" if v is None else "y" if v else "n")
 
 
-def _journey_box(a):
-    lc = a.get("lifecycle") or {}
-    st = lc.get("stage")
-    dl = [("단계", "%d · %s" % (st, STAGE_SHORT.get(st, "")) if st else "판정 전")]
-    if lc.get("releasedAt"):
-        dl.append(("첫 출시", lc["releasedAt"]))
-    if lc.get("polishDays") is not None:
-        dl.append(("다듬은 기간", "%d일" % lc["polishDays"]))
-    if lc.get("daysSinceUpdate") is not None:
-        dl.append(("최근 업데이트", "%d일 전" % lc["daysSinceUpdate"]))
-    dl.append(("스토어 평점", "%d개" % (lc.get("ratingCount") or 0)))
-    if a.get("currentVersion"):
-        dl.append(("버전", a["currentVersion"]))
-    r = readiness(a)
-    gate = ""
-    if r:
-        rows = "".join('<li>%s%s</li>' % (_mark(fn(a)), esc(lbl)) for _, lbl, fn in GATES[r["next"]][2])
-        gate = ('<p style="margin-top:10px"><b>다음: %d %s</b> <span class="mu">관문 %d/%d</span></p>'
-                '<ul class="chk">%s</ul>' % (r["next"], esc(STAGE_NAME[r["next"]]), r["have"], r["known"], rows))
-        hint = polish_hint(a) if "출시 후 90일 넘게 다듬기" in r["missing"] else None
-        if hint:
-            gate += '<p class="mu" style="margin-top:6px">%s</p>' % esc(hint)
-    elif lc.get("intent"):
-        gate = '<p class="mu" style="margin-top:10px">지금 단계를 의도적으로 유지하는 앱입니다.</p>'
-    return ('<div class="box" style="--c:%s"><h4>제품 여정<a href="lifecycle.html">제품 여정 →</a></h4>'
-            '<dl>%s</dl>%s</div>' % (STAGE_COLOR.get(st, "var(--border)"),
-                                     "".join("<dt>%s</dt><dd>%s</dd>" % (esc(k), esc(v)) for k, v in dl), gate))
+def _score_html(got, known, color):
+    if not known:
+        return '<span class="mu">확인 불가</span>'
+    return ('<b%s>%d/%d</b><span class="pbar"><i style="width:%d%%;--c:%s"></i></span>'
+            % (' class="done"' if got == known else "", got, known, round(100 * got / known), color))
 
 
-def _lang_box(a):
+def _app_detail(a, ck, miss, unk):
+    todo = ""
+    for k in miss:
+        t, c, n, _ = ck[k]
+        why = ITEM_WHY.get(k) or CHECK_HELP.get(k) or ITEM_HELP.get(k) or ""
+        todo += ('<li class="%s" style="--c:%s"><b>%s<i>%s · %s</i></b>%s</li>'
+                 % (t, CAT_COLOR[c], esc(n), esc(TIER_NAME[t]), esc(CAT_NAME[c]),
+                    "<p>%s</p>" % esc(why) if why else ""))
+    left = ('<h4>할 일<span>%d개 · 기본부터</span></h4>' % len(miss)
+            + ('<ol class="todo">%s</ol>' % todo if todo else '<p class="allgood">기본·권장 항목을 모두 갖췄습니다.</p>'))
+    if unk:
+        left += '<p class="unk">확인 필요 · %s</p>' % esc(", ".join(ck[k][2] for k in unk))
+    cats = ""
+    for c, cn, color in CHECK_CATS:
+        rows = [(k, v) for k, v in ck.items() if v[1] == c]
+        got = sum(1 for _, v in rows if v[3] is True and v[0] != "opt")
+        known = sum(1 for _, v in rows if v[3] not in (None, NA) and v[0] != "opt")
+        cats += ('<div><h5 style="--c:%s">%s<em>%d/%d</em></h5><ul>%s</ul></div>'
+                 % (color, esc(cn), got, known, "".join(
+                     '<li class="%s">%s%s<small>%s</small></li>' % (v[0], _mark(v[3]), esc(v[2]), esc(TIER_NAME[v[0]]))
+                     for k, v in rows)))
     g = a.get("globalReach")
-    if not g:
-        return ('<div class="box"><h4>언어 · 판매</h4><p class="none">지금 App Store에서 찾을 수 없어 '
-                '언어와 판매 국가를 확인하지 못했습니다.</p></div>')
-    lv = g.get("level")
-    gname, gcolor = {k: (n, c) for k, n, _, c in GLOBAL}.get(lv, ("", "var(--border)"))
-    langs = app_langs(a)
-    tags = "".join('<span class="q">%s</span>' % esc(LANG_KR.get(l, l)) for l in langs)
-    dl = [("글로벌 지원", gname), ("판매 국가", "주요 %d개국 중 %d개국" % (g.get("storefrontsChecked") or 18,
-                                                              g.get("storefronts") or 0)),
-          ("영어 스토어 소개", "있음" if g.get("englishPage") else "없음"), ("앱 언어", "%d개" % len(langs))]
-    return ('<div class="box" style="--c:%s"><h4>언어 · 판매<a href="maturity.html#country">국가별 언어 →</a></h4>'
-            '<dl>%s</dl><div class="tags" style="margin-top:9px">%s</div></div>'
-            % (gcolor, "".join("<dt>%s</dt><dd>%s</dd>" % (esc(k), esc(v)) for k, v in dl), tags))
-
-
-def _maturity_box(a):
-    pct = maturity_pct(a)
-    areas = ""
-    for key, name, _, items in AREAS:
-        vals = area_vals(a, key)
-        got, known = area_score(a, key)
-        areas += ('<div><h5 style="--c:%s">%s<em>%s</em></h5><div class="tags">%s</div></div>'
-                  % (AREA_COLOR[key], esc(name), "" if key == "devices" else "%d/%d" % (got, known),
-                     "".join('<span%s>%s%s</span>' % ("" if vals[k] else ' class="off"', _mark(vals[k]), esc(lbl))
-                             for k, lbl in items)))
-    head = ("%d%%" % pct) if pct is not None else "앱 소스 확인 불가"
-    return ('<div class="box wide" style="--c:%s"><h4>서비스 숙성도 <span class="mu">%s</span>'
-            '<a href="maturity.html">서비스 숙성도 →</a></h4><div class="areas">%s</div></div>'
-            % (score_color(pct / 100) if pct is not None else "var(--border)", esc(head), areas))
-
-
-def _biz_box(a, pw):
-    m = model_of(a)
-    ladder = price_text(a)
-    body = '<dl><dt>수익 모델</dt><dd><b>%s</b> — %s</dd><dt>가격</dt><dd>%s</dd></dl>' % (
-        esc(m[1]), esc(m[4]), esc(" · ".join(ladder)) if ladder else "받는 돈 없음")
-    if pw:
-        if pw.get("headline"):
-            body += '<p style="margin-top:9px"><b>페이월</b> “%s”</p>' % esc(pw["headline"])
-        for t, key in (("무료로 주는 것", "free"), ("돈을 내면 열리는 것", "locked"), ("언제 보이나", "triggers")):
-            if pw.get(key):
-                body += '<p style="margin-top:5px"><span class="mu">%s</span> · %s</p>' % (
-                    esc(t), esc(" / ".join(pw[key][:4])))
-    links = '<a href="business.html#bm-%s">비즈니스 모델 →</a>' % esc(a["_slug"])
-    return '<div class="box" style="--c:%s"><h4>비즈니스 · 페이월%s</h4>%s</div>' % (m[7], links, body)
-
-
-def _reddit_box(a):
-    tier, miss = reddit_tier(a)
-    if tier is None:
-        return ('<div class="box"><h4>레딧 출격</h4><p class="none">미국 스토어 정보를 아직 모으지 않았습니다.</p></div>')
-    _, name, why, color = REDDIT_VERDICT[tier]
-    gates = reddit_gates(a)
-    rows = "".join('<li>%s%s</li>' % (_mark(gates[k]), esc(lbl)) for k, lbl, _ in REDDIT_GATES)
-    todo = [fix for k, _, fix in REDDIT_GATES if k in miss]
-    extra = ""
-    if todo:
-        extra = '<p style="margin-top:7px"><span class="mu">고칠 것</span> · %s</p>' % esc(" / ".join(todo))
-    if reddit_url(a):
-        extra += '<p style="margin-top:5px"><a href="%s" target="_blank" rel="noopener">올린 글 보기</a></p>' % esc(reddit_url(a))
-    return ('<div class="box" style="--c:%s"><h4>레딧 출격 <span class="mu">%s</span>'
-            '<a href="reddit-launch.html">레딧 출격 →</a></h4><p class="mu">%s</p><ul class="chk">%s</ul>%s</div>'
-            % (color, esc(name), esc(why), rows, extra))
-
-
-def _links_box(a, pw):
+    langs = ('<p class="mu" style="font-size:.76rem;margin-top:10px">지원 언어 %d개 · %s</p>'
+             % (len(app_langs(a)), esc(lang_names(a)))) if g else ""
     ls = [("쇼케이스 소개", intro_link(a), False)]
-    if a.get("appStoreUrl"):
-        ls.append(("App Store", a["appStoreUrl"], True))
-    if a.get("supportUrl"):
-        ls.append(("지원 페이지", a["supportUrl"], True))
-    if pw:
-        ls.append(("페이월", "paywalls.html#pw-%s" % a["_slug"], False))
-    if reddit_url(a):
-        ls.append(("레딧 글", reddit_url(a), True))
-    return '<div class="box"><h4>링크</h4><div class="lk">%s</div></div>' % "".join(
+    for t, u in (("App Store", a.get("appStoreUrl")), ("지원 페이지", a.get("supportUrl"))):
+        if u:
+            ls.append((t, u, True))
+    ls.append(("비즈니스 모델", "business.html#bm-%s" % a["_slug"], False))
+    links = '<div class="lk">%s</div>' % "".join(
         '<a href="%s"%s>%s</a>' % (esc(u), ' target="_blank" rel="noopener"' if ext else "", esc(t))
         for t, u, ext in ls)
+    right = '<h4>항목별 상태<span>✓ 됨 · ○ 안 됨 · ? 확인 불가 · – 해당 없음</span></h4><div class="cats">%s</div>%s%s' % (cats, langs, links)
+    return '<div class="body"><div>%s</div><div>%s</div></div>' % (left, right)
 
 
 def apps_page(apps):
     ls = live(apps)
-    pws = load_paywalls()
+    ls.sort(key=lambda a: (-((a.get("lifecycle") or {}).get("stage") or 0), a["name"]))
+    data = [(a,) + todo_of(a) for a in ls]
 
-    def order(a):
-        pct = maturity_pct(a)
-        return (-((a.get("lifecycle") or {}).get("stage") or 0), -(pct if pct is not None else -1), a["name"])
-    ls.sort(key=order)
+    # 항목별로 빠진 앱 수 — 누르면 그 항목이 빠진 앱만 남는다
+    items = ""
+    for tier, tn, tdesc in CHECK_TIERS:
+        btns = ""
+        for t, c, k, n, _ in CHECKLIST:
+            if t != tier:
+                continue
+            missing = sum(1 for _, ck, _, _ in data if ck[k][3] is False)
+            known = sum(1 for _, ck, _, _ in data if ck[k][3] not in (None, NA))
+            have = known - missing
+            btns += ('<button type="button" class="it%s" data-k="%s" aria-pressed="false" style="--c:%s" '
+                     'title="%s"><b>%s</b><small>%s</small><em class="%s">%s</em></button>'
+                     % ("" if have else " zero", k, CAT_COLOR[c],
+                        esc("%s · %s" % (CAT_NAME[c], CHECK_HELP.get(k) or ITEM_HELP.get(k) or "")), esc(n),
+                        "적용 %d" % have if have else "아직 없음", "z" if not missing else "",
+                        "빠짐 %d" % missing if missing else "모두 됨"))
+        items += '<div class="tierh"><b>%s</b><span>%s</span></div><div class="items">%s</div>' % (esc(tn), esc(tdesc), btns)
+    items += ('<div class="tierh"><b>도입 예정</b><span>갖춰야 하지만 아직 자동으로 판정할 방법이 없는 피처입니다. '
+              '판정 방법이 생기면 위로 옮깁니다.</span></div><div class="items">%s</div>'
+              % "".join('<div class="it plan" style="--c:%s" title="%s"><b>%s</b><small>%s</small></div>'
+                        % (CAT_COLOR[c], esc(why), esc(n), esc(CAT_NAME[c])) for c, n, why in PLANNED))
+    nobody = [n for t, c, k, n, _ in CHECKLIST if not any(ck[k][3] is True for _, ck, _, _ in data)]
 
     rows = ""
-    for a in ls:
-        lc = a.get("lifecycle") or {}
-        st = lc.get("stage")
-        pw = pws.get(a["_slug"])
-        r = readiness(a)
-        pct = maturity_pct(a)
-        g = a.get("globalReach")
-        m = model_of(a)
-        tier, _ = reddit_tier(a)
-        langs = app_langs(a)
+    for i, (a, ck, miss, unk) in enumerate(data):
+        st = (a.get("lifecycle") or {}).get("stage")
+        bg, bk = tier_score(ck, "base")
+        rg, rk = tier_score(ck, "rec")
+        base_miss = [k for k in miss if ck[k][0] == "base"]
+        chips = "".join('<span%s style="--c:%s">%s</span>' % ("" if ck[k][0] == "base" else ' class="r"',
+                                                             CAT_COLOR[ck[k][1]], esc(ck[k][2])) for k in miss[:5])
+        if len(miss) > 5:
+            chips += '<span class="more">외 %d개</span>' % (len(miss) - 5)
+        if not miss:
+            chips = '<span class="ok">할 일 없음</span>' if not unk else '<span class="mu">확인 필요 %d개</span>' % len(unk)
         sub = " · ".join(x for x in [a.get("nameEn"), ("v" + a["currentVersion"]) if a.get("currentVersion") else ""] if x)
-        cells = [
-            '<span class="nm">%s<span><b>%s</b><small>%s</small></span></span>' % (icon_img(a), esc(a["name"]), esc(sub)),
-            '<span data-l="제품 여정"><span class="bd" style="--c:%s">%s</span></span>'
-            % (STAGE_COLOR.get(st, "var(--muted)"), "%d %s" % (st, esc(STAGE_SHORT.get(st, ""))) if st else "—"),
-            '<span data-l="다음 단계">%s</span>' % (
-                '<span class="bd" style="--c:%s">%d<em>단계 관문 %d/%d</em></span><span class="pbar"><i style="width:%d%%"></i></span>'
-                % (score_color(r["ratio"]), r["next"], r["have"], r["known"], round(100 * r["ratio"]))
-                if r else '<span class="mu">—</span>'),
-            '<span data-l="언어"><span class="bd" style="--c:%s" title="%s">%s</span></span>' % (
-                {k: c for k, _, _, c in GLOBAL}.get(reach(a), "var(--muted)"), esc(lang_names(a)),
-                ("%d개 언어" % len(langs) if len(langs) > 2 else " · ".join(LANG_KR.get(l, l) for l in langs))
-                if g else "스토어에 없음"),
-            '<span data-l="숙성도">%s</span>' % (
-                '<b style="color:%s">%d%%</b><span class="pbar"><i style="width:%d%%;--c:%s"></i></span>'
-                % (score_color(pct / 100), pct, pct, score_color(pct / 100)) if pct is not None
-                else '<span class="mu">확인 불가</span>'),
-            '<span data-l="수익 모델"><span class="bd" style="--c:%s">%s<em>%s</em></span></span>' % (
-                m[7], esc(m[1]), esc((price_text(a) or [""])[0])),
-            '<span data-l="레딧">%s</span>' % (
-                '<span class="bd" style="--c:%s">%s</span>' % (REDDIT_VERDICT[tier][3], esc(REDDIT_VERDICT[tier][1]))
-                if tier is not None else '<span class="mu">—</span>'),
-        ]
-        q = " ".join(x for x in [a["name"], a.get("nameEn") or "", a["_slug"]]).lower()
-        rows += ('<details class="ap" id="%s" data-q="%s" data-s="%s"><summary>%s</summary>'
-                 '<div class="body">%s%s%s%s%s%s</div></details>'
-                 % (esc(a["_slug"]), esc(q), st or 0, "".join(cells),
-                    _journey_box(a), _lang_box(a), _maturity_box(a), _biz_box(a, pw), _reddit_box(a), _links_box(a, pw)))
+        q = " ".join([a["name"], a.get("nameEn") or "", a["_slug"]]).lower()
+        rows += ('<details class="ap" id="%s" data-q="%s" data-s="%s" data-miss="%s" data-n="%d" data-o="%d"><summary>'
+                 '<span class="nm">%s<span><b>%s</b><small>%s</small></span></span>'
+                 '<span data-l="제품 여정"><span class="bd" style="--c:%s">%s</span></span>'
+                 '<span class="sc" data-l="기본">%s</span><span class="sc" data-l="권장">%s</span>'
+                 '<span class="miss" data-l="할 일 %d개">%s</span></summary>%s</details>'
+                 % (esc(a["_slug"]), esc(q), st or 0, " ".join(miss), len(base_miss) * 100 + len(miss), i,
+                    icon_img(a), esc(a["name"]), esc(sub), STAGE_COLOR.get(st, "var(--muted)"),
+                    esc("%d %s" % (st, STAGE_SHORT.get(st, ""))) if st else "—",
+                    _score_html(bg, bk, "#34c48a"), _score_html(rg, rk, "#5b8def"), len(miss), chips,
+                    _app_detail(a, ck, miss, unk)))
 
     stages = sorted({(a.get("lifecycle") or {}).get("stage") or 0 for a in ls}, reverse=True)
     filt = '<button type="button" data-st="all" aria-pressed="true">전체</button>' + "".join(
         '<button type="button" data-st="%d" aria-pressed="false">%s</button>'
         % (s_, esc("%d %s" % (s_, STAGE_SHORT.get(s_, "")) if s_ else "판정 전")) for s_ in stages)
-    hd = ('<div class="hd"><span>앱</span><span>제품 여정</span><span>다음 단계</span><span>언어</span>'
-          '<span>숙성도</span><span>수익 모델 · 가격</span><span>레딧</span><span></span></div>')
-    main = ('<div class="tool"><input id="q" type="search" placeholder="앱 이름으로 찾기" aria-label="앱 이름으로 찾기">'
-            '%s<button type="button" id="all" aria-pressed="false">모두 펼치기</button></div>'
-            '<p class="cnt" id="cnt"></p>%s%s<p class="empty" id="emp" hidden>찾는 앱이 없습니다.</p>'
-            % (filt, hd, rows))
-    head = ('<div class="eyebrow">Apps</div><h1>앱별 보기</h1>'
-            '<p>앱 %d개를 한 줄씩 놓았습니다. 줄을 누르면 그 앱의 제품 여정·언어·서비스 숙성도·비즈니스 모델·'
-            '페이월·레딧 판정·링크가 한 화면에 펼쳐집니다. 단계가 높은 앱부터, 같은 단계에서는 숙성도가 높은 앱부터 놓았습니다.</p>'
-            % len(ls))
-    return page("앱별 보기 — 리이오의 앱 포트폴리오",
-                "앱 %d개 각각의 제품 여정·언어·서비스 숙성도·비즈니스 모델·레딧 판정을 한 화면에 모았습니다." % len(ls),
+    total_base = sum(1 for _, ck, miss, _ in data for k in miss if ck[k][0] == "base")
+    total_rec = sum(1 for _, ck, miss, _ in data for k in miss if ck[k][0] == "rec")
+    base_done = sum(1 for _, ck, miss, _ in data if not [k for k in miss if ck[k][0] == "base"])
+    main = ('<section><h2>피처 지도<span class="hc">%d개</span></h2><p class="lead">갖춰야 할 피처를 모두 늘어놓았습니다. '
+            '자동으로 판정하는 %d개는 몇 개 앱에 들어갔는지 보이고, 그중 아직 어느 앱에도 없는 %d개와 '
+            '판정 방법이 없는 도입 예정 %d개는 점선으로 표시했습니다. 적용 1인 피처는 대부분 클립키보드에서 먼저 만든 것입니다. '
+            '누르면 그 피처가 빠진 앱만 아래에 남고, 다시 누르면 풀립니다.</p>%s</section>'
+            '<div class="tool" id="tool"><input id="q" type="search" placeholder="앱 이름으로 찾기" aria-label="앱 이름으로 찾기">'
+            '%s<span style="flex:1"></span><button type="button" data-sort="stage" aria-pressed="true">단계 높은 순</button>'
+            '<button type="button" data-sort="todo" aria-pressed="false">할 일 많은 순</button>'
+            '<button type="button" id="all" aria-pressed="false">모두 펼치기</button></div>'
+            '<p class="cnt" id="cnt"></p>'
+            '<div class="hd"><span>앱</span><span>제품 여정</span><span>기본</span><span>권장</span>'
+            '<span>할 일 (기본 먼저, 점선은 권장)</span><span></span></div>'
+            '<div id="list">%s<p class="empty" id="emp" hidden>조건에 맞는 앱이 없습니다.</p></div>'
+            % (len(CHECKLIST) + len(PLANNED), len(CHECKLIST), len(nobody), len(PLANNED), items, filt, rows))
+    head = ('<div class="eyebrow">To-do by App</div><h1>앱별 할 일</h1>'
+            '<p>앱 %d개가 갖춰야 할 언어 지원·지원 페이지·피드백·인프라·기능·수익화·소통 가운데 무엇이 되었고 무엇이 '
+            '안 되었는지 봅니다. 기본 항목을 모두 갖춘 앱은 %d개이고, 남은 할 일은 기본 %d건 · 권장 %d건입니다. '
+            '줄을 누르면 그 앱의 할 일 목록이 펼쳐집니다.</p>' % (len(ls), base_done, total_base, total_rec))
+    return page("앱별 할 일 — 리이오의 앱 포트폴리오",
+                "앱 %d개마다 언어 지원·지원 페이지·피드백·인프라·기능 중 된 것과 안 된 것, 남은 할 일을 모았습니다." % len(ls),
                 {"head": head, "main": main}, "apps", APPS_CSS, APPS_JS)
 
 

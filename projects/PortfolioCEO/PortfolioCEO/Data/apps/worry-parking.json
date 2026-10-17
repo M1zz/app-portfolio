@@ -53,14 +53,14 @@
     "stage": 1,
     "label": "pre-mvp",
     "ratingCount": 0,
-    "daysSinceUpdate": 12,
+    "daysSinceUpdate": 16,
     "polishDays": 0,
     "releasedAt": "2026-10-01",
     "updatedAt": "2026-10-01",
-    "evaluatedAt": "2026-10-13",
+    "evaluatedAt": "2026-10-17",
     "tier": null,
     "manual": true,
-    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 12일 경과"
+    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 16일 경과"
   },
   "globalReach": {
     "level": 2,
@@ -90,7 +90,9 @@
       "crash": false,
       "killSwitch": false,
       "leeoKit": false,
-      "tests": false
+      "tests": false,
+      "crashLoop": false,
+      "privacyManifest": false
     },
     "ux": {
       "widgets": false,
@@ -98,7 +100,8 @@
       "cloudSync": false,
       "tips": false,
       "accessibility": true,
-      "onboarding": true
+      "onboarding": true,
+      "backup": false
     },
     "devices": {
       "iphone": true,
@@ -121,7 +124,41 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": true,
+      "tiers": false,
+      "freeGate": false,
+      "restore": true,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": true,
+      "biometricLock": false,
+      "notifications": true,
+      "performance": false,
+      "logging": false,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": true,
+      "preflight": false,
+      "appSpec": false,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
+    }
   },
   "usStore": {
     "available": true,

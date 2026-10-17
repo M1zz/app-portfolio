@@ -266,7 +266,7 @@
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "5.1.10",
+  "currentVersion": "5.1.11",
   "folderId": "clip-keyboard",
   "githubRepo": "https://github.com/Code-Ward/Token-memo",
   "localProjectPath": "../Token-memo",
@@ -414,13 +414,13 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 브랜드 축 — 반응을 받아 반복 개선 중. 외부 평점 13개 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-10-13",
+    "evaluatedAt": "2026-10-17",
     "ratingCount": 17,
-    "daysSinceUpdate": 1,
+    "daysSinceUpdate": 3,
     "manual": true,
-    "polishDays": 2133,
+    "polishDays": 2135,
     "releasedAt": "2020-12-09",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-14"
   },
   "globalReach": {
     "level": 3,
@@ -454,7 +454,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "serviceMaturity": {
     "source": true,
@@ -470,7 +470,9 @@
       "crash": true,
       "killSwitch": false,
       "leeoKit": true,
-      "tests": true
+      "tests": true,
+      "crashLoop": true,
+      "privacyManifest": true
     },
     "ux": {
       "widgets": true,
@@ -478,7 +480,8 @@
       "cloudSync": true,
       "tips": true,
       "accessibility": true,
-      "onboarding": true
+      "onboarding": true,
+      "backup": true
     },
     "devices": {
       "iphone": true,
@@ -501,7 +504,41 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": true,
+      "tiers": true,
+      "freeGate": true,
+      "restore": true,
+      "discount": true,
+      "tipJar": true,
+      "tipAsk": true,
+      "gift": true
+    },
+    "comms": {
+      "whatsNew": true,
+      "roadmap": true,
+      "feedbackReply": true
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": true,
+      "biometricLock": true,
+      "notifications": true,
+      "performance": true,
+      "logging": true,
+      "funnel": true,
+      "abTesting": false,
+      "haptics": true,
+      "preflight": false,
+      "appSpec": true,
+      "family": true,
+      "fold": true,
+      "uiTests": false,
+      "swiftlint": true,
+      "ci": true
+    }
   },
   "usStore": {
     "available": true,

@@ -53,10 +53,10 @@
     "stage": 1,
     "label": "pre-mvp",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 12일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.2 · 최종 업데이트 155일 경과",
-    "evaluatedAt": "2026-10-13",
+    "basis": "출시 후 다듬은 기간 12일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.2 · 최종 업데이트 159일 경과",
+    "evaluatedAt": "2026-10-17",
     "ratingCount": 0,
-    "daysSinceUpdate": 155,
+    "daysSinceUpdate": 159,
     "manual": true,
     "refineDays": 12,
     "polishDays": 12,
@@ -90,7 +90,9 @@
       "crash": false,
       "killSwitch": false,
       "leeoKit": false,
-      "tests": false
+      "tests": false,
+      "crashLoop": false,
+      "privacyManifest": false
     },
     "ux": {
       "widgets": false,
@@ -98,7 +100,8 @@
       "cloudSync": true,
       "tips": false,
       "accessibility": false,
-      "onboarding": true
+      "onboarding": true,
+      "backup": false
     },
     "devices": {
       "iphone": true,
@@ -121,7 +124,41 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": false,
+      "tiers": false,
+      "freeGate": false,
+      "restore": false,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": false,
+      "notifications": true,
+      "performance": false,
+      "logging": false,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": false,
+      "preflight": false,
+      "appSpec": false,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
+    }
   },
   "usStore": {
     "available": true,

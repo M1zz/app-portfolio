@@ -46,14 +46,14 @@
     "stage": 1,
     "label": "pre-mvp",
     "ratingCount": 0,
-    "daysSinceUpdate": 29,
+    "daysSinceUpdate": 33,
     "polishDays": 0,
     "releasedAt": "2026-09-14",
     "updatedAt": "2026-09-14",
-    "evaluatedAt": "2026-10-13",
+    "evaluatedAt": "2026-10-17",
     "tier": null,
     "manual": true,
-    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 29일 경과"
+    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 33일 경과"
   },
   "globalReach": {
     "level": 0,
@@ -66,7 +66,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-17"
   },
   "serviceMaturity": {
     "source": true,
@@ -82,7 +82,9 @@
       "crash": true,
       "killSwitch": true,
       "leeoKit": true,
-      "tests": true
+      "tests": true,
+      "crashLoop": false,
+      "privacyManifest": false
     },
     "ux": {
       "widgets": false,
@@ -90,7 +92,8 @@
       "cloudSync": false,
       "tips": true,
       "accessibility": true,
-      "onboarding": true
+      "onboarding": true,
+      "backup": false
     },
     "devices": {
       "iphone": false,
@@ -113,7 +116,41 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": false,
+      "tiers": false,
+      "freeGate": false,
+      "restore": false,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": false,
+      "notifications": false,
+      "performance": false,
+      "logging": false,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": false,
+      "preflight": false,
+      "appSpec": true,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
+    }
   },
   "usStore": {
     "available": true,

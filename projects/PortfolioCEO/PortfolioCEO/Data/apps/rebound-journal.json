@@ -345,10 +345,10 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 1201일 · 외부 평점 1개 · 최종 업데이트 11일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-13",
+    "basis": "출시 후 다듬은 기간 1201일 · 외부 평점 1개 · 최종 업데이트 15일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-17",
     "ratingCount": 1,
-    "daysSinceUpdate": 11,
+    "daysSinceUpdate": 15,
     "polishDays": 1201,
     "releasedAt": "2023-06-19",
     "updatedAt": "2026-10-02"
@@ -381,7 +381,9 @@
       "crash": false,
       "killSwitch": false,
       "leeoKit": true,
-      "tests": false
+      "tests": false,
+      "crashLoop": false,
+      "privacyManifest": false
     },
     "ux": {
       "widgets": true,
@@ -389,7 +391,8 @@
       "cloudSync": false,
       "tips": true,
       "accessibility": true,
-      "onboarding": false
+      "onboarding": false,
+      "backup": false
     },
     "devices": {
       "iphone": true,
@@ -412,7 +415,41 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": true,
+      "tiers": false,
+      "freeGate": true,
+      "restore": true,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": false,
+      "notifications": true,
+      "performance": false,
+      "logging": false,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": true,
+      "preflight": false,
+      "appSpec": true,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
+    }
   },
   "usStore": {
     "available": true,

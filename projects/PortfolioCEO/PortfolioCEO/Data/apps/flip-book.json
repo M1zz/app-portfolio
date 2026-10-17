@@ -6,7 +6,7 @@
   "categories": [
     "라이프스타일"
   ],
-  "currentVersion": "1.0.1",
+  "currentVersion": "1.0.2",
   "folderId": "flip-book",
   "githubRepo": "",
   "localProjectPath": "",
@@ -48,31 +48,38 @@
   "status": "active",
   "supportUrl": "https://m1zz.github.io/RotoscopeIPad/",
   "lifecycle": {
-    "stage": 1,
-    "label": "pre-mvp",
-    "tier": null,
-    "basis": "출시 후 다듬은 기간 8일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 85일 경과",
-    "evaluatedAt": "2026-10-13",
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "출시 후 다듬은 기간 96일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-17",
     "ratingCount": 0,
-    "daysSinceUpdate": 85,
-    "manual": true,
+    "daysSinceUpdate": 1,
     "refineDays": 8,
-    "polishDays": 8,
+    "polishDays": 96,
     "releasedAt": "2026-07-12",
-    "updatedAt": "2026-07-20"
+    "updatedAt": "2026-10-16"
   },
   "globalReach": {
-    "level": 0,
-    "label": "korea-first",
+    "level": 3,
+    "label": "multilingual",
     "languages": [
-      "EN"
+      "DE",
+      "EN",
+      "ES",
+      "FR",
+      "IT",
+      "JA",
+      "KO",
+      "PT",
+      "ZH"
     ],
-    "languageCount": 1,
-    "englishPage": false,
+    "languageCount": 9,
+    "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-13"
+    "basis": "앱 언어 DE, EN, ES, FR, IT, JA, KO, PT, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-17"
   },
   "serviceMaturity": {
     "source": true,

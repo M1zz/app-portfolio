@@ -52,10 +52,10 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 119일 · 외부 평점 0개 · 최종 업데이트 3일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-13",
+    "basis": "출시 후 다듬은 기간 119일 · 외부 평점 0개 · 최종 업데이트 7일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-17",
     "ratingCount": 0,
-    "daysSinceUpdate": 3,
+    "daysSinceUpdate": 7,
     "refineDays": 6,
     "polishDays": 119,
     "releasedAt": "2026-06-13",
@@ -88,7 +88,9 @@
       "crash": true,
       "killSwitch": false,
       "leeoKit": true,
-      "tests": true
+      "tests": true,
+      "crashLoop": false,
+      "privacyManifest": false
     },
     "ux": {
       "widgets": false,
@@ -96,7 +98,8 @@
       "cloudSync": false,
       "tips": false,
       "accessibility": false,
-      "onboarding": false
+      "onboarding": false,
+      "backup": false
     },
     "devices": {
       "iphone": true,
@@ -119,7 +122,41 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-17",
+    "money": {
+      "paywall": false,
+      "tiers": false,
+      "freeGate": false,
+      "restore": false,
+      "discount": false,
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false
+    },
+    "comms": {
+      "whatsNew": false,
+      "roadmap": false,
+      "feedbackReply": false
+    },
+    "extrasFrom": "원격 최신 코드(origin)",
+    "more": {
+      "schemaMigration": false,
+      "emptyStates": false,
+      "biometricLock": false,
+      "notifications": false,
+      "performance": false,
+      "logging": false,
+      "funnel": false,
+      "abTesting": false,
+      "haptics": true,
+      "preflight": false,
+      "appSpec": true,
+      "family": false,
+      "fold": false,
+      "uiTests": false,
+      "swiftlint": false,
+      "ci": false
+    }
   },
   "usStore": {
     "available": true,

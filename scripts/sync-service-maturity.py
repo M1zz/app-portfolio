@@ -11,6 +11,10 @@
   feedback   피드백 수집     인앱 피드백 · 메일 문의 · 인스타그램 DM · 리뷰 요청 · 리뷰 작성 바로가기
   ops        운영·안정성     사용 통계 · 크래시 진단 · 원격 킬스위치 · 자동 테스트 · LeeoKit 계약
   ux         사용 경험       위젯 · 단축어(App Intents) · iCloud 동기화 · 사용 팁(TipKit) · 접근성 · 온보딩
+  money      수익화         페이월 · 기능 등급 · 무료 문턱 · 구매 복원 · 할인 제안 · 후원 · 후원 부탁 · 선물
+  more       더 갖출 것     마이그레이션 · 빈 상태 · 생체 잠금 · 알림 · 성능 · 로그 · 퍼널 · A/B · 햅틱 · 사전 점검 ·
+                            완성도 계약 · 앱 가족 · 폴더블 · UI 테스트 · SwiftLint · CI
+  comms      소통           새 기능 알림 · 로드맵 · 의견 답장
   devices    기기           iPhone · iPad · Mac · Apple Watch · Vision Pro
   support    지원 페이지     등록 · 접속 · 개인정보 처리방침 · 영어 안내 · 문의 수단
 
@@ -51,6 +55,7 @@ SRC = {
         "crash": r"LeeoDiagnostics|MXMetricManager|Crashlytics|SentrySDK",
         "killSwitch": r"LeeoRemoteFlags|RemoteConfig\.remoteConfig|bootstrap\([^)]*flags:",
         "leeoKit": r"^import LeeoKit",
+        "crashLoop": r"LeeoCrashLoopGuard|crashLoop",
     },
     "ux": {
         "widgets": r"WidgetConfiguration|:\s*Widget\b|WidgetBundle",
@@ -62,8 +67,49 @@ SRC = {
         "accessibility": r"\.accessibilityLabel|\.accessibilityHint|\.accessibilityValue|"
                          r"accessibilityElement",
         "onboarding": r"(?:struct|class) \w*Onboarding\w*|hasSeenOnboarding|hasCompletedOnboarding",
+        "backup": r"\.fileExporter\(|exportBackup|UIDocumentPickerViewController\(forExporting",
+    },
+    # 수익화 — 클립키보드에서 다듬은 장치들(2026-09~10)을 다른 앱에도 같은 잣대로 본다
+    "money": {
+        "paywall": r"(?:struct|class) \w*Paywall\w*\s*:\s*View|LeeoPaywall",
+        "tiers": r"\bcase plus\b",
+        "freeGate": r"LeeoGatePolicy|FreeUsePaywall|freeUseLimit",
+        "restore": r"AppStore\.sync\(|restoreCompletedTransactions|LeeoStore\b[^\n]*\.restore\(|"
+                   r"\.restore\(\)|LeeoPaywallView",
+        "discount": r"DiscountOffer|promotionalOffer|winBackOffer|offerCodeRedemption|presentOfferCodeRedeemSheet",
+        "tipJar": r"LeeoTipJar|(?:struct|class) \w*TipJar\w*",
+        "tipAsk": r"LeeoTipAsk",
+        "gift": r"LeeoGift|(?:struct|class) \w*Gift\w*View",
+    },
+    # 소통 — 업데이트·계획·답장을 쓰는 사람에게 돌려주는 장치
+    "comms": {
+        "whatsNew": r"WhatsNew|whatsNew",
+        "roadmap": r"LeeoRoadmap|(?:struct|class) \w*Roadmap\w*\s*:\s*View",
+        "feedbackReply": r"LeeoFeedbackReplies|LeeoFeedbackInbox|LeeoSentFeedbackRow",
+    },
+    # 더 갖출 것 — LeeoCapability 계약 항목 중 소스로 확인할 수 있는 것 + LeeoKit 모듈
+    "more": {
+        "schemaMigration": r"SchemaMigrationPlan|VersionedSchema|NSMigrationManager|MigrationStage",
+        "emptyStates": r"ContentUnavailableView",
+        "biometricLock": r"LAContext\(|import LocalAuthentication",
+        "notifications": r"UNUserNotificationCenter|registerForRemoteNotifications",
+        "performance": r"OSSignposter|os_signpost|MXMetricManager",
+        "logging": r"Logger\(subsystem:|import OSLog|os\.Logger",
+        "funnel": r"[Ff]unnel",
+        "abTesting": r"ABTest|abTest|LeeoExperiment|abVariant",
+        "haptics": r"UIImpactFeedbackGenerator|UINotificationFeedbackGenerator|\.sensoryFeedback\(|HapticManager",
+        "preflight": r"LeeoPreflight",
+        "appSpec": r"LeeoAppSpec",
+        "family": r"LeeoFamily",
+        "fold": r"LeeoFold|FoldCompanion",
     },
 }
+# 파일로 판정하는 것 — 저장소 맨 위 기준 경로
+REPO_FILES = {
+    "swiftlint": re.compile(r"(^|/)\.swiftlint\.ya?ml$"),
+    "ci": re.compile(r"^\.github/workflows/|(^|/)ci_scripts/"),
+}
+UI_TEST = re.compile(r"XCUIApplication")
 ACCESSIBILITY_MIN = 5  # 접근성 레이블이 이 수 이상이면 '갖췄다'로 본다 (한두 개는 우연)
 BOOTSTRAP = re.compile(r"LeeoKit\.bootstrap\(([^)]*)\)")
 
@@ -100,6 +146,7 @@ def swift_files(root, exclude_roots):
 
 def scan_source(root, exclude_roots):
     found = {k: {i: False for i in items} for k, items in SRC.items()}
+    found["more"].update({"uiTests": False, **{k: False for k in REPO_FILES}})
     pats = {(k, i): re.compile(p, re.M) for k, items in SRC.items() for i, p in items.items()}
     a11y = 0
     tests = 0
@@ -113,6 +160,8 @@ def scan_source(root, exclude_roots):
         if is_test:
             if re.search(r"XCTestCase|^\s*@Test\b|import Testing", text, re.M):
                 tests += 1
+            if UI_TEST.search(text):
+                found["more"]["uiTests"] = True
             continue
         for (k, i), p in pats.items():
             if i == "accessibility":
@@ -127,6 +176,17 @@ def scan_source(root, exclude_roots):
     found["ux"]["accessibility"] = a11y >= ACCESSIBILITY_MIN
     found["ops"]["crash"] = found["ops"]["crash"] or crash_by_bootstrap
     found["ops"]["tests"] = tests > 0
+    top = os.popen("git -C '%s' rev-parse --show-toplevel 2>/dev/null" % root).read().strip() or root
+    for dp, ds, fs in os.walk(top):
+        ds[:] = [d for d in ds if d not in SKIP_DIRS and d != ".build"]
+        for f in fs + ds:
+            rel = os.path.relpath(os.path.join(dp, f), top)
+            for k, p in REPO_FILES.items():
+                if p.search(rel):
+                    found["more"][k] = True
+    found["ops"]["privacyManifest"] = any(
+        f == "PrivacyInfo.xcprivacy" for dp, ds, fs in os.walk(root)
+        if not any(x in dp.split(os.sep) for x in SKIP_DIRS) for f in fs)
     return found, {"accessibilityLabels": a11y, "testFiles": tests}
 
 
@@ -235,6 +295,7 @@ def main():
             for k, items in SRC.items():
                 m[k] = {i: None for i in items}
             m["ops"]["tests"] = None
+            m["ops"]["privacyManifest"] = None
             m["devices"] = None
         if args.offline and prev.get("support"):
             m["support"] = prev["support"]
