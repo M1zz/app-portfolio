@@ -134,5 +134,14 @@
     "iap": [],
     "iapEnglish": true,
     "evaluatedAt": "2026-10-15"
+  },
+  "marketing": {
+    "reddit": {
+      "posted": true,
+      "recordedAt": "2026-10-17",
+      "note": "사용자 확인 — 게시 링크 기록",
+      "subreddit": "r/AppHookup",
+      "url": "https://www.reddit.com/r/AppHookup/comments/1x7db1j/ipados_palang_book_kids_animation_lifetime_pass/"
+    }
   }
 }
