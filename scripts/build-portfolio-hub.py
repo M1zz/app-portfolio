@@ -547,6 +547,18 @@ def _reach_at_least(n):
     return lambda a: None if reach(a) is None else reach(a) >= n
 
 
+def _maturity_at_least(r):
+    def f(a):
+        got, known = check_score(a)
+        return None if not known or not mat(a).get("source") else got / known >= r
+    return f
+
+
+def _lc_reach_en(a):
+    g = a.get("globalReach")
+    return None if not g else bool(g.get("englishPage"))
+
+
 GATES = {
     2: ("쓸 수 있는 제품", "출시 후 90일 넘게 다듬으면 자동으로 2단계가 됩니다.", [
         ("polish", "출시 후 90일 넘게 다듬기",
@@ -574,6 +586,15 @@ GATES = {
         ("surface", "위젯·단축어", _any(_m("ux", "widgets"), _m("ux", "shortcuts"))),
         ("a11y", "VoiceOver 대응", _m("a11y", "voiceOver")),
         ("ratings10", "외부 평점 10개 이상", _lc(lambda lc: (lc.get("ratingCount") or 0) >= 10)),
+    ]),
+    # 4단계 앱도 두 축 지도에 서도록 둔 잠정 관문 — 지금 재고 있는 값만 쓴다 (2026-10-18)
+    5: ("오래 버티는 제품", "5단계는 넓힌 사용자가 남아 있는지 보고 직접 정합니다. 모두 갖추면 검토 후보입니다.", [
+        ("maturity90", "서비스 숙성도 90% 이상", _maturity_at_least(.9)),
+        ("ratings30", "외부 평점 30개 이상", _lc(lambda lc: (lc.get("ratingCount") or 0) >= 30)),
+        ("fresh", "최근 %d일 안에 업데이트" % FRESH_DAYS,
+         _lc(lambda lc: None if lc.get("daysSinceUpdate") is None else lc["daysSinceUpdate"] <= FRESH_DAYS)),
+        ("steady", "꾸준한 손질(최근 90일 커밋 20개 이상)", lambda a: (mat(a).get("craft") or {}).get("steadyUpdates")),
+        ("storeEn", "영어 스토어 소개", _lc_reach_en),
     ]),
 }
 STAGE_NAME = {2: "PS Fit", 3: "PMF 탐색", 4: "넓히는 중", 5: "자리 잡음"}
