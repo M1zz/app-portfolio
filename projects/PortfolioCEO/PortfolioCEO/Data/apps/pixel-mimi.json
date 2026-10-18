@@ -468,7 +468,7 @@
     "comms": {
       "whatsNew": false,
       "roadmap": true,
-      "feedbackReply": false
+      "feedbackReply": true
     },
     "more": {
       "schemaMigration": false,
@@ -497,7 +497,7 @@
       "_macViaDesignedForIPad": true
     },
     "counts": {
-      "accessibilityLabels": 65,
+      "accessibilityLabels": 68,
       "testFiles": 1
     },
     "support": {
@@ -509,7 +509,7 @@
       "host": "www.blogger.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-18"
   },
   "usStore": {
     "available": true,

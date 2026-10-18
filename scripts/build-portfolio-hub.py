@@ -1022,6 +1022,19 @@ ITEM_HELP["langCount"] = ("앱이 지원하는 언어 수입니다. 주요 18개
                           "제목 아래 숫자는 두 가지 이상 언어로 쓸 수 있는 앱 수입니다.")
 ITEM_WHY["langCount"] = "숫자에 마우스를 올리면 지원하는 언어 이름을 모두 볼 수 있습니다."
 
+
+def lang_columns(apps):
+    """한눈에 표의 언어 열 — 주요 18개국의 말을 먼저, 그다음 앱들이 지원하는 나머지 언어를 많이 쓰는 순으로 전부."""
+    counts = {}
+    for a in apps:
+        for l in app_langs(a):
+            counts[l] = counts.get(l, 0) + 1
+    rest = sorted((l for l in counts if l not in MAIN_LANGS), key=lambda l: (-counts[l], l))
+    for l in rest:
+        ITEM_HELP["lang" + l] = "%s로 쓸 수 있습니다." % LANG_KR.get(l, l)
+        ITEM_WHY["lang" + l] = "주요 18개국 스토어의 말은 아니지만, 이 말을 쓰는 사람도 앱을 제 말로 씁니다."
+    return MAIN_LANGS + rest
+
 MAT_CSS = NAMES_CSS + """
   .tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:22px;
     scrollbar-width:none;position:sticky;top:0;z-index:5;background:var(--bg);padding-top:10px}
@@ -1302,7 +1315,9 @@ SHORT = {
 }
 LANG_SHORT = {"KO": "한국어", "EN": "영어", "JA": "일본어", "DE": "독일어", "FR": "프랑스어",
               "ZH": "중국어", "ES": "스페인어", "PT": "포르투갈어", "HI": "힌디어", "IT": "이탈리아어",
-              "VI": "베트남어", "TH": "태국어", "ID": "인니어"}
+              "VI": "베트남어", "TH": "태국어", "ID": "인니어", "RU": "러시아어", "NL": "네덜란드어",
+              "PL": "폴란드어", "TR": "튀르키예어", "SV": "스웨덴어", "DA": "덴마크어", "NB": "노르웨이어",
+              "FI": "핀란드어", "CS": "체코어", "EL": "그리스어", "AR": "아랍어"}
 AREA_COLOR = {"lang": "#ef6aa0", "support": "#5b8def", "feedback": "#34c48a", "ops": "#e0a53a",
               "ux": "#a78bfa", "a11y": "#e8789a", "devices": "#8b90a0"}
 
@@ -1395,10 +1410,11 @@ def overview_panel(apps):
     """앱 × 피처 전체 한 표. 분류별로 머리줄을 묶고, 첫 열은 고정한 채 가로로 넘긴다."""
     cks = {a["_slug"]: checklist(a) for a in apps}
     dev_items = dict((x[0], x[3]) for x in AREAS)["devices"]
+    lang_cols = lang_columns(apps)
 
     def filled(a):  # 줄에 찬 원(✓)이 많은 앱부터
         langs = app_langs(a)
-        return (sum(1 for l in MAIN_LANGS if l in langs)
+        return (sum(1 for l in lang_cols if l in langs)
                 + sum(1 for v in cks[a["_slug"]].values() if v[3] is True)
                 + sum(1 for v in area_vals(a, "devices").values() if v))
     rows = sorted(apps, key=lambda a: (-filled(a), -check_score(a)[0], a["name"]))
@@ -1407,7 +1423,7 @@ def overview_panel(apps):
     cols = ""
     for c, cn, color in CHECK_CATS:
         its = check_items(c)
-        extra = len(MAIN_LANGS) + 1 if c == "lang" else 0
+        extra = len(lang_cols) + 1 if c == "lang" else 0
         groups += '<th colspan="%d" class="gh" style="--c:%s">%s</th>' % (len(its) + extra, color, esc(cn))
         for i, (t, _, k, n) in enumerate(its):
             h = _item_head(t, k, n, apps)
@@ -1415,7 +1431,7 @@ def overview_panel(apps):
         if c == "lang":
             cols += '<th%s>언어 수<em>%d</em></th>' % (
                 help_attrs("langCount", "언어 수", 0, 0), sum(1 for a in apps if len(app_langs(a)) > 1))
-            for l in MAIN_LANGS:
+            for l in lang_cols:
                 have = sum(1 for a in apps if l in app_langs(a))
                 cols += '<th class="t-opt"%s>%s<em>%d</em></th>' % (
                     help_attrs("lang" + l, LANG_KR.get(l, l), have, len(apps)), esc(LANG_SHORT.get(l, l)), have)
@@ -1439,7 +1455,7 @@ def overview_panel(apps):
             if c == "lang":
                 cells += '<td class="lc2" title="%s">%s</td>' % (esc(lang_names(a)), len(langs) if langs else '<i class="u"></i>')
                 cells += "".join('<td>%s</td>' % (cell(l in langs, LANG_KR.get(l, l)) if langs else cell(None))
-                                 for l in MAIN_LANGS)
+                                 for l in lang_cols)
         dv = area_vals(a, "devices")
         cells += "".join('<td%s>%s</td>' % (' class="g0"' if i == 0 else "", cell(dv[k], lbl))
                          for i, (k, lbl) in enumerate(dev_items))
@@ -1465,7 +1481,7 @@ def overview_panel(apps):
             '열 제목 아래 숫자는 그 피처를 갖춘 앱 수입니다. 종합은 기본·권장 피처 가운데 갖춘 비율입니다.</p>'
             '<div class="kp">%s</div>%s'
             '<div class="tw"><table class="mt ov2"><thead>%s</thead><tbody>%s</tbody></table></div>'
-            '<p class="note">언어 묶음의 나라별 열은 주요 18개국에서 쓰는 말만 따로 보여 주고, 언어 수는 그 밖의 언어까지 셉니다. '
+            '<p class="note">언어 묶음은 주요 18개국에서 쓰는 말을 먼저, 그다음 앱들이 지원하는 나머지 언어를 모두 열로 보여 줍니다. '
             '나라별 언어와 기기는 종합 비율에 넣지 않았습니다. 소스 코드를 찾지 못한 앱은 앱 안의 기능을 ‘확인 불가’로 두고 '
             '분모에서 뺍니다. 판정 방법이 아직 없는 도입 예정 피처는 할 일 탭의 피처 지도에 있습니다.</p>'
             % (len(apps), len(CHECKLIST), kp, legend, thead, tbody))
@@ -2360,6 +2376,17 @@ def _if_sells(fn):
     return lambda a: fn(a) if _sells(a) else NA
 
 
+def _mac_only(a):
+    d = mat(a).get("devices") or {}
+    return bool(d.get("mac")) and not any(d.get(k) for k in ("iphone", "ipad", "watch", "vision"))
+
+
+def _unless_mac_only(fn):
+    """맥 앱에서는 아무것도 바꾸지 않는 API 로 재는 항목 — 맥 전용 앱이면 해당 없음.
+    (macOS 에서 presentationDetents·dynamicTypeSize·@ScaledMetric·submitLabel 은 효과가 없다)"""
+    return lambda a: NA if _mac_only(a) else fn(a)
+
+
 _restore = _if_sells(_src("money", "restore"))
 
 
@@ -2385,17 +2412,17 @@ def _a11y_captions(a):
 # (등급, 분류, 키, 이름, 판정 함수 → True/False/None)
 CHECKLIST = [
     ("rec", "craft", "moments", "만족한 순간 세기", _src("craft", "moments")),
-    ("rec", "craft", "sheets", "시트 다듬기", _src("craft", "sheets")),
+    ("rec", "craft", "sheets", "시트 다듬기", _unless_mac_only(_src("craft", "sheets"))),
     ("rec", "craft", "liveNumbers", "숫자 바뀜 효과", _src("craft", "liveNumbers")),
     ("rec", "craft", "localeFormat", "지역 맞춤 표기", _src("craft", "localeFormat")),
     ("rec", "craft", "textOverflow", "긴 글자 처리", _src("craft", "textOverflow")),
-    ("rec", "craft", "inputFlow", "입력 흐름 다듬기", _src("craft", "inputFlow")),
+    ("rec", "craft", "inputFlow", "입력 흐름 다듬기", _unless_mac_only(_src("craft", "inputFlow"))),
     ("rec", "craft", "textCopy", "글자 복사 허용", _src("craft", "textCopy")),
     ("rec", "craft", "purchaseTest", "구매 흐름 시험", _if_sells(_src("craft", "purchaseTest"))),
     ("rec", "craft", "releaseTags", "버전별 출시 기록", _src("craft", "releaseTags")),
     ("rec", "craft", "steadyUpdates", "꾸준한 손질", _src("craft", "steadyUpdates")),
     ("base", "a11y", "voiceOver", "VoiceOver 설명", _m("a11y", "voiceOver")),
-    ("base", "a11y", "dynamicType", "큰 글씨 따라가기", _m("a11y", "dynamicType")),
+    ("base", "a11y", "dynamicType", "큰 글씨 따라가기", _unless_mac_only(_m("a11y", "dynamicType"))),
     ("base", "a11y", "darkMode", "다크 모드", _m("a11y", "darkMode")),
     ("rec", "a11y", "voiceControl", "음성 제어 이름", _m("a11y", "voiceControl")),
     ("rec", "a11y", "structure", "읽는 순서·역할", _m("a11y", "structure")),

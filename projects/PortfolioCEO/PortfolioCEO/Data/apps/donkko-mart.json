@@ -483,7 +483,7 @@
     "comms": {
       "whatsNew": false,
       "roadmap": true,
-      "feedbackReply": false
+      "feedbackReply": true
     },
     "more": {
       "schemaMigration": false,
@@ -524,7 +524,7 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-18"
   },
   "usStore": {
     "available": true,

@@ -125,7 +125,7 @@
     },
     "craft": {
       "moments": false,
-      "sheets": false,
+      "sheets": true,
       "liveNumbers": true,
       "localeFormat": false,
       "textOverflow": false,
@@ -189,7 +189,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-18"
   },
   "usStore": {
     "available": true,

@@ -146,7 +146,7 @@
     "comms": {
       "whatsNew": false,
       "roadmap": true,
-      "feedbackReply": false
+      "feedbackReply": true
     },
     "more": {
       "schemaMigration": false,
@@ -187,7 +187,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-18"
   },
   "usStore": {
     "available": true,

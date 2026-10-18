@@ -124,7 +124,8 @@ SRC = {
     "comms": {
         "whatsNew": r"WhatsNew|whatsNew",
         "roadmap": r"LeeoRoadmap|(?:struct|class) \w*Roadmap\w*\s*:\s*View",
-        "feedbackReply": r"LeeoFeedbackReplies|LeeoFeedbackInbox|LeeoSentFeedbackRow",
+        # LeeoSupportSection 은 v3.15 부터 보낸 의견·답장 행(LeeoSentFeedbackRow)을 품는다
+        "feedbackReply": r"LeeoFeedbackReplies|LeeoFeedbackInbox|LeeoSentFeedbackRow|LeeoSupportSection",
     },
     # 더 갖출 것 — LeeoCapability 계약 항목 중 소스로 확인할 수 있는 것 + LeeoKit 모듈
     "more": {
@@ -288,9 +289,11 @@ def scan_devices(pbx_texts, bundle_id):
     plats = " ".join(re.findall(r'SUPPORTED_PLATFORMS = "?([^";]+)"?;', text))
     catalyst = re.search(r"SUPPORTS_MACCATALYST = YES", text) is not None
     designed_for = re.search(r"SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES", text) is not None
+    # 맥 SDK 만 쓰는 프로젝트에 남은 TARGETED_DEVICE_FAMILY 는 빌드에 쓰이지 않는다 — iOS SDK 가 있을 때만 믿는다
+    ios = "iphoneos" in sdks or "iphone" in plats or (not sdks and not plats)
     return {
-        "iphone": "1" in fam or "iphoneos" in plats,
-        "ipad": "2" in fam,
+        "iphone": ios and ("1" in fam or "iphoneos" in plats),
+        "ipad": ios and "2" in fam,
         "mac": "macosx" in sdks or "macosx" in plats or catalyst,
         "watch": "watchos" in sdks or "watchos" in plats or "4" in fam,
         "vision": "xros" in sdks or "xros" in plats or "7" in fam,

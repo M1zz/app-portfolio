@@ -133,10 +133,10 @@
     "ops": {
       "analytics": true,
       "crash": true,
-      "killSwitch": false,
+      "killSwitch": true,
       "leeoKit": true,
-      "crashLoop": false,
-      "tests": false,
+      "crashLoop": true,
+      "tests": true,
       "privacyManifest": true
     },
     "ux": {
@@ -149,22 +149,22 @@
     },
     "a11y": {
       "voiceOver": true,
-      "voiceControl": false,
+      "voiceControl": true,
       "dynamicType": false,
-      "darkMode": false,
-      "differentiate": false,
-      "contrast": false,
+      "darkMode": true,
+      "differentiate": true,
+      "contrast": true,
       "reduceMotion": true,
       "captions": false,
       "structure": true,
-      "actions": false,
-      "announcements": false,
-      "largeLayout": false,
-      "reduceTransparency": false,
+      "actions": true,
+      "announcements": true,
+      "largeLayout": true,
+      "reduceTransparency": true,
       "boldText": false,
       "invertColors": false,
       "keyboard": true,
-      "a11yAudit": false,
+      "a11yAudit": true,
       "_video": false,
       "_forcedLight": false
     },
@@ -175,7 +175,7 @@
       "localeFormat": true,
       "textOverflow": true,
       "inputFlow": false,
-      "textCopy": false,
+      "textCopy": true,
       "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
@@ -185,56 +185,56 @@
       "tiers": false,
       "freeGate": true,
       "restore": true,
-      "discount": false,
+      "discount": true,
       "tipJar": false,
       "tipAsk": false,
       "gift": false
     },
     "comms": {
-      "whatsNew": false,
+      "whatsNew": true,
       "roadmap": true,
-      "feedbackReply": false
+      "feedbackReply": true
     },
     "more": {
       "schemaMigration": false,
       "emptyStates": true,
       "biometricLock": false,
       "notifications": true,
-      "performance": false,
-      "logging": false,
+      "performance": true,
+      "logging": true,
       "funnel": true,
       "abTesting": true,
-      "haptics": false,
-      "preflight": false,
+      "haptics": true,
+      "preflight": true,
       "appSpec": true,
-      "family": false,
+      "family": true,
       "fold": false,
-      "uiTests": false,
-      "swiftlint": false,
-      "ci": false
+      "uiTests": true,
+      "swiftlint": true,
+      "ci": true
     },
     "devices": {
-      "iphone": true,
-      "ipad": true,
+      "iphone": false,
+      "ipad": false,
       "mac": true,
       "watch": false,
       "vision": false,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 8,
-      "testFiles": 0
+      "accessibilityLabels": 16,
+      "testFiles": 2
     },
     "support": {
       "registered": true,
       "reachable": true,
       "privacy": true,
-      "english": false,
+      "english": true,
       "contact": true,
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-18"
   },
   "usStore": {
     "available": true,

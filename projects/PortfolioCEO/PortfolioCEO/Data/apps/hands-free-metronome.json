@@ -112,18 +112,18 @@
     "ops": {
       "analytics": true,
       "crash": true,
-      "killSwitch": false,
+      "killSwitch": true,
       "leeoKit": true,
-      "crashLoop": false,
-      "tests": false,
-      "privacyManifest": false
+      "crashLoop": true,
+      "tests": true,
+      "privacyManifest": true
     },
     "ux": {
       "widgets": false,
       "shortcuts": false,
       "cloudSync": false,
       "tips": true,
-      "onboarding": false,
+      "onboarding": true,
       "backup": false
     },
     "a11y": {
@@ -132,29 +132,29 @@
       "dynamicType": true,
       "darkMode": true,
       "differentiate": true,
-      "contrast": false,
+      "contrast": true,
       "reduceMotion": true,
       "captions": false,
       "structure": true,
       "actions": true,
       "announcements": true,
-      "largeLayout": false,
-      "reduceTransparency": false,
+      "largeLayout": true,
+      "reduceTransparency": true,
       "boldText": false,
       "invertColors": false,
       "keyboard": false,
-      "a11yAudit": false,
+      "a11yAudit": true,
       "_video": false,
       "_forcedLight": false
     },
     "craft": {
-      "moments": false,
+      "moments": true,
       "sheets": true,
       "liveNumbers": true,
-      "localeFormat": false,
-      "textOverflow": false,
-      "inputFlow": false,
-      "textCopy": false,
+      "localeFormat": true,
+      "textOverflow": true,
+      "inputFlow": true,
+      "textCopy": true,
       "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
@@ -162,35 +162,35 @@
     "money": {
       "paywall": true,
       "tiers": false,
-      "freeGate": false,
+      "freeGate": true,
       "restore": true,
-      "discount": false,
+      "discount": true,
       "tipJar": false,
       "tipAsk": false,
       "gift": false
     },
     "comms": {
-      "whatsNew": false,
+      "whatsNew": true,
       "roadmap": true,
-      "feedbackReply": false
+      "feedbackReply": true
     },
     "more": {
       "schemaMigration": false,
-      "emptyStates": false,
+      "emptyStates": true,
       "biometricLock": false,
       "notifications": false,
-      "performance": false,
+      "performance": true,
       "logging": true,
       "funnel": true,
       "abTesting": false,
       "haptics": true,
-      "preflight": false,
+      "preflight": true,
       "appSpec": true,
-      "family": false,
+      "family": true,
       "fold": false,
-      "uiTests": false,
-      "swiftlint": false,
-      "ci": false
+      "uiTests": true,
+      "swiftlint": true,
+      "ci": true
     },
     "devices": {
       "iphone": true,
@@ -201,8 +201,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 54,
-      "testFiles": 0
+      "accessibilityLabels": 55,
+      "testFiles": 2
     },
     "support": {
       "registered": true,
@@ -213,7 +213,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-18"
   },
   "usStore": {
     "available": true,

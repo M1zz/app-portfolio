@@ -431,7 +431,7 @@
     "source": true,
     "feedback": {
       "inAppFeedback": true,
-      "mailContact": false,
+      "mailContact": true,
       "instagram": true,
       "reviewPrompt": true,
       "writeReview": true
@@ -441,7 +441,7 @@
       "crash": true,
       "killSwitch": true,
       "leeoKit": true,
-      "crashLoop": false,
+      "crashLoop": true,
       "tests": true,
       "privacyManifest": true
     },
@@ -455,10 +455,10 @@
     },
     "a11y": {
       "voiceOver": true,
-      "voiceControl": false,
+      "voiceControl": true,
       "dynamicType": true,
       "darkMode": true,
-      "differentiate": false,
+      "differentiate": true,
       "contrast": true,
       "reduceMotion": true,
       "captions": false,
@@ -466,22 +466,22 @@
       "actions": true,
       "announcements": true,
       "largeLayout": true,
-      "reduceTransparency": false,
+      "reduceTransparency": true,
       "boldText": false,
       "invertColors": false,
       "keyboard": false,
-      "a11yAudit": false,
+      "a11yAudit": true,
       "_video": false,
       "_forcedLight": false
     },
     "craft": {
       "moments": true,
       "sheets": true,
-      "liveNumbers": false,
+      "liveNumbers": true,
       "localeFormat": true,
-      "textOverflow": false,
+      "textOverflow": true,
       "inputFlow": true,
-      "textCopy": false,
+      "textCopy": true,
       "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
@@ -491,13 +491,13 @@
       "tiers": false,
       "freeGate": false,
       "restore": true,
-      "discount": false,
+      "discount": true,
       "tipJar": false,
       "tipAsk": false,
       "gift": false
     },
     "comms": {
-      "whatsNew": false,
+      "whatsNew": true,
       "roadmap": true,
       "feedbackReply": true
     },
@@ -506,16 +506,16 @@
       "emptyStates": true,
       "biometricLock": false,
       "notifications": true,
-      "performance": false,
-      "logging": false,
+      "performance": true,
+      "logging": true,
       "funnel": true,
       "abTesting": false,
       "haptics": true,
-      "preflight": false,
+      "preflight": true,
       "appSpec": true,
-      "family": false,
+      "family": true,
       "fold": false,
-      "uiTests": false,
+      "uiTests": true,
       "swiftlint": true,
       "ci": true
     },
@@ -528,8 +528,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 119,
-      "testFiles": 38
+      "accessibilityLabels": 128,
+      "testFiles": 40
     },
     "support": {
       "registered": true,
@@ -540,7 +540,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-17"
+    "evaluatedAt": "2026-10-18"
   },
   "usStore": {
     "available": true,
