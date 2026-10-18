@@ -547,16 +547,58 @@ def _reach_at_least(n):
     return lambda a: None if reach(a) is None else reach(a) >= n
 
 
-def _maturity_at_least(r):
-    def f(a):
-        got, known = check_score(a)
-        return None if not known or not mat(a).get("source") else got / known >= r
-    return f
+# ── 5단계 관문: 매출로 검증한다 (2026-10-18 사용자 기준 — 매출 발생 · 순수익 · 안정적 우상향) ──
+# 금액은 공개 레포에 두지 않는다. sync-revenue.py 가 reports/revenue.json(.gitignore)에 쓴 값을 여기서만 읽고,
+# 공개 페이지에는 관문 통과 여부만 나간다. 비용은 reports/app-costs.json(.gitignore) — 없으면 0.
+REVENUE_WINDOW = 6   # 최근 이 개월 수(끝난 달)로 본다
+_REVENUE = None
 
 
-def _lc_reach_en(a):
-    g = a.get("globalReach")
-    return None if not g else bool(g.get("englishPage"))
+def _revenue_data():
+    global _REVENUE
+    if _REVENUE is None:
+        def load(name):
+            try:
+                with open(os.path.join(ROOT, "reports", name), encoding="utf-8") as fh:
+                    return json.load(fh)
+            except (OSError, ValueError):
+                return {}
+        _REVENUE = (load("revenue.json"), load("app-costs.json"))
+    return _REVENUE
+
+
+def net_by_month(app):
+    """최근 REVENUE_WINDOW 개월의 순수익(개발자 수익 − 비용) 목록. 매출 자료가 없으면 None."""
+    rev, costs = _revenue_data()
+    months = (rev.get("months") or [])[-REVENUE_WINDOW:]
+    if len(months) < REVENUE_WINDOW:
+        return None
+    monthly = ((rev.get("apps") or {}).get(str(app.get("appStoreId") or "")) or {}).get("monthly") or {}
+    cost = ((costs.get(app["_slug"]) or {}).get("monthlyKRW") or 0)
+    return [(monthly.get(m) or 0) - cost for m in months], [monthly.get(m) or 0 for m in months]
+
+
+def _gate_revenue(a):
+    r = net_by_month(a)
+    return None if r is None else all(g > 0 for g in r[1])
+
+
+def _gate_profit(a):
+    r = net_by_month(a)
+    return None if r is None else sum(r[0]) > 0
+
+
+def _gate_uptrend(a):
+    """안정적 우상향 — 매달 흑자이고, 최소제곱 기울기가 양수이며, 최근 3개월이 그 전 3개월보다 크다."""
+    r = net_by_month(a)
+    if r is None:
+        return None
+    net = r[0]
+    n = len(net)
+    mx, my = (n - 1) / 2, sum(net) / n
+    slope = sum((i - mx) * (y - my) for i, y in enumerate(net))
+    half = n // 2
+    return all(y > 0 for y in net) and slope > 0 and sum(net[half:]) > sum(net[:half])
 
 
 GATES = {
@@ -587,14 +629,11 @@ GATES = {
         ("a11y", "VoiceOver 대응", _m("a11y", "voiceOver")),
         ("ratings10", "외부 평점 10개 이상", _lc(lambda lc: (lc.get("ratingCount") or 0) >= 10)),
     ]),
-    # 4단계 앱도 두 축 지도에 서도록 둔 잠정 관문 — 지금 재고 있는 값만 쓴다 (2026-10-18)
-    5: ("오래 버티는 제품", "5단계는 넓힌 사용자가 남아 있는지 보고 직접 정합니다. 모두 갖추면 검토 후보입니다.", [
-        ("maturity90", "서비스 숙성도 90% 이상", _maturity_at_least(.9)),
-        ("ratings30", "외부 평점 30개 이상", _lc(lambda lc: (lc.get("ratingCount") or 0) >= 30)),
-        ("fresh", "최근 %d일 안에 업데이트" % FRESH_DAYS,
-         _lc(lambda lc: None if lc.get("daysSinceUpdate") is None else lc["daysSinceUpdate"] <= FRESH_DAYS)),
-        ("steady", "꾸준한 손질(최근 90일 커밋 20개 이상)", lambda a: (mat(a).get("craft") or {}).get("steadyUpdates")),
-        ("storeEn", "영어 스토어 소개", _lc_reach_en),
+    5: ("돈이 되는 제품", "5단계는 매출로 검증합니다. 최근 %d개월(끝난 달) App Store 개발자 수익 기준이며, "
+        "모두 갖추면 검토 후보입니다." % REVENUE_WINDOW, [
+        ("revenue", "최근 %d개월 매달 매출 발생" % REVENUE_WINDOW, _gate_revenue),
+        ("profit", "순수익 흑자(수익 − 비용)", _gate_profit),
+        ("uptrend", "안정적 우상향(매달 흑자 · 추세 상승)", _gate_uptrend),
     ]),
 }
 STAGE_NAME = {2: "PS Fit", 3: "PMF 탐색", 4: "넓히는 중", 5: "자리 잡음"}
