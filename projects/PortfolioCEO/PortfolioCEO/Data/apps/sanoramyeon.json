@@ -96,22 +96,22 @@
     },
     "ux": {
       "widgets": false,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": true,
       "tips": false,
       "onboarding": true,
       "backup": false
     },
     "a11y": {
-      "voiceOver": false,
+      "voiceOver": true,
       "voiceControl": false,
       "dynamicType": false,
-      "darkMode": false,
+      "darkMode": true,
       "differentiate": false,
       "contrast": false,
       "reduceMotion": false,
       "captions": false,
-      "structure": false,
+      "structure": true,
       "actions": false,
       "announcements": false,
       "largeLayout": false,
@@ -127,13 +127,13 @@
       "moments": false,
       "sheets": true,
       "liveNumbers": true,
-      "localeFormat": false,
+      "localeFormat": true,
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
       "purchaseTest": false,
       "releaseTags": false,
-      "steadyUpdates": false
+      "steadyUpdates": true
     },
     "money": {
       "paywall": false,
@@ -152,7 +152,7 @@
     },
     "more": {
       "schemaMigration": false,
-      "emptyStates": false,
+      "emptyStates": true,
       "biometricLock": false,
       "notifications": true,
       "performance": false,
@@ -177,7 +177,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 0,
+      "accessibilityLabels": 52,
       "testFiles": 0
     },
     "support": {

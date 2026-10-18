@@ -56,7 +56,8 @@ SRC = {
         "analytics": r"LeeoUsageAnalytics|LeeoUsageReporter|TelemetryDeck|FirebaseAnalytics|"
                      r"Analytics\.logEvent",
         "crash": r"LeeoDiagnostics|MXMetricManager|Crashlytics|SentrySDK",
-        "killSwitch": r"LeeoRemoteFlags|RemoteConfig\.remoteConfig|bootstrap\([^)]*flags:",
+        # RemoteFlagsService: 클립키보드가 LeeoRemoteFlags 이전에 만든 CloudKit 킬스위치(키보드·맥 앱과 레코드 공유)
+        "killSwitch": r"LeeoRemoteFlags|RemoteFlagsService|RemoteConfig\.remoteConfig|bootstrap\([^)]*flags:",
         "leeoKit": r"^import LeeoKit",
         "crashLoop": r"LeeoCrashLoopGuard|crashLoop",
     },

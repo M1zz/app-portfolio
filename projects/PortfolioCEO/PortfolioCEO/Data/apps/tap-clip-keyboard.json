@@ -108,7 +108,7 @@
     "ops": {
       "analytics": true,
       "crash": false,
-      "killSwitch": false,
+      "killSwitch": true,
       "leeoKit": true,
       "crashLoop": false,
       "tests": false,
