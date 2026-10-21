@@ -589,7 +589,7 @@
       "cta": "평생: '₩77,000에 한 번 구매' · 구독: 체험이 있으면 'N일 무료 체험 시작', 없으면 '계속'",
       "trial": "StoreKit 소개 혜택에서 읽어 표시 (연간 7일 무료 체험 예정 — STRATEGY.md)",
       "restore": true,
-      "notes": "2026-10-21 한땀 2.1.0 기준으로 다시 읽음(0fe4a93). 픽셀 미미 → 한땀 리브랜딩으로 페이월이 도안 중심으로 바뀜: 계기(PaywallReason)마다 머리글이 다르고 paywall_shown.<reason> 을 FeedbackHub 로 보냄. 월간·연간은 새 자동 갱신 구독 ID(com.hantam.pro.*) — 예전 com.pixelme.pro.monthly/yearly 는 ASC 에 일회성으로 잘못 만들어져 팔지 않고, weekly · 예전 monthly/yearly · PixelNFT.Premium 은 산 사람만 Pro 로 인정. 연간 '절약' 배지는 스토어 가격으로 계산(한국 약 44%, 미국 48%). 여전히 다운로드 ₩6,600 유료 앱 안에서 Pro 를 파는 구조. 스토어 한국 가격(월 ₩6,600 · 연 ₩44,000 · 평생 ₩77,000)이 STRATEGY.md(₩4,900 · ₩29,900 · ₩59,000)와 다름 — 미국은 $3.99 · $24.99 · $44.99 로 일치. 필터 팩 3종(com.pixelme.filterpack.*)은 코드에 판매 화면이 남아 있으나 스토어 목록에 없음. patternCleanImage(표시 없는 이미지) 계기는 머리글만 있고 띄우는 곳이 없음."
+      "notes": "2026-10-21 한땀 2.1.0 기준으로 다시 읽음(0fe4a93). 픽셀 미미 → 한땀 리브랜딩으로 페이월이 도안 중심으로 바뀜: 계기(PaywallReason)마다 머리글이 다르고 paywall_shown.<reason> 을 FeedbackHub 로 보냄. 월간·연간은 새 자동 갱신 구독 ID(com.hantam.pro.*) — 예전 com.pixelme.pro.monthly/yearly 는 ASC 에 일회성으로 잘못 만들어져 팔지 않고, weekly · 예전 monthly/yearly · PixelNFT.Premium 은 산 사람만 Pro 로 인정. 연간 '절약' 배지는 스토어 가격으로 계산(한국 약 44%, 미국 48%). 여전히 다운로드 ₩6,600 유료 앱 안에서 Pro 를 파는 구조. 가격은 한국 월 ₩6,600 · 연 ₩44,000 · 평생 ₩77,000, 미국 $3.99 · $24.99 · $44.99(레포 문서·코드 기본값도 스토어에 맞춤, 49c9e3a). 필터 팩 3종(com.pixelme.filterpack.*)은 코드에 판매 화면이 남아 있으나 스토어 목록에 없음. patternCleanImage(표시 없는 이미지) 계기는 머리글만 있고 띄우는 곳이 없음."
     },
     "rainbow-of-desire": {
       "slug": "rainbow-of-desire",

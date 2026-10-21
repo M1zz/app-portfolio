@@ -278,7 +278,7 @@
     "튀는 비즈 정리",
     "미니 비즈 · 브랜드 추가"
   ],
-  "notes": "[2026-10-21] 2.1.0(2026-10-19 출시)부터 '픽셀 미미 / Pixel MeMe'를 '한땀 (Hantam): 비즈·십자수 도안 메이커'로 리브랜딩·용도 전환. 번들 ID com.leeo.PixelMe · 앱스토어 id · 상품 ID 일부(com.pixelme.pro.lifetime) · FeedbackHub appName 'PixelMe' · GitHub 레포/Pages(PixelMe)는 기존 사용자와의 계약이라 그대로. 스토어는 다운로드 ₩6,600 유료 + 한땀 Pro(월 ₩6,600 · 연 ₩44,000 · 평생 ₩77,000, 미국 $3.99/$24.99/$44.99). 레포 STRATEGY.md 의 한국 가격(₩4,900/₩29,900/₩59,000)과 스토어 한국 가격이 다름. 언어 ko·en·ja.",
+  "notes": "[2026-10-21] 2.1.0(2026-10-19 출시)부터 '픽셀 미미 / Pixel MeMe'를 '한땀 (Hantam): 비즈·십자수 도안 메이커'로 리브랜딩·용도 전환. 번들 ID com.leeo.PixelMe · 앱스토어 id · 상품 ID 일부(com.pixelme.pro.lifetime) · FeedbackHub appName 'PixelMe' · GitHub 레포/Pages(PixelMe)는 기존 사용자와의 계약이라 그대로. 스토어는 다운로드 ₩6,600 유료 + 한땀 Pro(월 ₩6,600 · 연 ₩44,000 · 평생 ₩77,000, 미국 $3.99/$24.99/$44.99). 레포 문서도 이 가격으로 맞춤(한땀 49c9e3a). 언어 ko·en·ja.",
   "price": {
     "isFree": false,
     "priceKRW": 6600,
