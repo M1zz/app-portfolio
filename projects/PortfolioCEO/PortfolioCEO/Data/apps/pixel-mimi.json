@@ -1,249 +1,255 @@
 {
   "allTasks": [
     {
-      "name": "사용성 개선",
-      "status": "not-started",
+      "name": "사진 → 비즈·십자수 도안 변환",
+      "status": "done",
       "targetDate": null,
-      "targetVersion": "1.0.3"
-    },
-    {
-      "name": "이걸 돈 받으려면 뭘 제공할지 고민하기",
-      "status": "not-started",
-      "targetDate": null,
-      "targetVersion": null,
+      "targetVersion": "2.1.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "기타",
-        "description": "기타 관련 기능: 이걸 돈 받으려면 뭘 제공할지 고민하기",
-        "userValue": "앱 사용 경험 향상",
-        "technicalNotes": null,
-        "usageScenario": "프리미엄 기능을 고민 중일 때",
-        "problemSolved": "무료 앱의 수익 모델 부재",
-        "userBenefit": "향후 프리미엄 기능 제공 가능성"
+        "category": "도안 만들기",
+        "description": "사진 한 장을 아이롱 비즈 또는 십자수 도안으로 바꿉니다",
+        "userValue": "사진만 고르면 바로 만들 수 있는 도안이 나옵니다",
+        "technicalNotes": "PatternEngine — 색표의 가장 가까운 색으로 양자화 (Hantam/Pattern/)",
+        "usageScenario": "우리 집 강아지 사진으로 키링을 만들고 싶을 때",
+        "problemSolved": "사진을 도안으로 옮기려면 모눈종이에 한 칸씩 직접 그려야 함",
+        "userBenefit": "사진 한 장으로 몇 초 만에 도안 완성"
       }
     },
     {
-      "name": "앱 유료화",
-      "status": "not-started",
-      "targetDate": "November 25, 2025",
-      "targetVersion": "1.0.3"
-    },
-    {
-      "name": "픽셀 캔버스",
-      "status": "not-started",
+      "name": "실제 판매 색표 매칭 (Perler · Hama Midi · Artkal S · DMC)",
+      "status": "done",
       "targetDate": null,
-      "targetVersion": null,
+      "targetVersion": "2.1.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "자유로운 창작",
-        "description": "다양한 크기의 픽셀 그리드에서 그림을 그릴 수 있습니다",
-        "userValue": "종이에 그리듯 자유롭게 픽셀 아트를 만들 수 있습니다",
-        "technicalNotes": "그리드 뷰, 터치 제스처",
-        "usageScenario": "간단한 픽셀 아트를 그리고 싶을 때",
-        "problemSolved": "복잡한 그래픽 툴은 배우기 어려움",
-        "userBenefit": "직관적인 그리드에서 쉽게 픽셀 아트 제작"
+        "category": "실제 색, 실제 번호",
+        "description": "실제로 살 수 있는 비즈·자수실 색표로 색을 맞추고 칸마다 색 번호를 붙입니다",
+        "userValue": "화면의 색이 아니라 가게에서 파는 색 번호로 도안을 받습니다",
+        "technicalNotes": "beadcolors(MIT) · DMC-ColorCodes 색표 내장",
+        "usageScenario": "도안을 보고 비즈·실을 사러 갈 때",
+        "problemSolved": "일반 픽셀 변환 앱의 색은 실제 제품 색과 맞지 않음",
+        "userBenefit": "색 번호대로 사면 도안 그대로 완성"
       }
     },
     {
-      "name": "색상 팔레트",
-      "status": "not-started",
+      "name": "색마다 필요한 개수 · 구매 목록 복사",
+      "status": "done",
       "targetDate": null,
-      "targetVersion": null,
+      "targetVersion": "2.1.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "일관된 스타일",
-        "description": "다양한 색상을 쉽게 선택하고 저장할 수 있습니다",
-        "userValue": "자주 쓰는 색을 저장해서 일관된 스타일로 그릴 수 있습니다",
-        "technicalNotes": "컬러 피커, 팔레트 저장",
-        "usageScenario": "자주 쓰는 색을 매번 찾기 귀찮을 때",
-        "problemSolved": "같은 색을 다시 찾느라 시간 낭비",
-        "userBenefit": "색상 저장으로 일관된 색조의 작품 완성"
+        "category": "실제 색, 실제 번호",
+        "description": "색마다 비즈·땀이 몇 개 필요한지 세고, 여유분을 더한 구매 목록을 복사합니다",
+        "userValue": "모자라거나 남지 않게 필요한 만큼만 살 수 있습니다",
+        "technicalNotes": "색별 개수 집계, 여유분 포함 텍스트 복사",
+        "usageScenario": "온라인 쇼핑몰에서 비즈를 주문할 때",
+        "problemSolved": "필요한 개수를 손으로 세다 틀려 재료가 모자람",
+        "userBenefit": "정확한 개수로 재료비와 시간 절약"
       }
     },
     {
-      "name": "레이어 시스템",
-      "status": "todo",
+      "name": "페그보드 · 천 카운트에 맞춘 크기",
+      "status": "done",
       "targetDate": null,
-      "targetVersion": "2.0.0",
+      "targetVersion": "2.1.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "고급 편집",
-        "description": "여러 레이어를 만들어 복잡한 픽셀 아트를 작업할 수 있습니다",
-        "userValue": "배경과 캐릭터를 분리하여 더 전문적인 작품을 만들 수 있습니다",
-        "technicalNotes": "레이어 관리, 순서 변경",
-        "usageScenario": "복잡한 씬을 그릴 때 요소별로 분리하고 싶을 때",
-        "problemSolved": "모든 것을 한 레이어에 그려서 수정이 어려움",
-        "userBenefit": "레이어별 편집으로 작업 효율 대폭 향상"
+        "category": "보드와 천에 딱 맞게",
+        "description": "비즈는 29×29 보드 단위로 나누고, 십자수는 10칸마다 굵은 선과 11·14·16·18카운트 완성 크기를 보여 줍니다",
+        "userValue": "가진 보드·천에 맞춰 바로 작업할 수 있습니다",
+        "technicalNotes": "PatternMaterial — 무료 보드 1장(29)·40칸, Pro 4×4(116)·200칸",
+        "usageScenario": "보드 몇 장이 필요한지, 천이 얼마나 필요한지 알고 싶을 때",
+        "problemSolved": "도안 크기와 실제 보드·천 크기를 맞추기 어려움",
+        "userBenefit": "보드 경계와 완성 크기가 한눈에"
       }
     },
     {
-      "name": "애니메이션 프레임",
-      "status": "todo",
+      "name": "크기 · 색 수 · 배경 지우기",
+      "status": "done",
       "targetDate": null,
-      "targetVersion": "2.0.0",
+      "targetVersion": "2.1.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "창작 확장",
-        "description": "여러 프레임을 그려 움직이는 픽셀 아트를 만들 수 있습니다",
-        "userValue": "정적인 그림을 넘어 애니메이션 작품을 만들 수 있습니다",
-        "technicalNotes": "프레임 관리, 재생 기능, GIF 내보내기",
-        "usageScenario": "캐릭터가 걷는 애니메이션을 만들고 싶을 때",
-        "problemSolved": "정지 이미지만 가능",
-        "userBenefit": "움직이는 픽셀 아트로 표현력 극대화"
+        "category": "모양은 내 마음대로",
+        "description": "크기와 색 수 상한을 바꾸면 미리보기가 바로 바뀌고, 배경을 지워 주인공만 남깁니다",
+        "userValue": "원하는 느낌과 난이도로 도안을 조절합니다",
+        "technicalNotes": "색 수 상한, 배경 제거, 실시간 미리보기",
+        "usageScenario": "색이 너무 많아 비즈를 다 살 수 없을 때",
+        "problemSolved": "변환 결과를 내 마음대로 바꿀 수 없음",
+        "userBenefit": "적은 색으로도 보기 좋은 도안"
       }
     },
     {
-      "name": "대칭 그리기 모드",
-      "status": "todo",
+      "name": "칸 고치기 · 색 통째로 바꾸기",
+      "status": "done",
       "targetDate": null,
-      "targetVersion": "2.0.0",
+      "targetVersion": "2.1.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "편의 도구",
-        "description": "한쪽을 그리면 반대편도 자동으로 그려집니다",
-        "userValue": "대칭 캐릭터를 쉽게 그릴 수 있습니다",
-        "technicalNotes": "미러링 알고리즘",
-        "usageScenario": "정면 얼굴이나 대칭 디자인을 그릴 때",
-        "problemSolved": "양쪽을 똑같이 그리기 어려움",
-        "userBenefit": "절반만 그려도 완벽한 대칭"
+        "category": "모양은 내 마음대로",
+        "description": "칸을 눌러 하나씩 고치거나 한 색을 다른 색으로 한꺼번에 바꿉니다",
+        "userValue": "없는 색은 가진 색으로 바꿔 바로 만들 수 있습니다",
+        "technicalNotes": "셀 편집, 색 일괄 치환",
+        "usageScenario": "눈 부분 한두 칸만 다른 색으로 바꾸고 싶을 때",
+        "problemSolved": "자동 변환의 어색한 부분을 고칠 방법이 없음",
+        "userBenefit": "자동 변환 + 손 마무리로 완성도 상승"
       }
     },
     {
-      "name": "드로잉 도구 확장",
-      "status": "todo",
+      "name": "실물 · 색 · 기호 세 가지 보기",
+      "status": "done",
       "targetDate": null,
-      "targetVersion": "2.0.0",
+      "targetVersion": "2.1.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "자유로운 창작",
-        "description": "연필, 선, 원, 사각형, 채우기 등 다양한 도구를 제공합니다",
-        "userValue": "복잡한 형태를 빠르게 그릴 수 있습니다",
-        "technicalNotes": "도형 도구, 채우기 알고리즘",
-        "usageScenario": "큰 영역을 한 색으로 채우고 싶을 때",
-        "problemSolved": "픽셀 하나씩 찍어서 시간이 오래 걸림",
-        "userBenefit": "도구로 빠르고 정확한 작업"
+        "category": "세 가지 보기",
+        "description": "실물 비즈·땀 모양, 색 칸, 기호 도안으로 번갈아 봅니다",
+        "userValue": "완성 모습을 미리 보고, 작업할 때는 기호로 정확히 봅니다",
+        "technicalNotes": "PatternRenderer 렌더 스타일 3종",
+        "usageScenario": "완성품이 어떤 모습일지 미리 보고 싶을 때",
+        "problemSolved": "비슷한 색끼리 구분이 어려움",
+        "userBenefit": "완성 미리보기와 작업용 도안을 한 화면에서"
       }
     },
     {
-      "name": "프로젝트 저장 및 불러오기",
-      "status": "todo",
+      "name": "인쇄용 PDF 도안 (Pro)",
+      "status": "done",
       "targetDate": null,
-      "targetVersion": "2.0.0",
+      "targetVersion": "2.1.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "인쇄해서 바로 만들기",
+        "description": "미리보기, 색 목록, 보드·쪽마다 나눈 기호 도안이 담긴 PDF로 내보냅니다",
+        "userValue": "인쇄해서 옆에 두고 보며 만들 수 있습니다",
+        "technicalNotes": "PDF 렌더링, 보드/쪽 분할 — 페이월 계기 pattern_pdf",
+        "usageScenario": "도안을 출력해 작업대 옆에 두고 싶을 때",
+        "problemSolved": "휴대폰 화면만 보고 큰 도안을 만들기 힘듦",
+        "userBenefit": "종이 도안으로 실수 없이 작업"
+      }
+    },
+    {
+      "name": "도안 보관 · 이미지 공유",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "2.1.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
         "category": "작업 관리",
-        "description": "작업 중인 그림을 저장하고 나중에 다시 편집할 수 있습니다",
-        "userValue": "한 번에 완성하지 않아도 언제든 이어서 작업할 수 있습니다",
-        "technicalNotes": "프로젝트 파일 저장, Core Data",
-        "usageScenario": "시간이 없어서 나중에 마저 그리고 싶을 때",
-        "problemSolved": "한 번 나가면 작업이 사라짐",
-        "userBenefit": "여러 프로젝트 관리 가능"
+        "description": "만든 도안을 저장하고(무료 3개, Pro 무제한) 이미지로 공유합니다",
+        "userValue": "만든 도안을 다시 열어 이어서 만들고 자랑할 수 있습니다",
+        "technicalNotes": "PatternStore(freeSaveLimit 3), 무료 이미지는 한땀 표시",
+        "usageScenario": "여러 작품을 번갈아 만들 때",
+        "problemSolved": "한 번 만든 도안을 다시 찾을 수 없음",
+        "userBenefit": "내 도안 모음을 한곳에"
       }
     },
     {
-      "name": "템플릿 갤러리",
-      "status": "todo",
+      "name": "일본어 지원",
+      "status": "done",
+      "targetDate": null,
+      "targetVersion": "2.1.0",
+      "labels": [
+        "feature"
+      ],
+      "featureMetadata": {
+        "category": "글로벌",
+        "description": "한국어·영어에 더해 일본어로 앱과 스토어를 제공합니다",
+        "userValue": "아이롱비즈 수요가 큰 일본 사용자가 모국어로 씁니다",
+        "technicalNotes": "Localizable.xcstrings ja, APPSTORE.md ja, deploy.env LOCALES=ko,en-US,ja",
+        "usageScenario": "일본 사용자가 アイロンビーズ 図案을 찾을 때",
+        "problemSolved": "영어·한국어만 있어 일본 시장 진입 불가",
+        "userBenefit": "일본 스토어 검색 노출"
+      }
+    },
+    {
+      "name": "픽셀 아트 도구 (보조)",
+      "status": "done",
       "targetDate": null,
       "targetVersion": "2.0.0",
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "빠른 시작",
-        "description": "기본 캐릭터, 배경 템플릿을 제공하여 수정해서 사용할 수 있습니다",
-        "userValue": "빈 캔버스가 막막하지 않고 템플릿을 기반으로 시작할 수 있습니다",
-        "technicalNotes": "템플릿 DB, 불러오기",
-        "usageScenario": "픽셀 아트를 처음 그려봐서 어떻게 시작할지 모를 때",
-        "problemSolved": "빈 화면 앞에서 막막함",
-        "userBenefit": "템플릿 수정으로 쉬운 시작"
+        "category": "픽셀 아트 도구",
+        "description": "사진 픽셀화(레트로 팔레트·필터), 110가지 예시 따라 그리기, 레이어·어니언 스킨 프레임 애니메이션",
+        "userValue": "도안 말고 픽셀 아트 자체를 즐기는 사람도 계속 쓸 수 있습니다",
+        "technicalNotes": "예전 픽셀 미미 기능 — 홈 아래 '픽셀 아트 도구'로 이동, 큰 칸·팔레트·디더링은 Pro",
+        "usageScenario": "사진을 레트로 픽셀 아트로 바꿔 공유하고 싶을 때",
+        "problemSolved": "리브랜딩 뒤에도 기존 사용자의 도구가 사라지면 안 됨",
+        "userBenefit": "기존 사용자 이탈 없이 새 용도로 전환"
       }
     },
     {
-      "name": "공유 및 내보내기 옵션",
-      "status": "todo",
+      "name": "가진 색만 쓰기",
+      "status": "not-started",
       "targetDate": null,
-      "targetVersion": "2.0.0",
+      "targetVersion": null,
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "공유하기",
-        "description": "PNG, GIF 등 다양한 형식으로 내보내고 SNS에 공유합니다",
-        "userValue": "완성작을 친구들에게 자랑하거나 SNS에 올릴 수 있습니다",
-        "technicalNotes": "이미지 내보내기, Share Sheet",
-        "usageScenario": "완성한 픽셀 아트를 인스타그램에 올리고 싶을 때",
-        "problemSolved": "작품을 저장만 하고 공유하기 어려움",
-        "userBenefit": "다양한 형식으로 내보내기"
+        "category": "도안 만들기",
+        "description": "가진 비즈·실을 체크하면 그 색만으로 도안을 만듭니다",
+        "userValue": "새로 사지 않고 집에 있는 재료로 바로 만듭니다",
+        "technicalNotes": "로드맵 pattern.owned-colors",
+        "usageScenario": "남은 비즈로 하나 더 만들고 싶을 때",
+        "problemSolved": "도안 색을 다 사야만 만들 수 있음",
+        "userBenefit": "재료비 0원으로 새 작품"
       }
     },
     {
-      "name": "실행 취소/다시 실행",
-      "status": "todo",
+      "name": "튀는 비즈 정리",
+      "status": "not-started",
       "targetDate": null,
-      "targetVersion": "2.0.0",
+      "targetVersion": null,
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "편의 도구",
-        "description": "잘못 그린 부분을 되돌리거나 다시 실행할 수 있습니다",
-        "userValue": "실수를 두려워하지 않고 자유롭게 그릴 수 있습니다",
-        "technicalNotes": "Undo/Redo 스택",
-        "usageScenario": "실수로 잘못 칠했을 때",
-        "problemSolved": "한 번 잘못 그리면 처음부터 다시",
-        "userBenefit": "무한 실행 취소로 안심하고 작업"
+        "category": "모양은 내 마음대로",
+        "description": "외따로 떨어진 이상한 색 비즈를 한 번에 정리합니다",
+        "userValue": "깔끔한 도안을 손질 없이 얻습니다",
+        "technicalNotes": "로드맵 pattern.cleanup",
+        "usageScenario": "사진 노이즈 때문에 한 칸짜리 색이 여기저기 생겼을 때",
+        "problemSolved": "한 칸씩 고치기가 번거로움",
+        "userBenefit": "한 번 눌러 깔끔한 도안"
       }
     },
     {
-      "name": "그리드 표시 옵션",
-      "status": "todo",
+      "name": "미니 비즈 · 브랜드 추가",
+      "status": "not-started",
       "targetDate": null,
-      "targetVersion": "2.0.0",
+      "targetVersion": null,
       "labels": [
         "feature"
       ],
       "featureMetadata": {
-        "category": "시각적 보조",
-        "description": "픽셀 그리드 선을 켜거나 끌 수 있습니다",
-        "userValue": "그리드 없이 완성작의 실제 모습을 확인할 수 있습니다",
-        "technicalNotes": "그리드 토글",
-        "usageScenario": "완성된 작품이 어떻게 보일지 확인하고 싶을 때",
-        "problemSolved": "그리드 선 때문에 최종 결과물 확인 어려움",
-        "userBenefit": "그리드 on/off로 작업과 미리보기 전환"
-      }
-    },
-    {
-      "name": "커뮤니티 갤러리",
-      "status": "todo",
-      "targetDate": null,
-      "targetVersion": "2.0.0",
-      "labels": [
-        "feature"
-      ],
-      "featureMetadata": {
-        "category": "영감과 학습",
-        "description": "다른 사용자의 작품을 구경하고 영감을 얻습니다",
-        "userValue": "다른 사람들의 작품을 보며 아이디어를 얻고 배울 수 있습니다",
-        "technicalNotes": "커뮤니티 기능, 작품 업로드",
-        "usageScenario": "뭘 그릴지 아이디어가 필요할 때",
-        "problemSolved": "혼자 그리면 영감이 부족함",
-        "userBenefit": "커뮤니티에서 영감과 동기 부여"
+        "category": "실제 색, 실제 번호",
+        "description": "2.6mm 미니 비즈와 더 많은 비즈 브랜드 색표를 지원합니다",
+        "userValue": "내가 쓰는 브랜드로 도안을 받습니다",
+        "technicalNotes": "로드맵 pattern.mini-beads",
+        "usageScenario": "Hama Mini·Artkal 미니 비즈로 작은 작품을 만들 때",
+        "problemSolved": "지원 색표가 세 브랜드뿐",
+        "userBenefit": "더 많은 사람의 재료에 맞춘 도안"
       }
     },
     {
@@ -260,18 +266,19 @@
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "2.0.1",
+  "currentVersion": "2.1.0",
   "folderId": "pixel-mimi",
   "githubRepo": "https://github.com/M1zz/PixelMe",
-  "localProjectPath": "../PixelMe",
+  "localProjectPath": "../../../../../../Auto/한땀",
   "minimumOS": "16.0",
-  "name": "픽셀 미미",
-  "nameEn": "Pixel MeMe",
+  "name": "한땀",
+  "nameEn": "Hantam",
   "nextTasks": [
-    "사용성 개선",
-    "이걸 돈 받으려면 뭘 제공할지 고민하기"
+    "가진 색만 쓰기",
+    "튀는 비즈 정리",
+    "미니 비즈 · 브랜드 추가"
   ],
-  "notes": "[2026-07-05 스토어 동기화] v2.0.1 (2026-03-03 출시). 스토어명 'Pixel MeMe', 유료 전환(₩6,600)",
+  "notes": "[2026-10-21] 2.1.0(2026-10-19 출시)부터 '픽셀 미미 / Pixel MeMe'를 '한땀 (Hantam): 비즈·십자수 도안 메이커'로 리브랜딩·용도 전환. 번들 ID com.leeo.PixelMe · 앱스토어 id · 상품 ID 일부(com.pixelme.pro.lifetime) · FeedbackHub appName 'PixelMe' · GitHub 레포/Pages(PixelMe)는 기존 사용자와의 계약이라 그대로. 스토어는 다운로드 ₩6,600 유료 + 한땀 Pro(월 ₩6,600 · 연 ₩44,000 · 평생 ₩77,000, 미국 $3.99/$24.99/$44.99). 레포 STRATEGY.md 의 한국 가격(₩4,900/₩29,900/₩59,000)과 스토어 한국 가격이 다름. 언어 ko·en·ja.",
   "price": {
     "isFree": false,
     "priceKRW": 6600,
@@ -279,20 +286,16 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "pixelmeme pro weekly",
-        "price": "￦1,100"
+        "name": "hantam pro yearly",
+        "price": "￦44,000"
       },
       {
-        "name": "yearly",
-        "price": "￦33,000"
-      },
-      {
-        "name": "monthly",
-        "price": "￦7,700"
+        "name": "hantam pro monthly",
+        "price": "￦6,600"
       },
       {
         "name": "Life time",
-        "price": "￦99,000"
+        "price": "￦77,000"
       }
     ],
     "code": {
@@ -303,74 +306,77 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-21"
   },
   "priority": "medium",
   "recentlyCompleted": [
+    "픽셀 미미 → 한땀 리브랜딩 (2.1.0): 사진으로 비즈·십자수 도안",
+    "인쇄용 PDF 도안 · 구매 목록",
+    "일본어 지원",
     "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)"
   ],
   "sharedModules": [],
   "stats": {
-    "done": 1,
+    "done": 12,
     "inProgress": 0,
-    "todo": 10,
-    "notStarted": 5,
-    "totalTasks": 16
+    "todo": 0,
+    "notStarted": 3,
+    "totalTasks": 15
   },
   "status": "active",
   "vision": {
-    "tagline": "픽셀 아트의 즐거움",
-    "coreValue": "누구나 쉽게 픽셀 아트를 그리고 공유하는 경험",
-    "targetUsers": "픽셀 아트를 좋아하는 사람, 간단한 그림을 그리고 싶은 사람",
-    "uniqueSellingPoint": "모바일에 최적화된 픽셀 아트 에디터",
+    "tagline": "사진 한 장이 비즈·십자수 도안으로",
+    "coreValue": "좋아하는 사진을 실제로 파는 색 번호와 개수가 적힌 도안으로 바꿔, 사러 가서 바로 만들게 하는 것",
+    "targetUsers": "아이롱 비즈·십자수를 하는 30~40대 취미 공예인, 아이와 함께 만드는 부모, 반려동물 굿즈를 만드는 사람 (한국·일본·미국)",
+    "uniqueSellingPoint": "Perler·Hama Midi·Artkal S·DMC 실제 색표로 맞춘 색 번호, 색마다 필요한 개수, 보드·쪽마다 나눈 인쇄용 도안을 한 번에",
     "designPrinciples": [
-      "단순함 - 복잡한 도구 없이",
-      "즉각적 피드백 - 그리는 즉시 확인",
-      "공유 중심 - SNS로 바로 공유"
+      "실물이 기준 - 화면 색이 아니라 살 수 있는 색 번호",
+      "바로 만들기 - 사진에서 인쇄까지 몇 번의 탭",
+      "고칠 수 있게 - 자동 변환 뒤 칸·색을 손으로 다듬기",
+      "사진은 내 폰에만 - 서버로 보내지 않음"
     ],
     "userExperienceGoals": [
-      "5분 안에 작은 픽셀 아트 완성",
-      "직관적인 그리기 도구",
-      "완성작 즉시 공유"
+      "사진 고르고 1분 안에 첫 도안",
+      "도안만 보고 재료를 정확히 주문",
+      "인쇄한 도안을 옆에 두고 실수 없이 완성"
     ],
     "potential": {
-      "marketSize": "창작/취미 앱 - 픽셀 아트 애호가 글로벌 수백만",
+      "marketSize": "아이롱 비즈·십자수 취미 공예 — 일본(アイロンビーズ)·한국·미국 fuse bead / cross stitch 커뮤니티",
       "targetExpansion": [
-        "취미 → NFT 크리에이터",
-        "개인 → 게임 개발자 (에셋 제작)",
-        "픽셀 아트 → 도트 애니메이션"
+        "아이롱 비즈 → 미니 비즈·더 많은 브랜드",
+        "개인 취미 → 아이와 함께하는 가족 공예",
+        "반려동물·캐릭터 굿즈 제작자"
       ],
       "monetization": {
-        "current": "무료",
+        "current": "유료 다운로드 + 한땀 Pro (월간·연간 구독, 평생 이용권)",
         "potential": [
-          "프리미엄 구독 (월 $4.99): 고급 도구, 레이어, 클라우드 저장",
-          "NFT 민팅 연동: 작품 NFT 변환 수수료",
-          "에셋 마켓플레이스: 게임 개발자에게 판매"
+          "평생 이용권을 앞세운 Pro — 공예는 가끔 하는 취미",
+          "인쇄 순간(pattern_pdf) 전환 최적화",
+          "브랜드·미니 비즈 색표 확장으로 Pro 가치 상승"
         ]
       },
       "competitiveAdvantage": [
-        "모바일 최적화 - 언제 어디서나 창작",
-        "직관적 UI - 배우기 쉬움",
-        "소셜 공유 - 작품 쉽게 공유"
+        "실제 판매 색 번호와 개수 — 일반 픽셀 변환 앱에 없음",
+        "페그보드·천 카운트에 맞춘 도안과 인쇄용 PDF",
+        "기존 픽셀 아트 사용자층과 스토어 이력"
       ],
       "expansionStrategy": [
-        "1단계: 애니메이션 기능 추가 - 움직이는 픽셀 아트",
-        "2단계: 커뮤니티 - 작품 공유 및 챌린지",
-        "3단계: NFT 연동 - 작품을 자산으로",
-        "4단계: 게임 에셋 마켓플레이스"
+        "1단계: 일본·한국·미국 키워드(図案·아이롱비즈·fuse bead pattern) 순위 확보",
+        "2단계: 가진 색만 쓰기·튀는 비즈 정리로 완성도",
+        "3단계: 미니 비즈·브랜드 확장"
       ],
-      "longTermVision": "모바일 픽셀 아트의 표준. 취미 크리에이터가 수익을 창출하는 플랫폼. 픽셀 아트 문화 확산의 리더.",
+      "longTermVision": "사진만 있으면 누구나 실제 재료로 만들 수 있는 공예 도안 도구.",
       "risks": [
-        "PC 기반 전문 툴과의 성능 차이",
-        "NFT 시장 침체"
+        "화면 색과 실제 제품 색의 차이",
+        "타사 상표(Perler·Hama·Artkal·DMC) 사용 범위"
       ],
       "opportunities": [
-        "레트로 게임 붐",
-        "크리에이터 이코노미 성장"
+        "일본 아이롱 비즈 시장",
+        "반려동물 굿즈·핸드메이드 붐"
       ]
     }
   },
-  "supportUrl": "https://www.blogger.com/blog/posts/3814466872646756794",
+  "supportUrl": "https://m1zz.github.io/PixelMe/ko/support.html",
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
@@ -503,10 +509,10 @@
     "support": {
       "registered": true,
       "reachable": true,
-      "privacy": false,
+      "privacy": true,
       "english": true,
       "contact": true,
-      "host": "www.blogger.com",
+      "host": "m1zz.github.io",
       "status": 200
     },
     "evaluatedAt": "2026-10-21"
@@ -516,23 +522,19 @@
     "price": 3.99,
     "iap": [
       {
-        "name": "pixelmeme pro weekly",
-        "price": "$0.99"
+        "name": "hantam pro yearly",
+        "price": "$24.99"
       },
       {
-        "name": "yearly",
-        "price": "$19.99"
-      },
-      {
-        "name": "monthly",
-        "price": "$4.99"
+        "name": "hantam pro monthly",
+        "price": "$3.99"
       },
       {
         "name": "Life time",
-        "price": "$59.99"
+        "price": "$44.99"
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-21"
   }
 }

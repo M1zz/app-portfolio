@@ -685,14 +685,24 @@
           "slug": "pixel-mimi",
           "problems": [
             {
-              "pain": "평범한 사진을 개성 있는 픽셀아트로 못 만듦",
-              "painEn": "Ordinary photos can't become distinctive pixel art",
-              "who": "레트로 감성 콘텐츠를 즐기는 사람",
-              "whoEn": "Fans of retro-style content",
-              "when": "사진을 꾸며 공유할 때",
-              "whenEn": "When dressing up photos to share",
-              "gap": "사진을 픽셀아트로 변환하는 간편 도구 부재",
-              "gapEn": "No simple photo-to-pixel-art converter"
+              "pain": "사진으로 비즈·십자수를 하려면 도안을 직접 그리고 색을 일일이 세야 함",
+              "painEn": "Making beadwork or cross-stitch from a photo means charting it and counting colors by hand",
+              "who": "아이롱 비즈·십자수를 하는 취미 공예인과 부모",
+              "whoEn": "Fuse bead and cross-stitch hobbyists, and parents crafting with kids",
+              "when": "반려동물·아이 사진으로 키링이나 액자를 만들고 싶을 때",
+              "whenEn": "When making a keychain or frame from a pet or family photo",
+              "gap": "실제 판매 색 번호와 필요한 개수까지 알려 주는 도안 도구 부재",
+              "gapEn": "No pattern tool that gives real store color numbers and how many of each"
+            },
+            {
+              "pain": "휴대폰 화면만 보고 큰 도안을 따라 만들기 어려움",
+              "painEn": "Following a big pattern on a phone screen is hard",
+              "who": "보드 여러 장짜리 작품을 만드는 사람",
+              "whoEn": "People making multi-pegboard pieces",
+              "when": "작업대 옆에 도안을 두고 만들 때",
+              "whenEn": "When working with the pattern beside them",
+              "gap": "보드·쪽마다 나눈 기호 도안을 인쇄할 방법 부재",
+              "gapEn": "No way to print a symbol chart split board by board"
             }
           ]
         },

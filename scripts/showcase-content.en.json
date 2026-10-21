@@ -112,14 +112,14 @@
       "highlight": "Snap it, background gone — instant sticker"
     },
     "pixel-mimi": {
-      "tagline": "Pixel art made easy",
-      "problem": "Drawing pixel art usually requires pro graphics tools — a high bar for a hobby.",
-      "stakeholders": "Beginner creators trying pixel art and game sprites for fun",
-      "persona": "Siwoo (19), a student who wants to draw his own indie game characters",
-      "context": "Facing a complex tool, he doesn't even know what to click first.",
-      "solution": "An intuitive tap-the-grid approach anyone can use to finish pixel art.",
-      "hook": "If you want to try pixel art, lightly",
-      "highlight": "A mobile pixel editor you tap with your fingertips"
+      "tagline": "One photo, one bead or stitch pattern",
+      "problem": "Turning a favorite photo into fuse beads or cross-stitch means charting it square by square, then counting which colors to buy and how many.",
+      "stakeholders": "Fuse bead and cross-stitch hobbyists, parents crafting with their kids, and people making pet keepsakes",
+      "persona": "Sujin (38), a mom of two who wants to turn her dog's photo into a bead keychain",
+      "context": "Copying the photo onto graph paper and counting colors wears her out, so she ends up buying ready-made patterns instead.",
+      "solution": "Pick a photo and get a pattern matched to bead and floss colors you can actually buy, with a count for every color and a printable chart split board by board.",
+      "hook": "If you want to turn your dog's photo into beadwork",
+      "highlight": "Printable patterns with real color numbers and counts"
     },
     "leeocon": {
       "tagline": "Cute sticker packs for iMessage",

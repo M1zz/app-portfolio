@@ -22,7 +22,7 @@ APPS_TO_CHECK = {
     "bami-log": "바미로그",
     "daily-compliment": "오늘의 주접",
     "donkko-mart": "돈꼬마트",
-    "pixel-mimi": "픽셀 미미",
+    "pixel-mimi": "한땀",
     "quiz": "퀴즈",
     "schedule-assistant": "일정비서"
 }

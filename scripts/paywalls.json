@@ -516,82 +516,80 @@
     "pixel-mimi": {
       "slug": "pixel-mimi",
       "paywallFiles": [
-        "PixelMe/Views/PaywallView.swift",
-        "PixelMe/Manager/SubscriptionManager.swift",
-        "PixelMe/PixelMeSpec.swift",
-        "PixelMe/AppConfig.swift",
-        "PixelMe/Manager/FeatureGating.swift",
-        "PixelMe/Manager/FreeUsageManager.swift",
-        "PixelMe/CreatorContentView.swift",
-        "PixelMe/PixelatedPhotoView.swift",
-        "PixelMe/Manager/FilterPackManager.swift",
-        "PixelMe/Views/FilterPackStoreView.swift",
-        "PixelMe/Views/ExportPaywallView.swift",
-        "PixelMe/Views/PreviewWallView.swift",
-        "PixelMe/Manager/PurchaseManager.swift"
+        "Hantam/Views/PaywallView.swift",
+        "Hantam/Manager/SubscriptionManager.swift",
+        "Hantam/HantamSpec.swift",
+        "Hantam/AppConfig.swift",
+        "Hantam/Pattern/HantamTheme.swift",
+        "Hantam/Pattern/PatternModel.swift",
+        "Hantam/Pattern/PatternStore.swift",
+        "Hantam/Pattern/PatternMakerView.swift",
+        "Hantam/Pattern/PatternDetailView.swift",
+        "Hantam/Manager/FeatureGating.swift",
+        "Hantam/CreatorContentView.swift",
+        "Hantam/PixelatedPhotoView.swift",
+        "Hantam/Manager/FilterPackManager.swift",
+        "Hantam/Views/FilterPackStoreView.swift"
       ],
       "kind": "mixed",
-      "headline": null,
-      "subheadline": null,
+      "headline": "한땀 Pro",
+      "subheadline": "비즈·십자수 도안에 필요한 모든 것",
       "benefits": [
-        "Pro의 모든 기능",
-        "레이어 무제한",
-        "GIF 애니메이션",
-        "스프라이트 시트",
-        "AI 팔레트",
-        "워터마크 없음"
+        "인쇄용 PDF 도안 — 보드마다 나눈 기호 도안과 색 목록",
+        "더 큰 도안 — 페그보드 4 × 4장, 십자수 200칸까지",
+        "도안 무제한 보관 (무료는 3개)",
+        "한땀 표시 없는 깨끗한 이미지",
+        "모든 픽셀 아트 도구 — 칸 크기 · 팔레트 · 필터 · 디더링 · 4K 내보내기"
       ],
       "free": [
-        "픽셀 크기 3종",
-        "원본 색상만 (팔레트 없음)",
-        "필터 1종 (CRT)",
-        "PNG·JPEG 내보내기, 최대 1080p",
-        "저장 이미지에 'Made with PixelMe' 워터마크"
+        "사진 → 비즈(Perler · Hama Midi · Artkal S) · 십자수(DMC) 도안",
+        "비즈 보드 1장(29 × 29) · 십자수 40칸까지",
+        "화면에서 색 번호 · 색마다 개수 보기, 구매 목록 복사",
+        "도안 3개 보관",
+        "작은 한땀 표시가 든 이미지 공유",
+        "픽셀 아트: 작은 칸 크기 3종 · 원래 색만"
       ],
       "locked": [
-        "큰 픽셀 크기 3종",
-        "레트로 팔레트 8종 (게임보이·NES·베이퍼웨이브 등)",
-        "필터 5종 (스캔라인·글리치·VHS 등)",
-        "디더링",
-        "워터마크 제거"
+        "인쇄용 PDF 도안",
+        "보드 2장 이상(58 · 87 · 116) · 십자수 40칸 초과(최대 200)",
+        "4번째 도안부터 저장",
+        "표시 없는 이미지",
+        "픽셀 아트: 큰 칸 크기 · 레트로 팔레트 · 디더링 · 필터 팩"
       ],
       "tiers": [
         {
-          "productId": "com.pixelme.pro.yearly",
-          "label": "연간 (기본 선택)",
-          "price": "￦33,000",
+          "productId": "com.pixelme.pro.lifetime",
+          "label": "평생 (기본 선택)",
+          "price": "￦77,000",
+          "period": "평생",
+          "live": true
+        },
+        {
+          "productId": "com.hantam.pro.yearly",
+          "label": "연간",
+          "price": "￦44,000",
           "period": "연",
           "live": true
         },
         {
-          "productId": "com.pixelme.pro.monthly",
+          "productId": "com.hantam.pro.monthly",
           "label": "월간",
-          "price": "￦7,700",
+          "price": "￦6,600",
           "period": "월",
-          "live": true
-        },
-        {
-          "productId": "com.pixelme.pro.weekly",
-          "label": "주간",
-          "price": "￦1,100",
-          "period": "주",
-          "live": true
-        },
-        {
-          "productId": "com.pixelme.pro.lifetime",
-          "label": "평생",
-          "price": "￦99,000",
-          "period": "평생",
           "live": true
         }
       ],
       "triggers": [
-        "홈 화면 아래 Pro 배너 'Pro 잠금 해제 · 픽셀화 무제한 · 워터마크 없음 · 4K 내보내기'"
+        "도안 화면에서 '인쇄용 도안 (PDF)'을 누를 때 — '도안을 인쇄해서 바로 만들어 보세요'",
+        "보드 2장 이상 · 40칸 넘는 크기를 고를 때 — '원하는 만큼 큰 도안을'",
+        "4번째 도안이 저장되지 않았다는 배너를 누를 때 — '만든 도안을 모두 보관하세요'",
+        "홈 아래 한땀 Pro 배너 '인쇄용 PDF · 더 큰 도안 · 표시 없음'",
+        "설정 · 픽셀 아트 도구의 잠긴 칸 크기 · 팔레트 · 디더링"
       ],
-      "cta": "7일 무료 체험 시작",
-      "trial": "연간·월간 7일 무료 체험 표기",
+      "cta": "평생: '₩77,000에 한 번 구매' · 구독: 체험이 있으면 'N일 무료 체험 시작', 없으면 '계속'",
+      "trial": "StoreKit 소개 혜택에서 읽어 표시 (연간 7일 무료 체험 예정 — STRATEGY.md)",
       "restore": true,
-      "notes": "유료 앱(￦6,600)인데 앱 안에서 다시 구독을 팔며, 'Save 64%' 배지는 실제 가격(주 1,100×52=57,200 대비 연 33,000 → 약 42%)과 맞지 않고 무료 체험 문구도 하드코딩이다. 하루 3회 변환 제한(FreeUsageManager)·ExportPaywallView·PreviewWallView·GIF/레이어/일괄처리 게이트는 정의만 있고 호출되지 않아 사실상 죽은 코드이며, 필터 팩 3종은 스토어 목록에 없다."
+      "notes": "2026-10-21 한땀 2.1.0 기준으로 다시 읽음(0fe4a93). 픽셀 미미 → 한땀 리브랜딩으로 페이월이 도안 중심으로 바뀜: 계기(PaywallReason)마다 머리글이 다르고 paywall_shown.<reason> 을 FeedbackHub 로 보냄. 월간·연간은 새 자동 갱신 구독 ID(com.hantam.pro.*) — 예전 com.pixelme.pro.monthly/yearly 는 ASC 에 일회성으로 잘못 만들어져 팔지 않고, weekly · 예전 monthly/yearly · PixelNFT.Premium 은 산 사람만 Pro 로 인정. 연간 '절약' 배지는 스토어 가격으로 계산(한국 약 44%, 미국 48%). 여전히 다운로드 ₩6,600 유료 앱 안에서 Pro 를 파는 구조. 스토어 한국 가격(월 ₩6,600 · 연 ₩44,000 · 평생 ₩77,000)이 STRATEGY.md(₩4,900 · ₩29,900 · ₩59,000)와 다름 — 미국은 $3.99 · $24.99 · $44.99 로 일치. 필터 팩 3종(com.pixelme.filterpack.*)은 코드에 판매 화면이 남아 있으나 스토어 목록에 없음. patternCleanImage(표시 없는 이미지) 계기는 머리글만 있고 띄우는 곳이 없음."
     },
     "rainbow-of-desire": {
       "slug": "rainbow-of-desire",
