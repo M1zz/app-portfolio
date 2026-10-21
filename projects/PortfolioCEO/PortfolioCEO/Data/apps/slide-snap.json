@@ -74,7 +74,7 @@
     "source": true,
     "feedback": {
       "inAppFeedback": true,
-      "mailContact": true,
+      "mailContact": false,
       "instagram": false,
       "reviewPrompt": false,
       "writeReview": false
@@ -183,7 +183,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

@@ -126,7 +126,7 @@
       "textCopy": false,
       "purchaseTest": false,
       "releaseTags": false,
-      "steadyUpdates": true
+      "steadyUpdates": false
     },
     "money": {
       "paywall": false,
@@ -182,7 +182,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

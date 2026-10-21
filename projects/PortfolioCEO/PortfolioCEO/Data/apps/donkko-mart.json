@@ -422,8 +422,8 @@
     },
     "ops": {
       "analytics": true,
-      "crash": false,
-      "killSwitch": true,
+      "crash": true,
+      "killSwitch": false,
       "leeoKit": true,
       "crashLoop": false,
       "tests": true,
@@ -524,7 +524,7 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

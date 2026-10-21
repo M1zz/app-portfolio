@@ -79,17 +79,17 @@
   "serviceMaturity": {
     "source": true,
     "feedback": {
-      "inAppFeedback": false,
+      "inAppFeedback": true,
       "mailContact": true,
       "instagram": true,
       "reviewPrompt": false,
-      "writeReview": false
+      "writeReview": true
     },
     "ops": {
-      "analytics": false,
-      "crash": false,
-      "killSwitch": false,
-      "leeoKit": false,
+      "analytics": true,
+      "crash": true,
+      "killSwitch": true,
+      "leeoKit": true,
       "crashLoop": false,
       "tests": false,
       "privacyManifest": false
@@ -131,15 +131,15 @@
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": false,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
+      "freeGate": true,
+      "restore": true,
       "discount": false,
       "tipJar": false,
       "tipAsk": false,
@@ -147,8 +147,8 @@
     },
     "comms": {
       "whatsNew": false,
-      "roadmap": false,
-      "feedbackReply": false
+      "roadmap": true,
+      "feedbackReply": true
     },
     "more": {
       "schemaMigration": false,
@@ -161,7 +161,7 @@
       "abTesting": false,
       "haptics": false,
       "preflight": false,
-      "appSpec": false,
+      "appSpec": true,
       "family": false,
       "fold": false,
       "uiTests": false,
@@ -177,19 +177,19 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 52,
+      "accessibilityLabels": 55,
       "testFiles": 0
     },
     "support": {
       "registered": true,
       "reachable": true,
       "privacy": true,
-      "english": false,
+      "english": true,
       "contact": true,
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

@@ -455,12 +455,12 @@
     "money": {
       "paywall": true,
       "tiers": true,
-      "freeGate": false,
+      "freeGate": true,
       "restore": true,
       "discount": true,
-      "tipJar": false,
-      "tipAsk": false,
-      "gift": false
+      "tipJar": true,
+      "tipAsk": true,
+      "gift": true
     },
     "comms": {
       "whatsNew": true,
@@ -499,14 +499,14 @@
     },
     "support": {
       "registered": true,
-      "reachable": false,
-      "privacy": false,
-      "english": false,
-      "contact": false,
+      "reachable": true,
+      "privacy": true,
+      "english": true,
+      "contact": true,
       "host": "m1zz.github.io",
-      "status": 404
+      "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

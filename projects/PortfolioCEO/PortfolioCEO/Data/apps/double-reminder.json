@@ -488,13 +488,13 @@
     },
     "money": {
       "paywall": true,
-      "tiers": false,
-      "freeGate": false,
+      "tiers": true,
+      "freeGate": true,
       "restore": true,
       "discount": true,
-      "tipJar": false,
-      "tipAsk": false,
-      "gift": false
+      "tipJar": true,
+      "tipAsk": true,
+      "gift": true
     },
     "comms": {
       "whatsNew": true,
@@ -529,7 +529,7 @@
     },
     "counts": {
       "accessibilityLabels": 128,
-      "testFiles": 40
+      "testFiles": 41
     },
     "support": {
       "registered": true,
@@ -540,7 +540,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

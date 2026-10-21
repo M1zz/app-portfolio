@@ -2521,7 +2521,7 @@ CHECKLIST = [
     ("rec", "quality", "tests", "자동 테스트", _m("ops", "tests")),
     ("rec", "feature", "tips", "사용 팁", _m("ux", "tips")),
     ("rec", "infra", "crashLoop", "연속 크래시 보호", _src("ops", "crashLoop")),
-    ("rec", "money", "paywall", "페이월 화면", _src("money", "paywall")),
+    ("rec", "money", "paywall", "페이월 화면", _if_sells(_src("money", "paywall"))),
     ("rec", "money", "tiers", "유료 등급 설계", _if_sells(_src("money", "tiers"))),
     ("rec", "money", "freeGate", "써 보고 결제(무료 문턱)", _if_sells(_src("money", "freeGate"))),
     ("rec", "money", "discount", "할인 제안", _if_sells(_src("money", "discount"))),

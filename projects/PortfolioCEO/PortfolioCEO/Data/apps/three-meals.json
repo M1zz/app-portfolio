@@ -327,7 +327,7 @@
     "a11y": {
       "voiceOver": true,
       "voiceControl": false,
-      "dynamicType": false,
+      "dynamicType": true,
       "darkMode": true,
       "differentiate": false,
       "contrast": false,
@@ -336,7 +336,7 @@
       "structure": true,
       "actions": true,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -349,19 +349,19 @@
       "moments": false,
       "sheets": true,
       "liveNumbers": false,
-      "localeFormat": false,
-      "textOverflow": true,
+      "localeFormat": true,
+      "textOverflow": false,
       "inputFlow": true,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
       "paywall": false,
       "tiers": false,
-      "freeGate": false,
-      "restore": true,
+      "freeGate": true,
+      "restore": false,
       "discount": false,
       "tipJar": false,
       "tipAsk": false,
@@ -375,7 +375,7 @@
     "more": {
       "schemaMigration": false,
       "emptyStates": false,
-      "biometricLock": false,
+      "biometricLock": true,
       "notifications": true,
       "performance": false,
       "logging": false,
@@ -399,8 +399,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 113,
-      "testFiles": 7
+      "accessibilityLabels": 125,
+      "testFiles": 9
     },
     "support": {
       "registered": true,
@@ -411,7 +411,7 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

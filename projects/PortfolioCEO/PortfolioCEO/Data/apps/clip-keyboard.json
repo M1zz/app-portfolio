@@ -554,11 +554,11 @@
       "mac": false,
       "watch": false,
       "vision": false,
-      "_macViaDesignedForIPad": false
+      "_macViaDesignedForIPad": true
     },
     "counts": {
-      "accessibilityLabels": 357,
-      "testFiles": 127
+      "accessibilityLabels": 366,
+      "testFiles": 132
     },
     "support": {
       "registered": true,
@@ -569,7 +569,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

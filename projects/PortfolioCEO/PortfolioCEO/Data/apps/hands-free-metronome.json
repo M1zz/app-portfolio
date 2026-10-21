@@ -181,7 +181,7 @@
       "notifications": false,
       "performance": true,
       "logging": true,
-      "funnel": true,
+      "funnel": false,
       "abTesting": false,
       "haptics": true,
       "preflight": true,
@@ -213,7 +213,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

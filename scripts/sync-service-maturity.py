@@ -219,10 +219,13 @@ def scan_source(root, exclude_roots):
             found["a11y"]["_video"] = True
         if FORCED_LIGHT.search(text):
             forced_light = True
+        # 줄 전체가 주석인 줄은 기능이 아니다 — 공유 사본에 따라온 주석 속 이름(`DiscountOfferManager`)이
+        # 그 앱에 없는 기능을 있는 것으로 잡았다. 줄 끝 주석은 문자열 속 URL(https://)과 갈라낼 수 없어 둔다.
+        code = COMMENT_LINE.sub("", text)
         for (k, i), p in pats.items():
             if i == "voiceOver":
-                a11y += len(p.findall(text))
-            elif not found[k][i] and p.search(text):
+                a11y += len(p.findall(code))
+            elif not found[k][i] and p.search(code):
                 found[k][i] = True
         for args in BOOTSTRAP.findall(text):
             if "diagnostics: false" not in args:
@@ -251,6 +254,9 @@ def scan_source(root, exclude_roots):
         f == "PrivacyInfo.xcprivacy" for dp, ds, fs in os.walk(root)
         if not any(x in dp.split(os.sep) for x in SKIP_DIRS) for f in fs)
     return found, {"accessibilityLabels": a11y, "testFiles": tests}
+
+
+COMMENT_LINE = re.compile(r"^[ \t]*//.*$", re.M)
 
 
 def scan_appearance(root, exclude_roots, a11y, forced_light):

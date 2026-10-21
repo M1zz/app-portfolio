@@ -124,15 +124,15 @@
       "textOverflow": true,
       "inputFlow": true,
       "textCopy": true,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
+      "freeGate": true,
+      "restore": true,
       "discount": false,
       "tipJar": false,
       "tipAsk": false,
@@ -170,8 +170,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 16,
-      "testFiles": 6
+      "accessibilityLabels": 22,
+      "testFiles": 7
     },
     "support": {
       "registered": true,
@@ -182,7 +182,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,

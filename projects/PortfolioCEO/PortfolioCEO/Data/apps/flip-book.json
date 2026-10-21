@@ -129,7 +129,7 @@
       "_forcedLight": false
     },
     "craft": {
-      "moments": false,
+      "moments": true,
       "sheets": true,
       "liveNumbers": false,
       "localeFormat": false,
@@ -194,7 +194,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-18"
+    "evaluatedAt": "2026-10-21"
   },
   "usStore": {
     "available": true,
