@@ -79,8 +79,8 @@
     "source": true,
     "feedback": {
       "inAppFeedback": true,
-      "mailContact": true,
-      "instagram": true,
+      "mailContact": false,
+      "instagram": false,
       "reviewPrompt": true,
       "writeReview": true
     },
@@ -97,7 +97,7 @@
       "widgets": true,
       "shortcuts": true,
       "cloudSync": false,
-      "tips": true,
+      "tips": false,
       "onboarding": false,
       "backup": false
     },
@@ -176,7 +176,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 0,
+      "accessibilityLabels": 2,
       "testFiles": 7
     },
     "support": {
