@@ -686,7 +686,7 @@ def readiness_tip(app, r):
         if "출시 후 90일 넘게 다듬기" in todo and polish_hint(app):
             todo[todo.index("출시 후 90일 넘게 다듬기")] = polish_hint(app)
         lines.append("할 일 · " + " / ".join(todo))
-    else:
+    elif r["known"]:  # 모두 확인 불가면 통과가 아니다 — 매출 데이터가 없는 컴퓨터에서 5단계 관문이 이렇게 된다
         lines.append("관문을 모두 통과했습니다" + (" — 단계를 올릴지 검토할 때입니다" if r["next"] >= 3 else ""))
     if r["unknown"]:
         lines.append("확인 불가 · " + ", ".join(r["unknown"]))

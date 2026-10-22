@@ -486,8 +486,8 @@
       "moments": false,
       "sheets": false,
       "liveNumbers": false,
-      "localeFormat": false,
-      "textOverflow": false,
+      "localeFormat": true,
+      "textOverflow": true,
       "inputFlow": false,
       "textCopy": true,
       "purchaseTest": false,
@@ -548,7 +548,7 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-21"
+    "evaluatedAt": "2026-10-22"
   },
   "usStore": {
     "available": true,

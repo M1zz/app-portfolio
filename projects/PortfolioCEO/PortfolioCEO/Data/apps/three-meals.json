@@ -346,7 +346,7 @@
       "_forcedLight": false
     },
     "craft": {
-      "moments": false,
+      "moments": true,
       "sheets": true,
       "liveNumbers": false,
       "localeFormat": true,
@@ -358,10 +358,10 @@
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
       "freeGate": true,
-      "restore": false,
+      "restore": true,
       "discount": false,
       "tipJar": false,
       "tipAsk": false,
@@ -399,8 +399,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 125,
-      "testFiles": 9
+      "accessibilityLabels": 86,
+      "testFiles": 4
     },
     "support": {
       "registered": true,
@@ -411,7 +411,7 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-21"
+    "evaluatedAt": "2026-10-22"
   },
   "usStore": {
     "available": true,
