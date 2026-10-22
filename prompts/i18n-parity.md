@@ -13,7 +13,9 @@
 ## 0. 시작
 클라우드는 기본 브랜치만 받는다. 먼저
 `git fetch origin <작업 브랜치> && git checkout -B <작업 브랜치> origin/<작업 브랜치>`
-그다음 `git checkout -b claude/i18n-clipkeyboard-parity` 로 새 브랜치를 만든다.
+그다음 `git fetch origin claude/i18n-clipkeyboard-parity` 가 성공하면(앞선 세션이 사용량 한도로 끊겨 중간 결과가 있다) `git checkout -B claude/i18n-clipkeyboard-parity FETCH_HEAD` 로 이어받아, 이미 끝난 언어는 건너뛰고(빈 칸만 채운다) 나머지를 한다. 없으면 `git checkout -b claude/i18n-clipkeyboard-parity` 로 새로 만든다.
+- 사용량 한도에 걸릴 수 있다. **언어 하나를 끝낼 때마다** 커밋하고 push 한다. 여러 언어를 한꺼번에 들고 있다가 끊기면 다 잃는다.
+- 하위 에이전트를 여러 개 동시에 띄우지 않는다(한도를 빨리 쓴다). 한 언어씩 차례로.
 
 ## 빠진 언어마다, 한 언어씩
 1. **설정** — deploy.env 의 `LOCALES=` 에 그 언어를 더한다(주석 · 순서 유지). deploy.env 가 없으면 만들지 말고 보고만. Xcode 프로젝트(project.pbxproj)의 `knownRegions` 에도 더한다.
