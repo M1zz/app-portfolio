@@ -233,5 +233,22 @@
     "iap": [],
     "iapEnglish": true,
     "evaluatedAt": "2026-10-15"
+  },
+  "introPage": {
+    "url": "https://m1zz.github.io/StaffSinger/",
+    "set": true,
+    "reachable": true,
+    "intro": false,
+    "screens": false,
+    "video": false,
+    "tryIt": false,
+    "scenario": false,
+    "steps": true,
+    "proof": false,
+    "storeLink": false,
+    "ogImage": false,
+    "english": true,
+    "urlEn": "https://m1zz.github.io/StaffSinger/en/",
+    "evaluatedAt": "2026-10-24"
   }
 }

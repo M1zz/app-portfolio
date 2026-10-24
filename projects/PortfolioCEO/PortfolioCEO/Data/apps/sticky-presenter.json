@@ -213,5 +213,22 @@
     "iap": [],
     "iapEnglish": true,
     "evaluatedAt": "2026-10-15"
+  },
+  "introPage": {
+    "url": "https://developeracademy-postech.github.io/StickyPresenter/support.html#ko",
+    "set": true,
+    "reachable": false,
+    "intro": null,
+    "screens": null,
+    "video": null,
+    "tryIt": null,
+    "scenario": null,
+    "steps": null,
+    "proof": null,
+    "storeLink": null,
+    "ogImage": null,
+    "english": null,
+    "urlEn": "https://developeracademy-postech.github.io/StickyPresenter/support.html#en",
+    "evaluatedAt": "2026-10-24"
   }
 }

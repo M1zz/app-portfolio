@@ -1433,6 +1433,9 @@ CHECK_SHORT = {
     "paywall": "페이월", "tiers": "등급", "freeGate": "무료 문턱", "discount": "할인", "tipJar": "후원",
     "tipAsk": "후원 부탁", "gift": "선물", "iapEnglish": "인앱 영어", "whatsNew": "새 기능", "roadmap": "로드맵",
     "feedbackReply": "답장", "family": "다른 앱",
+    "introPage": "소개", "introScreens": "화면", "introVideo": "영상", "introScenario": "장면",
+    "introSteps": "순서", "introStoreLink": "스토어", "introEnglish": "영어", "introOgImage": "미리보기",
+    "introTryIt": "체험", "introProof": "후기",
     "storeCopy": "스토어 문구", "screenshotCapture": "자동 촬영", "marketingScreens": "문구 스샷",
     "localizedScreens": "언어별 스샷", "demoMode": "데모 모드", "videoAsset": "영상", "videoTool": "영상 제작",
     "promoKit": "홍보 글", "shareApp": "앱 공유", "shareImage": "공유 이미지", "shareVideo": "공유 영상",
@@ -1464,6 +1467,7 @@ CAT_WHY = {
     "money": "돈을 받는 길이 공정하고 막힘없이 설계되어 있는지 봅니다. 파는 상품이 없는 앱은 등급·할인·선물 같은 항목을 ‘해당 없음’으로 둡니다.",
     "comms": "업데이트와 계획, 답장을 쓰는 사람에게 돌려주는지 봅니다.",
     "marketing": "앱 밖에서 사람을 데려오는 길이 있는지 봅니다.",
+    "intro": "App Store에서 ‘개발자 웹사이트’를 누른 사람이 앱을 받기 전에 쓰는 모습을 그려 볼 수 있는지 봅니다.",
 }
 CAT_NOTE = {
     "support": "노션으로 만든 페이지는 본문을 스크립트로 그려서 자동으로 읽을 수 없어 ‘확인 불가’로 둡니다.",
@@ -1473,6 +1477,9 @@ CAT_NOTE = {
     "marketing": "앱 레포에 홍보 파이프라인(스토어 문구 · 스크린샷 촬영·합성 · 영상 · 홍보 글)이 함께 있는지는 레포 파일로, "
                  "앱 안의 장치(데모 모드 · 공유 · 딥링크 · 코드 입력 · 초대)는 앱 소스 코드로 판정했습니다. "
                  "언어별 스크린샷은 3개 이상 언어 폴더에 그림이 있을 때, 공유 장치는 같은 파일에 공유 시트가 함께 있을 때 있음으로 봅니다.",
+    "intro": "소개 페이지는 App Store 마케팅 URL(한국 스토어 기준, 미국 스토어 주소가 다르면 그쪽을 영어 소개로)을 열어 판정했습니다. "
+             "앱 화면은 아이콘·배지를 뺀 그림이 2장 이상일 때, 직접 체험은 긴 스크립트와 ‘직접 눌러보세요’ 같은 안내가 함께 있을 때 있음으로 봅니다. "
+             "마케팅 URL 이 없으면 소개가 닿지 않으므로 나머지 항목도 모두 없음입니다.",
     "craft": "종합 상위 10개 앱과 하위 20개 앱의 코드를 견주어, 상위 앱 절반 이상이 갖췄고 하위 앱에는 드문 것을 골랐습니다. "
              "버전별 출시 기록은 버전 표시가 3개 이상, 꾸준한 손질은 최근 90일 동안 고친 기록이 20번 이상일 때 있음으로 봅니다.",
 }
@@ -2455,7 +2462,7 @@ CHECK_CATS = [
     ("infra", "인프라", "#e0a53a"), ("feature", "기능", "#a78bfa"), ("a11y", "접근성", "#e8789a"), ("craft", "다듬기", "#c9a227"),
     ("money", "수익화", "#f08c4a"),
     ("comms", "소통", "#3fb8c9"), ("quality", "품질", "#7c8cff"), ("data", "데이터", "#9aa5b1"),
-    ("marketing", "홍보", "#d65db1"),
+    ("marketing", "홍보", "#d65db1"), ("intro", "소개 페이지", "#4fb3a9"),
 ]
 NA = "na"  # 해당 없음 — 이 앱에는 물을 필요가 없는 항목. 분모에서 뺀다.
 
@@ -2463,6 +2470,23 @@ NA = "na"  # 해당 없음 — 이 앱에는 물을 필요가 없는 항목. 분
 def _src(area, key):
     """sync-service-maturity.py 가 남긴 값. 그 칸을 아직 재지 않았으면 None(확인 불가)."""
     return lambda a: (mat(a).get(area) or {}).get(key)
+
+
+def _intro(key):
+    """sync-intro-pages.py 가 남긴 소개 페이지 판정. 아직 재지 않았으면 None."""
+    return lambda a: (a.get("introPage") or {}).get(key)
+
+
+def _intro_exists(a):
+    """App Store 마케팅 URL 이 있고, 열리고, 지원 페이지가 아니라 앱을 소개한다."""
+    m = a.get("introPage")
+    if not m:
+        return None
+    if not m.get("set"):
+        return False
+    if m.get("reachable") is None:
+        return None
+    return bool(m["reachable"] and m.get("intro"))
 
 
 def _sells(a):
@@ -2552,6 +2576,7 @@ CHECKLIST = [
     ("base", "infra", "privacyManifest", "개인정보 매니페스트", _src("ops", "privacyManifest")),
     ("base", "money", "restore", "구매 복원", _restore),
     ("base", "comms", "whatsNew", "새 기능 알림", _src("comms", "whatsNew")),
+    ("base", "intro", "introPage", "소개 페이지", _intro_exists),
     ("rec", "lang", "multi", "3개 이상 언어", _lang(lambda a: len(app_langs(a)) >= 3)),
     ("rec", "support", "english", "영어 지원 페이지", _m("support", "english")),
     ("rec", "feedback", "mailContact", "메일 문의", _m("feedback", "mailContact")),
@@ -2597,6 +2622,15 @@ CHECKLIST = [
     ("opt", "feature", "notifications", "알림·재참여", _src("more", "notifications")),
     ("opt", "feature", "fold", "폴더블(아이폰 듀오) 대응", _src("more", "fold")),
     ("opt", "infra", "abTesting", "A/B 테스트", _src("more", "abTesting")),
+    ("rec", "intro", "introScreens", "소개에 앱 화면", _intro("screens")),
+    ("rec", "intro", "introVideo", "소개에 사용 영상", _intro("video")),
+    ("rec", "intro", "introScenario", "쓰는 장면 이야기", _intro("scenario")),
+    ("rec", "intro", "introSteps", "쓰는 순서 안내", _intro("steps")),
+    ("rec", "intro", "introStoreLink", "App Store 링크", _intro("storeLink")),
+    ("rec", "intro", "introEnglish", "영어 소개", _intro("english")),
+    ("rec", "intro", "introOgImage", "공유 미리보기 그림", _intro("ogImage")),
+    ("opt", "intro", "introTryIt", "페이지에서 직접 체험", _intro("tryIt")),
+    ("opt", "intro", "introProof", "후기·평점", _intro("proof")),
     ("opt", "marketing", "videoTool", "사용 영상 자동 제작", _src("marketing", "videoTool")),
     ("opt", "marketing", "promoKit", "홍보 글 원고", _src("marketing", "promoKit")),
     ("opt", "marketing", "shareApp", "앱 추천 공유", _src("marketing", "shareApp")),
@@ -2662,6 +2696,17 @@ CHECK_HELP = {"appEn": "앱 화면을 영어로 쓸 수 있습니다.",
               "emptyStates": "내용이 없거나 불러오지 못했을 때 빈 화면 대신 안내를 보여 줍니다.",
               "haptics": "눌렀을 때 손끝으로 느껴지는 반응을 줍니다.",
               "family": "앱 안에서 내가 만든 다른 앱을 소개합니다(LeeoFamily).",
+              "introPage": "App Store ‘마케팅 URL’(개발자 웹사이트)에 앱을 소개하는 페이지가 걸려 있고 열립니다. "
+                           "지원 페이지·노션·블로그 글이나 문의·FAQ만 있는 페이지는 소개로 치지 않습니다.",
+              "introScreens": "소개 페이지에 앱 화면 그림이 2장 이상 있어, 들어가기 전에 생김새를 봅니다.",
+              "introVideo": "소개 페이지에서 앱이 움직이는 모습을 영상으로 봅니다.",
+              "introScenario": "‘이럴 때 씁니다’처럼 쓰는 장면을 이야기로 보여 줍니다.",
+              "introSteps": "‘이렇게 써요’처럼 쓰는 순서를 단계로 보여 줍니다.",
+              "introStoreLink": "소개 페이지에서 바로 App Store 로 넘어가 받을 수 있습니다.",
+              "introEnglish": "영어로 된 소개가 있습니다(미국 스토어 마케팅 URL 또는 영어 페이지).",
+              "introOgImage": "소개 링크를 메신저·SNS에 붙이면 미리보기 그림이 뜹니다(og:image).",
+              "introTryIt": "소개 페이지 안에서 앱의 핵심 동작을 직접 눌러 봅니다.",
+              "introProof": "쓰는 사람의 후기나 평점을 보여 줍니다.",
               "storeCopy": "App Store 이름·부제·설명 원고를 앱 레포에 함께 둡니다(APPSTORE.md · fastlane metadata).",
               "screenshotCapture": "시뮬레이터에서 스크린샷을 찍는 스크립트가 있어, 화면이 바뀔 때마다 다시 찍기 쉽습니다.",
               "marketingScreens": "찍은 화면에 문구와 배경을 입혀 스토어용 스크린샷으로 만듭니다.",

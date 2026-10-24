@@ -566,5 +566,22 @@
     ],
     "iapEnglish": true,
     "evaluatedAt": "2026-10-15"
+  },
+  "introPage": {
+    "url": "https://leeo75.notion.site/2f7e264a0fdc8003935aceb9f86d0c96?source=copy_link",
+    "set": true,
+    "reachable": true,
+    "intro": false,
+    "screens": null,
+    "video": null,
+    "tryIt": null,
+    "scenario": null,
+    "steps": null,
+    "proof": null,
+    "storeLink": null,
+    "ogImage": null,
+    "english": null,
+    "urlEn": "https://m1zz.github.io/DontGoMart/support.html",
+    "evaluatedAt": "2026-10-24"
   }
 }

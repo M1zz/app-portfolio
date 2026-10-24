@@ -184,5 +184,21 @@
   "usStore": {
     "available": false,
     "evaluatedAt": "2026-10-15"
+  },
+  "introPage": {
+    "url": null,
+    "set": false,
+    "reachable": null,
+    "intro": false,
+    "screens": false,
+    "video": false,
+    "tryIt": false,
+    "scenario": false,
+    "steps": false,
+    "proof": false,
+    "storeLink": false,
+    "ogImage": false,
+    "english": false,
+    "evaluatedAt": "2026-10-24"
   }
 }

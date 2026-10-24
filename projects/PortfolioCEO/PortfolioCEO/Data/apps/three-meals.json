@@ -457,5 +457,22 @@
     "iap": [],
     "iapEnglish": true,
     "evaluatedAt": "2026-10-15"
+  },
+  "introPage": {
+    "url": "https://m1zz.github.io/RoutineCamera/",
+    "set": true,
+    "reachable": true,
+    "intro": false,
+    "screens": false,
+    "video": false,
+    "tryIt": false,
+    "scenario": false,
+    "steps": false,
+    "proof": false,
+    "storeLink": false,
+    "ogImage": false,
+    "english": true,
+    "urlEn": "https://m1zz.github.io/RoutineCamera/en/",
+    "evaluatedAt": "2026-10-24"
   }
 }

@@ -207,5 +207,21 @@
     "iap": [],
     "iapEnglish": true,
     "evaluatedAt": "2026-10-15"
+  },
+  "introPage": {
+    "url": "https://developeracademy-postech.github.io/StickyPresenter/remote.html",
+    "set": true,
+    "reachable": false,
+    "intro": null,
+    "screens": null,
+    "video": null,
+    "tryIt": null,
+    "scenario": null,
+    "steps": null,
+    "proof": null,
+    "storeLink": null,
+    "ogImage": null,
+    "english": null,
+    "evaluatedAt": "2026-10-24"
   }
 }
