@@ -115,7 +115,7 @@
       "structure": false,
       "actions": false,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -128,7 +128,7 @@
       "moments": true,
       "sheets": true,
       "liveNumbers": true,
-      "localeFormat": false,
+      "localeFormat": true,
       "textOverflow": false,
       "inputFlow": true,
       "textCopy": false,
@@ -183,7 +183,7 @@
       "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
-      "localizedScreens": false,
+      "localizedScreens": true,
       "videoTool": false
     },
     "devices": {
@@ -202,7 +202,7 @@
       "registered": true,
       "reachable": true,
       "privacy": true,
-      "english": false,
+      "english": true,
       "contact": true,
       "host": "m1zz.github.io",
       "status": 200

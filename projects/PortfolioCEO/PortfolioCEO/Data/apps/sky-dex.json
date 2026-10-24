@@ -175,7 +175,7 @@
       "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
-      "localizedScreens": false,
+      "localizedScreens": true,
       "videoTool": false
     },
     "devices": {
