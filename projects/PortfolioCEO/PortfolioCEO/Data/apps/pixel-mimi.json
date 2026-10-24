@@ -496,6 +496,23 @@
       "swiftlint": false,
       "ci": false
     },
+    "marketing": {
+      "demoMode": false,
+      "deepLink": true,
+      "offerCode": false,
+      "invite": false,
+      "installNudge": false,
+      "shareApp": true,
+      "shareImage": false,
+      "shareVideo": true,
+      "storeCopy": true,
+      "screenshotCapture": true,
+      "marketingScreens": true,
+      "videoAsset": false,
+      "promoKit": false,
+      "localizedScreens": true,
+      "videoTool": false
+    },
     "devices": {
       "iphone": true,
       "ipad": false,

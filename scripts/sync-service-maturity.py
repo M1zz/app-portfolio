@@ -18,6 +18,9 @@
   comms      소통           새 기능 알림 · 로드맵 · 의견 답장
   craft      다듬기         만족한 순간 세기 · 시트 다듬기 · 숫자 바뀜 효과 · 지역 맞춤 표기 · 긴 글자 처리 ·
                             입력 흐름 · 글자 복사 · 구매 흐름 시험 · 버전별 출시 기록 · 꾸준한 손질
+  marketing  홍보           스토어 문구 원고 · 스크린샷 자동 촬영 · 문구 입힌 스크린샷 · 언어별 스크린샷 · 사용 영상 도구 ·
+                            사용 영상 · 홍보 글 원고 (레포 파일) / 촬영용 데모 모드 · 앱 공유 · 공유 이미지 · 공유 영상 ·
+                            딥링크 · 프로모션 코드 · 초대 · 설치 유도 (앱 소스)
   devices    기기           iPhone · iPad · Mac · Apple Watch · Vision Pro
   support    지원 페이지     등록 · 접속 · 개인정보 처리방침 · 영어 안내 · 문의 수단
 
@@ -144,7 +147,44 @@ SRC = {
         "family": r"LeeoFamily",
         "fold": r"LeeoFold|FoldCompanion",
     },
+    # 홍보 — 앱 안의 장치. 레포의 홍보 파이프라인은 MKT_FILES, 공유 장치는 SHARE_* 로 따로 본다 (2026-10-24 앱 레포 39개 기준)
+    "marketing": {
+        # 스크린샷·영상 촬영 때 보기 좋은 데이터를 채우는 모드 (ScreenshotMode · DemoMode · DemoDataService · -screenshotSeed)
+        "demoMode": r"\b(?:Screenshot|Demo)(?:Mode|DataService|DataSeeder|Seeder)\b|DemoData\.(?:activeKey|seed|enable)|"
+                    r"arguments\.contains\(\"-(?:screenshot|demo|UITest_?Screenshots)\w*\"\)",
+        "deepLink": r"\.onOpenURL\b|onContinueUserActivity|continueUserActivity|NSUserActivityTypeBrowsingWeb",
+        "offerCode": r"offerCodeRedemption|presentCodeRedemptionSheet|presentOfferCodeRedeemSheet",
+        "invite": r"inviteCode|inviteLink|InviteFriend|[Rr]eferral",
+        # 앱 클립·다른 앱에서 본 앱을 설치하게 띄우는 배너
+        "installNudge": r"SKOverlay|AppClipConfiguration",
+    },
 }
+# 홍보 — 공유 장치는 한 파일 안에 '공유 시트'와 '공유할 것'이 함께 있어야 센다 (이미지 그리기만 하는 코드는 빼려고)
+SHARE_SHEET = re.compile(r"ShareLink\(|UIActivityViewController")
+SHARE_APP = re.compile(r"apps\.apple\.com/app/id|appStoreURL|\bappURL\b|shareApp")
+SHARE_IMAGE = re.compile(r"\bImageRenderer\b|UIGraphicsImageRenderer\b")
+SHARE_VIDEO = re.compile(r"AVAssetWriter\b")
+# 홍보 — 레포에 함께 있는 홍보 파이프라인 (저장소 맨 위 기준 경로)
+MKT_FILES = {
+    "storeCopy": re.compile(r"(?i)(^|/)APPSTORE\.md$|(^|/)metadata/[^/]+/(description|promotional_text|keywords)\.txt$|"
+                            r"appstore-metadata\.md$"),
+    "screenshotCapture": re.compile(r"(?i)(^|/)[^/]*(capture|take)[^/]*\.(sh|py)$|(^|/)Snapfile$|"
+                                    r"(^|/)make_(store_)?screenshots\.sh$"),
+    "marketingScreens": re.compile(r"(?i)(^|/)screenshots/marketing[^/]*/.+\.(png|jpe?g)$|(^|/)make_marketing[^/]*\.py$|"
+                                   r"compose_screenshots\.py$"),
+    "videoAsset": re.compile(r"(?i)(^|/)(docs|marketing|appstore|screenshots|fastlane)/(.+/)?[^/]+\.(mp4|mov)$"),
+    "promoKit": re.compile(r"(?i)(^|/)marketing/.+\.md$|(^|/)docs/marketing[^/]*(/.+)?\.md$|reddit[^/]*\.md$|"
+                           r"marketing-kit|producthunt"),
+}
+# 소스 패턴(SRC["marketing"]) 밖에서 판정하는 홍보 항목
+MKT_ITEMS = ("shareApp", "shareImage", "shareVideo", *MKT_FILES, "localizedScreens", "videoTool")
+# 언어별 스크린샷 — 이 아래 언어 폴더에 그림이 있으면 그 언어로 친다. 3개 언어 이상이면 있음.
+MKT_LOCALE_DIR = re.compile(r"(?i)(?:^|/)(?:screenshots/marketing/|screenshots/marketing-|appstore/screenshots/|"
+                            r"fastlane/screenshots/)([a-z]{2}(?:[-_][A-Za-z]{2,4})?)/[^/]+\.(?:png|jpe?g)$")
+MKT_LOCALES_MIN = 3
+# 사용 영상 도구 — 시뮬레이터 화면 녹화, 또는 이름에 video 가 든 스크립트가 영상을 만든다 (ffmpeg 로 그림만 자르는 스크립트는 빼려고)
+VIDEO_TOOL = re.compile(r"recordVideo")
+VIDEO_MAKER = re.compile(r"ffmpeg|AVAssetWriter|moviepy|\.mp4")
 # 파일로 판정하는 것 — 저장소 맨 위 기준 경로
 RELEASE_TAGS_MIN = 3     # 버전 태그가 이만큼 있으면 출시마다 기록을 남긴다고 본다
 STEADY_COMMITS_MIN = 20  # 최근 90일 커밋이 이만큼 있으면 꾸준히 손본다고 본다
@@ -196,6 +236,7 @@ def scan_source(root, exclude_roots):
     found["more"].update({"uiTests": False, **{k: False for k in REPO_FILES}})
     found["a11y"].update({"a11yAudit": False, "_video": False})
     found["craft"]["purchaseTest"] = False
+    found["marketing"].update({k: False for k in MKT_ITEMS})
     forced_light = False
     pats = {(k, i): re.compile(p, re.M) for k, items in SRC.items() for i, p in items.items()}
     a11y = 0
@@ -227,6 +268,11 @@ def scan_source(root, exclude_roots):
                 a11y += len(p.findall(code))
             elif not found[k][i] and p.search(code):
                 found[k][i] = True
+        mk = found["marketing"]
+        if SHARE_SHEET.search(code):
+            mk["shareApp"] = mk["shareApp"] or SHARE_APP.search(code) is not None
+            mk["shareImage"] = mk["shareImage"] or SHARE_IMAGE.search(code) is not None
+        mk["shareVideo"] = mk["shareVideo"] or SHARE_VIDEO.search(code) is not None
         for args in BOOTSTRAP.findall(text):
             if "diagnostics: false" not in args:
                 crash_by_bootstrap = True
@@ -237,6 +283,7 @@ def scan_source(root, exclude_roots):
     found["ops"]["crash"] = found["ops"]["crash"] or crash_by_bootstrap
     found["ops"]["tests"] = tests > 0
     top = os.popen("git -C '%s' rev-parse --show-toplevel 2>/dev/null" % root).read().strip() or root
+    locales = set()
     for dp, ds, fs in os.walk(top):
         ds[:] = [d for d in ds if d not in SKIP_DIRS and d != ".build"]
         for f in fs + ds:
@@ -244,8 +291,22 @@ def scan_source(root, exclude_roots):
             for k, p in REPO_FILES.items():
                 if p.search(rel):
                     found["more"][k] = True
+            for k, p in MKT_FILES.items():
+                if p.search(rel):
+                    found["marketing"][k] = True
+            loc = MKT_LOCALE_DIR.search(rel)
+            if loc:
+                locales.add(loc.group(1).lower().replace("_", "-"))
+            if f.endswith((".sh", ".py", ".rb")) and not found["marketing"]["videoTool"]:
+                try:
+                    t = open(os.path.join(dp, f), errors="ignore").read()
+                except OSError:
+                    t = ""
+                found["marketing"]["videoTool"] = bool(
+                    VIDEO_TOOL.search(t) or ("video" in f.lower() and VIDEO_MAKER.search(t)))
             if f.endswith(".storekit"):
                 found["craft"]["purchaseTest"] = True
+    found["marketing"]["localizedScreens"] = len(locales) >= MKT_LOCALES_MIN
     tags = os.popen("git -C '%s' tag 2>/dev/null" % top).read().split()
     found["craft"]["releaseTags"] = len(tags) >= RELEASE_TAGS_MIN
     recent = os.popen("git -C '%s' log --since=90.days --oneline 2>/dev/null" % top).read().splitlines()
@@ -396,6 +457,7 @@ def main():
             m["ops"]["privacyManifest"] = None
             m["a11y"]["a11yAudit"] = None
             m["craft"].update({"purchaseTest": None, "releaseTags": None, "steadyUpdates": None})
+            m["marketing"].update({k: None for k in MKT_ITEMS})
             m["devices"] = None
         if args.offline and prev.get("support"):
             m["support"] = prev["support"]
@@ -410,9 +472,9 @@ def main():
         def mark(d):
             return "".join("·" if v is None else ("●" if v else "○")
                            for k, v in (d or {}).items() if not k.startswith("_"))
-        print("  %-24s 소스 %s  피드백 %s  운영 %s  경험 %s  접근성 %s  기기 %s  지원 %s" % (
+        print("  %-24s 소스 %s  피드백 %s  운영 %s  경험 %s  접근성 %s  홍보 %s  기기 %s  지원 %s" % (
             os.path.basename(path)[:-5], "O" if root else "-", mark(m["feedback"]), mark(m["ops"]),
-            mark(m["ux"]), mark(m["a11y"]), mark(m["devices"]),
+            mark(m["ux"]), mark(m["a11y"]), mark(m["marketing"]), mark(m["devices"]),
             mark({k: v for k, v in m["support"].items() if k in
                   ("registered", "reachable", "privacy", "english", "contact")})))
 

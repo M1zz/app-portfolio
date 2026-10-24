@@ -146,6 +146,23 @@
       "family": null,
       "fold": null
     },
+    "marketing": {
+      "demoMode": null,
+      "deepLink": null,
+      "offerCode": null,
+      "invite": null,
+      "installNudge": null,
+      "shareApp": null,
+      "shareImage": null,
+      "shareVideo": null,
+      "storeCopy": null,
+      "screenshotCapture": null,
+      "marketingScreens": null,
+      "videoAsset": null,
+      "promoKit": null,
+      "localizedScreens": null,
+      "videoTool": null
+    },
     "devices": null,
     "support": {
       "registered": true,

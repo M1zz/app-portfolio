@@ -1,3 +1,10 @@
+# TODO — 서비스 숙성도에 홍보(마케팅) 파이프라인 판정 (2026-10-24)
+
+- [x] `sync-service-maturity.py` 에 `marketing` 그룹: 레포 파일(스토어 문구 · 스크린샷 자동 촬영 · 문구 입힌 스크린샷 · 언어별 스크린샷 3개+ · 영상 도구 · 영상 · 홍보 글) + 앱 소스(데모 모드 · 앱 공유 · 공유 이미지 · 공유 영상 · 딥링크 · 코드 입력 · 초대 · 설치 유도)
+- [x] 홍보 분류에 권장 6개 · 선택 9개 추가, 도입 예정의 '언어별 스토어 스크린샷' · '미리보기 영상' 은 판정 항목으로 옮김
+- [ ] 사용 영상 파이프라인을 LeeoKit 또는 공용 스크립트로 — 지금은 클립키보드에만 있음 (take_demo_video.sh · make_demo_video.py · make_preview_video.py)
+- [ ] 소스가 이 컴퓨터에 없는 7개 앱은 홍보 값이 확인 불가 — 메인 컴퓨터에서 재측정
+
 # TODO — 앱 레포 최신화 · 언어 갱신 (2026-10-24, 보조 컴퓨터)
 
 - [x] 앱 레포 39개 최신화: 옛 브랜치 7개는 최신 브랜치로, 로컬 변경 있는 6개(HigGym · Gyeol · SunlightTracker · WorryParking · PixelMe · StickyPresenter)는 stash 후 최신으로 (`portfolio-update 2026-10-24`)

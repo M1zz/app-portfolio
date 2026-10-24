@@ -172,6 +172,23 @@
       "swiftlint": true,
       "ci": true
     },
+    "marketing": {
+      "demoMode": false,
+      "deepLink": false,
+      "offerCode": true,
+      "invite": false,
+      "installNudge": false,
+      "shareApp": false,
+      "shareImage": true,
+      "shareVideo": false,
+      "storeCopy": true,
+      "screenshotCapture": true,
+      "marketingScreens": true,
+      "videoAsset": true,
+      "promoKit": true,
+      "localizedScreens": true,
+      "videoTool": false
+    },
     "devices": {
       "iphone": true,
       "ipad": true,

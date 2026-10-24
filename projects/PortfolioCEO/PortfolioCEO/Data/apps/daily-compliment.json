@@ -489,7 +489,24 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-21"
+    "evaluatedAt": "2026-10-21",
+    "marketing": {
+      "demoMode": null,
+      "deepLink": null,
+      "offerCode": null,
+      "invite": null,
+      "installNudge": null,
+      "shareApp": null,
+      "shareImage": null,
+      "shareVideo": null,
+      "storeCopy": null,
+      "screenshotCapture": null,
+      "marketingScreens": null,
+      "videoAsset": null,
+      "promoKit": null,
+      "localizedScreens": null,
+      "videoTool": null
+    }
   },
   "usStore": {
     "available": true,
