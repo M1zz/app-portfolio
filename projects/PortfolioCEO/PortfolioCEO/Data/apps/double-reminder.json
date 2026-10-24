@@ -279,7 +279,7 @@
   "localProjectPath": "../toki",
   "minimumOS": "16.0",
   "name": "두번알림",
-  "nameEn": "Double Reminder",
+  "nameEn": "Rereminder",
   "nextTasks": [
     "다국어 지원 (영어 + 아시아 중심 - 일본, 중국)",
     "1.0.5 배포",

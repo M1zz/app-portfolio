@@ -293,14 +293,14 @@
       "hook": "If you have no idea when you could retire"
     },
     "korea-navi": {
-      "tagline": "Navigation designed for accessibility",
-      "problem": "Mainstream map apps neglect accessibility, making navigation itself a barrier for some.",
-      "stakeholders": "All pedestrians, including users who need accessibility support",
-      "persona": "Hanbyul (40), a visually impaired user who navigates with a screen reader",
-      "context": "Following directions in a map app with a complex UI is a struggle.",
-      "solution": "An accessibility-first UI guides everyone to their destination with ease.",
-      "hook": "If you need directions that respect accessibility",
-      "highlight": "Wayfinding designed accessibility-first"
+      "tagline": "Korea subway guide for travelers",
+      "problem": "Korea's subway lines are complex and signage leans Korean, so travelers can't tell which train to take or where to get off.",
+      "stakeholders": "Visitors traveling in Korea, anyone riding an unfamiliar city's subway for the first time",
+      "persona": "Emily (29), an American on her first trip to Seoul",
+      "context": "She sees the platform's destination signs but isn't sure it's the right direction, lets trains go by, and keeps staring at her phone so she won't miss her stop.",
+      "solution": "Pick a start and end station to see the direction exactly as shown on the train, with a vibration when your stop is near. Available in 23 languages.",
+      "hook": "If Korea's subway directions and stops confuse you",
+      "highlight": "Board by the train's own sign, get off on a vibration"
     },
     "rapport-map": {
       "tagline": "A compass that records the context of your relationships",
