@@ -390,17 +390,19 @@
     "updatedAt": "2026-03-03"
   },
   "globalReach": {
-    "level": 1,
-    "label": "english-store",
+    "level": 3,
+    "label": "multilingual",
     "languages": [
+      "EN",
+      "JA",
       "KO"
     ],
-    "languageCount": 1,
+    "languageCount": 3,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-17"
+    "basis": "앱 언어 EN, JA, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-24"
   },
   "serviceMaturity": {
     "source": true,

@@ -1,3 +1,11 @@
+# TODO — 앱 레포 최신화 · 언어 갱신 (2026-10-24, 보조 컴퓨터)
+
+- [x] 앱 레포 39개 최신화: 옛 브랜치 7개는 최신 브랜치로, 로컬 변경 있는 6개(HigGym · Gyeol · SunlightTracker · WorryParking · PixelMe · StickyPresenter)는 stash 후 최신으로 (`portfolio-update 2026-10-24`)
+- [x] `sync-global-reach.py` 로 App Store 언어 재조회 (10-17 이후 처음) — 22개 언어 앱 대거 반영
+- [x] 최신 로컬 소스로 숙성도 재측정 · 사이트 재생성
+- [ ] 위 6개 레포 stash 되살릴지 정리 (`git stash list`)
+- [ ] docs/lifecycle.html 은 매출 데이터가 없어 이번에도 재생성 안 함 — 제품 여정의 언어 관문 · 글로벌 지도는 메인 컴퓨터에서 재생성해야 반영됨
+
 # TODO — 서비스 숙성도 업데이트 (2026-10-24, 보조 컴퓨터)
 
 - [x] 10-22 와 같은 방식(원격 최신 브랜치 worktree 측정 · 기존 '있음' 유지 · lifecycle.html 제외)으로 재측정 · 사이트 재생성

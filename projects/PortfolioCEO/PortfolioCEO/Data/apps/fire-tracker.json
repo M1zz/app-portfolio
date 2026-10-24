@@ -64,17 +64,18 @@
     "updatedAt": "2026-09-11"
   },
   "globalReach": {
-    "level": 0,
-    "label": "korea-first",
+    "level": 2,
+    "label": "bilingual",
     "languages": [
-      "EN"
+      "EN",
+      "KO"
     ],
-    "languageCount": 1,
+    "languageCount": 2,
     "englishPage": false,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-17"
+    "basis": "앱 언어 EN, KO · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-24"
   },
   "serviceMaturity": {
     "source": true,

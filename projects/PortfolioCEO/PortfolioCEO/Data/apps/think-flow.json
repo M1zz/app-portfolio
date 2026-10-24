@@ -63,17 +63,38 @@
     "updatedAt": "2026-06-13"
   },
   "globalReach": {
-    "level": 0,
-    "label": "korea-first",
+    "level": 3,
+    "label": "multilingual",
     "languages": [
-      "KO"
+      "CS",
+      "DA",
+      "DE",
+      "EL",
+      "EN",
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
+      "JA",
+      "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
+      "ZH"
     ],
-    "languageCount": 1,
-    "englishPage": false,
+    "languageCount": 22,
+    "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 KO · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-17"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-24"
   },
   "serviceMaturity": {
     "source": true,
@@ -132,7 +153,7 @@
       "textCopy": false,
       "purchaseTest": false,
       "releaseTags": false,
-      "steadyUpdates": false
+      "steadyUpdates": true
     },
     "money": {
       "paywall": false,
@@ -176,8 +197,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 35,
-      "testFiles": 0
+      "accessibilityLabels": 51,
+      "testFiles": 2
     },
     "support": {
       "registered": true,

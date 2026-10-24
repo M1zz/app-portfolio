@@ -387,18 +387,38 @@
     "updatedAt": "2026-08-16"
   },
   "globalReach": {
-    "level": 2,
-    "label": "bilingual",
+    "level": 3,
+    "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
+      "DE",
+      "EL",
       "EN",
-      "KO"
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
+      "JA",
+      "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
+      "ZH"
     ],
-    "languageCount": 2,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-17"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-24"
   },
   "serviceMaturity": {
     "source": true,
