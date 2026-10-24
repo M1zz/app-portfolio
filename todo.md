@@ -1,3 +1,8 @@
+# TODO — 앱 정보 바로잡기 (2026-10-24)
+
+- [x] 골드위크 · 욕망의 무지개 vision, KORA 쇼케이스를 APPSTORE.md 기준으로 다시 씀 · nameEn 22개를 미국 스토어 브랜드 이름에 맞춤
+- [ ] 퇴사각(fire-tracker): 영어 스토어 문구(FireTracker APPSTORE.md 의 "Toesagak: Retire Early")가 실제로 올라가면 nameEn 을 Toesagak 으로
+
 # TODO — 소개 페이지 점검 (2026-10-24)
 
 - [x] `scripts/sync-intro-pages.py` — App Store 마케팅 URL(sellerUrl)의 소개 페이지를 열어 앱 JSON `introPage` 에 기록
