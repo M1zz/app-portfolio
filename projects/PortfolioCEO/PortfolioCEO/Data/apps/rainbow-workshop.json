@@ -256,5 +256,10 @@
       "subreddit": "r/AppHookup",
       "url": "https://www.reddit.com/r/AppHookup/comments/1wp9ayu/macosios_rainbow_craft_rainbow_of_desirepro_free/"
     }
+  },
+  "revenueGates": {
+    "revenue": false,
+    "profit": false,
+    "uptrend": false
   }
 }

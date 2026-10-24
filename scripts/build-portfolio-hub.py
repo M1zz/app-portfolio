@@ -550,6 +550,7 @@ def _reach_at_least(n):
 # ── 5단계 관문: 매출로 검증한다 (2026-10-18 사용자 기준 — 매출 발생 · 순수익 · 안정적 우상향) ──
 # 금액은 공개 레포에 두지 않는다. sync-revenue.py 가 reports/revenue.json(.gitignore)에 쓴 값을 여기서만 읽고,
 # 공개 페이지에는 관문 통과 여부만 나간다. 비용은 reports/app-costs.json(.gitignore) — 없으면 0.
+# 통과 여부는 앱 JSON revenueGates 에도 남겨, 매출 자료가 없는 컴퓨터에서 만들어도 관문이 '확인 불가'로 떨어지지 않게 한다.
 REVENUE_WINDOW = 6   # 최근 이 개월 수(끝난 달)로 본다
 _REVENUE = None
 
@@ -601,6 +602,37 @@ def _gate_uptrend(a):
     return all(y > 0 for y in net) and slope > 0 and sum(net[half:]) > sum(net[:half])
 
 
+
+def _cached(key, fn):
+    """매출 자료가 없으면 마지막으로 매출 자료가 있던 컴퓨터가 남긴 통과 여부(revenueGates)를 쓴다."""
+    def gate(a):
+        v = fn(a)
+        return (a.get("revenueGates") or {}).get(key) if v is None and net_by_month(a) is None else v
+    return gate
+
+
+def save_revenue_gates(apps):
+    """매출 자료가 있으면 5단계 관문 통과 여부를 앱 JSON revenueGates 에 적는다 — 금액은 적지 않는다."""
+    rev, _ = _revenue_data()
+    if not rev.get("months"):
+        return
+    for a in apps:
+        if (a.get("lifecycle") or {}).get("stage") != 4:
+            continue
+        gates = {k: fn(a) for k, _, fn in GATES[5][2]}
+        if None in gates.values():
+            continue
+        gates["through"] = rev["months"][-1]
+        if a.get("revenueGates") == gates:
+            continue
+        path = os.path.join(APPS, a["_slug"] + ".json")
+        with open(path, encoding="utf-8") as fh:
+            d = json.load(fh)
+        d["revenueGates"] = a["revenueGates"] = gates
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(d, fh, ensure_ascii=False, indent=2)
+            fh.write("\n")
+
 GATES = {
     2: ("쓸 수 있는 제품", "출시 후 90일 넘게 다듬으면 자동으로 2단계가 됩니다.", [
         ("polish", "출시 후 90일 넘게 다듬기",
@@ -631,9 +663,9 @@ GATES = {
     ]),
     5: ("돈이 되는 제품", "5단계는 매출로 검증합니다. 최근 %d개월(끝난 달) App Store 개발자 수익 기준이며, "
         "모두 갖추면 검토 후보입니다." % REVENUE_WINDOW, [
-        ("revenue", "최근 %d개월 매달 매출 발생" % REVENUE_WINDOW, _gate_revenue),
-        ("profit", "순수익 흑자(수익 − 비용)", _gate_profit),
-        ("uptrend", "안정적 우상향(매달 흑자 · 추세 상승)", _gate_uptrend),
+        ("revenue", "최근 %d개월 매달 매출 발생" % REVENUE_WINDOW, _cached("revenue", _gate_revenue)),
+        ("profit", "순수익 흑자(수익 − 비용)", _cached("profit", _gate_profit)),
+        ("uptrend", "안정적 우상향(매달 흑자 · 추세 상승)", _cached("uptrend", _gate_uptrend)),
     ]),
 }
 STAGE_NAME = {2: "PS Fit", 3: "PMF 탐색", 4: "넓히는 중", 5: "자리 잡음"}
@@ -2915,6 +2947,7 @@ def apps_page(apps):
 def main():
     links = json.load(open(os.path.join(ROOT, "scripts/hub-links.json"), encoding="utf-8"))
     apps = load_apps()
+    save_revenue_gates(apps)
     os.makedirs(REPORTS, exist_ok=True)
     outs = [
         (os.path.join(DOCS, "apps.html"), apps_page(apps), "공개"),

@@ -617,5 +617,10 @@
       "subreddit": "r/AppHookup",
       "url": "https://www.reddit.com/r/AppHookup/comments/1w1jbh0/ios_clip_keyboard_quick_phrases_pro_iap_999_100/"
     }
+  },
+  "revenueGates": {
+    "revenue": false,
+    "profit": true,
+    "uptrend": false
   }
 }
