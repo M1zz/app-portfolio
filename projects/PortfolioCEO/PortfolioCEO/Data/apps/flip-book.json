@@ -186,6 +186,23 @@
       "swiftlint": false,
       "ci": false
     },
+    "marketing": {
+      "demoMode": false,
+      "deepLink": false,
+      "offerCode": false,
+      "invite": false,
+      "installNudge": false,
+      "shareApp": false,
+      "shareImage": false,
+      "shareVideo": true,
+      "storeCopy": true,
+      "screenshotCapture": true,
+      "marketingScreens": true,
+      "videoAsset": false,
+      "promoKit": false,
+      "localizedScreens": true,
+      "videoTool": false
+    },
     "devices": {
       "iphone": false,
       "ipad": true,
@@ -207,24 +224,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-21",
-    "marketing": {
-      "demoMode": null,
-      "deepLink": null,
-      "offerCode": null,
-      "invite": null,
-      "installNudge": null,
-      "shareApp": null,
-      "shareImage": null,
-      "shareVideo": null,
-      "storeCopy": null,
-      "screenshotCapture": null,
-      "marketingScreens": null,
-      "videoAsset": null,
-      "promoKit": null,
-      "localizedScreens": null,
-      "videoTool": null
-    }
+    "evaluatedAt": "2026-10-24"
   },
   "usStore": {
     "available": true,
