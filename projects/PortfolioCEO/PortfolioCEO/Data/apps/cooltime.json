@@ -397,7 +397,7 @@
       "structure": true,
       "actions": false,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -416,7 +416,7 @@
       "textCopy": false,
       "purchaseTest": false,
       "releaseTags": false,
-      "steadyUpdates": false
+      "steadyUpdates": true
     },
     "money": {
       "paywall": false,
@@ -472,7 +472,7 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-22"
+    "evaluatedAt": "2026-10-24"
   },
   "usStore": {
     "available": true,

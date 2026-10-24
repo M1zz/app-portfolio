@@ -176,12 +176,12 @@
       "registered": true,
       "reachable": true,
       "privacy": true,
-      "english": false,
+      "english": true,
       "contact": true,
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-22"
+    "evaluatedAt": "2026-10-24"
   },
   "usStore": {
     "available": true,
