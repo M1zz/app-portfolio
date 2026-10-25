@@ -266,7 +266,7 @@
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "2.1.0",
+  "currentVersion": "2.1.1",
   "folderId": "pixel-mimi",
   "githubRepo": "https://github.com/M1zz/PixelMe",
   "localProjectPath": "../../../../../../Auto/한땀",
@@ -306,7 +306,7 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-21"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [
@@ -380,29 +380,48 @@
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
-    "tier": "C",
-    "basis": "출시 후 다듬은 기간 1005일 · 외부 평점 0개 · 최종 업데이트 228일 경과 → 정지",
-    "evaluatedAt": "2026-10-17",
+    "tier": "A",
+    "basis": "출시 후 다듬은 기간 1240일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 228,
-    "polishDays": 1005,
+    "daysSinceUpdate": 1,
+    "polishDays": 1240,
     "releasedAt": "2023-06-02",
-    "updatedAt": "2026-03-03"
+    "updatedAt": "2026-10-24"
   },
   "globalReach": {
     "level": 3,
     "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
+      "DE",
+      "EL",
       "EN",
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
       "JA",
-      "KO"
+      "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
+      "ZH"
     ],
-    "languageCount": 3,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN, JA, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -534,7 +553,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
@@ -554,7 +573,7 @@
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-21"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://m1zz.github.io/PixelMe/ko/",
@@ -571,6 +590,6 @@
     "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/PixelMe/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

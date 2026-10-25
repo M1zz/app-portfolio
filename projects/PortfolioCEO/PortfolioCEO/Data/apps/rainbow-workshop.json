@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6777737322",
   "bundleId": "com.devkoan.ScheduleDensityApp",
   "categories": [],
-  "currentVersion": "1.1.11",
+  "currentVersion": "1.1.14",
   "folderId": "rainbow-workshop",
   "githubRepo": "",
   "localProjectPath": "",
@@ -22,12 +22,20 @@
   "notes": "[2026-07-05 스토어 동기화로 자동 등록] 나의 일주일을 블록으로 만들어서 시각화 하는 앱 입니다. (스토어명: 무지개 공방, 2026-06-26 최신 버전 출시)",
   "price": {
     "isFree": true,
-    "pricingModel": "freemium",
+    "pricingModel": "freemium-subscription",
     "hasInAppPurchases": true,
     "iapItems": [
       {
         "name": "Pro",
         "price": "￦17,000"
+      },
+      {
+        "name": "rainbow monthly",
+        "price": "￦3,300"
+      },
+      {
+        "name": "rainbow yearly",
+        "price": "￦25,000"
       }
     ],
     "code": {
@@ -36,10 +44,6 @@
       "storeUI": false,
       "ads": false,
       "products": [
-        {
-          "id": "com.devkoan.ScheduleDensityApp.pro.lifetime",
-          "type": "nonconsumable"
-        },
         {
           "id": "com.devkoan.ScheduleDensityApp.sync",
           "type": "nonconsumable"
@@ -57,7 +61,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [
@@ -78,14 +82,14 @@
     "label": "scaling",
     "tier": null,
     "basis": "수동 판정(사용자 확인, 2026-10-18) — PMF 탐색에서 넓히는 단계로. 4단계 관문 중 외부 평점 10개만 남았던 앱(클립키보드는 관문 모두 통과) — 평점은 넓혀 가며 쌓는다. 외부 평점 0개",
-    "evaluatedAt": "2026-10-18",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 4,
+    "daysSinceUpdate": 3,
     "manual": true,
     "refineDays": 72,
-    "polishDays": 122,
+    "polishDays": 131,
     "releasedAt": "2026-06-13",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-22"
   },
   "globalReach": {
     "level": 3,
@@ -119,7 +123,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -251,7 +255,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
@@ -260,10 +264,18 @@
       {
         "name": "Pro",
         "price": "$9.99"
+      },
+      {
+        "name": "rainbow monthly",
+        "price": "$1.99"
+      },
+      {
+        "name": "rainbow yearly",
+        "price": "$14.99"
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "marketing": {
     "reddit": {
@@ -277,7 +289,8 @@
   "revenueGates": {
     "revenue": false,
     "profit": false,
-    "uptrend": false
+    "uptrend": false,
+    "through": "2026-09"
   },
   "introPage": {
     "url": "https://m1zz.github.io/WeekBlocks/",
@@ -294,6 +307,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/WeekBlocks/en/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

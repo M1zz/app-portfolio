@@ -235,7 +235,7 @@
   "categories": [
     "다국어지원예정"
   ],
-  "currentVersion": "1.0.2",
+  "currentVersion": "1.0.3",
   "githubRepo": "https://github.com/M1zz/Cooltime",
   "localProjectPath": "../Cooltime",
   "minimumOS": "16.0",
@@ -330,20 +330,20 @@
     },
     "gap": "스토어에 인앱결제가 있지만 소스에서 결제 코드를 찾지 못함",
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "supportUrl": "https://leeo75.notion.site/2bde264a0fdc80cabd97c8fceaca5307",
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
-    "tier": "C",
-    "basis": "출시 후 다듬은 기간 204일 · 외부 평점 0개 · 최종 업데이트 115일 경과 → 정지",
-    "evaluatedAt": "2026-10-17",
+    "tier": "A",
+    "basis": "출시 후 다듬은 기간 325일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 115,
-    "polishDays": 204,
+    "daysSinceUpdate": 2,
+    "polishDays": 325,
     "releasedAt": "2025-12-02",
-    "updatedAt": "2026-06-24"
+    "updatedAt": "2026-10-23"
   },
   "globalReach": {
     "level": 3,
@@ -377,7 +377,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -509,7 +509,7 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
@@ -521,7 +521,7 @@
       }
     ],
     "iapEnglish": false,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://m1zz.github.io/CoolTime/",
@@ -538,6 +538,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/CoolTime/en/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

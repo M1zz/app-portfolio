@@ -7,7 +7,7 @@
     "교육",
     "라이프스타일"
   ],
-  "currentVersion": "1.0.2",
+  "currentVersion": "1.0.6",
   "folderId": "hig-gym",
   "githubRepo": "https://github.com/M1zz/HigGym",
   "localProjectPath": "",
@@ -19,17 +19,46 @@
   "price": {
     "isFree": false,
     "priceKRW": 49000,
-    "pricingModel": "paid",
-    "hasInAppPurchases": false,
+    "pricingModel": "paid+subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "Pro 월간 구독",
+        "price": "￦9,900"
+      },
+      {
+        "name": "Pro 주간 구독",
+        "price": "￦2,900"
+      },
+      {
+        "name": "앱 디자인 실습 Pro",
+        "price": "￦66,000"
+      }
+    ],
     "code": {
-      "storeKit": false,
+      "storeKit": true,
       "subscriptionUI": false,
       "storeUI": true,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.leeo.higgym.pro",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.higgym.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.higgym.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        }
+      ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -47,29 +76,48 @@
     "stage": 1,
     "label": "pre-mvp",
     "ratingCount": 0,
-    "daysSinceUpdate": 7,
-    "polishDays": 27,
+    "daysSinceUpdate": 1,
+    "polishDays": 41,
     "releasedAt": "2026-09-13",
-    "updatedAt": "2026-10-10",
-    "evaluatedAt": "2026-10-17",
+    "updatedAt": "2026-10-24",
+    "evaluatedAt": "2026-10-25",
     "tier": null,
     "manual": true,
-    "basis": "출시 후 다듬은 기간 27일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.2 · 최종 업데이트 7일 경과"
+    "basis": "출시 후 다듬은 기간 41일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.6 · 최종 업데이트 1일 경과"
   },
   "globalReach": {
     "level": 3,
     "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
+      "DE",
+      "EL",
       "EN",
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
       "JA",
-      "KO"
+      "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
+      "ZH"
     ],
-    "languageCount": 3,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN, JA, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -201,14 +249,27 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 29.99,
-    "iap": [],
+    "iap": [
+      {
+        "name": "Pro Monthly",
+        "price": "$5.99"
+      },
+      {
+        "name": "Pro Weekly",
+        "price": "$1.99"
+      },
+      {
+        "name": "App Design Lab Pro",
+        "price": "$39.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://m1zz.github.io/HigGym/app/",
@@ -225,6 +286,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/HigGym/en/app/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

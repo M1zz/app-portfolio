@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6779262832",
   "bundleId": "com.devkoan.StaffSinger",
   "categories": [],
-  "currentVersion": "1.0.3",
+  "currentVersion": "1.0.4",
   "folderId": "sight-singer",
   "githubRepo": "",
   "localProjectPath": "",
@@ -32,7 +32,7 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [
@@ -52,14 +52,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 119일 · 외부 평점 0개 · 최종 업데이트 7일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 133일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 7,
+    "daysSinceUpdate": 1,
     "refineDays": 6,
-    "polishDays": 119,
+    "polishDays": 133,
     "releasedAt": "2026-06-13",
-    "updatedAt": "2026-10-10"
+    "updatedAt": "2026-10-24"
   },
   "globalReach": {
     "level": 3,
@@ -93,7 +93,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -151,7 +151,7 @@
       "inputFlow": false,
       "textCopy": false,
       "purchaseTest": false,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -225,14 +225,14 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://m1zz.github.io/StaffSinger/",
@@ -249,6 +249,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/StaffSinger/en/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

@@ -14,7 +14,7 @@
   "sharedModules": [],
   "priority": "high",
   "status": "active",
-  "currentVersion": "1.1.0",
+  "currentVersion": "1.2.1",
   "nameEn": "Sekki",
   "minimumOS": "16.0",
   "appStoreId": "6755164924",
@@ -259,31 +259,59 @@
   },
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "세끼 프로 평생",
+        "price": "￦66,000"
+      },
+      {
+        "name": "세끼 프로 연간",
+        "price": "￦25,000"
+      },
+      {
+        "name": "세끼 프로 월간",
+        "price": "￦3,300"
+      }
+    ],
     "code": {
-      "storeKit": true,
+      "storeKit": false,
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.ysoup.routinecamera.pro.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.ysoup.routinecamera.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.ysoup.routinecamera.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        }
+      ]
     },
-    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "supportUrl": "https://leeo75.notion.site/2a9e264a0fdc807d8afbd18a7dab17f2",
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 307일 · 외부 평점 1개 · 최종 업데이트 30일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 342일 · 외부 평점 1개 · 최종 업데이트 3일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 1,
-    "daysSinceUpdate": 30,
-    "polishDays": 307,
+    "daysSinceUpdate": 3,
+    "polishDays": 342,
     "releasedAt": "2025-11-14",
-    "updatedAt": "2026-09-17"
+    "updatedAt": "2026-10-22"
   },
   "globalReach": {
     "level": 3,
@@ -317,7 +345,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -367,7 +395,7 @@
       "_forcedLight": false
     },
     "craft": {
-      "moments": true,
+      "moments": false,
       "sheets": true,
       "liveNumbers": false,
       "localeFormat": true,
@@ -379,10 +407,10 @@
       "steadyUpdates": true
     },
     "money": {
-      "paywall": true,
+      "paywall": false,
       "tiers": false,
       "freeGate": true,
-      "restore": true,
+      "restore": false,
       "discount": false,
       "tipJar": false,
       "tipAsk": false,
@@ -417,15 +445,15 @@
       "offerCode": false,
       "invite": true,
       "installNudge": false,
-      "shareApp": false,
+      "shareApp": true,
       "shareImage": false,
       "shareVideo": false,
-      "storeCopy": false,
+      "storeCopy": true,
       "screenshotCapture": false,
-      "marketingScreens": false,
+      "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
-      "localizedScreens": false,
+      "localizedScreens": true,
       "videoTool": false
     },
     "devices": {
@@ -437,8 +465,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 86,
-      "testFiles": 4
+      "accessibilityLabels": 125,
+      "testFiles": 9
     },
     "support": {
       "registered": true,
@@ -449,14 +477,27 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "Sekki Pro Lifetime",
+        "price": "$39.99"
+      },
+      {
+        "name": "Sekki Pro Yearly",
+        "price": "$14.99"
+      },
+      {
+        "name": "Sekki Pro Monthly",
+        "price": "$1.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://m1zz.github.io/RoutineCamera/",
@@ -473,6 +514,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/RoutineCamera/en/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

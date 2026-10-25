@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6781537149",
   "bundleId": "com.leeo.HandsFreeMetronome",
   "categories": [],
-  "currentVersion": "1.0.8",
+  "currentVersion": "1.0.10",
   "folderId": "hands-free-metronome",
   "githubRepo": "",
   "localProjectPath": "",
@@ -26,12 +26,12 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "yearly",
-        "price": "￦4,400"
-      },
-      {
         "name": "Pro",
         "price": "￦17,000"
+      },
+      {
+        "name": "yearly",
+        "price": "￦4,400"
       }
     ],
     "code": {
@@ -52,7 +52,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "high",
   "recentlyCompleted": [
@@ -72,33 +72,48 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 119일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 128일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
+    "daysSinceUpdate": 1,
     "refineDays": 24,
-    "polishDays": 119,
+    "polishDays": 128,
     "releasedAt": "2026-06-18",
-    "updatedAt": "2026-10-15"
+    "updatedAt": "2026-10-24"
   },
   "globalReach": {
     "level": 3,
     "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
       "DE",
+      "EL",
       "EN",
       "ES",
+      "FI",
       "FR",
+      "ID",
+      "IT",
       "JA",
+      "KO",
+      "NB",
+      "NL",
+      "PL",
       "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
       "ZH"
     ],
-    "languageCount": 7,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 DE, EN, ES, FR, JA, PT, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -230,11 +245,13 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
+    "rating": 5.0,
+    "ratingCount": 3,
     "iap": [
       {
         "name": "Pro",
@@ -246,7 +263,7 @@
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "marketing": {
     "reddit": {
@@ -272,6 +289,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/HandsFreeMetronome/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

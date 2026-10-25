@@ -273,7 +273,7 @@
     "최근관심",
     "다국어지원"
   ],
-  "currentVersion": "2.3.2",
+  "currentVersion": "2.3.3",
   "folderId": "double-reminder",
   "githubRepo": "https://github.com/M1zz/toki",
   "localProjectPath": "../toki",
@@ -295,6 +295,10 @@
       {
         "name": "두번알림 pro",
         "price": "￦17,000"
+      },
+      {
+        "name": "upgrade",
+        "price": "￦11,000"
       }
     ],
     "code": {
@@ -306,11 +310,27 @@
         {
           "id": "com.xa.toki.pro",
           "type": "nonconsumable"
+        },
+        {
+          "id": "com.xa.toki.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.xa.toki.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.xa.toki.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.xa.toki.gift.pro",
+          "type": "consumable"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "high",
   "recentlyCompleted": [
@@ -385,13 +405,13 @@
     "label": "scaling",
     "tier": null,
     "basis": "수동 판정(사용자 확인, 2026-10-18) — PMF 탐색에서 넓히는 단계로. 4단계 관문 중 외부 평점 10개만 남았던 앱(클립키보드는 관문 모두 통과) — 평점은 넓혀 가며 쌓는다. 외부 평점 1개",
-    "evaluatedAt": "2026-10-18",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 1,
     "daysSinceUpdate": 8,
     "manual": true,
-    "polishDays": 382,
+    "polishDays": 390,
     "releasedAt": "2025-09-22",
-    "updatedAt": "2026-10-09"
+    "updatedAt": "2026-10-17"
   },
   "globalReach": {
     "level": 3,
@@ -425,7 +445,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -557,7 +577,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
@@ -568,10 +588,14 @@
       {
         "name": "두번알림 pro",
         "price": "$9.99"
+      },
+      {
+        "name": "upgrade",
+        "price": "$6.99"
       }
     ],
     "iapEnglish": false,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "marketing": {
     "reddit": {
@@ -585,7 +609,8 @@
   "revenueGates": {
     "revenue": false,
     "profit": true,
-    "uptrend": false
+    "uptrend": false,
+    "through": "2026-09"
   },
   "introPage": {
     "url": "https://m1zz.github.io/Rereminder/ko/",
@@ -602,6 +627,6 @@
     "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/Rereminder/en/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

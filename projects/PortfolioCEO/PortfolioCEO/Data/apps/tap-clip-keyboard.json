@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6756433372",
   "bundleId": "com.ysoup.TokenMemo-tap",
   "categories": [],
-  "currentVersion": "5.1.8",
+  "currentVersion": "5.1.9",
   "folderId": "tap-clip-keyboard",
   "githubRepo": "",
   "localProjectPath": "",
@@ -33,7 +33,7 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [
@@ -54,13 +54,13 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인) — 클립키보드 계열 — 반응을 받아 반복 개선 중. 외부 평점 0개 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-10-17",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
     "daysSinceUpdate": 3,
     "manual": true,
-    "polishDays": 302,
+    "polishDays": 310,
     "releasedAt": "2025-12-16",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-22"
   },
   "globalReach": {
     "level": 3,
@@ -94,7 +94,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -226,14 +226,14 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 9.99,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://m1zz.github.io/ClipKeyboard/ko/",
@@ -250,6 +250,6 @@
     "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/ClipKeyboard/en/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

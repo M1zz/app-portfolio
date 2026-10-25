@@ -7,7 +7,7 @@
     "라이프스타일",
     "생산성"
   ],
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.1",
   "folderId": "wifi-snap",
   "githubRepo": "https://github.com/M1zz/WifiSnap",
   "localProjectPath": "",
@@ -28,7 +28,7 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -46,15 +46,15 @@
     "stage": 1,
     "label": "pre-mvp",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 60일 경과",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 66일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 2일 경과",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 60,
+    "daysSinceUpdate": 2,
     "manual": true,
     "refineDays": 0,
-    "polishDays": 0,
+    "polishDays": 66,
     "releasedAt": "2026-08-18",
-    "updatedAt": "2026-08-18"
+    "updatedAt": "2026-10-23"
   },
   "globalReach": {
     "level": 3,
@@ -88,7 +88,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -220,14 +220,14 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://m1zz.github.io/WifiSnap/",
@@ -244,6 +244,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/WifiSnap/en/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

@@ -6,7 +6,7 @@
   "categories": [
     "라이프스타일"
   ],
-  "currentVersion": "1.0.2",
+  "currentVersion": "1.0.3",
   "folderId": "flip-book",
   "githubRepo": "",
   "localProjectPath": "",
@@ -17,8 +17,14 @@
   "notes": "[2026-07-15 스토어 동기화로 추가] 내 아이가 그림을 쉽게 그리게 도와주고 그 그림들이 움직이게 도와주는 앱 입니다 (스토어명: 팔랑북)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "Palang Book Lifetime Pass",
+        "price": "￦17,000"
+      }
+    ],
     "code": {
       "storeKit": true,
       "subscriptionUI": false,
@@ -31,9 +37,8 @@
         }
       ]
     },
-    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -51,14 +56,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 96일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 102일 · 외부 평점 0개 · 최종 업데이트 3일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 1,
+    "daysSinceUpdate": 3,
     "refineDays": 8,
-    "polishDays": 96,
+    "polishDays": 102,
     "releasedAt": "2026-07-12",
-    "updatedAt": "2026-10-16"
+    "updatedAt": "2026-10-22"
   },
   "globalReach": {
     "level": 3,
@@ -92,7 +97,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -199,7 +204,7 @@
       "screenshotCapture": true,
       "marketingScreens": true,
       "videoAsset": false,
-      "promoKit": false,
+      "promoKit": true,
       "localizedScreens": true,
       "videoTool": false
     },
@@ -224,14 +229,19 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "Palang Book Lifetime Pass",
+        "price": "$9.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "marketing": {
     "reddit": {
@@ -257,6 +267,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/RotoscopeIPad/en/",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

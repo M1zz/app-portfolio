@@ -338,17 +338,17 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "supportUrl": "https://dev200ok.blogspot.com/2023/06/blog-post_82.html",
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 1201일 · 외부 평점 1개 · 최종 업데이트 15일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 1201일 · 외부 평점 1개 · 최종 업데이트 23일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 1,
-    "daysSinceUpdate": 15,
+    "daysSinceUpdate": 23,
     "polishDays": 1201,
     "releasedAt": "2023-06-19",
     "updatedAt": "2026-10-02"
@@ -365,7 +365,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -470,10 +470,10 @@
       "shareVideo": false,
       "storeCopy": true,
       "screenshotCapture": false,
-      "marketingScreens": false,
+      "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
-      "localizedScreens": false,
+      "localizedScreens": true,
       "videoTool": false
     },
     "devices": {
@@ -485,7 +485,7 @@
       "_macViaDesignedForIPad": true
     },
     "counts": {
-      "accessibilityLabels": 13,
+      "accessibilityLabels": 20,
       "testFiles": 0
     },
     "support": {
@@ -497,7 +497,7 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
@@ -509,7 +509,7 @@
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": null,
@@ -525,6 +525,6 @@
     "storeLink": false,
     "ogImage": false,
     "english": false,
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

@@ -187,7 +187,7 @@
     },
     "devices": {
       "iphone": true,
-      "ipad": true,
+      "ipad": false,
       "mac": false,
       "watch": false,
       "vision": false,
@@ -206,14 +206,11 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
-    "available": true,
-    "price": 6.99,
-    "iap": [],
-    "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "available": false,
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": null,
@@ -229,6 +226,6 @@
     "storeLink": false,
     "ogImage": false,
     "english": false,
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

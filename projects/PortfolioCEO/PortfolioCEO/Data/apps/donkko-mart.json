@@ -1,7 +1,7 @@
 {
   "status": "active",
   "folderId": "donkko-mart",
-  "currentVersion": "2.0.8",
+  "currentVersion": "2.0.9",
   "stats": {
     "done": 6,
     "inProgress": 0,
@@ -314,7 +314,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "nextTasks": [],
   "recentlyCompleted": [
@@ -389,27 +389,47 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 1206일 · 외부 평점 1개 · 최종 업데이트 10일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 1223일 · 외부 평점 1개 · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 1,
-    "daysSinceUpdate": 10,
-    "polishDays": 1206,
+    "daysSinceUpdate": 1,
+    "polishDays": 1223,
     "releasedAt": "2023-06-19",
-    "updatedAt": "2026-10-07"
+    "updatedAt": "2026-10-24"
   },
   "globalReach": {
-    "level": 2,
-    "label": "bilingual",
+    "level": 3,
+    "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
+      "DE",
+      "EL",
       "EN",
-      "KO"
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
+      "JA",
+      "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
+      "ZH"
     ],
-    "languageCount": 2,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -467,7 +487,7 @@
       "inputFlow": false,
       "textCopy": false,
       "purchaseTest": true,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -541,7 +561,7 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
@@ -565,23 +585,23 @@
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
-    "url": "https://leeo75.notion.site/2f7e264a0fdc8003935aceb9f86d0c96?source=copy_link",
+    "url": "https://m1zz.github.io/DontGoMart/",
     "set": true,
     "reachable": true,
-    "intro": false,
-    "screens": null,
-    "video": null,
-    "tryIt": null,
-    "scenario": null,
-    "steps": null,
-    "proof": null,
-    "storeLink": null,
-    "ogImage": null,
-    "english": null,
-    "urlEn": "https://m1zz.github.io/DontGoMart/support.html",
-    "evaluatedAt": "2026-10-24"
+    "intro": true,
+    "screens": false,
+    "video": false,
+    "tryIt": false,
+    "scenario": false,
+    "steps": false,
+    "proof": false,
+    "storeLink": true,
+    "ogImage": true,
+    "english": true,
+    "urlEn": "https://m1zz.github.io/DontGoMart/en/",
+    "evaluatedAt": "2026-10-25"
   }
 }

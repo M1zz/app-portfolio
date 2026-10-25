@@ -405,17 +405,17 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "supportUrl": "https://leeo75.notion.site/2abe264a0fdc8049bad6f86954bca20d",
   "lifecycle": {
     "stage": 1,
     "label": "pre-mvp",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 1일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 332일 경과",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 1일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 340일 경과",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 332,
+    "daysSinceUpdate": 340,
     "manual": true,
     "refineDays": 1,
     "polishDays": 1,
@@ -433,7 +433,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -486,8 +486,8 @@
       "moments": false,
       "sheets": false,
       "liveNumbers": false,
-      "localeFormat": true,
-      "textOverflow": true,
+      "localeFormat": false,
+      "textOverflow": false,
       "inputFlow": false,
       "textCopy": true,
       "purchaseTest": false,
@@ -528,7 +528,7 @@
       "ci": false
     },
     "marketing": {
-      "demoMode": true,
+      "demoMode": false,
       "deepLink": false,
       "offerCode": false,
       "invite": false,
@@ -565,14 +565,14 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": null,
@@ -588,6 +588,6 @@
     "storeLink": false,
     "ogImage": false,
     "english": false,
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

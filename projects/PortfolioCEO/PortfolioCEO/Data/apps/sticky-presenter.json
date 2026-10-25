@@ -32,7 +32,7 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "low",
   "recentlyCompleted": [
@@ -52,10 +52,10 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 112일 · 외부 평점 0개 · 최종 업데이트 16일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 112일 · 외부 평점 0개 · 최종 업데이트 24일 경과 → 개선 중",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 16,
+    "daysSinceUpdate": 24,
     "refineDays": 77,
     "polishDays": 112,
     "releasedAt": "2026-06-11",
@@ -73,7 +73,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -205,14 +205,14 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://developeracademy-postech.github.io/StickyPresenter/support.html#ko",
@@ -229,6 +229,6 @@
     "ogImage": null,
     "english": null,
     "urlEn": "https://developeracademy-postech.github.io/StickyPresenter/support.html#en",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }

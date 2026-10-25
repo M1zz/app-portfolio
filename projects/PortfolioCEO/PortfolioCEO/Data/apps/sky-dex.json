@@ -7,7 +7,7 @@
     "라이프스타일",
     "날씨"
   ],
-  "currentVersion": "1.0.1",
+  "currentVersion": "1.0.2",
   "folderId": "sky-dex",
   "githubRepo": "https://github.com/M1zz/SkyDex",
   "localProjectPath": "",
@@ -28,7 +28,7 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -46,28 +46,49 @@
     "stage": 1,
     "label": "pre-mvp",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 13일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 42일 경과",
-    "evaluatedAt": "2026-10-17",
+    "basis": "출시 후 다듬은 기간 62일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.2 · 최종 업데이트 1일 경과",
+    "evaluatedAt": "2026-10-25",
     "ratingCount": 0,
-    "daysSinceUpdate": 42,
+    "daysSinceUpdate": 1,
     "manual": true,
     "refineDays": 1,
-    "polishDays": 13,
+    "polishDays": 62,
     "releasedAt": "2026-08-23",
-    "updatedAt": "2026-09-05"
+    "updatedAt": "2026-10-24"
   },
   "globalReach": {
-    "level": 0,
-    "label": "korea-first",
+    "level": 3,
+    "label": "multilingual",
     "languages": [
-      "KO"
+      "CS",
+      "DA",
+      "DE",
+      "EL",
+      "EN",
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
+      "JA",
+      "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
+      "ZH"
     ],
-    "languageCount": 1,
-    "englishPage": false,
+    "languageCount": 22,
+    "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 KO · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -125,7 +146,7 @@
       "inputFlow": true,
       "textCopy": false,
       "purchaseTest": false,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -199,29 +220,30 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
-    "url": "https://m1zz.github.io/SkyDex/support.html",
+    "url": "https://m1zz.github.io/SkyDex/",
     "set": true,
     "reachable": true,
-    "intro": false,
+    "intro": true,
     "screens": false,
     "video": false,
     "tryIt": false,
-    "scenario": false,
+    "scenario": true,
     "steps": false,
     "proof": false,
     "storeLink": false,
     "ogImage": false,
     "english": true,
-    "evaluatedAt": "2026-10-24"
+    "urlEn": "https://m1zz.github.io/SkyDex/en/",
+    "evaluatedAt": "2026-10-25"
   }
 }

@@ -35,7 +35,7 @@
     },
     "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-10-13"
+    "evaluatedAt": "2026-10-25"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -53,14 +53,14 @@
     "stage": 1,
     "label": "pre-mvp",
     "ratingCount": 0,
-    "daysSinceUpdate": 16,
+    "daysSinceUpdate": 24,
     "polishDays": 0,
     "releasedAt": "2026-10-01",
     "updatedAt": "2026-10-01",
-    "evaluatedAt": "2026-10-17",
+    "evaluatedAt": "2026-10-25",
     "tier": null,
     "manual": true,
-    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 16일 경과"
+    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 24일 경과"
   },
   "globalReach": {
     "level": 2,
@@ -74,7 +74,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "serviceMaturity": {
     "source": true,
@@ -206,14 +206,14 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-15"
+    "evaluatedAt": "2026-10-25"
   },
   "introPage": {
     "url": "https://m1zz.github.io/WorryParking/ko/support.html",
@@ -230,6 +230,6 @@
     "ogImage": false,
     "english": true,
     "urlEn": "https://m1zz.github.io/WorryParking/en/support.html",
-    "evaluatedAt": "2026-10-24"
+    "evaluatedAt": "2026-10-25"
   }
 }
