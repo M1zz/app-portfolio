@@ -562,6 +562,13 @@
       "roadmap": true,
       "feedbackReply": true
     },
+    "guide": {
+      "progressive": true,
+      "contextualLesson": true,
+      "practice": true,
+      "promptArbiter": true,
+      "lessonLedger": true
+    },
     "more": {
       "schemaMigration": false,
       "emptyStates": true,

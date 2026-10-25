@@ -149,6 +149,13 @@
       "roadmap": false,
       "feedbackReply": false
     },
+    "guide": {
+      "progressive": false,
+      "contextualLesson": false,
+      "practice": false,
+      "promptArbiter": false,
+      "lessonLedger": false
+    },
     "more": {
       "schemaMigration": false,
       "emptyStates": false,

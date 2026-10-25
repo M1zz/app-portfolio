@@ -1450,6 +1450,11 @@ CHECK_SHORT = {
     "purchaseTest": "구매 시험",
     "releaseTags": "출시 기록",
     "steadyUpdates": "꾸준함",
+    "progressive": "단계적 공개",
+    "contextualLesson": "상황 수업",
+    "practice": "직접 해 보기",
+    "promptArbiter": "창 교통정리",
+    "lessonLedger": "배운 것 기록",
 }
 CAT_WHY = {
     "lang": "한국어 밖의 사람도 쓸 수 있는지 봅니다.",
@@ -1466,6 +1471,8 @@ CAT_WHY = {
     "data": "쓰는 사람의 데이터를 잃지 않고 옮기고 지킬 수 있는지 봅니다.",
     "money": "돈을 받는 길이 공정하고 막힘없이 설계되어 있는지 봅니다. 파는 상품이 없는 앱은 등급·할인·선물 같은 항목을 ‘해당 없음’으로 둡니다.",
     "comms": "업데이트와 계획, 답장을 쓰는 사람에게 돌려주는지 봅니다.",
+    "guide": "첫 실행 화면이 있는지를 넘어, 무엇을 언제 어떻게 가르치는지 봅니다. 처음엔 단순하게 두고, 쓰는 모습이 "
+             "계기가 될 때 그 기능을 직접 해 보게 하고, 안내끼리 겹쳐 서로 밀어내지 않게 하는지입니다.",
     "marketing": "앱 밖에서 사람을 데려오는 길이 있는지 봅니다.",
     "intro": "App Store에서 ‘개발자 웹사이트’를 누른 사람이 앱을 받기 전에 쓰는 모습을 그려 볼 수 있는지 봅니다.",
 }
@@ -1480,6 +1487,8 @@ CAT_NOTE = {
     "intro": "소개 페이지는 App Store 마케팅 URL(한국 스토어 기준, 미국 스토어 주소가 다르면 그쪽을 영어 소개로)을 열어 판정했습니다. "
              "앱 화면은 아이콘·배지를 뺀 그림이 2장 이상일 때, 직접 체험은 긴 스크립트와 ‘직접 눌러보세요’ 같은 안내가 함께 있을 때 있음으로 봅니다. "
              "마케팅 URL 이 없으면 소개가 닿지 않으므로 나머지 항목도 모두 없음입니다.",
+    "guide": "클립키보드 5.1.14 의 백지 첫 실행을 다듬으며 세운 항목이라 아직 다른 앱에는 없습니다. 선택 항목이라 할 일로 세지 않습니다. "
+             "소스 코드에서 해당 장치를 부르는지로 판정했습니다.",
     "craft": "종합 상위 10개 앱과 하위 20개 앱의 코드를 견주어, 상위 앱 절반 이상이 갖췄고 하위 앱에는 드문 것을 골랐습니다. "
              "버전별 출시 기록은 버전 표시가 3개 이상, 꾸준한 손질은 최근 90일 동안 고친 기록이 20번 이상일 때 있음으로 봅니다.",
 }
@@ -2460,7 +2469,7 @@ def _lang(fn):
 CHECK_CATS = [
     ("lang", "언어", "#ef6aa0"), ("support", "지원 페이지", "#5b8def"), ("feedback", "피드백", "#34c48a"),
     ("infra", "인프라", "#e0a53a"), ("feature", "기능", "#a78bfa"), ("a11y", "접근성", "#e8789a"), ("craft", "다듬기", "#c9a227"),
-    ("money", "수익화", "#f08c4a"),
+    ("money", "수익화", "#f08c4a"), ("guide", "안내", "#6fbf73"),
     ("comms", "소통", "#3fb8c9"), ("quality", "품질", "#7c8cff"), ("data", "데이터", "#9aa5b1"),
     ("marketing", "홍보", "#d65db1"), ("intro", "소개 페이지", "#4fb3a9"),
 ]
@@ -2594,6 +2603,11 @@ CHECKLIST = [
     ("rec", "money", "gift", "선물하기", _if_sells(_src("money", "gift"))),
     ("rec", "comms", "roadmap", "로드맵 공개", _src("comms", "roadmap")),
     ("rec", "comms", "feedbackReply", "의견에 답장", _src("comms", "feedbackReply")),
+    ("opt", "guide", "progressive", "단계적 공개", _src("guide", "progressive")),
+    ("opt", "guide", "contextualLesson", "상황 맞춤 수업", _src("guide", "contextualLesson")),
+    ("opt", "guide", "practice", "직접 해 보는 첫 실행", _src("guide", "practice")),
+    ("opt", "guide", "promptArbiter", "안내 창 교통정리", _src("guide", "promptArbiter")),
+    ("opt", "guide", "lessonLedger", "배운 것 기록", _src("guide", "lessonLedger")),
     ("rec", "money", "iapEnglish", "인앱 상품 이름 영어", _if_sells(lambda a: (a.get("usStore") or {}).get("iapEnglish"))),
     ("rec", "infra", "performance", "성능 측정", _src("more", "performance")),
     ("rec", "infra", "logging", "구조적 로그", _src("more", "logging")),

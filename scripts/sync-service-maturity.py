@@ -16,6 +16,7 @@
   more       더 갖출 것     마이그레이션 · 빈 상태 · 생체 잠금 · 알림 · 성능 · 로그 · 퍼널 · A/B · 햅틱 · 사전 점검 ·
                             완성도 계약 · 앱 가족 · 폴더블 · UI 테스트 · SwiftLint · CI
   comms      소통           새 기능 알림 · 로드맵 · 의견 답장
+  guide      안내           단계적 공개 · 상황 맞춤 수업 · 직접 해 보는 첫 실행 · 안내 교통정리 · 배운 것 기록
   craft      다듬기         만족한 순간 세기 · 시트 다듬기 · 숫자 바뀜 효과 · 지역 맞춤 표기 · 긴 글자 처리 ·
                             입력 흐름 · 글자 복사 · 구매 흐름 시험 · 버전별 출시 기록 · 꾸준한 손질
   marketing  홍보           스토어 문구 원고 · 스크린샷 자동 촬영 · 문구 입힌 스크린샷 · 언어별 스크린샷 · 사용 영상 도구 ·
@@ -130,6 +131,20 @@ SRC = {
         "roadmap": r"LeeoRoadmap|(?:struct|class) \w*Roadmap\w*\s*:\s*View",
         # LeeoSupportSection 은 v3.15 부터 보낸 의견·답장 행(LeeoSentFeedbackRow)을 품는다
         "feedbackReply": r"LeeoFeedbackReplies|LeeoFeedbackInbox|LeeoSentFeedbackRow|LeeoSupportSection",
+    },
+    # 안내 — 첫 실행 '화면이 있다' 를 넘어, 무엇을 언제 어떻게 가르치나 (클립키보드 5.1.14 백지 첫 실행, 2026-10-25)
+    "guide": {
+        # 처음엔 단순하게 두고 기능은 필요할 때 켠다
+        "progressive": r"isBlankStartUser|hasGraduated\(|FeatureSet\.(?:isOn|set)\(",
+        # 쓰는 모습이 계기가 되어 그 순간 그 기능을 가르친다
+        "contextualLesson": r"FeatureNudge|FeatureLessonView",
+        # 보여 주기만 하지 않고 첫 실행에서 직접 눌러 보게 한다
+        # (이름에 첫 실행 갈래가 든 Practice 만 센다. 언어 연습 화면 같은 Practice 는 첫 실행 안내가 아니다)
+        "practice": r"(?:struct|class) \w*(?:BlankStart|Onboarding|FirstRun|Welcome)\w*Practice\w*\s*:\s*View",
+        # 실행 때 저절로 뜨는 창을 하나만 골라, 서로 덮어 밀어내지 않게 한다
+        "promptArbiter": r"PromptArbiter|LaunchSheetGate",
+        # 무엇을 배웠는지 적어 두고 다시 가르치지 않는다
+        "lessonLedger": r"LessonLedger",
     },
     # 더 갖출 것 — LeeoCapability 계약 항목 중 소스로 확인할 수 있는 것 + LeeoKit 모듈
     "more": {

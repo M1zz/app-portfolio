@@ -103,7 +103,7 @@
       "contrast": false,
       "reduceMotion": false,
       "captions": false,
-      "structure": false,
+      "structure": true,
       "actions": false,
       "announcements": false,
       "largeLayout": false,
@@ -142,6 +142,13 @@
       "roadmap": true,
       "feedbackReply": true
     },
+    "guide": {
+      "progressive": false,
+      "contextualLesson": false,
+      "practice": false,
+      "promptArbiter": false,
+      "lessonLedger": false
+    },
     "more": {
       "schemaMigration": false,
       "emptyStates": true,
@@ -167,7 +174,7 @@
       "invite": false,
       "installNudge": false,
       "shareApp": false,
-      "shareImage": true,
+      "shareImage": false,
       "shareVideo": false,
       "storeCopy": true,
       "screenshotCapture": false,
@@ -186,7 +193,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 1,
+      "accessibilityLabels": 2,
       "testFiles": 0
     },
     "support": {

@@ -441,6 +441,13 @@
       "roadmap": true,
       "feedbackReply": true
     },
+    "guide": {
+      "progressive": false,
+      "contextualLesson": false,
+      "practice": false,
+      "promptArbiter": false,
+      "lessonLedger": false
+    },
     "more": {
       "schemaMigration": false,
       "emptyStates": false,

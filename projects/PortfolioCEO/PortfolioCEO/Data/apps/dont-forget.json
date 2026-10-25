@@ -121,6 +121,13 @@
       "roadmap": null,
       "feedbackReply": null
     },
+    "guide": {
+      "progressive": null,
+      "contextualLesson": null,
+      "practice": null,
+      "promptArbiter": null,
+      "lessonLedger": null
+    },
     "more": {
       "schemaMigration": null,
       "emptyStates": null,
