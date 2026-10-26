@@ -200,7 +200,7 @@
       "registered": true,
       "reachable": true,
       "privacy": true,
-      "english": false,
+      "english": true,
       "contact": true,
       "host": "m1zz.github.io",
       "status": 200
