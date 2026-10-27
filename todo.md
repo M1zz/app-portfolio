@@ -1,3 +1,16 @@
+# TODO — 트림 페이월 (2026-10-27)
+
+- [x] 49개 앱 무료 다운로드 + 무료 · Plus · Pro 설계안 → scripts/paywall-plans.json · 검토 페이지 https://claude.ai/artifact/WKvnCRhrMesLqWuk6Vd9Sf
+- [ ] 링롱(FindMe): 공개 레포에 CloudKit 서버 비밀 키(cloudkit_eckey.pem · NotificationService.swift privateKeyBase64) — 키 폐기 · 재발급, 레포에서 제거
+- [x] 1순위 5개(클립키보드 · 두번알림 · 골드위크 · 욕망의 무지개 · 무지개 공방) as-is → to-be: https://claude.ai/artifact/QnstvnCpy8aFVCVCk7J4BH
+- [x] 가격 규칙: 칸마다 연 구독 + 평생(연 구독 3배 이상), 구독 졸업가(약 30% 할인), 설정에 '평생으로 바꾸기' 항상
+- [x] 언제나 평생 패스: 모든 앱 Plus · Pro 평생 + 앞으로 나올 앱, 평생 ₩149,000 · 연 ₩49,000
+- [ ] LeeoKit: Plus · Pro 두 단계 권한 + 언제나 패스 공유(공유 iCloud 컨테이너 · JWS 확인) 공통 모듈
+- [ ] 1순위 5개 앱 코드(세 칸 · 연/평생 · 졸업 · 패스 한 줄) · ASC 상품 · 가격 반영
+- [ ] 나머지 44개 앱 가격을 같은 규칙으로 다시 계산
+- [ ] 스픽플로우: 판매 중단하고 말문으로 안내할지 결정
+- [ ] LeeoKit 에 Plus 등급(단일 Pro 외) 지원 추가 — 여러 앱 공통
+
 # TODO — 서비스 숙성도 업데이트 (2026-10-26, 보조 컴퓨터)
 
 - [x] 원격 최신 코드로 재측정했으나 10-25 메인 컴퓨터 재측정(df04578)에 이미 반영돼 있어 그쪽을 따름
