@@ -1,6 +1,6 @@
 {
-  "_comment": "트림 페이월 설계안 (2026-10-27, 승인 전). 무료 다운로드 + 무료 · Plus · Pro. 검토 · 승인: https://claude.ai/artifact/WKvnCRhrMesLqWuk6Vd9Sf (decisions 컬렉션). 승인된 앱만 앱 코드 · 스토어 상품에 반영한다.",
-  "framework": "# 포트폴리오 공통 페이월 설계 규칙 (무료 다운로드 + 트림)\n\n목표: 포트폴리오의 모든 앱을 \"무료 다운로드 + 기능별 트림(무료 · Plus · Pro)\"으로 맞춘다.\n기준 모델은 클립키보드(scripts/paywalls.json 의 clip-keyboard 항목) — 무료 · Plus · Pro 세 칸 카드 + 비교표, 평생 구매, Plus→Pro 차액 올리기, 한 번만 주는 반값 제안.\n\n## 트림 원칙\n1. 무료(Free): 앱의 핵심 가치를 끝까지 한 번 온전히 겪을 수 있어야 한다. \"써 보니 좋다\"가 무료에서 일어나야 함. 개수 제한은 넉넉하게(첫 주에 막히지 않게).\n2. Plus = \"더 많이 · 내 취향대로\": 개수 한도 해제, 테마 · 커스터마이즈, 기록 기간 연장 등 '양'과 '꾸밈'.\n3. Pro = \"지키고 · 넓히고 · 자동으로\": Plus 전부 + iCloud 동기화 · 백업, 위젯 · 단축어 · 자동화, 고급 통계 · 내보내기(PDF 등), 여러 기기 · 가족 공유, AI 등 '파워' 기능.\n4. 각 트림의 잠금 항목은 그 앱 소스에 실제로 있는 기능이어야 한다(없는 기능을 팔지 않는다). 아직 없는 기능을 넣고 싶으면 \"새로 만들 기능\"으로 따로 표시.\n5. 절대 잠그지 않는 것: 접근성, 이미 만든 데이터 보기 · 지우기, 사용자 데이터의 기본 내보내기(텍스트/CSV 수준), 안전 · 건강에 관련된 핵심 경고.\n6. 기능이 너무 적어 세 칸이 억지라면 무료 · Pro 두 칸도 허용 — 단 이유를 적는다.\n\n## 가격 사다리 (평생 구매 기본, 앱 가치·사용 빈도로 S/M/L 중 하나)\n| 크기 | Plus 평생 | Pro 평생 | Plus→Pro 올리기 | 미국 Plus / Pro |\n| S | ₩3,300 | ₩7,700 | ₩4,400 | $1.99 / $4.99 |\n| M | ₩5,500 | ₩12,000 | ₩6,600 | $3.99 / $7.99 |\n| L | ₩9,900 | ₩25,000 | ₩15,000 | $6.99 / $16.99 |\n- 구독은 계속 비용이 드는 앱(AI API, 서버, 꾸준히 늘어나는 콘텐츠)에서만 Pro 연 구독을 평생 옆에 둔다. 그 외에는 구독 없음.\n- 반값 제안: Pro 평생의 약 50%, 한도 앞에서 7일 머문 사람에게 한 번.\n- 유료 다운로드였던 앱: 무료로 바꾸고, 이미 산 사람은 StoreKit AppTransaction.originalAppVersion 으로 확인해 Pro 를 그대로 준다(기존 구매자 보호).\n\n## 판정 (verdict)\n- keep: 지금 페이월이 이미 이 규칙에 맞고 충분하다 — 손대지 않아도 됨 (이유 필수)\n- adjust: 페이월은 있으나 트림 · 가격 · 잠금 배치를 고쳐야 함\n- new: 페이월이 없거나(무료 · 팁만), 유료 다운로드라 새로 설계\n\n## 출력 JSON (앱 하나당 파일 하나: <scratchpad>/plans/<slug>.json)\n{\n  \"slug\": \"...\", \"name\": \"앱 한국어 이름\",\n  \"current\": \"지금 가격 구조 한 줄 (예: 유료 ₩4,400 · 인앱 없음)\",\n  \"verdict\": \"keep|adjust|new\",\n  \"verdictReason\": \"왜 그 판정인지 1~2문장\",\n  \"size\": \"S|M|L\",\n  \"headline\": \"페이월 머리말 (한국어)\", \"subheadline\": \"...\",\n  \"headlineEn\": \"...\", \"subheadlineEn\": \"...\",\n  \"trims\": [\n    {\"id\": \"free\", \"label\": \"무료\", \"labelEn\": \"Free\", \"price\": null, \"priceUS\": null,\n     \"pitch\": \"한 줄 (한국어)\", \"pitchEn\": \"...\",\n     \"features\": [\"이 트림에서 쓰는 것 (한국어, 짧게)\"], \"featuresEn\": [\"...\"]},\n    {\"id\": \"plus\", \"label\": \"Plus\", \"labelEn\": \"Plus\", \"price\": \"₩5,500\", \"priceUS\": \"$3.99\", ...},\n    {\"id\": \"pro\", \"label\": \"Pro\", \"labelEn\": \"Pro\", \"price\": \"₩12,000\", \"priceUS\": \"$7.99\", \"subscription\": null 또는 {\"period\":\"연\",\"price\":\"₩..\",\"priceUS\":\"$..\"}, ...}\n  ],\n  \"compare\": [ {\"feature\": \"비교표 행 (한국어)\", \"featureEn\": \"...\", \"free\": \"3개|✓|–\", \"plus\": \"...\", \"pro\": \"...\"} ],\n  \"triggers\": [\"페이월이 뜨는 순간 (한국어)\"],\n  \"newFeatures\": [\"트림을 위해 새로 만들어야 하는 기능 (없으면 빈 배열)\"],\n  \"migration\": \"기존 구매자 · 기존 상품 처리 (예: 기존 평생 Pro 구매자 → Pro, 기존 productId 재사용)\",\n  \"existingProducts\": [\"재사용할 기존 productId\"],\n  \"evidence\": [\"판단 근거가 된 소스 파일 경로 몇 개\"]\n}\n모든 사용자 문구는 한국어 + 영어 둘 다. 이모지 없이.\n",
+  "_comment": "트림 페이월 설계 (2026-10-27 최종안 확정). 무료 다운로드 + 무료 · Plus · Pro, 칸마다 연 구독 + 평생. 최종안: https://claude.ai/artifact/QnstvnCpy8aFVCVCk7J4BH . 1순위 다섯 앱부터 반영하고, 나머지 앱의 판단은 옛 규칙(구독 없음 · 옛 사다리) 기준이라 새 규칙으로 다시 계산한다.",
+  "framework": "# 포트폴리오 공통 페이월 설계 규칙 (무료 다운로드 + 트림)\n\n목표: 포트폴리오의 모든 앱을 \"무료 다운로드 + 기능별 트림(무료 · Plus · Pro)\"으로 맞춘다.\n기준 모델은 클립키보드(scripts/paywalls.json 의 clip-keyboard 항목) — 무료 · Plus · Pro 세 칸 카드 + 비교표, 칸마다 연 구독과 평생, Plus 평생→Pro 평생 올리기, 구독 졸업, 언제나 평생 패스 한 줄.\n\n## 트림 원칙\n1. 무료(Free): 앱의 핵심 가치를 끝까지 한 번 온전히 겪을 수 있어야 한다. \"써 보니 좋다\"가 무료에서 일어나야 함. 개수 제한은 넉넉하게(첫 주에 막히지 않게).\n2. Plus = \"더 많이 · 내 취향대로\": 개수 한도 해제, 테마 · 커스터마이즈, 기록 기간 연장 등 '양'과 '꾸밈'.\n3. Pro = \"지키고 · 넓히고 · 자동으로\": Plus 전부 + iCloud 동기화 · 백업, 위젯 · 단축어 · 자동화, 고급 통계 · 내보내기(PDF 등), 여러 기기 · 가족 공유, AI 등 '파워' 기능.\n4. 각 트림의 잠금 항목은 그 앱 소스에 실제로 있는 기능이어야 한다(없는 기능을 팔지 않는다). 아직 없는 기능을 넣고 싶으면 \"새로 만들 기능\"으로 따로 표시.\n5. 절대 잠그지 않는 것: 접근성, 이미 만든 데이터 보기 · 지우기, 사용자 데이터의 기본 내보내기(텍스트/CSV 수준), 안전 · 건강에 관련된 핵심 경고.\n6. 기능이 너무 적어 세 칸이 억지라면 무료 · Pro 두 칸도 허용 — 단 이유를 적는다.\n\n## 가격 사다리 (칸마다 연 구독 + 평생, 앱 가치 · 사용 빈도로 S/M/L 중 하나)\n| 크기 | Plus 연 / 평생 | Pro 연 / 평생 | 미국 Plus | 미국 Pro |\n| S | ₩2,200 / ₩6,600 | ₩4,400 / ₩13,000 | $1.49 / $4.49 | $2.99 / $8.99 |\n| M | ₩4,400 / ₩14,000 | ₩8,800 / ₩27,000 | $2.99 / $8.99 | $5.99 / $17.99 |\n| L | ₩6,600 / ₩20,000 | ₩13,000 / ₩39,000 | $4.99 / $14.99 | $8.99 / $26.99 |\n- 유료 칸마다 연 구독과 평생을 나란히 둔다. 평생은 연 구독의 3배 이상(3년치). 구독만 있는 칸은 없다.\n- 처음 보는 무료 사용자에게 연 구독 첫 해 반값을 한 번(App Store 첫 구독 할인). 예전의 반값 평생 제안은 판매를 멈춘다.\n- Plus 평생 → Pro 평생 올리기는 Plus 평생을 산 사람에게만. 구독자에게는 6개월째와 갱신 7일 전에 '구독 졸업' Pro 평생(평생의 약 30% 할인)을 한 번씩, 설정에는 '평생으로 바꾸기'를 늘 둔다.\n- 지금 구독 가격이 매출이 나는 앱은 그 연 구독 값을 지키고 평생만 3배로 맞춘다(골드위크).\n- 언제나 평생 패스: 모든 앱 Plus · Pro 평생 + 앞으로 나올 앱. 평생 ₩149,000 · 연 ₩49,000. 페이월 세 칸 아래 한 줄.\n- 유료 다운로드였던 앱: 무료로 바꾸고, 이미 산 사람은 StoreKit AppTransaction.originalAppVersion 으로 확인해 Pro 를 그대로 준다(기존 구매자 보호).\n\n## 판정 (verdict)\n- keep: 지금 페이월이 이미 이 규칙에 맞고 충분하다 — 손대지 않아도 됨 (이유 필수)\n- adjust: 페이월은 있으나 트림 · 가격 · 잠금 배치를 고쳐야 함\n- new: 페이월이 없거나(무료 · 팁만), 유료 다운로드라 새로 설계\n\n## 출력 JSON (앱 하나당 파일 하나: <scratchpad>/plans/<slug>.json)\n{\n  \"slug\": \"...\", \"name\": \"앱 한국어 이름\",\n  \"current\": \"지금 가격 구조 한 줄 (예: 유료 ₩4,400 · 인앱 없음)\",\n  \"verdict\": \"keep|adjust|new\",\n  \"verdictReason\": \"왜 그 판정인지 1~2문장\",\n  \"size\": \"S|M|L\",\n  \"headline\": \"페이월 머리말 (한국어)\", \"subheadline\": \"...\",\n  \"headlineEn\": \"...\", \"subheadlineEn\": \"...\",\n  \"trims\": [\n    {\"id\": \"free\", \"label\": \"무료\", \"labelEn\": \"Free\", \"price\": null, \"priceUS\": null,\n     \"pitch\": \"한 줄 (한국어)\", \"pitchEn\": \"...\",\n     \"features\": [\"이 트림에서 쓰는 것 (한국어, 짧게)\"], \"featuresEn\": [\"...\"]},\n    {\"id\": \"plus\", \"label\": \"Plus\", \"labelEn\": \"Plus\", \"price\": \"₩5,500\", \"priceUS\": \"$3.99\", ...},\n    {\"id\": \"pro\", \"label\": \"Pro\", \"labelEn\": \"Pro\", \"price\": \"₩12,000\", \"priceUS\": \"$7.99\", \"subscription\": null 또는 {\"period\":\"연\",\"price\":\"₩..\",\"priceUS\":\"$..\"}, ...}\n  ],\n  \"compare\": [ {\"feature\": \"비교표 행 (한국어)\", \"featureEn\": \"...\", \"free\": \"3개|✓|–\", \"plus\": \"...\", \"pro\": \"...\"} ],\n  \"triggers\": [\"페이월이 뜨는 순간 (한국어)\"],\n  \"newFeatures\": [\"트림을 위해 새로 만들어야 하는 기능 (없으면 빈 배열)\"],\n  \"migration\": \"기존 구매자 · 기존 상품 처리 (예: 기존 평생 Pro 구매자 → Pro, 기존 productId 재사용)\",\n  \"existingProducts\": [\"재사용할 기존 productId\"],\n  \"evidence\": [\"판단 근거가 된 소스 파일 경로 몇 개\"]\n}\n모든 사용자 문구는 한국어 + 영어 둘 다. 이모지 없이.\n",
   "apps": {
     "bookmark-shot": {
       "slug": "bookmark-shot",
@@ -436,12 +436,12 @@
       "name": "클립키보드",
       "current": "무료 + Plus($5.99, slots5) · 평생 Pro ₩17,000($9.99) · Plus→Pro ₩13,000 · 반값 ₩7,700 · 연 구독 코드만",
       "verdict": "adjust",
-      "verdictReason": "일반 페이월(세 칸 + 비교표 + 올리기 + 반값)은 이 규칙의 기준 모델이라 그대로 둔다. 다만 가장 많이 보는 100번째 사용 문턱 페이월(FreeUsePaywallView)이 아직 평생 Pro · 연 구독만 팔고, 서버 비용이 없는 앱에 연 구독이 남아 있으며 가격이 사다리 밖이라 그 세 가지만 맞춘다. (가격은 사다리 L 대신 지금 Pro ₩17,000 을 유지하도록 조정)",
+      "verdictReason": "일반 페이월의 뼈대(세 칸 + 비교표 + 올리기)는 기준 모델이라 그대로 둔다. 가장 많이 보는 100번째 사용 페이월에도 세 칸을 넣고, 칸마다 연 구독과 평생을 두며, 평생은 연 구독 3년치로 올린다(Pro ₩17,000 → ₩39,000).",
       "size": "L",
       "headline": "ClipKeyboard Plus · Pro",
-      "subheadline": "한번 구매, 평생 사용",
+      "subheadline": "연 구독으로 가볍게, 평생으로 한 번에",
       "headlineEn": "ClipKeyboard Plus and Pro",
-      "subheadlineEn": "Buy once, use forever",
+      "subheadlineEn": "Start with a yearly plan, or keep it for life",
       "trims": [
         {
           "id": "free",
@@ -593,9 +593,11 @@
         "구독 6개월째 · 연 갱신 7일 전: '구독 졸업' 평생 Pro ₩27,000 (평생가의 약 30% 할인) 제안, 산 뒤 구독 해지 화면으로 바로 안내"
       ],
       "newFeatures": [
-        "FreeUsePaywallView 의 평생 · 연 구독 두 칸을 PaywallPlanCard 세 칸(무료 · Plus · Pro)으로 바꾸기 — 영수증 카드는 그대로 위에 둔다"
+        "100번째 사용 페이월을 세 칸 + 패스 한 줄로",
+        "구독 졸업 제안 · 설정의 '평생으로 바꾸기'",
+        "평생 가격 인상 공지"
       ],
-      "migration": "상품은 모두 재사용한다. slots5 = Plus (₩9,900 / $5.99), pro = Pro (₩17,000 / $9.99 그대로 — 지금 팔리는 가격이고 Mac판 탭클립과도 같다), pro.upgrade = Plus→Pro (₩13,000 → ₩7,700, Plus + 올리기가 Pro 보다 비싸지 않게), pro.halfoff = 반값 ₩7,700 그대로. 연 구독 pro.yearly 는 ASC 에 올리지 않고 코드의 칸만 숨긴다(이미 산 사람은 AccessTier.legacyProProductIDs 로 계속 Pro). 칸 팩 · 두 대째 · 선물 · 팁 구매자 권한은 지금처럼 유지.",
+      "migration": "상품은 모두 재사용한다. slots5 = Plus 평생 ₩20,000 · $14.99, pro = Pro 평생 ₩39,000 · $26.99(₩17,000에 산 사람은 그대로 Pro), pro.upgrade = Plus 평생 → Pro 평생 ₩19,000. 새로: plus.yearly ₩6,600 · $4.99, pro.yearly ₩13,000 · $8.99(같은 구독 그룹, 첫 해 반값), pro.graduate ₩27,000. pro.halfoff 는 판매 중지(산 사람 권한 유지).",
       "existingProducts": [
         "com.Ysoup.TokenMemo.slots5",
         "com.Ysoup.TokenMemo.pro",
@@ -610,7 +612,7 @@
         "/Users/leeo/Documents/workspace/code/app-portfolio/scripts/paywalls.json"
       ],
       "priority": 1,
-      "priorityReason": "매출 · 이익 관문을 넘은 대표 앱. 상품이 모두 있어 화면 하나(100번째 사용 페이월)만 세 칸으로 바꾸면 되고, 다른 앱들이 따라 할 기준이 된다.",
+      "priorityReason": "매출 · 이익 관문을 넘은 대표 앱. 여기서 정한 세 칸 화면이 다른 앱의 기준이 된다.",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000.",
       "moments": [
         {
@@ -644,7 +646,12 @@
           "plan": "졸업 평생"
         }
       ],
-      "currentPublic": "평생 Plus · 평생 Pro ₩17,000. 가장 많이 보는 100번째 사용 페이월은 Pro 와 연 구독 두 칸뿐"
+      "currentPublic": "Plus $5.99 · Pro 평생 ₩17,000. 가장 많이 보는 100번째 사용 페이월은 평생 Pro와 연 구독 두 칸뿐",
+      "stage": "5.1.15 심사 중",
+      "upgrade": "₩19,000",
+      "graduate": "₩27,000",
+      "oneLine": "모든 페이월을 세 칸으로, 연 구독을 싼 입구로",
+      "intent": "사람들이 가장 많이 보는 페이월은 단축어를 100번째 쓴 순간에 뜨는 화면입니다. 여기에는 ₩17,000 평생 Pro와 연 구독만 있어서, 한도만 풀고 싶은 사람에게는 ₩17,000을 내거나 닫는 것 말고 다른 선택이 없습니다. 이 화면에도 Plus 칸을 넣고, 두 칸 모두 연 구독을 싼 입구로 둡니다. 평생은 오래 쓸 사람을 위한 값으로 올립니다. 지금 ₩17,000은 단축어를 매일 쓰는 키보드의 평생 값으로는 낮습니다."
     },
     "cooltime": {
       "slug": "cooltime",
@@ -1207,12 +1214,12 @@
       "name": "두번알림",
       "current": "무료 · 평생 Pro ₩17,000 ($9.99) · 기억 → Pro 올리기 ₩11,000 ($6.99) · 기억(Plus, com.xa.toki.remember, 코드상 $2.99)은 스토어에 아직 안 보임 · 팁 3종 · Pro 선물",
       "verdict": "adjust",
-      "verdictReason": "구조는 이미 규칙과 거의 같다(무료에서 예비 알림 무제한으로 핵심 가치 경험, Plus = 설정 기억, Pro = 세션 모드 · 오버타임 · 기록, 세 칸 카드 + 비교표, 차액 올리기, 기존 사용자 그랜드파더). 고칠 것은 세 가지뿐이다: Pro ₩17,000 이 사다리 밖이고, Plus 상품이 스토어에 없어 실제로는 두 칸만 보이며, 반값 제안이 없다. (이익을 내는 앱이라 Pro ₩17,000 은 유지)",
+      "verdictReason": "구조는 이미 규칙과 거의 같다(무료에서 예비 알림 무제한, Plus = 설정 기억, Pro = 세션 모드 · 오버타임 · 기록, 세 칸 카드 + 비교표, 차액 올리기). 고칠 것은 Plus 상품이 스토어에 없어 두 칸만 보이는 것, 연 구독이 없는 것, 평생 Pro ₩17,000이 연 구독 3년치보다 낮은 것이다.",
       "size": "M",
       "headline": "두번알림 Plus · Pro",
-      "subheadline": "앱이 당신의 설정을 기억합니다. 한 번 구매, 평생 사용.",
+      "subheadline": "앱이 당신의 설정을 기억합니다. 연 구독이나 평생 중에 고르세요.",
       "headlineEn": "Rereminder Plus · Pro",
-      "subheadlineEn": "The app remembers your setups. Pay once, use forever.",
+      "subheadlineEn": "The app remembers your setups. Choose yearly or lifetime.",
       "trims": [
         {
           "id": "free",
@@ -1373,7 +1380,7 @@
         "반값 Pro 제안 화면과 한 번만 보이게 하는 기록 (com.xa.toki.pro.halfoff, ₩8,800)",
         "Plus(com.xa.toki.remember) 를 ASC 에 등록 · 심사 제출해 세 칸이 실제로 보이게 하기 (코드는 이미 offersRememberTier 로 상품이 있을 때만 Plus 카드를 띄움)"
       ],
-      "migration": "변경은 상품 등록이 중심이다. com.xa.toki.pro 는 ₩17,000 · $9.99 그대로(이익을 내는 가격이라 내리지 않음), com.xa.toki.remember(Plus)를 ₩5,500 · $3.99 로 ASC 에 등록, com.xa.toki.pro.upgrade 는 ₩11,000 그대로(Plus + 올리기 = ₩16,500 으로 Pro 보다 싸다). 반값 com.xa.toki.pro.halfoff ₩8,800 새로. 이미 Pro 를 산 사람 · 그랜드파더 사용자 · 창단 후원자 · 팁 · 선물 받은 사람은 권한 그대로.",
+      "migration": "com.xa.toki.remember(Plus 평생) ₩14,000 · $8.99 를 ASC 에 등록. pro ₩17,000 → ₩27,000 · $17.99(산 사람은 그대로 Pro), pro.upgrade ₩11,000 → ₩13,000. 새로: plus.yearly ₩4,400 · $2.99, pro.yearly ₩8,800 · $5.99(첫 해 반값), pro.graduate ₩19,000.",
       "existingProducts": [
         "com.xa.toki.pro",
         "com.xa.toki.remember",
@@ -1392,7 +1399,7 @@
         "/Users/leeo/Documents/workspace/code/Rereminder/Config/RereminderProducts.storekit"
       ],
       "priority": 2,
-      "priorityReason": "이익을 내는 앱이고 세 칸 코드가 이미 있다. Plus 상품을 스토어에 등록만 하면 세 칸이 보인다. 가격은 내리지 않는다.",
+      "priorityReason": "이익을 내는 앱이고 세 칸 코드가 이미 있다. 스토어 상품 등록이 대부분이라 가장 빨리 낼 수 있다.",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
       "moments": [
         {
@@ -1420,7 +1427,12 @@
           "plan": "Pro 연 구독"
         }
       ],
-      "currentPublic": "평생 Pro ₩17,000 한 칸. Plus 는 앱에 있지만 스토어에 아직 없음"
+      "currentPublic": "Pro 평생 ₩17,000 한 칸. Plus는 앱에 있지만 스토어 상품이 없어 보이지 않음",
+      "stage": "예정",
+      "upgrade": "₩13,000",
+      "graduate": "₩19,000",
+      "oneLine": "Plus를 열고 평생 Pro를 ₩27,000으로",
+      "intent": "무료 사용자가 가장 자주 막히는 곳은 '설정을 저장해 두고 다시 쓰기'입니다. 지금은 이것 하나 때문에 세션 모드 · 오버타임 · 기록까지 묶인 ₩17,000 Pro를 사야 합니다. 앱에는 이미 Plus('기억') 칸 코드가 있는데 스토어에 상품이 없어서 보이지 않습니다. 상품을 등록해 연 ₩4,400의 싼 입구를 열고, 평생 Pro는 ₩27,000으로 올립니다."
     },
     "family-bank": {
       "slug": "family-bank",
@@ -4150,12 +4162,12 @@
       "name": "욕망의 무지개",
       "current": "무료 + 무지개 Pro 한 칸: 평생 ₩66,000($39.99) · 연 구독($14.99) · 월 구독($2.99), 연간이 기본 선택. 맥 '무지개 공방'에서 산 Pro 도 iCloud 표(ProMark)로 인정",
       "verdict": "adjust",
-      "verdictReason": "무료 선(오늘을 사는 데 필요한 것은 무료)은 이미 규칙에 잘 맞지만, Pro 한 칸에 연 · 월 구독을 앞세우고 평생이 ₩66,000으로 사다리(M: Pro ₩12,000)보다 훨씬 높다. 서버 비용이 없는 앱(CloudKit 개인 DB)이라 구독을 거두고, 이미 있는 잠금 다섯 가지를 '뒤돌아보기'(Plus)와 '밖으로 나가기'(Pro)로 나눠 평생 두 칸으로 맞춘다.",
+      "verdictReason": "무료 선(오늘을 사는 데 필요한 것은 무료)은 이미 규칙에 맞지만, 잠금 다섯 가지가 Pro 한 칸에 묶이고 평생 ₩66,000이 첫 결제로 너무 크다. 잠금을 '지난 기록 보기'(Plus)와 '앱 밖으로 넓히기'(Pro)로 나누고, 연 구독은 값을 내려 싼 입구로 남기며 월 구독은 새로 팔지 않는다.",
       "size": "M",
       "headline": "쌓여야 보이는 것을 엽니다",
-      "subheadline": "한 번 구매, 평생 사용. 오늘을 사는 데 필요한 것과 맥과 오가는 것은 그대로 무료예요.",
+      "subheadline": "연 구독이나 평생 중에 고르세요. 오늘을 사는 데 필요한 것과 맥과 오가는 것은 그대로 무료예요.",
       "headlineEn": "Unlock what only shows up over time",
-      "subheadlineEn": "Pay once, keep it forever. Everything you need for today, and syncing with your Mac, stays free.",
+      "subheadlineEn": "Choose yearly or lifetime. Everything you need for today, and syncing with your Mac, stays free.",
       "trims": [
         {
           "id": "free",
@@ -4317,7 +4329,7 @@
         "ProMark(iCloud 표)에 단계(plus/pro)를 함께 적어 맥과 아이폰이 같은 단계를 인정하기",
         "무료 · Plus · Pro 세 칸 페이월 + 비교표, Plus→Pro 올리기 · 반값 제안"
       ],
-      "migration": "평생 이용권 com.example.ScheduleDensityApp.pro 는 Pro 평생으로 재사용하고 가격을 ₩12,000 · $7.99 로 내린다(1.1.x 의 ₩4,900 구매자와 ₩66,000 구매자 모두 그대로 Pro). 연 · 월 구독(…pro.annual · …pro.monthly)은 판매를 멈추고 entitlementIDs 에만 남겨, 구독 중인 사람은 끝나는 날까지 Pro. 한 번이라도 구독 결제를 한 사람(Transaction.all 기준)은 평생 Plus 로 남겨 뺏기는 느낌이 없게 하고, 남은 기간 동안 Plus→Pro 올리기 가격을 보여 준다. 새 상품: …plus(₩5,500 · $3.99), …pro.upgrade(₩6,600 · $4.99), …pro.halfoff(₩5,900 · $3.99). 맥 '무지개 공방'과 같은 사다리 · 같은 값으로 맞춰 한쪽에서 산 단계가 양쪽에서 열리게 한다.",
+      "migration": "com.example.ScheduleDensityApp.pro(평생) ₩66,000 → ₩27,000 · $17.99, ₩4,900 · ₩66,000 구매자 모두 그대로 Pro. pro.annual $14.99 → ₩8,800 · $5.99(첫 해 반값). 새로: plus ₩14,000 · $8.99, plus.annual ₩4,400 · $2.99, pro.upgrade ₩13,000, pro.graduate ₩19,000. pro.monthly 는 새 판매 중지, 구독자는 끝날 때까지 Pro.",
       "existingProducts": [
         "com.example.ScheduleDensityApp.pro",
         "com.example.ScheduleDensityApp.pro.annual",
@@ -4332,7 +4344,7 @@
         "/Users/leeo/Documents/workspace/code/ScheduleDensity/ScheduleDensityApp/ViewModels/ScheduleViewModel.swift"
       ],
       "priority": 4,
-      "priorityReason": "아이폰 · 맥 한 쌍으로 이미 판매 중. ₩66,000 평생 · 구독 구조라 전환율이 가장 크게 바뀔 수 있다. 무지개 공방과 같이 한 번에 바꾼다.",
+      "priorityReason": "아이폰 · 맥 한 쌍으로 판매 중이지만 매출 관문을 아직 넘지 못했다. 첫 결제 문턱을 가장 크게 낮출 수 있어 무지개 공방과 같은 날 바꾼다.",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
       "moments": [
         {
@@ -4360,19 +4372,24 @@
           "plan": "Pro 평생"
         }
       ],
-      "currentPublic": "Pro 한 칸, 평생 ₩66,000 · 연 · 월 구독"
+      "currentPublic": "Pro 한 칸, 평생 ₩66,000 · 연 $14.99 · 월 $2.99",
+      "stage": "예정",
+      "upgrade": "₩13,000",
+      "graduate": "₩19,000",
+      "oneLine": "첫 결제 문턱을 연 ₩4,400으로",
+      "intent": "잠긴 기능 다섯 개가 모두 Pro 한 칸에 묶여 있고, 그 평생 가격이 ₩66,000입니다. 첫 결제로 내기에는 너무 커서 사실상 아무도 넘지 않는 문턱입니다. 구독은 싼 입구로 남기되 가격을 내리고, 평생은 연 구독의 3배 이상으로 둡니다. 잠긴 기능은 '지난 기록 보기'(Plus)와 '앱 밖으로 넓히기'(Pro)로 나눕니다. 무료로 오늘을 사는 데 필요한 것은 지금처럼 전부 무료로 둡니다."
     },
     "rainbow-workshop": {
       "slug": "rainbow-workshop",
       "name": "무지개 공방",
       "current": "무료(맥 앱) + 무지개 공방 Pro 한 칸: 평생 ₩17,000($9.99) · 연 ₩25,000($14.99) · 월 ₩3,300($1.99), 1.1.12부터 판매(sellsPro = true). 아이폰 '욕망의 무지개'에서 산 Pro 도 ProMark 로 인정",
       "verdict": "adjust",
-      "verdictReason": "'이번 주를 사는 데 필요한 것은 무료, 쌓여야 보이는 것은 Pro'라는 선은 규칙과 잘 맞지만, 서버 비용 없는 앱에서 연 · 월 구독을 앞세우고, 회고를 글로 복사하는 기본 내보내기까지 잠가 규칙 5를 어긴다. 회고 복사를 무료로 풀고, 추세 · 계획 가져오기(Plus)와 공유 링크 · 아이폰 Pro(Pro)로 평생 두 칸을 나눠 아이폰 앱과 같은 사다리에 맞춘다.",
+      "verdictReason": "'이번 주를 사는 데 필요한 것은 무료'라는 선은 규칙과 맞지만, 회고를 글로 복사하는 기본 내보내기까지 잠가 규칙 5를 어긴다. 회고 복사를 무료로 풀고, 추세 · 계획 가져오기(Plus)와 공유 링크 · 아이폰 Pro(Pro)로 나눠 아이폰 앱과 같은 사다리 · 같은 구매로 맞춘다.",
       "size": "M",
       "headline": "지난 주들이 쌓이면 보이는 것을 엽니다",
-      "subheadline": "한 번 구매, 평생 사용. 계획하고 돌아보고 아이폰과 오가는 것은 그대로 무료예요.",
+      "subheadline": "연 구독이나 평생 중에 고르세요. 계획하고 돌아보고 아이폰과 오가는 것은 그대로 무료예요.",
       "headlineEn": "Unlock what your past weeks reveal",
-      "subheadlineEn": "Pay once, keep it forever. Planning, reflecting, and syncing with iPhone stay free.",
+      "subheadlineEn": "Choose yearly or lifetime. Planning, reflecting, and syncing with iPhone stay free.",
       "trims": [
         {
           "id": "free",
@@ -4539,7 +4556,7 @@
         "무료 · Plus · Pro 세 칸 페이월 + 비교표, Plus→Pro 올리기 · 반값 제안",
         "회고 복사 버튼에서 Pro 잠금 빼기(ReflectionView, Gate.export)"
       ],
-      "migration": "평생 이용권 com.devkoan.ScheduleDensityApp.sync(옛 '함께 쓰기' 상품, 지금 Pro 평생)를 Pro 평생으로 재사용하고 가격을 ₩12,000 · $7.99 로 내린다. 이미 산 사람은 그대로 Pro. 연 · 월 구독(…pro.yearly · …pro.monthly)은 판매를 멈추고 entitlementIDs 에만 남겨 끝나는 날까지 Pro, 한 번이라도 구독 결제를 한 사람은 평생 Plus 로 남긴다. 새 상품: com.devkoan.ScheduleDensityApp.plus(₩5,500 · $3.99), …pro.upgrade(₩6,600 · $4.99), …pro.halfoff(₩5,900 · $3.99). 캘린더 가져오기는 맥에서 원래 무료였으므로 잠그지 않는다(아이폰은 Pro 라 두 앱 문구가 다르다는 점을 페이월에 적지 않도록 주의). 오퍼 코드(OfferCode)는 Pro 평생으로 연결.",
+      "migration": "com.devkoan.ScheduleDensityApp.sync(평생) ₩17,000 → ₩27,000 · $17.99, 산 사람은 그대로 Pro. pro.yearly ₩25,000 → ₩8,800 · $5.99(첫 해 반값). 새로: plus ₩14,000 · $8.99, plus.yearly ₩4,400 · $2.99, pro.upgrade ₩13,000, pro.graduate ₩19,000. pro.monthly 는 새 판매 중지. iCloud 구매 기록(ProMark)에 Plus · Pro 등급을 적는다.",
       "existingProducts": [
         "com.devkoan.ScheduleDensityApp.sync",
         "com.devkoan.ScheduleDensityApp.pro.yearly",
@@ -4583,7 +4600,12 @@
           "plan": "Pro 평생"
         }
       ],
-      "currentPublic": "Pro 한 칸, 평생 ₩17,000 · 연 · 월 구독. 회고 복사도 잠금"
+      "currentPublic": "Pro 한 칸, 평생 ₩17,000 · 연 ₩25,000 · 월 ₩3,300. 회고 복사도 잠금",
+      "stage": "예정",
+      "upgrade": "₩13,000",
+      "graduate": "₩19,000",
+      "oneLine": "아이폰과 같은 사다리 · 같은 구매",
+      "intent": "아이폰 앱과 구매를 공유하므로 같은 날 같은 사다리로 바꿔야 합니다. 그래야 \"한 번 사면 아이폰과 맥이 둘 다 열린다\"가 분명해집니다. 지금은 내가 쓴 회고를 글로 복사하는 것까지 Pro로 잠겨 있는데, 이것은 사용자 데이터의 기본 내보내기라서 무료로 풉니다."
     },
     "rapport-map": {
       "slug": "rapport-map",
@@ -5489,12 +5511,12 @@
       "name": "골드위크",
       "current": "무료 다운로드 · 플러스 연간 ₩17,000($9.99) · 프로 연간 ₩33,000($19.99) · 패밀리 연간 ₩49,000($29.99) · 프로 평생 ₩77,000($49.99) · 선물 · 팁. 코드에 ProTier(free/plus/pro/family) 트림과 2.4.0 전 설치자 보호(originalAppVersion 빌드 11 이하)가 이미 있음",
       "verdict": "adjust",
-      "verdictReason": "무엇을 무료 · 플러스 · 프로로 두는지(docs/MONETIZATION.md)는 이 규칙과 거의 같고 기존 사용자 보호도 이미 구현돼 있어 기능 배치는 그대로 둔다. 다만 공휴일은 규칙 계산(WorldHolidays, 2030년까지 신뢰), 가족 공유는 CloudKit이라 계속 드는 비용이 없는데 연 구독이 주력이고 평생은 프로 ₩77,000 하나뿐이라, 평생 Plus · Pro 사다리(L)로 바꾸고 패밀리 기능은 Pro에 합친다.",
+      "verdictReason": "기능 배치(무료 · 플러스 · 프로)는 규칙과 거의 같고 기존 사용자 보호도 이미 있어 그대로 둔다. 지금 연 구독 가격은 매출이 나는 값이라 지키고, Plus에도 평생을 만들고 평생 Pro를 연 구독 3배인 ₩99,000으로 올리며, 패밀리는 Pro에 합쳐 칸을 셋으로 줄인다.",
       "size": "L",
       "headline": "골드위크 Plus · Pro",
-      "subheadline": "쉬는 습관은 무료. 계획과 자동화는 한 번 사서 평생",
+      "subheadline": "쉬는 습관은 무료. 계획과 자동화는 연 구독이나 평생으로",
       "headlineEn": "Goldweek Plus · Pro",
-      "subheadlineEn": "Resting well is free. Planning and automation are yours for life with one purchase.",
+      "subheadlineEn": "Resting well is free. Planning and automation, yearly or for life.",
       "trims": [
         {
           "id": "free",
@@ -5689,7 +5711,7 @@
         "ProTier.family 를 Pro로 합치기 — 함께 쉬기 · 가족 기념일 게이트를 hasProTier 로",
         "세 칸 카드 + 비교표 페이월을 평생 가격 중심으로 다시 그리기 (지금은 연간 기본 선택 · 월 환산 가격)"
       ],
-      "migration": "프로 평생(com.Ysoup.LeaveWise.pro) 구매자는 그대로 Pro, 같은 productId 를 쓰고 가격만 ₩25,000으로 내린다. 연간 구독자(플러스 · 프로 · 패밀리)는 구독이 살아 있는 동안 지금 트림을 유지하고(패밀리 → Pro와 같은 권한), 구독 상품은 새로 팔지 않으며 갱신 전 평생으로 바꾸는 안내를 한 번 보여 준다. 2.4.0 전 설치자 보호(isLegacyUser · originalAppVersion 빌드 11 이하)와 선물(gift.pro → 평생 Pro) · 팁은 그대로 둔다.",
+      "migration": "com.Ysoup.LeaveWise.plus.annual ₩17,000 · pro.yearly ₩33,000 연 구독은 그대로(첫 해 반값 추가). pro(평생) ₩77,000 → ₩99,000 · $59.99, 산 사람은 그대로 Pro. 새로: plus(Plus 평생) ₩52,000 · $29.99, pro.upgrade ₩47,000, pro.graduate ₩69,000. family.yearly 는 새 판매 중지, 구독자는 끝날 때까지 Pro 와 같은 권한.",
       "existingProducts": [
         "com.Ysoup.LeaveWise.pro",
         "com.Ysoup.LeaveWise.gift.pro",
@@ -5706,7 +5728,7 @@
         "/Users/leeo/Documents/workspace/code/Goldweek/Goldweek/Services/ShareSyncService.swift"
       ],
       "priority": 3,
-      "priorityReason": "성장 단계 앱. 트림 코드와 기존 사용자 보호가 이미 있어, 연 구독 중심을 평생 Plus · Pro로 바꾸는 일만 남았다.",
+      "priorityReason": "성장 단계 앱. 트림 코드와 기존 사용자 보호가 이미 있어, 패밀리를 Pro에 합치고 Plus 평생을 더하는 일이 중심이다.",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩47,000. 구독자 졸업가 ₩69,000.",
       "moments": [
         {
@@ -5740,7 +5762,12 @@
           "plan": "졸업 평생"
         }
       ],
-      "currentPublic": "플러스 · 프로 · 패밀리 연 구독과 프로 평생 ₩77,000"
+      "currentPublic": "플러스 ₩17,000 · 프로 ₩33,000 · 패밀리 ₩49,000 연 구독과 프로 평생 ₩77,000",
+      "stage": "예정",
+      "upgrade": "₩47,000",
+      "graduate": "₩69,000",
+      "oneLine": "지금 구독 가격 유지, Plus 평생 추가, 패밀리는 Pro로",
+      "intent": "연차 계획은 1년에 몇 번 여는 일인데, 지금은 매년 내는 구독이 주력이고 평생 구매는 ₩77,000 하나뿐입니다. 지금 구독 가격은 매출이 나는 가격이라 그대로 두고, 구독에서 벗어날 길로 Plus에도 평생을 만들고 평생 Pro는 연 구독의 3배인 ₩99,000으로 올립니다. 패밀리는 Pro에 합쳐 칸을 셋으로 줄입니다. 기능 배치는 이미 잘 나뉘어 있으니 그대로 둡니다."
     },
     "sight-singer": {
       "slug": "sight-singer",
@@ -8116,7 +8143,7 @@
       "설정 구독 관리",
       "포트폴리오 소개 페이지"
     ],
-    "status": "승인 전"
+    "status": "확정 · 클립키보드 5.1.15부터"
   },
   "p1Final": {
     "date": "2026-10-27",
@@ -8128,6 +8155,6 @@
       "rainbow-of-desire",
       "rainbow-workshop"
     ],
-    "status": "최종안 (승인 대기)"
+    "status": "확정 (2026-10-27) · 클립키보드부터 반영"
   }
 }

@@ -2106,6 +2106,7 @@ PW_CSS = BIZ_CSS + """
   .np .moments ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
   .np .moments li{display:grid;gap:2px;font-size:.84rem;line-height:1.5}
   .np .moments li span{color:var(--muted)}
+  .np .moments li small{font-size:.8rem}
   .np .moments li em{font-style:normal;font-weight:700;color:var(--c)}
   .pt.pl td.r{min-width:260px}
   .vd{display:inline-block;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:1px 8px;font-size:.72rem}
@@ -2154,7 +2155,8 @@ def ladder_row(app, pw):
 
 
 # ── 페이월 탭: 다음 페이월(설계안) ─────────────────────────────────
-# scripts/paywall-plans.json 을 읽는다. 승인 전 설계안이라 그렇게 적는다. 상품 ID · 근거 소스 경로는 내보내지 않는다.
+# scripts/paywall-plans.json 을 읽는다. 1순위 다섯 앱은 확정안, 나머지는 옛 규칙의 판단이라 그렇게 나눠 적는다.
+# 상품 ID · 근거 소스 경로는 내보내지 않는다.
 PLAN_VERDICT = {"new": ("새로 설계", "#34c48a"), "adjust": ("고칠 것", "#e0a53a"), "keep": ("지금도 충분", "#8b90a0")}
 
 
@@ -2175,7 +2177,7 @@ def public_text(s):
 
 def plan_price(trim):
     if not trim.get("price"):
-        return "무료"
+        return trim.get("pitch") or "무료"
     sub = trim.get("subscription")
     return ("연 %s · 평생 %s" % (sub["price"], trim["price"])) if sub else ("평생 %s" % trim["price"])
 
@@ -2208,25 +2210,35 @@ def paywall_plans_section(apps):
         p, a = plans[s], by.get(s)
         if not a:
             continue
-        trims = "".join('<div class="tier"><span>%s</span><b>%s</b></div>' % (esc(tr.get("label")), esc(plan_price(tr)))
-                        for tr in p.get("trims") or [])
-        moments = "".join('<li><b>%s</b><span>%s</span><em>%s</em></li>' % (esc(m["when"]), esc(m["why"]), esc(m["plan"]))
+        tiers = [(tr.get("label"), plan_price(tr)) for tr in p.get("trims") or []]
+        if p.get("upgrade") or p.get("graduate"):
+            tiers.append(("올리기 · 졸업", " · ".join(x for x in [p.get("upgrade") and "Plus→Pro %s" % p["upgrade"],
+                                                             p.get("graduate") and "졸업 %s" % p["graduate"]] if x)))
+        if fp:
+            tiers.append(("언제나 평생 패스", "연 %s · 평생 %s" % ((fp.get("yearly") or {}).get("price"), (fp.get("lifetime") or {}).get("price"))))
+        trims = "".join('<div class="tier"><span>%s</span><b>%s</b></div>' % (esc(k), esc(v)) for k, v in tiers)
+        moments = "".join('<li><b>%s</b><small>%s</small><span>%s</span><em>%s</em></li>'
+                          % (esc(m["when"]), esc(m.get("see") or ""), esc(m["why"]), esc(m["plan"]))
                           for m in p.get("moments") or [])
-        cards += ('<article class="pw np" style="--c:%s"><div class="top"><div class="app">%s%s<em>1순위 %d</em></div>'
+        cards += ('<article class="pw np" style="--c:%s"><div class="top"><div class="app">%s%s<em>1순위 %d · %s</em></div>'
                   '<h3>%s</h3><p class="sub">지금: %s</p></div><div class="tiers">%s</div>'
                   '<div class="why"><h4>왜 바꾸나</h4><p>%s</p></div>'
                   '<div class="moments"><h4>결제하고 싶어지는 순간</h4><ul>%s</ul></div></article>'
-                  % (PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))[1], icon_img(a), esc(a["name"]), p["priority"],
-                     esc(p.get("headline") or a["name"]), esc(p.get("currentPublic") or ""), trims,
-                     esc(public_text(p.get("priorityReason") or p.get("verdictReason"))), moments))
+                  % (PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))[1], icon_img(a), esc(a["name"]), p["priority"], esc(p.get("stage") or "예정"),
+                     esc(p.get("oneLine") or p.get("headline") or a["name"]), esc(p.get("currentPublic") or ""), trims,
+                     esc(public_text(p.get("intent") or p.get("priorityReason") or p.get("verdictReason"))), moments))
 
-    rows = ""
+    rows, old = "", False
     order = {"new": 0, "adjust": 1, "keep": 2}
     for s in sorted(plans, key=lambda s: (plans[s].get("priority") or 99, order.get(plans[s].get("verdict"), 9), plans[s].get("name", ""))):
         p, a = plans[s], by.get(s)
         if not a:
             continue
         lbl, col = PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))
+        if not p.get("priority") and not old:
+            old = True
+            rows += ('<tr class="grp"><th colspan="5">여기부터는 옛 규칙(평생만 · 옛 사다리)으로 낸 판단입니다. '
+                     '새 규칙으로 다시 계산하기 전이라 이유에 적힌 가격 · 구독 판단은 바뀝니다.</th></tr>')
         rows += ('<tr><th><a href="%s">%s<span>%s</span></a></th><td class="k"><span class="vd" style="--c:%s">%s</span></td>'
                  '<td class="k">%s</td><td class="k">%s칸</td><td class="r">%s</td></tr>'
                  % (intro_link(a), icon_img(a), esc(a["name"]), col, esc(lbl), esc(p.get("size") or ""),
@@ -2234,12 +2246,13 @@ def paywall_plans_section(apps):
     counts = {k: sum(1 for p in plans.values() if p.get("verdict") == k) for k in PLAN_VERDICT}
     return (
         '<section id="next"><h2>다음 페이월 · 설계안<span class="hc">%d</span></h2>'
-        '<p class="lead">모든 앱을 무료 다운로드 + 무료 · Plus · Pro 로 바꾸는 설계안입니다. 아직 승인 전이고, '
-        '먼저 바꿀 다섯 앱부터 반영합니다. 새로 설계 %d · 고칠 것 %d · 지금도 충분 %d.</p>'
+        '<p class="lead">모든 앱을 무료 다운로드 + 무료 · Plus · Pro 로 바꾸는 설계입니다. 2026-10-27 에 확정했고, '
+        '먼저 바꿀 다섯 앱부터 반영합니다(클립키보드부터). 새로 설계 %d · 고칠 것 %d · 지금도 충분 %d.</p>'
         '<div class="rules">%s</div>'
         '<h3 class="sh">가격 사다리</h3>%s'
-        '<p class="note">가격은 1순위 다섯 앱에만 이 사다리로 반영했습니다. 나머지 앱은 승인 뒤 같은 규칙으로 다시 계산합니다. '
-        '이미 산 사람, 구독 중인 사람의 권한은 그대로 둡니다.</p>'
+        '<p class="note">클립키보드는 L, 두번알림 · 욕망의 무지개 · 무지개 공방은 M 입니다. 골드위크는 지금 연 구독 가격'
+        '(Plus ₩17,000 · Pro ₩33,000)이 매출이 나는 값이라 그대로 두고, 평생만 연 구독의 3배로 맞췄습니다. '
+        '나머지 앱은 같은 규칙으로 다시 계산합니다. 이미 산 사람, 구독 중인 사람의 권한은 그대로 둡니다.</p>'
         '<h3 class="sh">먼저 바꿀 다섯 앱</h3><div class="pws">%s</div>'
         '<h3 class="sh">앱별 판단</h3><div class="tw"><table class="pt pl"><thead><tr><th>앱</th><th>판단</th><th>크기</th>'
         '<th>칸</th><th style="text-align:left">이유</th></tr></thead><tbody>%s</tbody></table></div></section>'
