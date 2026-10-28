@@ -2221,11 +2221,10 @@ def paywall_plans_section(apps):
               '<tr><th>L</th><td>₩6,600 / ₩20,000</td><td>₩13,000 / ₩39,000</td><td>$4.99 / $14.99</td><td>$8.99 / $26.99</td></tr>'
               '</tbody></table></div>')
 
-    cards = ""
-    for s in p1:
+    def card(s):
         p, a = plans[s], by.get(s)
         if not a:
-            continue
+            return ""
         tiers = [(tr.get("label"), plan_price(tr)) for tr in p.get("trims") or []]
         if p.get("upgrade") or p.get("graduate"):
             tiers.append(("올리기 · 졸업", " · ".join(x for x in [p.get("upgrade") and "Plus→Pro %s" % p["upgrade"],
@@ -2236,22 +2235,29 @@ def paywall_plans_section(apps):
         moments = "".join('<li><b>%s</b><small>%s</small><span>%s</span><em>%s</em></li>'
                           % (esc(m["when"]), esc(m.get("see") or ""), esc(m["why"]), esc(m["plan"]))
                           for m in p.get("moments") or [])
-        cards += ('<article class="pw np" style="--c:%s"><div class="top"><div class="app">%s%s<em>1순위 %d · %s</em></div>'
+        tag = ("1순위 %d · %s" % (p["priority"], p.get("stage") or "예정")) if p.get("priority") else "%s · %s" % (
+            p.get("size") or "", PLAN_VERDICT.get(p.get("verdict"), ("",))[0])
+        return ('<article class="pw np" style="--c:%s"><div class="top"><div class="app">%s%s<em>%s</em></div>'
                   '<h3>%s</h3><p class="sub">지금: %s</p></div><div class="tiers">%s</div>'
                   '<div class="why"><h4>왜 바꾸나</h4><p>%s</p></div>'
                   '<div class="moments"><h4>결제하고 싶어지는 순간</h4><ul>%s</ul></div></article>'
-                  % (PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))[1], icon_img(a), esc(a["name"]), p["priority"], esc(p.get("stage") or "예정"),
+                  % (PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))[1], icon_img(a), esc(a["name"]), esc(tag),
                      esc(p.get("oneLine") or p.get("headline") or a["name"]), esc(p.get("currentPublic") or ""), trims,
                      esc(public_text(p.get("intent") or p.get("priorityReason") or p.get("verdictReason"))), moments))
 
-    rows, old = "", False
     order = {"new": 0, "adjust": 1, "keep": 2}
-    for s in sorted(plans, key=lambda s: (plans[s].get("priority") or 99, order.get(plans[s].get("verdict"), 9), plans[s].get("name", ""))):
+    cards = "".join(card(s) for s in p1)
+    rest = sorted((s for s, p in plans.items() if not p.get("priority") and p.get("oneLine") and s in by),
+                  key=lambda s: (order.get(plans[s].get("verdict"), 9), plans[s].get("name", "")))
+    rest_cards = "".join(card(s) for s in rest)
+
+    rows, old = "", False
+    for s in sorted(plans, key=lambda s: (plans[s].get("priority") or 99, not plans[s].get("oneLine"), order.get(plans[s].get("verdict"), 9), plans[s].get("name", ""))):
         p, a = plans[s], by.get(s)
         if not a:
             continue
         lbl, col = PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))
-        if not p.get("priority") and not old:
+        if not p.get("priority") and not p.get("oneLine") and not old:
             old = True
             rows += ('<tr class="grp"><th colspan="5">여기부터는 옛 규칙(평생만 · 옛 사다리)으로 낸 판단입니다. '
                      '새 규칙으로 다시 계산하기 전이라 이유에 적힌 가격 · 구독 판단은 바뀝니다.</th></tr>')
@@ -2268,11 +2274,14 @@ def paywall_plans_section(apps):
         '<h3 class="sh">가격 사다리</h3>%s'
         '<p class="note">클립키보드는 L, 두번알림 · 욕망의 무지개 · 무지개 공방은 M 입니다. 골드위크는 지금 연 구독 가격'
         '(Plus ₩17,000 · Pro ₩33,000)이 매출이 나는 값이라 그대로 두고, 평생만 연 구독의 3배로 맞췄습니다. '
-        '나머지 앱은 같은 규칙으로 다시 계산합니다. 이미 산 사람, 구독 중인 사람의 권한은 그대로 둡니다.</p>'
-        '<h3 class="sh">먼저 바꿀 다섯 앱</h3><div class="pws npws">%s</div>'
+        '나머지 앱도 같은 사다리에서 앱 가치와 쓰는 빈도로 크기를 골랐습니다. 이미 산 사람, 구독 중인 사람의 권한은 그대로 둡니다.</p>'
+        '<h3 class="sh">먼저 바꿀 다섯 앱</h3><div class="pws npws">%s</div>%s'
         '<h3 class="sh">앱별 판단</h3><div class="tw"><table class="pt pl"><thead><tr><th>앱</th><th>판단</th><th>크기</th>'
         '<th>칸</th><th style="text-align:left">이유</th></tr></thead><tbody>%s</tbody></table></div></section>'
-        % (len(plans), counts["new"], counts["adjust"], counts["keep"], rules, ladder, cards, rows))
+        % (len(plans), counts["new"], counts["adjust"], counts["keep"], rules, ladder, cards,
+           ('<h3 class="sh">나머지 앱<span class="hc">%d</span></h3><p class="note">같은 규칙으로 앱마다 소스를 읽고 설계했습니다. '
+            '1순위 다섯 앱을 낸 뒤 숫자를 보고 차례로 반영합니다.</p><div class="pws npws">%s</div>' % (len(rest), rest_cards))
+           if rest else "", rows))
 
 
 def paywalls_page(apps):
