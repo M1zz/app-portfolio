@@ -816,7 +816,7 @@ def render(apps, content=None, content_en=None, problem_map=None):
 
     # 상단 허브: 네트워크 그래프 + 도메인별 문제 목차 (문제 해결 지도 통합)
     toc_html, pmap_graph_json = render_problem_hub(
-        problem_map, by_slug, copy_map, copy_map_en, released
+        problem_map, {k: a for k, a in by_slug.items() if showable(a)}, copy_map, copy_map_en, released
     )
 
     # 그룹에 빠진 출시작이 있으면 '그 외' 섹션으로 보강 (누락 방지)

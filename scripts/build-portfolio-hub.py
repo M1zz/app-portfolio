@@ -2187,7 +2187,7 @@ def paywall_plans_section(apps):
     plans = data.get("apps") or {}
     if not plans:
         return ""
-    by = {a["_slug"]: a for a in apps}
+    by = {a["_slug"]: a for a in live(apps)}
     p1 = sorted((s for s, p in plans.items() if p.get("priority")), key=lambda s: plans[s]["priority"])
     fp = data.get("foreverPass") or {}
 
@@ -2469,7 +2469,7 @@ CAT_CSS = BIZ_CSS + """
 
 def category_page(apps):
     data = load_category()
-    by = {a["_slug"]: a for a in apps}
+    by = {a["_slug"]: a for a in live(apps)}
     items = [(by[s], c) for s, c in data.items() if s in by]
     order = {"new": 0, "niche": 1, "existing": 2}
     items.sort(key=lambda x: (order.get(x[1].get("kind"), 9), x[0]["name"]))

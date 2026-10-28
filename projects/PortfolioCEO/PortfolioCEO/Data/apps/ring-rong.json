@@ -46,21 +46,17 @@
     "notStarted": 0,
     "totalTasks": 1
   },
-  "status": "active",
+  "status": "abandoned",
   "supportUrl": "https://leeo75.notion.site/2f7e264a0fdc80a092c4e745402af1ff",
   "lifecycle": {
-    "stage": 1,
-    "label": "pre-mvp",
+    "stage": 0,
+    "label": "abandoned",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 3일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.2 · 최종 업데이트 258일 경과",
-    "evaluatedAt": "2026-10-25",
+    "evaluatedAt": "2026-10-28",
+    "basis": "버린 앱 (사용자 결정)",
     "ratingCount": 0,
     "daysSinceUpdate": 258,
-    "manual": true,
-    "refineDays": 3,
-    "polishDays": 3,
-    "releasedAt": "2026-02-06",
-    "updatedAt": "2026-02-09"
+    "manual": true
   },
   "globalReach": {
     "level": 0,
