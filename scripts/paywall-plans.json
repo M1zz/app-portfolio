@@ -643,7 +643,8 @@
           "why": "매년 빠져나갈 돈이 떠오르는 때. 이미 낸 사람에게 평생을 깎아 주면 해지 대신 졸업을 고른다",
           "plan": "졸업 평생"
         }
-      ]
+      ],
+      "currentPublic": "평생 Plus · 평생 Pro ₩17,000. 가장 많이 보는 100번째 사용 페이월은 Pro 와 연 구독 두 칸뿐"
     },
     "cooltime": {
       "slug": "cooltime",
@@ -1418,7 +1419,8 @@
           "why": "기간이 분명한 일이라 1년 구독이 부담 없이 맞는다",
           "plan": "Pro 연 구독"
         }
-      ]
+      ],
+      "currentPublic": "평생 Pro ₩17,000 한 칸. Plus 는 앱에 있지만 스토어에 아직 없음"
     },
     "family-bank": {
       "slug": "family-bank",
@@ -4357,7 +4359,8 @@
           "why": "두 곳을 오가는 수고가 매일 반복된다. 합치면 이 앱이 내 하루의 기준이 된다",
           "plan": "Pro 평생"
         }
-      ]
+      ],
+      "currentPublic": "Pro 한 칸, 평생 ₩66,000 · 연 · 월 구독"
     },
     "rainbow-workshop": {
       "slug": "rainbow-workshop",
@@ -4579,7 +4582,8 @@
           "why": "한 번 사면 두 기기가 다 열린다는 것을 아는 순간, 평생이 가장 이득으로 보인다",
           "plan": "Pro 평생"
         }
-      ]
+      ],
+      "currentPublic": "Pro 한 칸, 평생 ₩17,000 · 연 · 월 구독. 회고 복사도 잠금"
     },
     "rapport-map": {
       "slug": "rapport-map",
@@ -5735,7 +5739,8 @@
           "why": "1년에 몇 번 여는 앱이라 갱신 결제가 아깝게 느껴지는 때. 해지 대신 평생으로 남는다",
           "plan": "졸업 평생"
         }
-      ]
+      ],
+      "currentPublic": "플러스 · 프로 · 패밀리 연 구독과 프로 평생 ₩77,000"
     },
     "sight-singer": {
       "slug": "sight-singer",
