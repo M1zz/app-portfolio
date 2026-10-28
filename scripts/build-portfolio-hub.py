@@ -175,6 +175,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
                         ("maturity", "maturity.html", "서비스 숙성도"),
                         ("biz", "business.html", "비즈니스 모델"),
                         ("pw", "paywalls.html", "페이월"),
+                        ("cat", "category.html", "범주 · 언어"),
                         ("reddit", "reddit-launch.html", "레딧 출격"),
                         ("hub", "hub.html", "페이지 모음")]
     )
@@ -1741,6 +1742,8 @@ def hub_page(apps):
         '영어로 읽히는지, 무료로 받아 결제까지 갈 수 있는지 봅니다.</p></a>'
         '<a class="ov" href="paywalls.html"><b>페이월 모음</b>'
         '<p>앱 안에서 결제를 권하는 화면과 가격 사다리를 한자리에 모아 앱끼리 가격을 비교합니다.</p></a>'
+        '<a class="ov" href="category.html"><b>범주 · 언어 · 확산</b>'
+        '<p>앱마다 어떤 문제의 답인지, 뭐라고 부를지, 무엇에 빗댈지, 누구의 사례로 넘어갈지, 어떤 습관과 싸우는지.</p></a>'
         '</div></section>'
         '<section><h2>앱별 지원 페이지<span class="hc">%d</span></h2>'
         '<p class="lead">App Store에 등록된 문의·안내 페이지입니다. 만든 시기에 따라 '
@@ -2165,7 +2168,8 @@ def load_paywall_plans():
 
 def public_text(s):
     """설계안 문장에서 상품 ID · 파일 이름 같은 내부 표기를 걷어 낸다(공개 페이지용)."""
-    s = re.sub(r"\s*\([^()]*(?:com\.|iCloud\.|\.swift|originalAppVersion|ProMark|productId)[^()]*\)", "", s or "")
+    s = re.sub(r"\s*\([^()]*(?:com\.|iCloud\.|\.swift|originalAppVersion|ProMark|productId|\.md\b|\.txt\b|\.json\b|쇼케이스|메타데이터|metadata|serviceMaturity|lifecycle|revenueGates|appstore-cache)[^()]*\)", "", s or "")
+    s = s.replace("APPSTORE.md", "스토어 문구 원고").replace("REDESIGN.md", "다시 설계 문서")
     return re.sub(r"\s{2,}", " ", s).strip()
 
 
@@ -2298,6 +2302,201 @@ def paywalls_page(apps):
     return page("페이월 모음 — 리이오의 앱 포트폴리오",
                 "앱 %d개의 페이월과 가격 사다리를 모아 앱끼리 가격을 비교합니다." % (len(live_pw) + len(prep_pw)),
                 {"head": head, "main": main}, "pw", PW_CSS)
+
+
+# ── 공개: 범주 · 언어 · 확산 ────────────────────────────────────────
+# scripts/category-design.json 을 읽는다. 앱마다 다섯 관점(범주 설계 · 제품보다 언어 · 참조점 · 캐즘 · 행동 변화 비용)
+# 과, 관점마다 "이걸로 내리는 결정" 의 답을 보여 준다. 근거 파일 경로(sources)는 내보내지 않는다.
+CAT_LENSES = [
+    ("cat", "범주 설계", "Category Design · Play Bigger",
+     "제품을 파는 게 아니라, 그 제품이 답이 되는 질문을 먼저 심는다. 문제에 이름을 붙이고(범주명), 왜 지금인지 말하고(전환 서사), 이 앱이 기준점이라는 증거를 쌓는다.",
+     "랜딩 첫 문장을 '무엇을 하는 도구' 로 쓸지 '어떤 문제가 있다' 로 쓸지. 새 범주라면 후자.",
+     "혼자서 시장 인식을 통째로 바꿀 수는 없다. 좁은 교두보 안에서만 통하는 범주를 만든다."),
+    ("lang", "제품보다 언어", "Language before product",
+     "부를 이름이 없는 것은 인식되지도 추천되지도 않는다. 입소문은 이름을 타고 흐른다.",
+     "다음 작업 시간을 기능 개발에 쓸지, 이름과 설명문 수정에 쓸지.",
+     "멋진 이름과 이해되는 이름은 다르다. 조어는 검색 유입이 0이다. 이미 검색되는 단어에 새 수식어를 붙인다."),
+    ("ref", "참조점", "Reference point · analogy",
+     "'OO 같은데 XX한 것' 으로 설명되지 않으면 이해 비용을 사용자에게 떠넘긴다. 참조점은 문이지 집이 아니다.",
+     "첫 화면 카피에 비유를 쓸 것인가. 쓰되 두 번째 화면부터 자기 언어로 갈아탄다.",
+     "참조 대상보다 명백히 나은 점이 한 줄로 안 나오면 '그것의 열등한 버전' 으로 고정된다. 그때는 쓰지 않는다."),
+    ("chasm", "확산과 캐즘", "Diffusion of Innovations · Crossing the Chasm",
+     "초기 수용자는 새로움을 사고, 다수는 남들이 이미 쓴다는 증거를 산다. 그 사이의 단절은 새 범주일수록 깊다.",
+     "성장이 멈췄을 때 제품을 고칠지, 사례와 증거를 만들지.",
+     "초기 수용자의 요구를 그대로 받으면 다수가 못 쓰는 제품이 된다. 그들은 불편을 신고하지 않는다."),
+    ("switch", "행동 변화 비용", "Behavior change cost · 9x effect",
+     "경쟁 상대는 다른 제품이 아니라 지금의 습관이다. 조금 나은 정도로는 아무도 옮겨 오지 않는다.",
+     "다음에 만들 것이 '새 기능' 인지 '이사 도구' 인지.",
+     "습관이 아예 없는 영역은 전환 비용이 낮지만 수요 자체가 없을 확률이 높다."),
+]
+CAT_KIND = {"new": ("새 범주", "#34c48a"), "niche": ("뾰족한 하위 범주", "#5b8def"), "existing": ("기존 범주", "#8b90a0")}
+CAT_BADGE = {
+    "landing": {"problem": ("문제형 첫 문장", "#34c48a"), "tool": ("도구형 첫 문장", "#8b90a0")},
+    "lang": {"naming": ("이름 · 설명문 먼저", "#e0a53a"), "features": ("기능 먼저", "#8b90a0")},
+    "ref": {True: ("비유 쓰기", "#5b8def"), False: ("비유 안 씀", "#8b90a0")},
+    "chasm": {"proof": ("사례 · 증거 먼저", "#e0a53a"), "product": ("제품 먼저", "#8b90a0")},
+    "switch": {"moving-tool": ("이사 도구 먼저", "#e0a53a"), "feature": ("새 기능 먼저", "#8b90a0")},
+}
+CAT_STAGE = {"early": "초기 수용자", "stalled": "성장 멈춤", "crossing": "다수로 넘어가는 중", "unknown": "자료 없음"}
+CAT_NAME = {"plain": "검색되는 일반어", "coined": "조어", "combo": "검색어 + 수식어"}
+CAT_HABIT = {"strong": "강한 습관", "weak": "약한 습관", "none": "습관 없음"}
+
+
+def load_category():
+    path = os.path.join(ROOT, "scripts", "category-design.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh).get("apps") or {}
+
+
+def cat_badge(group, key):
+    lbl, col = CAT_BADGE[group].get(key, ("—", "#8b90a0"))
+    return '<span class="cb" style="--c:%s">%s</span>' % (col, esc(lbl))
+
+
+def cat_list(items):
+    items = [x for x in (items or []) if x]
+    return "<ul>%s</ul>" % "".join("<li>%s</li>" % esc(public_text(x)) for x in items) if items else '<p class="na">없음</p>'
+
+
+def category_card(app, c):
+    kind_lbl, kind_col = CAT_KIND.get(c.get("kind"), ("—", "#8b90a0"))
+    cat, lang, ref, ch, sw, ld = (c.get("category") or {}), (c.get("language") or {}), (c.get("reference") or {}), \
+        (c.get("chasm") or {}), (c.get("switching") or {}), (c.get("landing") or {})
+    t = public_text
+
+    def lens(key, title, decision, body):
+        return '<section class="ln ln-%s"><h4>%s %s</h4>%s</section>' % (key, esc(title), decision, body)
+
+    body = (
+        lens("cat", "범주 설계", cat_badge("landing", ld.get("type")),
+             '<p class="q">%s</p><dl><dt>교두보</dt><dd>%s</dd><dt>지금 버티는 방식</dt><dd>%s</dd>'
+             '<dt>왜 지금</dt><dd>%s</dd><dt>기준점이라는 증거</dt><dd>%s</dd><dt>만들어야 할 증거</dt><dd>%s</dd>'
+             '<dt>랜딩 첫 문장</dt><dd><s>%s</s><b>%s</b></dd></dl>'
+             % (esc(cat.get("question")), esc(t(c.get("beachhead"))), esc(t(c.get("oldWay"))), esc(t(c.get("shift"))),
+                cat_list(c.get("evidence")), cat_list(c.get("evidenceToBuild")),
+                esc(ld.get("current") or "찾지 못함"), esc(ld.get("proposed")))) +
+        lens("lang", "제품보다 언어", cat_badge("lang", lang.get("decision")),
+             '<dl><dt>써 본 사람의 한마디 (추정)</dt><dd>"%s" <span class="na">· %s</span></dd>'
+             '<dt>이름</dt><dd>%s · %s</dd><dt>이미 검색되는 말</dt><dd>%s</dd>'
+             '<dt>제안 표현</dt><dd><b>%s</b></dd><dt>왜</dt><dd>%s</dd></dl>'
+             % (esc(t(lang.get("wordOfMouth")).replace(" (추정)", "")),
+                "사람마다 같은 말로 설명할 것" if lang.get("wordOfMouthSpread") == "consistent" else "사람마다 다른 말로 설명할 것",
+                esc(CAT_NAME.get(lang.get("nameType"), "")), esc(t(lang.get("nameNote"))),
+                esc(" · ".join(lang.get("searchTerms") or [])), esc(lang.get("proposedPhrase")), esc(t(lang.get("decisionReason"))))) +
+        lens("ref", "참조점", cat_badge("ref", bool(ref.get("useAnalogy"))),
+             '<p class="q">%s</p><dl><dt>참조점</dt><dd>%s</dd><dt>더 나은 한 줄</dt><dd>%s</dd>'
+             '<dt>끌고 오는 기대치</dt><dd>%s</dd><dt>두 번째 화면부터</dt><dd>%s</dd></dl>'
+             % (esc(ref.get("analogy")), esc(ref.get("anchor")), esc(t(ref.get("betterLine")) or "없음"),
+                esc(t(ref.get("risk"))), esc(t(ref.get("secondScreen"))))) +
+        lens("chasm", "확산과 캐즘", cat_badge("chasm", ch.get("decision")),
+             '<dl><dt>지금 어디</dt><dd>%s · %s</dd><dt>초기 수용자</dt><dd>%s</dd><dt>다수가 원하는 증거</dt><dd>%s</dd>'
+             '<dt>성공 사례를 만들 좁은 집단</dt><dd><b>%s</b></dd><dt>왜</dt><dd>%s</dd>%s</dl>'
+             % (esc(CAT_STAGE.get(ch.get("stage"), "")), esc(t(ch.get("stageReason"))), esc(t(ch.get("earlyAdopters"))),
+                esc(t(ch.get("majorityProof"))), esc(t(ch.get("referenceCase"))), esc(t(ch.get("decisionReason"))),
+                '<dt>받지 말 요구</dt><dd>%s</dd>' % esc(t(ch["earlyAdopterTrap"])) if ch.get("earlyAdopterTrap") else "")) +
+        lens("switch", "행동 변화 비용", cat_badge("switch", sw.get("decision")),
+             '<dl><dt>싸우는 습관</dt><dd>%s <span class="na">· %s</span></dd><dt>습관보다 나은 점</dt><dd>%s</dd>'
+             '<dt>옮겨 오는 비용</dt><dd>%s</dd><dt>있는 이사 도구</dt><dd>%s</dd><dt>만들 이사 도구</dt><dd>%s</dd>'
+             '<dt>왜</dt><dd>%s</dd>%s</dl>'
+             % (esc(t(sw.get("habit"))), esc(CAT_HABIT.get(sw.get("habitStrength"), "")), esc(t(sw.get("gain"))),
+                cat_list(sw.get("switchCosts")), cat_list(sw.get("movingToolsHave")), cat_list(sw.get("movingToolsNeed")),
+                esc(t(sw.get("decisionReason"))),
+                '<dt>주의</dt><dd>%s</dd>' % esc(t(sw["noHabitWarning"])) if sw.get("noHabitWarning") else "")))
+    summary = ('<summary>%s<span class="nm"><b>%s</b><em>%s</em></span><span class="kd" style="--c:%s">%s</span>'
+               '<span class="cn">%s</span><span class="bd">%s%s%s%s%s</span></summary>'
+               % (icon_img(app), esc(app["name"]), esc(t(lang.get("proposedPhrase") or "")), kind_col, esc(kind_lbl),
+                  esc(cat.get("name")), cat_badge("landing", ld.get("type")), cat_badge("lang", lang.get("decision")),
+                  cat_badge("ref", bool(ref.get("useAnalogy"))), cat_badge("chasm", ch.get("decision")),
+                  cat_badge("switch", sw.get("decision"))))
+    return '<details class="cd" id="cd-%s">%s<p class="kr">%s</p><div class="lns">%s</div></details>' % (
+        esc(app["_slug"]), summary, esc(t(c.get("kindReason"))), body)
+
+
+CAT_CSS = BIZ_CSS + """
+  .lenses{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0 6px}
+  .lenses>div{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 15px}
+  .lenses h3{font-size:.95rem;margin:0}
+  .lenses small{display:block;color:var(--muted);font-size:.7rem;margin:2px 0 8px}
+  .lenses p{margin:0 0 6px;font-size:.82rem;line-height:1.55}
+  .lenses p.d b,.lenses p.t b{font-size:.72rem;color:var(--muted);display:block}
+  .cb{display:inline-block;font-size:.68rem;font-weight:800;color:var(--c);border:1px solid var(--c);border-radius:999px;
+    padding:1px 8px;white-space:nowrap;margin-left:4px}
+  .cd{background:var(--card);border:1px solid var(--border);border-radius:13px;margin-bottom:8px}
+  .cd summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:30px minmax(0,200px) auto minmax(0,1fr);
+    gap:6px 12px;align-items:center;padding:12px 14px}
+  .cd summary::-webkit-details-marker{display:none}
+  .cd summary .ic{width:30px;height:30px;border-radius:8px}
+  .cd .nm b{display:block}.cd .nm em{font-style:normal;font-size:.74rem;color:var(--muted)}
+  .cd .kd{font-size:.7rem;font-weight:800;color:var(--c);white-space:nowrap}
+  .cd .cn{font-weight:700}
+  .cd .bd{grid-column:2/-1;display:flex;flex-wrap:wrap;gap:4px}
+  .cd .bd .cb{margin-left:0}
+  .cd .kr{margin:0 14px 10px;color:var(--muted);font-size:.84rem;line-height:1.55}
+  .cd .lns{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;padding:0 14px 14px}
+  .ln{border:1px solid var(--border);border-radius:11px;padding:12px 14px;background:var(--bg-soft)}
+  .ln h4{margin:0 0 8px;font-size:.88rem;display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+  .ln .q{margin:0 0 8px;font-weight:700;line-height:1.5}
+  .ln dl{margin:0;display:grid;gap:3px}
+  .ln dt{font-size:.7rem;color:var(--muted);font-weight:800;margin-top:6px}
+  .ln dd{margin:0;font-size:.84rem;line-height:1.55}
+  .ln dd s{display:block;color:var(--muted);font-size:.8rem}
+  .ln ul{margin:0;padding-left:1.1em}
+  .ln .na{color:var(--muted)}
+  .ctab{border-collapse:collapse;width:100%;font-size:.8rem;background:var(--card)}
+  .ctab th,.ctab td{border-bottom:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+  .ctab thead th{font-size:.7rem;color:var(--muted);font-weight:800}
+  .ctab tbody th a{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:600;white-space:nowrap}
+  .ctab tbody th .ic{width:24px;height:24px;border-radius:6px}
+  .ctab td .cb{margin-left:0}
+  @media (max-width:700px){.cd summary{grid-template-columns:30px minmax(0,1fr)}.cd .kd,.cd .cn{grid-column:2}}
+"""
+
+
+def category_page(apps):
+    data = load_category()
+    by = {a["_slug"]: a for a in apps}
+    items = [(by[s], c) for s, c in data.items() if s in by]
+    order = {"new": 0, "niche": 1, "existing": 2}
+    items.sort(key=lambda x: (order.get(x[1].get("kind"), 9), x[0]["name"]))
+    n = len(items)
+
+    def cnt(f):
+        return sum(1 for _, c in items if f(c))
+    kp = '<div class="kp">%s</div>' % "".join('<div><b>%d</b><span>%s</span></div>' % (v, esc(k)) for k, v in [
+        ("새 범주를 세울 수 있는 앱", cnt(lambda c: c.get("kind") == "new")),
+        ("뾰족한 하위 범주", cnt(lambda c: c.get("kind") == "niche")),
+        ("기존 범주에서 경쟁", cnt(lambda c: c.get("kind") == "existing")),
+        ("이름 · 설명문부터 고칠 앱", cnt(lambda c: (c.get("language") or {}).get("decision") == "naming")),
+        ("사례 · 증거가 먼저인 앱", cnt(lambda c: (c.get("chasm") or {}).get("decision") == "proof")),
+        ("이사 도구가 먼저인 앱", cnt(lambda c: (c.get("switching") or {}).get("decision") == "moving-tool"))])
+    lenses = '<div class="lenses">%s</div>' % "".join(
+        '<div><h3>%s</h3><small>%s</small><p>%s</p><p class="d"><b>이걸로 내리는 결정</b>%s</p><p class="t"><b>함정</b>%s</p></div>'
+        % (esc(ti), esc(en), esc(c), esc(d), esc(tr)) for _, ti, en, c, d, tr in CAT_LENSES)
+    rows = "".join(
+        '<tr><th><a href="#cd-%s">%s<span>%s</span></a></th><td><span class="cb" style="--c:%s">%s</span></td><td>%s</td>'
+        '<td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'
+        % (esc(a["_slug"]), icon_img(a), esc(a["name"]), CAT_KIND.get(c.get("kind"), ("", "#8b90a0"))[1],
+           esc(CAT_KIND.get(c.get("kind"), ("—",))[0]), esc((c.get("category") or {}).get("name")),
+           cat_badge("landing", (c.get("landing") or {}).get("type")), cat_badge("lang", (c.get("language") or {}).get("decision")),
+           cat_badge("ref", bool((c.get("reference") or {}).get("useAnalogy"))), cat_badge("chasm", (c.get("chasm") or {}).get("decision")),
+           cat_badge("switch", (c.get("switching") or {}).get("decision")))
+        for a, c in items)
+    table = ('<div class="tw"><table class="ctab"><thead><tr><th>앱</th><th>범주</th><th>범주명</th><th>첫 문장</th>'
+             '<th>다음 시간</th><th>비유</th><th>성장이 멈추면</th><th>다음에 만들 것</th></tr></thead><tbody>%s</tbody></table></div>' % rows)
+    head = ('<div class="eyebrow">Positioning</div><h1>범주 · 언어 · 확산</h1>'
+            '<p>앱 %d개를 다섯 관점으로 봤습니다. 무엇을 하는 앱인지보다 먼저, 어떤 문제의 답인지 · 사람들이 뭐라고 부를지 · '
+            '무엇에 빗대어 들어오게 할지 · 누구의 성공 사례로 넘어갈지 · 어떤 습관과 싸우는지. '
+            '관점마다 지금 내릴 결정을 앱별로 적었습니다.</p>' % n)
+    main = ('<section>%s%s</section>'
+            '<section><h2>한눈에</h2><p class="lead">앱마다 다섯 결정의 답입니다. 이름을 누르면 아래 자세한 칸으로 갑니다.</p>%s</section>'
+            '<section><h2>앱별 자세히<span class="hc">%d</span></h2><p class="lead">새 범주 · 뾰족한 하위 범주 · 기존 범주 순입니다. '
+            '증거는 앱에 실제로 있는 것만 적었고, 써 본 사람의 한마디는 스토어 문구와 이름으로 짐작한 것입니다.</p>%s</section>'
+            % (kp, lenses, table, n, "".join(category_card(a, c) for a, c in items)))
+    return page("범주 · 언어 · 확산 — 리이오의 앱 포트폴리오",
+                "앱 %d개의 범주 설계 · 이름 · 참조점 · 캐즘 · 행동 변화 비용과 지금 내릴 결정." % n,
+                {"head": head, "main": main}, "cat", CAT_CSS)
 
 
 # ── 내부: 전체 허브 ───────────────────────────────────────────────
@@ -3157,6 +3356,7 @@ def main():
         (os.path.join(DOCS, "maturity.html"), maturity_page(apps), "공개"),
         (os.path.join(DOCS, "business.html"), business_page(apps), "공개"),
         (os.path.join(DOCS, "paywalls.html"), paywalls_page(apps), "공개"),
+        (os.path.join(DOCS, "category.html"), category_page(apps), "공개"),
         (os.path.join(DOCS, "hub.html"), hub_page(apps), "공개"),
         (os.path.join(REPORTS, "portfolio-hub.html"), internal_hub(apps, links), "내부"),
         (os.path.join(DOCS, "reddit-launch.html"), reddit_page(apps), "공개"),
