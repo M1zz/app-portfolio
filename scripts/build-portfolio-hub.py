@@ -2100,15 +2100,31 @@ PW_CSS = BIZ_CSS + """
   .rules h4{margin:0 0 6px;font-size:.95rem}
   .rules p{margin:0;font-size:.85rem;color:var(--muted);line-height:1.55}
   h3.sh{margin:26px 0 10px;font-size:1.05rem}
-  .np .why,.np .moments{border-top:1px solid var(--border);padding-top:10px;margin-top:10px}
-  .np h4{margin:0 0 6px;font-size:.8rem;color:var(--muted)}
-  .np .why p{margin:0;font-size:.85rem;line-height:1.55}
-  .np .moments ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
-  .np .moments li{display:grid;gap:2px;font-size:.84rem;line-height:1.5}
-  .np .moments li span{color:var(--muted)}
-  .np .moments li small{font-size:.8rem}
-  .np .moments li em{font-style:normal;font-weight:700;color:var(--c)}
-  .pt.pl td.r{min-width:260px}
+  /* 설계안 카드: 글이 길어 두 줄 그리드 · 넉넉한 안쪽 여백 · 묶음마다 간격 */
+  .npws{grid-template-columns:repeat(auto-fill,minmax(min(420px,100%),1fr));gap:22px}
+  .np .top{padding:24px 26px 18px}
+  .np h3{font-size:1.2rem;margin-top:14px}
+  .np .sub{font-size:.84rem;line-height:1.6;margin-top:6px}
+  .np .tiers{padding:4px 26px 22px;gap:8px}
+  .np .tier{padding:11px 14px;font-size:.84rem;gap:14px;align-items:baseline}
+  .np .tier span{flex:none;color:var(--muted)}
+  .np .tier b{text-align:right;line-height:1.5;word-break:keep-all}
+  .np .why,.np .moments{border-top:1px solid var(--border);padding:22px 26px}
+  .np h4{margin:0 0 12px;font-size:.74rem;color:var(--muted);font-weight:800;letter-spacing:.04em}
+  .np .why p{margin:0;font-size:.92rem;line-height:1.8;word-break:keep-all}
+  .np .moments ul{margin:0;padding:0;list-style:none;display:grid;gap:20px}
+  .np .moments li{display:grid;gap:5px;padding:0 0 0 24px;font-size:.88rem;line-height:1.65;word-break:keep-all}
+  .np .moments li::before{top:1px}
+  .np .moments li b{font-size:.94rem}
+  .np .moments li small{font-size:.86rem}
+  .np .moments li span{color:var(--muted);font-size:.86rem}
+  .np .moments li em{justify-self:start;margin-top:3px;font-style:normal;font-weight:700;font-size:.76rem;color:var(--c);
+    padding:2px 10px;border-radius:999px;background:color-mix(in srgb,var(--c) 14%,transparent)}
+  .pt.pl th,.pt.pl td{padding:14px 16px;vertical-align:middle}
+  .pt.pl td.r{min-width:320px;font-size:.84rem;line-height:1.7;word-break:keep-all}
+  .pt.pl tr.grp th{padding:12px 16px;font-size:.78rem;line-height:1.6;white-space:normal}
+  @media (max-width:520px){.np .top,.np .why,.np .moments{padding-left:18px;padding-right:18px}
+    .np .tiers{padding-left:18px;padding-right:18px}.np .tier{flex-wrap:wrap}}
   .vd{display:inline-block;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:1px 8px;font-size:.72rem}
 """
 
@@ -2253,7 +2269,7 @@ def paywall_plans_section(apps):
         '<p class="note">클립키보드는 L, 두번알림 · 욕망의 무지개 · 무지개 공방은 M 입니다. 골드위크는 지금 연 구독 가격'
         '(Plus ₩17,000 · Pro ₩33,000)이 매출이 나는 값이라 그대로 두고, 평생만 연 구독의 3배로 맞췄습니다. '
         '나머지 앱은 같은 규칙으로 다시 계산합니다. 이미 산 사람, 구독 중인 사람의 권한은 그대로 둡니다.</p>'
-        '<h3 class="sh">먼저 바꿀 다섯 앱</h3><div class="pws">%s</div>'
+        '<h3 class="sh">먼저 바꿀 다섯 앱</h3><div class="pws npws">%s</div>'
         '<h3 class="sh">앱별 판단</h3><div class="tw"><table class="pt pl"><thead><tr><th>앱</th><th>판단</th><th>크기</th>'
         '<th>칸</th><th style="text-align:left">이유</th></tr></thead><tbody>%s</tbody></table></div></section>'
         % (len(plans), counts["new"], counts["adjust"], counts["keep"], rules, ladder, cards, rows))
