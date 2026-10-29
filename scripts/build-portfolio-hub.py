@@ -2109,6 +2109,10 @@ PW_CSS = BIZ_CSS + """
   .np .tier{padding:11px 14px;font-size:.84rem;gap:14px;align-items:baseline}
   .np .tier span{flex:none;color:var(--muted)}
   .np .tier b{text-align:right;line-height:1.5;word-break:keep-all}
+  .np .tier{flex-wrap:wrap}
+  .np .tier ul{flex-basis:100%;margin:2px 0 0;padding:10px 0 0;border-top:1px dashed var(--border);
+    display:grid;gap:2px;font-size:.82rem;line-height:1.55}
+  .np .tier ul li{padding:1px 0 1px 22px}
   .np .why,.np .moments{border-top:1px solid var(--border);padding:22px 26px}
   .np h4{margin:0 0 12px;font-size:.74rem;color:var(--muted);font-weight:800;letter-spacing:.04em}
   .np .why p{margin:0;font-size:.92rem;line-height:1.8;word-break:keep-all}
@@ -2235,14 +2239,16 @@ def paywall_plans_section(apps):
         p, a = plans[s], by.get(s)
         if not a:
             return ""
-        tiers = [(tr.get("label"), plan_price(tr)) for tr in p.get("trims") or []]
+        tiers = [(tr.get("label"), plan_price(tr), tr.get("features") or []) for tr in p.get("trims") or []]
         if p.get("upgrade") or p.get("graduate"):
             tiers.append(("올리기 · 졸업", " · ".join(x for x in [
                 p.get("upgrade") and "Plus→Pro %s" % with_us(p["upgrade"], p.get("upgradeUS")),
-                p.get("graduate") and "졸업 %s" % with_us(p["graduate"], p.get("graduateUS"))] if x)))
+                p.get("graduate") and "졸업 %s" % with_us(p["graduate"], p.get("graduateUS"))] if x), []))
         if fp:
-            tiers.append(("언제나 평생 패스", fp_price))
-        trims = "".join('<div class="tier"><span>%s</span><b>%s</b></div>' % (esc(k), esc(v)) for k, v in tiers)
+            tiers.append(("언제나 평생 패스", fp_price, []))
+        trims = "".join('<div class="tier"><span>%s</span><b>%s</b>%s</div>' % (
+            esc(k), esc(v), "<ul>%s</ul>" % "".join("<li>%s</li>" % esc(public_text(f)) for f in fs) if fs else "")
+            for k, v, fs in tiers)
         moments = "".join('<li><b>%s</b><small>%s</small><span>%s</span><em>%s</em></li>'
                           % (esc(m["when"]), esc(m.get("see") or ""), esc(m["why"]), esc(m["plan"]))
                           for m in p.get("moments") or [])
