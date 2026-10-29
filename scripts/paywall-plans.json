@@ -215,7 +215,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/밑줄/BookmarkShot/Views/Library/AddBookView.swift",
         "/Users/hyunholee/Documents/workspace/Auto/밑줄/BookmarkShot/App/BookmarkShotRoadmap.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "bucket-climb": {
       "slug": "bucket-climb",
@@ -405,7 +407,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/꿈을 찾아서/BucketClimb/Views/AllViews.swift",
         "/Users/hyunholee/Documents/workspace/Auto/꿈을 찾아서/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "burning-my-life": {
       "slug": "burning-my-life",
@@ -661,7 +664,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/불타는내인생/BurningParchment/Views/FragmentCollectionView.swift",
         "/Users/hyunholee/Documents/workspace/Auto/불타는내인생/BurningParchmentWidgets/BurningParchmentWidgetsBundle.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "clip-keyboard": {
       "slug": "clip-keyboard",
@@ -883,7 +888,9 @@
       "upgrade": "₩19,000",
       "graduate": "₩27,000",
       "oneLine": "모든 페이월을 세 칸으로, 연 구독을 싼 입구로",
-      "intent": "사람들이 가장 많이 보는 페이월은 단축어를 100번째 쓴 순간에 뜨는 화면입니다. 여기에는 ₩17,000 평생 Pro와 연 구독만 있어서, 한도만 풀고 싶은 사람에게는 ₩17,000을 내거나 닫는 것 말고 다른 선택이 없습니다. 이 화면에도 Plus 칸을 넣고, 두 칸 모두 연 구독을 싼 입구로 둡니다. 평생은 오래 쓸 사람을 위한 값으로 올립니다. 지금 ₩17,000은 단축어를 매일 쓰는 키보드의 평생 값으로는 낮습니다."
+      "intent": "사람들이 가장 많이 보는 페이월은 단축어를 100번째 쓴 순간에 뜨는 화면입니다. 여기에는 ₩17,000 평생 Pro와 연 구독만 있어서, 한도만 풀고 싶은 사람에게는 ₩17,000을 내거나 닫는 것 말고 다른 선택이 없습니다. 이 화면에도 Plus 칸을 넣고, 두 칸 모두 연 구독을 싼 입구로 둡니다. 평생은 오래 쓸 사람을 위한 값으로 올립니다. 지금 ₩17,000은 단축어를 매일 쓰는 키보드의 평생 값으로는 낮습니다.",
+      "upgradeUS": "$12.99",
+      "graduateUS": "$18.99"
     },
     "cooltime": {
       "slug": "cooltime",
@@ -1114,7 +1121,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/쿨타임/widget/widget.swift",
         "/Users/hyunholee/Documents/workspace/Auto/쿨타임/CoolTime/CoolTimeRoadmap.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "daily-compliment": {
       "slug": "daily-compliment",
@@ -1314,7 +1323,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/오늘의 주접/JujobWidget/JujobWidget.swift",
         "/Users/hyunholee/Documents/workspace/Auto/오늘의 주접/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "donkko-mart": {
       "slug": "donkko-mart",
@@ -1553,7 +1563,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/돈꼬마트/DontGoMartWidget/CalendarWidgetBundle.swift",
         "/Users/hyunholee/Documents/workspace/Auto/돈꼬마트/todo.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "dont-forget": {
       "slug": "dont-forget",
@@ -1738,7 +1750,8 @@
         "/Users/hyunholee/Documents/workspace/code/app-portfolio/projects/PortfolioCEO/PortfolioCEO/Data/apps/dont-forget.json"
       ],
       "sourceFound": false,
-      "sourceNote": "이 컴퓨터에도 GitHub(M1zz/WeekAheadTodo, 2026-01 사본)에도 TodoAlarm 소스가 없다. 출시 빌드 1.0.3(4) 아카이브의 실행 파일 문자열과 dSYM 파일 목록(ContentView · SettingsView · NotificationManager · LiveActivityManager · CloudKitService · TaskViewModel)으로 기능을 확인했다."
+      "sourceNote": "이 컴퓨터에도 GitHub(M1zz/WeekAheadTodo, 2026-01 사본)에도 TodoAlarm 소스가 없다. 출시 빌드 1.0.3(4) 아카이브의 실행 파일 문자열과 dSYM 파일 목록(ContentView · SettingsView · NotificationManager · LiveActivityManager · CloudKitService · TaskViewModel)으로 기능을 확인했다.",
+      "graduateUS": "$5.99"
     },
     "double-reminder": {
       "slug": "double-reminder",
@@ -1963,7 +1976,9 @@
       "upgrade": "₩13,000",
       "graduate": "₩19,000",
       "oneLine": "Plus를 열고 평생 Pro를 ₩27,000으로",
-      "intent": "무료 사용자가 가장 자주 막히는 곳은 '설정을 저장해 두고 다시 쓰기'입니다. 지금은 이것 하나 때문에 세션 모드 · 오버타임 · 기록까지 묶인 ₩17,000 Pro를 사야 합니다. 앱에는 이미 Plus('기억') 칸 코드가 있는데 스토어에 상품이 없어서 보이지 않습니다. 상품을 등록해 연 ₩4,400의 싼 입구를 열고, 평생 Pro는 ₩27,000으로 올립니다."
+      "intent": "무료 사용자가 가장 자주 막히는 곳은 '설정을 저장해 두고 다시 쓰기'입니다. 지금은 이것 하나 때문에 세션 모드 · 오버타임 · 기록까지 묶인 ₩17,000 Pro를 사야 합니다. 앱에는 이미 Plus('기억') 칸 코드가 있는데 스토어에 상품이 없어서 보이지 않습니다. 상품을 등록해 연 ₩4,400의 싼 입구를 열고, 평생 Pro는 ₩27,000으로 올립니다.",
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "family-bank": {
       "slug": "family-bank",
@@ -2199,7 +2214,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/쑥쑥용돈/FamilyBank/Views/BarcodePayView.swift",
         "/Users/hyunholee/Documents/workspace/Auto/쑥쑥용돈/FamilyBank/Views/KidModeView.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "family-court": {
       "slug": "family-court",
@@ -2403,7 +2420,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/우리집 가정법원/FamilyCourt/FamilyCourtRoadmap.swift"
       ],
       "pricingNote": "Pro는 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 두 칸이라 올리기는 없다. 구독자 졸업가 ₩8,800.",
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "fire-tracker": {
       "slug": "fire-tracker",
@@ -2673,7 +2691,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/퇴사각/FireTracker.storekit"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000. 기존 유료 구매자는 모두 Pro 평생.",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$12.99",
+      "graduateUS": "$18.99"
     },
     "flip-book": {
       "slug": "flip-book",
@@ -2897,7 +2917,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/팔랑북/Products.storekit"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "footprint-diary": {
       "slug": "footprint-diary",
@@ -3146,7 +3168,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/벅뚜벅뚜/APPSTORE.md"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "geusaie": {
       "slug": "geusaie",
@@ -3329,7 +3353,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/그사이에/Geusaie/VoiceCue.swift"
       ],
       "pricingNote": "Pro는 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 두 칸이라 올리기는 없다. 구독자 졸업가 ₩8,800. 레시피 팩이 나오기 전에는 결제를 켜지 않는다.",
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "hands-free-metronome": {
       "slug": "hands-free-metronome",
@@ -3560,7 +3585,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/낫마템포/HandsFreeMetronome/Products.storekit"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000. 기존 ₩4,400 구독자는 그 값 그대로 Pro.",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "hig-gym": {
       "slug": "hig-gym",
@@ -3797,7 +3824,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/디자인실습/Version.xcconfig"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000. 지금까지 앱을 받은 모든 사람은 Pro 평생.",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$12.99",
+      "graduateUS": "$18.99"
     },
     "junior-mistakes": {
       "slug": "junior-mistakes",
@@ -3966,7 +3995,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/실수100/JuniorDevMistakes/MistakeData.swift",
         "/Users/hyunholee/Documents/workspace/Auto/실수100/JuniorDevMistakes/PersistenceController.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "kid-calendar": {
       "slug": "kid-calendar",
@@ -4192,7 +4222,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/아이일정/CalendarSnap/EventSharing.swift",
         "/Users/hyunholee/Documents/workspace/Auto/아이일정/README.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "korea-navi": {
       "slug": "korea-navi",
@@ -4403,7 +4435,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/한국길찾기/KORA/Sources/Features/Subway/KORALuggageMode.swift",
         "/Users/hyunholee/Documents/workspace/Auto/한국길찾기/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "lecture-q": {
       "slug": "lecture-q",
@@ -4633,7 +4667,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/질문노트/LectureQ/LectureQApp.swift",
         "/Users/hyunholee/Documents/workspace/Auto/질문노트/LectureQ/LectureQRoadmap.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "leeocon": {
       "slug": "leeocon",
@@ -4759,7 +4795,8 @@
         "/Users/hyunholee/Documents/workspace/code/app-portfolio/projects/PortfolioCEO/PortfolioCEO/Data/apps/leeocon.json",
         "/private/tmp/claude-501/-Users-hyunholee-Documents-workspace-code-app-portfolio/d7216d9e-cf60-41aa-8b5a-2a90996e23c2/scratchpad/old/leeocon.json"
       ],
-      "sourceFound": false
+      "sourceFound": false,
+      "graduateUS": "$5.99"
     },
     "life-restaurant": {
       "slug": "life-restaurant",
@@ -4990,7 +5027,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/인생맛집/RestaurantMap/RestaurantMapApp.swift",
         "/Users/hyunholee/Documents/workspace/Auto/인생맛집/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "moonlit-arcade": {
       "slug": "moonlit-arcade",
@@ -5161,7 +5200,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/달빛 오락실/MoonlitOrder/Views/GMPanelView.swift",
         "/Users/hyunholee/Documents/workspace/Auto/달빛 오락실/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "pixel-mimi": {
       "slug": "pixel-mimi",
@@ -5404,7 +5444,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/한땀/Hantam/Manager/BeforeAfterVideoGenerator.swift"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000. 매출 관문을 통과한 구독이 없어 연 구독 값을 지킬 예외는 없다.",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$12.99",
+      "graduateUS": "$18.99"
     },
     "punching": {
       "slug": "punching",
@@ -5620,7 +5662,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/펀칭/keyboard/KeyboardViewController.swift"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800.",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "rainbow-of-desire": {
       "slug": "rainbow-of-desire",
@@ -5842,7 +5886,9 @@
       "upgrade": "₩13,000",
       "graduate": "₩19,000",
       "oneLine": "첫 결제 문턱을 연 ₩4,400으로",
-      "intent": "잠긴 기능 다섯 개가 모두 Pro 한 칸에 묶여 있고, 그 평생 가격이 ₩66,000입니다. 첫 결제로 내기에는 너무 커서 사실상 아무도 넘지 않는 문턱입니다. 구독은 싼 입구로 남기되 가격을 내리고, 평생은 연 구독의 3배 이상으로 둡니다. 잠긴 기능은 '지난 기록 보기'(Plus)와 '앱 밖으로 넓히기'(Pro)로 나눕니다. 무료로 오늘을 사는 데 필요한 것은 지금처럼 전부 무료로 둡니다."
+      "intent": "잠긴 기능 다섯 개가 모두 Pro 한 칸에 묶여 있고, 그 평생 가격이 ₩66,000입니다. 첫 결제로 내기에는 너무 커서 사실상 아무도 넘지 않는 문턱입니다. 구독은 싼 입구로 남기되 가격을 내리고, 평생은 연 구독의 3배 이상으로 둡니다. 잠긴 기능은 '지난 기록 보기'(Plus)와 '앱 밖으로 넓히기'(Pro)로 나눕니다. 무료로 오늘을 사는 데 필요한 것은 지금처럼 전부 무료로 둡니다.",
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "rainbow-workshop": {
       "slug": "rainbow-workshop",
@@ -6070,7 +6116,9 @@
       "upgrade": "₩13,000",
       "graduate": "₩19,000",
       "oneLine": "아이폰과 같은 사다리 · 같은 구매",
-      "intent": "아이폰 앱과 구매를 공유하므로 같은 날 같은 사다리로 바꿔야 합니다. 그래야 \"한 번 사면 아이폰과 맥이 둘 다 열린다\"가 분명해집니다. 지금은 내가 쓴 회고를 글로 복사하는 것까지 Pro로 잠겨 있는데, 이것은 사용자 데이터의 기본 내보내기라서 무료로 풉니다."
+      "intent": "아이폰 앱과 구매를 공유하므로 같은 날 같은 사다리로 바꿔야 합니다. 그래야 \"한 번 사면 아이폰과 맥이 둘 다 열린다\"가 분명해집니다. 지금은 내가 쓴 회고를 글로 복사하는 것까지 Pro로 잠겨 있는데, 이것은 사용자 데이터의 기본 내보내기라서 무료로 풉니다.",
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "rapport-map": {
       "slug": "rapport-map",
@@ -6274,7 +6322,9 @@
         "/Users/hyunholee/Documents/workspace/code/RapportMap/RapportMap.xcodeproj/project.pbxproj (origin/dev)"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800. 로컬 작업 사본은 오래된 dev 브랜치라, 판단은 원격 origin/dev(2026-05-08) 소스를 git show 로 읽어서 했다.",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "rebound-journal": {
       "slug": "rebound-journal",
@@ -6444,7 +6494,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/징검돌/Products.storekit"
       ],
       "pricingNote": "두 칸(무료 · 프로) 앱이라 프로는 S 크기 Pro 줄 값(연 ₩4,400 · 평생 ₩13,000). 올리기는 없고 구독자 졸업가 ₩8,800.",
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "relax-on": {
       "slug": "relax-on",
@@ -6602,7 +6653,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/달빛/Products.storekit"
       ],
       "pricingNote": "두 칸(무료 · Pro) 앱이라 Pro 는 S 크기 Pro 줄 값(연 ₩4,400 · 평생 ₩13,000). 올리기는 없고 구독자 졸업가 ₩8,800. 지금 월 구독은 매출 관문을 통과한 기록이 없어 값을 지킬 예외가 아니다.",
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "ring-rong": {
       "slug": "ring-rong",
@@ -6953,7 +7005,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/말문/Version.xcconfig"
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000. 지금 연 ₩33,000 구독은 매출 관문을 통과한 기록이 없어 값을 지킬 예외가 아니다. 상황별 회화는 언어마다 53개(기본 1 · 일상 5 무료, 나머지 47개 잠금).",
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$12.99",
+      "graduateUS": "$18.99"
     },
     "schedule-assistant": {
       "slug": "schedule-assistant",
@@ -7225,7 +7279,9 @@
         "/private/tmp/claude-501/-Users-hyunholee-Documents-workspace-code-app-portfolio/d7216d9e-cf60-41aa-8b5a-2a90996e23c2/scratchpad/src/WeekAheadTodo/WeekAheadTodo/WeekAheadTodo.entitlements"
       ],
       "sourceFound": false,
-      "sourceNote": "출시 소스(1.0.3)가 이 컴퓨터에 없다. GitHub M1zz/WeekAheadTodo 는 2026-01 사본(1.0.1)이라 메일 · Ollama · 위키 · 보고 습관이 빠져 있어, 이것들은 출시 빌드 1.0.3(4) 아카이브의 dSYM 파일 목록(MailAppService · OllamaService · WikiViewModel · ReportingHabitsView · FlexiblePatternScheduleView 등)과 실행 파일 문자열로 확인했다. GitHub 사본은 읽기용으로 scratchpad 에 받았다."
+      "sourceNote": "출시 소스(1.0.3)가 이 컴퓨터에 없다. GitHub M1zz/WeekAheadTodo 는 2026-01 사본(1.0.1)이라 메일 · Ollama · 위키 · 보고 습관이 빠져 있어, 이것들은 출시 빌드 1.0.3(4) 아카이브의 dSYM 파일 목록(MailAppService · OllamaService · WikiViewModel · ReportingHabitsView · FlexiblePatternScheduleView 등)과 실행 파일 문자열로 확인했다. GitHub 사본은 읽기용으로 scratchpad 에 받았다.",
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "shared-day-designer": {
       "slug": "shared-day-designer",
@@ -7488,7 +7544,9 @@
       "upgrade": "₩47,000",
       "graduate": "₩69,000",
       "oneLine": "지금 구독 가격 유지, Plus 평생 추가, 패밀리는 Pro로",
-      "intent": "연차 계획은 1년에 몇 번 여는 일인데, 지금은 매년 내는 구독이 주력이고 평생 구매는 ₩77,000 하나뿐입니다. 지금 구독 가격은 매출이 나는 가격이라 그대로 두고, 구독에서 벗어날 길로 Plus에도 평생을 만들고 평생 Pro는 연 구독의 3배인 ₩99,000으로 올립니다. 패밀리는 Pro에 합쳐 칸을 셋으로 줄입니다. 기능 배치는 이미 잘 나뉘어 있으니 그대로 둡니다."
+      "intent": "연차 계획은 1년에 몇 번 여는 일인데, 지금은 매년 내는 구독이 주력이고 평생 구매는 ₩77,000 하나뿐입니다. 지금 구독 가격은 매출이 나는 가격이라 그대로 두고, 구독에서 벗어날 길로 Plus에도 평생을 만들고 평생 Pro는 연 구독의 3배인 ₩99,000으로 올립니다. 패밀리는 Pro에 합쳐 칸을 셋으로 줄입니다. 기능 배치는 이미 잘 나뉘어 있으니 그대로 둡니다.",
+      "upgradeUS": "$27.99",
+      "graduateUS": "$41.99"
     },
     "sight-singer": {
       "slug": "sight-singer",
@@ -7667,7 +7725,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/초견/StaffSinger/StaffSingerRoadmap.swift"
       ],
       "pricingNote": "두 칸(무료 · Pro) 앱이라 Pro 는 S 크기 Pro 줄 값(연 ₩4,400 · 평생 ₩13,000). 올리기는 없고 구독자 졸업가 ₩8,800.",
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "sky-dex": {
       "slug": "sky-dex",
@@ -7891,7 +7950,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/하늘색/SkyDexWidgets/BoardWidget.swift",
         "/Users/hyunholee/Documents/workspace/Auto/하늘색/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "slide-snap": {
       "slug": "slide-snap",
@@ -8138,7 +8199,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/장표스냅/SlideSnap/ProfileView.swift",
         "/Users/hyunholee/Documents/workspace/Auto/장표스냅/Version.xcconfig"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "speak-flow": {
       "slug": "speak-flow",
@@ -8659,7 +8722,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/StickyPresenter/Widget/Widget.swift",
         "/Users/hyunholee/Documents/workspace/Auto/StickyPresenter/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "sunflower": {
       "slug": "sunflower",
@@ -8862,7 +8927,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/햇빛바라기/widget/widgetControl.swift",
         "/Users/hyunholee/Documents/workspace/Auto/햇빛바라기/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "tap-clip-keyboard": {
       "slug": "tap-clip-keyboard",
@@ -9096,7 +9162,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/탭클립키보드/ClipKeyboard.tap/MacSpotlightIndexer.swift",
         "/Users/hyunholee/Documents/workspace/Auto/탭클립키보드/APPSTORE.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$12.99",
+      "graduateUS": "$18.99"
     },
     "tetra-tint": {
       "slug": "tetra-tint",
@@ -9350,7 +9418,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/tetratint/TetraTint/Views/DynamicTypeView.swift",
         "/Users/hyunholee/Documents/workspace/Auto/tetratint/TetraTint/Support/AppShortcuts.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "think-flow": {
       "slug": "think-flow",
@@ -9544,7 +9614,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/이어생각/widget/widgetControl.swift",
         "/Users/hyunholee/Documents/workspace/Auto/이어생각/ThinkFlow/ThinkFlowRoadmap.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "three-meals": {
       "slug": "three-meals",
@@ -9809,7 +9880,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/세끼/SekkiWidget/SekkiWidget.swift",
         "/Users/hyunholee/Documents/workspace/Auto/세끼/FEATURES.md"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "wifi-snap": {
       "slug": "wifi-snap",
@@ -10058,7 +10131,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/마이파이/WifiSnap/Intents/WifiSnapShortcuts.swift",
         "/Users/hyunholee/Documents/workspace/Auto/마이파이/WifiSnapWidget/WifiSnapWidget.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$4.49",
+      "graduateUS": "$5.99"
     },
     "worry-parking": {
       "slug": "worry-parking",
@@ -10226,7 +10301,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/걱정주차장/WorryParking/Models/InsightsSummary.swift",
         "/Users/hyunholee/Documents/workspace/Auto/걱정주차장/Products.storekit"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$5.99"
     },
     "yeoul": {
       "slug": "yeoul",
@@ -10445,7 +10521,9 @@
         "/Users/hyunholee/Documents/workspace/Auto/여울/Gyeol/Shortcuts/AddEventIntent.swift",
         "/Users/hyunholee/Documents/workspace/Auto/여울/YeoulMac.xcodeproj/project.pbxproj"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     }
   },
   "foreverPass": {

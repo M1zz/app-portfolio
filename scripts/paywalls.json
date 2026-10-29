@@ -111,7 +111,8 @@
           "label": "평생 Pro",
           "price": "￦17,000",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$9.99"
         },
         {
           "productId": "com.Ysoup.TokenMemo.slots5",
@@ -125,7 +126,8 @@
           "label": "Plus → Pro 올리기 (Plus 산 사람)",
           "price": "￦13,000",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$7.99"
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro.halfoff",
@@ -170,7 +172,8 @@
           "label": "평생구매",
           "price": "￦9,900",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$5.99"
         }
       ],
       "triggers": [],
@@ -203,21 +206,24 @@
           "label": "커피 한 잔",
           "price": "₩1,100",
           "period": "1회",
-          "live": true
+          "live": true,
+          "priceUS": "$0.99"
         },
         {
           "productId": "com.dontgomart.tip.cake",
           "label": "케이크 한 조각",
           "price": "￦6,600",
           "period": "1회",
-          "live": true
+          "live": true,
+          "priceUS": "$3.99"
         },
         {
           "productId": "com.dontgomart.tip.meal",
           "label": "든든한 한 끼",
           "price": "￦12,000",
           "period": "1회",
-          "live": true
+          "live": true,
+          "priceUS": "$7.99"
         }
       ],
       "triggers": [
@@ -273,7 +279,8 @@
           "label": "Pro (일회성 구매)",
           "price": "￦17,000",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$9.99"
         }
       ],
       "triggers": [
@@ -385,14 +392,16 @@
           "label": "연간",
           "price": "￦4,400",
           "period": "연",
-          "live": true
+          "live": true,
+          "priceUS": "$2.99"
         },
         {
           "productId": "com.leeo.HandsFreeMetronome.pro.lifetime",
           "label": "평생",
           "price": "￦17,000",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$9.99"
         }
       ],
       "triggers": [
@@ -436,21 +445,24 @@
           "label": "월간 구독",
           "price": "￦4,400",
           "period": "월",
-          "live": true
+          "live": true,
+          "priceUS": "$2.99"
         },
         {
           "productId": "com.leeo.JuniorDevMistakes.pro.1yearly",
           "label": "연간 구독 · 인기",
           "price": "￦25,000",
           "period": "연",
-          "live": true
+          "live": true,
+          "priceUS": "$14.99"
         },
         {
           "productId": "com.leeo.JuniorDevMistakes.pro.1lifetime",
           "label": "평생 이용권",
           "price": "￦33,000",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$19.99"
         }
       ],
       "triggers": [
@@ -562,21 +574,24 @@
           "label": "평생 (기본 선택)",
           "price": "￦77,000",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$44.99"
         },
         {
           "productId": "com.hantam.pro.yearly",
           "label": "연간",
           "price": "￦44,000",
           "period": "연",
-          "live": true
+          "live": true,
+          "priceUS": "$24.99"
         },
         {
           "productId": "com.hantam.pro.monthly",
           "label": "월간",
           "price": "￦6,600",
           "period": "월",
-          "live": true
+          "live": true,
+          "priceUS": "$3.99"
         }
       ],
       "triggers": [
@@ -697,7 +712,8 @@
           "label": "평생",
           "price": "￦17,000",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$9.99"
         },
         {
           "productId": "com.devkoan.ScheduleDensityApp.pro.yearly",
@@ -759,7 +775,8 @@
           "label": "징검돌 프로 (평생)",
           "price": "￦7,900",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$4.99"
         }
       ],
       "triggers": [
@@ -801,7 +818,8 @@
           "label": "월 구독",
           "price": "￦1,100",
           "period": "월",
-          "live": true
+          "live": true,
+          "priceUS": "$0.99"
         }
       ],
       "triggers": [
@@ -851,7 +869,8 @@
           "label": "골드위크 Pro (1회 구매)",
           "price": "￦17,000",
           "period": "평생",
-          "live": true
+          "live": true,
+          "priceUS": "$9.99"
         }
       ],
       "triggers": [

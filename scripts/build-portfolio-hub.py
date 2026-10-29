@@ -1909,7 +1909,7 @@ def paywall_card(app, pw):
     tiers = pw.get("tiers") or []
     rows = ""
     for t in tiers:
-        price = t.get("price") or ""
+        price = with_us(t.get("price"), t.get("priceUS"))
         rows += ('<div class="tier%s"><span>%s%s</span><b>%s</b></div>'
                  % ("" if t.get("live") else " off", esc(t.get("label") or t.get("period") or "상품"),
                     " <small>· %s</small>" % esc(t["period"]) if t.get("period") and t.get("period") not in (t.get("label") or "") else "",
@@ -2129,6 +2129,13 @@ PW_CSS = BIZ_CSS + """
 """
 
 
+def with_us(price, us):
+    """'₩17,000' + '$9.99' → '₩17,000 ($9.99)'. 원래 달러면 그대로."""
+    if not price or not us or price.startswith("$"):
+        return price or us or ""
+    return "%s (%s)" % (price, us)
+
+
 def krw(price):
     """'￦17,000' · '₩1,100' → 17000. 달러 등 다른 통화는 None."""
     if not price or not re.search(r"[￦₩]", price):
@@ -2150,10 +2157,10 @@ def ladder_row(app, pw):
         t = ts[0]
         extra = " 외 %d" % (len(ts) - 1) if len(ts) > 1 else ""
         if t.get("live"):
-            cells += "<td><b>%s</b><small>%s%s</small></td>" % (esc(t.get("price")), esc(t.get("label") or ""), extra)
+            cells += "<td><b>%s</b><small>%s%s</small></td>" % (esc(with_us(t.get("price"), t.get("priceUS"))), esc(t.get("label") or ""), extra)
         else:
             cells += ('<td class="off"><b>%s</b><small>스토어 준비 중</small></td>'
-                      % esc(t.get("price") or "—"))
+                      % esc(with_us(t.get("price"), t.get("priceUS")) or "—"))
     # 기간끼리의 비율 — 팔리는 상품끼리만 견준다
     live_p = {t.get("period"): krw(t.get("price")) for t in (pw.get("tiers") or []) if t.get("live")}
     rel = []
@@ -2164,7 +2171,8 @@ def ladder_row(app, pw):
     if live_p.get("월") and live_p.get("주"):
         rel.append("월간 = 주간 %.1f주치" % (live_p["월"] / live_p["주"]))
     p = app.get("price") or {}
-    ap = "￦{:,}".format(p["priceKRW"]) if p.get("priceKRW") else "무료"
+    us = (app.get("usStore") or {}).get("price")
+    ap = with_us("￦{:,}".format(p["priceKRW"]), us and "$%.2f" % us) if p.get("priceKRW") else "무료"
     return ('<tr><th><a href="#pw-%s">%s<span>%s</span></a></th><td class="k">%s</td><td>%s</td>%s<td class="r">%s</td></tr>'
             % (esc(app["_slug"]), icon_img(app), esc(app["name"]),
                esc(KIND_KR.get(pw.get("kind"), "")), ap, cells, esc(" · ".join(rel)) or "—"))
@@ -2195,7 +2203,8 @@ def plan_price(trim):
     if not trim.get("price"):
         return trim.get("pitch") or "무료"
     sub = trim.get("subscription")
-    return ("연 %s · 평생 %s" % (sub["price"], trim["price"])) if sub else ("평생 %s" % trim["price"])
+    life = with_us(trim["price"], trim.get("priceUS"))
+    return ("연 %s · 평생 %s" % (with_us(sub["price"], sub.get("priceUS")), life)) if sub else ("평생 %s" % life)
 
 
 def paywall_plans_section(apps):
@@ -2206,13 +2215,14 @@ def paywall_plans_section(apps):
     by = {a["_slug"]: a for a in live(apps)}
     p1 = sorted((s for s, p in plans.items() if p.get("priority")), key=lambda s: plans[s]["priority"])
     fp = data.get("foreverPass") or {}
+    fp_y, fp_l = fp.get("yearly") or {}, fp.get("lifetime") or {}
+    fp_price = "연 %s · 평생 %s" % (with_us(fp_y.get("price"), fp_y.get("priceUS")), with_us(fp_l.get("price"), fp_l.get("priceUS")))
 
     rules = "".join('<div><h4>%s</h4><p>%s</p></div>' % (esc(h), esc(b)) for h, b in [
         ("무료 · Plus · Pro", "모든 앱은 무료로 받는다. 무료로 핵심을 한 번 끝까지 겪고, Plus 는 더 많이 · 내 취향대로, Pro 는 지키고 · 넓히고 · 자동으로."),
         ("연 구독 + 평생", "유료 칸마다 연 구독과 평생을 나란히 둔다. 평생은 연 구독의 3배 이상. 처음 보는 사람에게는 연 구독 첫 해 반값."),
         ("구독 졸업", "연 구독을 쓰던 사람에게 6개월째와 갱신 7일 전에 평생을 약 30% 깎은 값으로 권한다. 설정에는 늘 '평생으로 바꾸기'."),
-        ("언제나 평생 패스", "한 번 사면 모든 앱의 Plus · Pro 평생과 앞으로 나올 앱까지. 평생 %s · 연 %s." % (
-            (fp.get("lifetime") or {}).get("price", "₩149,000"), (fp.get("yearly") or {}).get("price", "₩49,000"))),
+        ("언제나 평생 패스", "한 번 사면 모든 앱의 Plus · Pro 평생과 앞으로 나올 앱까지. %s." % fp_price),
     ])
     ladder = ('<div class="tw"><table class="pt"><thead><tr><th>앱 크기</th><th>Plus 연 / 평생</th><th>Pro 연 / 평생</th>'
               '<th>미국 Plus</th><th>미국 Pro</th></tr></thead><tbody>'
@@ -2227,10 +2237,11 @@ def paywall_plans_section(apps):
             return ""
         tiers = [(tr.get("label"), plan_price(tr)) for tr in p.get("trims") or []]
         if p.get("upgrade") or p.get("graduate"):
-            tiers.append(("올리기 · 졸업", " · ".join(x for x in [p.get("upgrade") and "Plus→Pro %s" % p["upgrade"],
-                                                             p.get("graduate") and "졸업 %s" % p["graduate"]] if x)))
+            tiers.append(("올리기 · 졸업", " · ".join(x for x in [
+                p.get("upgrade") and "Plus→Pro %s" % with_us(p["upgrade"], p.get("upgradeUS")),
+                p.get("graduate") and "졸업 %s" % with_us(p["graduate"], p.get("graduateUS"))] if x)))
         if fp:
-            tiers.append(("언제나 평생 패스", "연 %s · 평생 %s" % ((fp.get("yearly") or {}).get("price"), (fp.get("lifetime") or {}).get("price"))))
+            tiers.append(("언제나 평생 패스", fp_price))
         trims = "".join('<div class="tier"><span>%s</span><b>%s</b></div>' % (esc(k), esc(v)) for k, v in tiers)
         moments = "".join('<li><b>%s</b><small>%s</small><span>%s</span><em>%s</em></li>'
                           % (esc(m["when"]), esc(m.get("see") or ""), esc(m["why"]), esc(m["plan"]))
@@ -2269,7 +2280,7 @@ def paywall_plans_section(apps):
     return (
         '<section id="next"><h2>다음 페이월 · 설계안<span class="hc">%d</span></h2>'
         '<p class="lead">모든 앱을 무료 다운로드 + 무료 · Plus · Pro 로 바꾸는 설계입니다. 2026-10-27 에 확정했고, '
-        '먼저 바꿀 다섯 앱부터 반영합니다(클립키보드부터). 새로 설계 %d · 고칠 것 %d · 지금도 충분 %d.</p>'
+        '먼저 바꿀 다섯 앱부터 반영합니다(클립키보드부터). 괄호 안은 미국 가격입니다. 새로 설계 %d · 고칠 것 %d · 지금도 충분 %d.</p>'
         '<div class="rules">%s</div>'
         '<h3 class="sh">가격 사다리</h3>%s'
         '<p class="note">클립키보드는 L, 두번알림 · 욕망의 무지개 · 무지개 공방은 M 입니다. 골드위크는 지금 연 구독 가격'
@@ -2328,8 +2339,9 @@ def paywalls_page(apps):
         '<section>%s</section>%s'
         '<section><h2>가격 비교표</h2><p class="lead">기간별로 무엇을 얼마에 파는지 나란히 놓았습니다. '
         '한 기간에 상품이 여럿이면 대표 하나와 나머지 개수를 적었습니다. 오른쪽 칸은 같은 앱 안에서 '
-        '긴 기간 상품이 짧은 기간의 몇 배인지 보여 줍니다.</p>%s'
-        '<p class="note">달러로 적힌 가격은 앱 코드에 적힌 값이라 스토어 실가격과 다를 수 있습니다.</p></section>'
+        '긴 기간 상품이 짧은 기간의 몇 배인지 보여 줍니다. 괄호 안은 미국 App Store 가격입니다.</p>%s'
+        '<p class="note">달러만 적힌 가격은 앱 코드에 적힌 값이라 스토어 실가격과 다를 수 있습니다. '
+        '괄호가 없는 원화 가격은 미국 스토어에서 같은 상품을 찾지 못한 것입니다.</p></section>'
         '<section><h2>판매 중인 페이월<span class="hc">%d</span></h2><p class="lead">문구와 혜택, 무료로 주는 몫, '
         '화면이 뜨는 시점을 앱 소스에서 그대로 옮겼습니다.</p><div class="pws">%s</div></section>'
         '%s'
