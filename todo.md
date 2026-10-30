@@ -5,6 +5,12 @@
 - [ ] 두번알림 · 골드위크 팁 상품이 App Store 인앱 목록에 안 보임 — ASC 등록 여부 확인
 - [ ] 세끼: 팁 상품 ID 가 예시 값(com.yourcompany…)이고 화면에서 안 부름 — 지우거나 제대로 붙이기
 - [ ] sync-service-maturity.py 의 tipJar 판정이 LeeoTipJar 만 봐서 돈꼬마트 같은 자체 구현을 놓침
+- [x] 후원 보상 설계안(scripts/donations.json rewardPlan) — 응원자 · 단골(10점) · 후견인(30점), 기능은 열지 않음
+- [x] '고마운 사람들'은 앱 소개 페이지에 — 공용 위젯 docs/thanks.js · 이름 목록 docs/thanks.json · 넣기 scripts/add-thanks.py
+- [ ] 소개 페이지 네 곳에 위젯 붙이기: scripts/add-thanks-widget.py (클립키보드 · 두번알림 · 골드위크는 main 에서 배포, 돈꼬마트는 dev)
+- [ ] 앱 감사 화면에 '이름 올리기'(메일) 버튼 — LeeoKit 팁 작업 때
+- [ ] 보상 설계안 정할 것: 단계 기준 점수 · 후원 뒤 업그레이드 배너 쉬는 기간
+- [ ] LeeoKit 팁: 점수 · 단계 · iCloud 기록(지금은 기기 안 UserDefaults) · 감사 화면 · 공용 배지 · 후원자 아이콘 열기
 
 # TODO — 트림 페이월 (2026-10-27)
 

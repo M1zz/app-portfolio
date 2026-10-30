@@ -1,0 +1,9 @@
+{
+  "_comment": "앱 소개 페이지의 '고마운 사람들'. 앱에서 응원(팁)한 사람이 이름을 보내 주면, 주문 번호로 후원을 확인한 뒤 여기에 적는다. 이름은 본인이 보낸 그대로 — 실명 · 메일 주소는 적지 않는다. scripts/add-thanks.py 로 넣는다. 소개 페이지는 docs/thanks.js 가 이 파일을 읽어 그린다.",
+  "apps": {
+    "clip-keyboard": [],
+    "double-reminder": [],
+    "shared-day-designer": [],
+    "donkko-mart": []
+  }
+}

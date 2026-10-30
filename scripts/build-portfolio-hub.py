@@ -2152,6 +2152,9 @@ PW_CSS = BIZ_CSS + """
     color:var(--text);text-decoration:none}
   .kp a.kpl:hover{border-color:var(--accent)}
   .np .don h4{display:flex;align-items:center;gap:8px}
+  .tiers3 .nd{font-weight:700;color:var(--text);margin-bottom:8px}
+  .tiers3 ul{margin:0;padding-left:18px;font-size:.85rem;line-height:1.6;color:var(--muted)}
+  ol.steps,ul.steps{margin:0;padding-left:22px;font-size:.88rem;line-height:1.8;max-width:820px}
   .pt.dn td.r b{color:var(--text);font-weight:600}
   .pt.dn td.r small{margin-top:3px}
   .vd{display:inline-block;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:1px 8px;font-size:.72rem}
@@ -2405,8 +2408,33 @@ def donations_section(apps):
         '</tr></thead><tbody>%s</tbody></table></div>'
         '<p class="note">스토어 목록에 안 보이는 상품은 App Store 앱 페이지의 인앱 구입 목록에 아직 없다는 뜻입니다. '
         '등록 전이거나 목록에서 밀렸을 수 있으니 App Store Connect 에서 확인합니다.</p>'
-        '<h3 class="sh">후원 없음<span class="hc">%d</span></h3>%s</section>'
-        % (len(has), len(ls), live_n, esc(data.get("checkedAt") or ""), rows, len(none), chips_none))
+        '<h3 class="sh">후원 없음<span class="hc">%d</span></h3>%s%s</section>'
+        % (len(has), len(ls), live_n, esc(data.get("checkedAt") or ""), rows, len(none), chips_none,
+           donation_reward_plan(data.get("rewardPlan"))))
+
+
+def donation_reward_plan(rp):
+    """후원 보상 설계안 — 원칙 · 단계 · 지금 후원자 · 도입 순서 · 정할 것."""
+    if not rp:
+        return ""
+    rules = "".join('<div><h4>%s</h4><p>%s</p></div>' % (esc(h), esc(b)) for h, b in rp.get("rules") or [])
+    tiers = "".join('<div><h4>%s</h4><p class="nd">%s</p><ul>%s</ul></div>'
+                    % (esc(t["name"]), esc(t["need"]), "".join("<li>%s</li>" % esc(g) for g in t["gets"]))
+                    for t in rp.get("tiers") or [])
+    existing = "".join('<tr><th>%s</th><td class="r">%s</td></tr>' % (esc(a), esc(b)) for a, b in rp.get("existing") or [])
+    steps = "".join("<li>%s</li>" % esc(x) for x in rp.get("rollout") or [])
+    opens = "".join("<li>%s</li>" % esc(x) for x in rp.get("open") or [])
+    decided = "".join("<li><b>%s</b> %s</li>" % (esc(d), esc(x)) for d, x in rp.get("decided") or [])
+    return (
+        '<h3 class="sh" id="tip-rewards">후원 보상 설계안 <span class="vd" style="--c:#e0a53a">%s</span></h3>'
+        '<p class="note">후원한 사람에게 무엇을 돌려줄지 정한 설계입니다. 기능은 열지 않고, 알아봐 주고 · 꾸밈 하나를 주고 · 먼저 들려줍니다.</p>'
+        '<div class="rules">%s</div>'
+        '<h3 class="sh">단계</h3><p class="note">%s</p><div class="rules tiers3">%s</div>'
+        '<h3 class="sh">지금 후원한 사람들</h3><div class="tw"><table class="pt pl dn"><tbody>%s</tbody></table></div>'
+        '<h3 class="sh">도입 순서</h3><ol class="steps">%s</ol>'
+        '%s<h3 class="sh">정할 것</h3><ul class="steps">%s</ul>'
+        % (esc(rp.get("status") or ""), rules, esc(rp.get("points") or ""), tiers, existing, steps,
+           '<h3 class="sh">정한 것</h3><ul class="steps">%s</ul>' % decided if decided else "", opens))
 
 
 def paywalls_page(apps):
