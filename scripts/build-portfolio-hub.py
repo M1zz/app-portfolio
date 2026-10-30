@@ -1524,18 +1524,36 @@ def _item_head(t, k, n, apps, short=True):
         t, help_attrs(k, n, have, known, t), esc(CHECK_SHORT.get(k, n) if short else n), have)
 
 
+def maturity_apps(apps):
+    """서비스 숙성도 탭에 나오는 앱 — 스토어에서 내려간 앱(글로벌 지원 판정 없음)은 뺀다."""
+    return [a for a in live(apps) if a.get("serviceMaturity") and a.get("globalReach")]
+
+
+def maturity_sorted(apps):
+    """한눈에 표의 순서 — 줄에 찬 원(✓)이 많은 앱부터. 숙성도를 재지 못한 앱은 맨 뒤(이름순)."""
+    ls = maturity_apps(apps)
+    lang_cols = lang_columns(ls)
+
+    def filled(a):
+        langs = app_langs(a)
+        return (sum(1 for l in lang_cols if l in langs)
+                + sum(1 for v in checklist(a).values() if v[3] is True)
+                + sum(1 for v in area_vals(a, "devices").values() if v))
+    return sorted(ls, key=lambda a: (-filled(a), -check_score(a)[0], a["name"]))
+
+
+def maturity_rank(apps):
+    """앱 slug → 숙성도 순위(0부터). 다른 탭이 같은 순서로 앱을 늘어놓을 때 쓴다."""
+    rank = {a["_slug"]: i for i, a in enumerate(maturity_sorted(apps))}
+    return lambda a: (rank.get(a["_slug"], len(rank)), a["name"])
+
+
 def overview_panel(apps):
     """앱 × 피처 전체 한 표. 분류별로 머리줄을 묶고, 첫 열은 고정한 채 가로로 넘긴다."""
     cks = {a["_slug"]: checklist(a) for a in apps}
     dev_items = dict((x[0], x[3]) for x in AREAS)["devices"]
     lang_cols = lang_columns(apps)
-
-    def filled(a):  # 줄에 찬 원(✓)이 많은 앱부터
-        langs = app_langs(a)
-        return (sum(1 for l in lang_cols if l in langs)
-                + sum(1 for v in cks[a["_slug"]].values() if v[3] is True)
-                + sum(1 for v in area_vals(a, "devices").values() if v))
-    rows = sorted(apps, key=lambda a: (-filled(a), -check_score(a)[0], a["name"]))
+    rows = maturity_sorted(apps)
 
     groups = '<tr><th rowspan="2" class="ap">앱</th>'
     cols = ""
@@ -1637,7 +1655,7 @@ def check_panel(cat, apps):
 
 def maturity_page(apps):
     # 스토어에서 내려간 앱(글로벌 지원 판정 없음)은 뺀다 — 제품 여정의 글로벌 축과 같은 기준
-    ls = [a for a in live(apps) if a.get("serviceMaturity") and a.get("globalReach")]
+    ls = maturity_apps(apps)
     n = len(ls)
     todo_n = sum(len(todo_of(a)[1]) for a in ls)
     tabs = [("overview", "한눈에", None, overview_panel(ls)),
@@ -2272,12 +2290,14 @@ def paywall_plans_section(apps):
 
     order = {"new": 0, "adjust": 1, "keep": 2}
     cards = "".join(card(s) for s in p1)
+    mr = maturity_rank(apps)
     rest = sorted((s for s, p in plans.items() if not p.get("priority") and p.get("oneLine") and s in by),
-                  key=lambda s: (order.get(plans[s].get("verdict"), 9), plans[s].get("name", "")))
+                  key=lambda s: mr(by[s]))
     rest_cards = "".join(card(s) for s in rest)
 
     rows, old = "", False
-    for s in sorted(plans, key=lambda s: (plans[s].get("priority") or 99, not plans[s].get("oneLine"), order.get(plans[s].get("verdict"), 9), plans[s].get("name", ""))):
+    for s in sorted(plans, key=lambda s: (plans[s].get("priority") or 99, not plans[s].get("oneLine"),
+                                          mr(by[s]) if s in by else (999, ""))):
         p, a = plans[s], by.get(s)
         if not a:
             continue
@@ -2349,9 +2369,9 @@ def donation_short(slug):
 def donations_section(apps):
     data = load_donations()
     dons = data.get("apps") or {}
-    ls = sorted(live(apps), key=lambda a: a["name"])
+    ls = sorted(live(apps), key=maturity_rank(apps))
     has = [a for a in ls if a["_slug"] in dons]
-    has.sort(key=lambda a: (list(DONATION_STATUS).index(dons[a["_slug"]].get("status", "live")), a["name"]))
+    has.sort(key=lambda a: list(DONATION_STATUS).index(dons[a["_slug"]].get("status", "live")))
     none = [a for a in ls if a["_slug"] not in dons]
 
     def product_cell(d):
@@ -2400,8 +2420,7 @@ def paywalls_page(apps):
     def selling(a):
         return (a.get("price") or {}).get("hasInAppPurchases") and not pws[a["_slug"]].get("hidden")
 
-    kind_order = {"one-time-unlock": 0, "mixed": 1, "subscription": 2, "tip-jar": 3}
-    key = lambda a: (kind_order.get(pws[a["_slug"]].get("kind"), 9), a["name"])
+    key = maturity_rank(apps)
     live_pw = sorted([a for a in ls if has_paywall(a) and selling(a)], key=key)
     prep_pw = sorted([a for a in ls if has_paywall(a) and not selling(a)], key=key)
 
@@ -2413,7 +2432,7 @@ def paywalls_page(apps):
 
     head = ('<div class="eyebrow">Paywalls</div><h1>페이월 모음</h1>'
             '<p>앱 %d개가 앱 안에서 결제를 권하는 화면을 한자리에 모았습니다. 가격은 App Store 실데이터, '
-            '문구와 무료 몫은 앱 소스에서 읽었습니다.</p>' % (len(live_pw) + len(prep_pw)))
+            '문구와 무료 몫은 앱 소스에서 읽었습니다. 앱은 모든 목록에서 서비스 숙성도 순서(갖춘 것이 많은 앱부터)로 늘어놓았습니다.</p>' % (len(live_pw) + len(prep_pw)))
     kp = '<div class="kp">%s%s</div>' % ("".join(
         '<div><b>%s</b><span>%s</span></div>' % (v, esc(k)) for k, v in [
             ("판매 중인 페이월", len(live_pw)), ("준비 중인 페이월", len(prep_pw)),
