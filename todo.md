@@ -1,3 +1,11 @@
+# TODO — 페이월 탭에 후원 정보 (2026-10-30)
+
+- [x] `scripts/donations.json` — 앱 소스에서 후원 상품 · 노출 위치 · 응원 부탁 순간을 정리 (받는 중 4 · 코드만 1 · 없음 44)
+- [x] 페이월 탭(docs/paywalls.html)에 '후원' 섹션: 후원 앱 표 + 후원 없는 앱 목록
+- [ ] 두번알림 · 골드위크 팁 상품이 App Store 인앱 목록에 안 보임 — ASC 등록 여부 확인
+- [ ] 세끼: 팁 상품 ID 가 예시 값(com.yourcompany…)이고 화면에서 안 부름 — 지우거나 제대로 붙이기
+- [ ] sync-service-maturity.py 의 tipJar 판정이 LeeoTipJar 만 봐서 돈꼬마트 같은 자체 구현을 놓침
+
 # TODO — 트림 페이월 (2026-10-27)
 
 - [x] 49개 앱 무료 다운로드 + 무료 · Plus · Pro 설계안 → scripts/paywall-plans.json · 검토 페이지 https://claude.ai/artifact/WKvnCRhrMesLqWuk6Vd9Sf

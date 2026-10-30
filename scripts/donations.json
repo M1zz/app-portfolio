@@ -1,0 +1,64 @@
+{
+  "_comment": "앱별 후원(팁) 정보 — 앱 소스(.storekit · StoreManager · 팁 부탁 카드)를 읽어 손으로 정리한다. 여기 없는 앱은 후원 상품이 없다. 가격은 스토어 실데이터(앱 JSON price.iapItems)가 있으면 그것을, 없으면 .storekit 값을 적는다. build-portfolio-hub.py 가 페이월 탭에 내보낸다. productId 는 공개 페이지에 내보내지 않는다.",
+  "checkedAt": "2026-10-30",
+  "apps": {
+    "clip-keyboard": {
+      "status": "live",
+      "products": [
+        {"productId": "com.Ysoup.TokenMemo.tip.small", "label": "커피 한 잔", "price": "￦1,100", "usd": "$0.99", "inStore": true},
+        {"productId": "com.Ysoup.TokenMemo.tip.medium", "label": "간식 한 번", "price": "￦4,400", "usd": "$2.99", "inStore": true},
+        {"productId": "com.Ysoup.TokenMemo.tip.large", "label": "든든한 한 끼", "price": "￦17,000", "usd": "$9.99", "inStore": true}
+      ],
+      "where": ["설정 ▸ 응원하기", "페이월 — 이미 Pro 를 가진 사람에게만 응원 버튼"],
+      "ask": "목록 위 카드. 이미 Pro 를 가진 사람에게만, 아낀 시간(1 · 5 · 20시간)이나 키보드에서 꺼내 쓴 횟수(100 · 500 · 2,000번)를 넘어선 순간에.",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원"
+    },
+    "double-reminder": {
+      "status": "live",
+      "products": [
+        {"productId": "com.xa.toki.tip.small", "label": "작은 응원", "price": "￦1,100", "usd": null, "inStore": false},
+        {"productId": "com.xa.toki.tip.medium", "label": "든든한 응원", "price": "￦3,300", "usd": null, "inStore": false},
+        {"productId": "com.xa.toki.tip.large", "label": "큰 응원", "price": "￦5,500", "usd": null, "inStore": false}
+      ],
+      "where": ["설정 ▸ 선물과 응원"],
+      "ask": "타이머를 끝까지 마친 직후 원 아래 한 장. 이미 Pro 를 가진 사람(결제 · 평생 무료 · 창단 후원자)에게만, 관리한 시간이나 예비 알림을 들은 채 마친 타이머 수가 기준을 넘은 순간에.",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원"
+    },
+    "shared-day-designer": {
+      "status": "live",
+      "products": [
+        {"productId": "com.Ysoup.LeaveWise.tip.small", "label": "커피 한 잔", "price": null, "usd": "$0.99", "inStore": false},
+        {"productId": "com.Ysoup.LeaveWise.tip.medium", "label": "간식 한 번", "price": null, "usd": "$2.99", "inStore": false},
+        {"productId": "com.Ysoup.LeaveWise.tip.large", "label": "든든한 한 끼", "price": null, "usd": "$9.99", "inStore": false}
+      ],
+      "where": ["설정 ▸ 선물과 응원"],
+      "ask": "홈 카드. Pro 이상에게만(무료 사용자는 Pro 배너, Plus 는 위 등급이 맞는 길이라 묻지 않음), 올해 추천으로 세운 휴가 계획 수나 적어 둔 휴가 기록 수가 기준을 넘은 순간에.",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원"
+    },
+    "donkko-mart": {
+      "status": "live",
+      "products": [
+        {"productId": "com.dontgomart.tip.coffee", "label": "커피 한 잔", "price": "￦1,100", "usd": "$0.99", "inStore": true},
+        {"productId": "com.dontgomart.tip.cake", "label": "케이크 한 조각", "price": "￦6,600", "usd": "$3.99", "inStore": true},
+        {"productId": "com.dontgomart.tip.meal", "label": "든든한 한 끼", "price": "￦12,000", "usd": "$7.99", "inStore": true}
+      ],
+      "where": ["설정 ▸ 응원하기", "후원 직후 감사 화면"],
+      "ask": "오늘 쉬는 마트가 있는 날 메인 카드. 앱을 5번 이상 열고 의미 있는 행동을 3번 한 사람에게, 아직 후원하지 않았을 때만.",
+      "cadence": "'다음에' 를 누르면 30일 쉼. 후원한 사람에게는 쉬는 날에 1년에 3번 정도(120일 간격) 감사 카드",
+      "gives": "지금은 모든 기능이 무료라 순수 응원. 설계안에서는 한 번이라도 후원한 사람을 Pro 로 모심"
+    },
+    "three-meals": {
+      "status": "code-only",
+      "products": [
+        {"productId": "com.yourcompany.routinecamera.tip1dollar", "label": "1달러 응원", "price": null, "usd": null, "inStore": false}
+      ],
+      "where": [],
+      "ask": null,
+      "cadence": null,
+      "gives": "상품 ID 가 예시 값 그대로이고 화면에서 부르지 않아, 사용자에게 보이지 않음"
+    }
+  }
+}

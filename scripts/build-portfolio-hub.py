@@ -2129,6 +2129,9 @@ PW_CSS = BIZ_CSS + """
   .pt.pl tr.grp th{padding:12px 16px;font-size:.78rem;line-height:1.6;white-space:normal}
   @media (max-width:520px){.np .top,.np .why,.np .moments{padding-left:18px;padding-right:18px}
     .np .tiers{padding-left:18px;padding-right:18px}.np .tier{flex-wrap:wrap}}
+  .pt.dn td.r{min-width:190px;line-height:1.55}
+  .pt.dn td.r b{color:var(--text);font-weight:600}
+  .pt.dn td.r small{margin-top:3px}
   .vd{display:inline-block;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:1px 8px;font-size:.72rem}
 """
 
@@ -2301,6 +2304,62 @@ def paywall_plans_section(apps):
            if rest else "", rows))
 
 
+# ── 페이월 탭: 후원 ───────────────────────────────────────────────
+# scripts/donations.json 을 읽는다. 여기 없는 앱은 후원 상품이 없다. 상품 ID 는 내보내지 않는다.
+DONATION_STATUS = {"live": ("받는 중", "#34c48a"), "code-only": ("코드만", "#e0a53a")}
+
+
+def load_donations():
+    path = os.path.join(ROOT, "scripts", "donations.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def donations_section(apps):
+    data = load_donations()
+    dons = data.get("apps") or {}
+    ls = sorted(live(apps), key=lambda a: a["name"])
+    has = [a for a in ls if a["_slug"] in dons]
+    has.sort(key=lambda a: (list(DONATION_STATUS).index(dons[a["_slug"]].get("status", "live")), a["name"]))
+    none = [a for a in ls if a["_slug"] not in dons]
+
+    def product_cell(d):
+        out = []
+        for p in d.get("products") or []:
+            price = " · ".join(x for x in [p.get("price"), p.get("usd")] if x) or "가격 미정"
+            out.append("<b>%s</b> %s%s" % (esc(p["label"]), esc(price),
+                                           "" if p.get("inStore") else " <small>스토어 목록에 안 보임</small>"))
+        return "<br>".join(out) or '<span class="na">—</span>'
+
+    rows = ""
+    for a in has:
+        d = dons[a["_slug"]]
+        lbl, col = DONATION_STATUS.get(d.get("status"), ("", "#8b90a0"))
+        rows += ('<tr><th><a href="%s">%s<span>%s</span></a></th><td class="k"><span class="vd" style="--c:%s">%s</span></td>'
+                 '<td class="r">%s</td><td class="r">%s</td><td class="r">%s</td><td class="r">%s</td></tr>'
+                 % (intro_link(a), icon_img(a), esc(a["name"]), col, esc(lbl), product_cell(d),
+                    "<br>".join(esc(w) for w in d.get("where") or []) or '<span class="na">—</span>',
+                    (esc(d["ask"]) + ("<small>%s</small>" % esc(d["cadence"]) if d.get("cadence") else ""))
+                    if d.get("ask") else '<span class="na">—</span>',
+                    esc(d.get("gives") or "")))
+    live_n = sum(1 for a in has if dons[a["_slug"]].get("status") == "live")
+    chips_none = '<div class="lnames">%s</div>' % "".join(
+        '<a href="%s" style="--c:#8b90a0">%s%s</a>' % (intro_link(a), icon_img(a), esc(a["name"])) for a in none)
+    return (
+        '<section id="tips"><h2>후원<span class="hc">%d</span></h2>'
+        '<p class="lead">앱 %d개 가운데 %d개가 앱 안에서 후원을 받고 있습니다. 후원은 기능을 열지 않고, '
+        '이미 다 가진 사람이 더 내고 싶을 때 갈 곳입니다. 상품과 부탁하는 순간은 앱 소스에서 읽었습니다(%s 기준).</p>'
+        '<div class="tw"><table class="pt pl dn"><thead><tr><th>앱</th><th>상태</th><th style="text-align:left">상품 · 가격</th>'
+        '<th style="text-align:left">어디서</th><th style="text-align:left">응원 부탁</th><th style="text-align:left">받으면</th>'
+        '</tr></thead><tbody>%s</tbody></table></div>'
+        '<p class="note">스토어 목록에 안 보이는 상품은 App Store 앱 페이지의 인앱 구입 목록에 아직 없다는 뜻입니다. '
+        '등록 전이거나 목록에서 밀렸을 수 있으니 App Store Connect 에서 확인합니다.</p>'
+        '<h3 class="sh">후원 없음<span class="hc">%d</span></h3>%s</section>'
+        % (len(has), len(ls), live_n, esc(data.get("checkedAt") or ""), rows, len(none), chips_none))
+
+
 def paywalls_page(apps):
     ls = [a for a in live(apps) if (a.get("price") or {}).get("evaluatedAt")]
     pws = load_paywalls()
@@ -2350,11 +2409,12 @@ def paywalls_page(apps):
         '괄호가 없는 원화 가격은 미국 스토어에서 같은 상품을 찾지 못한 것입니다.</p></section>'
         '<section><h2>판매 중인 페이월<span class="hc">%d</span></h2><p class="lead">문구와 혜택, 무료로 주는 몫, '
         '화면이 뜨는 시점을 앱 소스에서 그대로 옮겼습니다.</p><div class="pws">%s</div></section>'
-        '%s'
+        '%s%s'
         % (kp, paywall_plans_section(apps), table, len(live_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in live_pw),
            ('<section><h2>준비 중인 페이월<span class="hc">%d</span></h2><p class="lead">결제 화면은 만들어 두었지만 '
             '아직 판매를 열지 않은 앱입니다.</p><div class="pws">%s</div></section>'
-            % (len(prep_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw))) if prep_pw else ""))
+            % (len(prep_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw))) if prep_pw else "",
+           donations_section(apps)))
     return page("페이월 모음 — 리이오의 앱 포트폴리오",
                 "앱 %d개의 페이월과 가격 사다리를 모아 앱끼리 가격을 비교합니다." % (len(live_pw) + len(prep_pw)),
                 {"head": head, "main": main}, "pw", PW_CSS)
