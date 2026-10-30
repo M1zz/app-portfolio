@@ -177,6 +177,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
                         ("pw", "paywalls.html", "페이월"),
                         ("cat", "category.html", "범주 · 언어"),
                         ("reddit", "reddit-launch.html", "레딧 출격"),
+                        ("shop", "shop.html", "생활도구점"),
                         ("hub", "hub.html", "페이지 모음")]
     )
     return (
@@ -1762,6 +1763,8 @@ def hub_page(apps):
         '<p>앱 안에서 결제를 권하는 화면과 가격 사다리를 한자리에 모아 앱끼리 가격을 비교합니다.</p></a>'
         '<a class="ov" href="category.html"><b>범주 · 언어 · 확산</b>'
         '<p>앱마다 어떤 문제의 답인지, 뭐라고 부를지, 무엇에 빗댈지, 누구의 사례로 넘어갈지, 어떤 습관과 싸우는지.</p></a>'
+        '<a class="ov" href="shop.html"><b>생활도구점</b>'
+        '<p>일상의 순간에서 출발해 나에게 맞는 앱을 고르는 가게입니다.</p></a>'
         '</div></section>'
         '<section><h2>앱별 지원 페이지<span class="hc">%d</span></h2>'
         '<p class="lead">App Store에 등록된 문의·안내 페이지입니다. 만든 시기에 따라 '
