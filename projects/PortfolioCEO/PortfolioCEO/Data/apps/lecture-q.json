@@ -120,12 +120,12 @@
       "voiceControl": false,
       "dynamicType": false,
       "darkMode": false,
-      "differentiate": false,
+      "differentiate": true,
       "contrast": false,
       "reduceMotion": false,
       "captions": false,
       "structure": true,
-      "actions": false,
+      "actions": true,
       "announcements": false,
       "largeLayout": false,
       "reduceTransparency": false,
@@ -145,7 +145,7 @@
       "inputFlow": false,
       "textCopy": true,
       "purchaseTest": false,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -154,8 +154,8 @@
       "freeGate": false,
       "restore": false,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
+      "tipJar": true,
+      "tipAsk": true,
       "gift": false
     },
     "comms": {
@@ -214,7 +214,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 19,
+      "accessibilityLabels": 28,
       "testFiles": 3
     },
     "support": {
@@ -226,7 +226,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

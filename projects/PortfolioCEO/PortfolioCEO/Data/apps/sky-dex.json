@@ -126,7 +126,7 @@
       "reduceMotion": true,
       "captions": false,
       "structure": true,
-      "actions": false,
+      "actions": true,
       "announcements": false,
       "largeLayout": false,
       "reduceTransparency": false,
@@ -155,8 +155,8 @@
       "freeGate": false,
       "restore": false,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
+      "tipJar": true,
+      "tipAsk": true,
       "gift": false
     },
     "comms": {
@@ -215,7 +215,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 11,
+      "accessibilityLabels": 26,
       "testFiles": 0
     },
     "support": {
@@ -227,7 +227,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

@@ -171,9 +171,9 @@
       "freeGate": true,
       "restore": true,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
-      "gift": false
+      "tipJar": true,
+      "tipAsk": true,
+      "gift": true
     },
     "comms": {
       "whatsNew": true,
@@ -231,7 +231,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 28,
+      "accessibilityLabels": 41,
       "testFiles": 2
     },
     "support": {
@@ -243,7 +243,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

@@ -389,7 +389,7 @@
       "analytics": false,
       "crash": false,
       "killSwitch": false,
-      "leeoKit": false,
+      "leeoKit": true,
       "crashLoop": false,
       "tests": false,
       "privacyManifest": false
@@ -403,15 +403,15 @@
       "backup": false
     },
     "a11y": {
-      "voiceOver": false,
+      "voiceOver": true,
       "voiceControl": false,
-      "dynamicType": false,
-      "darkMode": false,
+      "dynamicType": true,
+      "darkMode": true,
       "differentiate": false,
       "contrast": false,
       "reduceMotion": false,
       "captions": false,
-      "structure": false,
+      "structure": true,
       "actions": false,
       "announcements": false,
       "largeLayout": false,
@@ -427,13 +427,13 @@
       "moments": false,
       "sheets": false,
       "liveNumbers": false,
-      "localeFormat": false,
+      "localeFormat": true,
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
       "purchaseTest": false,
       "releaseTags": false,
-      "steadyUpdates": false
+      "steadyUpdates": true
     },
     "money": {
       "paywall": false,
@@ -441,8 +441,8 @@
       "freeGate": false,
       "restore": false,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
+      "tipJar": true,
+      "tipAsk": true,
       "gift": false
     },
     "comms": {
@@ -468,7 +468,7 @@
       "abTesting": false,
       "haptics": false,
       "preflight": false,
-      "appSpec": false,
+      "appSpec": true,
       "family": false,
       "fold": false,
       "uiTests": false,
@@ -484,9 +484,9 @@
       "shareApp": false,
       "shareImage": false,
       "shareVideo": false,
-      "storeCopy": false,
+      "storeCopy": true,
       "screenshotCapture": false,
-      "marketingScreens": false,
+      "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
       "localizedScreens": false,
@@ -501,7 +501,7 @@
       "_macViaDesignedForIPad": true
     },
     "counts": {
-      "accessibilityLabels": 0,
+      "accessibilityLabels": 19,
       "testFiles": 0
     },
     "support": {
@@ -510,10 +510,10 @@
       "privacy": false,
       "english": true,
       "contact": false,
-      "host": "dev200ok.blogspot.com",
+      "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

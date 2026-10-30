@@ -516,7 +516,7 @@
     },
     "a11y": {
       "voiceOver": true,
-      "voiceControl": false,
+      "voiceControl": true,
       "dynamicType": true,
       "darkMode": true,
       "differentiate": true,
@@ -555,7 +555,7 @@
       "discount": true,
       "tipJar": true,
       "tipAsk": true,
-      "gift": true
+      "gift": false
     },
     "comms": {
       "whatsNew": true,
@@ -613,8 +613,8 @@
       "_macViaDesignedForIPad": true
     },
     "counts": {
-      "accessibilityLabels": 377,
-      "testFiles": 132
+      "accessibilityLabels": 398,
+      "testFiles": 130
     },
     "support": {
       "registered": true,
@@ -625,7 +625,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

@@ -354,18 +354,18 @@
       "backup": false
     },
     "a11y": {
-      "voiceOver": false,
-      "voiceControl": false,
-      "dynamicType": false,
+      "voiceOver": true,
+      "voiceControl": true,
+      "dynamicType": true,
       "darkMode": false,
-      "differentiate": false,
+      "differentiate": true,
       "contrast": false,
-      "reduceMotion": false,
+      "reduceMotion": true,
       "captions": false,
-      "structure": false,
-      "actions": false,
+      "structure": true,
+      "actions": true,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -378,7 +378,7 @@
       "moments": false,
       "sheets": true,
       "liveNumbers": false,
-      "localeFormat": false,
+      "localeFormat": true,
       "textOverflow": false,
       "inputFlow": true,
       "textCopy": false,
@@ -392,8 +392,8 @@
       "freeGate": false,
       "restore": false,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
+      "tipJar": true,
+      "tipAsk": true,
       "gift": false
     },
     "comms": {
@@ -452,19 +452,19 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 0,
+      "accessibilityLabels": 45,
       "testFiles": 0
     },
     "support": {
       "registered": true,
       "reachable": true,
-      "privacy": null,
-      "english": null,
-      "contact": null,
-      "host": "leeo75.notion.site",
+      "privacy": true,
+      "english": true,
+      "contact": true,
+      "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

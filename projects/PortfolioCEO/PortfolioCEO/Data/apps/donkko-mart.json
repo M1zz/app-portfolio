@@ -459,11 +459,11 @@
     },
     "a11y": {
       "voiceOver": true,
-      "voiceControl": false,
+      "voiceControl": true,
       "dynamicType": true,
-      "darkMode": false,
+      "darkMode": true,
       "differentiate": false,
-      "contrast": false,
+      "contrast": true,
       "reduceMotion": true,
       "captions": false,
       "structure": true,
@@ -562,13 +562,13 @@
     "support": {
       "registered": true,
       "reachable": true,
-      "privacy": false,
+      "privacy": true,
       "english": true,
-      "contact": false,
-      "host": "dev200ok.blogspot.com",
+      "contact": true,
+      "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

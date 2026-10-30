@@ -48,7 +48,7 @@
     "totalTasks": 1
   },
   "status": "active",
-  "supportUrl": "https://dev200ok.blogspot.com/2020/12/tokenmemo.html",
+  "supportUrl": "https://m1zz.github.io/ClipKeyboard/ko/tutorial.html",
   "lifecycle": {
     "stage": 3,
     "label": "pmf-search",
@@ -124,16 +124,16 @@
     },
     "a11y": {
       "voiceOver": true,
-      "voiceControl": false,
+      "voiceControl": true,
       "dynamicType": true,
       "darkMode": false,
-      "differentiate": false,
-      "contrast": false,
+      "differentiate": true,
+      "contrast": true,
       "reduceMotion": false,
       "captions": false,
       "structure": true,
       "actions": true,
-      "announcements": false,
+      "announcements": true,
       "largeLayout": false,
       "reduceTransparency": false,
       "boldText": false,
@@ -161,8 +161,8 @@
       "freeGate": false,
       "restore": false,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
+      "tipJar": true,
+      "tipAsk": true,
       "gift": false
     },
     "comms": {
@@ -221,19 +221,19 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 17,
+      "accessibilityLabels": 46,
       "testFiles": 0
     },
     "support": {
       "registered": true,
       "reachable": true,
-      "privacy": false,
+      "privacy": true,
       "english": true,
-      "contact": false,
-      "host": "dev200ok.blogspot.com",
+      "contact": true,
+      "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

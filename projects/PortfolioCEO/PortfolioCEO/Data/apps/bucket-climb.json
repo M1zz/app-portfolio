@@ -322,7 +322,7 @@
       "analytics": false,
       "crash": false,
       "killSwitch": false,
-      "leeoKit": false,
+      "leeoKit": true,
       "crashLoop": false,
       "tests": false,
       "privacyManifest": false
@@ -336,18 +336,18 @@
       "backup": false
     },
     "a11y": {
-      "voiceOver": false,
+      "voiceOver": true,
       "voiceControl": false,
       "dynamicType": false,
       "darkMode": true,
       "differentiate": false,
       "contrast": false,
-      "reduceMotion": false,
+      "reduceMotion": true,
       "captions": false,
-      "structure": false,
+      "structure": true,
       "actions": false,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -360,7 +360,7 @@
       "moments": false,
       "sheets": true,
       "liveNumbers": false,
-      "localeFormat": false,
+      "localeFormat": true,
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
@@ -374,8 +374,8 @@
       "freeGate": false,
       "restore": false,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
+      "tipJar": true,
+      "tipAsk": true,
       "gift": false
     },
     "comms": {
@@ -401,7 +401,7 @@
       "abTesting": false,
       "haptics": true,
       "preflight": false,
-      "appSpec": false,
+      "appSpec": true,
       "family": false,
       "fold": false,
       "uiTests": false,
@@ -417,12 +417,12 @@
       "shareApp": true,
       "shareImage": false,
       "shareVideo": false,
-      "storeCopy": false,
-      "screenshotCapture": false,
-      "marketingScreens": false,
+      "storeCopy": true,
+      "screenshotCapture": true,
+      "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
-      "localizedScreens": false,
+      "localizedScreens": true,
       "videoTool": false
     },
     "devices": {
@@ -434,19 +434,19 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 0,
+      "accessibilityLabels": 29,
       "testFiles": 0
     },
     "support": {
       "registered": true,
       "reachable": true,
-      "privacy": null,
-      "english": null,
-      "contact": null,
-      "host": "leeo75.notion.site",
+      "privacy": true,
+      "english": true,
+      "contact": true,
+      "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

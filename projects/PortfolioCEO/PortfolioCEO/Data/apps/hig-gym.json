@@ -184,9 +184,9 @@
       "freeGate": true,
       "restore": true,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
-      "gift": false
+      "tipJar": true,
+      "tipAsk": true,
+      "gift": true
     },
     "comms": {
       "whatsNew": true,
@@ -231,7 +231,7 @@
       "screenshotCapture": true,
       "marketingScreens": true,
       "videoAsset": false,
-      "promoKit": false,
+      "promoKit": true,
       "localizedScreens": true,
       "videoTool": false
     },
@@ -244,7 +244,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 22,
+      "accessibilityLabels": 41,
       "testFiles": 7
     },
     "support": {
@@ -256,7 +256,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

@@ -375,7 +375,7 @@
     },
     "a11y": {
       "voiceOver": true,
-      "voiceControl": false,
+      "voiceControl": true,
       "dynamicType": true,
       "darkMode": true,
       "differentiate": false,
@@ -412,9 +412,9 @@
       "freeGate": true,
       "restore": false,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
-      "gift": false
+      "tipJar": true,
+      "tipAsk": true,
+      "gift": true
     },
     "comms": {
       "whatsNew": false,
@@ -472,19 +472,19 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 125,
+      "accessibilityLabels": 127,
       "testFiles": 9
     },
     "support": {
       "registered": true,
       "reachable": true,
-      "privacy": null,
-      "english": null,
-      "contact": null,
-      "host": "leeo75.notion.site",
+      "privacy": true,
+      "english": true,
+      "contact": true,
+      "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

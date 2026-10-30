@@ -530,19 +530,19 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 151,
+      "accessibilityLabels": 160,
       "testFiles": 7
     },
     "support": {
       "registered": true,
       "reachable": true,
-      "privacy": true,
+      "privacy": false,
       "english": true,
-      "contact": true,
+      "contact": false,
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

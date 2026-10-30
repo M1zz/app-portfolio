@@ -119,11 +119,11 @@
     "a11y": {
       "voiceOver": true,
       "voiceControl": false,
-      "dynamicType": false,
+      "dynamicType": true,
       "darkMode": false,
       "differentiate": false,
       "contrast": false,
-      "reduceMotion": false,
+      "reduceMotion": true,
       "captions": false,
       "structure": true,
       "actions": true,
@@ -155,8 +155,8 @@
       "freeGate": false,
       "restore": false,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
+      "tipJar": true,
+      "tipAsk": true,
       "gift": false
     },
     "comms": {
@@ -215,7 +215,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 15,
+      "accessibilityLabels": 20,
       "testFiles": 3
     },
     "support": {
@@ -227,7 +227,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,

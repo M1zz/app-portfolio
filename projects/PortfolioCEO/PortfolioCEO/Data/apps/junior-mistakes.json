@@ -110,7 +110,7 @@
       "analytics": false,
       "crash": false,
       "killSwitch": false,
-      "leeoKit": false,
+      "leeoKit": true,
       "crashLoop": false,
       "tests": false,
       "privacyManifest": false
@@ -124,18 +124,18 @@
       "backup": false
     },
     "a11y": {
-      "voiceOver": false,
+      "voiceOver": true,
       "voiceControl": false,
       "dynamicType": false,
-      "darkMode": false,
+      "darkMode": true,
       "differentiate": false,
       "contrast": false,
       "reduceMotion": false,
       "captions": false,
-      "structure": false,
-      "actions": false,
+      "structure": true,
+      "actions": true,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -154,7 +154,7 @@
       "textCopy": false,
       "purchaseTest": true,
       "releaseTags": false,
-      "steadyUpdates": false
+      "steadyUpdates": true
     },
     "money": {
       "paywall": true,
@@ -162,8 +162,8 @@
       "freeGate": false,
       "restore": true,
       "discount": false,
-      "tipJar": false,
-      "tipAsk": false,
+      "tipJar": true,
+      "tipAsk": true,
       "gift": false
     },
     "comms": {
@@ -189,7 +189,7 @@
       "abTesting": false,
       "haptics": false,
       "preflight": false,
-      "appSpec": false,
+      "appSpec": true,
       "family": false,
       "fold": false,
       "uiTests": false,
@@ -205,12 +205,12 @@
       "shareApp": false,
       "shareImage": false,
       "shareVideo": false,
-      "storeCopy": false,
-      "screenshotCapture": false,
-      "marketingScreens": false,
+      "storeCopy": true,
+      "screenshotCapture": true,
+      "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
-      "localizedScreens": false,
+      "localizedScreens": true,
       "videoTool": false
     },
     "devices": {
@@ -222,19 +222,19 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 0,
+      "accessibilityLabels": 11,
       "testFiles": 0
     },
     "support": {
       "registered": true,
       "reachable": true,
-      "privacy": true,
-      "english": false,
+      "privacy": false,
+      "english": true,
       "contact": false,
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-10-30"
   },
   "usStore": {
     "available": true,
