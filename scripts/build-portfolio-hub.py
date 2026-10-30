@@ -1925,14 +1925,14 @@ def paywall_card(app, pw):
         '<article class="pw" id="pw-%s" style="--c:%s"><div class="top"><div class="app">%s%s<em>%s</em></div>'
         '<h3>%s</h3>%s</div>%s<div class="tiers">%s</div>%s%s'
         '<div class="gate"><div><h4>무료로 주는 것</h4>%s</div><div><h4>돈을 내면 열리는 것</h4>%s</div>'
-        '<div class="when"><h4>언제 보이나</h4>%s</div></div></article>'
+        '<div class="when"><h4>언제 보이나</h4>%s</div><div><h4>후원</h4><p>%s</p></div></div></article>'
         % (esc(app["_slug"]), m[7], icon_img(app), esc(app["name"]), esc(KIND_KR.get(pw.get("kind"), m[1])),
            esc(pw.get("headline") or app["name"]),
            '<p class="sub">%s</p>' % esc(pw["subheadline"]) if pw.get("subheadline") else "",
            "<ul>%s</ul>" % bl if bl else "", rows,
            '<div class="cta">%s</div>' % esc(pw["cta"]) if pw.get("cta") else "",
            '<div class="fine">%s</div>' % esc(fine) if fine else "",
-           free, lock, when))
+           free, lock, when, donation_text(app["_slug"])))
 
 
 def canvas(app, sc, pw):
@@ -2130,6 +2130,10 @@ PW_CSS = BIZ_CSS + """
   @media (max-width:520px){.np .top,.np .why,.np .moments{padding-left:18px;padding-right:18px}
     .np .tiers{padding-left:18px;padding-right:18px}.np .tier{flex-wrap:wrap}}
   .pt.dn td.r{min-width:190px;line-height:1.55}
+  .kp a.kpl{display:block;background:var(--card);border:1px solid var(--border);border-radius:13px;padding:12px 14px;
+    color:var(--text);text-decoration:none}
+  .kp a.kpl:hover{border-color:var(--accent)}
+  .np .don h4{display:flex;align-items:center;gap:8px}
   .pt.dn td.r b{color:var(--text);font-weight:600}
   .pt.dn td.r small{margin-top:3px}
   .vd{display:inline-block;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:1px 8px;font-size:.72rem}
@@ -2260,10 +2264,11 @@ def paywall_plans_section(apps):
         return ('<article class="pw np" style="--c:%s"><div class="top"><div class="app">%s%s<em>%s</em></div>'
                   '<h3>%s</h3><p class="sub">지금: %s</p></div><div class="tiers">%s</div>'
                   '<div class="why"><h4>왜 바꾸나</h4><p>%s</p></div>'
-                  '<div class="moments"><h4>결제하고 싶어지는 순간</h4><ul>%s</ul></div></article>'
+                  '<div class="moments"><h4>결제하고 싶어지는 순간</h4><ul>%s</ul></div>%s</article>'
                   % (PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))[1], icon_img(a), esc(a["name"]), esc(tag),
                      esc(p.get("oneLine") or p.get("headline") or a["name"]), esc(p.get("currentPublic") or ""), trims,
-                     esc(public_text(p.get("intent") or p.get("priorityReason") or p.get("verdictReason"))), moments))
+                     esc(public_text(p.get("intent") or p.get("priorityReason") or p.get("verdictReason"))), moments,
+                     donation_block(s)))
 
     order = {"new": 0, "adjust": 1, "keep": 2}
     cards = "".join(card(s) for s in p1)
@@ -2279,12 +2284,12 @@ def paywall_plans_section(apps):
         lbl, col = PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))
         if not p.get("priority") and not p.get("oneLine") and not old:
             old = True
-            rows += ('<tr class="grp"><th colspan="5">여기부터는 옛 규칙(평생만 · 옛 사다리)으로 낸 판단입니다. '
+            rows += ('<tr class="grp"><th colspan="6">여기부터는 옛 규칙(평생만 · 옛 사다리)으로 낸 판단입니다. '
                      '새 규칙으로 다시 계산하기 전이라 이유에 적힌 가격 · 구독 판단은 바뀝니다.</th></tr>')
         rows += ('<tr><th><a href="%s">%s<span>%s</span></a></th><td class="k"><span class="vd" style="--c:%s">%s</span></td>'
-                 '<td class="k">%s</td><td class="k">%s칸</td><td class="r">%s</td></tr>'
+                 '<td class="k">%s</td><td class="k">%s칸</td><td class="k">%s</td><td class="r">%s</td></tr>'
                  % (intro_link(a), icon_img(a), esc(a["name"]), col, esc(lbl), esc(p.get("size") or ""),
-                    len(p.get("trims") or []), esc(public_text(p.get("verdictReason")))))
+                    len(p.get("trims") or []), donation_short(s), esc(public_text(p.get("verdictReason")))))
     counts = {k: sum(1 for p in plans.values() if p.get("verdict") == k) for k in PLAN_VERDICT}
     return (
         '<section id="next"><h2>다음 페이월 · 설계안<span class="hc">%d</span></h2>'
@@ -2297,7 +2302,7 @@ def paywall_plans_section(apps):
         '나머지 앱도 같은 사다리에서 앱 가치와 쓰는 빈도로 크기를 골랐습니다. 이미 산 사람, 구독 중인 사람의 권한은 그대로 둡니다.</p>'
         '<h3 class="sh">먼저 바꿀 다섯 앱</h3><div class="pws npws">%s</div>%s'
         '<h3 class="sh">앱별 판단</h3><div class="tw"><table class="pt pl"><thead><tr><th>앱</th><th>판단</th><th>크기</th>'
-        '<th>칸</th><th style="text-align:left">이유</th></tr></thead><tbody>%s</tbody></table></div></section>'
+        '<th>칸</th><th>후원</th><th style="text-align:left">이유</th></tr></thead><tbody>%s</tbody></table></div></section>'
         % (len(plans), counts["new"], counts["adjust"], counts["keep"], rules, ladder, cards,
            ('<h3 class="sh">나머지 앱<span class="hc">%d</span></h3><p class="note">같은 규칙으로 앱마다 소스를 읽고 설계했습니다. '
             '1순위 다섯 앱을 낸 뒤 숫자를 보고 차례로 반영합니다.</p><div class="pws npws">%s</div>' % (len(rest), rest_cards))
@@ -2315,6 +2320,30 @@ def load_donations():
         return {}
     with open(path, encoding="utf-8") as fh:
         return json.load(fh)
+
+
+def donation_text(slug):
+    """카드에 넣을 한 줄 — 상품과 가격, 없으면 '후원 없음'."""
+    d = (load_donations().get("apps") or {}).get(slug)
+    if not d:
+        return "후원 없음"
+    if d.get("status") != "live":
+        return "코드만 있고 사용자에게 보이지 않음"
+    items = " · ".join("%s %s" % (p["label"], p.get("price") or p.get("usd") or "") for p in d.get("products") or [])
+    return "%s — %s" % (items, " · ".join(d.get("where") or [])) if d.get("where") else items
+
+
+def donation_block(slug):
+    d = (load_donations().get("apps") or {}).get(slug)
+    lbl, col = DONATION_STATUS.get((d or {}).get("status"), ("없음", "#8b90a0"))
+    return ('<div class="why don"><h4>후원 <span class="vd" style="--c:%s">%s</span></h4><p>%s</p></div>'
+            % (col, esc(lbl), esc(donation_text(slug) if d else "앱 안에서 후원을 받지 않습니다")))
+
+
+def donation_short(slug):
+    d = (load_donations().get("apps") or {}).get(slug)
+    lbl, col = DONATION_STATUS.get((d or {}).get("status"), ("없음", "#8b90a0"))
+    return '<a class="vd" href="#tips" style="--c:%s;text-decoration:none">%s</a>' % (col, esc(lbl))
 
 
 def donations_section(apps):
@@ -2385,12 +2414,14 @@ def paywalls_page(apps):
     head = ('<div class="eyebrow">Paywalls</div><h1>페이월 모음</h1>'
             '<p>앱 %d개가 앱 안에서 결제를 권하는 화면을 한자리에 모았습니다. 가격은 App Store 실데이터, '
             '문구와 무료 몫은 앱 소스에서 읽었습니다.</p>' % (len(live_pw) + len(prep_pw)))
-    kp = '<div class="kp">%s</div>' % "".join(
+    kp = '<div class="kp">%s%s</div>' % ("".join(
         '<div><b>%s</b><span>%s</span></div>' % (v, esc(k)) for k, v in [
             ("판매 중인 페이월", len(live_pw)), ("준비 중인 페이월", len(prep_pw)),
             ("구독 상품이 있는 앱", subs),
             ("평생 이용권 가격 중앙값", "￦{:,}".format(mid) if mid else "—"),
-            ("평생 이용권 가격 폭", "￦{:,} ~ ￦{:,}".format(lifetimes[0], lifetimes[-1]) if lifetimes else "—")])
+            ("평생 이용권 가격 폭", "￦{:,} ~ ￦{:,}".format(lifetimes[0], lifetimes[-1]) if lifetimes else "—")]),
+        '<a class="kpl" href="#tips"><b>%d</b><span>후원 받는 앱 ↓</span></a>' % sum(
+            1 for d in (load_donations().get("apps") or {}).values() if d.get("status") == "live"))
 
     thead = "<tr><th>앱</th><th>방식</th><th>앱 가격</th>%s<th>기간끼리 견주면</th></tr>" % "".join(
         "<th>%s</th>" % esc(t) for _, t in PERIODS)
@@ -2401,7 +2432,7 @@ def paywalls_page(apps):
     table = '<div class="tw"><table class="pt"><thead>%s</thead><tbody>%s</tbody></table></div>' % (thead, body)
 
     main = (
-        '<section>%s</section>%s'
+        '<section>%s</section>%s%s'
         '<section><h2>가격 비교표</h2><p class="lead">기간별로 무엇을 얼마에 파는지 나란히 놓았습니다. '
         '한 기간에 상품이 여럿이면 대표 하나와 나머지 개수를 적었습니다. 오른쪽 칸은 같은 앱 안에서 '
         '긴 기간 상품이 짧은 기간의 몇 배인지 보여 줍니다. 괄호 안은 미국 App Store 가격입니다.</p>%s'
@@ -2409,12 +2440,11 @@ def paywalls_page(apps):
         '괄호가 없는 원화 가격은 미국 스토어에서 같은 상품을 찾지 못한 것입니다.</p></section>'
         '<section><h2>판매 중인 페이월<span class="hc">%d</span></h2><p class="lead">문구와 혜택, 무료로 주는 몫, '
         '화면이 뜨는 시점을 앱 소스에서 그대로 옮겼습니다.</p><div class="pws">%s</div></section>'
-        '%s%s'
-        % (kp, paywall_plans_section(apps), table, len(live_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in live_pw),
+        '%s'
+        % (kp, donations_section(apps), paywall_plans_section(apps), table, len(live_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in live_pw),
            ('<section><h2>준비 중인 페이월<span class="hc">%d</span></h2><p class="lead">결제 화면은 만들어 두었지만 '
             '아직 판매를 열지 않은 앱입니다.</p><div class="pws">%s</div></section>'
-            % (len(prep_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw))) if prep_pw else "",
-           donations_section(apps)))
+            % (len(prep_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw))) if prep_pw else ""))
     return page("페이월 모음 — 리이오의 앱 포트폴리오",
                 "앱 %d개의 페이월과 가격 사다리를 모아 앱끼리 가격을 비교합니다." % (len(live_pw) + len(prep_pw)),
                 {"head": head, "main": main}, "pw", PW_CSS)
