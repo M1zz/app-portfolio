@@ -8,8 +8,10 @@
 - [x] 후원 보상 설계안(scripts/donations.json rewardPlan) — 응원자 · 단골(10점) · 후견인(30점), 기능은 열지 않음
 - [x] '고마운 사람들'은 앱 소개 페이지에 — 공용 위젯 docs/thanks.js · 이름 목록 docs/thanks.json · 넣기 scripts/add-thanks.py
 - [x] 소개 페이지에 위젯 붙임: 두번알림 · 골드위크(main) · 돈꼬마트(dev) 배포 확인
-- [ ] 클립키보드 소개 페이지: main 커밋 1e54fe0c 은 만들었지만 푸시 전 여정 시험이 LeeoKit 3.26.1 패키지를 못 받아 막힘 (임시 worktree 에 남아 있음)
-- [ ] 앱 감사 화면에 '이름 올리기'(메일) 버튼 — LeeoKit 팁 작업 때
+- [x] 클립키보드 소개 페이지 배포 (main 1e54fe0c). 푸시 훅의 여정 시험은 worktree 에서 GIT_DIR 때문에 패키지를 못 받아, 훅 밖에서 시험 통과 확인 뒤 SKIP_JOURNEYS 로 푸시
+- [x] 팁 화면 '이름 보내기' · '고마운 사람들 보기': LeeoKit v3.27.0 (LeeoTipJarConfig thanksPage), 클립키보드 main · 두번알림 dev · 골드위크 dev
+- [ ] 돈꼬마트: 자체 팁 화면(SettingsView · TipCelebrationView)에 이름 보내기 붙이기
+- [ ] 클립키보드 paywall-trims-v2 를 main 에 합칠 때 LeeoKit(3.22 → 3.27) 충돌 정리
 - [ ] 보상 설계안 정할 것: 단계 기준 점수 · 후원 뒤 업그레이드 배너 쉬는 기간
 - [ ] LeeoKit 팁: 점수 · 단계 · iCloud 기록(지금은 기기 안 UserDefaults) · 감사 화면 · 공용 배지 · 후원자 아이콘 열기
 
