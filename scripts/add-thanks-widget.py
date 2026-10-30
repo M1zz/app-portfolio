@@ -4,6 +4,7 @@
 사용법:
   python3 scripts/add-thanks-widget.py           # scripts/donations.json 에서 후원을 받는 앱 전부
   python3 scripts/add-thanks-widget.py --check   # 붙어 있는지만 본다
+  python3 scripts/add-thanks-widget.py --dir ClipKeyboard=/tmp/wt/ClipKeyboard   # 레포 대신 배포 브랜치 worktree 에
 
 앱 레포의 docs/index.html 과 언어 폴더(docs/ko/index.html …) 모두에서 첫 <footer 바로 앞에 넣는다.
 표시(<!-- leeo-thanks -->)로 감싸 두어 다시 돌려도 한 번만 들어가고, 바뀐 값은 덮어쓴다.
@@ -41,7 +42,10 @@ def snippet(slug, name, mail):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--dir", action="append", default=[], metavar="레포=경로",
+                    help="레포 폴더 대신 쓸 경로 (소개 페이지를 배포하는 브랜치의 worktree)")
     args = ap.parse_args()
+    dirs = dict(x.split("=", 1) for x in args.dir)
     dons = json.load(open(os.path.join(ROOT, "scripts/donations.json"), encoding="utf-8"))["apps"]
     for slug, d in dons.items():
         if d.get("status") != "live":
@@ -52,7 +56,8 @@ def main():
         repo, mail = REPOS[slug]
         app = json.load(open(os.path.join(APPS, slug + ".json"), encoding="utf-8"))
         block = snippet(slug, app.get("nameEn") or app["name"], mail)
-        pages = [os.path.join(CODE, repo, "docs/index.html")] + sorted(glob.glob(os.path.join(CODE, repo, "docs/*/index.html")))
+        base = dirs.get(repo) or os.path.join(CODE, repo)
+        pages = [os.path.join(base, "docs/index.html")] + sorted(glob.glob(os.path.join(base, "docs/*/index.html")))
         done = changed = 0
         for p in pages:
             html = open(p, encoding="utf-8").read()
@@ -62,7 +67,8 @@ def main():
                 done += block in html
                 continue
             new = BLOCK.sub("", html)
-            new = new.replace("<footer", block + "<footer", 1)
+            new = re.sub(r"([ \t]*)<footer", lambda m: "".join(m.group(1) + l + "\n" for l in block.splitlines())
+                         + m.group(1) + "<footer", new, count=1)
             if new != html:
                 open(p, "w", encoding="utf-8").write(new)
                 changed += 1
