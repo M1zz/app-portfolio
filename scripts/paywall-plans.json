@@ -47,12 +47,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "읽는 만큼 마음껏 모으기",
           "pitchEn": "Collect as much as you read",
@@ -67,8 +67,8 @@
             "Unlimited quotes"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -79,12 +79,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "모은 문장을 지키고 곁에 두기",
           "pitchEn": "Keep your quotes safe and close at hand",
@@ -101,17 +101,17 @@
             "Lock Screen widgets (circular, rectangular, inline)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -232,8 +232,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/밑줄/BookmarkShot/App/BookmarkShotRoadmap.swift"
       ],
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "bucket-climb": {
       "slug": "bucket-climb",
@@ -278,12 +278,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "꿈을 마음껏, 프로젝트처럼",
           "pitchEn": "As many dreams as you like, run like projects",
@@ -302,8 +302,8 @@
             "Daily progress, proof notes and the Archive tab"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -312,7 +312,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "pricingNote": "Pro 는 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 두 칸 앱이라 올리기는 없다. 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -432,7 +432,7 @@
         "/Users/hyunholee/Documents/workspace/Auto/꿈을 찾아서/APPSTORE.md"
       ],
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "burning-my-life": {
       "slug": "burning-my-life",
@@ -483,12 +483,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "내 빛깔로, 여러 목표를 함께 태우기",
           "pitchEn": "Burn in your own colors, with every goal",
@@ -505,8 +505,8 @@
             "3 flames (Blaze, Smolder, Sparkler)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -517,12 +517,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "나만의 시간만 태우고, 남은 재를 손에 쥐기",
           "pitchEn": "Burn only your own time, and hold what remains",
@@ -541,17 +541,17 @@
             "Year of Ash (where each of the last 12 months went)"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
       "compare": [
         {
@@ -705,8 +705,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/불타는내인생/BurningParchmentWidgets/BurningParchmentWidgetsBundle.swift"
       ],
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "clip-keyboard": {
       "slug": "clip-keyboard",
@@ -747,8 +747,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩20,000",
-          "priceUS": "$14.99",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
           "pitch": "마음껏 쌓기",
           "pitchEn": "Build without limits",
           "features": [
@@ -765,28 +765,28 @@
           ],
           "subscription": {
             "period": "연",
-            "price": "₩6,600",
-            "priceUS": "$4.99"
+            "price": "₩14,000",
+            "priceUS": "$9.99"
           },
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩5,500",
+            "priceUS": "$3.49"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         },
         {
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
+          "price": "₩65,000",
+          "priceUS": "$44.99",
           "subscription": {
             "period": "연",
-            "price": "₩13,000",
-            "priceUS": "$8.99"
+            "price": "₩22,000",
+            "priceUS": "$14.99"
           },
           "pitch": "쌓은 것을 지키기",
           "pitchEn": "Protect what you have built",
@@ -803,12 +803,12 @@
             "Sync across devices (beta)"
           ],
           "monthly": {
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩7,700",
+            "priceUS": "$4.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           }
         }
       ],
@@ -941,12 +941,12 @@
       ],
       "currentPublic": "Plus $5.99 · Pro 평생 ₩17,000. 가장 많이 보는 100번째 사용 페이월은 평생 Pro와 연 구독 두 칸뿐",
       "stage": "5.1.15 심사 중",
-      "upgrade": "₩19,000",
-      "graduate": "₩27,000",
+      "upgrade": "₩22,000",
+      "graduate": "₩43,000",
       "oneLine": "모든 페이월을 세 칸으로, 연 구독을 싼 입구로",
       "intent": "사람들이 가장 많이 보는 페이월은 단축어를 100번째 쓴 순간에 뜨는 화면입니다. 여기에는 ₩17,000 평생 Pro와 연 구독만 있어서, 한도만 풀고 싶은 사람에게는 ₩17,000을 내거나 닫는 것 말고 다른 선택이 없습니다. 이 화면에도 Plus 칸을 넣고, 두 칸 모두 연 구독을 싼 입구로 둡니다. 평생은 오래 쓸 사람을 위한 값으로 올립니다. 지금 ₩17,000은 단축어를 매일 쓰는 키보드의 평생 값으로는 낮습니다.",
-      "upgradeUS": "$12.99",
-      "graduateUS": "$18.99"
+      "upgradeUS": "$14.99",
+      "graduateUS": "$29.99"
     },
     "cooltime": {
       "slug": "cooltime",
@@ -991,12 +991,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "참고 싶은 것 모두에 쿨타임",
           "pitchEn": "A cooldown on everything you want to resist",
@@ -1011,8 +1011,8 @@
             "A cheer when you are halfway there"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -1023,12 +1023,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "앱을 안 열어도 보이고, 숫자로 돌아보기",
           "pitchEn": "See it without opening the app, and look back in numbers",
@@ -1047,17 +1047,17 @@
             "Recent activity trend"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -1194,8 +1194,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/쿨타임/CoolTime/CoolTimeRoadmap.swift"
       ],
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "daily-compliment": {
       "slug": "daily-compliment",
@@ -1242,12 +1242,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "내 홈 화면에 어울리게 꾸미기",
           "pitchEn": "Style it to match your Home Screen",
@@ -1266,8 +1266,8 @@
             "Line spacing"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -1276,7 +1276,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "pricingNote": "Pro 는 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 두 칸 앱이라 올리기는 없다. 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -1404,7 +1404,7 @@
         "/Users/hyunholee/Documents/workspace/Auto/오늘의 주접/APPSTORE.md"
       ],
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "donkko-mart": {
       "slug": "donkko-mart",
@@ -1453,12 +1453,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "우리 동네 가게를 모두 챙기기",
           "pitchEn": "Keep track of every store in your neighborhood",
@@ -1475,8 +1475,8 @@
             "Story-size cards and short video sharing"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -1487,12 +1487,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "앱을 안 열어도 알고, 입력은 알아서",
           "pitchEn": "Know without opening the app, and let it fill things in",
@@ -1509,17 +1509,17 @@
             "Fill in restaurant closing days from a Naver Map link or a screenshot"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800. 팁 3종은 따로 그대로.",
       "compare": [
         {
@@ -1660,8 +1660,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/돈꼬마트/todo.md"
       ],
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "dont-forget": {
       "slug": "dont-forget",
@@ -1706,12 +1706,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "앱을 열지 않아도, 할 일이 먼저 찾아옵니다.",
           "pitchEn": "Your tasks come to you, even when the app stays closed.",
@@ -1732,8 +1732,8 @@
             "Already Pro in Schedule Assistant on Mac? It's unlocked here too"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -1742,7 +1742,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "pricingNote": "두 칸 앱이라 Pro는 S 크기 Pro 값(연 ₩4,400 · 평생 ₩13,000). 올리기 없음, 구독자 졸업가 ₩8,800. 맥 일정 비서 Pro(연 구독이든 평생이든)는 잊지마 Pro를 함께 연다.",
       "compare": [
         {
@@ -1855,7 +1855,7 @@
       ],
       "sourceFound": false,
       "sourceNote": "이 컴퓨터에도 GitHub(M1zz/WeekAheadTodo, 2026-01 사본)에도 TodoAlarm 소스가 없다. 출시 빌드 1.0.3(4) 아카이브의 실행 파일 문자열과 dSYM 파일 목록(ContentView · SettingsView · NotificationManager · LiveActivityManager · CloudKitService · TaskViewModel)으로 기능을 확인했다.",
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "double-reminder": {
       "slug": "double-reminder",
@@ -1896,8 +1896,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "pitch": "매번 다시 맞추지 마세요. 설정을 저장하고, 마지막 타이머를 기억합니다.",
           "pitchEn": "Stop setting it up every time. Save setups and pick up your last timer.",
           "features": [
@@ -1912,12 +1912,12 @@
           ],
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -1928,12 +1928,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "수업 · 발표 · 세션을 구간별로 운영하고, 넘친 시간과 기록까지.",
           "pitchEn": "Run classes, talks and sessions section by section, with overtime and history.",
@@ -1950,12 +1950,12 @@
             "Timer history and stats"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
@@ -2093,12 +2093,12 @@
       ],
       "currentPublic": "Pro 평생 ₩17,000 한 칸. Plus는 앱에 있지만 스토어 상품이 없어 보이지 않음",
       "stage": "예정",
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "oneLine": "Plus를 열고 평생 Pro를 ₩27,000으로",
       "intent": "무료 사용자가 가장 자주 막히는 곳은 '설정을 저장해 두고 다시 쓰기'입니다. 지금은 이것 하나 때문에 세션 모드 · 오버타임 · 기록까지 묶인 ₩17,000 Pro를 사야 합니다. 앱에는 이미 Plus('기억') 칸 코드가 있는데 스토어에 상품이 없어서 보이지 않습니다. 상품을 등록해 연 ₩4,400의 싼 입구를 열고, 평생 Pro는 ₩27,000으로 올립니다.",
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "family-bank": {
       "slug": "family-bank",
@@ -2149,12 +2149,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "아이가 몇 명이든, 우리집 가게를 마음껏",
           "pitchEn": "Any number of kids, and as big a family shop as you like",
@@ -2171,8 +2171,8 @@
             "Create your own investments (name, starting price, risk)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -2183,12 +2183,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "바코드로 결제하고, 물가까지 배우고, 기기 어디서나",
           "pitchEn": "Pay by barcode, learn about prices, use it on every device",
@@ -2205,17 +2205,17 @@
             "Keep records in step across iPhone and iPad with iCloud"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800. 모든 상품은 가족 공유를 켠다.",
       "compare": [
         {
@@ -2351,8 +2351,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/쑥쑥용돈/FamilyBank/Views/KidModeView.swift"
       ],
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "family-court": {
       "slug": "family-court",
@@ -2401,12 +2401,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "식구가 많아도, 법이 많아도. 시리로 바로 법정을 여세요.",
           "pitchEn": "Big family, lots of rules. Open court straight from Siri.",
@@ -2425,8 +2425,8 @@
             "Name your own family court"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -2435,7 +2435,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "compare": [
         {
           "feature": "재판 열기 (민사 · 형사)",
@@ -2565,7 +2565,7 @@
       ],
       "pricingNote": "Pro는 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 두 칸이라 올리기는 없다. 구독자 졸업가 ₩8,800.",
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "fire-tracker": {
       "slug": "fire-tracker",
@@ -2614,12 +2614,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩20,000",
-          "priceUS": "$14.99",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
           "subscription": {
             "period": "연",
-            "price": "₩6,600",
-            "priceUS": "$4.99"
+            "price": "₩14,000",
+            "priceUS": "$9.99"
           },
           "pitch": "날짜를 본 다음, 어떻게 당길지 계산하기",
           "pitchEn": "Once you know the date, work out how to pull it closer",
@@ -2640,24 +2640,24 @@
             "Trade ledger with automatic average cost and realized gains"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩5,500",
+            "priceUS": "$3.49"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         },
         {
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
+          "price": "₩65,000",
+          "priceUS": "$44.99",
           "subscription": {
             "period": "연",
-            "price": "₩13,000",
-            "priceUS": "$8.99"
+            "price": "₩22,000",
+            "priceUS": "$14.99"
           },
           "pitch": "퇴사 그날을 미리 살아 보고, 기록은 알아서 따라오게",
           "pitchEn": "Preview quit day, and let your records keep themselves",
@@ -2678,17 +2678,17 @@
             "Home Screen and Lock Screen widgets"
           ],
           "monthly": {
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩7,700",
+            "priceUS": "$4.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           }
         }
       ],
-      "upgrade": "₩19,000",
-      "graduate": "₩27,000",
+      "upgrade": "₩22,000",
+      "graduate": "₩43,000",
       "compare": [
         {
           "feature": "자산 기록",
@@ -2852,8 +2852,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000. 기존 유료 구매자는 모두 Pro 평생.",
       "sourceFound": true,
-      "upgradeUS": "$12.99",
-      "graduateUS": "$18.99"
+      "upgradeUS": "$14.99",
+      "graduateUS": "$29.99"
     },
     "flip-book": {
       "slug": "flip-book",
@@ -2902,12 +2902,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "그리고 싶은 만큼 마음껏",
           "pitchEn": "Draw as much as they want",
@@ -2926,8 +2926,8 @@
             "Unlimited voice recording"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -2938,12 +2938,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "우리 집 영상이 아이 그림책으로",
           "pitchEn": "Turn your family videos into their picture book",
@@ -2958,17 +2958,17 @@
             "No Palang Book end card on saved videos"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "compare": [
         {
           "feature": "따라 그리기 세트",
@@ -3094,8 +3094,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "footprint-diary": {
       "slug": "footprint-diary",
@@ -3144,12 +3144,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "내 지도를 내 취향대로",
           "pitchEn": "Make the map your own",
@@ -3168,8 +3168,8 @@
             "Pick any date range"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -3180,12 +3180,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "매일 보고, 자랑하고, 더 멀리",
           "pitchEn": "See it daily, share it, go further",
@@ -3202,17 +3202,17 @@
             "Explorer compass that points to where you've walked least"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "compare": [
         {
           "feature": "걸음 기록 · 지도",
@@ -3361,8 +3361,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "geusaie": {
       "slug": "geusaie",
@@ -3409,12 +3409,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "파스타 다음 요리도, 우리 집 요리도 같은 방식으로.",
           "pitchEn": "The same calm timing for more dishes, and for your own.",
@@ -3431,8 +3431,8 @@
             "Open a recipe straight from Siri and Shortcuts"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -3441,7 +3441,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "compare": [
         {
           "feature": "기본 레시피 2개",
@@ -3554,7 +3554,7 @@
       ],
       "pricingNote": "Pro는 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 두 칸이라 올리기는 없다. 구독자 졸업가 ₩8,800. 레시피 팩이 나오기 전에는 결제를 켜지 않는다.",
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "hands-free-metronome": {
       "slug": "hands-free-metronome",
@@ -3603,12 +3603,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "곡마다 내 박을 만들어 두기",
           "pitchEn": "Build and keep the groove for every song",
@@ -3623,8 +3623,8 @@
             "Save and load accent presets per song"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -3635,12 +3635,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "더 빠르게, 더 정확하게 연습하기",
           "pitchEn": "Practice faster and play in tune",
@@ -3655,17 +3655,17 @@
             "Chromatic tuner: say \"tune\" and play"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "compare": [
         {
           "feature": "메트로놈 (템포 · 박자 · 세분)",
@@ -3802,8 +3802,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배 이상. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000. 기존 ₩4,400 구독자는 그 값 그대로 Pro.",
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "hig-gym": {
       "slug": "hig-gym",
@@ -3852,12 +3852,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩20,000",
-          "priceUS": "$14.99",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
           "subscription": {
             "period": "연",
-            "price": "₩6,600",
-            "priceUS": "$4.99"
+            "price": "₩14,000",
+            "priceUS": "$9.99"
           },
           "pitch": "과정 전체를 끝까지",
           "pitchEn": "The whole course, start to finish",
@@ -3874,24 +3874,24 @@
             "Every quiz chapter"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩5,500",
+            "priceUS": "$3.49"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         },
         {
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
+          "price": "₩65,000",
+          "priceUS": "$44.99",
           "subscription": {
             "period": "연",
-            "price": "₩13,000",
-            "priceUS": "$8.99"
+            "price": "₩22,000",
+            "priceUS": "$14.99"
           },
           "pitch": "손으로 만져 보며 몸에 익히기",
           "pitchEn": "Build the instinct with hands-on practice",
@@ -3908,17 +3908,17 @@
             "Real-world questions: pick the screen from the rule, pick the reason from the screen"
           ],
           "monthly": {
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩7,700",
+            "priceUS": "$4.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           }
         }
       ],
-      "upgrade": "₩19,000",
-      "graduate": "₩27,000",
+      "upgrade": "₩22,000",
+      "graduate": "₩43,000",
       "compare": [
         {
           "feature": "레슨",
@@ -4057,8 +4057,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000. 지금까지 앱을 받은 모든 사람은 Pro 평생.",
       "sourceFound": true,
-      "upgradeUS": "$12.99",
-      "graduateUS": "$18.99"
+      "upgradeUS": "$14.99",
+      "graduateUS": "$29.99"
     },
     "junior-mistakes": {
       "slug": "junior-mistakes",
@@ -4101,12 +4101,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "실수 100개 전부와 회고 질문 400개 전부.",
           "pitchEn": "All 100 mistakes and all 400 reflection questions.",
@@ -4125,8 +4125,8 @@
             "Every mistake and question added later"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -4135,7 +4135,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "pricingNote": "두 칸 앱이라 Pro 하나를 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -4236,7 +4236,7 @@
         "/Users/hyunholee/Documents/workspace/Auto/실수100/JuniorDevMistakes/PersistenceController.swift"
       ],
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "kid-calendar": {
       "slug": "kid-calendar",
@@ -4283,12 +4283,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "아이가 둘 이상이어도, 알림은 원하는 때에.",
           "pitchEn": "More than one child, reminders when you want them.",
@@ -4305,8 +4305,8 @@
             "Extra reminders: 1 hour before and right on time"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -4317,12 +4317,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "가족 모두가 같은 일정을 보고, 홈 화면에서 바로.",
           "pitchEn": "The whole family on the same schedule, right on your Home Screen.",
@@ -4337,17 +4337,17 @@
             "Home Screen widgets, small and medium"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
       "compare": [
         {
@@ -4479,8 +4479,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/아이일정/README.md"
       ],
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "korea-navi": {
       "slug": "korea-navi",
@@ -4525,12 +4525,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "내릴 역 알림을 여행 내내, 횟수 제한 없이.",
           "pitchEn": "Stop alerts for your whole trip, with no ride limit.",
@@ -4549,8 +4549,8 @@
             "Get-ready and get-off-now haptics"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -4561,12 +4561,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "내린 뒤 나갈 출구, 막차, 무거운 짐까지 챙겨 드려요.",
           "pitchEn": "Exits, last trains and heavy luggage, all taken care of.",
@@ -4583,17 +4583,17 @@
             "Luggage mode: board near the elevator, lines 1 to 8"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩13,000. 구독자 졸업가 ₩19,000.",
       "compare": [
         {
@@ -4708,8 +4708,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/한국길찾기/APPSTORE.md"
       ],
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "lecture-q": {
       "slug": "lecture-q",
@@ -4754,12 +4754,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "강의 수 걱정 없이, AI 프롬프트 다섯 단계 전부.",
           "pitchEn": "No lecture limit, and all five AI prompt steps.",
@@ -4776,8 +4776,8 @@
             "Learning state: where I am, where I want to end up, what I want to learn"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -4788,12 +4788,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "생각이 뻗어 간 지도와, 대화 기록을 바로 가져오기까지.",
           "pitchEn": "A map of how your questions grew, and one-step import of your chats.",
@@ -4812,17 +4812,17 @@
             "Add a question from Shortcuts, Siri or Spotlight"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -4956,8 +4956,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/질문노트/LectureQ/LectureQRoadmap.swift"
       ],
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "leeocon": {
       "slug": "leeocon",
@@ -4996,12 +4996,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "리이오 스티커를 전부, 새로 나오는 것까지.",
           "pitchEn": "Every Leeo sticker, including new ones.",
@@ -5016,8 +5016,8 @@
             "Every sticker added later"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -5026,7 +5026,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "pricingNote": "두 칸 앱이라 Pro 하나를 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 구독자 졸업가 ₩8,800. 판매 목적이 아니므로 매출로 성패를 가르지 않는다.",
       "compare": [
         {
@@ -5092,7 +5092,7 @@
         "/private/tmp/claude-501/-Users-hyunholee-Documents-workspace-code-app-portfolio/d7216d9e-cf60-41aa-8b5a-2a90996e23c2/scratchpad/old/leeocon.json"
       ],
       "sourceFound": false,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "life-restaurant": {
       "slug": "life-restaurant",
@@ -5137,12 +5137,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "식당 수 제한 없이, 내 입맛대로 정리해요.",
           "pitchEn": "No place limit, organized around your taste.",
@@ -5161,8 +5161,8 @@
             "Your taste profile chart: spicy, sweet, salty, rich and natural"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -5173,12 +5173,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "다녀온 뒤 잊지 않게 알려 주고, 쌓인 기록은 지켜요.",
           "pitchEn": "A nudge after every visit, and your records kept safe.",
@@ -5193,17 +5193,17 @@
             "iCloud backup and restore"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -5340,8 +5340,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/인생맛집/APPSTORE.md"
       ],
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "moonlit-arcade": {
       "slug": "moonlit-arcade",
@@ -5386,12 +5386,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "정체 추리 게임 두 개를 내가 방장으로 열어요.",
           "pitchEn": "Host the two hidden-identity games yourself.",
@@ -5408,8 +5408,8 @@
             "Every game added later"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -5418,7 +5418,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "pricingNote": "두 칸 앱이라 Pro 하나를 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. 구독자 졸업가 ₩8,800. 방장만 권한을 확인하고 참가자는 확인하지 않는다.",
       "compare": [
         {
@@ -5521,7 +5521,7 @@
         "/Users/hyunholee/Documents/workspace/Auto/달빛 오락실/APPSTORE.md"
       ],
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "pixel-mimi": {
       "slug": "pixel-mimi",
@@ -5570,12 +5570,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩20,000",
-          "priceUS": "$14.99",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
           "subscription": {
             "period": "연",
-            "price": "₩6,600",
-            "priceUS": "$4.99"
+            "price": "₩14,000",
+            "priceUS": "$9.99"
           },
           "pitch": "보드 여러 장짜리 큰 도안을 만들고, 만든 도안을 전부 남겨 두세요.",
           "pitchEn": "Make multi-board patterns and keep every one you make.",
@@ -5594,24 +5594,24 @@
             "Pixel art: every grid size, retro palettes and dithering"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩5,500",
+            "priceUS": "$3.49"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         },
         {
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
+          "price": "₩65,000",
+          "priceUS": "$44.99",
           "subscription": {
             "period": "연",
-            "price": "₩13,000",
-            "priceUS": "$8.99"
+            "price": "₩22,000",
+            "priceUS": "$14.99"
           },
           "pitch": "인쇄해서 바로 꽂기 시작하세요. 보드마다 나눈 기호 도안과 색 목록까지.",
           "pitchEn": "Print it and start placing beads, board by board, with a symbol chart and color list.",
@@ -5628,17 +5628,17 @@
             "3 pixel art filter packs (Arcade 90s, Spring, Cyber Night)"
           ],
           "monthly": {
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩7,700",
+            "priceUS": "$4.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           }
         }
       ],
-      "upgrade": "₩19,000",
-      "graduate": "₩27,000",
+      "upgrade": "₩22,000",
+      "graduate": "₩43,000",
       "compare": [
         {
           "feature": "사진으로 비즈 · 십자수 도안 만들기",
@@ -5781,8 +5781,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000. 매출 관문을 통과한 구독이 없어 연 구독 값을 지킬 예외는 없다.",
       "sourceFound": true,
-      "upgradeUS": "$12.99",
-      "graduateUS": "$18.99"
+      "upgradeUS": "$14.99",
+      "graduateUS": "$29.99"
     },
     "punching": {
       "slug": "punching",
@@ -5831,12 +5831,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "수집함을 원하는 만큼, 속지와 색감은 내 취향대로.",
           "pitchEn": "As many albums as you like, with the papers and finishes you love.",
@@ -5855,8 +5855,8 @@
             "Free arrange (reorder your stickers)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -5867,12 +5867,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "모은 스티커를 진짜 스티커 용지로 뽑아 다이어리에 붙이세요.",
           "pitchEn": "Print your collection on real sticker paper and stick it in your journal.",
@@ -5887,17 +5887,17 @@
             "Share a whole album as one image"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "compare": [
         {
           "feature": "스티커 뜯기 · 움직이는 스티커",
@@ -6015,8 +6015,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800.",
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "rainbow-of-desire": {
       "slug": "rainbow-of-desire",
@@ -6061,8 +6061,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "pitch": "지나온 주들을 끝까지 거슬러 봐요.",
           "pitchEn": "Look back over every week you have lived.",
           "features": [
@@ -6077,12 +6077,12 @@
           ],
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -6093,12 +6093,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "앱을 열지 않아도, 다른 캘린더와 사람에게까지 넓혀요.",
           "pitchEn": "Reach beyond the app: your Home Screen, your calendars, and other people.",
@@ -6117,12 +6117,12 @@
             "Also unlocks Pro in Rainbow Workshop on Mac"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
@@ -6251,12 +6251,12 @@
       ],
       "currentPublic": "Pro 한 칸, 평생 ₩66,000 · 연 $14.99 · 월 $2.99",
       "stage": "예정",
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "oneLine": "첫 결제 문턱을 연 ₩4,400으로",
       "intent": "잠긴 기능 다섯 개가 모두 Pro 한 칸에 묶여 있고, 그 평생 가격이 ₩66,000입니다. 첫 결제로 내기에는 너무 커서 사실상 아무도 넘지 않는 문턱입니다. 구독은 싼 입구로 남기되 가격을 내리고, 평생은 연 구독의 3배 이상으로 둡니다. 잠긴 기능은 '지난 기록 보기'(Plus)와 '앱 밖으로 넓히기'(Pro)로 나눕니다. 무료로 오늘을 사는 데 필요한 것은 지금처럼 전부 무료로 둡니다.",
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "rainbow-workshop": {
       "slug": "rainbow-workshop",
@@ -6301,8 +6301,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "pitch": "8주를 거슬러 내 패턴을 보고, 잘 굴러간 주를 다시 깔아요.",
           "pitchEn": "See your patterns across 8 weeks and reuse the weeks that worked.",
           "features": [
@@ -6319,12 +6319,12 @@
           ],
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -6335,12 +6335,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "내 일정을 밖으로 내보내고, 아이폰까지 함께 열어요.",
           "pitchEn": "Share your schedule beyond the Mac, and unlock iPhone too.",
@@ -6355,12 +6355,12 @@
             "Also unlocks Pro in Rainbow of Desire on iPhone (widgets, calendar, sharing)"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
@@ -6497,12 +6497,12 @@
       ],
       "currentPublic": "Pro 한 칸, 평생 ₩17,000 · 연 ₩25,000 · 월 ₩3,300. 회고 복사도 잠금",
       "stage": "예정",
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "oneLine": "아이폰과 같은 사다리 · 같은 구매",
       "intent": "아이폰 앱과 구매를 공유하므로 같은 날 같은 사다리로 바꿔야 합니다. 그래야 \"한 번 사면 아이폰과 맥이 둘 다 열린다\"가 분명해집니다. 지금은 내가 쓴 회고를 글로 복사하는 것까지 Pro로 잠겨 있는데, 이것은 사용자 데이터의 기본 내보내기라서 무료로 풉니다.",
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "rapport-map": {
       "slug": "rapport-map",
@@ -6547,12 +6547,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "아끼는 사람을 원하는 만큼, 함께한 순간과 그때의 모습까지.",
           "pitchEn": "As many people as you care about, with shared moments and who they were then.",
@@ -6569,8 +6569,8 @@
             "Snapshots of a moment (role, concerns and goals at a first meeting or interview)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -6581,12 +6581,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "아이폰과 아이패드에서 같은 지도를, 멘토링 대화는 음성과 전사로.",
           "pitchEn": "The same map on iPhone and iPad, and mentoring talks kept with audio and transcripts.",
@@ -6601,17 +6601,17 @@
             "Mentoring sessions: audio, transcripts, raw data import, summaries and a transcript reader"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "compare": [
         {
           "feature": "발견 · 영역 · 관계 지도",
@@ -6723,8 +6723,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩6,600. 구독자 졸업가 ₩8,800. 로컬 작업 사본은 오래된 dev 브랜치라, 판단은 원격 origin/dev(2026-05-08) 소스를 git show 로 읽어서 했다.",
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "rebound-journal": {
       "slug": "rebound-journal",
@@ -6773,12 +6773,12 @@
           "id": "pro",
           "label": "프로",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "해 보려는 게 여럿이어도 괜찮아요. 목표는 원하는 만큼, 조약돌은 내 손에 맞는 걸로.",
           "pitchEn": "Have as many goals as you need, and pick the pebble that feels right in your hand.",
@@ -6793,8 +6793,8 @@
             "5 more pebbles (River, Moss, Sunset, Seashell, Inkstone)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -6803,7 +6803,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "compare": [
         {
           "feature": "조약돌과의 대화 · 음성",
@@ -6903,7 +6903,7 @@
       ],
       "pricingNote": "두 칸(무료 · 프로) 앱이라 프로는 S 크기 Pro 줄 값(연 ₩4,400 · 평생 ₩13,000). 올리기는 없고 구독자 졸업가 ₩8,800.",
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "relax-on": {
       "slug": "relax-on",
@@ -6950,12 +6950,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "비 오는 밤, 바닷가, 숲속. 그날그날 맞는 나만의 소리를 전부 남겨 두세요.",
           "pitchEn": "Rainy night, seaside, forest. Keep a mix for every kind of night.",
@@ -6968,8 +6968,8 @@
             "Save unlimited mixes of your own"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -6978,7 +6978,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "compare": [
         {
           "feature": "모든 소리 듣기",
@@ -7070,7 +7070,7 @@
       ],
       "pricingNote": "두 칸(무료 · Pro) 앱이라 Pro 는 S 크기 Pro 줄 값(연 ₩4,400 · 평생 ₩13,000). 올리기는 없고 구독자 졸업가 ₩8,800. 지금 월 구독은 매출 관문을 통과한 기록이 없어 값을 지킬 예외가 아니다.",
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "ring-rong": {
       "slug": "ring-rong",
@@ -7109,12 +7109,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩3,300",
-          "priceUS": "$1.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "누가 내 QR 을 확인했는지 바로 알고, 메모를 원하는 만큼.",
           "pitchEn": "Know right away when someone checks your QR, with as many notes as you like.",
@@ -7131,10 +7131,13 @@
             "History of who checked"
           ],
           "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
             "price": "₩1,100",
             "priceUS": "$0.99"
-          },
-          "weekly": null
+          }
         }
       ],
       "compare": [
@@ -7195,7 +7198,9 @@
         "/Users/leeo/Documents/workspace/code/FindMe/FindMe/SavedLocationsView.swift",
         "/Users/leeo/Documents/workspace/code/FindMe/FindMe/QRDetailView.swift",
         "/Users/leeo/Documents/workspace/code/FindMe/FindMeClip/ClipContentView.swift"
-      ]
+      ],
+      "graduate": "₩17,000",
+      "graduateUS": "$11.99"
     },
     "sanoramyeon": {
       "slug": "sanoramyeon",
@@ -7246,12 +7251,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩20,000",
-          "priceUS": "$14.99",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
           "subscription": {
             "period": "연",
-            "price": "₩6,600",
-            "priceUS": "$4.99"
+            "price": "₩14,000",
+            "priceUS": "$9.99"
           },
           "pitch": "공항부터 긴급 상황까지 53개 상황 전체, 내 시나리오는 원하는 만큼.",
           "pitchEn": "All 53 situations, from the airport to emergencies, and as many of your own scenarios as you like.",
@@ -7270,24 +7275,24 @@
             "Unlimited conversation import (paste text)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩5,500",
+            "priceUS": "$3.49"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         },
         {
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
+          "price": "₩65,000",
+          "priceUS": "$44.99",
           "subscription": {
             "period": "연",
-            "price": "₩13,000",
-            "priceUS": "$8.99"
+            "price": "₩22,000",
+            "priceUS": "$14.99"
           },
           "pitch": "출퇴근 내내 귀로 연습하고, 원하는 상황은 AI로 바로 만드세요.",
           "pitchEn": "Practice by ear for your whole commute, and have AI build any situation you need.",
@@ -7304,17 +7309,17 @@
             "Share scenarios and replies with friends over iCloud"
           ],
           "monthly": {
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩7,700",
+            "priceUS": "$4.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           }
         }
       ],
-      "upgrade": "₩19,000",
-      "graduate": "₩27,000",
+      "upgrade": "₩22,000",
+      "graduate": "₩43,000",
       "compare": [
         {
           "feature": "배울 언어 6개",
@@ -7447,8 +7452,8 @@
       ],
       "pricingNote": "모든 칸은 연 구독과 평생 중에서 고른다. 평생은 연 구독의 3배. Plus 평생 → Pro 평생 올리기 ₩19,000. 구독자 졸업가 ₩27,000. 지금 연 ₩33,000 구독은 매출 관문을 통과한 기록이 없어 값을 지킬 예외가 아니다. 상황별 회화는 언어마다 53개(기본 1 · 일상 5 무료, 나머지 47개 잠금).",
       "sourceFound": true,
-      "upgradeUS": "$12.99",
-      "graduateUS": "$18.99"
+      "upgradeUS": "$14.99",
+      "graduateUS": "$29.99"
     },
     "schedule-assistant": {
       "slug": "schedule-assistant",
@@ -7499,12 +7504,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "프로젝트 · 반복 패턴 · 위키를 마음껏 쌓고, 내 방식대로 정리하세요.",
           "pitchEn": "Build up as many projects, patterns and wiki pages as you like, arranged your way.",
@@ -7525,8 +7530,8 @@
             "Reorder the sidebar"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -7537,12 +7542,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "메일과 캘린더에서 할 일을 알아서 찾고, 먼저 말을 거는 비서.",
           "pitchEn": "An assistant that finds tasks in your mail and calendar, and speaks up first.",
@@ -7563,17 +7568,17 @@
             "Unlocks Don't Forget Pro on iPhone too"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "pricingNote": "M 사다리. Plus 연 ₩4,400 · 평생 ₩14,000, Pro 연 ₩8,800 · 평생 ₩27,000. Plus 평생 → Pro 평생 올리기 ₩13,000, 구독자 졸업가 ₩19,000. Pro(연 · 평생)는 잊지마 Pro를 함께 연다.",
       "compare": [
         {
@@ -7737,8 +7742,8 @@
       ],
       "sourceFound": false,
       "sourceNote": "출시 소스(1.0.3)가 이 컴퓨터에 없다. GitHub M1zz/WeekAheadTodo 는 2026-01 사본(1.0.1)이라 메일 · Ollama · 위키 · 보고 습관이 빠져 있어, 이것들은 출시 빌드 1.0.3(4) 아카이브의 dSYM 파일 목록(MailAppService · OllamaService · WikiViewModel · ReportingHabitsView · FlexiblePatternScheduleView 등)과 실행 파일 문자열로 확인했다. GitHub 사본은 읽기용으로 scratchpad 에 받았다.",
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "shared-day-designer": {
       "slug": "shared-day-designer",
@@ -8070,12 +8075,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "음표를 하나씩 찍지 마세요. 말하거나, 붙여 넣거나, 사진을 찍으면 됩니다.",
           "pitchEn": "Skip tapping every note. Sing it, paste it, or snap a photo.",
@@ -8092,8 +8097,8 @@
             "Auto-transcribe from a photo (experimental)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -8102,7 +8107,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "compare": [
         {
           "feature": "음표 입력 · 재생 · 메트로놈",
@@ -8207,7 +8212,7 @@
       ],
       "pricingNote": "두 칸(무료 · Pro) 앱이라 Pro 는 S 크기 Pro 줄 값(연 ₩4,400 · 평생 ₩13,000). 올리기는 없고 구독자 졸업가 ₩8,800.",
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "sky-dex": {
       "slug": "sky-dex",
@@ -8254,12 +8259,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "모은 색을 갈래별로 펼치고, 같은 시각의 하늘을 나란히.",
           "pitchEn": "Spread your colors out by family, and line up skies from the same hour.",
@@ -8276,8 +8281,8 @@
             "Borrowed skies: recolor a photo with another day's sky, and share it"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -8288,12 +8293,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "폰을 바꿔도 하늘은 그대로, 홈 화면에서도 오늘의 판을.",
           "pitchEn": "Your skies follow you to a new phone, and today's board lives on your Home Screen.",
@@ -8310,17 +8315,17 @@
             "Today's Board widget in medium and large"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "pricingNote": "S 사다리. Plus 연 ₩2,200 · 평생 ₩6,600, Pro 연 ₩4,400 · 평생 ₩13,000. Plus 평생 → Pro 평생 올리기 ₩6,600, 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -8448,8 +8453,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/하늘색/APPSTORE.md"
       ],
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "slide-snap": {
       "slug": "slide-snap",
@@ -8500,12 +8505,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "한 학기, 한 학회를 통째로. 글자는 더 또렷하게.",
           "pitchEn": "A whole semester or conference in one place, with crisper text.",
@@ -8522,8 +8527,8 @@
             "Study PDFs with two or four slides per page"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -8534,12 +8539,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "그때 한 말까지 장표 옆에, 요약은 기기가 알아서.",
           "pitchEn": "What was said sits next to each slide, and your phone writes the summary.",
@@ -8560,17 +8565,17 @@
             "iCloud sync for talks, slides and recordings"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "pricingNote": "M 사다리. Plus 연 ₩4,400 · 평생 ₩14,000, Pro 연 ₩8,800 · 평생 ₩27,000. Plus 평생 → Pro 평생 올리기 ₩13,000, 구독자 졸업가 ₩19,000.",
       "compare": [
         {
@@ -8713,8 +8718,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/장표스냅/Version.xcconfig"
       ],
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "speak-flow": {
       "slug": "speak-flow",
@@ -8753,12 +8758,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩3,300",
-          "priceUS": "$1.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "되살릴 경우: 6개 언어와 내 시나리오를 모두 엽니다.",
           "pitchEn": "If revived: all six languages and your own scenarios.",
@@ -8775,10 +8780,13 @@
             "On-device translation"
           ],
           "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
             "price": "₩1,100",
             "priceUS": "$0.99"
-          },
-          "weekly": null
+          }
         }
       ],
       "compare": [
@@ -8827,7 +8835,9 @@
         "/Users/leeo/Documents/workspace/code/ConversationPractice/ConversationPractice/FreeConversationView.swift",
         "/Users/leeo/Documents/workspace/code/ConversationPractice/ConversationPractice/TranslationService.swift",
         "/Users/leeo/Documents/workspace/code/ConversationPractice/ConversationPractice/ScenarioImporter.swift"
-      ]
+      ],
+      "graduate": "₩17,000",
+      "graduateUS": "$11.99"
     },
     "sticky-presenter-remote": {
       "slug": "sticky-presenter-remote",
@@ -9022,12 +9032,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "노트와 타이머를 마음껏, 내 무대에 맞게.",
           "pitchEn": "As many notes and timers as you need, styled for your stage.",
@@ -9048,8 +9058,8 @@
             "Mirrored teleprompter for beam-splitter glass"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -9060,12 +9070,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "손이 Mac에 닿지 않아도 발표를 지휘합니다.",
           "pitchEn": "Run the whole talk without reaching for your Mac.",
@@ -9084,17 +9094,17 @@
             "Notification Center widget"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "pricingNote": "M 사다리. Plus 연 ₩4,400 · 평생 ₩14,000, Pro 연 ₩8,800 · 평생 ₩27,000. Plus 평생 → Pro 평생 올리기 ₩13,000, 구독자 졸업가 ₩19,000. 리모컨 앱은 이 권한을 연결로 물려받는다.",
       "compare": [
         {
@@ -9261,8 +9271,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/StickyPresenter/APPSTORE.md"
       ],
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "sunflower": {
       "slug": "sunflower",
@@ -9313,12 +9323,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "밖에 나가기 전에 해바라기가 먼저 부르게.",
           "pitchEn": "Let your sunflower nudge you outside first.",
@@ -9335,8 +9345,8 @@
             "Monthly stats"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -9345,7 +9355,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "pricingNote": "두 칸 앱이라 Pro는 S 크기 Pro 값(연 ₩4,400 · 평생 ₩13,000). 올리기 없음, 구독자 졸업가 ₩8,800.",
       "compare": [
         {
@@ -9474,7 +9484,7 @@
         "/Users/hyunholee/Documents/workspace/Auto/햇빛바라기/APPSTORE.md"
       ],
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "tap-clip-keyboard": {
       "slug": "tap-clip-keyboard",
@@ -9520,12 +9530,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩20,000",
-          "priceUS": "$14.99",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
           "subscription": {
             "period": "연",
-            "price": "₩6,600",
-            "priceUS": "$4.99"
+            "price": "₩14,000",
+            "priceUS": "$9.99"
           },
           "pitch": "마음껏 쌓기",
           "pitchEn": "Build without limits",
@@ -9542,24 +9552,24 @@
             "100 clipboard history items, kept for 7 days"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩5,500",
+            "priceUS": "$3.49"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         },
         {
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
+          "price": "₩65,000",
+          "priceUS": "$44.99",
           "subscription": {
             "period": "연",
-            "price": "₩13,000",
-            "priceUS": "$8.99"
+            "price": "₩22,000",
+            "priceUS": "$14.99"
           },
           "pitch": "쌓은 것을 지키고 아이폰과 잇기",
           "pitchEn": "Protect what you have built and keep it in step with your iPhone",
@@ -9578,17 +9588,17 @@
             "Secure snippets open with Touch ID or your Mac password"
           ],
           "monthly": {
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩7,700",
+            "priceUS": "$4.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           }
         }
       ],
-      "upgrade": "₩19,000",
-      "graduate": "₩27,000",
+      "upgrade": "₩22,000",
+      "graduate": "₩43,000",
       "compare": [
         {
           "feature": "빠른 붙여넣기 패널 · 메뉴바",
@@ -9725,8 +9735,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/탭클립키보드/APPSTORE.md"
       ],
       "sourceFound": true,
-      "upgradeUS": "$12.99",
-      "graduateUS": "$18.99"
+      "upgradeUS": "$14.99",
+      "graduateUS": "$29.99"
     },
     "tetra-tint": {
       "slug": "tetra-tint",
@@ -9772,12 +9782,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "팔레트 전체를 한 번에 점검",
           "pitchEn": "Check your whole palette at once",
@@ -9796,8 +9806,8 @@
             "Add colorblind-safe palettes (Okabe Ito, IBM, Paul Tol)"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -9808,12 +9818,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "Xcode 에 파일째 넣고, 단축어로 바로",
           "pitchEn": "Drop files straight into Xcode, start from a shortcut",
@@ -9832,17 +9842,17 @@
             "Pick a color or open a screen from Shortcuts and Spotlight"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "compare": [
         {
           "feature": "네 모드 변형 생성",
@@ -9997,8 +10007,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/tetratint/TetraTint/Support/AppShortcuts.swift"
       ],
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "think-flow": {
       "slug": "think-flow",
@@ -10045,12 +10055,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "생각을 마음껏, 앱을 열기 전에 이어 갈 문장부터",
           "pitchEn": "As many thoughts as you like, your next line before you open the app",
@@ -10067,8 +10077,8 @@
             "Thinking time on the Lock Screen and in the Dynamic Island"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -10077,7 +10087,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "compare": [
         {
           "feature": "생각",
@@ -10201,7 +10211,7 @@
         "/Users/hyunholee/Documents/workspace/Auto/이어생각/ThinkFlow/ThinkFlowRoadmap.swift"
       ],
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "three-meals": {
       "slug": "three-meals",
@@ -10251,12 +10261,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "함께 먹는 사람마다, 내 생활대로",
           "pitchEn": "A group for everyone you eat with, logged your way",
@@ -10273,8 +10283,8 @@
             "Your most-eaten foods at a glance"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -10285,12 +10295,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "앱을 열지 않아도 남기고, 더 깊이 보고, 지키기",
           "pitchEn": "Log without opening the app, see further back, keep it private",
@@ -10309,17 +10319,17 @@
             "Face ID lock"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "compare": [
         {
           "feature": "사진 식단 기록",
@@ -10483,8 +10493,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/세끼/FEATURES.md"
       ],
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     },
     "wifi-snap": {
       "slug": "wifi-snap",
@@ -10530,12 +10540,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩6,600",
-          "priceUS": "$4.49",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "매장마다 자리마다, 우리 가게답게",
           "pitchEn": "A sign for every shop and table, in your own style",
@@ -10556,8 +10566,8 @@
             "A4 portrait poster"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -10568,12 +10578,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "찾기 전에 먼저 나타나게",
           "pitchEn": "Your Wi-Fi shows up before you go looking",
@@ -10592,17 +10602,17 @@
             "Import your Wi-Fi list from a Settings screenshot"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩6,600",
-      "graduate": "₩8,800",
+      "upgrade": "₩13,000",
+      "graduate": "₩26,000",
       "compare": [
         {
           "feature": "찍어서 연결",
@@ -10750,8 +10760,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/마이파이/WifiSnapWidget/WifiSnapWidget.swift"
       ],
       "sourceFound": true,
-      "upgradeUS": "$4.49",
-      "graduateUS": "$5.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$17.99"
     },
     "worry-parking": {
       "slug": "worry-parking",
@@ -10796,12 +10806,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "생각이 많은 날에도 자리가 남게",
           "pitchEn": "Room to spare on busy-mind days",
@@ -10818,8 +10828,8 @@
             "Exit insights: how many worries came true and how much the fear dropped"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -10828,7 +10838,7 @@
         }
       ],
       "upgrade": null,
-      "graduate": "₩8,800",
+      "graduate": "₩17,000",
       "compare": [
         {
           "feature": "주차 칸",
@@ -10928,7 +10938,7 @@
         "/Users/hyunholee/Documents/workspace/Auto/걱정주차장/Products.storekit"
       ],
       "sourceFound": true,
-      "graduateUS": "$5.99"
+      "graduateUS": "$11.99"
     },
     "yeoul": {
       "slug": "yeoul",
@@ -10974,12 +10984,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩14,000",
-          "priceUS": "$8.99",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
           "subscription": {
             "period": "연",
-            "price": "₩4,400",
-            "priceUS": "$2.99"
+            "price": "₩12,000",
+            "priceUS": "$7.99"
           },
           "pitch": "주제마다 연표를, 순간마다 어울리는 카드로",
           "pitchEn": "A timeline for every chapter, a card for every moment",
@@ -10996,8 +11006,8 @@
             "All four card designs, including Film and Editorial"
           ],
           "monthly": {
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$2.49"
           },
           "weekly": {
             "price": "₩1,100",
@@ -11008,12 +11018,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩27,000",
-          "priceUS": "$17.99",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩17,000",
+            "priceUS": "$11.99"
           },
           "pitch": "모든 기기에서 지키고, 말로 바로 남기기",
           "pitchEn": "Keep it safe on every device, add moments by voice",
@@ -11030,17 +11040,17 @@
             "Add events with Siri and Shortcuts"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩5,500",
+            "priceUS": "$3.99"
           },
           "weekly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         }
       ],
-      "upgrade": "₩13,000",
-      "graduate": "₩19,000",
+      "upgrade": "₩17,000",
+      "graduate": "₩35,000",
       "compare": [
         {
           "feature": "타임라인",
@@ -11164,8 +11174,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/여울/YeoulMac.xcodeproj/project.pbxproj"
       ],
       "sourceFound": true,
-      "upgradeUS": "$8.99",
-      "graduateUS": "$12.99"
+      "upgradeUS": "$11.99",
+      "graduateUS": "$23.99"
     }
   },
   "foreverPass": {
@@ -11202,5 +11212,5 @@
     ],
     "status": "확정 (2026-10-27) · 클립키보드부터 반영"
   },
-  "periodRule": "월 = 연 ÷ 3 (연 구독이 월 석 달 값) · 주 = 월 × 0.4 (주 넷이면 월보다 비싸다). 달러로 계산해 App Store 가격대에 맞추고, 원화는 달러 × 1,450 을 원화 가격대에 맞춘다. 최저가는 $0.99 · ₩1,100 — 그 아래로 내리지 않고, 겹치면 위 칸을 한 가격대 올린다."
+  "periodRule": "연 구독은 앱 크기 사다리(S $5.99 · $8.99, M $7.99 · $11.99, L $9.99 · $14.99), 월 = 연 ÷ 3, 주 = 월 × 0.4, 평생 = 연 × 3. 바닥 주 $0.99 · 월 $1.49 · 연 $5.99, 천장 주 $2.49 · 월 $6.49 · 연 $19.99 · 평생 $59.99. Pro 는 같은 기간 Plus 보다 한 가격대 위. 원화는 달러 × 1,450 을 원화 가격대에 맞춘다."
 }
