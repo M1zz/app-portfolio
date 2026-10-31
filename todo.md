@@ -1,16 +1,22 @@
 # TODO — 후원 보상 구현 점검 (2026-10-31)
 
 후원 받는 35개 앱 소스를 보상 설계(donations.json rewardPlan)와 대조.
+- [x] LeeoKit v3.29.0 (a38093a): 응원 단계와 보상 — 테스트 220개 통과
+- [x] 돈꼬마트 dev f71dc61: 자체 커피 팁 → LeeoKit 팁(옛 횟수 · 옛 커피는 1점씩 옮김), 설정 줄 배지, 휴무일 부탁 카드, 이름 보내기
+- [ ] ⚠️ CloudKit 콘솔: FeedbackHub 컨테이너에 LeeoSupporter 기록 종류(필드 tips: String 목록) 운영 스키마로 내보내기 — 전에는 기기 점수만
+- [ ] 나머지 33개 앱 LeeoKit 3.29 로 올리기 (클립키보드 · 두번알림 · 골드위크 먼저)
+- [ ] 앱마다 후원자 아이콘 그림 + supporterIcon, 베타 공개 링크(betaURL)는 원하면
+- [ ] 팁 화면 단계 카드 실기기로 눈 확인 (자동 렌더는 ScrollView 가 그려지지 않아 못 봄)
 - [x] 감사 화면: LeeoKit 34개 앱(팁 직후 '고마워요 · 지금까지 N번'), 돈꼬마트 자체 연출
 - [x] 응원 부탁 쉼: LeeoKit 34개 앱(낸 사람 180일), 돈꼬마트(후원자는 다시 안 물음)
-- [ ] 개발자의 짧은 편지 — 0개
-- [ ] 후원자 배지(모든 앱 공유) — 돈꼬마트만 자기 앱 설정에 ☕️ ×N, 나머지 0
+- [x] 개발자의 짧은 편지 — LeeoKit 3.29 감사 카드
+- [x] 후원자 배지(모든 앱 공유) — LeeoKit 3.29 LeeoTipJarLink 줄 · LeeoSupporterBadge
 - [ ] '고마운 사람들' 이름 보내기 — 클립키보드(main) · 두번알림 · 골드위크(dev) 3개뿐, 돈꼬마트 자체 팁 화면 남음, 나머지 31개는 소개 페이지 위젯부터
-- [ ] 점수 · 단계 · iCloud 기록 — LeeoKit 은 기기 안 횟수만, 돈꼬마트만 iCloud 에 횟수
-- [ ] 단골: 후원자 전용 앱 아이콘 · 기능 미리 보기 투표 — 0개 (로드맵 화면은 누구에게나 열려 있음)
-- [ ] 후견인: TestFlight 초대 — 0개
-- [ ] 후원 뒤 업그레이드 배너 30일 쉼 — 0개
-- [ ] LeeoTipJarView 의 .footnote · .subheadline 글자를 .body 이상으로
+- [x] 점수 · 단계 · iCloud 기록 — LeeoKit 3.29 장부(피드백 컨테이너 개인 DB 'supporter', 모든 앱 합산)
+- [x] 단골: 후원자 아이콘(앱이 supporterIcon 을 줄 때) · 다음 기능에 한 표(로드맵 담은 메일) — LeeoKit 3.29
+- [x] 후견인: 베타 함께하기(betaURL 또는 신청 메일) — LeeoKit 3.29
+- [x] 후원 뒤 업그레이드 배너 30일 쉼 — tipJar.tippedRecently(days: 30) 제공 (배너가 있는 앱이 써야 함)
+- [x] LeeoKit 팁 화면 · 부탁 카드 · 설정 줄 글자를 .body 이상으로
 
 # TODO — 트림 주 · 월 · 연 · 평생 (2026-10-31)
 
