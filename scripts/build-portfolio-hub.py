@@ -2169,6 +2169,7 @@ PW_CSS = BIZ_CSS + """
   .tt tbody th{text-align:left;font-weight:600;color:var(--text);min-width:8em}
   .tt td.ok{color:#34c48a;font-weight:900;font-size:1rem}
   .tt td.no{color:var(--muted);opacity:.5}
+  .tt td.inf{font-size:1.25rem;font-weight:700;line-height:1;color:var(--text)}
   .tt tbody tr:last-child>*{border-bottom:0}
   .tx{margin:-8px 20px 16px;font-size:.78rem;color:var(--muted);line-height:1.6}
   .ftw{max-height:78vh;overflow:auto}
@@ -2290,6 +2291,8 @@ def trim_table(p, fp_price=""):
             return '<td class="ok">✓</td>'
         if v in ("", "–", "-", "—", "✗", "X"):
             return '<td class="no">–</td>'
+        if v == "무제한":
+            return '<td class="inf" aria-label="무제한">∞</td>'
         return "<td>%s</td>" % esc(public_text(v))
 
     head = "".join('<th class="tc-%s"><span class="tn">%s</span>%s<em>%s</em></th>'
