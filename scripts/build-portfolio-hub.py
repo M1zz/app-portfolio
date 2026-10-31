@@ -2122,7 +2122,7 @@ PW_CSS = BIZ_CSS + """
   .rules p{margin:0;font-size:.85rem;color:var(--muted);line-height:1.55}
   h3.sh{margin:26px 0 10px;font-size:1.05rem}
   /* 설계안 카드: 글이 길어 두 줄 그리드 · 넉넉한 안쪽 여백 · 묶음마다 간격 */
-  .npws{grid-template-columns:repeat(auto-fill,minmax(min(420px,100%),1fr));gap:22px}
+  .npws{grid-template-columns:repeat(auto-fill,minmax(min(540px,100%),1fr));gap:22px}
   .np .top{padding:24px 26px 18px}
   .np h3{font-size:1.2rem;margin-top:14px}
   .np .sub{font-size:.84rem;line-height:1.6;margin-top:6px}
@@ -2155,16 +2155,23 @@ PW_CSS = BIZ_CSS + """
     color:var(--text);text-decoration:none}
   .kp a.kpl:hover{border-color:var(--accent)}
   .np .don h4{display:flex;align-items:center;gap:8px}
-  .ttw{margin:0 20px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:14px}
+  .pt.lad tr.g>*{border-top:2px solid var(--border)}
+  .pt.lad td:last-child b{color:var(--accent)}
+  .ttw{margin:0 14px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:14px}
   .tt{border-collapse:collapse;width:100%;font-size:.84rem;background:var(--card)}
-  .tt th,.tt td{padding:9px 10px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;word-break:keep-all}
+  .tt th,.tt td{padding:9px 7px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;word-break:keep-all}
   .tt thead th{vertical-align:top;background:var(--bg-soft);min-width:96px}
   .tt thead th:first-child{min-width:0}
   .tt thead .tn{display:block;font-size:1rem;font-weight:800;margin-bottom:6px;color:var(--text)}
   .tt thead .tc-pro .tn{color:var(--c)}
-  .tt thead .tp{display:block;font-size:.84rem;font-variant-numeric:tabular-nums;color:var(--text)}
-  .tt thead .tp.tl{margin-top:4px}
-  .tt thead small{display:block;font-size:.72rem;color:var(--muted);font-weight:600}
+  .tt thead .tps{display:grid;gap:3px;margin:0 auto;width:max-content}
+  .tt thead .tps span{display:grid;grid-template-columns:2em auto auto;gap:4px;align-items:baseline;text-align:right}
+  .tt thead .tps i{font-style:normal;font-size:.72rem;color:var(--muted);font-weight:700;text-align:left}
+  .tt thead .tps b{font-size:.84rem;font-variant-numeric:tabular-nums;color:var(--text)}
+  .tt thead .tps small{font-size:.7rem;color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums}
+  .tt thead .tps .tl{border-top:1px dashed var(--border);padding-top:4px;margin-top:2px}
+  .tt thead .tps .tl b{color:var(--c)}
+  .tt thead .tps .na b{color:var(--muted)}
   .tt thead em{display:block;font-style:normal;font-size:.74rem;font-weight:600;color:var(--muted);margin-top:6px;line-height:1.45}
   .tt tbody th{text-align:left;font-weight:600;color:var(--text);min-width:8em}
   .tt td.ok{color:#34c48a;font-weight:900;font-size:1rem}
@@ -2278,12 +2285,13 @@ def trim_table(p, fp_price=""):
     def price_cell(tr):
         if not tr.get("price"):
             return ""  # 열 이름이 이미 '무료'다
-        out = ""
-        sub = tr.get("subscription")
-        if sub:
-            out += '<b class="tp">연 %s</b><small>%s</small>' % (esc(sub["price"]), esc(sub.get("priceUS") or ""))
-        out += '<b class="tp%s">평생 %s</b><small>%s</small>' % (" tl" if sub else "", esc(tr["price"]), esc(tr.get("priceUS") or ""))
-        return out
+        lines = [("주", tr.get("weekly")), ("월", tr.get("monthly")), ("연", tr.get("subscription")),
+                 ("평생", {"price": tr["price"], "priceUS": tr.get("priceUS")})]
+        return '<div class="tps">%s</div>' % "".join(
+            '<span class="%s"><i>%s</i><b>%s</b><small>%s</small></span>'
+            % ("tl" if k == "평생" else "", k, esc(v["price"]), esc(v.get("priceUS") or "")) if v else
+            '<span class="na"><i>%s</i><b>–</b><small></small></span>' % k
+            for k, v in lines)
 
     def val(v):
         v = (v or "").strip()
@@ -2322,16 +2330,26 @@ def paywall_plans_section(apps):
 
     rules = "".join('<div><h4>%s</h4><p>%s</p></div>' % (esc(h), esc(b)) for h, b in [
         ("무료 · Plus · Pro", "모든 앱은 무료로 받는다. 무료로 핵심을 한 번 끝까지 겪고, Plus 는 더 많이 · 내 취향대로, Pro 는 지키고 · 넓히고 · 자동으로."),
-        ("연 구독 + 평생", "유료 칸마다 연 구독과 평생을 나란히 둔다. 평생은 연 구독의 3배 이상. 처음 보는 사람에게는 연 구독 첫 해 반값."),
+        ("주 · 월 · 연 + 평생", "유료 칸마다 주 · 월 · 연 구독과 평생을 나란히 둔다. 월은 연의 1/3(연 구독이 석 달 값), 주는 월의 0.4배, "
+                              "평생은 연 구독의 3배 이상. 처음 보는 사람에게는 연 구독 첫 해 반값."),
         ("구독 졸업", "연 구독을 쓰던 사람에게 6개월째와 갱신 7일 전에 평생을 약 30% 깎은 값으로 권한다. 설정에는 늘 '평생으로 바꾸기'."),
         ("언제나 평생 패스", "한 번 사면 모든 앱의 Plus · Pro 평생과 앞으로 나올 앱까지. %s." % fp_price),
     ])
-    ladder = ('<div class="tw"><table class="pt"><thead><tr><th>앱 크기</th><th>Plus 연 / 평생</th><th>Pro 연 / 평생</th>'
-              '<th>미국 Plus</th><th>미국 Pro</th></tr></thead><tbody>'
-              '<tr><th>S</th><td>₩2,200 / ₩6,600</td><td>₩4,400 / ₩13,000</td><td>$1.49 / $4.49</td><td>$2.99 / $8.99</td></tr>'
-              '<tr><th>M</th><td>₩4,400 / ₩14,000</td><td>₩8,800 / ₩27,000</td><td>$2.99 / $8.99</td><td>$5.99 / $17.99</td></tr>'
-              '<tr><th>L</th><td>₩6,600 / ₩20,000</td><td>₩13,000 / ₩39,000</td><td>$4.99 / $14.99</td><td>$8.99 / $26.99</td></tr>'
-              '</tbody></table></div>')
+    # 크기마다 Plus · Pro 의 주 · 월 · 연 · 평생 — 주 · 월은 scripts/set-trim-periods.py 의 규칙으로 계산한 값
+    LADDER = [
+        ("S", "Plus", [("₩400", "$0.29"), ("₩700", "$0.49"), ("₩2,200", "$1.49"), ("₩6,600", "$4.49")]),
+        ("S", "Pro", [("₩600", "$0.39"), ("₩1,100", "$0.99"), ("₩4,400", "$2.99"), ("₩13,000", "$8.99")]),
+        ("M", "Plus", [("₩600", "$0.39"), ("₩1,100", "$0.99"), ("₩4,400", "$2.99"), ("₩14,000", "$8.99")]),
+        ("M", "Pro", [("₩1,100", "$0.79"), ("₩3,300", "$1.99"), ("₩8,800", "$5.99"), ("₩27,000", "$17.99")]),
+        ("L", "Plus", [("₩900", "$0.59"), ("₩2,200", "$1.49"), ("₩6,600", "$4.99"), ("₩20,000", "$14.99")]),
+        ("L", "Pro", [("₩1,100", "$0.99"), ("₩4,400", "$2.99"), ("₩13,000", "$8.99"), ("₩39,000", "$26.99")]),
+    ]
+    ladder = ('<div class="tw"><table class="pt lad"><thead><tr><th>앱 크기</th><th>칸</th><th>주</th><th>월</th><th>연</th>'
+              '<th>평생</th></tr></thead><tbody>%s</tbody></table></div>' % "".join(
+                  '<tr%s><th>%s</th><td class="k">%s</td>%s</tr>' % (
+                      ' class="g"' if t == "Plus" else "", sz if t == "Plus" else "", t,
+                      "".join("<td><b>%s</b><small>%s</small></td>" % (k, u) for k, u in prices))
+                  for sz, t, prices in LADDER))
 
     def card(s):
         p, a = plans[s], by.get(s)

@@ -65,7 +65,15 @@
             "Everything in Free",
             "Unlimited books",
             "Unlimited quotes"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -91,7 +99,15 @@
             "iCloud sync of your library and quotes across devices",
             "Home Screen widgets (small, medium, large)",
             "Lock Screen widgets (circular, rectangular, inline)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -284,7 +300,15 @@
             "Climb Mode (the mountain view)",
             "Deadlines per step, and obstacles like cost and time",
             "Daily progress, proof notes and the Archive tab"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -479,7 +503,15 @@
             "Unlimited deadlines",
             "3 parchment themes (Moonlit Hanji, Celadon, Dusk)",
             "3 flames (Blaze, Smolder, Sparkler)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -507,7 +539,15 @@
             "Fragment cards and posters as images",
             "Bind your reflections into a PDF book to print",
             "Year of Ash (where each of the last 12 months went)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -727,6 +767,14 @@
             "period": "연",
             "price": "₩6,600",
             "priceUS": "$4.99"
+          },
+          "monthly": {
+            "price": "₩2,200",
+            "priceUS": "$1.49"
+          },
+          "weekly": {
+            "price": "₩900",
+            "priceUS": "$0.59"
           }
         },
         {
@@ -753,7 +801,15 @@
             "iCloud backup",
             "Biometric lock and secure snippets",
             "Sync across devices (beta)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩4,400",
+            "priceUS": "$2.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          }
         }
       ],
       "compare": [
@@ -953,7 +1009,15 @@
             "Everything in Free",
             "Unlimited cooldown items",
             "A cheer when you are halfway there"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -981,7 +1045,15 @@
             "Lock Screen widgets (circular, rectangular, inline)",
             "Compliance by item and by category",
             "Recent activity trend"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -1192,7 +1264,15 @@
             "Background images",
             "Pick your own background and text colors",
             "Line spacing"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -1393,7 +1473,15 @@
             "Unlimited custom stores",
             "Unlimited favorite restaurants",
             "Story-size cards and short video sharing"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -1419,7 +1507,15 @@
             "Next two closings, This Sunday and Restaurant Week widgets",
             "Lock Screen widgets",
             "Fill in restaurant closing days from a Naver Map link or a screenshot"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -1634,7 +1730,15 @@
             "Deadline alerts",
             "Tasks left on the Lock Screen and Dynamic Island",
             "Already Pro in Schedule Assistant on Mac? It's unlocked here too"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -1810,6 +1914,14 @@
             "period": "연",
             "price": "₩4,400",
             "priceUS": "$2.99"
+          },
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
           }
         },
         {
@@ -1836,7 +1948,15 @@
             "Session Mode (section names and scripts)",
             "Overtime tracking",
             "Timer history and stats"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "compare": [
@@ -2049,7 +2169,15 @@
             "Unlimited children",
             "Unlimited family shop items",
             "Create your own investments (name, starting price, risk)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -2075,7 +2203,15 @@
             "Barcode payments (kids scan an item to pay)",
             "Inflation lessons (a family price index that rises each week)",
             "Keep records in step across iPhone and iPad with iCloud"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -2287,7 +2423,15 @@
             "Unlimited house laws",
             "File a case or check waiting trials from Siri and Shortcuts",
             "Name your own family court"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -2494,7 +2638,15 @@
             "Pay off debt vs invest",
             "Real wage buying power and money vs time",
             "Trade ledger with automatic average cost and realized gains"
-          ]
+          ],
+          "monthly": {
+            "price": "₩2,200",
+            "priceUS": "$1.49"
+          },
+          "weekly": {
+            "price": "₩900",
+            "priceUS": "$0.59"
+          }
         },
         {
           "id": "pro",
@@ -2524,7 +2676,15 @@
             "iCloud sync across iPhone and iPad",
             "Import holdings from a brokerage screenshot",
             "Home Screen and Lock Screen widgets"
-          ]
+          ],
+          "monthly": {
+            "price": "₩4,400",
+            "priceUS": "$2.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          }
         }
       ],
       "upgrade": "₩19,000",
@@ -2764,7 +2924,15 @@
             "Unlimited saved works",
             "Unlimited flipbook pages",
             "Unlimited voice recording"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -2788,7 +2956,15 @@
             "Everything in Plus",
             "Draw over videos from your camera, Photos or a link, without limits",
             "No Palang Book end card on saved videos"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -2990,7 +3166,15 @@
             "Sign sticker camera for one-of-a-kind stamps",
             "Picture map skin with hills, forests and water",
             "Pick any date range"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -3016,7 +3200,15 @@
             "Home Screen and Lock Screen widgets",
             "Film: export a video of your map being drawn",
             "Explorer compass that points to where you've walked least"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -3237,7 +3429,15 @@
             "Recipe packs: rice bowls, soups and stews, more pasta, and every new pack",
             "Create your own recipes with per-pot timings",
             "Open a recipe straight from Siri and Shortcuts"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -3421,7 +3621,15 @@
             "Everything in Free",
             "Accent editor: set each click high, low or silent",
             "Save and load accent presets per song"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -3445,7 +3653,15 @@
             "Everything in Plus",
             "Practice mode: tempo climbs every few bars, a hands-free speed trainer",
             "Chromatic tuner: say \"tune\" and play"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -3656,7 +3872,15 @@
             "All 23 lessons",
             "All 100 mistake stories",
             "Every quiz chapter"
-          ]
+          ],
+          "monthly": {
+            "price": "₩2,200",
+            "priceUS": "$1.49"
+          },
+          "weekly": {
+            "price": "₩900",
+            "priceUS": "$0.59"
+          }
         },
         {
           "id": "pro",
@@ -3682,7 +3906,15 @@
             "All 5 labs: toolbar, scroll edge, text truncation, tab bar and sheet height",
             "Quiz training modes: random, principle calls, spot the difference, pick the component",
             "Real-world questions: pick the screen from the rule, pick the reason from the screen"
-          ]
+          ],
+          "monthly": {
+            "price": "₩4,400",
+            "priceUS": "$2.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          }
         }
       ],
       "upgrade": "₩19,000",
@@ -3891,7 +4123,15 @@
             "280 more reflection questions",
             "Fill the whole 100-cell progress map",
             "Every mistake and question added later"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -4063,7 +4303,15 @@
             "Multiple children, each with their own calendar and class",
             "Photo profile for each child",
             "Extra reminders: 1 hour before and right on time"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -4087,7 +4335,15 @@
             "Everything in Plus",
             "Invite family to view and edit live, invitees join free",
             "Home Screen widgets, small and medium"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -4291,7 +4547,15 @@
             "Lock Screen and Dynamic Island Live Activity",
             "Onboard announcement listening and door side",
             "Get-ready and get-off-now haptics"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -4317,7 +4581,15 @@
             "Exit guide with nearby places, Seoul lines 1 to 8",
             "Last train alerts, lines 1 to 9",
             "Luggage mode: board near the elevator, lines 1 to 8"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -4502,7 +4774,15 @@
             "Unlimited lectures",
             "All 5 AI prompt steps: double-check, generate follow-ups, grade my answer",
             "Learning state: where I am, where I want to end up, what I want to learn"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -4530,7 +4810,15 @@
             "Time block overview of what you learned and when",
             "Import conversation Markdown",
             "Add a question from Shortcuts, Siri or Spotlight"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -4726,7 +5014,15 @@
             "Everything in Free",
             "Every sticker in today's pack",
             "Every sticker added later"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -4863,7 +5159,15 @@
             "Add your own food types",
             "Rank your top six places",
             "Your taste profile chart: spicy, sweet, salty, rich and natural"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -4887,7 +5191,15 @@
             "Everything in Plus",
             "Post-visit reminder when you leave a saved place",
             "iCloud backup and restore"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -5094,7 +5406,15 @@
             "Host Moonlit Society, 5 to 15 players",
             "Host Moonless Night, 3 to 15 players",
             "Every game added later"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -5272,7 +5592,15 @@
             "Keep unlimited patterns",
             "Images without the Hantam mark",
             "Pixel art: every grid size, retro palettes and dithering"
-          ]
+          ],
+          "monthly": {
+            "price": "₩2,200",
+            "priceUS": "$1.49"
+          },
+          "weekly": {
+            "price": "₩900",
+            "priceUS": "$0.59"
+          }
         },
         {
           "id": "pro",
@@ -5298,7 +5626,15 @@
             "Printable PDF patterns: symbol charts split by board, with a color list",
             "Before-and-after videos without the Hantam caption",
             "3 pixel art filter packs (Arcade 90s, Spring, Cyber Night)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩4,400",
+            "priceUS": "$2.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          }
         }
       ],
       "upgrade": "₩19,000",
@@ -5517,7 +5853,15 @@
             "All 10 papers (kraft, parchment, Cornell, dark grid and more)",
             "All 6 finishes (faded, vivid and cool added)",
             "Free arrange (reorder your stickers)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -5541,7 +5885,15 @@
             "Everything in Plus",
             "Printable sticker sheets (PDF with cut lines)",
             "Share a whole album as one image"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -5727,6 +6079,14 @@
             "period": "연",
             "price": "₩4,400",
             "priceUS": "$2.99"
+          },
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
           }
         },
         {
@@ -5755,7 +6115,15 @@
             "Import from Calendar and mirror calendar events on the day timeline",
             "Read-only schedule sharing",
             "Also unlocks Pro in Rainbow Workshop on Mac"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "compare": [
@@ -5953,6 +6321,14 @@
             "period": "연",
             "price": "₩4,400",
             "priceUS": "$2.99"
+          },
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
           }
         },
         {
@@ -5977,7 +6353,15 @@
             "Everything in Plus",
             "Share my schedule (view-only link)",
             "Also unlocks Pro in Rainbow of Desire on iPhone (widgets, calendar, sharing)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "compare": [
@@ -6183,7 +6567,15 @@
             "Unlimited people",
             "Group events with several people (trips, dinners and more)",
             "Snapshots of a moment (role, concerns and goals at a first meeting or interview)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -6207,7 +6599,15 @@
             "Everything in Plus",
             "iCloud sync and backup (iPhone and iPad)",
             "Mentoring sessions: audio, transcripts, raw data import, summaries and a transcript reader"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -6391,7 +6791,15 @@
             "Everything in Free",
             "Unlimited goals",
             "5 more pebbles (River, Moss, Sunset, Seashell, Inkstone)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -6558,7 +6966,15 @@
           "featuresEn": [
             "Everything in Free",
             "Save unlimited mixes of your own"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -6695,7 +7111,11 @@
           "labelEn": "Pro",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "subscription": null,
+          "subscription": {
+            "period": "연",
+            "price": "₩1,000",
+            "priceUS": "$0.69"
+          },
           "pitch": "누가 내 QR 을 확인했는지 바로 알고, 메모를 원하는 만큼.",
           "pitchEn": "Know right away when someone checks your QR, with as many notes as you like.",
           "features": [
@@ -6709,7 +7129,12 @@
             "Unlimited saved notes and favorites",
             "Instant alert when someone checks your QR",
             "History of who checked"
-          ]
+          ],
+          "monthly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          },
+          "weekly": null
         }
       ],
       "compare": [
@@ -6843,7 +7268,15 @@
             "Works in all 6 languages you learn",
             "Unlimited scenarios and replies of your own",
             "Unlimited conversation import (paste text)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩2,200",
+            "priceUS": "$1.49"
+          },
+          "weekly": {
+            "price": "₩900",
+            "priceUS": "$0.59"
+          }
         },
         {
           "id": "pro",
@@ -6869,7 +7302,15 @@
             "Unlimited Commute Mode (no daily scene limit)",
             "AI scenario builder (from a topic or a web page, with your own Anthropic API key)",
             "Share scenarios and replies with friends over iCloud"
-          ]
+          ],
+          "monthly": {
+            "price": "₩4,400",
+            "priceUS": "$2.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          }
         }
       ],
       "upgrade": "₩19,000",
@@ -7082,7 +7523,15 @@
             "Unlimited wiki pages, linked to tasks",
             "Reporting habits: daily practice, report templates, report reminders",
             "Reorder the sidebar"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -7112,7 +7561,15 @@
             "A proactive assistant for missed prep, overload and deadline risk, with alert history",
             "Today's stats and a two-week overview",
             "Unlocks Don't Forget Pro on iPhone too"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -7352,6 +7809,14 @@
             "period": "연",
             "price": "₩17,000",
             "priceUS": "$9.99"
+          },
+          "monthly": {
+            "price": "₩5,500",
+            "priceUS": "$3.49"
+          },
+          "weekly": {
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           }
         },
         {
@@ -7384,7 +7849,15 @@
             "Calendar auto-detect, import and auto sync",
             "Rest Together (days the whole family is off, days only one person needs leave)",
             "Shared family anniversaries"
-          ]
+          ],
+          "monthly": {
+            "price": "₩9,900",
+            "priceUS": "$6.49"
+          },
+          "weekly": {
+            "price": "₩3,300",
+            "priceUS": "$2.49"
+          }
         }
       ],
       "compare": [
@@ -7617,7 +8090,15 @@
             "Solfège dictation (sing on the beat and it catches the rhythm)",
             "Paste a score as text (with a rule sheet to hand to an AI)",
             "Auto-transcribe from a photo (experimental)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -7793,7 +8274,15 @@
             "Palette: your skies gathered into blues, grays and sunset tones",
             "Repeats: the same hour, side by side across different days",
             "Borrowed skies: recolor a photo with another day's sky, and share it"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -7819,7 +8308,15 @@
             "Keep your skies in iCloud and pick up on any device",
             "Today's Sky widget for the Home Screen and Lock Screen",
             "Today's Board widget in medium and large"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -8023,7 +8520,15 @@
             "Unlimited talks",
             "Sharpen: lift shadows and fix washed-out contrast",
             "Study PDFs with two or four slides per page"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -8053,7 +8558,15 @@
             "Export to PowerPoint, with what was said as speaker notes",
             "Export Markdown notes for Notion, Obsidian or Bear",
             "iCloud sync for talks, slides and recordings"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -8242,7 +8755,11 @@
           "labelEn": "Pro",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "subscription": null,
+          "subscription": {
+            "period": "연",
+            "price": "₩1,000",
+            "priceUS": "$0.69"
+          },
           "pitch": "되살릴 경우: 6개 언어와 내 시나리오를 모두 엽니다.",
           "pitchEn": "If revived: all six languages and your own scenarios.",
           "features": [
@@ -8256,7 +8773,12 @@
             "All six languages (Korean, English, Japanese, Chinese, Spanish, Indonesian)",
             "Create and import your own scenarios",
             "On-device translation"
-          ]
+          ],
+          "monthly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          },
+          "weekly": null
         }
       ],
       "compare": [
@@ -8524,7 +9046,15 @@
             "Edit your quick time presets",
             "Background music in four moods",
             "Mirrored teleprompter for beam-splitter glass"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -8552,7 +9082,15 @@
             "Pop the timer into its own window for screen sharing or AirPlay",
             "Start timers, Pomodoro and notes with Shortcuts and Siri",
             "Notification Center widget"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -8795,7 +9333,15 @@
             "Five Home Screen widgets: Sunflower, Battery, Today's Progress, Overview and Dashboard",
             "Live sunlight time on the Lock Screen and Dynamic Island",
             "Monthly stats"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -8994,7 +9540,15 @@
             "Unlimited snippets and templates",
             "Unlimited image snippets",
             "100 clipboard history items, kept for 7 days"
-          ]
+          ],
+          "monthly": {
+            "price": "₩2,200",
+            "priceUS": "$1.49"
+          },
+          "weekly": {
+            "price": "₩900",
+            "priceUS": "$0.59"
+          }
         },
         {
           "id": "pro",
@@ -9022,7 +9576,15 @@
             "Live iCloud sync with your iPhone, order and categories included",
             "Use stacks and secure snippets made on your iPhone",
             "Secure snippets open with Touch ID or your Mac password"
-          ]
+          ],
+          "monthly": {
+            "price": "₩4,400",
+            "priceUS": "$2.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          }
         }
       ],
       "upgrade": "₩19,000",
@@ -9232,7 +9794,15 @@
             "Bulk contrast audit: paste a list, get every verdict, fix the misses",
             "Four color vision simulations with confusable pairs",
             "Add colorblind-safe palettes (Okabe Ito, IBM, Paul Tol)"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -9260,7 +9830,15 @@
             "Export the whole palette as one .xcassets catalog",
             "Dynamic Type code generation with @ScaledMetric and layout switching",
             "Pick a color or open a screen from Shortcuts and Spotlight"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -9487,7 +10065,15 @@
             "Unlimited thoughts",
             "Home Screen widget with your bridge sentence and key point",
             "Thinking time on the Lock Screen and in the Dynamic Island"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -9685,7 +10271,15 @@
             "Create unlimited groups for family, work or the gym",
             "Workout mode, kept apart from your meals",
             "Your most-eaten foods at a glance"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -9713,7 +10307,15 @@
             "Home and Lock Screen widgets",
             "Ate All from Siri, Shortcuts and the Action button",
             "Face ID lock"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -9952,7 +10554,15 @@
             "All 7 themes",
             "Shop name, extra lines and custom labels",
             "A4 portrait poster"
-          ]
+          ],
+          "monthly": {
+            "price": "₩700",
+            "priceUS": "$0.49"
+          },
+          "weekly": {
+            "price": "₩400",
+            "priceUS": "$0.29"
+          }
         },
         {
           "id": "pro",
@@ -9980,7 +10590,15 @@
             "Map of places you connected",
             "Open your QR or scan a photo from Shortcuts and Siri",
             "Import your Wi-Fi list from a Settings screenshot"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": "₩6,600",
@@ -10198,7 +10816,15 @@
             "Unlimited parking spots",
             "Pick your own exit time",
             "Exit insights: how many worries came true and how much the fear dropped"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         }
       ],
       "upgrade": null,
@@ -10368,7 +10994,15 @@
             "Unlimited timelines",
             "Save hashtag timelines",
             "All four card designs, including Film and Editorial"
-          ]
+          ],
+          "monthly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          },
+          "weekly": {
+            "price": "₩600",
+            "priceUS": "$0.39"
+          }
         },
         {
           "id": "pro",
@@ -10394,7 +11028,15 @@
             "iCloud sync across iPhone, iPad and Mac",
             "Your timelines survive a new phone",
             "Add events with Siri and Shortcuts"
-          ]
+          ],
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.79"
+          }
         }
       ],
       "upgrade": "₩13,000",
@@ -10559,5 +11201,6 @@
       "rainbow-workshop"
     ],
     "status": "확정 (2026-10-27) · 클립키보드부터 반영"
-  }
+  },
+  "periodRule": "월 = 연 ÷ 3 (연 구독이 월 석 달 값) · 주 = 월 × 0.4 (주 넷이면 월보다 비싸다). 달러로 계산해 App Store 가격대에 맞추고, 원화는 달러 × 1,450 을 원화 가격대에 맞춘다."
 }
