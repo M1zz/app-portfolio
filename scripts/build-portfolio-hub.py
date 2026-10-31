@@ -2155,6 +2155,24 @@ PW_CSS = BIZ_CSS + """
     color:var(--text);text-decoration:none}
   .kp a.kpl:hover{border-color:var(--accent)}
   .np .don h4{display:flex;align-items:center;gap:8px}
+  .ftw{max-height:78vh;overflow:auto}
+  .ft{border-collapse:separate;border-spacing:0;font-size:.82rem;background:var(--card);min-width:100%}
+  .ft th,.ft td{border-bottom:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
+  .ft thead th{position:sticky;top:0;z-index:2;background:var(--card);font-size:.74rem;color:var(--muted);font-weight:800;
+    vertical-align:bottom;cursor:help}
+  .ft thead th span{display:block}
+  .ft thead th i{display:block;font-style:normal;color:var(--text);font-size:.8rem;margin-top:2px}
+  .ft tbody th{position:sticky;left:0;z-index:1;background:var(--card);text-align:left}
+  .ft thead th:first-child{left:0;z-index:3;cursor:default}
+  .ft tbody th a{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:600}
+  .ft tbody th .ic{width:24px;height:24px;border-radius:6px}
+  .ft td.y{color:#34c48a;font-weight:900;font-size:.95rem}
+  .ft td.n{color:var(--border);font-weight:900}
+  .ft td.u{color:var(--muted)}
+  .ft td.m,.ft th.m{text-align:left;color:var(--muted);font-size:.76rem}
+  .ft td.c{font-weight:800;font-variant-numeric:tabular-nums}
+  .ft td.k{text-align:left}
+  .ft tbody tr:hover>*{background:var(--bg-soft)}
   .tiers3 .nd{font-weight:700;color:var(--text);margin-bottom:8px}
   .tiers3 ul{margin:0;padding-left:18px;font-size:.85rem;line-height:1.6;color:var(--muted)}
   ol.steps,ul.steps{margin:0;padding-left:22px;font-size:.88rem;line-height:1.8;max-width:820px}
@@ -2335,6 +2353,82 @@ def paywall_plans_section(apps):
            if rest else "", rows))
 
 
+# ── 페이월 탭: 기능 한눈에 ─────────────────────────────────────────
+# 앱 × 페이월 기능 한 표. 값은 앱 소스를 잰 serviceMaturity.money(sync-service-maturity.py),
+# 평생 · 구독 상품은 페이월 정리(scripts/paywalls.json), 후원은 scripts/donations.json, 설계안은 paywall-plans.json.
+PW_FEATURES = [
+    # (키, 머리, 설명) — 값은 pw_feature(app, 키) 가 True/False/None 으로 준다
+    ("paywall", "페이월", "무엇이 무료이고 무엇을 돈 내고 여는지 보여 주는 결제 화면"),
+    ("tiers", "등급", "Plus · Pro 처럼 유료 칸이 둘 이상"),
+    ("freeGate", "무료 문턱", "무료로 몇 번 써 본 뒤에 결제를 권한다"),
+    ("subscription", "구독", "연 · 월 구독 상품을 판다"),
+    ("lifetime", "평생", "한 번 사면 계속 쓰는 상품을 판다"),
+    ("trial", "무료 체험", "구독 첫 기간을 무료나 할인으로 준다"),
+    ("discount", "할인 제안", "할인 코드 · 되돌아온 사람 할인 · 프로모션"),
+    ("graduation", "구독 졸업", "구독하던 사람에게 평생을 깎아 권한다"),
+    ("foreverPass", "언제나 패스", "모든 앱 평생 패스를 앱 안에서 보여 준다"),
+    ("restore", "구매 복원", "기기를 바꿔도 산 것을 되찾는다"),
+    ("gift", "선물", "다른 사람에게 이용권을 선물한다"),
+    ("tipJar", "후원", "기능을 열지 않는 응원(팁)"),
+    ("tipAsk", "후원 부탁", "잘 쓴 순간에 드물게 응원을 부탁한다"),
+    ("thanks", "고마운 사람들", "팁 화면에서 소개 페이지에 이름을 올리게 한다"),
+]
+
+
+def pw_feature(app, key, pws, dons):
+    money = mat(app).get("money") or {}
+    if not mat(app).get("source"):
+        return None
+    tiers = [t for t in (pws.get(app["_slug"]) or {}).get("tiers") or [] if t.get("live")]
+    if key == "lifetime":
+        return any(t.get("period") == "평생" for t in tiers)
+    if key == "subscription":
+        return bool(money.get("subscription")) or any(t.get("period") in ("주", "월", "연") for t in tiers)
+    if key == "tipJar":
+        d = dons.get(app["_slug"])
+        return bool(d and d.get("status") == "live") or bool(money.get("tipJar"))
+    if key == "thanks":
+        return bool((dons.get(app["_slug"]) or {}).get("thanksButton"))
+    return money.get(key)
+
+
+def paywall_features_section(apps):
+    pws = load_paywalls()
+    dons = load_donations().get("apps") or {}
+    plans = load_paywall_plans().get("apps") or {}
+    ls = sorted(live(apps), key=maturity_rank(apps))
+    vals = {a["_slug"]: {k: pw_feature(a, k, pws, dons) for k, _, _ in PW_FEATURES} for a in ls}
+    known = [a for a in ls if mat(a).get("source")]
+
+    head = "".join('<th title="%s"><span>%s</span><i>%d</i></th>' % (
+        esc(why), esc(name), sum(1 for a in known if vals[a["_slug"]][k])) for k, name, why in PW_FEATURES)
+
+    def cell(v):
+        if v is None:
+            return '<td class="u">?</td>'
+        return '<td class="y">✓</td>' if v else '<td class="n">·</td>'
+
+    rows = ""
+    for a in ls:
+        p = plans.get(a["_slug"]) or {}
+        lbl, col = PLAN_VERDICT.get(p.get("verdict"), ("—", "#8b90a0"))
+        got = sum(1 for v in vals[a["_slug"]].values() if v)
+        rows += ('<tr><th><a href="%s">%s<span>%s</span></a></th><td class="m">%s</td>%s<td class="c">%d</td>'
+                 '<td class="k"><span class="vd" style="--c:%s">%s</span></td><td class="k">%s</td></tr>'
+                 % (intro_link(a), icon_img(a), esc(a["name"]), esc(model_of(a)[1]),
+                    "".join(cell(vals[a["_slug"]][k]) for k, _, _ in PW_FEATURES), got, col, esc(lbl),
+                    esc(("1순위 %d" % p["priority"]) if p.get("priority") else (p.get("size") or ""))))
+    return (
+        '<section id="features"><h2>페이월 기능 한눈에<span class="hc">%d</span></h2>'
+        '<p class="lead">앱마다 결제 · 후원 기능을 무엇까지 갖췄는지 한 표에 모았습니다. 앱 소스를 직접 읽어 판정했고(%s 기준), '
+        '서비스 숙성도 순서로 늘어놓았습니다. 머리의 숫자는 그 기능을 갖춘 앱 수입니다.</p>'
+        '<p class="note">✓ 있음 · · 없음 · ? 소스를 찾지 못함. 머리에 마우스를 올리면 무엇을 보는지 나옵니다. '
+        '오른쪽 두 칸은 다음 페이월 설계안의 판단입니다.</p>'
+        '<div class="tw ftw"><table class="ft"><thead><tr><th>앱</th><th class="m">지금 방식</th>%s'
+        '<th class="c">갖춘 수</th><th>설계안</th><th>크기</th></tr></thead><tbody>%s</tbody></table></div></section>'
+        % (len(ls), esc(max((mat(a).get("evaluatedAt") or "") for a in ls)), head, rows))
+
+
 # ── 페이월 탭: 후원 ───────────────────────────────────────────────
 # scripts/donations.json 을 읽는다. 여기 없는 앱은 후원 상품이 없다. 상품 ID 는 내보내지 않는다.
 DONATION_STATUS = {"live": ("받는 중", "#34c48a"), "code-only": ("코드만", "#e0a53a")}
@@ -2354,8 +2448,8 @@ def donation_text(slug):
     if not d:
         return "후원 없음"
     if d.get("status") != "live":
-        return "코드만 있고 사용자에게 보이지 않음"
-    items = " · ".join("%s %s" % (p["label"], p.get("price") or p.get("usd") or "") for p in d.get("products") or [])
+        return d.get("gives") or "코드만 있고 사용자에게 보이지 않음"
+    items = " · ".join(" ".join(x for x in (p["label"], p.get("price") or p.get("usd")) if x) for p in d.get("products") or [])
     return "%s — %s" % (items, " · ".join(d.get("where") or [])) if d.get("where") else items
 
 
@@ -2482,7 +2576,7 @@ def paywalls_page(apps):
     table = '<div class="tw"><table class="pt"><thead>%s</thead><tbody>%s</tbody></table></div>' % (thead, body)
 
     main = (
-        '<section>%s</section>%s%s'
+        '<section>%s</section>%s%s%s'
         '<section><h2>가격 비교표</h2><p class="lead">기간별로 무엇을 얼마에 파는지 나란히 놓았습니다. '
         '한 기간에 상품이 여럿이면 대표 하나와 나머지 개수를 적었습니다. 오른쪽 칸은 같은 앱 안에서 '
         '긴 기간 상품이 짧은 기간의 몇 배인지 보여 줍니다. 괄호 안은 미국 App Store 가격입니다.</p>%s'
@@ -2491,7 +2585,7 @@ def paywalls_page(apps):
         '<section><h2>판매 중인 페이월<span class="hc">%d</span></h2><p class="lead">문구와 혜택, 무료로 주는 몫, '
         '화면이 뜨는 시점을 앱 소스에서 그대로 옮겼습니다.</p><div class="pws">%s</div></section>'
         '%s'
-        % (kp, donations_section(apps), paywall_plans_section(apps), table, len(live_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in live_pw),
+        % (kp, paywall_features_section(apps), donations_section(apps), paywall_plans_section(apps), table, len(live_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in live_pw),
            ('<section><h2>준비 중인 페이월<span class="hc">%d</span></h2><p class="lead">결제 화면은 만들어 두었지만 '
             '아직 판매를 열지 않은 앱입니다.</p><div class="pws">%s</div></section>'
             % (len(prep_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw))) if prep_pw else ""))

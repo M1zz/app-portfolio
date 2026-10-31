@@ -13,6 +13,7 @@
   ux         사용 경험       위젯 · 단축어(App Intents) · iCloud 동기화 · 사용 팁(TipKit) · 온보딩
   a11y       접근성         VoiceOver 설명 · 읽는 순서·역할 · 큰 글씨 · 움직임 줄이기 · 대비·색 구분
   money      수익화         페이월 · 기능 등급 · 무료 문턱 · 구매 복원 · 할인 제안 · 후원 · 후원 부탁 · 선물
+                            (+ 구독 · 무료 체험 · 구독 졸업 · 언제나 패스 — 페이월 탭 표에만 쓴다)
   more       더 갖출 것     마이그레이션 · 빈 상태 · 생체 잠금 · 알림 · 성능 · 로그 · 퍼널 · A/B · 햅틱 · 사전 점검 ·
                             완성도 계약 · 앱 가족 · 폴더블 · UI 테스트 · SwiftLint · CI
   comms      소통           새 기능 알림 · 로드맵 · 의견 답장
@@ -121,9 +122,16 @@ SRC = {
         "restore": r"AppStore\.sync\(|restoreCompletedTransactions|LeeoStore\b[^\n]*\.restore\(|"
                    r"\.restore\(\)|LeeoPaywallView",
         "discount": r"DiscountOffer|promotionalOffer|winBackOffer|offerCodeRedemption|presentOfferCodeRedeemSheet",
-        "tipJar": r"LeeoTipJar|(?:struct|class) \w*TipJar\w*",
-        "tipAsk": r"LeeoTipAsk",
+        # 돈꼬마트처럼 LeeoKit 없이 직접 만든 팁(SupporterManager · tipProductIDs)도 센다
+        "tipJar": r"LeeoTipJar|(?:struct|class) \w*TipJar\w*|SupporterManager|tipProductIDs",
+        "tipAsk": r"LeeoTipAsk|TipAsk\w*|tipCardDismissedAt",
         "gift": r"LeeoGift|(?:struct|class) \w*Gift\w*View",
+        # 페이월 탭 '기능 한눈에' 용 — 숙성도 점수에는 넣지 않는다(체크리스트에 없는 키)
+        "subscription": r"LeeoSubscriptionConfig|SubscriptionStoreView|\.autoRenewable\b|Product\.SubscriptionInfo|"
+                        r"subscriptionGroupID|LeeoGraduation|SubscriptionGraduation|yearlyProductIDs?\b",
+        "trial": r"introductoryOffer|isEligibleForIntroOffer|LeeoTrial\b",
+        "graduation": r"LeeoGraduation|SubscriptionGraduation",
+        "foreverPass": r"LeeoForeverPass",
     },
     # 소통 — 업데이트·계획·답장을 쓰는 사람에게 돌려주는 장치
     "comms": {

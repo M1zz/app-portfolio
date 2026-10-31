@@ -124,7 +124,11 @@
       "discount": null,
       "tipJar": null,
       "tipAsk": null,
-      "gift": null
+      "gift": null,
+      "subscription": null,
+      "trial": null,
+      "graduation": null,
+      "foreverPass": null
     },
     "comms": {
       "whatsNew": null,
@@ -180,7 +184,7 @@
       "host": "dev200ok.blogspot.com",
       "status": 200
     },
-    "evaluatedAt": "2026-10-30"
+    "evaluatedAt": "2026-10-31"
   },
   "usStore": {
     "available": true,

@@ -146,7 +146,7 @@
       "inputFlow": true,
       "textCopy": false,
       "purchaseTest": false,
-      "releaseTags": true,
+      "releaseTags": false,
       "steadyUpdates": true
     },
     "money": {
@@ -157,7 +157,11 @@
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
-      "gift": false
+      "gift": false,
+      "subscription": false,
+      "trial": false,
+      "graduation": false,
+      "foreverPass": false
     },
     "comms": {
       "whatsNew": false,
@@ -227,7 +231,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-30"
+    "evaluatedAt": "2026-10-31"
   },
   "usStore": {
     "available": true,

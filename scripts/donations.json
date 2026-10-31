@@ -1,6 +1,6 @@
 {
   "_comment": "앱별 후원(팁) 정보 — 앱 소스(.storekit · StoreManager · 팁 부탁 카드)를 읽어 손으로 정리한다. 여기 없는 앱은 후원 상품이 없다. 가격은 스토어 실데이터(앱 JSON price.iapItems)가 있으면 그것을, 없으면 .storekit 값을 적는다. build-portfolio-hub.py 가 페이월 탭에 내보낸다. productId 는 공개 페이지에 내보내지 않는다.",
-  "checkedAt": "2026-10-30",
+  "checkedAt": "2026-10-31",
   "rewardPlan": {
     "status": "설계안 — 승인 전",
     "rules": [
@@ -94,6 +94,72 @@
     ]
   },
   "apps": {
+    "bookmark-shot": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.bookmarkshot.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "burning-my-life": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.burningparchment.app.tip.small",
+          "label": "작은 응원",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.burningparchment.app.tip.medium",
+          "label": "든든한 응원",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.burningparchment.app.tip.large",
+          "label": "큰 응원",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
     "clip-keyboard": {
       "status": "live",
       "products": [
@@ -125,71 +191,42 @@
       ],
       "ask": "목록 위 카드. 이미 Pro 를 가진 사람에게만, 아낀 시간(1 · 5 · 20시간)이나 키보드에서 꺼내 쓴 횟수(100 · 500 · 2,000번)를 넘어선 순간에.",
       "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
-      "gives": "기능은 열지 않음 — 순수 응원"
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false,
+      "manual": true
     },
-    "double-reminder": {
+    "cooltime": {
       "status": "live",
       "products": [
         {
-          "productId": "com.xa.toki.tip.small",
-          "label": "작은 응원",
-          "price": "￦1,100",
-          "usd": null,
-          "inStore": false
-        },
-        {
-          "productId": "com.xa.toki.tip.medium",
-          "label": "든든한 응원",
-          "price": "￦3,300",
-          "usd": null,
-          "inStore": false
-        },
-        {
-          "productId": "com.xa.toki.tip.large",
-          "label": "큰 응원",
-          "price": "￦5,500",
-          "usd": null,
-          "inStore": false
-        }
-      ],
-      "where": [
-        "설정 ▸ 선물과 응원"
-      ],
-      "ask": "타이머를 끝까지 마친 직후 원 아래 한 장. 이미 Pro 를 가진 사람(결제 · 평생 무료 · 창단 후원자)에게만, 관리한 시간이나 예비 알림을 들은 채 마친 타이머 수가 기준을 넘은 순간에.",
-      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
-      "gives": "기능은 열지 않음 — 순수 응원"
-    },
-    "shared-day-designer": {
-      "status": "live",
-      "products": [
-        {
-          "productId": "com.Ysoup.LeaveWise.tip.small",
+          "productId": "com.Ysoup.CoolTime.tip.small",
           "label": "커피 한 잔",
           "price": null,
-          "usd": "$0.99",
+          "usd": null,
           "inStore": false
         },
         {
-          "productId": "com.Ysoup.LeaveWise.tip.medium",
+          "productId": "com.Ysoup.CoolTime.tip.medium",
           "label": "간식 한 번",
           "price": null,
-          "usd": "$2.99",
+          "usd": null,
           "inStore": false
         },
         {
-          "productId": "com.Ysoup.LeaveWise.tip.large",
+          "productId": "com.Ysoup.CoolTime.tip.large",
           "label": "든든한 한 끼",
           "price": null,
-          "usd": "$9.99",
+          "usd": null,
           "inStore": false
         }
       ],
       "where": [
-        "설정 ▸ 선물과 응원"
+        "설정 ▸ 개발자 응원하기"
       ],
-      "ask": "홈 카드. Pro 이상에게만(무료 사용자는 Pro 배너, Plus 는 위 등급이 맞는 길이라 묻지 않음), 올해 추천으로 세운 휴가 계획 수나 적어 둔 휴가 기록 수가 기준을 넘은 순간에.",
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
       "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
-      "gives": "기능은 열지 않음 — 순수 응원"
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
     },
     "donkko-mart": {
       "status": "live",
@@ -222,23 +259,1001 @@
       ],
       "ask": "오늘 쉬는 마트가 있는 날 메인 카드. 앱을 5번 이상 열고 의미 있는 행동을 3번 한 사람에게, 아직 후원하지 않았을 때만.",
       "cadence": "'다음에' 를 누르면 30일 쉼. 후원한 사람에게는 쉬는 날에 1년에 3번 정도(120일 간격) 감사 카드",
-      "gives": "지금은 모든 기능이 무료라 순수 응원. 설계안에서는 한 번이라도 후원한 사람을 Pro 로 모심"
+      "gives": "지금은 모든 기능이 무료라 순수 응원. 설계안에서는 한 번이라도 후원한 사람을 Pro 로 모심",
+      "thanksButton": false,
+      "manual": true
     },
-    "three-meals": {
-      "status": "code-only",
+    "double-reminder": {
+      "status": "live",
       "products": [
         {
-          "productId": "com.yourcompany.routinecamera.tip1dollar",
-          "label": "1달러 응원",
+          "productId": "com.xa.toki.tip.small",
+          "label": "작은 응원",
+          "price": null,
+          "usd": "$0.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.xa.toki.tip.medium",
+          "label": "든든한 응원",
+          "price": null,
+          "usd": "$2.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.xa.toki.tip.large",
+          "label": "큰 응원",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 선물과 응원"
+      ],
+      "ask": "타이머를 끝까지 마친 직후 원 아래 한 장. 이미 Pro 를 가진 사람(결제 · 평생 무료 · 창단 후원자)에게만, 관리한 시간이나 예비 알림을 들은 채 마친 타이머 수가 기준을 넘은 순간에.",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": true,
+      "manual": true
+    },
+    "fire-tracker": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.devkoan.FireTracker.tip.small",
+          "label": "작은 응원",
+          "price": "￦2,200",
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.tip.medium",
+          "label": "든든한 응원",
+          "price": "￦5,500",
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.tip.large",
+          "label": "큰 응원",
+          "price": "￦11,000",
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "flip-book": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.RotoscopeiPad.tip.small",
+          "label": "작은 응원",
+          "price": "￦2,200",
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.RotoscopeiPad.tip.medium",
+          "label": "든든한 응원",
+          "price": "￦5,500",
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.RotoscopeiPad.tip.large",
+          "label": "큰 응원",
+          "price": "￦11,000",
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "footprint-diary": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.FootprintDiary.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.tip.large",
+          "label": "든든한 한 끼",
           "price": null,
           "usd": null,
           "inStore": false
         }
       ],
-      "where": [],
-      "ask": null,
-      "cadence": null,
-      "gives": "상품 ID 가 예시 값 그대로이고 화면에서 부르지 않아, 사용자에게 보이지 않음"
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "geusaie": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.geusaie.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.geusaie.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.geusaie.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "hands-free-metronome": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.HandsFreeMetronome.tip.small",
+          "label": "작은 응원",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.HandsFreeMetronome.tip.medium",
+          "label": "든든한 응원",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.HandsFreeMetronome.tip.large",
+          "label": "큰 응원",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "hig-gym": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.higgym.tip.small",
+          "label": "작은 응원",
+          "price": "￦2,200",
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.higgym.tip.medium",
+          "label": "든든한 응원",
+          "price": "￦5,500",
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.higgym.tip.large",
+          "label": "큰 응원",
+          "price": "￦11,000",
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "kid-calendar": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.devkoan.CalendarSnap.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "korea-navi": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.kora.leeo.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.kora.leeo.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.kora.leeo.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "lecture-q": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.lectureq.LectureQ.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "pixel-mimi": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.pixelme.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.pixelme.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.pixelme.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "punching": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.devkoan.StampCamera.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "rainbow-of-desire": {
+      "status": "code-only",
+      "products": [
+        {
+          "productId": "com.example.ScheduleDensityApp.tip.small",
+          "label": "작은 응원",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.example.ScheduleDensityApp.tip.medium",
+          "label": "든든한 응원",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.example.ScheduleDensityApp.tip.large",
+          "label": "큰 응원",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "상품 ID 가 예시 값(com.example)이라 스토어에 올릴 수 없음",
+      "thanksButton": false
+    },
+    "rainbow-workshop": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.devkoan.ScheduleDensityApp.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.ScheduleDensityApp.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.ScheduleDensityApp.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "rebound-journal": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.ReboundJournal.tip.small",
+          "label": "작은 응원",
+          "price": "￦2,200",
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.ReboundJournal.tip.medium",
+          "label": "보통 응원",
+          "price": "￦5,500",
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.ReboundJournal.tip.large",
+          "label": "큰 응원",
+          "price": "￦11,000",
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "relax-on": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.LullabyRecipe.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.LullabyRecipe.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.LullabyRecipe.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "sanoramyeon": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "shared-day-designer": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.Ysoup.LeaveWise.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": "$0.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.Ysoup.LeaveWise.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": "$2.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.Ysoup.LeaveWise.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 선물과 응원"
+      ],
+      "ask": "홈 카드. Pro 이상에게만(무료 사용자는 Pro 배너, Plus 는 위 등급이 맞는 길이라 묻지 않음), 올해 추천으로 세운 휴가 계획 수나 적어 둔 휴가 기록 수가 기준을 넘은 순간에.",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": true,
+      "manual": true
+    },
+    "sight-singer": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.devkoan.StaffSinger.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.StaffSinger.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.StaffSinger.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "sky-dex": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.SkyDex.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "slide-snap": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.slidesnap.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.slidesnap.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.slidesnap.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "sticky-presenter": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.StickyPresenter.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "sunflower": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.sunflower.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.sunflower.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.sunflower.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "tap-clip-keyboard": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.ysoup.TokenMemo.tap.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "tetra-tint": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.TetraTint.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "think-flow": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.thinkflow.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.thinkflow.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.thinkflow.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "three-meals": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.ysoup.routinecamera.tip.small",
+          "label": "작은 팁",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.ysoup.routinecamera.tip.medium",
+          "label": "중간 팁",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.ysoup.routinecamera.tip.large",
+          "label": "큰 팁",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "wifi-snap": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.wifisnap.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "worry-parking": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.devkoan.worryparking.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": "$1.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.worryparking.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": "$4.99",
+          "inStore": false
+        },
+        {
+          "productId": "com.devkoan.worryparking.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": "$9.99",
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
+    },
+    "yeoul": {
+      "status": "live",
+      "products": [
+        {
+          "productId": "com.leeo.yeoul.tip.small",
+          "label": "커피 한 잔",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.yeoul.tip.medium",
+          "label": "간식 한 번",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        },
+        {
+          "productId": "com.leeo.yeoul.tip.large",
+          "label": "든든한 한 끼",
+          "price": null,
+          "usd": null,
+          "inStore": false
+        }
+      ],
+      "where": [
+        "설정 ▸ 개발자 응원하기"
+      ],
+      "ask": "앱으로 얻은 것이 숫자로 보이는 순간에 드물게 (LeeoKit 부탁 규칙)",
+      "cadence": "물으면 60일 쉬고, 낸 사람은 180일, '다음에' 세 번이면 다시 묻지 않음",
+      "gives": "기능은 열지 않음 — 순수 응원",
+      "thanksButton": false
     }
   }
 }

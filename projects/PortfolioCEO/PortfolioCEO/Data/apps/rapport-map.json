@@ -439,8 +439,8 @@
     "source": true,
     "feedback": {
       "inAppFeedback": false,
-      "mailContact": true,
-      "instagram": true,
+      "mailContact": false,
+      "instagram": false,
       "reviewPrompt": false,
       "writeReview": false
     },
@@ -486,8 +486,8 @@
       "moments": false,
       "sheets": false,
       "liveNumbers": false,
-      "localeFormat": false,
-      "textOverflow": false,
+      "localeFormat": true,
+      "textOverflow": true,
       "inputFlow": false,
       "textCopy": true,
       "purchaseTest": false,
@@ -502,7 +502,11 @@
       "discount": false,
       "tipJar": false,
       "tipAsk": false,
-      "gift": false
+      "gift": false,
+      "subscription": false,
+      "trial": false,
+      "graduation": false,
+      "foreverPass": false
     },
     "comms": {
       "whatsNew": false,
@@ -535,7 +539,7 @@
       "ci": false
     },
     "marketing": {
-      "demoMode": false,
+      "demoMode": true,
       "deepLink": false,
       "offerCode": false,
       "invite": false,
@@ -572,7 +576,7 @@
       "host": "leeo75.notion.site",
       "status": 200
     },
-    "evaluatedAt": "2026-10-30"
+    "evaluatedAt": "2026-10-31"
   },
   "usStore": {
     "available": true,

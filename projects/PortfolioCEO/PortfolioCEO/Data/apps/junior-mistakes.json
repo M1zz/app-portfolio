@@ -110,7 +110,7 @@
       "analytics": false,
       "crash": false,
       "killSwitch": false,
-      "leeoKit": true,
+      "leeoKit": false,
       "crashLoop": false,
       "tests": false,
       "privacyManifest": false
@@ -124,18 +124,18 @@
       "backup": false
     },
     "a11y": {
-      "voiceOver": true,
+      "voiceOver": false,
       "voiceControl": false,
       "dynamicType": false,
-      "darkMode": true,
+      "darkMode": false,
       "differentiate": false,
       "contrast": false,
       "reduceMotion": false,
       "captions": false,
-      "structure": true,
-      "actions": true,
+      "structure": false,
+      "actions": false,
       "announcements": false,
-      "largeLayout": true,
+      "largeLayout": false,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -154,7 +154,7 @@
       "textCopy": false,
       "purchaseTest": true,
       "releaseTags": false,
-      "steadyUpdates": true
+      "steadyUpdates": false
     },
     "money": {
       "paywall": true,
@@ -162,9 +162,13 @@
       "freeGate": false,
       "restore": true,
       "discount": false,
-      "tipJar": true,
-      "tipAsk": true,
-      "gift": false
+      "tipJar": false,
+      "tipAsk": false,
+      "gift": false,
+      "subscription": false,
+      "trial": false,
+      "graduation": false,
+      "foreverPass": false
     },
     "comms": {
       "whatsNew": false,
@@ -189,7 +193,7 @@
       "abTesting": false,
       "haptics": false,
       "preflight": false,
-      "appSpec": true,
+      "appSpec": false,
       "family": false,
       "fold": false,
       "uiTests": false,
@@ -205,24 +209,24 @@
       "shareApp": false,
       "shareImage": false,
       "shareVideo": false,
-      "storeCopy": true,
-      "screenshotCapture": true,
-      "marketingScreens": true,
+      "storeCopy": false,
+      "screenshotCapture": false,
+      "marketingScreens": false,
       "videoAsset": false,
       "promoKit": false,
-      "localizedScreens": true,
+      "localizedScreens": false,
       "videoTool": false
     },
     "devices": {
       "iphone": true,
-      "ipad": true,
+      "ipad": false,
       "mac": true,
       "watch": false,
       "vision": false,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 11,
+      "accessibilityLabels": 0,
       "testFiles": 0
     },
     "support": {
@@ -234,7 +238,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-30"
+    "evaluatedAt": "2026-10-31"
   },
   "usStore": {
     "available": true,
