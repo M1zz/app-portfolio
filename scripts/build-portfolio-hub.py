@@ -2155,6 +2155,22 @@ PW_CSS = BIZ_CSS + """
     color:var(--text);text-decoration:none}
   .kp a.kpl:hover{border-color:var(--accent)}
   .np .don h4{display:flex;align-items:center;gap:8px}
+  .ttw{margin:0 20px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:14px}
+  .tt{border-collapse:collapse;width:100%;font-size:.84rem;background:var(--card)}
+  .tt th,.tt td{padding:9px 10px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;word-break:keep-all}
+  .tt thead th{vertical-align:top;background:var(--bg-soft);min-width:96px}
+  .tt thead th:first-child{min-width:0}
+  .tt thead .tn{display:block;font-size:1rem;font-weight:800;margin-bottom:6px;color:var(--text)}
+  .tt thead .tc-pro .tn{color:var(--c)}
+  .tt thead .tp{display:block;font-size:.84rem;font-variant-numeric:tabular-nums;color:var(--text)}
+  .tt thead .tp.tl{margin-top:4px}
+  .tt thead small{display:block;font-size:.72rem;color:var(--muted);font-weight:600}
+  .tt thead em{display:block;font-style:normal;font-size:.74rem;font-weight:600;color:var(--muted);margin-top:6px;line-height:1.45}
+  .tt tbody th{text-align:left;font-weight:600;color:var(--text);min-width:8em}
+  .tt td.ok{color:#34c48a;font-weight:900;font-size:1rem}
+  .tt td.no{color:var(--muted);opacity:.5}
+  .tt tbody tr:last-child>*{border-bottom:0}
+  .tx{margin:-8px 20px 16px;font-size:.78rem;color:var(--muted);line-height:1.6}
   .ftw{max-height:78vh;overflow:auto}
   .ft{border-collapse:separate;border-spacing:0;font-size:.82rem;background:var(--card);min-width:100%}
   .ft th,.ft td{border-bottom:1px solid var(--border);padding:8px 6px;text-align:center;white-space:nowrap}
@@ -2252,12 +2268,42 @@ def public_text(s):
     return re.sub(r"\s{2,}", " ", s).strip()
 
 
-def plan_price(trim):
-    if not trim.get("price"):
-        return trim.get("pitch") or "무료"
-    sub = trim.get("subscription")
-    life = with_us(trim["price"], trim.get("priceUS"))
-    return ("연 %s · 평생 %s" % (with_us(sub["price"], sub.get("priceUS")), life)) if sub else ("평생 %s" % life)
+def trim_table(p, fp_price=""):
+    """설계안 트림을 비교표로 — 열은 무료 · Plus · Pro, 머리에 가격 · 한 줄, 행은 기능(compare)."""
+    trims = p.get("trims") or []
+    if not trims:
+        return ""
+
+    def price_cell(tr):
+        if not tr.get("price"):
+            return ""  # 열 이름이 이미 '무료'다
+        out = ""
+        sub = tr.get("subscription")
+        if sub:
+            out += '<b class="tp">연 %s</b><small>%s</small>' % (esc(sub["price"]), esc(sub.get("priceUS") or ""))
+        out += '<b class="tp%s">평생 %s</b><small>%s</small>' % (" tl" if sub else "", esc(tr["price"]), esc(tr.get("priceUS") or ""))
+        return out
+
+    def val(v):
+        v = (v or "").strip()
+        if v in ("✓", "O", "o"):
+            return '<td class="ok">✓</td>'
+        if v in ("", "–", "-", "—", "✗", "X"):
+            return '<td class="no">–</td>'
+        return "<td>%s</td>" % esc(public_text(v))
+
+    head = "".join('<th class="tc-%s"><span class="tn">%s</span>%s<em>%s</em></th>'
+                   % (esc(tr.get("id") or ""), esc(tr.get("label") or ""), price_cell(tr), esc(public_text(tr.get("pitch") or "")))
+                   for tr in trims)
+    body = "".join("<tr><th>%s</th>%s</tr>" % (esc(public_text(r.get("feature"))),
+                                                "".join(val(r.get(tr.get("id"))) for tr in trims))
+                   for r in p.get("compare") or [])
+    extra = [x for x in [
+        p.get("upgrade") and "Plus → Pro 올리기 %s" % with_us(p["upgrade"], p.get("upgradeUS")),
+        p.get("graduate") and "구독 졸업 %s" % with_us(p["graduate"], p.get("graduateUS")),
+        fp_price and "언제나 평생 패스 %s" % fp_price] if x]
+    return ('<div class="ttw"><table class="tt"><thead><tr><th></th>%s</tr></thead><tbody>%s</tbody></table></div>%s'
+            % (head, body, '<p class="tx">%s</p>' % esc(" · ".join(extra)) if extra else ""))
 
 
 def paywall_plans_section(apps):
@@ -2288,23 +2334,14 @@ def paywall_plans_section(apps):
         p, a = plans[s], by.get(s)
         if not a:
             return ""
-        tiers = [(tr.get("label"), plan_price(tr), tr.get("features") or []) for tr in p.get("trims") or []]
-        if p.get("upgrade") or p.get("graduate"):
-            tiers.append(("올리기 · 졸업", " · ".join(x for x in [
-                p.get("upgrade") and "Plus→Pro %s" % with_us(p["upgrade"], p.get("upgradeUS")),
-                p.get("graduate") and "졸업 %s" % with_us(p["graduate"], p.get("graduateUS"))] if x), []))
-        if fp:
-            tiers.append(("언제나 평생 패스", fp_price, []))
-        trims = "".join('<div class="tier"><span>%s</span><b>%s</b>%s</div>' % (
-            esc(k), esc(v), "<ul>%s</ul>" % "".join("<li>%s</li>" % esc(public_text(f)) for f in fs) if fs else "")
-            for k, v, fs in tiers)
+        trims = trim_table(p, fp_price if fp else "")
         moments = "".join('<li><b>%s</b><small>%s</small><span>%s</span><em>%s</em></li>'
                           % (esc(m["when"]), esc(m.get("see") or ""), esc(m["why"]), esc(m["plan"]))
                           for m in p.get("moments") or [])
         tag = ("1순위 %d · %s" % (p["priority"], p.get("stage") or "예정")) if p.get("priority") else "%s · %s" % (
             p.get("size") or "", PLAN_VERDICT.get(p.get("verdict"), ("",))[0])
         return ('<article class="pw np" style="--c:%s"><div class="top"><div class="app">%s%s<em>%s</em></div>'
-                  '<h3>%s</h3><p class="sub">지금: %s</p></div><div class="tiers">%s</div>'
+                  '<h3>%s</h3><p class="sub">지금: %s</p></div>%s'
                   '<div class="why"><h4>왜 바꾸나</h4><p>%s</p></div>'
                   '<div class="moments"><h4>결제하고 싶어지는 순간</h4><ul>%s</ul></div>%s</article>'
                   % (PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))[1], icon_img(a), esc(a["name"]), esc(tag),
