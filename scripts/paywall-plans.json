@@ -51,8 +51,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "읽는 만큼 마음껏 모으기",
           "pitchEn": "Collect as much as you read",
@@ -67,12 +67,12 @@
             "Unlimited quotes"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -101,12 +101,12 @@
             "Lock Screen widgets (circular, rectangular, inline)"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -302,12 +302,12 @@
             "Daily progress, proof notes and the Archive tab"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -505,12 +505,12 @@
             "3 flames (Blaze, Smolder, Sparkler)"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -546,7 +546,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -773,8 +773,8 @@
             "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩900",
-            "priceUS": "$0.59"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -995,8 +995,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "참고 싶은 것 모두에 쿨타임",
           "pitchEn": "A cooldown on everything you want to resist",
@@ -1011,12 +1011,12 @@
             "A cheer when you are halfway there"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -1047,12 +1047,12 @@
             "Recent activity trend"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -1266,12 +1266,12 @@
             "Line spacing"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -1457,8 +1457,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "우리 동네 가게를 모두 챙기기",
           "pitchEn": "Keep track of every store in your neighborhood",
@@ -1475,12 +1475,12 @@
             "Story-size cards and short video sharing"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -1509,12 +1509,12 @@
             "Fill in restaurant closing days from a Naver Map link or a screenshot"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -1732,12 +1732,12 @@
             "Already Pro in Schedule Assistant on Mac? It's unlocked here too"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -1916,12 +1916,12 @@
             "priceUS": "$2.99"
           },
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -1955,7 +1955,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -2153,8 +2153,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "아이가 몇 명이든, 우리집 가게를 마음껏",
           "pitchEn": "Any number of kids, and as big a family shop as you like",
@@ -2171,12 +2171,12 @@
             "Create your own investments (name, starting price, risk)"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -2205,12 +2205,12 @@
             "Keep records in step across iPhone and iPad with iCloud"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -2425,12 +2425,12 @@
             "Name your own family court"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -2644,8 +2644,8 @@
             "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩900",
-            "priceUS": "$0.59"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -2926,12 +2926,12 @@
             "Unlimited voice recording"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -2963,7 +2963,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -3168,12 +3168,12 @@
             "Pick any date range"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -3207,7 +3207,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -3431,12 +3431,12 @@
             "Open a recipe straight from Siri and Shortcuts"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -3623,12 +3623,12 @@
             "Save and load accent presets per song"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -3660,7 +3660,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -3878,8 +3878,8 @@
             "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩900",
-            "priceUS": "$0.59"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -4125,12 +4125,12 @@
             "Every mistake and question added later"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -4305,12 +4305,12 @@
             "Extra reminders: 1 hour before and right on time"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -4342,7 +4342,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -4549,12 +4549,12 @@
             "Get-ready and get-off-now haptics"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -4588,7 +4588,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -4758,8 +4758,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "강의 수 걱정 없이, AI 프롬프트 다섯 단계 전부.",
           "pitchEn": "No lecture limit, and all five AI prompt steps.",
@@ -4776,12 +4776,12 @@
             "Learning state: where I am, where I want to end up, what I want to learn"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -4812,12 +4812,12 @@
             "Add a question from Shortcuts, Siri or Spotlight"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -5016,12 +5016,12 @@
             "Every sticker added later"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -5141,8 +5141,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "식당 수 제한 없이, 내 입맛대로 정리해요.",
           "pitchEn": "No place limit, organized around your taste.",
@@ -5161,12 +5161,12 @@
             "Your taste profile chart: spicy, sweet, salty, rich and natural"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -5193,12 +5193,12 @@
             "iCloud backup and restore"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -5408,12 +5408,12 @@
             "Every game added later"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -5598,8 +5598,8 @@
             "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩900",
-            "priceUS": "$0.59"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -5835,8 +5835,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "수집함을 원하는 만큼, 속지와 색감은 내 취향대로.",
           "pitchEn": "As many albums as you like, with the papers and finishes you love.",
@@ -5855,12 +5855,12 @@
             "Free arrange (reorder your stickers)"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -5887,12 +5887,12 @@
             "Share a whole album as one image"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -6081,12 +6081,12 @@
             "priceUS": "$2.99"
           },
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -6122,7 +6122,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -6323,12 +6323,12 @@
             "priceUS": "$2.99"
           },
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -6360,7 +6360,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -6551,8 +6551,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "아끼는 사람을 원하는 만큼, 함께한 순간과 그때의 모습까지.",
           "pitchEn": "As many people as you care about, with shared moments and who they were then.",
@@ -6569,12 +6569,12 @@
             "Snapshots of a moment (role, concerns and goals at a first meeting or interview)"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -6601,12 +6601,12 @@
             "Mentoring sessions: audio, transcripts, raw data import, summaries and a transcript reader"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -6793,12 +6793,12 @@
             "5 more pebbles (River, Moss, Sunset, Seashell, Inkstone)"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -6968,12 +6968,12 @@
             "Save unlimited mixes of your own"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -7113,8 +7113,8 @@
           "priceUS": "$1.99",
           "subscription": {
             "period": "연",
-            "price": "₩1,000",
-            "priceUS": "$0.69"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "pitch": "누가 내 QR 을 확인했는지 바로 알고, 메모를 원하는 만큼.",
           "pitchEn": "Know right away when someone checks your QR, with as many notes as you like.",
@@ -7131,8 +7131,8 @@
             "History of who checked"
           ],
           "monthly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           },
           "weekly": null
         }
@@ -7274,8 +7274,8 @@
             "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩900",
-            "priceUS": "$0.59"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -7525,12 +7525,12 @@
             "Reorder the sidebar"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -7568,7 +7568,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -8092,12 +8092,12 @@
             "Auto-transcribe from a photo (experimental)"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -8258,8 +8258,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "모은 색을 갈래별로 펼치고, 같은 시각의 하늘을 나란히.",
           "pitchEn": "Spread your colors out by family, and line up skies from the same hour.",
@@ -8276,12 +8276,12 @@
             "Borrowed skies: recolor a photo with another day's sky, and share it"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -8310,12 +8310,12 @@
             "Today's Board widget in medium and large"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -8522,12 +8522,12 @@
             "Study PDFs with two or four slides per page"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -8565,7 +8565,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -8757,8 +8757,8 @@
           "priceUS": "$1.99",
           "subscription": {
             "period": "연",
-            "price": "₩1,000",
-            "priceUS": "$0.69"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "pitch": "되살릴 경우: 6개 언어와 내 시나리오를 모두 엽니다.",
           "pitchEn": "If revived: all six languages and your own scenarios.",
@@ -8775,8 +8775,8 @@
             "On-device translation"
           ],
           "monthly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           },
           "weekly": null
         }
@@ -9048,12 +9048,12 @@
             "Mirrored teleprompter for beam-splitter glass"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -9089,7 +9089,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -9335,12 +9335,12 @@
             "Monthly stats"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -9546,8 +9546,8 @@
             "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩900",
-            "priceUS": "$0.59"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -9796,12 +9796,12 @@
             "Add colorblind-safe palettes (Okabe Ito, IBM, Paul Tol)"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -9837,7 +9837,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -10067,12 +10067,12 @@
             "Thinking time on the Lock Screen and in the Dynamic Island"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -10273,12 +10273,12 @@
             "Your most-eaten foods at a glance"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -10314,7 +10314,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -10534,8 +10534,8 @@
           "priceUS": "$4.49",
           "subscription": {
             "period": "연",
-            "price": "₩2,200",
-            "priceUS": "$1.49"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "pitch": "매장마다 자리마다, 우리 가게답게",
           "pitchEn": "A sign for every shop and table, in your own style",
@@ -10556,12 +10556,12 @@
             "A4 portrait poster"
           ],
           "monthly": {
-            "price": "₩700",
-            "priceUS": "$0.49"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩400",
-            "priceUS": "$0.29"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -10592,12 +10592,12 @@
             "Import your Wi-Fi list from a Settings screenshot"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -10818,12 +10818,12 @@
             "Exit insights: how many worries came true and how much the fear dropped"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -10996,12 +10996,12 @@
             "All four card designs, including Film and Editorial"
           ],
           "monthly": {
-            "price": "₩1,100",
-            "priceUS": "$0.99"
+            "price": "₩2,200",
+            "priceUS": "$1.49"
           },
           "weekly": {
-            "price": "₩600",
-            "priceUS": "$0.39"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           }
         },
         {
@@ -11035,7 +11035,7 @@
           },
           "weekly": {
             "price": "₩1,100",
-            "priceUS": "$0.79"
+            "priceUS": "$0.99"
           }
         }
       ],
@@ -11202,5 +11202,5 @@
     ],
     "status": "확정 (2026-10-27) · 클립키보드부터 반영"
   },
-  "periodRule": "월 = 연 ÷ 3 (연 구독이 월 석 달 값) · 주 = 월 × 0.4 (주 넷이면 월보다 비싸다). 달러로 계산해 App Store 가격대에 맞추고, 원화는 달러 × 1,450 을 원화 가격대에 맞춘다."
+  "periodRule": "월 = 연 ÷ 3 (연 구독이 월 석 달 값) · 주 = 월 × 0.4 (주 넷이면 월보다 비싸다). 달러로 계산해 App Store 가격대에 맞추고, 원화는 달러 × 1,450 을 원화 가격대에 맞춘다. 최저가는 $0.99 · ₩1,100 — 그 아래로 내리지 않고, 겹치면 위 칸을 한 가격대 올린다."
 }
