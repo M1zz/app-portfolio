@@ -2155,6 +2155,12 @@ PW_CSS = BIZ_CSS + """
     color:var(--text);text-decoration:none}
   .kp a.kpl:hover{border-color:var(--accent)}
   .np .don h4{display:flex;align-items:center;gap:8px}
+  .cpb{margin-top:12px;display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;
+    border:1.5px solid var(--c);background:transparent;color:var(--c);font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
+  .cpb::before{content:"⧉";font-size:.95rem}
+  .cpb:hover{background:color-mix(in srgb,var(--c) 14%,transparent)}
+  .cpb.done{background:var(--c);color:#fff}
+  .cpb.done::before{content:"✓"}
   .pt.lad tr.g>*{border-top:2px solid var(--border)}
   .pt.lad td:last-child b{color:var(--accent)}
   .ttw{margin:0 14px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:14px}
@@ -2317,6 +2323,83 @@ def trim_table(p, fp_price=""):
             % (head, body, '<p class="tx">%s</p>' % esc(" · ".join(extra)) if extra else ""))
 
 
+def spec_text(x):
+    """개발 요청문용 — 공개 페이지라 상품 ID · 파일 경로는 걷어 낸다(앱 레포에서 확인하면 된다)."""
+    x = public_text(x or "")
+    x = re.sub(r"\b(?:com|iCloud|group)\.[A-Za-z0-9_.-]+", "기존 상품", x)
+    return re.sub(r"\s{2,}", " ", x).strip()
+
+
+def plan_spec(p, app, fp):
+    """앱 하나의 페이월을 개발할 때 붙여 넣을 요청문(마크다운). 설계안 카드의 '개발 요청 복사' 버튼이 이것을 복사한다."""
+    trims = p.get("trims") or []
+    name = app["name"] + (" (%s)" % app["nameEn"] if app.get("nameEn") and app["nameEn"] != app["name"] else "")
+
+    def pr(v):
+        return ("%s (%s)" % (v["price"], v["priceUS"]) if v.get("priceUS") else v["price"]) if v else "–"
+
+    out = ["# %s 페이월 구현 요청" % name, "",
+           "아래 설계대로 이 앱의 페이월을 만들어 주세요. 모든 앱 공통 모델은 무료 다운로드 + 무료 · Plus · Pro 트림입니다.", "",
+           "- 한 줄: %s" % spec_text(p.get("oneLine") or p.get("headline")),
+           "- 지금: %s" % spec_text(p.get("currentPublic") or p.get("current")),
+           "- 왜 바꾸나: %s" % spec_text(p.get("intent") or p.get("priorityReason") or p.get("verdictReason")),
+           "- 앱 크기: %s" % (p.get("size") or "—"), "",
+           "## 트림과 가격", "",
+           "| 칸 | 주 | 월 | 연 | 평생 | 한 줄 |", "|---|---|---|---|---|---|"]
+    for tr in trims:
+        if tr.get("price"):
+            out.append("| %s | %s | %s | %s | %s | %s |" % (
+                tr.get("label"), pr(tr.get("weekly")), pr(tr.get("monthly")), pr(tr.get("subscription")),
+                pr({"price": tr["price"], "priceUS": tr.get("priceUS")}), spec_text(tr.get("pitch"))))
+        else:
+            out.append("| %s | – | – | – | – | %s |" % (tr.get("label"), spec_text(tr.get("pitch"))))
+    extra = [x for x in [
+        p.get("upgrade") and "Plus 평생 → Pro 평생 올리기: %s (Plus 평생을 산 사람에게만)" % with_us(p["upgrade"], p.get("upgradeUS")),
+        p.get("graduate") and "구독 졸업 Pro 평생: %s (구독 6개월째 · 연 갱신 7일 전에 한 번씩)" % with_us(p["graduate"], p.get("graduateUS")),
+        fp and "언제나 평생 패스: 평생 %s · 연 %s (세 칸 아래 한 줄)" % (
+            with_us(fp["lifetime"]["price"], fp["lifetime"].get("priceUS")), with_us(fp["yearly"]["price"], fp["yearly"].get("priceUS")))] if x]
+    out += [""] + ["- " + x for x in extra]
+    out += ["", "## 칸마다 주는 것", ""]
+    for tr in trims:
+        out.append("### %s" % tr.get("label"))
+        out += ["- %s" % spec_text(f) for f in tr.get("features") or []]
+        out.append("")
+    if p.get("compare"):
+        ids = [tr.get("id") for tr in trims]
+        out += ["## 비교표 (페이월 화면에 그대로)", "",
+                "| 기능 | %s |" % " | ".join(tr.get("label") for tr in trims), "|---|%s" % ("---|" * len(trims))]
+        out += ["| %s | %s |" % (spec_text(r.get("feature")), " | ".join(spec_text(r.get(i)) or "–" for i in ids))
+                for r in p["compare"]]
+        out.append("")
+    if p.get("moments"):
+        out += ["## 결제하고 싶어지는 순간 (페이월을 띄울 자리)", ""]
+        out += ["%d. %s — %s. %s → %s" % (i + 1, spec_text(m["when"]), spec_text(m.get("see")), spec_text(m["why"]), m["plan"])
+                for i, m in enumerate(p["moments"])]
+        out.append("")
+    if p.get("triggers"):
+        out += ["## 페이월이 뜨는 곳", ""] + ["- %s" % spec_text(t) for t in p["triggers"]] + [""]
+    if p.get("headline") or p.get("headlineEn"):
+        out += ["## 페이월 문구", "",
+                "- 머리말: %s / %s" % (p.get("headline") or "", p.get("headlineEn") or ""),
+                "- 부제: %s / %s" % (p.get("subheadline") or "", p.get("subheadlineEn") or ""), ""]
+    if p.get("newFeatures"):
+        out += ["## 새로 만들 기능", ""] + ["- %s" % spec_text(f) for f in p["newFeatures"]] + [""]
+    if p.get("migration"):
+        out += ["## 이미 산 사람 · 기존 상품", "", spec_text(p["migration"]),
+                "상품 ID 는 앱 레포의 StoreKit 설정과 App Store Connect 에서 확인합니다.", ""]
+    out += ["## 공통 규칙", "",
+            "- 가격: 월 = 연 ÷ 3, 주 = 월 × 0.4. 평생은 연 구독의 3배 이상. 처음 보는 무료 사용자에게 연 구독 첫 해 반값 한 번(App Store 첫 구독 할인).",
+            "- 상품: 유료 칸마다 주 · 월 · 연 자동 갱신 구독(칸끼리 한 구독 그룹, Pro 가 위 등급)과 평생(비소모성)을 만든다. 페이월은 연을 기본으로 고르고, 주 · 월은 펼쳐 보이게.",
+            "- 설정 ▸ 구독 관리에 '평생으로 바꾸기'를 늘 둔다. 구독자에게는 구독 졸업 제안, 산 뒤 구독 해지 화면으로 바로 안내.",
+            "- 이미 산 사람 · 구독 중인 사람의 권한은 그대로 둔다. 유료 다운로드였던 앱은 AppTransaction.originalAppVersion 으로 확인해 Pro 를 준다.",
+            "- 절대 잠그지 않는 것: 접근성, 이미 만든 데이터 보기 · 지우기, 기본 내보내기(텍스트 · CSV), 안전 · 건강 경고.",
+            "- 후원(팁)은 기능을 열지 않는다. 팁 상품을 권한 상품에 넣지 않는다. 응원 부탁은 이미 Pro 를 가진 사람에게만.",
+            "- LeeoKit 의 세 칸 요금제 · 구독 졸업 · 언제나 평생 패스 · 팁 부품(v3.23 이상, 고마운 사람들은 v3.27)을 쓴다.",
+            "- 모든 문구는 한국어 + 영어(String Catalog, 하드코딩 금지), 글자는 .body 이상. 구매 복원 버튼 필수.",
+            "- 끝나면 빌드 에러 없이 마무리하고, StoreKit 설정 파일로 구매 흐름을 시험한다."]
+    return "\n".join(out).rstrip() + "\n"
+
+
 def paywall_plans_section(apps):
     data = load_paywall_plans()
     plans = data.get("apps") or {}
@@ -2362,11 +2445,14 @@ def paywall_plans_section(apps):
         tag = ("1순위 %d · %s" % (p["priority"], p.get("stage") or "예정")) if p.get("priority") else "%s · %s" % (
             p.get("size") or "", PLAN_VERDICT.get(p.get("verdict"), ("",))[0])
         return ('<article class="pw np" style="--c:%s"><div class="top"><div class="app">%s%s<em>%s</em></div>'
-                  '<h3>%s</h3><p class="sub">지금: %s</p></div>%s'
+                  '<h3>%s</h3><p class="sub">지금: %s</p>'
+                  '<button type="button" class="cpb" data-spec="spec-%s">개발 요청 복사</button>'
+                  '<textarea class="spec" id="spec-%s" hidden readonly>%s</textarea></div>%s'
                   '<div class="why"><h4>왜 바꾸나</h4><p>%s</p></div>'
                   '<div class="moments"><h4>결제하고 싶어지는 순간</h4><ul>%s</ul></div>%s</article>'
                   % (PLAN_VERDICT.get(p.get("verdict"), ("", "#8b90a0"))[1], icon_img(a), esc(a["name"]), esc(tag),
-                     esc(p.get("oneLine") or p.get("headline") or a["name"]), esc(p.get("currentPublic") or ""), trims,
+                     esc(p.get("oneLine") or p.get("headline") or a["name"]), esc(p.get("currentPublic") or ""),
+                     esc(s), esc(s), esc(plan_spec(p, a, fp)), trims,
                      esc(public_text(p.get("intent") or p.get("priorityReason") or p.get("verdictReason"))), moments,
                      donation_block(s)))
 
@@ -2592,6 +2678,21 @@ def donation_reward_plan(rp):
            '<h3 class="sh">정한 것</h3><ul class="steps">%s</ul>' % decided if decided else "", opens))
 
 
+# 설계안 카드의 '개발 요청 복사' — 숨은 textarea 의 요청문을 클립보드로. https 가 아닌 곳(파일로 열기)도 되게 옛 방법을 함께 둔다.
+PW_JS = """
+<script>
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('.cpb'); if (!b) return;
+  var t = document.getElementById(b.getAttribute('data-spec')); if (!t) return;
+  var label = b.textContent;
+  function done() { b.classList.add('done'); b.textContent = '복사했어요'; setTimeout(function () { b.classList.remove('done'); b.textContent = label; }, 1800); }
+  function legacy() { t.hidden = false; t.select(); try { document.execCommand('copy'); done(); } finally { t.hidden = true; } }
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t.value).then(done, legacy); else legacy();
+});
+</script>
+"""
+
+
 def paywalls_page(apps):
     ls = [a for a in live(apps) if (a.get("price") or {}).get("evaluatedAt")]
     pws = load_paywalls()
@@ -2649,7 +2750,7 @@ def paywalls_page(apps):
             % (len(prep_pw), "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw))) if prep_pw else ""))
     return page("페이월 모음 — 리이오의 앱 포트폴리오",
                 "앱 %d개의 페이월과 가격 사다리를 모아 앱끼리 가격을 비교합니다." % (len(live_pw) + len(prep_pw)),
-                {"head": head, "main": main}, "pw", PW_CSS)
+                {"head": head, "main": main}, "pw", PW_CSS, PW_JS)
 
 
 # ── 공개: 범주 · 언어 · 확산 ────────────────────────────────────────
