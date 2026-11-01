@@ -63,18 +63,38 @@
     "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 24일 경과"
   },
   "globalReach": {
-    "level": 2,
-    "label": "bilingual",
+    "level": 3,
+    "label": "multilingual",
     "languages": [
+      "CS",
+      "DA",
+      "DE",
+      "EL",
       "EN",
-      "KO"
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
+      "JA",
+      "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
+      "ZH"
     ],
-    "languageCount": 2,
+    "languageCount": 22,
     "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN, KO · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-11-01"
   },
   "serviceMaturity": {
     "source": true,
