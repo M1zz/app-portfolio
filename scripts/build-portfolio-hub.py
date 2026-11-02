@@ -1549,6 +1549,35 @@ def maturity_rank(apps):
     return lambda a: (rank.get(a["_slug"], len(rank)), a["name"])
 
 
+def _fill(apps, keys):
+    """피처 묶음에 찬 원의 비율 — (있음 수 / 판정한 수). 선택 항목도 센다."""
+    cks = [checklist(a) for a in apps]
+    have = sum(1 for ck in cks for k in keys if ck[k][3] is True)
+    known = sum(1 for ck in cks for k in keys if ck[k][3] not in (None, NA))
+    return have / known if known else 1
+
+
+def cats_by_fill(apps):
+    """분류를 원이 적게 찬 것부터 — 거의 다 찬 분류(언어)를 앞에 두면 볼 것이 없다."""
+    def rate(c):
+        g = sum(check_score(a, c)[0] for a in apps)
+        t = sum(check_score(a, c)[1] for a in apps)
+        # 보이는 비율(기본·권장)로 줄 세우고, 선택 항목뿐인 분류는 선택 항목의 찬 비율로
+        return g / t if t else _fill(apps, [k for _, _, k, _ in check_items(c)])
+    return sorted(CHECK_CATS, key=lambda c: rate(c[0]))
+
+
+def items_by_fill(cat, apps):
+    """분류 안의 피처도 원이 적게 찬 것부터."""
+    return sorted(check_items(cat), key=lambda r: _fill(apps, [r[2]]))
+
+
+def device_fill(apps, k):
+    vals = [area_vals(a, "devices").get(k) for a in apps]
+    known = [v for v in vals if v is not None]
+    return sum(1 for v in known if v) / len(known) if known else 1
+
+
 def overview_panel(apps):
     """앱 × 피처 전체 한 표. 분류별로 머리줄을 묶고, 첫 열은 고정한 채 가로로 넘긴다."""
     cks = {a["_slug"]: checklist(a) for a in apps}
@@ -1556,10 +1585,26 @@ def overview_panel(apps):
     lang_cols = lang_columns(apps)
     rows = maturity_sorted(apps)
 
+    # 묶음도 피처도 원이 적게 찬 것부터. 기기 묶음도 같은 기준으로 그 사이에 선다.
+    dev_items = sorted(dev_items, key=lambda x: device_fill(apps, x[0]))
+    dev_rate = (sum(device_fill(apps, k) for k, _ in dev_items) / len(dev_items)) if dev_items else 1
+    order = [(c, cn, color, items_by_fill(c, apps)) for c, cn, color in cats_by_fill(apps)]
+    cat_rates = [_fill(apps, [k for _, _, k, _ in its]) for _, _, _, its in order]
+    cat_rates = [max(cat_rates[:i + 1]) for i in range(len(cat_rates))]  # 앞 묶음보다 낮아 보여도 순서는 지킨다
+    at = next((i for i, r in enumerate(cat_rates) if r > dev_rate), len(order))
+    order.insert(at, ("devices", "기기", AREA_COLOR["devices"], None))
+
     groups = '<tr><th rowspan="2" class="ap">앱</th>'
     cols = ""
-    for c, cn, color in CHECK_CATS:
-        its = check_items(c)
+    for c, cn, color, its in order:
+        if c == "devices":
+            groups += '<th colspan="%d" class="gh" style="--c:%s">기기</th>' % (len(dev_items), color)
+            for i, (k, lbl) in enumerate(dev_items):
+                have = sum(1 for a in apps if area_vals(a, "devices").get(k))
+                known = sum(1 for a in apps if area_vals(a, "devices").get(k) is not None)
+                cols += '<th%s%s>%s<em>%d</em></th>' % (' class="g0"' if i == 0 else "", help_attrs(k, lbl, have, known),
+                                                       esc(SHORT.get(k, lbl)), have)
+            continue
         extra = len(lang_cols) + 1 if c == "lang" else 0
         groups += '<th colspan="%d" class="gh" style="--c:%s">%s</th>' % (len(its) + extra, color, esc(cn))
         for i, (t, _, k, n) in enumerate(its):
@@ -1572,13 +1617,7 @@ def overview_panel(apps):
                 have = sum(1 for a in apps if l in app_langs(a))
                 cols += '<th class="t-opt"%s>%s<em>%d</em></th>' % (
                     help_attrs("lang" + l, LANG_KR.get(l, l), have, len(apps)), esc(LANG_SHORT.get(l, l)), have)
-    groups += '<th colspan="%d" class="gh" style="--c:%s">기기</th><th rowspan="2">종합</th></tr>' % (
-        len(dev_items), AREA_COLOR["devices"])
-    for i, (k, lbl) in enumerate(dev_items):
-        have = sum(1 for a in apps if area_vals(a, "devices").get(k))
-        known = sum(1 for a in apps if area_vals(a, "devices").get(k) is not None)
-        cols += '<th%s%s>%s<em>%d</em></th>' % (' class="g0"' if i == 0 else "", help_attrs(k, lbl, have, known),
-                                               esc(SHORT.get(k, lbl)), have)
+    groups += '<th rowspan="2">종합</th></tr>'
     thead = groups + "<tr>%s</tr>" % cols
 
     tbody = ""
@@ -1586,16 +1625,18 @@ def overview_panel(apps):
         ck = cks[a["_slug"]]
         langs = app_langs(a)
         cells = ""
-        for c, _, _ in CHECK_CATS:
-            for i, (t, _, k, n) in enumerate(check_items(c)):
+        dv = area_vals(a, "devices")
+        for c, _, _, its in order:
+            if c == "devices":
+                cells += "".join('<td%s>%s</td>' % (' class="g0"' if i == 0 else "", cell(dv[k], lbl))
+                                 for i, (k, lbl) in enumerate(dev_items))
+                continue
+            for i, (t, _, k, n) in enumerate(its):
                 cells += '<td%s>%s</td>' % (' class="g0"' if i == 0 else "", mcell(ck[k][3], n))
             if c == "lang":
                 cells += '<td class="lc2" title="%s">%s</td>' % (esc(lang_names(a)), len(langs) if langs else '<i class="u"></i>')
                 cells += "".join('<td>%s</td>' % (cell(l in langs, LANG_KR.get(l, l)) if langs else cell(None))
                                  for l in lang_cols)
-        dv = area_vals(a, "devices")
-        cells += "".join('<td%s>%s</td>' % (' class="g0"' if i == 0 else "", cell(dv[k], lbl))
-                         for i, (k, lbl) in enumerate(dev_items))
         got, known = check_score(a)
         ok = known and mat(a).get("source")
         tbody += '<tr>%s%s<td class="pct" style="color:%s">%s</td></tr>' % (
@@ -1603,7 +1644,9 @@ def overview_panel(apps):
             "%d%%" % round(100 * got / known) if ok else '<i class="u" title="앱 소스를 확인하지 못했습니다"></i>')
 
     kp = ""
-    for c, cn, color in CHECK_CATS:
+    for c, cn, color, _ in order:
+        if c == "devices":
+            continue
         g = sum(check_score(a, c)[0] for a in apps)
         t = sum(check_score(a, c)[1] for a in apps)
         if not t:
@@ -1615,7 +1658,7 @@ def overview_panel(apps):
               '<span><i class="u"></i>확인 불가</span><span><i class="na"></i>해당 없음</span>'
               '<span>흐린 열 제목은 선택 항목</span><span>열 제목을 누르면 설명이 뜹니다.</span></div>')
     return ('<p class="lead">앱 %d개가 피처 %d개 가운데 무엇을 갖췄는지 한 표에 모았습니다. 찬 원이 많은 앱부터 놓았고, '
-            '열 제목 아래 숫자는 그 피처를 갖춘 앱 수입니다. 종합은 기본·권장 피처 가운데 갖춘 비율입니다.</p>'
+            '묶음과 열은 원이 적게 찬 것부터 놓았습니다(거의 다 찬 묶음은 뒤로). 열 제목 아래 숫자는 그 피처를 갖춘 앱 수입니다. 종합은 기본·권장 피처 가운데 갖춘 비율입니다.</p>'
             '<div class="kp">%s</div>%s'
             '<div class="tw"><table class="mt ov2"><thead>%s</thead><tbody>%s</tbody></table></div>'
             '<p class="note">언어 묶음은 주요 18개국에서 쓰는 말을 먼저, 그다음 앱들이 지원하는 나머지 언어를 모두 열로 보여 줍니다. '
@@ -1626,7 +1669,7 @@ def overview_panel(apps):
 
 def check_panel(cat, apps):
     """분류 하나 — 앱 × 그 분류의 피처."""
-    its = check_items(cat)
+    its = items_by_fill(cat, apps)
     rows = sorted(apps, key=lambda a: (-sum(1 for v in checklist(a).values() if v[1] == cat and v[3] is True),
                                        a["name"]))
     scored = any(t != "opt" for t, _, _, _ in its)
@@ -1662,7 +1705,7 @@ def maturity_page(apps):
     tabs = [("overview", "한눈에", None, overview_panel(ls)),
             ("todo", "할 일", "%d건" % todo_n, todo_panel(ls)),
             ("country", "국가별 언어", "%d개국" % len(COUNTRIES), country_panel(ls))]
-    for c, cn, _ in CHECK_CATS:
+    for c, cn, _ in cats_by_fill(ls):
         if c == "lang":
             continue
         g = sum(check_score(a, c)[0] for a in ls)
