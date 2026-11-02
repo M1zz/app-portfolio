@@ -482,6 +482,10 @@ def main():
             m["craft"].update({"purchaseTest": None, "releaseTags": None, "steadyUpdates": None})
             m["marketing"].update({k: None for k in MKT_ITEMS})
             m["devices"] = None
+            # 소스가 이 컴퓨터에 없을 뿐이다 — 다른 컴퓨터에서 잰 값을 '모름'으로 지우지 않는다
+            for k, v in prev.items():
+                if k not in ("source", "support", "evaluatedAt") and v is not None:
+                    m[k] = v
         if args.offline and prev.get("support"):
             m["support"] = prev["support"]
         else:

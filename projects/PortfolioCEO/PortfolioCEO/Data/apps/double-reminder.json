@@ -478,7 +478,7 @@
       "voiceControl": true,
       "dynamicType": true,
       "darkMode": true,
-      "differentiate": true,
+      "differentiate": false,
       "contrast": true,
       "reduceMotion": true,
       "captions": false,
@@ -503,7 +503,7 @@
       "inputFlow": true,
       "textCopy": true,
       "purchaseTest": true,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -514,7 +514,7 @@
       "discount": true,
       "tipJar": true,
       "tipAsk": true,
-      "gift": true,
+      "gift": false,
       "subscription": true,
       "trial": false,
       "graduation": true,
@@ -527,8 +527,8 @@
     },
     "guide": {
       "progressive": false,
-      "contextualLesson": false,
-      "practice": false,
+      "contextualLesson": true,
+      "practice": true,
       "promptArbiter": false,
       "lessonLedger": false
     },
@@ -576,8 +576,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 133,
-      "testFiles": 42
+      "accessibilityLabels": 126,
+      "testFiles": 47
     },
     "support": {
       "registered": true,
@@ -588,7 +588,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-31"
+    "evaluatedAt": "2026-11-03"
   },
   "usStore": {
     "available": true,

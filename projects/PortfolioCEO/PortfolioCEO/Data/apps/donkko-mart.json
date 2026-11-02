@@ -487,7 +487,7 @@
       "inputFlow": false,
       "textCopy": false,
       "purchaseTest": true,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -525,7 +525,7 @@
       "logging": false,
       "funnel": false,
       "abTesting": false,
-      "haptics": true,
+      "haptics": false,
       "preflight": false,
       "appSpec": true,
       "family": false,
@@ -560,7 +560,7 @@
       "_macViaDesignedForIPad": true
     },
     "counts": {
-      "accessibilityLabels": 64,
+      "accessibilityLabels": 50,
       "testFiles": 2
     },
     "support": {
@@ -572,7 +572,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-10-31"
+    "evaluatedAt": "2026-11-03"
   },
   "usStore": {
     "available": true,

@@ -351,7 +351,7 @@
     "daysSinceUpdate": 73
   },
   "serviceMaturity": {
-    "source": true,
+    "source": false,
     "feedback": {
       "inAppFeedback": false,
       "mailContact": false,
@@ -491,7 +491,7 @@
       "host": "www.notion.so",
       "status": 200
     },
-    "evaluatedAt": "2026-10-31"
+    "evaluatedAt": "2026-11-03"
   },
   "usStore": {
     "available": false,
