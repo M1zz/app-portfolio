@@ -227,6 +227,12 @@
       "accessibilityLabels": 64,
       "testFiles": 2
     },
+    "data": {
+      "storeOpenSafe": "na",
+      "keepsOriginal": "na",
+      "deviceBackup": "na",
+      "migration": "na"
+    },
     "support": {
       "registered": true,
       "reachable": true,

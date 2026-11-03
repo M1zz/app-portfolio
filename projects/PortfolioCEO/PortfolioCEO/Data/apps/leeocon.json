@@ -175,6 +175,12 @@
       "videoTool": null
     },
     "devices": null,
+    "data": {
+      "storeOpenSafe": null,
+      "keepsOriginal": null,
+      "deviceBackup": null,
+      "migration": null
+    },
     "support": {
       "registered": true,
       "reachable": true,

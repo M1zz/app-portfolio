@@ -177,6 +177,12 @@
       "vision": false,
       "_macViaDesignedForIPad": false
     },
+    "data": {
+      "storeOpenSafe": null,
+      "keepsOriginal": null,
+      "deviceBackup": null,
+      "migration": null
+    },
     "counts": {
       "accessibilityLabels": 24,
       "testFiles": 9

@@ -41,6 +41,9 @@ IMPORT = re.compile(r"fileImporter|UIDocumentPickerViewController\(forOpening|fu
 NOT_BACKED_UP = re.compile(r"isExcludedFromBackup *= *true|\.cachesDirectory")
 ICLOUD = re.compile(r"cloudKitDatabase: *\.(automatic|private)|NSPersistentCloudKitContainer|CKContainer|NSUbiquitousKeyValueStore|LeeoCloud")
 
+# 어느 타깃에도 들지 않아 빌드되지 않는 폴더 — 앱에 들어가지 않는 코드다
+UNBUILT = {"RapportMap/macOS"}
+
 # 읽어 보고 '유실 아님'으로 판정한 자리. 키는 "앱", "앱/경로", 또는 "앱/경로|그 줄에 든 글자".
 # 줄 번호 대신 글자로 짚어서, 코드가 움직여도 맞고 같은 파일에 새 위험이 생기면 다시 잡힌다.
 REVIEWED = {
@@ -60,6 +63,7 @@ REVIEWED = {
     "퇴사각/FireTracker/FireSummary.swift": "위젯용 요약",
     "아이일정/CalendarSnap/FamilySharing/SyncStateStore.swift": "동기화 상태",
     "장표스냅/SlideSnap/CloudSync.swift": "동기화 메타데이터",
+    "장표스냅/SlideSnap/SlideIntents.swift|func read() -> [Presentation]": "Siri·Spotlight 색인 — 읽기만 하고 저장하지 않는다",
     "세끼/RoutineCamera/Manager/AchievementManager.swift": "업적 — 기록에서 다시 센다",
     "세끼/RoutineCamera/Model/Models.swift|PendingAteAll": "위젯이 쌓은 대기열",
     "오늘의 주접/Jujob/Managers/UserPreferencesManager.swift|QuoteFeedback": "추천용 반응",
@@ -116,7 +120,10 @@ def reviewed(repo: Path, rel: Path, line: str) -> bool:
 
 def swift_files(repo: Path):
     for p in repo.rglob("*.swift"):
-        if SKIP_DIRS.intersection(p.relative_to(repo).parts) or SKIP_FILE.search(p.name):
+        parts = p.relative_to(repo).parts
+        if (SKIP_DIRS.intersection(parts) or SKIP_FILE.search(p.name)
+                or any(x.startswith("_backup") for x in parts)
+                or f"{unicodedata.normalize('NFC', repo.name)}/{parts[0]}" in UNBUILT):
             continue
         yield p
 

@@ -347,7 +347,7 @@
     },
     "ux": {
       "widgets": false,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": true,
       "tips": false,
       "onboarding": false,
@@ -458,6 +458,12 @@
     "counts": {
       "accessibilityLabels": 45,
       "testFiles": 0
+    },
+    "data": {
+      "storeOpenSafe": true,
+      "keepsOriginal": true,
+      "deviceBackup": true,
+      "migration": false
     },
     "support": {
       "registered": true,

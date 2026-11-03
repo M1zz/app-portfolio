@@ -248,6 +248,12 @@
       "accessibilityLabels": 83,
       "testFiles": 0
     },
+    "data": {
+      "storeOpenSafe": "na",
+      "keepsOriginal": "na",
+      "deviceBackup": "na",
+      "migration": "na"
+    },
     "support": {
       "registered": true,
       "reachable": true,

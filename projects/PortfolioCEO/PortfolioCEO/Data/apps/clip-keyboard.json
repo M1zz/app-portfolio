@@ -620,6 +620,12 @@
       "accessibilityLabels": 404,
       "testFiles": 134
     },
+    "data": {
+      "storeOpenSafe": true,
+      "keepsOriginal": true,
+      "deviceBackup": true,
+      "migration": "na"
+    },
     "support": {
       "registered": true,
       "reachable": true,

@@ -34,12 +34,14 @@
 """
 import argparse
 import glob
+import importlib.util
 import json
 import os
 import re
 import ssl
 import urllib.request
 from datetime import date
+from pathlib import Path
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPS = os.path.join(ROOT, "projects/PortfolioCEO/PortfolioCEO/Data/apps")
@@ -342,6 +344,28 @@ def scan_source(root, exclude_roots):
 
 COMMENT_LINE = re.compile(r"^[ \t]*//.*$", re.M)
 
+# 데이터 안전 — data-safety-audit.py 의 판정을 그대로 쓴다 (잣대는 거기 한 곳에만)
+_spec = importlib.util.spec_from_file_location("data_safety", os.path.join(os.path.dirname(__file__), "data-safety-audit.py"))
+DATA_SAFETY = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(DATA_SAFETY)
+DATA_ITEMS = ("storeOpenSafe", "keepsOriginal", "deviceBackup", "migration")
+
+
+def scan_data(root):
+    """저장하는 것이 없으면 물을 게 없어 "na". 구조 이전은 데이터베이스(SwiftData·Core Data)에만 묻는다."""
+    top = os.popen("git -C '%s' rev-parse --show-toplevel 2>/dev/null" % root).read().strip() or root
+    r = DATA_SAFETY.audit(Path(top))
+    if not r["store"]:
+        return {k: "na" for k in DATA_ITEMS}
+    db = r["store"] & {"SwiftData", "CoreData"}
+    return {
+        "storeOpenSafe": not r["crash"],
+        "keepsOriginal": not r["lossy"],
+        "deviceBackup": not r["unbacked"],
+        "migration": ("na" if not db else
+                      ("SwiftData" not in db or r["versioned"]) and ("CoreData" not in db or r["cd_auto"])),
+    }
+
 
 def scan_appearance(root, exclude_roots, a11y, forced_light):
     """에셋 카탈로그의 어두운·고대비 모양과 Info.plist 의 밝은 모드 고정을 읽어 다크 모드·대비를 판정한다."""
@@ -473,6 +497,7 @@ def main():
             m.update(found)
             m["devices"] = scan_devices(pbx, app["bundleId"])
             m["counts"] = counts
+            m["data"] = scan_data(root)
         else:
             for k, items in SRC.items():
                 m[k] = {i: None for i in items}
@@ -482,6 +507,7 @@ def main():
             m["craft"].update({"purchaseTest": None, "releaseTags": None, "steadyUpdates": None})
             m["marketing"].update({k: None for k in MKT_ITEMS})
             m["devices"] = None
+            m["data"] = {k: None for k in DATA_ITEMS}
             # 소스가 이 컴퓨터에 없을 뿐이다 — 다른 컴퓨터에서 잰 값을 '모름'으로 지우지 않는다
             for k, v in prev.items():
                 if k not in ("source", "support", "evaluatedAt") and v is not None:
