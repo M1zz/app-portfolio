@@ -322,7 +322,7 @@
   "githubRepo": "https://github.com/M1zz/RapportMap",
   "bundleId": "com.ysoup.RapportMap",
   "localProjectPath": "../../../../../RapportMap",
-  "status": "active",
+  "status": "abandoned",
   "appStoreId": "6754888089",
   "priority": "high",
   "nameEn": "Rapport Map",
@@ -409,18 +409,14 @@
   },
   "supportUrl": "https://leeo75.notion.site/2abe264a0fdc8049bad6f86954bca20d",
   "lifecycle": {
-    "stage": 1,
-    "label": "pre-mvp",
+    "stage": 0,
+    "label": "abandoned",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 1일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 340일 경과",
-    "evaluatedAt": "2026-10-25",
+    "evaluatedAt": "2026-11-03",
+    "basis": "버린 앱 (사용자 결정)",
     "ratingCount": 0,
     "daysSinceUpdate": 340,
-    "manual": true,
-    "refineDays": 1,
-    "polishDays": 1,
-    "releasedAt": "2025-11-18",
-    "updatedAt": "2025-11-19"
+    "manual": true
   },
   "globalReach": {
     "level": 0,
