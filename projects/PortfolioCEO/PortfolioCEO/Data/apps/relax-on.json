@@ -440,11 +440,11 @@
     },
     "ux": {
       "widgets": false,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": false,
       "tips": true,
       "onboarding": true,
-      "backup": false
+      "backup": true
     },
     "a11y": {
       "voiceOver": true,
@@ -549,13 +549,14 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 89,
+      "accessibilityLabels": 90,
       "testFiles": 6
     },
     "data": {
       "storeOpenSafe": true,
       "keepsOriginal": true,
       "deviceBackup": true,
+      "autoBackup": true,
       "migration": "na"
     },
     "support": {

@@ -348,7 +348,7 @@ COMMENT_LINE = re.compile(r"^[ \t]*//.*$", re.M)
 _spec = importlib.util.spec_from_file_location("data_safety", os.path.join(os.path.dirname(__file__), "data-safety-audit.py"))
 DATA_SAFETY = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(DATA_SAFETY)
-DATA_ITEMS = ("storeOpenSafe", "keepsOriginal", "deviceBackup", "migration")
+DATA_ITEMS = ("storeOpenSafe", "keepsOriginal", "deviceBackup", "migration", "autoBackup")
 
 
 def scan_data(root):
@@ -357,11 +357,14 @@ def scan_data(root):
     r = DATA_SAFETY.audit(Path(top))
     if not r["store"]:
         return {k: "na" for k in DATA_ITEMS}
+    vault_on, _ = DATA_SAFETY.vault(Path(top))
     db = r["store"] & {"SwiftData", "CoreData"}
     return {
         "storeOpenSafe": not r["crash"],
         "keepsOriginal": not r["lossy"],
         "deviceBackup": not r["unbacked"],
+        # 매일 · 업데이트 직전 자동 백업 + 파일 · iCloud 로 되살리기 (LeeoVault)
+        "autoBackup": vault_on,
         "migration": ("na" if not db else
                       ("SwiftData" not in db or r["versioned"]) and ("CoreData" not in db or r["cd_auto"])),
     }
@@ -498,6 +501,8 @@ def main():
             m["devices"] = scan_devices(pbx, app["bundleId"])
             m["counts"] = counts
             m["data"] = scan_data(root)
+            if m["data"].get("autoBackup") is True:
+                m["ux"]["backup"] = True   # 금고는 파일 내보내기 · 가져오기를 품는다
         else:
             for k, items in SRC.items():
                 m[k] = {i: None for i in items}

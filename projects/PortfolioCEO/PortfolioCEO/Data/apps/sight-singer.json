@@ -115,7 +115,7 @@
     },
     "ux": {
       "widgets": false,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": false,
       "tips": false,
       "onboarding": false,
@@ -231,7 +231,8 @@
       "storeOpenSafe": "na",
       "keepsOriginal": "na",
       "deviceBackup": "na",
-      "migration": "na"
+      "migration": "na",
+      "autoBackup": "na"
     },
     "support": {
       "registered": true,

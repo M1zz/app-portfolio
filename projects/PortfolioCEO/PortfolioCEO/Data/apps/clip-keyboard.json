@@ -624,6 +624,7 @@
       "storeOpenSafe": true,
       "keepsOriginal": true,
       "deviceBackup": true,
+      "autoBackup": true,
       "migration": "na"
     },
     "support": {

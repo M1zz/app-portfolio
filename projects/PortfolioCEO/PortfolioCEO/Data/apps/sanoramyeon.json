@@ -252,7 +252,8 @@
       "storeOpenSafe": "na",
       "keepsOriginal": "na",
       "deviceBackup": "na",
-      "migration": "na"
+      "migration": "na",
+      "autoBackup": "na"
     },
     "support": {
       "registered": true,

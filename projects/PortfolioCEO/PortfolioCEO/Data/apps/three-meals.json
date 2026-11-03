@@ -368,10 +368,10 @@
     "ux": {
       "widgets": true,
       "shortcuts": true,
-      "cloudSync": false,
+      "cloudSync": true,
       "tips": false,
       "onboarding": false,
-      "backup": false
+      "backup": true
     },
     "a11y": {
       "voiceOver": true,
@@ -476,13 +476,14 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 127,
-      "testFiles": 9
+      "accessibilityLabels": 128,
+      "testFiles": 10
     },
     "data": {
       "storeOpenSafe": true,
-      "keepsOriginal": true,
+      "keepsOriginal": false,
       "deviceBackup": true,
+      "autoBackup": true,
       "migration": "na"
     },
     "support": {

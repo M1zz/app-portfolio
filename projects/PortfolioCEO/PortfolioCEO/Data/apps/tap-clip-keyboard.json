@@ -116,7 +116,7 @@
     },
     "ux": {
       "widgets": false,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": true,
       "tips": false,
       "onboarding": true,
@@ -232,6 +232,7 @@
       "storeOpenSafe": true,
       "keepsOriginal": true,
       "deviceBackup": true,
+      "autoBackup": true,
       "migration": "na"
     },
     "support": {

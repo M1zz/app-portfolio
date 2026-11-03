@@ -149,7 +149,7 @@
       "cloudSync": true,
       "tips": true,
       "onboarding": true,
-      "backup": false
+      "backup": true
     },
     "a11y": {
       "voiceOver": true,
@@ -254,13 +254,14 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 81,
+      "accessibilityLabels": 82,
       "testFiles": 2
     },
     "data": {
       "storeOpenSafe": true,
       "keepsOriginal": true,
       "deviceBackup": true,
+      "autoBackup": true,
       "migration": false
     },
     "support": {

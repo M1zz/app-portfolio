@@ -39,6 +39,8 @@ EXPORT = re.compile(r"fileExporter|ShareLink\(item: *\w*(url|file|export|backup)
 IMPORT = re.compile(r"fileImporter|UIDocumentPickerViewController\(forOpening|func import\w*\(|func restore\w*\(|importData", re.I)
 # 기기 백업(iCloud·컴퓨터)에서 빠지는 자리 — 캐시가 아닌 파일이 여기 있으면 기록이 백업되지 않는다
 NOT_BACKED_UP = re.compile(r"isExcludedFromBackup *= *true|\.cachesDirectory")
+# LeeoKit 3.30 금고(LeeoVault) — bootstrap 이나 LeeoVault.start 를 부르면 매일·업데이트 직전 백업 + 파일 + iCloud
+VAULT_CALL = re.compile(r"LeeoKit\.bootstrap\(|LeeoVault\.start\(")
 ICLOUD = re.compile(r"cloudKitDatabase: *\.(automatic|private)|NSPersistentCloudKitContainer|CKContainer|NSUbiquitousKeyValueStore|LeeoCloud")
 
 # 어느 타깃에도 들지 않아 빌드되지 않는 폴더 — 앱에 들어가지 않는 코드다
@@ -63,6 +65,9 @@ REVIEWED = {
     "퇴사각/FireTracker/FireSummary.swift": "위젯용 요약",
     "아이일정/CalendarSnap/FamilySharing/SyncStateStore.swift": "동기화 상태",
     "장표스냅/SlideSnap/CloudSync.swift": "동기화 메타데이터",
+    "세끼/RoutineCamera/Manager/MealCloudSync.swift|visionAnalysis": "iCloud 레코드에서 온 분석값 — 다시 받는다",
+    "세끼/RoutineCamera/Manager/MealCloudSync.swift|func loadState()": "동기화 진행 표식 — 잃으면 다시 맞춘다",
+    "햇빛바라기/SunlightTracker/SunlightIntents.swift": "Siri 답 — 읽기만 한다",
     "장표스냅/SlideSnap/SlideIntents.swift|func read() -> [Presentation]": "Siri·Spotlight 색인 — 읽기만 하고 저장하지 않는다",
     "세끼/RoutineCamera/Manager/AchievementManager.swift": "업적 — 기록에서 다시 센다",
     "세끼/RoutineCamera/Model/Models.swift|PendingAteAll": "위젯이 쌓은 대기열",
@@ -128,6 +133,22 @@ def swift_files(repo: Path):
         yield p
 
 
+def vault(repo: Path):
+    """(켜졌나, iCloud 도 쓰나). LeeoKit 3.30 이상을 쓰고 금고를 켜는 호출이 있어야 켜진 것이다."""
+    ok = False
+    for r in repo.rglob("Package.resolved"):
+        if ".build" in r.parts or "build" in r.parts:
+            continue
+        m = re.search(r'LeeoKit\.git".*?"version" : "(\d+)\.(\d+)', r.read_text(errors="ignore"), re.S)
+        if m and (int(m.group(1)), int(m.group(2))) >= (3, 30):
+            ok = True
+    if not ok:
+        return False, False
+    texts = [f.read_text(errors="ignore") for f in swift_files(repo)]
+    on = any(VAULT_CALL.search(t) for t in texts)
+    return on, on and not any(re.search(r"vaultUsesICloud\s*(?::\s*Bool)?\s*[={]\s*false", t) for t in texts)
+
+
 def in_preview(lines, i):
     """그 줄이 #Preview · PreviewProvider · 메모리 전용 컨테이너 안이면 사용자 데이터가 아니다"""
     window = "\n".join(lines[max(0, i - 8): i + 3])
@@ -174,6 +195,10 @@ def audit(repo: Path):
                 if PERSISTED.search(around) and not KEEPS_ORIGINAL.search(around) and not DISPOSABLE.search(around):
                     r["lossy"].append(f"{rel}:{i + 1}")
     r["crash"] = sorted(set(r["crash"]))
+    r["vault"], vault_cloud = vault(repo)
+    if r["vault"]:
+        r["export"] = r["import"] = True
+        r["icloud"] |= vault_cloud
     return r
 
 
@@ -204,7 +229,7 @@ def main(names):
         red, yellow = verdict(r)
         reds += bool(red)
         mark = "🔴" if red else "🟡" if yellow else "✅"
-        backup = "/".join(x for x, ok in (("내보내기", r["export"]), ("가져오기", r["import"]), ("iCloud", r["icloud"])) if ok) or "—"
+        backup = "/".join(x for x, ok in (("금고", r["vault"]), ("내보내기", r["export"]), ("가져오기", r["import"]), ("iCloud", r["icloud"])) if ok) or "—"
         store = "+".join(sorted(r["store"])) or "저장 없음"
         rows.append(f"| {mark} | {r['name']} | {store} | {'버전관리' if r['versioned'] else '—'} | {backup} | {' · '.join(red + yellow) or '이상 없음'} |")
         print(f"{mark} {r['name']:<14} {store:<22} {' · '.join(red + yellow) or '이상 없음'}")

@@ -108,11 +108,11 @@
     },
     "ux": {
       "widgets": true,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": false,
       "tips": false,
       "onboarding": false,
-      "backup": false
+      "backup": true
     },
     "a11y": {
       "voiceOver": true,
@@ -222,8 +222,9 @@
     },
     "data": {
       "storeOpenSafe": true,
-      "keepsOriginal": true,
+      "keepsOriginal": false,
       "deviceBackup": true,
+      "autoBackup": true,
       "migration": "na"
     },
     "support": {

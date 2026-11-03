@@ -112,7 +112,7 @@
       "cloudSync": false,
       "tips": true,
       "onboarding": true,
-      "backup": false
+      "backup": true
     },
     "a11y": {
       "voiceOver": true,
@@ -224,6 +224,7 @@
       "storeOpenSafe": true,
       "keepsOriginal": true,
       "deviceBackup": true,
+      "autoBackup": true,
       "migration": "na"
     },
     "support": {
