@@ -145,7 +145,7 @@
     },
     "ux": {
       "widgets": true,
-      "shortcuts": false,
+      "shortcuts": true,
       "cloudSync": true,
       "tips": true,
       "onboarding": true,
@@ -273,7 +273,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-03"
+    "evaluatedAt": "2026-11-04"
   },
   "usStore": {
     "available": true,

@@ -58,6 +58,9 @@ REVIEWED = {
     "펀칭/sticker/MessagesViewController.swift": "스티커 읽기 전용",
     "펀칭/keyboard/KeyboardViewController.swift": "키보드 읽기 전용",
     "클립키보드/ClipKeyboardExtension/KeyboardView.swift": "키보드 읽기 전용",
+    "불타는내인생/BurningParchment/Models/BedtimeIntents.swift|func all() -> [DeadlineEntity]": "Siri · Spotlight 읽기 전용",
+    "우리집 가정법원/FamilyCourt/Store.swift|func savedCases()": "Siri · Spotlight 읽기 전용",
+    "펀칭/StampCamera/OpenKkukCameraIntent.swift|appendingPathExtension(\"json\")": "Siri · Spotlight 읽기 전용",
     # 다시 만들 수 있는 것 — 사본 · 캐시 · 집계 · 동기화 메타데이터
     "밑줄/BookmarkShot/Services/SharedQuoteStore.swift": "위젯용 사본 — 원본은 SwiftData",
     "벅뚜벅뚜/FootprintDiary/TerrainCache.swift": "지형 캐시",

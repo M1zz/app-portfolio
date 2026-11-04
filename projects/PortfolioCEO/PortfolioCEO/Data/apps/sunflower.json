@@ -222,7 +222,7 @@
     },
     "data": {
       "storeOpenSafe": true,
-      "keepsOriginal": false,
+      "keepsOriginal": true,
       "deviceBackup": true,
       "autoBackup": true,
       "migration": "na"
@@ -236,7 +236,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-03"
+    "evaluatedAt": "2026-11-04"
   },
   "usStore": {
     "available": true,

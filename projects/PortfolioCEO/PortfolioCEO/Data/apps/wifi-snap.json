@@ -146,7 +146,7 @@
       "inputFlow": true,
       "textCopy": true,
       "purchaseTest": false,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -238,7 +238,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-03"
+    "evaluatedAt": "2026-11-04"
   },
   "usStore": {
     "available": true,
