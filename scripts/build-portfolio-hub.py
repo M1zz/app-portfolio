@@ -1881,6 +1881,14 @@ BIZ_CSS = NAMES_CSS + """
   .xt tbody th{white-space:nowrap;font-size:.8rem}
   .xt tbody tr:last-child>*{border-bottom:0}
   .xt td .lnames{min-width:120px}
+  .goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+  .goal{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:13px 15px}
+  .goal .gh{display:flex;justify-content:space-between;gap:10px;font-size:.88rem}
+  .goal .gh span{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:700;white-space:nowrap}
+  .goal .gb{height:8px;border-radius:99px;background:var(--bg-soft);margin:9px 0 7px;overflow:hidden}
+  .goal .gb i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--ok))}
+  .goal p{font-size:.76rem;color:var(--muted)}
+  .xt b.done{color:var(--ok)}
   .pws{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
   .pw{background:var(--card);border:1px solid var(--border);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
   .pw .top{padding:18px 18px 14px;background:radial-gradient(120% 120% at 50% 0%,
@@ -2039,6 +2047,82 @@ def canvas(app, sc, pw):
                cell("rv", "수익원", rv)))
 
 
+# ── 목표와 현 상황 — 결제·기부 상품이 스토어에 다 붙었나 ─────────────
+# 원본: scripts/store-products.json (App Store Connect 상품 상태). 금액은 적지 않는다.
+STATE_MARK = {"APPROVED": ("✅", "판매 중"), "WAITING_FOR_REVIEW": ("⏳", "심사 중"), "IN_REVIEW": ("⏳", "심사 중"),
+              "READY_TO_SUBMIT": ("📝", "제출 전"), "MISSING_METADATA": ("📝", "제출 전")}
+CHARGES_LATER = ("freemium", "freemium-subscription", "paid+subscription", "paid+iap")
+
+
+def load_store_products():
+    try:
+        with open(os.path.join(ROOT, "scripts", "store-products.json"), encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return {}
+
+
+def goals_section(ls):
+    sp = load_store_products()
+    if not sp.get("apps"):
+        return ""
+    rows, tip_ok, pay_ok, pay_need = [], 0, 0, 0
+    for a in ls:
+        prods = [p for p in sp["apps"].get(a.get("bundleId") or "", []) if p[1] in STATE_MARK]
+        tips = [s for pid, s in prods if "tip" in pid.lower()]
+        pay = [s for pid, s in prods if "tip" not in pid.lower() and ".gift." not in pid]
+        needs_pay = (a.get("price") or {}).get("pricingModel") in CHARGES_LATER
+        tip_done = len(tips) >= 3 and set(tips) == {"APPROVED"}
+        pay_done = bool(pay) and set(pay) == {"APPROVED"}
+        tip_ok += tip_done
+        pay_need += needs_pay
+        pay_ok += needs_pay and pay_done
+        todo = []
+        if needs_pay and not pay:
+            todo.append("결제 상품 만들기")
+        elif {"READY_TO_SUBMIT", "MISSING_METADATA"} & set(pay):
+            todo.append("결제 상품 심사 제출")
+        elif "WAITING_FOR_REVIEW" in pay or "IN_REVIEW" in pay:
+            todo.append("결제 상품 심사 결과 기다림")
+        if not tips:
+            todo.append("팁 상품 만들기")
+        elif {"READY_TO_SUBMIT", "MISSING_METADATA"} & set(tips):
+            todo.append("다음 버전과 함께 팁 제출")
+        elif not tip_done:
+            todo.append("팁 심사 결과 기다림")
+
+        def marks(ss):
+            if not ss:
+                return '<span class="none">—</span>'
+            cnt = {}
+            for s in ss:
+                cnt[STATE_MARK[s]] = cnt.get(STATE_MARK[s], 0) + 1
+            return " ".join('<span title="%s">%s%d</span>' % (t, m, n) for (m, t), n in cnt.items())
+        rows.append((len(todo), a["name"], '<tr><th>%s</th><td>%s</td><td>%s</td><td>%s</td></tr>' % (
+            chips([a]), marks(pay) if (pay or needs_pay) else '<span class="none">필요 없음</span>', marks(tips),
+            esc(" · ".join(todo)) if todo else '<b class="done">완료</b>')))
+    n = len(ls)
+
+    def bar(label, got, total, why):
+        pct = round(100 * got / total) if total else 0
+        return ('<div class="goal"><div class="gh"><b>%s</b><span>%d / %d</span></div>'
+                '<div class="gb"><i style="width:%d%%"></i></div><p>%s</p></div>' % (esc(label), got, total, pct, esc(why)))
+    goals = '<div class="goals">%s%s</div>' % (
+        bar("써 본 뒤 돈을 받는 앱은 결제 상품이 모두 판매 중", pay_ok, pay_need,
+            "무료로 써 보고 마음에 들면 사는 앱이라면, 살 수 있는 상품이 스토어에서 승인돼 있어야 합니다."),
+        bar("모든 앱에 기부(팁) 세 가지가 판매 중", tip_ok, n,
+            "무료 앱도 고마운 마음을 남길 수 있게 $0.99 · $2.99 · $9.99 팁을 둡니다."))
+    rows.sort(key=lambda r: (-r[0], r[1]))
+    table = ('<div class="tw"><table class="xt"><thead><tr><th>앱</th><th>결제 상품</th><th>기부(팁)</th><th>다음 할 일</th>'
+             '</tr></thead><tbody>%s</tbody></table></div>' % "".join(r[2] for r in rows))
+    return ('<section><h2>목표와 현 상황<span class="hc">%s 기준</span></h2><p class="lead">돈을 받기로 한 앱은 '
+            '살 수 있는 상품이, 모든 앱에는 기부할 수 있는 팁이 스토어에 열려 있는 것이 목표입니다. '
+            '✅ 판매 중 · ⏳ 심사 중 · 📝 만들어 두고 제출 전. 숫자는 상품 개수입니다.</p>%s%s'
+            '<p class="note">앱의 첫 인앱 상품은 Apple 규칙상 새 버전과 함께만 심사에 낼 수 있어, '
+            '팁은 앱마다 다음 업데이트 때 함께 열립니다.</p></section>'
+            % (esc(sp.get("checkedAt", "")), goals, table))
+
+
 def business_page(apps):
     ls = [a for a in live(apps) if (a.get("price") or {}).get("evaluatedAt")]
     pws = load_paywalls()
@@ -2117,7 +2201,7 @@ def business_page(apps):
                    % (esc(mm[1]), len(a), "".join(canvas(x, scs.get(x["_slug"]) or {}, pws.get(x["_slug"])) for x in a)))
 
     main = (
-        '<section>%s</section>'
+        '<section>%s</section>' % kp + goals_section(ls) + (
         '<section><h2>결제 시점 × 결제 방식</h2><p class="lead">돈을 <b>언제</b>(설치할 때 / 써 보고 나서) '
         '<b>어떻게</b>(한 번 / 계속) 받느냐로 나누면 네 칸이 됩니다. 칸마다 사용자에게 하는 약속이 다릅니다.</p>%s</section>'
         '<section><h2>모델별 공식</h2><p class="lead">같은 칸에 있는 앱은 같은 질문에 답해야 합니다.</p>%s</section>'
@@ -2129,10 +2213,10 @@ def business_page(apps):
         '<section><h2>앱별 비즈니스 모델 캔버스</h2><p class="lead">Lean Canvas 아홉 칸으로 앱마다 펼쳐 볼 수 있습니다. '
         '문제·고객·가치 제안은 쇼케이스 소개에서, 수익원은 스토어에서, 핵심 지표는 제품 여정에서 가져왔습니다.</p>%s'
         '<p class="note">경쟁 우위 칸은 앱마다 근거 있는 자료가 아직 없어 비워 두었습니다. 비용 구조는 1인 개발이라 앱마다 거의 같습니다.</p></section>'
-        % (kp, grid, mods, xt, len(live_pw), pw_live,
+        % (grid, mods, xt, len(live_pw), pw_live,
            ('<section><h2>준비 중인 페이월<span class="hc">%d</span></h2><p class="lead">결제 화면은 만들어 두었지만 '
             '아직 판매를 열지 않은 앱입니다.</p>%s</section>' % (len(prep_pw), pw_prep)) if prep_pw else "",
-           groups))
+           groups)))
     return page("비즈니스 모델 — 리이오의 앱 포트폴리오",
                 "앱 %d개의 수익 모델과 페이월을 결제 시점 × 결제 방식 프레임워크와 Lean Canvas로 정리했습니다." % n,
                 {"head": head, "main": main}, "biz", BIZ_CSS)
