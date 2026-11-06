@@ -26,8 +26,8 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "kora pro",
-        "price": "￦17,000"
+        "name": "KORA Pro 평생 이용권 (가족 공유)",
+        "price": "₩17,000"
       }
     ],
     "code": {
@@ -43,7 +43,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "priority": "medium",
   "recentlyCompleted": [

@@ -263,16 +263,16 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "세끼 프로 평생",
-        "price": "￦66,000"
+        "name": "프로 연 구독 (기본 선택)",
+        "price": "₩25,000"
       },
       {
-        "name": "세끼 프로 연간",
-        "price": "￦25,000"
+        "name": "프로 월 구독",
+        "price": "₩3,300"
       },
       {
-        "name": "세끼 프로 월간",
-        "price": "￦3,300"
+        "name": "프로 평생",
+        "price": "₩66,000"
       }
     ],
     "code": {
@@ -298,7 +298,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "supportUrl": "https://m1zz.github.io/RoutineCamera/",
   "lifecycle": {

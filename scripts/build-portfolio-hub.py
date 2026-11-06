@@ -2002,28 +2002,33 @@ def plan_summary(p):
     return " · ".join(out)
 
 
-def plan_diffs(p):
-    """지금(설계안의 currentPublic 요약)과 앞으로(트림 가격표)가 다른 점을 짧은 표시로. 같으면 빈 목록."""
+def plan_diffs(pw, p):
+    """지금 페이월(앱 소스에서 읽은 판매 중 상품)과 앞으로(트림 가격표)가 다른 점을 짧은 표시로. 같으면 빈 목록."""
     paid = [t for t in p.get("trims") or [] if t.get("price")]
     if p.get("verdict") == "keep" or not paid:
         return []
-    now = (p.get("currentPublic") or p.get("current") or "").replace("￦", "₩")
-    has = lambda k: re.search(r"%s(?:간)?\s*(?:[₩$]|구독)|%s간" % (k, k), now)
-    selling = re.search(r"[₩$]\d", now) and "팁" not in now
+    pw = pw or {}
+    on = pw.get("kind") not in (None, "none", "tip-jar") and not pw.get("hidden")
+    tiers = [t for t in pw.get("tiers") or [] if on and t.get("live")]
+    labels = pw.get("trimLabels") or []
     out = []
-    if not selling:
+    if not tiers:
         out.append("유료 칸 새로")
-    if len(paid) >= 2 and not re.search(r"Plus|플러스", now, re.I):
+    elif len(paid) >= 2 and len(labels) < 3:
         out.append("Plus 칸 새로")
+    now = {t.get("period") for t in tiers}
     subs = [k for k, v in [("주", any(t.get("weekly") for t in paid)), ("월", any(t.get("monthly") for t in paid)),
-                           ("연", any(t.get("subscription") for t in paid))] if v and not (selling and has(k))]
+                           ("연", any(t.get("subscription") for t in paid))] if v and k not in now]
     if subs:
         out.append("%s 구독 새로" % " · ".join(subs))
-    life = re.search(r"평생(?: 이용권| Pro| 프로)?\s*(₩[\d,]+)", now)
-    if selling and not life:
+    won = lambda t: int(re.sub(r"\D", "", t["price"]) or 0)
+    life = sorted((t for t in tiers if t.get("period") == "평생" and (t.get("price") or "").startswith("₩")
+                   and not any(w in (t.get("label") or "") + t.get("productId", "") for w in ("올리기", "졸업", "선물", "차액", "upgrade", "graduate", "gift"))),
+                  key=won, reverse=True)  # 가장 비싼 평생 = 맨 위 칸의 평생
+    if tiers and "평생" not in now:
         out.append("평생 새로")
-    elif life and life.group(1) != paid[-1]["price"]:
-        out.append("%s 평생 %s → %s" % (paid[-1].get("label"), life.group(1), paid[-1]["price"]))
+    elif life and life[0]["price"] != paid[-1]["price"]:
+        out.append("%s 평생 %s → %s" % (paid[-1].get("label"), life[0]["price"], paid[-1]["price"]))
     return out
 
 
@@ -2032,7 +2037,7 @@ def plan_block(pw, p):
         return ""
     if p.get("verdict") == "keep":
         return '<div class="nx same"><h4>앞으로</h4><p>지금 페이월 그대로 갑니다.</p></div>'
-    diffs = plan_diffs(p)
+    diffs = plan_diffs(pw, p)
     return ('<div class="nx"><h4>앞으로 바뀌는 페이월</h4><p><i>지금</i>%s</p><p><i>앞으로</i>%s</p>%s</div>'
             % (esc(public_text(p.get("currentPublic") or p.get("current") or "")), esc(plan_summary(p)),
                '<div class="dt">%s</div>' % "".join("<span>%s</span>" % esc(d) for d in diffs) if diffs else ""))
@@ -2088,7 +2093,8 @@ def canvas(app, sc, pw, plan=None):
     ch = ["App Store%s" % (" · %d개국 판매" % g["storefronts"] if g.get("storefronts") else "")]
     if g:
         ch.append("앱 언어: " + lang_names(app))
-    rv = "<b>%s</b> — %s<br>%s" % (esc(m[1]), esc(m[4]), esc(" · ".join(price_text(app)) or "받는 돈 없음"))
+    now = (pw or {}).get("currentPublic") or " · ".join(price_text(app)) or "받는 돈 없음"
+    rv = "<b>%s</b> — %s<br>지금: %s" % (esc(m[1]), esc(m[4]), esc(now))
     if pw and pw.get("locked"):
         rv += "<br><span class='na'>유료로 여는 것: %s</span>" % esc(" · ".join(pw["locked"][:3]))
     if plan and plan.get("trims") and plan.get("verdict") != "keep":
@@ -2201,10 +2207,10 @@ def business_page(apps):
 
     def has_paywall(a):
         pw = pws.get(a["_slug"]) or {}
-        return pw.get("kind") not in (None, "none") and (pw.get("headline") or pw.get("benefits") or pw.get("locked"))
+        return pw.get("kind") not in (None, "none", "tip-jar") and (pw.get("headline") or pw.get("benefits") or pw.get("locked"))
 
     def selling(a):  # 스토어에 상품이 있고, 출시 빌드에서 결제 화면이 켜져 있다
-        return (a.get("price") or {}).get("hasInAppPurchases") and not pws[a["_slug"]].get("hidden")
+        return any(t.get("live") for t in pws[a["_slug"]].get("tiers") or []) and not pws[a["_slug"]].get("hidden")
 
     live_pw = [a for a in ls if has_paywall(a) and selling(a)]
     prep_pw = [a for a in ls if has_paywall(a) and not selling(a)]
@@ -2896,10 +2902,10 @@ def paywalls_page(apps):
 
     def has_paywall(a):
         pw = pws.get(a["_slug"]) or {}
-        return pw.get("kind") not in (None, "none") and (pw.get("headline") or pw.get("benefits") or pw.get("locked"))
+        return pw.get("kind") not in (None, "none", "tip-jar") and (pw.get("headline") or pw.get("benefits") or pw.get("locked"))
 
     def selling(a):
-        return (a.get("price") or {}).get("hasInAppPurchases") and not pws[a["_slug"]].get("hidden")
+        return any(t.get("live") for t in pws[a["_slug"]].get("tiers") or []) and not pws[a["_slug"]].get("hidden")
 
     key = maturity_rank(apps)
     live_pw = sorted([a for a in ls if has_paywall(a) and selling(a)], key=key)

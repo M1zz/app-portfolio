@@ -285,8 +285,8 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "monthly",
-        "price": "￦1,100"
+        "name": "프리미엄 월 구독",
+        "price": "₩1,100"
       }
     ],
     "code": {
@@ -303,7 +303,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "priority": "high",
   "recentlyCompleted": [

@@ -26,16 +26,28 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "Pro",
-        "price": "￦17,000"
+        "name": "Plus 연 구독",
+        "price": "₩4,400"
       },
       {
-        "name": "rainbow monthly",
-        "price": "￦3,300"
+        "name": "Plus 평생",
+        "price": "₩15,000"
       },
       {
-        "name": "rainbow yearly",
-        "price": "￦25,000"
+        "name": "Pro 연 구독",
+        "price": "₩25,000"
+      },
+      {
+        "name": "Pro 평생 (예전 '함께 쓰기' 상품 ID 를 이어 씀)",
+        "price": "₩17,000"
+      },
+      {
+        "name": "Plus 평생 → Pro 평생 올리기",
+        "price": "₩15,000"
+      },
+      {
+        "name": "구독 졸업 Pro 평생 (구독 6개월째 · 갱신 7일 전)",
+        "price": "₩22,000"
       }
     ],
     "code": {
@@ -61,7 +73,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "priority": "medium",
   "recentlyCompleted": [

@@ -286,16 +286,16 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "hantam pro yearly",
-        "price": "￦44,000"
+        "name": "한땀 Pro 평생 (기본 선택)",
+        "price": "₩77,000"
       },
       {
-        "name": "hantam pro monthly",
-        "price": "￦6,600"
+        "name": "한땀 Pro 연간 구독 (절약 배지)",
+        "price": "₩44,000"
       },
       {
-        "name": "Life time",
-        "price": "￦77,000"
+        "name": "한땀 Pro 월간 구독",
+        "price": "₩6,600"
       }
     ],
     "code": {
@@ -306,7 +306,7 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06"
   },
   "priority": "medium",
   "recentlyCompleted": [

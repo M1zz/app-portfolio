@@ -313,14 +313,9 @@
   },
   "price": {
     "isFree": true,
-    "pricingModel": "freemium",
-    "hasInAppPurchases": true,
-    "iapItems": [
-      {
-        "name": "평생구매",
-        "price": "￦9,900"
-      }
-    ],
+    "pricingModel": "free",
+    "hasInAppPurchases": false,
+    "iapItems": [],
     "code": {
       "storeKit": false,
       "subscriptionUI": false,
@@ -330,7 +325,8 @@
     },
     "gap": "스토어에 인앱결제가 있지만 소스에서 결제 코드를 찾지 못함",
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "supportUrl": "https://m1zz.github.io/CoolTime/",
   "lifecycle": {

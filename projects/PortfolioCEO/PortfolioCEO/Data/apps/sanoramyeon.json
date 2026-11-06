@@ -27,12 +27,12 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "malmun pro lifetime",
-        "price": "￦66,000"
+        "name": "Pro 연 구독 (첫 1주 무료)",
+        "price": "₩33,000"
       },
       {
-        "name": "malmun pro yearly",
-        "price": "￦33,000"
+        "name": "Pro 평생",
+        "price": "₩66,000"
       }
     ],
     "code": {
@@ -53,7 +53,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06"
   },
   "priority": "low",
   "recentlyCompleted": [

@@ -21,16 +21,16 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "평생 구매",
-        "price": "￦33,000"
+        "name": "PRO 월간 구독",
+        "price": "₩4,400"
       },
       {
-        "name": "1년 구독",
-        "price": "￦25,000"
+        "name": "PRO 연간 구독 (기본 강조 · '인기' · '월간 대비 최대 50% 절약')",
+        "price": "₩25,000"
       },
       {
-        "name": "1달 구독",
-        "price": "￦4,400"
+        "name": "PRO 평생 이용권 ('한 번 결제로 영구 이용')",
+        "price": "₩33,000"
       }
     ],
     "code": {
@@ -56,7 +56,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "priority": "medium",
   "recentlyCompleted": [],

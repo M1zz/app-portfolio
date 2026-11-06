@@ -321,8 +321,8 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "징검돌 프로 (평생)",
-        "price": "￦7,900"
+        "name": "징검돌 프로 평생 (한 번 구매)",
+        "price": "₩7,900"
       }
     ],
     "code": {
@@ -338,7 +338,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "supportUrl": "https://m1zz.github.io/Rebound-Journal/",
   "lifecycle": {

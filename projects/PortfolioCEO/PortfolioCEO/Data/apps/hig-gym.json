@@ -17,22 +17,22 @@
   "nextTasks": [],
   "notes": "[2026-10-13 스토어 동기화로 추가] Apple 휴먼 인터페이스 가이드라인을 레슨 23편·항목 68개·실수 100편으로 직접 만져 보며 익히는 iOS 디자인 워크북 (스토어명: 앱 디자인 실습: iOS HIG 공부, 2026-09-13 출시)",
   "price": {
-    "isFree": false,
-    "priceKRW": 49000,
-    "pricingModel": "paid+subscription",
+    "isFree": true,
+    "priceKRW": null,
+    "pricingModel": "freemium-subscription",
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "Pro 월간 구독",
-        "price": "￦9,900"
+        "name": "Pro 주 구독",
+        "price": "₩2,900"
       },
       {
-        "name": "Pro 주간 구독",
-        "price": "￦2,900"
+        "name": "Pro 월 구독 (처음 고른 칸)",
+        "price": "₩9,900"
       },
       {
-        "name": "앱 디자인 실습 Pro",
-        "price": "￦66,000"
+        "name": "Pro 평생 이용권 (구독 아님)",
+        "price": "₩66,000"
       }
     ],
     "code": {
@@ -58,7 +58,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06"
   },
   "priority": "medium",
   "recentlyCompleted": [],

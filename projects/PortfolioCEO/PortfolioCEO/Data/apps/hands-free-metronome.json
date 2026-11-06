@@ -26,12 +26,12 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "Pro",
-        "price": "￦17,000"
+        "name": "Pro 연 구독 (1주 무료 체험)",
+        "price": "₩4,400"
       },
       {
-        "name": "yearly",
-        "price": "￦4,400"
+        "name": "Pro 평생",
+        "price": "₩17,000"
       }
     ],
     "code": {
@@ -52,7 +52,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "priority": "high",
   "recentlyCompleted": [

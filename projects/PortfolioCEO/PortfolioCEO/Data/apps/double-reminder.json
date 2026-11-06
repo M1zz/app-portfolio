@@ -293,12 +293,16 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "두번알림 pro",
-        "price": "￦17,000"
+        "name": "기억 평생",
+        "price": "₩14,000"
       },
       {
-        "name": "upgrade",
-        "price": "￦11,000"
+        "name": "Pro 평생",
+        "price": "₩17,000"
+      },
+      {
+        "name": "기억 평생 → Pro 평생 올리기(차액)",
+        "price": "₩11,000"
       }
     ],
     "code": {
@@ -330,7 +334,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "priority": "high",
   "recentlyCompleted": [

@@ -27,7 +27,9 @@
       "products": []
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null,
+    "iapItems": []
   },
   "priority": "medium",
   "recentlyCompleted": [],

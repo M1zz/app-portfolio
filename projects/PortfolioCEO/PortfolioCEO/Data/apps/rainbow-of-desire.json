@@ -214,12 +214,32 @@
   },
   "price": {
     "isFree": true,
-    "pricingModel": "freemium",
+    "pricingModel": "freemium-subscription",
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "pro",
-        "price": "￦66,000"
+        "name": "Plus 연 구독",
+        "price": "₩4,400"
+      },
+      {
+        "name": "Plus 평생",
+        "price": "₩14,000"
+      },
+      {
+        "name": "Pro 연 구독",
+        "price": "$14.99"
+      },
+      {
+        "name": "Pro 평생 (1.1.x 의 4,900원 상품을 이어 씀)",
+        "price": "₩66,000"
+      },
+      {
+        "name": "Plus 평생 → Pro 평생 올리기 (Plus 평생 산 사람에게만 Pro 평생 자리에 섬)",
+        "price": "₩13,000"
+      },
+      {
+        "name": "구독 졸업 Pro 평생 (구독 6개월째 · 갱신 7일 전 시트, 설정 '평생으로 바꾸기')",
+        "price": "₩19,000"
       }
     ],
     "code": {
@@ -245,7 +265,8 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-06",
+    "priceKRW": null
   },
   "supportUrl": "https://m1zz.github.io/ScheduleDensity/",
   "lifecycle": {
