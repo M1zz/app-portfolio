@@ -93,8 +93,16 @@
     "APPROVED"
    ],
    [
+    "com.Ysoup.TokenMemo.gift.plus",
+    "READY_TO_SUBMIT"
+   ],
+   [
     "com.Ysoup.TokenMemo.gift.pro",
     "APPROVED"
+   ],
+   [
+    "com.Ysoup.TokenMemo.plus.monthly",
+    "READY_TO_SUBMIT"
    ],
    [
     "com.Ysoup.TokenMemo.plus.yearly",
@@ -111,6 +119,10 @@
    [
     "com.Ysoup.TokenMemo.pro.halfoff",
     "DEVELOPER_REMOVED_FROM_SALE"
+   ],
+   [
+    "com.Ysoup.TokenMemo.pro.monthly",
+    "READY_TO_SUBMIT"
    ],
    [
     "com.Ysoup.TokenMemo.pro.upgrade",

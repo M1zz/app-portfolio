@@ -1,5 +1,5 @@
 {
-  "_comment": "앱별 페이월 — 앱 소스(작업 트리)를 다시 읽어 정리 (2026-11-06). business.html 이 읽는다. productId·paywallFiles·notes 는 내부용이라 공개 페이지에 내보내지 않는다. hidden=true 는 출시 빌드에서 결제 화면이 꺼져 있다는 뜻. tier.live 는 store-products.json 에서 APPROVED 이고 출시 빌드 페이월에 보인다는 뜻.",
+  "_comment": "앱별 페이월 — 앱 소스(작업 트리)를 다시 읽어 정리 (2026-11-06, 클립키보드 2026-11-07). business.html 이 읽는다. productId·paywallFiles·notes 는 내부용이라 공개 페이지에 내보내지 않는다. hidden=true 는 출시 빌드에서 결제 화면이 꺼져 있다는 뜻. tier.live 는 store-products.json 에서 APPROVED 이고 출시 빌드 페이월에 보인다는 뜻.",
   "apps": {
     "burning-my-life": {
       "slug": "burning-my-life",
@@ -97,9 +97,9 @@
       ],
       "kind": "mixed",
       "hidden": false,
-      "headline": "ClipKeyboard Plus · Pro",
-      "subheadline": "7일 무료 체험 · 연 구독이나 평생 중에 골라요 (체험을 이미 쓴 사람에게는 '연 구독이나 평생 중에 골라요')",
-      "cta": "Plus 시작하기 / Pro 시작하기 (Plus 평생을 산 사람은 'Pro 로 올리기')",
+      "headline": "자주 쓰는 글, 마음껏 담고 지키세요",
+      "subheadline": "7일 무료 체험 · 월 · 연 구독이나 평생 중에 골라요 (체험을 이미 쓴 사람에게는 '월 · 연 구독이나 평생 중에 골라요')",
+      "cta": "Plus 시작하기 / Pro 시작하기 (Plus 평생을 산 사람은 'Pro 로 올리기') — 아래 고정 단추 하나",
       "trimLabels": [
         "무료",
         "Plus",
@@ -111,7 +111,7 @@
         "Pro · 쌓은 것을 지키기: Plus 의 모든 것",
         "Pro: iCloud 백업 · 생체인증 잠금",
         "Pro: 기기 간 동기화 (베타)",
-        "이미 ClipKeyboard로 N분을 아꼈어요. Pro로 무제한으로 계속 아끼세요. (5분 이상 아낀 사람에게만)"
+        "Plus | Pro 를 고르고 월 · 연 · 평생 중 하나 — 줄마다 전체 가격, 연에는 'N% 절약', 비교표는 접어 둠"
       ],
       "free": [
         "단축어를 100번 넣기 전까지는 모든 기능 무료 (문턱은 원격 값으로 20~1000 사이에서 바뀔 수 있음)",
@@ -131,6 +131,15 @@
       ],
       "tiers": [
         {
+          "productId": "com.Ysoup.TokenMemo.plus.monthly",
+          "label": "Plus 월 구독 (스토어 제출 전, 다음 빌드부터)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
           "productId": "com.Ysoup.TokenMemo.plus.yearly",
           "label": "Plus 연 구독",
           "trim": "Plus",
@@ -141,25 +150,34 @@
         },
         {
           "productId": "com.Ysoup.TokenMemo.slots5",
-          "label": "Plus 평생 (예전 칸 추가 상품의 뜻을 넓힘)",
+          "label": "Plus 평생 (11월 17일부터 ₩20,000 · $14.99)",
           "trim": "Plus",
           "period": "평생",
-          "price": null,
-          "priceUS": "$14.99",
+          "price": "₩9,900",
+          "priceUS": "$5.99",
           "live": true
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.pro.monthly",
+          "label": "Pro 월 구독 (스토어 제출 전, 다음 빌드부터)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩2,200",
+          "priceUS": "$1.99",
+          "live": false
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro.yearly",
           "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
-          "price": null,
+          "price": "₩13,000",
           "priceUS": "$8.99",
           "live": true
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro",
-          "label": "Pro 평생",
+          "label": "Pro 평생 (11월 17일부터 ₩39,000 · $26.99)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩17,000",
@@ -168,16 +186,16 @@
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro.upgrade",
-          "label": "Plus → Pro 올리기 (Plus 평생을 산 사람에게만 보이는 Pro 평생 값)",
+          "label": "Plus → Pro 올리기 (Plus 평생을 산 사람에게만) (11월 17일부터 ₩19,000 · $12.99)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩13,000",
-          "priceUS": "$12.99",
+          "priceUS": "$7.99",
           "live": true
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro.graduate",
-          "label": "구독 졸업 — 연 구독 중인 사람이 사는 Pro 평생 (6개월째 · 갱신 7일 전 시트, 설정 '평생으로 바꾸기')",
+          "label": "구독 졸업 — 연 구독 중인 사람이 사는 Pro 평생 (6개월째 · 갱신 7일 전, 설정 '평생으로 바꾸기')",
           "trim": "Pro",
           "period": "평생",
           "price": "₩27,000",
@@ -185,8 +203,17 @@
           "live": true
         },
         {
+          "productId": "com.Ysoup.TokenMemo.gift.plus",
+          "label": "Plus 선물하기 (스토어 제출 전, 오퍼 코드 링크로 받는 사람에게 Plus 평생) (11월 17일부터 ₩20,000 · $14.99)",
+          "trim": "Plus",
+          "period": "1회",
+          "price": "₩9,900",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
           "productId": "com.Ysoup.TokenMemo.gift.pro",
-          "label": "Pro 선물하기 (소모성, 오퍼 코드 링크로 받는 사람에게 Pro 평생)",
+          "label": "Pro 선물하기 (오퍼 코드 링크로 받는 사람에게 Pro 평생) (11월 17일부터 ₩39,000 · $26.99)",
           "trim": "Pro",
           "period": "1회",
           "price": "₩17,000",
@@ -198,8 +225,8 @@
           "label": "언제나 평생 패스 (리이오 모든 앱, 판매 줄 감춤)",
           "trim": "Pro",
           "period": "평생",
-          "price": null,
-          "priceUS": null,
+          "price": "₩149,000",
+          "priceUS": "$99.99",
           "live": false
         },
         {
@@ -218,17 +245,17 @@
         "tip.large"
       ],
       "triggers": [
-        "단축어를 100번째 넣은 뒤 앱을 열 때 한 번 — 영수증 화면 '지난 N일 동안 / 단축어를 N번 넣었어요' + 같은 요금제 사다리",
+        "단축어를 100번째 넣은 뒤 앱을 열 때 한 번 — 머리말 '지난 N일 동안 / 단축어를 N번 넣었어요 · 약 N분 아꼈어요', 아래는 같은 템플릿",
         "문턱 뒤 단축어 · 템플릿 · 스택 · 이미지 단축어를 한도 넘게 만들 때 (목록 · 추가 화면 · 한꺼번에 가져오기 · 키보드에서 넘어올 때)",
-        "보안 단축어에 생체인증 잠금을 켤 때",
-        "iCloud 백업 · 기기 간 동기화를 켤 때",
-        "설정 ▸ Pro 업그레이드 (Plus 사용자는 'Plus 쓰는 중 · 다음은 Pro', 체험 중이면 '체험 활성: N일 남음')",
-        "연 구독 중인 사람에게 구독 졸업 시트 (6개월째 · 갱신 7일 전)"
+        "보안 단축어에 생체인증 잠금 · iCloud 백업 · 기기 간 동기화를 켤 때",
+        "설정 ▸ Pro 업그레이드 (Plus 사용자는 Pro 하나만, 체험 중이면 '체험 활성: N일 남음')",
+        "연 구독 중인 사람에게 구독 졸업 시트 (6개월째 · 갱신 7일 전)",
+        "이미 Pro 를 다 가진 사람에게 드물게 '혼자 만드는 앱이에요' 창, 그 안에서 바로 팁 (아낀 시간 · 꺼낸 횟수 고비마다, 60일에 한 번)"
       ],
-      "trial": "앱 안 7일 무료 체험 1회('7일 무료 체험 시작'). 연 구독은 처음 구독하는 사람에게 '처음이면 첫 해 %@' — .storekit 기준 첫 해 반값(Plus $2.49 · Pro $4.49)",
+      "trial": "앱 안 7일 무료 체험 1회('7일 무료 체험 시작', 단추 아래 한 줄). 연 구독은 처음 구독하는 사람에게 첫 해 할인(.storekit 기준 반값)",
       "restore": true,
-      "currentPublic": "무료(100번 넣을 때까지 전부, 그 뒤 단축어 10개) · Plus 연 ₩6,600 / 평생 · Pro 연 / 평생 ₩17,000 · Plus→Pro 올리기 ₩13,000 · 구독 졸업 ₩27,000 · Pro 선물 · 팁",
-      "notes": "2026-10-28 요금제 개편(bc48d7c0) 이후: 무료 · Plus · Pro 세 칸, 칸마다 연 구독/평생(LeeoTermPicker, 처음엔 연 구독이 골라져 있음), 비교표, 약관 링크. 반값 제안(DiscountOffer)은 코드에서 빠졌고 halfoff 는 스토어에서도 DEVELOPER_REMOVED_FROM_SALE. 2026-11-06(be03d4af, 5.1.19 빌드 47 — 출시 여부 미확인) StoreManager.sellsForeverPass = false 로 언제나 평생 패스 줄을 감췄다 — forever · forever.upgrade · forever.yearly 는 스토어 APPROVED 지만 페이월에 안 보인다. 칸 팩(slots5.pack) · 두 대째(twodevice)는 Spec productIDs 에 있고 APPROVED 지만 구매를 부르는 화면이 없다(산 사람 권한만). 마스터(tier.master · up.pro.master)는 코드에만, 팔지 않음. 연 구독만 있고 주 · 월은 없다. 가격: priceUS 는 .storekit(테스트 설정) 값 — Pro 평생 $26.99 등으로 올라 있어 실제 스토어 가격과 다를 수 있다. 원화는 레포에 없고 apps.json 의 예전 스토어 가격(Pro ₩17,000 · 올리기 ₩13,000 · 선물 ₩17,000 · 반값 ₩7,700)뿐이라 낡았을 수 있음 — Plus 연/평생 · Pro 연 · 졸업 원화는 확인 못 함. 첫 해 반값은 .storekit 에만 있고 App Store Connect 에 걸렸는지는 미확인. 팁은 이미 Pro 인 사람의 페이월과 설정(처음 사용자는 졸업 뒤)에만 보이고, 팁 3종 APPROVED. 선물은 sellsGifts: true 라 설정에 'Pro 선물하기'가 보인다(오퍼 코드 묶음이 비면 '준비 중'). [2026-11-06 App Store 페이지 실가격으로 가격 · 판매 여부를 바로잡음]"
+      "currentPublic": "무료(100번 넣을 때까지 전부, 그 뒤 단축어 10개) · Plus 연 ₩6,600 / 평생 ₩9,900 · Pro 연 ₩13,000 / 평생 ₩17,000 · Plus→Pro 올리기 ₩13,000 · 구독 졸업 ₩27,000 · Pro 선물 · 팁 · 다음 빌드에 월 구독(Plus ₩1,100 · Pro ₩2,200) · 11월 17일 평생가 인상(Plus ₩20,000 · Pro ₩39,000)",
+      "notes": "2026-11-07 다시 읽음 (클립키보드 main 43698562). 스토어 출시본은 5.1.18, 5.1.19(빌드 47, bcce27fb)는 그 뒤 배포 단계. 8f1498f7 페이월 개편: 두 결제 화면(PaywallView · FreeUsePaywallView)을 PaywallTemplate 하나로 — 머리말 · Plus|Pro 전환(Pro 추천, 처음 골라짐) · 혜택 세 줄 · 월/연/평생 세로 목록 · 아래 고정 구매 단추 하나 · 갱신 조건 · 체험/복원/약관 한 줄, 비교표 접힘. 무료 카드 · 칸 카드 세 장은 빠짐. 왕관 그림 뺌. 2af93ed5 월 구독(plus.monthly ₩1,100 · pro.monthly ₩2,200)을 연 구독 그룹에 더함 — ASC READY_TO_SUBMIT, 출시 빌드에 아직 없음. 처음 골라 두는 길은 연(올리기는 평생). 43698562 Plus 선물(gift.plus, ASC READY_TO_SUBMIT). 284075d9 팁 요청은 Pro 를 다 가진 사람에게만 뜨는 창으로. be03d4af StoreManager.sellsForeverPass = false 로 언제나 평생 패스 줄을 감춤(5.1.19 에는 아직 안 들어감). 칸 팩(slots5.pack ₩4,400) · 두 대째(twodevice ₩11,000)는 APPROVED 지만 구매를 부르는 화면이 없다. 가격은 2026-11-07 ASC 가격표(KOR · USA). 11-17 예약 인상: slots5 · gift.plus ₩20,000 $14.99, pro · gift.pro ₩39,000 $26.99, pro.upgrade ₩19,000 $12.99. pro.yearly 는 10-29 에 ₩7,700→₩13,000. forever.upgrade ₩119,000 · forever.yearly ₩49,000 APPROVED."
     },
     "cooltime": {
       "slug": "cooltime",

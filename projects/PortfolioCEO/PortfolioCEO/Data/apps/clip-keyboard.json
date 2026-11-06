@@ -285,27 +285,27 @@
         "price": "₩6,600"
       },
       {
-        "name": "Plus 평생 (예전 칸 추가 상품의 뜻을 넓힘)",
-        "price": "$14.99"
+        "name": "Plus 평생",
+        "price": "₩9,900"
       },
       {
         "name": "Pro 연 구독",
-        "price": "$8.99"
+        "price": "₩13,000"
       },
       {
         "name": "Pro 평생",
         "price": "₩17,000"
       },
       {
-        "name": "Plus → Pro 올리기 (Plus 평생을 산 사람에게만 보이는 Pro 평생 값)",
+        "name": "Plus → Pro 올리기",
         "price": "₩13,000"
       },
       {
-        "name": "구독 졸업 — 연 구독 중인 사람이 사는 Pro 평생 (6개월째 · 갱신 7일 전 시트, 설정 '평생으로 바꾸기')",
+        "name": "구독 졸업 Pro 평생",
         "price": "₩27,000"
       },
       {
-        "name": "Pro 선물하기 (소모성, 오퍼 코드 링크로 받는 사람에게 Pro 평생)",
+        "name": "Pro 선물하기",
         "price": "₩17,000"
       }
     ],
@@ -358,7 +358,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
+    "evaluatedAt": "2026-11-07",
     "priceKRW": null
   },
   "priority": "low",
