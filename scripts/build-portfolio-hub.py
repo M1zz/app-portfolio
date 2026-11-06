@@ -1922,6 +1922,20 @@ BIZ_CSS = NAMES_CSS + """
   .nx p i{font-style:normal;font-weight:800;color:var(--muted);margin-right:6px}
   .nx .dt{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
   .nx .dt span{background:#e0a53a;color:#fff;font-weight:700;border-radius:999px;padding:1px 8px;font-size:.7rem}
+  .cmp{border-collapse:collapse;width:100%;font-size:.8rem;background:var(--card)}
+  .cmp th,.cmp td{padding:7px 10px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap;
+    font-variant-numeric:tabular-nums}
+  .cmp thead th{font-size:.7rem;color:var(--muted);font-weight:800;background:var(--bg-soft)}
+  .cmp th.a{text-align:left;vertical-align:top;border-right:1px solid var(--border)}
+  .cmp th.a a{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:700}
+  .cmp th.a .ic{width:24px;height:24px;border-radius:6px}
+  .cmp td.w,.cmp td.t{text-align:left;color:var(--muted);font-weight:700}
+  .cmp td.t{color:var(--text)}
+  .cmp tr.g>*{border-top:2px solid var(--border)}
+  .cmp tr.fut td{background:color-mix(in srgb,#e0a53a 5%,transparent)}
+  .cmp td.chg{color:#c98a1c;font-weight:800}
+  .cmp td.na{color:var(--border)}
+  .cmp td.nt{text-align:left;color:var(--muted);font-weight:500}
   .lc .rv .nxl{display:block;margin-top:4px;color:#c98a1c;font-weight:600}
   .gate{border-top:1px solid var(--border);padding:12px 18px 16px;font-size:.76rem;display:grid;gap:8px;margin-top:auto}
   .gate h4{font-size:.66rem;color:var(--muted);font-weight:800;letter-spacing:.04em}
@@ -2041,6 +2055,68 @@ def plan_block(pw, p):
     return ('<div class="nx"><h4>앞으로 바뀌는 페이월</h4><p><i>지금</i>%s</p><p><i>앞으로</i>%s</p>%s</div>'
             % (esc(public_text(p.get("currentPublic") or p.get("current") or "")), esc(plan_summary(p)),
                '<div class="dt">%s</div>' % "".join("<span>%s</span>" % esc(d) for d in diffs) if diffs else ""))
+
+
+SPECIAL = ("올리기", "졸업", "선물", "차액", "upgrade", "graduate", "gift", "halfoff", "forever", "family", "패밀리")
+
+
+def _trim_key(label):
+    return "Plus" if re.search(r"plus|플러스|기억", label or "", re.I) else "Pro"
+
+
+def _now_trims(pw):
+    """지금 판매 중인 기본 상품을 칸별 {주·월·연·평생: 가격} 으로. 올리기 · 졸업 · 선물은 뺀다."""
+    out = {}
+    on = pw.get("kind") not in (None, "none", "tip-jar") and not pw.get("hidden")
+    for t in pw.get("tiers") or []:
+        if not (on and t.get("live")) or any(w in (t.get("label") or "") + (t.get("productId") or "") for w in SPECIAL):
+            continue
+        k = _trim_key(t.get("trim") or t.get("label"))
+        row = out.setdefault(k, {"label": t.get("trim") or k})
+        row.setdefault(t.get("period"), t.get("price") or t.get("priceUS"))
+    return out
+
+
+def _plan_trims(p):
+    out = {}
+    for tr in p.get("trims") or []:
+        if not tr.get("price"):
+            continue
+        g = lambda k: (tr.get(k) or {}).get("price")
+        out[_trim_key(tr.get("label"))] = {"label": tr.get("label"), "주": g("weekly"), "월": g("monthly"),
+                                           "연": g("subscription"), "평생": tr["price"]}
+    return out
+
+
+def paywall_compare_table(apps, pws, plans):
+    """앱마다 지금 / 앞으로 를 칸 한 줄씩, 주 · 월 · 연 · 평생 가격을 나란히. 앞으로 달라지는 값은 색으로."""
+    per = ["주", "월", "연", "평생"]
+    body = ""
+    for a in apps:
+        pw, p = pws.get(a["_slug"]) or {}, plans.get(a["_slug"]) or {}
+        now, fut = _now_trims(pw), _plan_trims(p)
+        keep = p.get("verdict") == "keep" or not fut
+        rows = []
+        for k, r in sorted(now.items(), key=lambda x: x[0] != "Plus"):
+            rows.append(("지금", r["label"], ["<td>%s</td>" % esc(r[x]) if r.get(x) else '<td class="na">–</td>' for x in per], ""))
+        if not now:
+            why = "결제 화면 꺼짐" if pw.get("hidden") else "유료 칸 없음"
+            rows.append(("지금", "—", ['<td class="na">–</td>'] * 4, why))
+        if not keep:
+            for k, r in sorted(fut.items(), key=lambda x: x[0] != "Plus"):
+                was = now.get(k) or {}
+                rows.append(("앞으로", r["label"], [
+                    '<td class="%s">%s</td>' % ("chg" if r.get(x) != was.get(x) else "", esc(r[x])) if r.get(x)
+                    else '<td class="na%s">–</td>' % (" chg" if was.get(x) else "") for x in per], ""))
+        else:
+            rows.append(("앞으로", "", ['<td class="na"></td>'] * 4, "지금 그대로"))
+        for i, (w, lbl, cells, note) in enumerate(rows):
+            body += '<tr class="%s%s">%s<td class="w">%s</td><td class="t">%s</td>%s<td class="nt">%s</td></tr>' % (
+                "g" if i == 0 else "", " fut" if w == "앞으로" else "",
+                '<th class="a" rowspan="%d"><a href="#pw-%s">%s%s</a></th>' % (len(rows), esc(a["_slug"]), icon_img(a), esc(a["name"]))
+                if i == 0 else "", w, esc(lbl), "".join(cells), esc(note))
+    return ('<div class="tw"><table class="cmp"><thead><tr><th style="text-align:left">앱</th><th></th><th style="text-align:left">칸</th>'
+            '<th>주</th><th>월</th><th>연</th><th>평생</th><th></th></tr></thead><tbody>%s</tbody></table></div>' % body)
 
 
 def paywall_card(app, pw, plan=None):
@@ -2262,6 +2338,7 @@ def business_page(apps):
 
     pw_live = '<div class="pws">%s</div>' % "".join(paywall_card(a, pws[a["_slug"]], plans.get(a["_slug"])) for a in live_pw)
     pw_prep = '<div class="pws">%s</div>' % "".join(paywall_card(a, pws[a["_slug"]], plans.get(a["_slug"])) for a in prep_pw)
+    cmp_table = paywall_compare_table(live_pw + prep_pw, pws, plans)
     changing = sum(1 for a in ls if (plans.get(a["_slug"]) or {}).get("trims") and plans[a["_slug"]].get("verdict") != "keep")
 
     groups = ""
@@ -2282,12 +2359,15 @@ def business_page(apps):
         '<section><h2>페이월<span class="hc">%d</span></h2><p class="lead">앱 안에서 결제를 권하는 화면입니다. '
         '앱 소스에서 문구와 혜택, 무료 몫, 화면이 뜨는 시점을 읽어 그대로 옮겼습니다. 가격은 App Store 기준입니다. '
         '<b>앞으로 바뀌는 페이월</b> 칸은 설계안(무료 · Plus · Pro)과 지금이 다른 곳입니다. 앱 %d개가 바뀝니다 — '
-        '<a href="paywalls.html#next">설계안 전체 보기</a>.</p>%s</section>'
+        '<a href="paywalls.html#next">설계안 전체 보기</a>.</p>'
+        '<h3 style="margin:18px 0 8px;font-size:.95rem">한눈에 보기 — 지금과 앞으로</h3>%s'
+        '<p class="note">지금 판매 중인 기본 상품만 적었습니다(올리기 · 구독 졸업 · 선물은 카드에). 색이 든 값이 앞으로 달라지는 곳입니다. '
+        '팁만 있는 무료 · 유료 앱은 아래 캔버스의 수익원 칸에 있습니다.</p>%s</section>'
         '%s'
         '<section><h2>앱별 비즈니스 모델 캔버스</h2><p class="lead">Lean Canvas 아홉 칸으로 앱마다 펼쳐 볼 수 있습니다. '
         '문제·고객·가치 제안은 쇼케이스 소개에서, 수익원은 스토어에서, 핵심 지표는 제품 여정에서 가져왔습니다.</p>%s'
         '<p class="note">경쟁 우위 칸은 앱마다 근거 있는 자료가 아직 없어 비워 두었습니다. 비용 구조는 1인 개발이라 앱마다 거의 같습니다.</p></section>'
-        % (grid, mods, xt, len(live_pw), changing, pw_live,
+        % (grid, mods, xt, len(live_pw), changing, cmp_table, pw_live,
            ('<section><h2>준비 중인 페이월<span class="hc">%d</span></h2><p class="lead">결제 화면은 만들어 두었지만 '
             '아직 판매를 열지 않은 앱입니다.</p>%s</section>' % (len(prep_pw), pw_prep)) if prep_pw else "",
            groups)))
