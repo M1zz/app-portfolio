@@ -7,6 +7,8 @@ on:
       - 'projects/PortfolioCEO/PortfolioCEO/Data/apps/**'
       - 'scripts/build-portfolio-site.py'
       - 'scripts/build-portfolio-hub.py'
+      - 'scripts/build-service-check.py'
+      - 'scripts/showcase-content.json'
       - 'scripts/hub-links.json'
       - 'scripts/paywalls.json'
       - '.github/workflows/deploy-pages.yml'
@@ -41,6 +43,9 @@ jobs:
 
       - name: Build hub & lifecycle pages (공개 안전 버전)
         run: python3 scripts/build-portfolio-hub.py
+
+      - name: Build service check page (서비스 점검표)
+        run: python3 scripts/build-service-check.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

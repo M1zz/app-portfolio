@@ -173,6 +173,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
         for k, h, t in [("home", "index.html", "쇼케이스"),
                         ("life", "lifecycle.html", "제품 여정"),
                         ("maturity", "maturity.html", "서비스 숙성도"),
+                        ("check", "service-check.html", "서비스 점검"),
                         ("biz", "business.html", "비즈니스 모델"),
                         ("pw", "paywalls.html", "페이월"),
                         ("cat", "category.html", "범주 · 언어"),
@@ -1797,6 +1798,9 @@ def hub_page(apps):
         '<a class="ov" href="maturity.html"><b>서비스 숙성도</b>'
         '<p>갖춰야 할 피처(언어·지원 페이지·피드백·인프라·품질·기능·접근성·다듬기·데이터·수익화·소통·홍보)를 '
         '앱마다 무엇을 갖췄는지 한 표로 보고, 할 일 탭에서 앱별로 남은 일을 봅니다.</p></a>'
+        '<a class="ov" href="service-check.html"><b>서비스 점검표</b>'
+        '<p>모든 앱이 실제로 제대로 동작하는지 사람과 돈이 걸린 앱부터 손으로 확인하고, '
+        '항목마다 잘 됨 · 불편함 · 안 됨으로 기록합니다.</p></a>'
         '<a class="ov" href="business.html"><b>비즈니스 모델</b>'
         '<p>앱마다 누구에게, 언제, 무엇에 돈을 받는지 — 결제 시점 × 방식 프레임워크와 페이월, '
         'Lean Canvas로 정리했습니다.</p></a>'
