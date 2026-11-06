@@ -1914,6 +1914,15 @@ BIZ_CSS = NAMES_CSS + """
   .cta{margin:10px 18px 6px;text-align:center;border-radius:12px;padding:10px;font-weight:800;font-size:.85rem;
     color:#fff;background:var(--c)}
   .fine{text-align:center;font-size:.68rem;color:var(--muted);padding:0 18px 14px}
+  .nx{margin:0 14px 12px;border:1.5px dashed #e0a53a;border-radius:13px;padding:10px 12px;font-size:.76rem;
+    background:color-mix(in srgb,#e0a53a 7%,transparent)}
+  .nx.same{border-color:var(--border);background:none;color:var(--muted)}
+  .nx h4{font-size:.66rem;color:#c98a1c;font-weight:800;letter-spacing:.04em;margin-bottom:5px}
+  .nx p{margin:2px 0;word-break:keep-all;line-height:1.5}
+  .nx p i{font-style:normal;font-weight:800;color:var(--muted);margin-right:6px}
+  .nx .dt{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+  .nx .dt span{background:#e0a53a;color:#fff;font-weight:700;border-radius:999px;padding:1px 8px;font-size:.7rem}
+  .lc .rv .nxl{display:block;margin-top:4px;color:#c98a1c;font-weight:600}
   .gate{border-top:1px solid var(--border);padding:12px 18px 16px;font-size:.76rem;display:grid;gap:8px;margin-top:auto}
   .gate h4{font-size:.66rem;color:var(--muted);font-weight:800;letter-spacing:.04em}
   .gate p{margin:1px 0;word-break:keep-all}
@@ -1980,7 +1989,56 @@ def chips(ls):
         for a in ls)
 
 
-def paywall_card(app, pw):
+# ── 지금 페이월 → 앞으로 페이월(scripts/paywall-plans.json) — 다른 곳을 표시한다 ──────
+def plan_summary(p):
+    """설계안 트림을 한 줄로: '무료 · Plus 연 ₩12,000 / 평생 ₩35,000 · Pro …'. 가격은 트림 가격표가 기준."""
+    out = []
+    for tr in p.get("trims") or []:
+        if not tr.get("price"):
+            out.append(tr.get("label") or "무료")
+            continue
+        sub = (tr.get("subscription") or {}).get("price")
+        out.append("%s %s평생 %s" % (tr.get("label"), "연 %s / " % sub if sub else "", tr["price"]))
+    return " · ".join(out)
+
+
+def plan_diffs(p):
+    """지금(설계안의 currentPublic 요약)과 앞으로(트림 가격표)가 다른 점을 짧은 표시로. 같으면 빈 목록."""
+    paid = [t for t in p.get("trims") or [] if t.get("price")]
+    if p.get("verdict") == "keep" or not paid:
+        return []
+    now = (p.get("currentPublic") or p.get("current") or "").replace("￦", "₩")
+    has = lambda k: re.search(r"%s(?:간)?\s*(?:[₩$]|구독)|%s간" % (k, k), now)
+    selling = re.search(r"[₩$]\d", now) and "팁" not in now
+    out = []
+    if not selling:
+        out.append("유료 칸 새로")
+    if len(paid) >= 2 and not re.search(r"Plus|플러스", now, re.I):
+        out.append("Plus 칸 새로")
+    subs = [k for k, v in [("주", any(t.get("weekly") for t in paid)), ("월", any(t.get("monthly") for t in paid)),
+                           ("연", any(t.get("subscription") for t in paid))] if v and not (selling and has(k))]
+    if subs:
+        out.append("%s 구독 새로" % " · ".join(subs))
+    life = re.search(r"평생(?: 이용권| Pro| 프로)?\s*(₩[\d,]+)", now)
+    if selling and not life:
+        out.append("평생 새로")
+    elif life and life.group(1) != paid[-1]["price"]:
+        out.append("%s 평생 %s → %s" % (paid[-1].get("label"), life.group(1), paid[-1]["price"]))
+    return out
+
+
+def plan_block(pw, p):
+    if not p or not p.get("trims"):
+        return ""
+    if p.get("verdict") == "keep":
+        return '<div class="nx same"><h4>앞으로</h4><p>지금 페이월 그대로 갑니다.</p></div>'
+    diffs = plan_diffs(p)
+    return ('<div class="nx"><h4>앞으로 바뀌는 페이월</h4><p><i>지금</i>%s</p><p><i>앞으로</i>%s</p>%s</div>'
+            % (esc(public_text(p.get("currentPublic") or p.get("current") or "")), esc(plan_summary(p)),
+               '<div class="dt">%s</div>' % "".join("<span>%s</span>" % esc(d) for d in diffs) if diffs else ""))
+
+
+def paywall_card(app, pw, plan=None):
     m = model_of(app)
     store = {it["name"]: it["price"] for it in (app.get("price") or {}).get("iapItems") or []}
     tiers = pw.get("tiers") or []
@@ -2000,7 +2058,7 @@ def paywall_card(app, pw):
     fine = " · ".join(x for x in [pw.get("trial"), "구매 복원" if pw.get("restore") else None] if x)
     return (
         '<article class="pw" id="pw-%s" style="--c:%s"><div class="top"><div class="app">%s%s<em>%s</em></div>'
-        '<h3>%s</h3>%s</div>%s<div class="tiers">%s</div>%s%s'
+        '<h3>%s</h3>%s</div>%s<div class="tiers">%s</div>%s%s%s'
         '<div class="gate"><div><h4>무료로 주는 것</h4>%s</div><div><h4>돈을 내면 열리는 것</h4>%s</div>'
         '<div class="when"><h4>언제 보이나</h4>%s</div><div><h4>후원</h4><p>%s</p></div></div></article>'
         % (esc(app["_slug"]), m[7], icon_img(app), esc(app["name"]), esc(KIND_KR.get(pw.get("kind"), m[1])),
@@ -2009,10 +2067,10 @@ def paywall_card(app, pw):
            "<ul>%s</ul>" % bl if bl else "", rows,
            '<div class="cta">%s</div>' % esc(pw["cta"]) if pw.get("cta") else "",
            '<div class="fine">%s</div>' % esc(fine) if fine else "",
-           free, lock, when, donation_text(app["_slug"])))
+           plan_block(pw, plan), free, lock, when, donation_text(app["_slug"])))
 
 
-def canvas(app, sc, pw):
+def canvas(app, sc, pw, plan=None):
     m = model_of(app)
     lc = app.get("lifecycle") or {}
     g = app.get("globalReach") or {}
@@ -2033,6 +2091,8 @@ def canvas(app, sc, pw):
     rv = "<b>%s</b> — %s<br>%s" % (esc(m[1]), esc(m[4]), esc(" · ".join(price_text(app)) or "받는 돈 없음"))
     if pw and pw.get("locked"):
         rv += "<br><span class='na'>유료로 여는 것: %s</span>" % esc(" · ".join(pw["locked"][:3]))
+    if plan and plan.get("trims") and plan.get("verdict") != "keep":
+        rv += "<span class='nxl'>앞으로 바뀜 → %s</span>" % esc(plan_summary(plan))
     summary = ('<summary>%s<b>%s</b><span class="m" style="--c:%s">%s</span><span class="pr">%s</span></summary>'
                % (icon_img(app), esc(app["name"]), m[7], esc(m[1]),
                   esc(" · ".join(price_text(app)[:2]) or "무료")))
@@ -2130,6 +2190,7 @@ def goals_section(ls):
 def business_page(apps):
     ls = [a for a in live(apps) if (a.get("price") or {}).get("evaluatedAt")]
     pws = load_paywalls()
+    plans = load_paywall_plans().get("apps") or {}
     scs = load_showcase()
     by = {}
     for a in ls:
@@ -2193,8 +2254,9 @@ def business_page(apps):
                  "<td>%s</td>" % chips([a for a in by.get(mm[0], []) if (a.get("lifecycle") or {}).get("stage") == st])
                  for mm in order)) for st in stages)))
 
-    pw_live = '<div class="pws">%s</div>' % "".join(paywall_card(a, pws[a["_slug"]]) for a in live_pw)
-    pw_prep = '<div class="pws">%s</div>' % "".join(paywall_card(a, pws[a["_slug"]]) for a in prep_pw)
+    pw_live = '<div class="pws">%s</div>' % "".join(paywall_card(a, pws[a["_slug"]], plans.get(a["_slug"])) for a in live_pw)
+    pw_prep = '<div class="pws">%s</div>' % "".join(paywall_card(a, pws[a["_slug"]], plans.get(a["_slug"])) for a in prep_pw)
+    changing = sum(1 for a in ls if (plans.get(a["_slug"]) or {}).get("trims") and plans[a["_slug"]].get("verdict") != "keep")
 
     groups = ""
     for mm in MODELS + [FREE_MODEL]:
@@ -2202,7 +2264,7 @@ def business_page(apps):
         if not a:
             continue
         groups += ('<h3 style="margin:18px 0 8px;font-size:.95rem">%s <span class="hc">%d</span></h3><div class="canv">%s</div>'
-                   % (esc(mm[1]), len(a), "".join(canvas(x, scs.get(x["_slug"]) or {}, pws.get(x["_slug"])) for x in a)))
+                   % (esc(mm[1]), len(a), "".join(canvas(x, scs.get(x["_slug"]) or {}, pws.get(x["_slug"]), plans.get(x["_slug"])) for x in a)))
 
     main = (
         '<section>%s</section>' % kp + goals_section(ls) + (
@@ -2212,12 +2274,14 @@ def business_page(apps):
         '<section><h2>수익 모델 × 제품 여정</h2><p class="lead">단계가 올라갈수록 돈을 받는 방식이 분명해지는지 봅니다. '
         '아직 완성해 가는 단계(1단계)라면 무료로 반응을 먼저 모으는 것이 자연스럽습니다.</p>%s</section>'
         '<section><h2>페이월<span class="hc">%d</span></h2><p class="lead">앱 안에서 결제를 권하는 화면입니다. '
-        '앱 소스에서 문구와 혜택, 무료 몫, 화면이 뜨는 시점을 읽어 그대로 옮겼습니다. 가격은 App Store 기준입니다.</p>%s</section>'
+        '앱 소스에서 문구와 혜택, 무료 몫, 화면이 뜨는 시점을 읽어 그대로 옮겼습니다. 가격은 App Store 기준입니다. '
+        '<b>앞으로 바뀌는 페이월</b> 칸은 설계안(무료 · Plus · Pro)과 지금이 다른 곳입니다. 앱 %d개가 바뀝니다 — '
+        '<a href="paywalls.html#next">설계안 전체 보기</a>.</p>%s</section>'
         '%s'
         '<section><h2>앱별 비즈니스 모델 캔버스</h2><p class="lead">Lean Canvas 아홉 칸으로 앱마다 펼쳐 볼 수 있습니다. '
         '문제·고객·가치 제안은 쇼케이스 소개에서, 수익원은 스토어에서, 핵심 지표는 제품 여정에서 가져왔습니다.</p>%s'
         '<p class="note">경쟁 우위 칸은 앱마다 근거 있는 자료가 아직 없어 비워 두었습니다. 비용 구조는 1인 개발이라 앱마다 거의 같습니다.</p></section>'
-        % (grid, mods, xt, len(live_pw), pw_live,
+        % (grid, mods, xt, len(live_pw), changing, pw_live,
            ('<section><h2>준비 중인 페이월<span class="hc">%d</span></h2><p class="lead">결제 화면은 만들어 두었지만 '
             '아직 판매를 열지 않은 앱입니다.</p>%s</section>' % (len(prep_pw), pw_prep)) if prep_pw else "",
            groups)))
