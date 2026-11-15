@@ -263,16 +263,44 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "프로 연 구독 (기본 선택)",
-        "price": "₩25,000"
+        "name": "세끼 프로 평생",
+        "price": "￦66,000"
       },
       {
-        "name": "프로 월 구독",
-        "price": "₩3,300"
+        "name": "세끼 플러스 평생",
+        "price": "￦33,000"
       },
       {
-        "name": "프로 평생",
-        "price": "₩66,000"
+        "name": "세끼 플러스 월간",
+        "price": "￦1,100"
+      },
+      {
+        "name": "세끼 플러스 연간",
+        "price": "￦12,000"
+      },
+      {
+        "name": "큰 팁",
+        "price": "￦17,000"
+      },
+      {
+        "name": "중간 팁",
+        "price": "￦7,700"
+      },
+      {
+        "name": "세끼 프로 선물",
+        "price": "￦66,000"
+      },
+      {
+        "name": "작은 팁",
+        "price": "￦3,300"
+      },
+      {
+        "name": "세끼 프로 연간",
+        "price": "￦25,000"
+      },
+      {
+        "name": "세끼 프로 월간",
+        "price": "￦3,300"
       }
     ],
     "code": {
@@ -286,6 +314,26 @@
           "type": "nonconsumable"
         },
         {
+          "id": "com.ysoup.routinecamera.plus.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.ysoup.routinecamera.gift.pro",
+          "type": "consumable"
+        },
+        {
+          "id": "com.ysoup.routinecamera.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.ysoup.routinecamera.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.ysoup.routinecamera.tip.large",
+          "type": "consumable"
+        },
+        {
           "id": "com.ysoup.routinecamera.pro.yearly",
           "type": "subscription",
           "period": "P1Y"
@@ -294,12 +342,21 @@
           "id": "com.ysoup.routinecamera.pro.monthly",
           "type": "subscription",
           "period": "P1M"
+        },
+        {
+          "id": "com.ysoup.routinecamera.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.ysoup.routinecamera.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "supportUrl": "https://m1zz.github.io/RoutineCamera/",
   "lifecycle": {

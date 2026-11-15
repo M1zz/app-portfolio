@@ -18,19 +18,118 @@
   "notes": "[2026-10-13 스토어 동기화로 추가] 사건 사이 간격이 실제로 흐른 시간만큼 벌어지는 세로 인생 타임라인 — 사진·해시태그로 엮고 출력 (스토어명: 여울, 2026-09-13 출시)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "여울 Plus (주)",
+        "price": "￦1,100"
+      },
+      {
+        "name": "여울 Plus (월)",
+        "price": "￦3,300"
+      },
+      {
+        "name": "여울 Plus (연)",
+        "price": "￦12,000"
+      },
+      {
+        "name": "여울 Pro (월)",
+        "price": "￦5,500"
+      },
+      {
+        "name": "여울 Pro (주)",
+        "price": "￦2,200"
+      },
+      {
+        "name": "여울 Pro (연)",
+        "price": "￦17,000"
+      },
+      {
+        "name": "여울 Pro 평생 (구독 졸업)",
+        "price": "￦35,000"
+      },
+      {
+        "name": "Plus 평생에서 Pro 평생으로",
+        "price": "￦17,000"
+      },
+      {
+        "name": "여울 Pro 평생",
+        "price": "￦52,000"
+      },
+      {
+        "name": "여울 Plus 평생",
+        "price": "￦35,000"
+      }
+    ],
     "code": {
-      "storeKit": false,
+      "storeKit": true,
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.leeo.yeoul.plus",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.yeoul.pro",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.yeoul.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.yeoul.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.yeoul.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.yeoul.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.yeoul.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.yeoul.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.yeoul.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.yeoul.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.leeo.yeoul.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.yeoul.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.yeoul.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        }
+      ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null,
-    "iapItems": []
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [],

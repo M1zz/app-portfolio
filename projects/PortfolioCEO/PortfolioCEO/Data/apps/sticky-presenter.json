@@ -25,16 +25,74 @@
     "pricingModel": "free",
     "hasInAppPurchases": false,
     "code": {
-      "storeKit": false,
+      "storeKit": true,
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.leeo.StickyPresenter.mac.plus.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.pro.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.StickyPresenter.mac.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        }
+      ]
     },
+    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null,
-    "iapItems": []
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "low",
   "recentlyCompleted": [

@@ -21,16 +21,74 @@
     "pricingModel": "free",
     "hasInAppPurchases": false,
     "code": {
-      "storeKit": false,
+      "storeKit": true,
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.lectureq.LectureQ.plus",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.lectureq.LectureQ.pro",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.lectureq.LectureQ.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.lectureq.LectureQ.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.lectureq.LectureQ.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.lectureq.LectureQ.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.lectureq.LectureQ.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.lectureq.LectureQ.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.lectureq.LectureQ.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.lectureq.LectureQ.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.lectureq.LectureQ.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.lectureq.LectureQ.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.lectureq.LectureQ.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        }
+      ]
     },
+    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null,
-    "iapItems": []
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [],

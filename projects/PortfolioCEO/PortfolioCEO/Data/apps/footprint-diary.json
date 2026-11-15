@@ -17,19 +17,118 @@
   "notes": "[2026-07-18 스토어 동기화로 추가] 내가 돌아다닌 위치를 발자국으로 표시해주는 앱 (스토어명: 발자국일기)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "벅뚜벅뚜 Plus (주)",
+        "price": "￦1,100"
+      },
+      {
+        "name": "벅뚜벅뚜 Plus (월)",
+        "price": "￦3,300"
+      },
+      {
+        "name": "벅뚜벅뚜 Plus (연)",
+        "price": "￦12,000"
+      },
+      {
+        "name": "벅뚜벅뚜 Pro (주)",
+        "price": "￦2,200"
+      },
+      {
+        "name": "벅뚜벅뚜 Pro (월)",
+        "price": "￦5,500"
+      },
+      {
+        "name": "벅뚜벅뚜 Pro (연)",
+        "price": "￦17,000"
+      },
+      {
+        "name": "Plus 평생에서 Pro 평생으로",
+        "price": "￦17,000"
+      },
+      {
+        "name": "벅뚜벅뚜 Pro 평생 (구독 졸업)",
+        "price": "￦35,000"
+      },
+      {
+        "name": "벅뚜벅뚜 Pro 평생",
+        "price": "￦52,000"
+      },
+      {
+        "name": "벅뚜벅뚜 Plus 평생",
+        "price": "￦35,000"
+      }
+    ],
     "code": {
-      "storeKit": false,
+      "storeKit": true,
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.leeo.FootprintDiary.plus",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.pro",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.FootprintDiary.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        }
+      ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null,
-    "iapItems": []
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [],

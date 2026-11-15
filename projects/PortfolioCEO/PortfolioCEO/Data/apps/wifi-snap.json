@@ -21,16 +21,74 @@
     "pricingModel": "free",
     "hasInAppPurchases": false,
     "code": {
-      "storeKit": false,
+      "storeKit": true,
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.leeo.wifisnap.plus",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.wifisnap.pro",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.wifisnap.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.wifisnap.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.wifisnap.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.wifisnap.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.wifisnap.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.wifisnap.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.wifisnap.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.wifisnap.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.leeo.wifisnap.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.wifisnap.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.wifisnap.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        }
+      ]
     },
+    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null,
-    "iapItems": []
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [],

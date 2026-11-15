@@ -27,33 +27,86 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "Pro 연 구독 (첫 1주 무료)",
-        "price": "₩33,000"
+        "name": "malmun pro lifetime",
+        "price": "￦66,000"
       },
       {
-        "name": "Pro 평생",
-        "price": "₩66,000"
+        "name": "malmun pro yearly",
+        "price": "￦33,000"
       }
     ],
     "code": {
-      "storeKit": false,
+      "storeKit": true,
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
       "products": [
         {
+          "id": "com.devkoan.IndonesianSmallTalk.plus.lifetime",
+          "type": "nonconsumable"
+        },
+        {
           "id": "com.devkoan.IndonesianSmallTalk.pro.lifetime",
           "type": "nonconsumable"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.gift.pro",
+          "type": "consumable"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.tip.large",
+          "type": "consumable"
         },
         {
           "id": "com.devkoan.IndonesianSmallTalk.pro.yearly",
           "type": "subscription",
           "period": "P1Y"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.devkoan.IndonesianSmallTalk.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06"
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "low",
   "recentlyCompleted": [

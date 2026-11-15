@@ -438,12 +438,12 @@
       "slug": "burning-my-life",
       "name": "불타는 내인생",
       "current": "무료 + 평생 Pro 하나 (com.burningparchment.app.pro, ₩17,000 · $9.99) · 무료 한도는 데드라인 1개",
-      "verdict": "adjust",
-      "verdictReason": "무료 범위(양피지 · 후 불어 끄기 · 회고 · 위젯 · 실시간 현황)는 이미 규칙에 맞지만 Pro 한 칸에 꾸밈과 확장이 섞여 있고 연 구독이 없다. 데드라인 무제한 · 양피지 테마 · 불꽃을 Plus 로, 자유시간 태우기 · 조각 카드와 포스터 · 회고 책 PDF · 한 해의 재를 Pro 로 나누고, 칸마다 연 구독과 평생을 둔다.",
+      "verdict": "keep",
+      "verdictReason": "2026-11 설계안대로 무료 · Plus · Pro 페이월을 출시했다. 가격은 App Store Connect 실가격. 무료 범위(양피지 · 후 불어 끄기 · 회고 · 위젯 · 실시간 현황)는 이미 규칙에 맞지만 Pro 한 칸에 꾸밈과 확장이 섞여 있고 연 구독이 없다. 데드라인 무제한 · 양피지 테마 · 불꽃을 Plus 로, 자유시간 태우기 · 조각 카드와 포스터 · 회고 책 PDF · 한 해의 재를 Pro 로 나누고, 칸마다 연 구독과 평생을 둔다.",
       "size": "M",
-      "stage": "설계안",
+      "stage": "출시",
       "oneLine": "내 빛깔로 태우는 Plus를 열고, 평생 Pro를 ₩27,000으로",
-      "currentPublic": "무료(데드라인 1개) · 프로 평생 ₩17,000 한 칸",
+      "currentPublic": "무료 · Plus 연 ₩7,700 / 평생 ₩22,000 · Pro 연 ₩17,000 / 평생 ₩49,000",
       "intent": "지금은 데드라인을 하나 더 세우고 싶은 사람도, 달빛 한지 양피지가 마음에 든 사람도 자유시간 · 포스터 · 회고 책까지 묶인 ₩17,000 Pro를 사야 합니다. 작은 바람 하나에 큰 값이라 대부분 닫고 돌아갑니다. 여러 목표와 내 빛깔을 원하는 사람에게는 연 ₩4,400의 Plus를 입구로 열고, 매일 밤 회고를 쌓아 그것을 책과 포스터로 손에 쥐고 싶은 사람에게 Pro를 권합니다. 무료 데드라인은 한 개에서 두 개로 늘려 첫 주에 막히지 않게 합니다.",
       "headline": "불타는 내인생 Plus · Pro",
       "subheadline": "내 빛깔로 태우고, 타고 남은 것을 손에 쥐세요. 연 구독이나 평생 중에 고르세요.",
@@ -483,12 +483,12 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩35,000",
-          "priceUS": "$23.99",
+          "price": "₩22,000",
+          "priceUS": "$12.99",
           "subscription": {
             "period": "연",
-            "price": "₩12,000",
-            "priceUS": "$7.99"
+            "price": "₩7,700",
+            "priceUS": "$4.99"
           },
           "pitch": "내 빛깔로, 여러 목표를 함께 태우기",
           "pitchEn": "Burn in your own colors, with every goal",
@@ -517,12 +517,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩49,000",
+          "priceUS": "$29.99",
           "subscription": {
             "period": "연",
             "price": "₩17,000",
-            "priceUS": "$11.99"
+            "priceUS": "$9.99"
           },
           "pitch": "나만의 시간만 태우고, 남은 재를 손에 쥐기",
           "pitchEn": "Burn only your own time, and hold what remains",
@@ -765,12 +765,12 @@
           ],
           "subscription": {
             "period": "연",
-            "price": "₩14,000",
-            "priceUS": "$9.99"
+            "price": "₩6,600",
+            "priceUS": "$4.99"
           },
           "monthly": {
-            "price": "₩5,500",
-            "priceUS": "$3.49"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           },
           "weekly": {
             "price": "₩2,200",
@@ -781,12 +781,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩65,000",
-          "priceUS": "$44.99",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
           "subscription": {
             "period": "연",
-            "price": "₩22,000",
-            "priceUS": "$14.99"
+            "price": "₩13,000",
+            "priceUS": "$8.99"
           },
           "pitch": "쌓은 것을 지키기",
           "pitchEn": "Protect what you have built",
@@ -803,8 +803,8 @@
             "Sync across devices (beta)"
           ],
           "monthly": {
-            "price": "₩7,700",
-            "priceUS": "$4.99"
+            "price": "₩2,200",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩3,300",
@@ -940,13 +940,13 @@
         }
       ],
       "currentPublic": "무료(100번 넣을 때까지 전부, 그 뒤 단축어 10개) · Plus 연 ₩6,600 / 평생 ₩9,900 · Pro 연 ₩13,000 / 평생 ₩17,000 · Plus→Pro 올리기 ₩13,000 · 구독 졸업 ₩27,000 · Pro 선물 · 팁 · 다음 빌드에 월 구독(Plus ₩1,100 · Pro ₩2,200) · 11월 17일 평생가 인상(Plus ₩20,000 · Pro ₩39,000)",
-      "stage": "5.1.18 출시 · 5.1.19 배포 중 · 월 구독과 새 페이월은 그다음 빌드",
-      "upgrade": "₩22,000",
-      "graduate": "₩43,000",
+      "stage": "출시",
+      "upgrade": "₩13,000",
+      "graduate": "₩27,000",
       "oneLine": "모든 페이월을 세 칸으로, 연 구독을 싼 입구로",
       "intent": "사람들이 가장 많이 보는 페이월은 단축어를 100번째 쓴 순간에 뜨는 화면입니다. 여기에는 ₩17,000 평생 Pro와 연 구독만 있어서, 한도만 풀고 싶은 사람에게는 ₩17,000을 내거나 닫는 것 말고 다른 선택이 없습니다. 이 화면에도 Plus 칸을 넣고, 두 칸 모두 연 구독을 싼 입구로 둡니다. 평생은 오래 쓸 사람을 위한 값으로 올립니다. 지금 ₩17,000은 단축어를 매일 쓰는 키보드의 평생 값으로는 낮습니다.",
-      "upgradeUS": "$14.99",
-      "graduateUS": "$29.99"
+      "upgradeUS": "$7.99",
+      "graduateUS": "$18.99"
     },
     "cooltime": {
       "slug": "cooltime",
@@ -1023,8 +1023,8 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
+          "price": "₩9,900",
+          "priceUS": "$5.99",
           "subscription": {
             "period": "연",
             "price": "₩13,000",
@@ -1487,8 +1487,8 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
           "subscription": {
             "period": "연",
             "price": "₩13,000",
@@ -1912,8 +1912,8 @@
           ],
           "subscription": {
             "period": "연",
-            "price": "₩12,000",
-            "priceUS": "$7.99"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "monthly": {
             "price": "₩3,300",
@@ -1928,12 +1928,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
           "subscription": {
             "period": "연",
-            "price": "₩17,000",
-            "priceUS": "$11.99"
+            "price": "₩8,800",
+            "priceUS": "$5.99"
           },
           "pitch": "수업 · 발표 · 세션을 구간별로 운영하고, 넘친 시간과 기록까지.",
           "pitchEn": "Run classes, talks and sessions section by section, with overtime and history.",
@@ -2093,12 +2093,12 @@
       ],
       "currentPublic": "무료 · 기억 평생 ₩14,000 · Pro 평생 ₩17,000 (기억 보유자 올리기 ₩11,000) · 연 구독 · 구독 졸업은 판매 전",
       "stage": "예정",
-      "upgrade": "₩17,000",
-      "graduate": "₩35,000",
+      "upgrade": "₩11,000",
+      "graduate": "₩19,000",
       "oneLine": "Plus를 열고 평생 Pro를 ₩27,000으로",
       "intent": "무료 사용자가 가장 자주 막히는 곳은 '설정을 저장해 두고 다시 쓰기'입니다. 지금은 이것 하나 때문에 세션 모드 · 오버타임 · 기록까지 묶인 ₩17,000 Pro를 사야 합니다. 앱에는 이미 Plus('기억') 칸 코드가 있는데 스토어에 상품이 없어서 보이지 않습니다. 상품을 등록해 연 ₩4,400의 싼 입구를 열고, 평생 Pro는 ₩27,000으로 올립니다.",
-      "upgradeUS": "$11.99",
-      "graduateUS": "$23.99"
+      "upgradeUS": "$6.99",
+      "graduateUS": "$12.99"
     },
     "family-bank": {
       "slug": "family-bank",
@@ -2652,8 +2652,8 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩65,000",
-          "priceUS": "$44.99",
+          "price": "₩229,000",
+          "priceUS": "$150.0",
           "subscription": {
             "period": "연",
             "price": "₩22,000",
@@ -2938,8 +2938,8 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
           "subscription": {
             "period": "연",
             "price": "₩17,000",
@@ -3101,12 +3101,12 @@
       "slug": "footprint-diary",
       "name": "벅뚜벅뚜",
       "current": "완전 무료 · 인앱 없음 · FootprintDiarySpec.monetization = .free, StoreKit 코드 없음",
-      "verdict": "new",
-      "verdictReason": "결제가 없지만 늘 켜 두는 앱이고, 꾸밈(그림지도 · 간판 스티커 · 212가지 도장)과 넓히는 기능(위젯 · 필름 영상 내보내기 · 개척 나침반)이 이미 소스에 있어 세 칸이 자연스럽다. 걸음 기록과 iCloud 보관은 다시 만들 수 없는 기록이라 무료로 둔다.",
+      "verdict": "keep",
+      "verdictReason": "2026-11 설계안대로 무료 · Plus · Pro 페이월을 출시했다. 가격은 App Store Connect 실가격. 결제가 없지만 늘 켜 두는 앱이고, 꾸밈(그림지도 · 간판 스티커 · 212가지 도장)과 넓히는 기능(위젯 · 필름 영상 내보내기 · 개척 나침반)이 이미 소스에 있어 세 칸이 자연스럽다. 걸음 기록과 iCloud 보관은 다시 만들 수 없는 기록이라 무료로 둔다.",
       "size": "M",
-      "stage": "설계안",
+      "stage": "출시",
       "oneLine": "걸음 지도는 무료, 꾸미기는 Plus, 위젯과 필름은 Pro",
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 상품 심사 전)",
+      "currentPublic": "무료 · Plus 주 ₩1,100 / 월 ₩3,300 / 연 ₩12,000 / 평생 ₩35,000 · Pro 주 ₩2,200 / 월 ₩5,500 / 연 ₩17,000 / 평생 ₩52,000",
       "intent": "이 앱은 두 발로 처음 걷는 길만 채워지는 백지도라 몇 주, 몇 달 걸어야 진짜 맛이 납니다. 그래서 걸음 기록 · 지도 · 일기 · 달력 · iCloud 보관은 기간 제한 없이 무료로 둡니다. 지도가 넓어지면 사람들은 그 지도를 꾸미고(그림지도, 가게 간판 스티커, 더 많은 도장) 자랑하고(지도가 그려지는 영상) 매일 들여다보고(위젯) 싶어집니다. 꾸미기는 연 ₩4,400의 Plus로, 위젯 · 필름 내보내기 · 개척 나침반은 Pro로 엽니다.",
       "headline": "벅뚜벅뚜 Plus · Pro",
       "subheadline": "걸어서 그린 지도는 언제나 무료예요. 꾸미고 넓히는 도구를 연 구독이나 평생으로 고르세요.",
@@ -3635,12 +3635,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
           "subscription": {
             "period": "연",
-            "price": "₩17,000",
-            "priceUS": "$11.99"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "pitch": "더 빠르게, 더 정확하게 연습하기",
           "pitchEn": "Practice faster and play in tune",
@@ -3886,8 +3886,8 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩65,000",
-          "priceUS": "$44.99",
+          "price": "₩66,000",
+          "priceUS": "$39.99",
           "subscription": {
             "period": "연",
             "price": "₩22,000",
@@ -3908,11 +3908,11 @@
             "Real-world questions: pick the screen from the rule, pick the reason from the screen"
           ],
           "monthly": {
-            "price": "₩7,700",
-            "priceUS": "$4.99"
+            "price": "₩9,900",
+            "priceUS": "$5.99"
           },
           "weekly": {
-            "price": "₩3,300",
+            "price": "₩2,900",
             "priceUS": "$1.99"
           }
         }
@@ -4101,12 +4101,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩26,000",
-          "priceUS": "$17.99",
+          "price": "₩33,000",
+          "priceUS": "$19.99",
           "subscription": {
             "period": "연",
-            "price": "₩8,800",
-            "priceUS": "$5.99"
+            "price": "₩25,000",
+            "priceUS": "$14.99"
           },
           "pitch": "실수 100개 전부와 회고 질문 400개 전부.",
           "pitchEn": "All 100 mistakes and all 400 reflection questions.",
@@ -4125,8 +4125,8 @@
             "Every mistake and question added later"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -4561,8 +4561,8 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
           "subscription": {
             "period": "연",
             "price": "₩17,000",
@@ -5527,12 +5527,12 @@
       "slug": "pixel-mimi",
       "name": "한땀",
       "current": "유료 다운로드 ₩6,600($3.99) + 한땀 Pro 월 ₩6,600 · 연 ₩44,000 · 평생 ₩77,000 (미국 $3.99 · $24.99 · $44.99), Pro 한 칸. 필터 팩 3종은 따로 파는 코드가 있으나 스토어에 보이지 않음",
-      "verdict": "new",
-      "verdictReason": "돈을 내고 받은 앱 안에서 다시 월 구독과 ₩77,000 평생을 파는 구조라 무료 다운로드로 새로 짠다. 사진 한 장으로 첫 도안을 만들어 색 번호와 구매 목록까지 받는 흐름은 무료로 끝까지 열고, 지금 Pro 한 칸에 몰린 기능을 크게 · 많이 · 깨끗하게(Plus)와 인쇄해서 실제로 만들기(Pro)로 나눈다. 월 구독은 내리고 칸마다 연 구독과 평생을 둔다.",
+      "verdict": "keep",
+      "verdictReason": "2026-11 설계안대로 무료 · Plus · Pro 페이월을 출시했다. 가격은 App Store Connect 실가격. 돈을 내고 받은 앱 안에서 다시 월 구독과 ₩77,000 평생을 파는 구조라 무료 다운로드로 새로 짠다. 사진 한 장으로 첫 도안을 만들어 색 번호와 구매 목록까지 받는 흐름은 무료로 끝까지 열고, 지금 Pro 한 칸에 몰린 기능을 크게 · 많이 · 깨끗하게(Plus)와 인쇄해서 실제로 만들기(Pro)로 나눈다. 월 구독은 내리고 칸마다 연 구독과 평생을 둔다.",
       "size": "L",
-      "stage": "설계안",
+      "stage": "출시",
       "oneLine": "무료로 바꾸고, 인쇄용 도안을 평생 Pro ₩39,000으로",
-      "currentPublic": "유료 다운로드(₩6,600) 안에 한땀 Pro 한 칸 — 월 ₩6,600 / 연 ₩44,000 / 평생 ₩77,000",
+      "currentPublic": "유료 다운로드 ₩6,600 · 무료 칸 · Plus 주 ₩2,200 / 월 ₩5,500 / 연 ₩14,000 / 평생 ₩43,000 · Pro 주 ₩3,300 / 월 ₩6,600 / 연 ₩44,000 / 평생 ₩77,000",
       "intent": "지금은 앱을 사야 처음 도안을 볼 수 있고, 산 뒤에도 인쇄용 도안을 받으려면 월 ₩6,600이나 평생 ₩77,000을 또 내야 합니다. 비즈 공예는 가끔 하는 취미라 한 달 구독은 맞지 않고, 처음 오는 사람은 다운로드 값에서 이미 멈춥니다. 앱을 무료로 바꿔 사진으로 첫 도안을 만들고 필요한 비즈 색과 개수까지 받아 보게 하고, 큰 보드와 저장 무제한은 연 ₩6,600의 Plus로, 보드마다 나눈 인쇄용 도안은 Pro로 엽니다. 평생 Pro도 ₩77,000에서 ₩39,000으로 내려 한 번 마음먹고 살 수 있는 값으로 둡니다.",
       "headline": "한땀 Plus · Pro",
       "subheadline": "더 큰 도안, 그리고 인쇄해서 바로 만드는 도안까지. 연 구독이나 평생 중에 고르세요.",
@@ -5606,12 +5606,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩65,000",
+          "price": "₩77,000",
           "priceUS": "$44.99",
           "subscription": {
             "period": "연",
-            "price": "₩22,000",
-            "priceUS": "$14.99"
+            "price": "₩44,000",
+            "priceUS": "$24.99"
           },
           "pitch": "인쇄해서 바로 꽂기 시작하세요. 보드마다 나눈 기호 도안과 색 목록까지.",
           "pitchEn": "Print it and start placing beads, board by board, with a symbol chart and color list.",
@@ -5628,8 +5628,8 @@
             "3 pixel art filter packs (Arcade 90s, Spring, Cyber Night)"
           ],
           "monthly": {
-            "price": "₩7,700",
-            "priceUS": "$4.99"
+            "price": "₩6,600",
+            "priceUS": "$3.99"
           },
           "weekly": {
             "price": "₩3,300",
@@ -6061,8 +6061,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩35,000",
-          "priceUS": "$23.99",
+          "price": "₩14,000",
+          "priceUS": "$8.99",
           "pitch": "지나온 주들을 끝까지 거슬러 봐요.",
           "pitchEn": "Look back over every week you have lived.",
           "features": [
@@ -6077,8 +6077,8 @@
           ],
           "subscription": {
             "period": "연",
-            "price": "₩12,000",
-            "priceUS": "$7.99"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "monthly": {
             "price": "₩3,300",
@@ -6093,12 +6093,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩66,000",
+          "priceUS": "$39.99",
           "subscription": {
             "period": "연",
-            "price": "₩17,000",
-            "priceUS": "$11.99"
+            "price": "₩25,000",
+            "priceUS": "$14.99"
           },
           "pitch": "앱을 열지 않아도, 다른 캘린더와 사람에게까지 넓혀요.",
           "pitchEn": "Reach beyond the app: your Home Screen, your calendars, and other people.",
@@ -6117,8 +6117,8 @@
             "Also unlocks Pro in Rainbow Workshop on Mac"
           ],
           "monthly": {
-            "price": "₩5,500",
-            "priceUS": "$3.99"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "weekly": {
             "price": "₩2,200",
@@ -6251,12 +6251,12 @@
       ],
       "currentPublic": "무료 · Plus 연 ₩4,400 / 평생 ₩14,000 · Pro 연 $14.99 / 평생 ₩66,000 · Plus→Pro 올리기 ₩13,000 · 구독 졸업 ₩19,000 · 팁(심사 전)",
       "stage": "예정",
-      "upgrade": "₩17,000",
-      "graduate": "₩35,000",
+      "upgrade": "₩13,000",
+      "graduate": "₩19,000",
       "oneLine": "첫 결제 문턱을 연 ₩4,400으로",
       "intent": "잠긴 기능 다섯 개가 모두 Pro 한 칸에 묶여 있고, 그 평생 가격이 ₩66,000입니다. 첫 결제로 내기에는 너무 커서 사실상 아무도 넘지 않는 문턱입니다. 구독은 싼 입구로 남기되 가격을 내리고, 평생은 연 구독의 3배 이상으로 둡니다. 잠긴 기능은 '지난 기록 보기'(Plus)와 '앱 밖으로 넓히기'(Pro)로 나눕니다. 무료로 오늘을 사는 데 필요한 것은 지금처럼 전부 무료로 둡니다.",
-      "upgradeUS": "$11.99",
-      "graduateUS": "$23.99"
+      "upgradeUS": "$7.99",
+      "graduateUS": "$11.99"
     },
     "rainbow-workshop": {
       "slug": "rainbow-workshop",
@@ -6301,8 +6301,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩35,000",
-          "priceUS": "$23.99",
+          "price": "₩15,000",
+          "priceUS": "$8.99",
           "pitch": "8주를 거슬러 내 패턴을 보고, 잘 굴러간 주를 다시 깔아요.",
           "pitchEn": "See your patterns across 8 weeks and reuse the weeks that worked.",
           "features": [
@@ -6319,8 +6319,8 @@
           ],
           "subscription": {
             "period": "연",
-            "price": "₩12,000",
-            "priceUS": "$7.99"
+            "price": "₩4,400",
+            "priceUS": "$2.99"
           },
           "monthly": {
             "price": "₩3,300",
@@ -6335,12 +6335,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
           "subscription": {
             "period": "연",
-            "price": "₩17,000",
-            "priceUS": "$11.99"
+            "price": "₩25,000",
+            "priceUS": "$14.99"
           },
           "pitch": "내 일정을 밖으로 내보내고, 아이폰까지 함께 열어요.",
           "pitchEn": "Share your schedule beyond the Mac, and unlock iPhone too.",
@@ -6355,8 +6355,8 @@
             "Also unlocks Pro in Rainbow of Desire on iPhone (widgets, calendar, sharing)"
           ],
           "monthly": {
-            "price": "₩5,500",
-            "priceUS": "$3.99"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩2,200",
@@ -6497,12 +6497,12 @@
       ],
       "currentPublic": "무료 · Plus 연 ₩4,400 / 평생 ₩15,000 · Pro 연 ₩25,000 / 평생 ₩17,000 · Plus→Pro 올리기 ₩15,000 · 구독 졸업 ₩22,000 · 팁(심사 전)",
       "stage": "예정",
-      "upgrade": "₩17,000",
-      "graduate": "₩35,000",
+      "upgrade": "₩15,000",
+      "graduate": "₩22,000",
       "oneLine": "아이폰과 같은 사다리 · 같은 구매",
       "intent": "아이폰 앱과 구매를 공유하므로 같은 날 같은 사다리로 바꿔야 합니다. 그래야 \"한 번 사면 아이폰과 맥이 둘 다 열린다\"가 분명해집니다. 지금은 내가 쓴 회고를 글로 복사하는 것까지 Pro로 잠겨 있는데, 이것은 사용자 데이터의 기본 내보내기라서 무료로 풉니다.",
-      "upgradeUS": "$11.99",
-      "graduateUS": "$23.99"
+      "upgradeUS": "$8.99",
+      "graduateUS": "$12.99"
     },
     "rapport-map": {
       "slug": "rapport-map",
@@ -6773,8 +6773,8 @@
           "id": "pro",
           "label": "프로",
           "labelEn": "Pro",
-          "price": "₩26,000",
-          "priceUS": "$17.99",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
           "subscription": {
             "period": "연",
             "price": "₩8,800",
@@ -6968,8 +6968,8 @@
             "Save unlimited mixes of your own"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$1.99"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -7287,12 +7287,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩65,000",
-          "priceUS": "$44.99",
+          "price": "₩66,000",
+          "priceUS": "$39.99",
           "subscription": {
             "period": "연",
-            "price": "₩22,000",
-            "priceUS": "$14.99"
+            "price": "₩33,000",
+            "priceUS": "$19.99"
           },
           "pitch": "출퇴근 내내 귀로 연습하고, 원하는 상황은 AI로 바로 만드세요.",
           "pitchEn": "Practice by ear for your whole commute, and have AI build any situation you need.",
@@ -7792,8 +7792,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩52,000",
-          "priceUS": "$29.99",
+          "price": "₩33,000",
+          "priceUS": "$19.99",
           "pitch": "추천을 마음껏 넣고, 작년과 내년까지 짜 보세요.",
           "pitchEn": "Add every suggestion you like and plan last year and next year too.",
           "features": [
@@ -7828,12 +7828,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩99,000",
-          "priceUS": "$59.99",
+          "price": "₩77,000",
+          "priceUS": "$49.99",
           "subscription": {
             "period": "연",
-            "price": "₩33,000",
-            "priceUS": "$19.99"
+            "price": "₩49,000",
+            "priceUS": "$29.99"
           },
           "pitch": "복잡한 휴가 규칙도, 가족과 함께 쉬는 날도 알아서.",
           "pitchEn": "Complex leave rules and days off together with family, handled for you.",
@@ -8019,11 +8019,11 @@
       ],
       "currentPublic": "무료(추천 3개) · 플러스 주 ₩2,200 / 월 ₩5,500 / 연 ₩17,000 / 평생 ₩33,000 · 프로 주 ₩3,300 / 월 ₩9,900 / 연 ₩33,000 / 평생 ₩77,000 · 올리기 ₩49,000 · 구독 졸업 ₩69,000",
       "stage": "예정",
-      "upgrade": "₩47,000",
+      "upgrade": "₩49,000",
       "graduate": "₩69,000",
       "oneLine": "지금 구독 가격 유지, Plus 평생 추가, 패밀리는 Pro로",
       "intent": "연차 계획은 1년에 몇 번 여는 일인데, 지금은 매년 내는 구독이 주력이고 평생 구매는 ₩77,000 하나뿐입니다. 지금 구독 가격은 매출이 나는 가격이라 그대로 두고, 구독에서 벗어날 길로 Plus에도 평생을 만들고 평생 Pro는 연 구독의 3배인 ₩99,000으로 올립니다. 패밀리는 Pro에 합쳐 칸을 셋으로 줄입니다. 기능 배치는 이미 잘 나뉘어 있으니 그대로 둡니다.",
-      "upgradeUS": "$27.99",
+      "upgradeUS": "$29.99",
       "graduateUS": "$41.99"
     },
     "sight-singer": {
@@ -8460,12 +8460,12 @@
       "slug": "slide-snap",
       "name": "장표스냅",
       "current": "유료 다운로드 ₩4,400 · $2.99 · 인앱 없음 (SlideSnapSpec.monetization = .free, StoreKit 코드 없음). 1.0.9 빌드 9",
-      "verdict": "new",
-      "verdictReason": "유료 다운로드라 무료로 바꾸고 새로 설계한다. 찍고 펴고 발표별로 모아 글자로 찾는 핵심과 이미지 · PDF 한 장씩 내보내기는 무료, 발표 개수 · 또렷하게 보정 · 복습용 PDF 배치는 Plus, 녹음 받아쓰기 · 기기 안 요약 · PowerPoint · Markdown 내보내기 · iCloud 동기화는 Pro다. 한 학기 내내 쓰는 도구라 M 값으로 둔다.",
+      "verdict": "keep",
+      "verdictReason": "2026-11 설계안대로 무료 · Plus · Pro 페이월을 출시했다. 가격은 App Store Connect 실가격. 유료 다운로드라 무료로 바꾸고 새로 설계한다. 찍고 펴고 발표별로 모아 글자로 찾는 핵심과 이미지 · PDF 한 장씩 내보내기는 무료, 발표 개수 · 또렷하게 보정 · 복습용 PDF 배치는 Plus, 녹음 받아쓰기 · 기기 안 요약 · PowerPoint · Markdown 내보내기 · iCloud 동기화는 Pro다. 한 학기 내내 쓰는 도구라 M 값으로 둔다.",
       "size": "M",
-      "stage": "설계안",
+      "stage": "출시",
       "oneLine": "무료로 바꾸고, 녹음 · 요약 · 노트 내보내기를 평생 Pro ₩27,000으로",
-      "currentPublic": "유료 앱 ₩4,400 (앱 안 추가 결제 없음) · 팁만 (팁 상품 심사 전)",
+      "currentPublic": "무료 · Plus 주 ₩1,100 / 월 ₩3,300 / 연 ₩12,000 / 평생 ₩25,000 · Pro 주 ₩2,200 / 월 ₩5,500 / 연 ₩17,000 / 평생 ₩44,000",
       "intent": "지금은 ₩4,400을 먼저 내야 강의실 뒷자리에서 비스듬히 찍은 장표가 정말 정면처럼 펴지는지 알 수 있습니다. 그 한 번이 이 앱의 가장 큰 설득인데, 값을 먼저 받으니 그 순간까지 오는 사람이 적습니다. 무료로 바꿔 찍기 · 펴기 · 발표별 묶기 · 글자 검색 · PDF 내보내기를 누구나 해 보게 합니다. 한 학기 강의를 통째로 담고 글자를 더 또렷하게 하고 싶을 때 Plus를, 그때 한 말까지 장표 옆에 받아 적고 요약해 노트 앱으로 넘기고 싶을 때 Pro를 고릅니다.",
       "headline": "장표스냅 Plus · Pro",
       "subheadline": "한 학기를 통째로, 그때 한 말까지. 연 구독이나 평생 중에 고르세요.",
@@ -8505,8 +8505,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩35,000",
-          "priceUS": "$23.99",
+          "price": "₩25,000",
+          "priceUS": "$14.99",
           "subscription": {
             "period": "연",
             "price": "₩12,000",
@@ -8539,8 +8539,8 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩44,000",
+          "priceUS": "$24.99",
           "subscription": {
             "period": "연",
             "price": "₩17,000",
@@ -8575,7 +8575,7 @@
         }
       ],
       "upgrade": "₩17,000",
-      "graduate": "₩35,000",
+      "graduate": "₩29,000",
       "pricingNote": "M 사다리. Plus 연 ₩4,400 · 평생 ₩14,000, Pro 연 ₩8,800 · 평생 ₩27,000. Plus 평생 → Pro 평생 올리기 ₩13,000, 구독자 졸업가 ₩19,000.",
       "compare": [
         {
@@ -8718,8 +8718,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/장표스냅/Version.xcconfig"
       ],
       "sourceFound": true,
-      "upgradeUS": "$11.99",
-      "graduateUS": "$23.99"
+      "upgradeUS": "$9.99",
+      "graduateUS": "$17.99"
     },
     "speak-flow": {
       "slug": "speak-flow",
@@ -8886,8 +8886,8 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": null,
-          "priceUS": null,
+          "price": "₩27,000",
+          "priceUS": "$17.99",
           "pitch": "본체가 Pro면 리모컨도 횟수 없이 전부 열립니다.",
           "pitchEn": "When the Mac app is Pro, the remote is fully unlocked, no limits.",
           "features": [
@@ -8899,11 +8899,24 @@
             "Everything in Free, with no session limit",
             "Control the Mac app's Plus and Pro features, like the Chameleon theme",
             "Purchased in StickyPresenter on your Mac ($5.99 a year or $17.99 for life)"
-          ]
+          ],
+          "subscription": {
+            "period": "연",
+            "price": "₩8,800",
+            "priceUS": "$5.99"
+          },
+          "monthly": {
+            "price": "₩3,300",
+            "priceUS": "$1.99"
+          },
+          "weekly": {
+            "price": "₩1,100",
+            "priceUS": "$0.99"
+          }
         }
       ],
       "upgrade": null,
-      "graduate": null,
+      "graduate": "₩19,000",
       "pricingNote": "리모컨 자체는 팔지 않아 연 구독 · 평생 · 졸업가가 없다. 값과 졸업 제안은 본체 sticky-presenter 설계(M 사다리, Pro 연 ₩8,800 · 평생 ₩27,000, 졸업 ₩19,000)를 따른다.",
       "compare": [
         {
@@ -8983,7 +8996,8 @@
         "/Users/hyunholee/Documents/workspace/Auto/StickyPresenter/Shared/RemoteProtocol.swift",
         "/Users/hyunholee/Documents/workspace/Auto/StickyPresenter/StickyPresenter/RemoteControlHost.swift"
       ],
-      "sourceFound": true
+      "sourceFound": true,
+      "graduateUS": "$12.99"
     },
     "sticky-presenter": {
       "slug": "sticky-presenter",
@@ -10216,12 +10230,12 @@
     "three-meals": {
       "slug": "three-meals",
       "name": "세끼",
-      "verdict": "adjust",
-      "verdictReason": "세끼 프로(그룹 여러 개 · 자세한 통계 · Face ID 잠금)를 연 · 월 구독과 평생으로 파는 한 칸 구조가 이미 있다. 고칠 것은 Plus 칸이 없는 것, 규칙에 없는 월 구독, 평생 ₩66,000 이 사다리의 두 배가 넘는 것이다. 매일 세 번 여는 앱이라 M, 아직 구독 매출이 확인되지 않아 연 구독 값도 사다리에 맞춘다.",
+      "verdict": "keep",
+      "verdictReason": "2026-11 설계안대로 무료 · Plus · Pro 페이월을 출시했다. 가격은 App Store Connect 실가격. 세끼 프로(그룹 여러 개 · 자세한 통계 · Face ID 잠금)를 연 · 월 구독과 평생으로 파는 한 칸 구조가 이미 있다. 고칠 것은 Plus 칸이 없는 것, 규칙에 없는 월 구독, 평생 ₩66,000 이 사다리의 두 배가 넘는 것이다. 매일 세 번 여는 앱이라 M, 아직 구독 매출이 확인되지 않아 연 구독 값도 사다리에 맞춘다.",
       "size": "M",
-      "stage": "설계안",
+      "stage": "출시",
       "oneLine": "프로 한 칸을 Plus · Pro 로 나누고, 평생을 ₩66,000에서 ₩27,000으로",
-      "currentPublic": "무료(그룹 1개) · 프로 연 ₩25,000 / 월 ₩3,300 / 평생 ₩66,000 · 선물 · 팁(심사 전)",
+      "currentPublic": "무료 · 플러스 월 ₩1,100 / 연 ₩12,000 / 평생 ₩33,000 · 프로 월 ₩3,300 / 연 ₩25,000 / 평생 ₩66,000",
       "intent": "지금은 가족 그룹 하나를 더 만들고 싶은 사람도 연 ₩25,000 이나 평생 ₩66,000 짜리 프로를 사야 합니다. 식단 앱에 ₩66,000 평생은 거의 아무도 고르지 않는 값이라, 결제 화면을 연 사람 대부분이 그냥 닫습니다. 사진으로 남기고 스트릭 · 주간 · 월간 통계 · 알림 · 친구와 나누는 하루 세끼는 계속 무료로 두고, 그룹을 더 만들고 운동까지 따로 남기는 일을 Plus, 몇 주 전과 지금을 비교하고 잠그고 위젯 · 단축어로 앱을 열지 않고 남기는 일을 Pro 로 나눕니다. 입구가 연 ₩4,400 으로 낮아지고, 평생은 오래 쓸 사람이 실제로 고를 만한 값이 됩니다.",
       "headline": "세끼 Plus · Pro",
       "subheadline": "함께 먹는 사람이 늘고 기록이 쌓일수록. 연 구독이나 평생 중에 고르세요.",
@@ -10261,8 +10275,8 @@
           "id": "plus",
           "label": "Plus",
           "labelEn": "Plus",
-          "price": "₩35,000",
-          "priceUS": "$23.99",
+          "price": "₩33,000",
+          "priceUS": "$19.99",
           "subscription": {
             "period": "연",
             "price": "₩12,000",
@@ -10283,8 +10297,8 @@
             "Your most-eaten foods at a glance"
           ],
           "monthly": {
-            "price": "₩3,300",
-            "priceUS": "$2.49"
+            "price": "₩1,100",
+            "priceUS": "$0.99"
           },
           "weekly": {
             "price": "₩1,100",
@@ -10295,12 +10309,12 @@
           "id": "pro",
           "label": "Pro",
           "labelEn": "Pro",
-          "price": "₩52,000",
-          "priceUS": "$35.99",
+          "price": "₩66,000",
+          "priceUS": "$39.99",
           "subscription": {
             "period": "연",
-            "price": "₩17,000",
-            "priceUS": "$11.99"
+            "price": "₩25,000",
+            "priceUS": "$14.99"
           },
           "pitch": "앱을 열지 않아도 남기고, 더 깊이 보고, 지키기",
           "pitchEn": "Log without opening the app, see further back, keep it private",
@@ -10319,8 +10333,8 @@
             "Face ID lock"
           ],
           "monthly": {
-            "price": "₩5,500",
-            "priceUS": "$3.99"
+            "price": "₩3,300",
+            "priceUS": "$1.99"
           },
           "weekly": {
             "price": "₩2,200",
@@ -10943,12 +10957,12 @@
     "yeoul": {
       "slug": "yeoul",
       "name": "여울",
-      "verdict": "new",
-      "verdictReason": "결제 코드가 없는 무료 앱이다. 타임라인 여러 개 · 해시태그 타임라인 저장 · 카드 디자인 네 가지가 '더 많이 · 내 취향대로'에, iCloud 동기화(iPhone · iPad · Mac) · Siri 와 단축어로 사건 추가가 '지키고 · 넓히고 · 자동으로'에 깔끔히 갈린다. 인생 기록이라 오래 쓰는 앱이어서 M.",
+      "verdict": "keep",
+      "verdictReason": "2026-11 설계안대로 무료 · Plus · Pro 페이월을 출시했다. 가격은 App Store Connect 실가격. 결제 코드가 없는 무료 앱이다. 타임라인 여러 개 · 해시태그 타임라인 저장 · 카드 디자인 네 가지가 '더 많이 · 내 취향대로'에, iCloud 동기화(iPhone · iPad · Mac) · Siri 와 단축어로 사건 추가가 '지키고 · 넓히고 · 자동으로'에 깔끔히 갈린다. 인생 기록이라 오래 쓰는 앱이어서 M.",
       "size": "M",
-      "stage": "설계안",
+      "stage": "출시",
       "oneLine": "타임라인 둘은 무료로, 여러 개와 카드 꾸밈은 Plus, 동기화는 Pro",
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 심사 전)",
+      "currentPublic": "무료 · Plus 주 ₩1,100 / 월 ₩3,300 / 연 ₩12,000 / 평생 ₩35,000 · Pro 주 ₩2,200 / 월 ₩5,500 / 연 ₩17,000 / 평생 ₩52,000",
       "intent": "지금은 모든 것이 무료라 오래 쓸 인생 기록 앱이 계속 다듬어질 이유가 사용자에게 보이지 않습니다. 시간이 흐른 만큼 간격이 벌어지는 연표에 사진과 이야기를 얹고, 그날 찍은 사진을 찾아 주는 경험은 무료로 두고 타임라인 두 개까지 그리게 합니다. 아이 · 연애 · 커리어처럼 주제마다 연표를 따로 두고 싶을 때 Plus, 아이폰 · 아이패드 · 맥에서 같은 연표를 지키고 말로 바로 남기고 싶을 때 Pro 를 고르게 합니다. 아이폰과 맥이 같은 앱이라 한 번 사면 두 기기에서 함께 열립니다.",
       "headline": "여울 Plus · Pro",
       "subheadline": "주제마다 연표를, 모든 기기에서 안전하게. 연 구독이나 평생 중에 고르세요.",

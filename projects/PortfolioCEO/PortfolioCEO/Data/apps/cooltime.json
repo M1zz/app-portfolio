@@ -313,20 +313,82 @@
   },
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
-    "iapItems": [],
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "평생구매",
+        "price": "￦9,900"
+      }
+    ],
     "code": {
-      "storeKit": false,
+      "storeKit": true,
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.Ysoup.CoolTime.plus.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.cooltime.pro.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.Ysoup.CoolTime.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        }
+      ]
     },
-    "gap": "스토어에 인앱결제가 있지만 소스에서 결제 코드를 찾지 못함",
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "supportUrl": "https://m1zz.github.io/CoolTime/",
   "lifecycle": {

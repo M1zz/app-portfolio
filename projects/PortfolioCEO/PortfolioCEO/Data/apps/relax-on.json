@@ -285,8 +285,8 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "프리미엄 월 구독",
-        "price": "₩1,100"
+        "name": "monthly",
+        "price": "￦1,100"
       }
     ],
     "code": {
@@ -296,6 +296,18 @@
       "ads": false,
       "products": [
         {
+          "id": "com.leeo.LullabyRecipe.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.LullabyRecipe.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.LullabyRecipe.tip.large",
+          "type": "consumable"
+        },
+        {
           "id": "month",
           "type": "subscription",
           "period": "P1M"
@@ -303,8 +315,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "high",
   "recentlyCompleted": [

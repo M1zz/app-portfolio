@@ -286,16 +286,44 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "한땀 Pro 평생 (기본 선택)",
-        "price": "₩77,000"
+        "name": "한땀 Plus 연 구독",
+        "price": "￦14,000"
       },
       {
-        "name": "한땀 Pro 연간 구독 (절약 배지)",
-        "price": "₩44,000"
+        "name": "한땀 Plus 월 구독",
+        "price": "￦5,500"
       },
       {
-        "name": "한땀 Pro 월간 구독",
-        "price": "₩6,600"
+        "name": "한땀 Plus 주 구독",
+        "price": "￦2,200"
+      },
+      {
+        "name": "한땀 Pro 주 구독",
+        "price": "￦3,300"
+      },
+      {
+        "name": "한땀 Pro로 올리기",
+        "price": "￦22,000"
+      },
+      {
+        "name": "한땀 Plus (평생)",
+        "price": "￦43,000"
+      },
+      {
+        "name": "한땀 Pro 평생 (구독자)",
+        "price": "￦43,000"
+      },
+      {
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "든든한 응원",
+        "price": "￦4,400"
+      },
+      {
+        "name": "큰 응원",
+        "price": "￦17,000"
       }
     ],
     "code": {
@@ -303,10 +331,57 @@
       "subscriptionUI": false,
       "storeUI": false,
       "ads": false,
-      "products": []
+      "products": [
+        {
+          "id": "com.leeo.PixelMe.plus.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.pixelme.pro.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.PixelMe.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.PixelMe.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.PixelMe.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.hantam.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.hantam.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.PixelMe.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.leeo.PixelMe.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.PixelMe.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        }
+      ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06"
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [

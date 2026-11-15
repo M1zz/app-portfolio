@@ -289,20 +289,48 @@
   "notes": "[2026-07-05 스토어 동기화] v2.0.2 (2026-05-07 출시), 평점 5(1개). 스토어 표기 '두번알림'으로 통일",
   "price": {
     "isFree": true,
-    "pricingModel": "freemium",
+    "pricingModel": "freemium-subscription",
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "기억 평생",
-        "price": "₩14,000"
+        "name": "두번알림 pro",
+        "price": "￦17,000"
       },
       {
-        "name": "Pro 평생",
-        "price": "₩17,000"
+        "name": "두번알림 기억 선물",
+        "price": "￦14,000"
       },
       {
-        "name": "기억 평생 → Pro 평생 올리기(차액)",
-        "price": "₩11,000"
+        "name": "패스 구독자 평생",
+        "price": "￦99,000"
+      },
+      {
+        "name": "평생 Pro 보유자 패스",
+        "price": "￦119,000"
+      },
+      {
+        "name": "언제나 평생 패스",
+        "price": "￦149,000"
+      },
+      {
+        "name": "구독자 Pro 평생",
+        "price": "￦19,000"
+      },
+      {
+        "name": "Pro 연 구독",
+        "price": "￦8,800"
+      },
+      {
+        "name": "Plus 연 구독",
+        "price": "￦4,400"
+      },
+      {
+        "name": "큰 응원",
+        "price": "￦5,500"
+      },
+      {
+        "name": "두번알림 Pro 선물",
+        "price": "￦17,000"
       }
     ],
     "code": {
@@ -313,6 +341,18 @@
       "products": [
         {
           "id": "com.xa.toki.pro",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.xa.toki.remember",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.xa.toki.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.xa.toki.pro.graduate",
           "type": "nonconsumable"
         },
         {
@@ -328,14 +368,19 @@
           "type": "consumable"
         },
         {
-          "id": "com.xa.toki.gift.pro",
-          "type": "consumable"
+          "id": "com.xa.toki.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.xa.toki.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "high",
   "recentlyCompleted": [

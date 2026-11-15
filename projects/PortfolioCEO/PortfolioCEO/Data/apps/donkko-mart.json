@@ -269,9 +269,26 @@
   "name": "돈꼬마트",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
-    "iapItems": [],
+    "pricingModel": "freemium",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "든든한 한 끼",
+        "price": "￦12,000"
+      },
+      {
+        "name": "케이크 한 조각",
+        "price": "￦6,600"
+      },
+      {
+        "name": "커피 한 잔",
+        "price": "￦1,100"
+      },
+      {
+        "name": "클로즈드 Pro",
+        "price": "￦4,400"
+      }
+    ],
     "code": {
       "storeKit": true,
       "subscriptionUI": false,
@@ -293,12 +310,53 @@
         {
           "id": "com.dontgomart.tip.meal",
           "type": "consumable"
+        },
+        {
+          "id": "com.leeo.DontGoMart.plus.lifetime",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.DontGoMart.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.DontGoMart.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.DontGoMart.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.DontGoMart.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.DontGoMart.pro.weekly",
+          "type": "subscription",
+          "period": "P1W"
+        },
+        {
+          "id": "com.leeo.DontGoMart.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.DontGoMart.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.leeo.DontGoMart.plus.weekly",
+          "type": "subscription",
+          "period": "P1W"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "nextTasks": [],
   "recentlyCompleted": [

@@ -17,45 +17,90 @@
         "BurningParchment/Models/FlameKind.swift",
         "Config/BurningParchment.storekit"
       ],
-      "kind": "one-time-unlock",
+      "kind": "mixed",
       "hidden": false,
-      "headline": "불타는 내인생 프로",
-      "subheadline": "하루를 남김없이 담아보세요",
-      "cta": "평생 이용권 · {가격}",
+      "headline": "불타는 내인생 Plus · Pro",
+      "subheadline": "",
+      "cta": "Plus | Pro 를 고르고 연 구독 · 평생 중 하나 — 늘 떠 있는 구매 단추 하나",
       "trimLabels": [
         "무료",
-        "프로"
+        "Plus",
+        "Pro"
       ],
       "benefits": [
-        "불타는 자유시간 — 일주일 중 나만의 시간이 지날 때만 양피지가 타요",
-        "양피지·불꽃 테마 — 달빛 한지·청자·노을 빛깔, 들불·숯불·불티로 양피지가 타요",
-        "조각 카드·포스터 — 모은 조각을 카드와 포스터 이미지로 공유해요",
-        "회고 책 PDF — 회고를 날짜별 페이지의 PDF 로 묶어요",
-        "한 해의 재 흐름 — 지난 12개월의 재를 달마다 나눠 보여줘요",
-        "데드라인 무제한 — 여러 목표를 동시에 카운트다운해요"
+        "Plus · 데드라인 무제한, 인생의 시간 3개",
+        "Plus · 불타는 자유시간 — 나만의 시간이 지날 때만 양피지가 타요",
+        "Plus · 양피지 빛깔(달빛 한지 · 청자 · 노을)과 불꽃(들불 · 숯불 · 불티)",
+        "Plus · 조각 카드 · 포스터, 회고 책 PDF, 한 해의 재 흐름",
+        "Pro · 인생의 시간 무제한, Plus 기능 전부",
+        "Pro · 앞으로 생기는 Pro 기능까지"
       ],
       "free": [
         "데드라인 1개",
-        "기본 양피지 '불타는 양피지'와 기본 불꽃",
-        "자유시간을 정해 보고 셈을 보는 것",
-        "회고(재 항아리) 쓰기"
+        "인생의 시간 1개",
+        "기본 양피지와 기본 불꽃",
+        "양피지 태우기 · 회고 쓰기"
       ],
       "locked": [
-        "데드라인 2개 이상",
-        "양피지 빛깔 3종(달빛 한지·청자·노을)과 불꽃 종류(들불·숯불·불티)",
-        "자유시간만 태우기",
-        "조각 카드·포스터 내보내기",
-        "회고 책 PDF 내보내기",
-        "한 해의 재(12개월 흐름)"
+        "Plus: 데드라인 무제한 · 인생의 시간 3개",
+        "Plus: 불타는 자유시간",
+        "Plus: 양피지 빛깔 · 불꽃 종류",
+        "Plus: 조각 카드 · 포스터 · 회고 책 PDF · 한 해의 재",
+        "Pro: 인생의 시간 무제한"
       ],
       "tiers": [
         {
-          "productId": "com.burningparchment.app.pro",
-          "label": "프로 평생 이용권",
-          "trim": "프로",
+          "productId": "com.burningparchment.app.plus.yearly",
+          "label": "Plus 연 구독",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩7,700",
+          "priceUS": "$4.99",
+          "live": true
+        },
+        {
+          "productId": "com.burningparchment.app.plus",
+          "label": "Plus 평생",
+          "trim": "Plus",
           "period": "평생",
+          "price": "₩22,000",
+          "priceUS": "$12.99",
+          "live": true
+        },
+        {
+          "productId": "com.burningparchment.app.pro.yearly",
+          "label": "Pro 연 구독",
+          "trim": "Pro",
+          "period": "연",
           "price": "₩17,000",
           "priceUS": "$9.99",
+          "live": true
+        },
+        {
+          "productId": "com.burningparchment.app.pro",
+          "label": "Pro 평생",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩49,000",
+          "priceUS": "$29.99",
+          "live": true
+        },
+        {
+          "productId": "com.burningparchment.app.gift.plus",
+          "label": "Plus 선물하기 (받는 사람에게 Plus 평생)",
+          "trim": "Plus",
+          "period": "1회",
+          "price": "₩22,000",
+          "priceUS": "$12.99",
+          "live": true
+        },
+        {
+          "productId": "com.burningparchment.app.gift.pro",
+          "label": "Pro 선물하기 (받는 사람에게 Pro 평생)",
+          "trim": "Pro",
+          "period": "1회",
+          "price": "₩49,000",
+          "priceUS": "$29.99",
           "live": true
         }
       ],
@@ -65,17 +110,16 @@
         "tip.large"
       ],
       "triggers": [
-        "데드라인 목록에서 무료 1개를 넘겨 더할 때 ('데드라인을 더 세우려면')",
-        "설정에서 프로 양피지·불꽃을 고를 때 ('다른 빛깔로 태워 보세요')",
-        "자유시간 화면의 '프로로 자유시간만 태우기' ('나만의 시간만 태워 보세요')",
-        "조각 카드·포스터 내보내기 ('모은 조각을 꺼내 보세요')",
-        "회고 책 PDF 내보내기 · 한 해의 재 잠금 ('회고 책을 손에 쥐어 보세요' / '한 해의 재를 한눈에')",
-        "설정 ▸ 프로 ▸ '프로로 업그레이드'"
+        "데드라인을 2개째 만들 때",
+        "인생의 시간을 더 만들 때 (Plus 사용자는 Pro 가 먼저)",
+        "잠긴 양피지 · 불꽃을 고를 때",
+        "조각 카드 · 회고 책 PDF · 한 해의 재 · 자유시간을 쓸 때",
+        "설정 ▸ 요금제"
       ],
       "trial": null,
       "restore": true,
-      "currentPublic": "무료(데드라인 1개) · 프로 평생 ₩17,000 한 칸",
-      "notes": "예전 기록과 달리 com.burningparchment.app.pro 가 이제 APPROVED 라 구매가 된다. 원화 ₩17,000 은 코드에 없고 apps.json 의 스토어 IAP 가격(Pro ￦17,000)에서 왔다. .storekit 은 $9.99. 새로 '불타는 자유시간'이 프로 혜택 첫 줄에 들어왔다(머리말 '나만의 시간만 태워 보세요'). 페이월 아래 '구독이 아니에요. 한 번 결제로 평생 이용할 수 있어요' 문구와 '구매 복원' 버튼. 가격을 못 받으면 버튼이 '가격 다시 불러오기'로 바뀐다. 선물(gift.pro, ID 는 코드에 있음)은 스토어 목록에 없고 보내기는 sellsGifts 로 닫혀 있다 — 설정에는 받은 코드 넣기만 있다. 팁 3종은 READY_TO_SUBMIT 이라 판매 전이고, 설정의 응원하기 줄은 팁 상품을 받아 와야 서므로 지금은 안 보인다(부탁 카드도 프로 사용자에게 재 항아리 화면에서만)."
+      "currentPublic": "무료 · Plus 연 ₩7,700 / 평생 ₩22,000 · Pro 연 ₩17,000 / 평생 ₩49,000",
+      "notes": "2026-11-15 소스 · App Store Connect 로 다시 정리: 새 페이월 출시, 상품 모두 APPROVED. 이 버전을 처음 열 때 이미 쓰던 사람은 인생의 시간이 무제한이다. 칸마다 연 구독과 평생만, 올리기 · 졸업 상품 없음. 선물은 Plus · Pro 평생."
     },
     "clip-keyboard": {
       "slug": "clip-keyboard",
@@ -132,12 +176,12 @@
       "tiers": [
         {
           "productId": "com.Ysoup.TokenMemo.plus.monthly",
-          "label": "Plus 월 구독 (스토어 제출 전, 다음 빌드부터)",
+          "label": "Plus 월 구독",
           "trim": "Plus",
           "period": "월",
           "price": "₩1,100",
           "priceUS": "$0.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.TokenMemo.plus.yearly",
@@ -159,12 +203,12 @@
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro.monthly",
-          "label": "Pro 월 구독 (스토어 제출 전, 다음 빌드부터)",
+          "label": "Pro 월 구독",
           "trim": "Pro",
           "period": "월",
           "price": "₩2,200",
           "priceUS": "$1.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro.yearly",
@@ -204,12 +248,12 @@
         },
         {
           "productId": "com.Ysoup.TokenMemo.gift.plus",
-          "label": "Plus 선물하기 (스토어 제출 전, 오퍼 코드 링크로 받는 사람에게 Plus 평생) (11월 17일부터 ₩20,000 · $14.99)",
+          "label": "Plus 선물하기 (11월 17일부터 ₩20,000 · $14.99)",
           "trim": "Plus",
           "period": "1회",
           "price": "₩9,900",
           "priceUS": "$5.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.TokenMemo.gift.pro",
@@ -236,6 +280,24 @@
           "period": "평생",
           "price": "₩7,700",
           "priceUS": "$4.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.forever.yearly",
+          "label": "언제나 연 패스 (리이오 모든 앱) (이 앱 결제 화면에는 없음)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩49,000",
+          "priceUS": "$34.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.forever.upgrade",
+          "label": "언제나 평생 패스로 올리기 (이 앱 결제 화면에는 없음)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩119,000",
+          "priceUS": "$79.99",
           "live": false
         }
       ],
@@ -275,7 +337,89 @@
         "모든 기능 무료"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.Ysoup.CoolTime.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.plus.lifetime",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -315,7 +459,89 @@
         "모든 기능 무료 — 잠긴 기능 없음"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.DontGoMart.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.DontGoMart.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.DontGoMart.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.DontGoMart.plus.lifetime",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.DontGoMart.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.DontGoMart.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.DontGoMart.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.DontGoMart.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.DontGoMart.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.coffee",
         "tip.cake",
@@ -383,7 +609,7 @@
           "period": "연",
           "price": "₩4,400",
           "priceUS": "$2.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.xa.toki.remember",
@@ -401,11 +627,11 @@
           "period": "연",
           "price": "₩8,800",
           "priceUS": "$5.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.xa.toki.pro",
-          "label": "Pro 평생",
+          "label": "Pro 평생 (11월 17일부터 ₩27,000 · $17.99)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩17,000",
@@ -414,7 +640,7 @@
         },
         {
           "productId": "com.xa.toki.pro.upgrade",
-          "label": "기억 평생 → Pro 평생 올리기(차액)",
+          "label": "기억 평생 → Pro 평생 올리기(차액) (11월 17일부터 ₩13,000 · $8.99)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩11,000",
@@ -428,6 +654,60 @@
           "period": "평생",
           "price": "₩19,000",
           "priceUS": "$12.99",
+          "live": true
+        },
+        {
+          "productId": "com.xa.toki.gift.plus",
+          "label": "Plus 선물하기 (받는 사람에게 Plus 평생)",
+          "trim": "Plus",
+          "period": "1회",
+          "price": "₩14,000",
+          "priceUS": "$8.99",
+          "live": true
+        },
+        {
+          "productId": "com.xa.toki.gift.pro",
+          "label": "Pro 선물하기 (받는 사람에게 Pro 평생)",
+          "trim": "Pro",
+          "period": "1회",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
+          "live": true
+        },
+        {
+          "productId": "com.xa.toki.forever.yearly",
+          "label": "언제나 연 패스 (리이오 모든 앱) (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩49,000",
+          "priceUS": "$34.99",
+          "live": false
+        },
+        {
+          "productId": "com.xa.toki.forever",
+          "label": "언제나 평생 패스 (리이오 모든 앱) (이 앱 결제 화면에는 없음)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩149,000",
+          "priceUS": "$99.99",
+          "live": false
+        },
+        {
+          "productId": "com.xa.toki.forever.upgrade",
+          "label": "언제나 평생 패스로 올리기 (이 앱 결제 화면에는 없음)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩119,000",
+          "priceUS": "$79.99",
+          "live": false
+        },
+        {
+          "productId": "com.xa.toki.forever.graduate",
+          "label": "언제나 평생 패스 졸업가 (이 앱 결제 화면에는 없음)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩99,000",
+          "priceUS": "$64.99",
           "live": false
         }
       ],
@@ -508,9 +788,9 @@
           "label": "평생 이용권 선물하기 (받는 사람에게 평생 이용권)",
           "trim": "평생 이용권",
           "period": "1회",
-          "price": null,
+          "price": "₩17,000",
           "priceUS": "$9.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -592,9 +872,9 @@
           "label": "Pro 선물하기 (받는 사람에게 평생 Pro)",
           "trim": "Pro",
           "period": "1회",
-          "price": null,
+          "price": "₩17,000",
           "priceUS": "$9.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -773,61 +1053,121 @@
       ],
       "kind": "mixed",
       "hidden": false,
-      "headline": "비즈·십자수 도안에 필요한 모든 것 (계기마다 바뀜: 도안을 인쇄해서 바로 만들어 보세요 / 원하는 만큼 큰 도안을 / 만든 도안을 모두 보관하세요)",
-      "subheadline": "한땀 Pro",
-      "cta": "평생: '₩77,000에 한 번만 구입' · 구독: 체험이 있으면 'N일 무료 체험 시작', 없으면 '계속'",
+      "headline": "한땀 Plus · Pro",
+      "subheadline": "더 큰 도안, 그리고 인쇄해서 바로 만드는 도안까지. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Plus | Pro 를 고르고 연 구독 · 평생 (더 보기를 펼치면 월 · 주)",
       "trimLabels": [
         "무료",
-        "한땀 Pro"
+        "Plus",
+        "Pro"
       ],
       "benefits": [
-        "인쇄용 PDF 도안 — 보드마다 나눈 기호 도안과 색 목록",
-        "더 큰 도안 — 페그보드 4 × 4장, 십자수 200칸까지",
-        "도안 무제한 보관 (무료는 3개)",
-        "한땀 표시 없는 깨끗한 이미지",
-        "모든 픽셀 아트 도구 — 칸 크기 · 팔레트 · 필터 · 디더링 · 4K 내보내기"
+        "Plus · 비즈 보드 4 × 4장, 십자수 가로 200칸까지",
+        "Plus · 도안 무제한 보관, 한땀 표시 없는 이미지",
+        "Plus · 픽셀 아트 도구 전부",
+        "Pro · 인쇄용 PDF 도안 (보드마다 나눈 기호 도안과 색 목록)",
+        "Pro · 한땀 문구 없는 전후 비교 영상, 필터 팩 3종"
       ],
       "free": [
-        "사진 → 비즈(Perler · Hama Midi · Artkal S) · 십자수(DMC) 도안",
-        "비즈 보드 1장(29 × 29) · 십자수 40칸까지",
-        "화면에서 색 번호 · 색마다 개수 보기, 구매 목록 복사",
-        "도안 3개 보관",
-        "작은 한땀 표시가 든 이미지 공유",
-        "픽셀 아트: 작은 칸 크기 3종 · 원래 색만"
+        "사진으로 비즈 · 십자수 도안 만들기",
+        "도안 크기 보드 1장 · 40칸",
+        "도안 보관 3개",
+        "색 번호 · 개수 보기, 구매 목록 복사",
+        "픽셀 아트 칸 크기 · 팔레트 · 디더링 기본 3종"
       ],
       "locked": [
-        "인쇄용 PDF 도안",
-        "보드 2장 이상(58 · 87 · 116) · 십자수 40칸 초과(최대 200)",
-        "4번째 도안부터 저장",
-        "표시 없는 이미지",
-        "픽셀 아트: 큰 칸 크기 · 레트로 팔레트 · 디더링 · 필터 팩"
+        "Plus: 더 큰 도안 · 무제한 보관 · 표시 없는 이미지 · 픽셀 아트 도구",
+        "Pro: 인쇄용 PDF 도안 · 문구 없는 전후 영상 · 필터 팩"
       ],
       "tiers": [
         {
-          "productId": "com.pixelme.pro.lifetime",
-          "label": "한땀 Pro 평생 (기본 선택)",
-          "trim": "한땀 Pro",
+          "productId": "com.leeo.PixelMe.plus.weekly",
+          "label": "Plus 주 구독",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.PixelMe.plus.monthly",
+          "label": "Plus 월 구독",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.49",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.PixelMe.plus.yearly",
+          "label": "Plus 연 구독",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩14,000",
+          "priceUS": "$9.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.PixelMe.plus.lifetime",
+          "label": "Plus 평생",
+          "trim": "Plus",
           "period": "평생",
-          "price": "₩77,000",
-          "priceUS": "$44.99",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.PixelMe.pro.weekly",
+          "label": "Pro 주 구독",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": true
+        },
+        {
+          "productId": "com.hantam.pro.monthly",
+          "label": "Pro 월 구독",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩6,600",
+          "priceUS": "$3.99",
           "live": true
         },
         {
           "productId": "com.hantam.pro.yearly",
-          "label": "한땀 Pro 연간 구독 (절약 배지)",
-          "trim": "한땀 Pro",
+          "label": "Pro 연 구독",
+          "trim": "Pro",
           "period": "연",
           "price": "₩44,000",
           "priceUS": "$24.99",
           "live": true
         },
         {
-          "productId": "com.hantam.pro.monthly",
-          "label": "한땀 Pro 월간 구독",
-          "trim": "한땀 Pro",
-          "period": "월",
-          "price": "₩6,600",
-          "priceUS": "$3.99",
+          "productId": "com.pixelme.pro.lifetime",
+          "label": "Pro 평생 (유료 다운로드 시절 Pro 상품을 이어 씀)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩77,000",
+          "priceUS": "$44.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.PixelMe.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩22,000",
+          "priceUS": "$14.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.PixelMe.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
           "live": true
         }
       ],
@@ -837,16 +1177,16 @@
         "tip.large"
       ],
       "triggers": [
-        "도안 화면에서 '인쇄용 도안 (PDF)'을 누를 때",
-        "보드 2장 이상 · 40칸 넘는 크기를 고를 때",
-        "4번째 도안이 저장되지 않았다는 배너를 누를 때",
-        "홈 아래 한땀 Pro 배너",
-        "설정 · 픽셀 아트 도구의 잠긴 칸 크기 · 팔레트 · 디더링"
+        "도안 · 보드 크기를 키울 때",
+        "4번째 도안을 저장할 때 · 표시 없는 이미지를 원할 때",
+        "PDF 를 인쇄할 때 · 필터 팩을 고를 때 (Pro 가 먼저)",
+        "픽셀 크기 · 팔레트 · 디더링을 바꿀 때",
+        "홈 배너 · 설정"
       ],
-      "trial": "StoreKit 소개 혜택이 있으면 'N일 무료 체험' 으로 표시 — 체험 유무는 ASC 설정에 달림(레포에 .storekit 없음)",
+      "trial": null,
       "restore": true,
-      "currentPublic": "유료 다운로드(₩6,600) 안에 한땀 Pro 한 칸 — 월 ₩6,600 / 연 ₩44,000 / 평생 ₩77,000",
-      "notes": "2.1.3(52990be) 기준. 2.1.0 이후 페이월 화면 · 게이트 · 가격은 바뀌지 않았고(코드 기본값 ₩6,600 · ₩44,000 · ₩77,000), 선물(com.pixelme.gift.pro)과 팁 3종이 새로 들어왔다. 선물 상품은 store-products.json 에 없어 홈의 선물 줄이 서지 않고(LeeoKit 3.30.1, isAvailable = 상품 있음), 팁은 READY_TO_SUBMIT 이라 안 보인다. 예전 com.pixelme.pro.monthly/yearly/weekly 는 판매 중지 — 산 사람만 Pro 로 인정. 필터 팩 3종(com.pixelme.filterpack.*)은 코드에 판매 화면이 남아 있으나 스토어 목록에 없음. 다운로드 ₩6,600 은 apps.json 스토어 값·레포 커밋(49c9e3a) 기준. priceUS 는 이전 기록(레포 문서) 값으로, 이번에 .storekit 이 없어 다시 확인하지 못함. 체험은 레포로 확인 불가."
+      "currentPublic": "유료 다운로드 ₩6,600 · 무료 칸 · Plus 주 ₩2,200 / 월 ₩5,500 / 연 ₩14,000 / 평생 ₩43,000 · Pro 주 ₩3,300 / 월 ₩6,600 / 연 ₩44,000 / 평생 ₩77,000",
+      "notes": "2026-11-15 소스 · App Store Connect 로 다시 정리: 새 페이월 출시, 상품 모두 APPROVED. 유료 다운로드 시절 구매자는 Pro 평생. 앱 자체는 아직 유료 다운로드(스토어 가격). 선물 판매는 꺼져 있음."
     },
     "rainbow-of-desire": {
       "slug": "rainbow-of-desire",
@@ -917,7 +1257,7 @@
           "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
-          "price": null,
+          "price": "₩25,000",
           "priceUS": "$14.99",
           "live": true
         },
@@ -953,9 +1293,27 @@
           "label": "Pro 월 구독 (판매 멈춤, 기존 구독자 권한만 유지)",
           "trim": "Pro",
           "period": "월",
-          "price": null,
+          "price": "₩4,400",
           "priceUS": "$2.99",
-          "live": false
+          "live": true
+        },
+        {
+          "productId": "com.example.ScheduleDensityApp.gift.plus",
+          "label": "Plus 선물하기 (받는 사람에게 Plus 평생)",
+          "trim": "Plus",
+          "period": "1회",
+          "price": "₩15,000",
+          "priceUS": "$8.99",
+          "live": true
+        },
+        {
+          "productId": "com.example.ScheduleDensityApp.gift.pro",
+          "label": "Pro 선물하기 (받는 사람에게 Pro 평생)",
+          "trim": "Pro",
+          "period": "1회",
+          "price": "₩66,000",
+          "priceUS": "$39.99",
+          "live": true
         }
       ],
       "tips": [
@@ -1084,7 +1442,7 @@
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -1143,8 +1501,8 @@
           "label": "징검돌 프로 평생 (한 번 구매)",
           "trim": "징검돌 프로",
           "period": "평생",
-          "price": "₩7,900",
-          "priceUS": "$4.99",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
           "live": true
         }
       ],
@@ -1284,7 +1642,7 @@
         },
         {
           "productId": "com.Ysoup.LeaveWise.plus",
-          "label": "플러스 평생 (11-17까지 출시가)",
+          "label": "플러스 평생 (11-17까지 출시가) (11월 17일부터 ₩52,000 · $29.99)",
           "trim": "Plus",
           "period": "평생",
           "price": "₩33,000",
@@ -1302,7 +1660,7 @@
         },
         {
           "productId": "com.Ysoup.LeaveWise.pro",
-          "label": "프로 평생 (가족 공유 6명)",
+          "label": "프로 평생 (가족 공유 6명) (11월 17일부터 ₩99,000 · $59.99)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩77,000",
@@ -1368,17 +1726,26 @@
           "label": "패밀리 연 구독 — 판매 중지, 기존 구독자만 프로 권한",
           "trim": "Pro",
           "period": "연",
-          "price": "₩33,000",
-          "priceUS": "$19.99",
-          "live": false
+          "price": "₩49,000",
+          "priceUS": "$29.99",
+          "live": true
         },
         {
           "productId": "com.Ysoup.LeaveWise.gift.pro",
-          "label": "Pro 선물하기 (받는 사람이 프로 평생) — 스토어 상품 없음",
+          "label": "Pro 선물하기 (받는 사람이 프로 평생) (11월 17일부터 ₩99,000 · $59.99)",
           "trim": "Pro",
           "period": "1회",
           "price": "₩77,000",
           "priceUS": "$49.99",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.LeaveWise.gift.plus",
+          "label": "Plus 선물하기 (받는 사람에게 Plus 평생)",
+          "trim": "Plus",
+          "period": "1회",
+          "price": "₩33,000",
+          "priceUS": "$19.99",
           "live": true
         }
       ],
@@ -1415,51 +1782,82 @@
       ],
       "kind": "mixed",
       "hidden": false,
-      "headline": "세끼 프로 (막힌 기능에서 열면 그 기능 제목 — 예: '자세한 통계를 봐요')",
-      "subheadline": "함께 먹는 사람이 많아질수록 더 편해져요.",
-      "cta": "구독 시작하기 (평생을 고르면 구매하기)",
+      "headline": "세끼 플러스 · 프로",
+      "subheadline": "",
+      "cta": "플러스 | 프로 를 고르고 월 · 연 · 평생 중 하나 — 늘 떠 있는 구매 단추 하나",
       "trimLabels": [
         "무료",
+        "플러스",
         "프로"
       ],
       "benefits": [
-        "그룹을 여러 개 만들어요",
-        "자세한 통계를 봐요",
-        "Face ID로 잠가요"
+        "플러스 · 그룹 여러 개 만들기",
+        "플러스 · 자세한 통계(전후 비교 · 자주 먹은 음식)",
+        "플러스 · Face ID 잠금, 지난 달력 · 스탬프 기록, 나만의 스탬프",
+        "프로 · 식사 지도, 주간 리포트와 월요일 알림",
+        "프로 · 기간을 골라 PDF 로 내보내기, 사진 한꺼번에 저장"
       ],
       "free": [
-        "기록, 위젯, 친구와 공유, 그룹 참여",
-        "그룹 만들기 1개 (freeLimits groupCreate: 1)",
-        "음식 분석(기기 안에서, 무료)"
+        "식사 기록 · 위젯 · 친구와 공유",
+        "그룹 1개까지 만들기 (참여는 제한 없음)",
+        "이번 달 달력과 기본 스탬프",
+        "기기 안 음식 분석 (횟수 제한 없음)"
       ],
       "locked": [
-        "프로: 그룹 2개째부터 만들기",
-        "프로: 자세한 통계(전후 비교, 자주 먹은 음식)",
-        "프로: Face ID / Touch ID 잠금"
+        "플러스: 그룹 여러 개",
+        "플러스: 자세한 통계 · Face ID 잠금 · 지난 달력 · 나만의 스탬프",
+        "프로: 식사 지도 · 주간 리포트 · PDF 내보내기 · 사진 한꺼번에 저장"
       ],
       "tiers": [
         {
-          "productId": "com.ysoup.routinecamera.pro.yearly",
-          "label": "프로 연 구독 (기본 선택)",
-          "trim": "Pro",
+          "productId": "com.ysoup.routinecamera.plus.monthly",
+          "label": "플러스 월 구독",
+          "trim": "플러스",
+          "period": "월",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.ysoup.routinecamera.plus.yearly",
+          "label": "플러스 연 구독",
+          "trim": "플러스",
           "period": "연",
-          "price": "₩25,000",
-          "priceUS": "$14.99",
+          "price": "₩12,000",
+          "priceUS": "$7.99",
+          "live": true
+        },
+        {
+          "productId": "com.ysoup.routinecamera.plus.lifetime",
+          "label": "플러스 평생",
+          "trim": "플러스",
+          "period": "평생",
+          "price": "₩33,000",
+          "priceUS": "$19.99",
           "live": true
         },
         {
           "productId": "com.ysoup.routinecamera.pro.monthly",
           "label": "프로 월 구독",
-          "trim": "Pro",
+          "trim": "프로",
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$1.99",
           "live": true
         },
         {
+          "productId": "com.ysoup.routinecamera.pro.yearly",
+          "label": "프로 연 구독 (기본 선택)",
+          "trim": "프로",
+          "period": "연",
+          "price": "₩25,000",
+          "priceUS": "$14.99",
+          "live": true
+        },
+        {
           "productId": "com.ysoup.routinecamera.pro.lifetime",
           "label": "프로 평생",
-          "trim": "Pro",
+          "trim": "프로",
           "period": "평생",
           "price": "₩66,000",
           "priceUS": "$39.99",
@@ -1467,12 +1865,12 @@
         },
         {
           "productId": "com.ysoup.routinecamera.gift.pro",
-          "label": "프로 선물하기 (받는 사람이 평생 프로) — 심사 전",
-          "trim": "Pro",
+          "label": "프로 선물하기 (받는 사람이 평생 프로)",
+          "trim": "프로",
           "period": "1회",
-          "price": null,
+          "price": "₩66,000",
           "priceUS": "$39.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -1481,15 +1879,16 @@
         "tip.large"
       ],
       "triggers": [
-        "그룹 화면에서 두 번째 그룹을 만들 때",
-        "통계 화면의 자세한 통계(전후 비교 · 자주 먹은 음식)",
-        "설정 ▸ Face ID 잠금 켜기",
-        "설정 ▸ 세끼 프로"
+        "그룹을 2개째 만들 때",
+        "통계의 잠긴 카드를 누를 때",
+        "지난 달력을 볼 때 · 스탬프를 만들 때",
+        "통계의 지도 · 리포트 · 내보내기를 누를 때",
+        "설정의 Face ID 잠금 · '플러스 · 프로 보기'"
       ],
       "trial": null,
       "restore": true,
-      "currentPublic": "무료(그룹 1개) · 프로 연 ₩25,000 / 월 ₩3,300 / 평생 ₩66,000 · 선물 · 팁(심사 전)",
-      "notes": "예전 기록(분석 코인 · OpenAI · 월 $2 99코인)은 사라졌다 — RELEASE_NOTES 대로 코인·OpenAI 삭제, 음식 분석은 기기 안에서 무료. 지금은 LeeoKit LeeoPaywallView(연·월·평생 세 칸, 가격은 StoreKit). 원화는 apps.json appPrice(스토어 이전 값), 코드엔 원화 없음. .storekit 에 첫 구독 혜택 없음. 선물 gift.pro 는 READY_TO_SUBMIT 이라 설정의 선물 줄은 아직 안 선다. 팁 3개도 READY_TO_SUBMIT(팁 부탁 배너는 프로 사용자에게만). LeeoStore 에 DEBUG unlockOverride 가 없어 개발 빌드도 실제 잠금이다. ContentView 의 showingPaywallForTest 는 DEBUG 훅 전용."
+      "currentPublic": "무료 · 플러스 월 ₩1,100 / 연 ₩12,000 / 평생 ₩33,000 · 프로 월 ₩3,300 / 연 ₩25,000 / 평생 ₩66,000",
+      "notes": "2026-11-15 소스 · App Store Connect 로 다시 정리: 새 페이월 출시, 상품 모두 APPROVED. 칸마다 월 · 연 · 평생(주 없음). 올리기 · 졸업 상품 없음. 선물은 프로 평생."
     },
     "worry-parking": {
       "slug": "worry-parking",
@@ -1534,8 +1933,44 @@
           "label": "Pro 월 구독 (첫 1주 무료) — 출시 빌드에서 꺼짐",
           "trim": "Pro",
           "period": "월",
-          "price": null,
-          "priceUS": "$3.99",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.worryparking.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.worryparking.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.worryparking.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.worryparking.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
           "live": false
         }
       ],
@@ -1579,7 +2014,98 @@
         "모든 기능 무료 — 인앱 결제로 여는 기능이 없다"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.bookmarkshot.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.plus.lifetime",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.bookmarkshot.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -1616,7 +2142,53 @@
         "유료 다운로드(₩4,400) — 산 순간 모든 기능이 열린다. 앱 안에서 여는 기능은 없다"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.bucketclimb.app.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.bucketclimb.app.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.bucketclimb.app.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.bucketclimb.app.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.bucketclimb.app.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -1650,7 +2222,53 @@
         "유료 앱 — 한 번 사면 모든 기능(앱 안에서 잠긴 기능 없음)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.JuJob.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.JuJob.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.JuJob.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.JuJob.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.JuJob.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -1683,7 +2301,98 @@
         "모든 기능 무료"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.family.FamilyBank.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.plus",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.pro",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -1717,7 +2426,53 @@
         "모든 기능 무료"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.family.familycourt.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.familycourt.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.familycourt.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.familycourt.pro",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.family.familycourt.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -1770,8 +2525,89 @@
           "label": "퇴사각 프로 평생(1회 구매) — 출시 빌드에서 숨김",
           "trim": "프로",
           "period": "평생",
-          "price": "₩9,900",
-          "priceUS": null,
+          "price": "₩229,000",
+          "priceUS": "$150.0",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.49",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩14,000",
+          "priceUS": "$9.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.plus",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩7,700",
+          "priceUS": "$4.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩22,000",
+          "priceUS": "$14.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩22,000",
+          "priceUS": "$14.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.FireTracker.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
           "live": false
         }
       ],
@@ -1798,31 +2634,142 @@
         "FootprintDiary/DiaryScreen.swift",
         "FootprintDiary/FootprintDiarySupportView.swift"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "모든 기능 무료 (결제로 여는 기능 없음)"
+      "headline": "벅뚜벅뚜 Plus · Pro",
+      "subheadline": "걸어서 그린 지도는 언제나 무료예요. 꾸미고 넓히는 도구를 연 구독이나 평생으로 고르세요.",
+      "cta": "Plus | Pro 를 고르고 연 구독 · 평생, 그리고 주간 · 월간 단추",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
       ],
-      "locked": [],
-      "tiers": [],
+      "benefits": [
+        "Plus · 도장 제한 없음, 간판 스티커 카메라",
+        "Plus · 그림지도, 기간 직접 정하기",
+        "Pro · 홈 화면 · 잠금화면 위젯",
+        "Pro · 필름 영상 내보내기, 개척 나침반"
+      ],
+      "free": [
+        "걸음 기록 · 지도, iCloud 보관 · 동기화",
+        "일기 · 달력 · 오늘의 발자취",
+        "기간 보기 (주 · 달 · 해)",
+        "기록 내보내기 (GPX · CSV)",
+        "도장 30곳",
+        "필름 미리보기"
+      ],
+      "locked": [
+        "Plus: 도장 무제한 · 스티커 카메라 · 그림지도 · 기간 직접 정하기",
+        "Pro: 위젯 · 필름 내보내기 · 개척 나침반"
+      ],
+      "tiers": [
+        {
+          "productId": "com.leeo.FootprintDiary.plus.weekly",
+          "label": "Plus 주 구독",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.plus.monthly",
+          "label": "Plus 월 구독",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$2.49",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.plus.yearly",
+          "label": "Plus 연 구독",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩12,000",
+          "priceUS": "$7.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.plus",
+          "label": "Plus 평생",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.pro.weekly",
+          "label": "Pro 주 구독",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.pro.monthly",
+          "label": "Pro 월 구독",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.pro.yearly",
+          "label": "Pro 연 구독",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.pro",
+          "label": "Pro 평생",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.FootprintDiary.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": true
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
         "tip.large"
       ],
       "triggers": [
-        "응원 부탁 카드: 걸은 날과 일기가 쌓인 일기 목록 맨 위 (쌓인 숫자가 고마울 만할 때 드물게)",
-        "설정(지원 화면) ▸ 개발자 응원하기"
+        "31번째 도장을 찍을 때 · 스티커 카메라를 쓸 때",
+        "그림지도 · 기간 직접 정하기",
+        "필름 내보내기 · 나침반",
+        "잠긴 위젯의 'Pro로 열기'",
+        "7일째 '요금제 보기' 안내 · 설정"
       ],
       "trial": null,
-      "restore": false,
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 상품 심사 전)",
-      "notes": "Spec 이 LeeoMonetization.free, 결제 화면 없음. 팁 3종은 LeeoTipJar 를 LeeoStore 없이 단독으로 돌린다(startStandalone). store-products.json 에서 팁 3종 모두 READY_TO_SUBMIT 이라 아직 판매 중이 아니고, 상품이 App Store 에서 불러와져야 응원 줄·카드가 서므로 지금 출시 빌드에서는 팁 화면도 사실상 안 보인다. 복원할 상품 없음(소모성 팁뿐)."
+      "restore": true,
+      "currentPublic": "무료 · Plus 주 ₩1,100 / 월 ₩3,300 / 연 ₩12,000 / 평생 ₩35,000 · Pro 주 ₩2,200 / 월 ₩5,500 / 연 ₩17,000 / 평생 ₩52,000",
+      "notes": "2026-11-15 소스 · App Store Connect 로 다시 정리: 새 페이월 출시, 상품 모두 APPROVED. 페이월 전부터 쓰던 사람은 Pro 평생. 선물 없음."
     },
     "geusaie": {
       "slug": "geusaie",
@@ -1843,7 +2790,53 @@
         "모든 기능 무료 (결제로 여는 기능 없음)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.geusaie.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.geusaie.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.geusaie.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.geusaie.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.geusaie.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -1974,7 +2967,98 @@
         "모든 기능 무료 (결제로 여는 기능 없음)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.devkoan.CalendarSnap.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$2.49",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩12,000",
+          "priceUS": "$7.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.plus",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.pro",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.CalendarSnap.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2008,7 +3092,98 @@
         "모든 기능 무료 (결제로 여는 기능 없음)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.lectureq.LectureQ.plus.weekly",
+          "label": "Plus 주 구독 (심사 중)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.plus.monthly",
+          "label": "Plus 월 구독 (심사 중)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.plus.yearly",
+          "label": "Plus 연 구독 (심사 중)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.plus",
+          "label": "Plus 평생 (심사 중)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.pro.weekly",
+          "label": "Pro 주 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.pro.monthly",
+          "label": "Pro 월 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.pro.yearly",
+          "label": "Pro 연 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.pro",
+          "label": "Pro 평생 (심사 중)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 중)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.lectureq.LectureQ.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 중)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2042,7 +3217,98 @@
         "앱 안의 모든 기능 무료 (앱 안 결제 없음)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.Ysoup.restaurantmap.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.plus.lifetime",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.Ysoup.restaurantmap.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2076,7 +3342,53 @@
         "모든 게임 무료"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.example.MoonlitOrder.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.example.MoonlitOrder.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.example.MoonlitOrder.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.example.MoonlitOrder.pro",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.example.MoonlitOrder.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2110,7 +3422,98 @@
         "모든 기능 무료"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.devkoan.StampCamera.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.plus.lifetime",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StampCamera.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2188,6 +3591,78 @@
           "price": null,
           "priceUS": "$39.99",
           "live": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.49",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩14,000",
+          "priceUS": "$9.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.plus.lifetime",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩7,700",
+          "priceUS": "$4.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩22,000",
+          "priceUS": "$14.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.IndonesianSmallTalk.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
+          "live": false
         }
       ],
       "tips": [
@@ -2225,7 +3700,53 @@
         "모든 기능 (LeeoMonetization.free)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.devkoan.StaffSinger.pro.weekly",
+          "label": "Pro 주 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StaffSinger.pro.monthly",
+          "label": "Pro 월 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StaffSinger.pro.yearly",
+          "label": "Pro 연 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StaffSinger.pro.lifetime",
+          "label": "Pro 평생 (심사 중)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.devkoan.StaffSinger.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 중)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2259,7 +3780,98 @@
         "모든 기능 (LeeoMonetization.free)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.SkyDex.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.plus.lifetime",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.SkyDex.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2282,31 +3894,158 @@
         "SlideSnap/PresentationDetailView.swift",
         "SlideSnap/SlideSnapApp.swift"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "모든 기능 (LeeoMonetization.free)"
+      "headline": "장표스냅 Plus · Pro",
+      "subheadline": "찍고 펴고 묶고 찾는 일은 계속 무료예요.",
+      "cta": "Plus | Pro 를 고르고 연 구독 · 평생 (펼치면 월)",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
       ],
-      "locked": [],
-      "tiers": [],
+      "benefits": [
+        "Plus · 발표 무제한",
+        "Plus · 또렷하게 보정, PDF 두 장 · 네 장씩",
+        "Pro · 그때 한 말까지 장표 옆에, 기기 안 요약",
+        "Pro · PowerPoint · Markdown 내보내기, iCloud 동기화"
+      ],
+      "free": [
+        "원근 보정 · 무음 · 자동 촬영",
+        "글자 인식 · 검색",
+        "사진 앱 가져오기 · 공유 확장 · 위젯",
+        "이미지 공유 · PDF 한 장씩",
+        "발표 10개 (이미 담은 발표는 그대로 보고 내보냄)"
+      ],
+      "locked": [
+        "Plus: 발표 무제한 · 또렷하게 보정 · PDF 여러 장씩",
+        "Pro: 기기 안 요약 · PowerPoint · Markdown 내보내기 · iCloud 동기화"
+      ],
+      "tiers": [
+        {
+          "productId": "com.leeo.slidesnap.plus.weekly",
+          "label": "Plus 주 구독",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.plus.monthly",
+          "label": "Plus 월 구독",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$2.49",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.plus.yearly",
+          "label": "Plus 연 구독",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩12,000",
+          "priceUS": "$7.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.plus",
+          "label": "Plus 평생",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩25,000",
+          "priceUS": "$14.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.pro.weekly",
+          "label": "Pro 주 구독",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.pro.monthly",
+          "label": "Pro 월 구독",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.pro.yearly",
+          "label": "Pro 연 구독",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.pro",
+          "label": "Pro 평생",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩44,000",
+          "priceUS": "$24.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$9.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩29,000",
+          "priceUS": "$17.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.gift.plus",
+          "label": "Plus 선물하기 (받는 사람에게 Plus 평생)",
+          "trim": "Plus",
+          "period": "1회",
+          "price": "₩25,000",
+          "priceUS": "$14.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.slidesnap.gift.pro",
+          "label": "Pro 선물하기 (받는 사람에게 Pro 평생)",
+          "trim": "Pro",
+          "period": "1회",
+          "price": "₩44,000",
+          "priceUS": "$24.99",
+          "live": true
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
         "tip.large"
       ],
       "triggers": [
-        "프로필 화면의 개발자 응원 줄",
-        "슬라이드가 100 · 300 · 1000장에 닿을 때 발표 상세의 한 번 묻기"
+        "11번째 발표를 만들 때 (찍은 장표는 가장 최근 발표에 담김)",
+        "또렷하게 보정 · PDF 여러 장씩",
+        "요약 · PowerPoint · Markdown 내보내기",
+        "설정의 iCloud 동기화 · 설정 ▸ 요금제"
       ],
       "trial": null,
-      "restore": false,
-      "currentPublic": "유료 앱 ₩4,400 (앱 안 추가 결제 없음) · 팁만 (팁 상품 심사 전)",
-      "notes": "LeeoMonetization.free — 결제 화면·잠금 없음. 팁 3개는 store-products 에서 READY_TO_SUBMIT 라 아직 안 팔리고, LeeoTipJarLink 는 tipJar.isAvailable(상품 로드)일 때만 서므로 지금 출시 빌드에선 팁 줄도 안 보일 가능성이 높다. 앱 자체는 유료 앱(apps.json appPrice ₩4,400, 사이트 문구 'No subscription and no paid add-ons. See the App Store for the price') — 값은 코드에서 확인 안 됨. 앱 안 결제는 팁뿐."
+      "restore": true,
+      "currentPublic": "무료 · Plus 주 ₩1,100 / 월 ₩3,300 / 연 ₩12,000 / 평생 ₩25,000 · Pro 주 ₩2,200 / 월 ₩5,500 / 연 ₩17,000 / 평생 ₩44,000",
+      "notes": "2026-11-15 소스 · App Store Connect 로 다시 정리: 새 페이월 출시, 상품 모두 APPROVED. 유료 다운로드 시절 구매자는 Pro 평생. 유료 앱 ₩4,400 → 무료 다운로드로 바뀜."
     },
     "sticky-presenter-remote": {
       "slug": "sticky-presenter-remote",
@@ -2330,7 +4069,53 @@
         "모든 기능 무료(Apple Watch 리모컨 포함) — 인앱 결제로 여는 기능이 없다"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.StickyPresenter.Remote.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.Remote.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.Remote.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.Remote.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩27,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.Remote.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩19,000",
+          "priceUS": "$12.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2368,7 +4153,98 @@
         "모든 기능 무료 — 인앱 결제로 여는 기능이 없다"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.StickyPresenter.mac.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$2.49",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩12,000",
+          "priceUS": "$7.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.plus.lifetime",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.StickyPresenter.mac.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2402,7 +4278,53 @@
         "모든 기능 무료"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.sunflower.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.sunflower.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.sunflower.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.sunflower.pro.lifetime",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.sunflower.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2441,7 +4363,98 @@
         "유료 다운로드(₩17,000) — 산 순간 모든 기능이 열린다. 단축어 개수·iCloud 백업 잠금 없음"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.ysoup.TokenMemo.tap.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.49",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩14,000",
+          "priceUS": "$9.99",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.plus",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩7,700",
+          "priceUS": "$4.99",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩22,000",
+          "priceUS": "$14.99",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.pro",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩65,000",
+          "priceUS": "$44.99",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩22,000",
+          "priceUS": "$14.99",
+          "live": false
+        },
+        {
+          "productId": "com.ysoup.TokenMemo.tap.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩43,000",
+          "priceUS": "$29.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2475,7 +4488,98 @@
         "모든 기능 (LeeoMonetization.free)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.TetraTint.plus.weekly",
+          "label": "Plus 주 구독 (심사 중)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.plus.monthly",
+          "label": "Plus 월 구독 (심사 중)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$2.49",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.plus.yearly",
+          "label": "Plus 연 구독 (심사 중)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩12,000",
+          "priceUS": "$7.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.plus",
+          "label": "Plus 평생 (심사 중)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.pro.weekly",
+          "label": "Pro 주 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.pro.monthly",
+          "label": "Pro 월 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.pro.yearly",
+          "label": "Pro 연 구독 (심사 중)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.pro",
+          "label": "Pro 평생 (심사 중)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 중)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.TetraTint.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 중)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2509,7 +4613,53 @@
         "모든 기능 무료 (LeeoMonetization.free)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.thinkflow.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.thinkflow.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.thinkflow.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.thinkflow.pro",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.thinkflow.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2543,7 +4693,98 @@
         "모든 기능 무료 (LeeoMonetization.free)"
       ],
       "locked": [],
-      "tiers": [],
+      "tiers": [
+        {
+          "productId": "com.leeo.wifisnap.plus.weekly",
+          "label": "Plus 주 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.plus.monthly",
+          "label": "Plus 월 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.plus.yearly",
+          "label": "Plus 연 구독 (심사 전)",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.plus",
+          "label": "Plus 평생 (심사 전)",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.pro.weekly",
+          "label": "Pro 주 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.pro.monthly",
+          "label": "Pro 월 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.pro.yearly",
+          "label": "Pro 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.pro",
+          "label": "Pro 평생 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.wifisnap.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": false
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
@@ -2566,31 +4807,141 @@
         "Gyeol/Views/TimelineListView.swift",
         "Gyeol/GyeolApp.swift"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": "개발자 응원하기",
-      "subheadline": "기능은 그대로, 앱을 더 다듬는 데 쓰여요",
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "모든 기능 무료 (LeeoMonetization.free)"
+      "headline": "여울 Plus · Pro",
+      "subheadline": "주제마다 연표를, 모든 기기에서 안전하게. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Plus | Pro 를 고르고 연 구독 · 평생, 그리고 주간 · 월간 단추",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
       ],
-      "locked": [],
-      "tiers": [],
+      "benefits": [
+        "Plus · 타임라인 무제한",
+        "Plus · 해시태그 타임라인 저장, 카드 디자인 네 가지 전부",
+        "Pro · iCloud 동기화 (iPhone · iPad · Mac)",
+        "Pro · Siri · 단축어로 순간 추가"
+      ],
+      "free": [
+        "타임라인 2개",
+        "순간 · 사진 · 이야기 무제한",
+        "그날 사진 찾기 · 해시태그 모아 보기",
+        "텍스트로 내보내기",
+        "카드 디자인 2개 (클래식 · 포스터)"
+      ],
+      "locked": [
+        "Plus: 타임라인 무제한 · 해시태그 타임라인 저장 · 카드 디자인 전부",
+        "Pro: iCloud 동기화 · Siri · 단축어"
+      ],
+      "tiers": [
+        {
+          "productId": "com.leeo.yeoul.plus.weekly",
+          "label": "Plus 주 구독",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.plus.monthly",
+          "label": "Plus 월 구독",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$2.49",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.plus.yearly",
+          "label": "Plus 연 구독",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩12,000",
+          "priceUS": "$7.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.plus",
+          "label": "Plus 평생",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.pro.weekly",
+          "label": "Pro 주 구독",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.pro.monthly",
+          "label": "Pro 월 구독",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩5,500",
+          "priceUS": "$3.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.pro.yearly",
+          "label": "Pro 연 구독",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.pro",
+          "label": "Pro 평생",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩52,000",
+          "priceUS": "$35.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.yeoul.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩35,000",
+          "priceUS": "$23.99",
+          "live": true
+        }
+      ],
       "tips": [
         "tip.small",
         "tip.medium",
         "tip.large"
       ],
       "triggers": [
-        "설정 ▸ 개발자 응원하기",
-        "팁 부탁 카드: 기록한 사건 30 · 100 · 300개를 넘었을 때 타임라인 목록에"
+        "3번째 타임라인을 만들 때",
+        "잠긴 카드 디자인을 고를 때 · 태그 타임라인을 저장할 때",
+        "'iCloud로 이어 보기' · 설정의 동기화 스위치",
+        "Siri 단축어를 쓸 때",
+        "설정 ▸ 요금제"
       ],
       "trial": null,
-      "restore": false,
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 심사 전)",
-      "notes": "팁 상품 3개는 store-products.json 에서 READY_TO_SUBMIT(판매 전)이라, LeeoTipJar.isAvailable(불러온 상품이 하나라도 있어야)이 거짓이 되어 지금 출시 빌드에서는 설정의 '개발자 응원하기' 줄과 팁 부탁 카드가 보이지 않는다. 팁 승인 뒤 저절로 나타난다. .storekit 파일이 없어 팁 가격은 코드에서 확인 불가. 소스 폴더 이름은 Gyeol."
+      "restore": true,
+      "currentPublic": "무료 · Plus 주 ₩1,100 / 월 ₩3,300 / 연 ₩12,000 / 평생 ₩35,000 · Pro 주 ₩2,200 / 월 ₩5,500 / 연 ₩17,000 / 평생 ₩52,000",
+      "notes": "2026-11-15 소스 · App Store Connect 로 다시 정리: 새 페이월 출시, 상품 모두 APPROVED. iPhone · Mac 같은 상품. 페이월 전 사용자는 Pro 평생. 선물 없음."
     }
   }
 }

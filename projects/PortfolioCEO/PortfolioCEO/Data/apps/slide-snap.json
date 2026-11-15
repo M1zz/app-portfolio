@@ -16,10 +16,51 @@
   "nextTasks": [],
   "notes": "[2026-07-15 스토어 동기화로 추가] 발표를 들을 때 편하게 장표를 촬영하세요 (스토어명: 장표스냅)",
   "price": {
-    "isFree": false,
-    "priceKRW": 4400,
-    "pricingModel": "paid",
-    "hasInAppPurchases": false,
+    "isFree": true,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "Plus (평생)",
+        "price": "￦25,000"
+      },
+      {
+        "name": "Pro (평생)",
+        "price": "￦44,000"
+      },
+      {
+        "name": "장표스냅 Plus 선물",
+        "price": "￦25,000"
+      },
+      {
+        "name": "장표스냅 Pro 선물",
+        "price": "￦44,000"
+      },
+      {
+        "name": "Plus (주간)",
+        "price": "￦1,100"
+      },
+      {
+        "name": "Plus (월간)",
+        "price": "￦3,300"
+      },
+      {
+        "name": "Plus (연간)",
+        "price": "￦12,000"
+      },
+      {
+        "name": "Pro (주간)",
+        "price": "￦2,200"
+      },
+      {
+        "name": "Pro (월간)",
+        "price": "￦5,500"
+      },
+      {
+        "name": "Pro (연간)",
+        "price": "￦17,000"
+      }
+    ],
     "code": {
       "storeKit": false,
       "subscriptionUI": false,
@@ -27,9 +68,9 @@
       "ads": false,
       "products": []
     },
+    "gap": "스토어에 인앱결제가 있지만 소스에서 결제 코드를 찾지 못함",
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "iapItems": []
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [],

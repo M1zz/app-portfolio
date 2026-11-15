@@ -22,12 +22,44 @@
   "notes": "[2026-07-05 스토어 동기화로 자동 등록] 저의 저녁시간은 다 타고 없어진 것을 보았는데요. 여러분의 자유시간이 타서 없어지는 것을 보여드리고 싶었습니다. (스토어명: 불타는 내인생, 2026-05-29 최신 버전 출시)",
   "price": {
     "isFree": true,
-    "pricingModel": "freemium",
+    "pricingModel": "freemium-subscription",
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "프로 평생 이용권",
-        "price": "₩17,000"
+        "name": "Pro",
+        "price": "￦49,000"
+      },
+      {
+        "name": "Plus (연간)",
+        "price": "￦7,700"
+      },
+      {
+        "name": "Pro (연간)",
+        "price": "￦17,000"
+      },
+      {
+        "name": "Plus (평생)",
+        "price": "￦22,000"
+      },
+      {
+        "name": "Plus 선물",
+        "price": "￦22,000"
+      },
+      {
+        "name": "Pro 선물",
+        "price": "￦49,000"
+      },
+      {
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "든든한 응원",
+        "price": "￦4,400"
+      },
+      {
+        "name": "큰 응원",
+        "price": "￦17,000"
       }
     ],
     "code": {
@@ -39,12 +71,45 @@
         {
           "id": "com.burningparchment.app.pro",
           "type": "nonconsumable"
+        },
+        {
+          "id": "com.burningparchment.app.plus",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.burningparchment.app.gift.pro",
+          "type": "consumable"
+        },
+        {
+          "id": "com.burningparchment.app.gift.plus",
+          "type": "consumable"
+        },
+        {
+          "id": "com.burningparchment.app.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.burningparchment.app.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.burningparchment.app.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.burningparchment.app.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.burningparchment.app.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [

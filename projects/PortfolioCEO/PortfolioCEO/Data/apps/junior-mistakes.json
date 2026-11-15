@@ -21,16 +21,28 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "PRO 월간 구독",
-        "price": "₩4,400"
+        "name": "평생 구매",
+        "price": "￦33,000"
       },
       {
-        "name": "PRO 연간 구독 (기본 강조 · '인기' · '월간 대비 최대 50% 절약')",
-        "price": "₩25,000"
+        "name": "큰 응원",
+        "price": "￦17,000"
       },
       {
-        "name": "PRO 평생 이용권 ('한 번 결제로 영구 이용')",
-        "price": "₩33,000"
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "든든한 응원",
+        "price": "￦4,400"
+      },
+      {
+        "name": "1년 구독",
+        "price": "￦25,000"
+      },
+      {
+        "name": "1달 구독",
+        "price": "￦4,400"
       }
     ],
     "code": {
@@ -42,6 +54,18 @@
         {
           "id": "com.leeo.JuniorDevMistakes.pro.1lifetime",
           "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.JuniorDevMistakes.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.JuniorDevMistakes.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.JuniorDevMistakes.tip.large",
+          "type": "consumable"
         },
         {
           "id": "com.leeo.JuniorDevMistakes.pro.1monthly",
@@ -56,8 +80,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [],

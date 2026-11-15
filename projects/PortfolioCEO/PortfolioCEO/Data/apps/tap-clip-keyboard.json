@@ -25,16 +25,8 @@
     "priceKRW": 17000,
     "pricingModel": "paid",
     "hasInAppPurchases": false,
-    "code": {
-      "storeKit": false,
-      "subscriptionUI": false,
-      "storeUI": false,
-      "ads": false,
-      "products": []
-    },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "iapItems": []
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "medium",
   "recentlyCompleted": [

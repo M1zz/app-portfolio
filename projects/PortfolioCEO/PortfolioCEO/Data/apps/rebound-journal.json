@@ -321,8 +321,20 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "징검돌 프로 평생 (한 번 구매)",
-        "price": "₩7,900"
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "큰 응원",
+        "price": "￦17,000"
+      },
+      {
+        "name": "든든한 응원",
+        "price": "￦4,400"
+      },
+      {
+        "name": "징검돌 프로 (평생)",
+        "price": "￦17,000"
       }
     ],
     "code": {
@@ -334,12 +346,27 @@
         {
           "id": "com.leeo.ReboundJournal.pro",
           "type": "nonconsumable"
+        },
+        {
+          "id": "com.leeo.ReboundJournal.gift.pro",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.ReboundJournal.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.ReboundJournal.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.ReboundJournal.tip.large",
+          "type": "consumable"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "supportUrl": "https://m1zz.github.io/Rebound-Journal/",
   "lifecycle": {

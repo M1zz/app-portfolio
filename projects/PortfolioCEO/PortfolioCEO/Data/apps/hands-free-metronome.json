@@ -26,12 +26,28 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "Pro 연 구독 (1주 무료 체험)",
-        "price": "₩4,400"
+        "name": "Pro",
+        "price": "￦17,000"
       },
       {
-        "name": "Pro 평생",
-        "price": "₩17,000"
+        "name": "Pro 선물",
+        "price": "￦17,000"
+      },
+      {
+        "name": "큰 응원",
+        "price": "￦17,000"
+      },
+      {
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "든든한 응원",
+        "price": "￦4,400"
+      },
+      {
+        "name": "yearly",
+        "price": "￦4,400"
       }
     ],
     "code": {
@@ -45,6 +61,22 @@
           "type": "nonconsumable"
         },
         {
+          "id": "com.leeo.HandsFreeMetronome.gift.pro",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.HandsFreeMetronome.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.HandsFreeMetronome.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.leeo.HandsFreeMetronome.tip.large",
+          "type": "consumable"
+        },
+        {
           "id": "com.leeo.HandsFreeMetronome.pro.yearly",
           "type": "subscription",
           "period": "P1Y"
@@ -52,8 +84,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "high",
   "recentlyCompleted": [

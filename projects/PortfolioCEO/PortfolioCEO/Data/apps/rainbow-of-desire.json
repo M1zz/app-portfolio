@@ -218,28 +218,44 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "Plus 연 구독",
-        "price": "₩4,400"
+        "name": "pro",
+        "price": "￦66,000"
       },
       {
-        "name": "Plus 평생",
-        "price": "₩14,000"
+        "name": "Pro 평생 선물",
+        "price": "￦66,000"
       },
       {
-        "name": "Pro 연 구독",
-        "price": "$14.99"
+        "name": "Plus 평생 선물",
+        "price": "￦15,000"
       },
       {
-        "name": "Pro 평생 (1.1.x 의 4,900원 상품을 이어 씀)",
-        "price": "₩66,000"
+        "name": "든든한 응원",
+        "price": "￦4,400"
       },
       {
-        "name": "Plus 평생 → Pro 평생 올리기 (Plus 평생 산 사람에게만 Pro 평생 자리에 섬)",
-        "price": "₩13,000"
+        "name": "큰 응원",
+        "price": "￦17,000"
       },
       {
-        "name": "구독 졸업 Pro 평생 (구독 6개월째 · 갱신 7일 전 시트, 설정 '평생으로 바꾸기')",
-        "price": "₩19,000"
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "무지개 Pro 평생 (구독 졸업)",
+        "price": "￦19,000"
+      },
+      {
+        "name": "Plus 평생에서 Pro 평생으로",
+        "price": "￦13,000"
+      },
+      {
+        "name": "무지개 Plus 연간",
+        "price": "￦4,400"
+      },
+      {
+        "name": "무지개 Plus 평생",
+        "price": "￦14,000"
       }
     ],
     "code": {
@@ -249,8 +265,36 @@
       "ads": false,
       "products": [
         {
+          "id": "com.example.ScheduleDensityApp.plus",
+          "type": "nonconsumable"
+        },
+        {
           "id": "com.example.ScheduleDensityApp.pro",
           "type": "nonconsumable"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.gift.pro",
+          "type": "consumable"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.tip.large",
+          "type": "consumable"
         },
         {
           "id": "com.example.ScheduleDensityApp.pro.annual",
@@ -261,12 +305,16 @@
           "id": "com.example.ScheduleDensityApp.pro.monthly",
           "type": "subscription",
           "period": "P1M"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.plus.annual",
+          "type": "subscription",
+          "period": "P1Y"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-06",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "supportUrl": "https://m1zz.github.io/ScheduleDensity/",
   "lifecycle": {

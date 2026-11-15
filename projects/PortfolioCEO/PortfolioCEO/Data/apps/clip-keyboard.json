@@ -281,32 +281,44 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
+        "name": "클립키보드 Pro",
+        "price": "￦17,000"
+      },
+      {
+        "name": "Plus 선물",
+        "price": "￦9,900"
+      },
+      {
+        "name": "Pro 월 구독",
+        "price": "￦2,200"
+      },
+      {
+        "name": "Plus 월 구독",
+        "price": "￦1,100"
+      },
+      {
+        "name": "언제나 패스 연 구독",
+        "price": "￦49,000"
+      },
+      {
+        "name": "언제나 평생 패스 (Pro 보유자)",
+        "price": "￦119,000"
+      },
+      {
+        "name": "클립키보드 Pro 평생 (구독 졸업)",
+        "price": "￦27,000"
+      },
+      {
+        "name": "언제나 평생 패스",
+        "price": "￦149,000"
+      },
+      {
         "name": "Plus 연 구독",
-        "price": "₩6,600"
+        "price": "￦6,600"
       },
       {
-        "name": "Plus 평생",
-        "price": "₩9,900"
-      },
-      {
-        "name": "Pro 연 구독",
-        "price": "₩13,000"
-      },
-      {
-        "name": "Pro 평생",
-        "price": "₩17,000"
-      },
-      {
-        "name": "Plus → Pro 올리기",
-        "price": "₩13,000"
-      },
-      {
-        "name": "구독 졸업 Pro 평생",
-        "price": "₩27,000"
-      },
-      {
-        "name": "Pro 선물하기",
-        "price": "₩17,000"
+        "name": "gift",
+        "price": "￦17,000"
       }
     ],
     "code": {
@@ -316,15 +328,11 @@
       "ads": false,
       "products": [
         {
-          "id": "com.Ysoup.TokenMemo.pro",
-          "type": "nonconsumable"
-        },
-        {
-          "id": "com.Ysoup.TokenMemo.pro.halfoff",
-          "type": "nonconsumable"
-        },
-        {
           "id": "com.Ysoup.TokenMemo.slots5",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.pro",
           "type": "nonconsumable"
         },
         {
@@ -332,15 +340,7 @@
           "type": "nonconsumable"
         },
         {
-          "id": "com.Ysoup.TokenMemo.slots5.pack",
-          "type": "consumable"
-        },
-        {
-          "id": "com.Ysoup.TokenMemo.gift.pro",
-          "type": "consumable"
-        },
-        {
-          "id": "com.Ysoup.TokenMemo.twodevice",
+          "id": "com.Ysoup.TokenMemo.pro.graduate",
           "type": "nonconsumable"
         },
         {
@@ -354,12 +354,31 @@
         {
           "id": "com.Ysoup.TokenMemo.tip.large",
           "type": "consumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.plus.monthly",
+          "type": "subscription",
+          "period": "P1M"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-07",
-    "priceKRW": null
+    "evaluatedAt": "2026-11-15"
   },
   "priority": "low",
   "recentlyCompleted": [
