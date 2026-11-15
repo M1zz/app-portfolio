@@ -179,6 +179,7 @@ def page(title, desc, body, active, extra_css="", extra_js=""):
                         ("cat", "category.html", "범주 · 언어"),
                         ("reddit", "reddit-launch.html", "레딧 출격"),
                         ("shop", "shop.html", "생활도구점"),
+                        ("persona", "personas.html", "앱이 사람이라면"),
                         ("hub", "hub.html", "페이지 모음")]
     )
     return (
@@ -1801,6 +1802,8 @@ def hub_page(apps):
         '<a class="ov" href="service-check.html"><b>서비스 점검표</b>'
         '<p>모든 앱이 실제로 제대로 동작하는지 사람과 돈이 걸린 앱부터 손으로 확인하고, '
         '항목마다 잘 됨 · 불편함 · 안 됨으로 기록합니다.</p></a>'
+        '<a class="ov" href="personas.html"><b>앱이 사람이라면</b>'
+        '<p>앱들이 앱이 아니라 사람이나 도구였다면 누구였을지 한 사람 · 한 물건씩 소개합니다.</p></a>'
         '<a class="ov" href="business.html"><b>비즈니스 모델</b>'
         '<p>앱마다 누구에게, 언제, 무엇에 돈을 받는지 — 결제 시점 × 방식 프레임워크와 페이월, '
         'Lean Canvas로 정리했습니다.</p></a>'

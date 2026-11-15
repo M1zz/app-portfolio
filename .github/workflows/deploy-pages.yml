@@ -8,6 +8,8 @@ on:
       - 'scripts/build-portfolio-site.py'
       - 'scripts/build-portfolio-hub.py'
       - 'scripts/build-service-check.py'
+      - 'scripts/build-personas.py'
+      - 'scripts/personas.json'
       - 'scripts/showcase-content.json'
       - 'scripts/hub-links.json'
       - 'scripts/paywalls.json'
@@ -46,6 +48,9 @@ jobs:
 
       - name: Build service check page (서비스 점검표)
         run: python3 scripts/build-service-check.py
+
+      - name: Build personas page (앱이 사람이라면)
+        run: python3 scripts/build-personas.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
