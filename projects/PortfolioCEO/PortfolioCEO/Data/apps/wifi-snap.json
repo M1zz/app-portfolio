@@ -7,7 +7,7 @@
     "라이프스타일",
     "생산성"
   ],
-  "currentVersion": "1.0.1",
+  "currentVersion": "1.0.3",
   "folderId": "wifi-snap",
   "githubRepo": "https://github.com/M1zz/WifiSnap",
   "localProjectPath": "",
@@ -88,7 +88,7 @@
     },
     "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -106,15 +106,15 @@
     "stage": 1,
     "label": "pre-mvp",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 66일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 78일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.3 · 최종 업데이트 17일 경과",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
+    "daysSinceUpdate": 17,
     "manual": true,
     "refineDays": 0,
-    "polishDays": 66,
+    "polishDays": 78,
     "releasedAt": "2026-08-18",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-11-04"
   },
   "globalReach": {
     "level": 3,
@@ -148,7 +148,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -180,7 +180,7 @@
       "voiceOver": true,
       "voiceControl": false,
       "dynamicType": true,
-      "darkMode": false,
+      "darkMode": true,
       "differentiate": false,
       "contrast": false,
       "reduceMotion": true,
@@ -188,7 +188,7 @@
       "structure": true,
       "actions": true,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -205,22 +205,22 @@
       "textOverflow": true,
       "inputFlow": true,
       "textCopy": true,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
-      "tiers": false,
-      "freeGate": false,
-      "restore": false,
+      "paywall": true,
+      "tiers": true,
+      "freeGate": true,
+      "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
-      "trial": false,
-      "graduation": false,
+      "subscription": true,
+      "trial": true,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -279,8 +279,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 25,
-      "testFiles": 4
+      "accessibilityLabels": 36,
+      "testFiles": 5
     },
     "data": {
       "storeOpenSafe": true,
@@ -298,30 +298,30 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/WifiSnap/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
     "tryIt": false,
-    "scenario": true,
+    "scenario": false,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/WifiSnap/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

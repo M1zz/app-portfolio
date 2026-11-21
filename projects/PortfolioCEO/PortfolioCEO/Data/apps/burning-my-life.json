@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6758995390",
   "bundleId": "com.burningparchment.app",
   "categories": [],
-  "currentVersion": "1.2.1",
+  "currentVersion": "1.2.4",
   "folderId": "burning-my-life",
   "githubRepo": "",
   "localProjectPath": "",
@@ -109,7 +109,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [
@@ -129,13 +129,13 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 164일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
-    "ratingCount": 0,
-    "daysSinceUpdate": 1,
-    "polishDays": 164,
+    "basis": "출시 후 다듬은 기간 192일 · 외부 평점 2개 · 최종 업데이트 0일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
+    "ratingCount": 2,
+    "daysSinceUpdate": 0,
+    "polishDays": 192,
     "releasedAt": "2026-05-13",
-    "updatedAt": "2026-10-24"
+    "updatedAt": "2026-11-21"
   },
   "globalReach": {
     "level": 3,
@@ -169,7 +169,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -232,14 +232,14 @@
     },
     "money": {
       "paywall": true,
-      "tiers": false,
+      "tiers": true,
       "freeGate": true,
       "restore": true,
       "discount": true,
       "tipJar": true,
       "tipAsk": true,
       "gift": true,
-      "subscription": false,
+      "subscription": true,
       "trial": false,
       "graduation": false,
       "foreverPass": false
@@ -300,7 +300,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 107,
+      "accessibilityLabels": 120,
       "testFiles": 2
     },
     "data": {
@@ -319,35 +319,69 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
+    "rating": 5.0,
+    "ratingCount": 1,
     "iap": [
       {
         "name": "Pro",
+        "price": "$29.99"
+      },
+      {
+        "name": "Plus (Yearly)",
+        "price": "$4.99"
+      },
+      {
+        "name": "Pro (Yearly)",
+        "price": "$9.99"
+      },
+      {
+        "name": "Plus (Lifetime)",
+        "price": "$12.99"
+      },
+      {
+        "name": "Gift Plus",
+        "price": "$12.99"
+      },
+      {
+        "name": "Gift Pro",
+        "price": "$29.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
+      },
+      {
+        "name": "Large Tip",
         "price": "$9.99"
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/BurningParchment/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
-    "video": false,
-    "tryIt": false,
+    "screens": true,
+    "video": true,
+    "tryIt": true,
     "scenario": true,
-    "steps": true,
+    "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/BurningParchment/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

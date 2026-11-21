@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6779659029",
   "bundleId": "com.devkoan.StampCamera",
   "categories": [],
-  "currentVersion": "1.0.3",
+  "currentVersion": "1.0.4",
   "folderId": "punching",
   "githubRepo": "",
   "localProjectPath": "",
@@ -92,7 +92,7 @@
     },
     "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "low",
   "recentlyCompleted": [
@@ -112,14 +112,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 129일 · 외부 평점 0개 · 최종 업데이트 3일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 136일 · 외부 평점 0개 · 최종 업데이트 23일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 3,
+    "daysSinceUpdate": 23,
     "refineDays": 0,
-    "polishDays": 129,
+    "polishDays": 136,
     "releasedAt": "2026-06-15",
-    "updatedAt": "2026-10-22"
+    "updatedAt": "2026-10-29"
   },
   "globalReach": {
     "level": 3,
@@ -153,7 +153,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -193,7 +193,7 @@
       "structure": true,
       "actions": true,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -204,28 +204,28 @@
     },
     "craft": {
       "moments": false,
-      "sheets": false,
+      "sheets": true,
       "liveNumbers": false,
-      "localeFormat": false,
+      "localeFormat": true,
       "textOverflow": false,
       "inputFlow": true,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
-      "discount": false,
+      "freeGate": true,
+      "restore": true,
+      "discount": true,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
-      "trial": false,
-      "graduation": false,
+      "subscription": true,
+      "trial": true,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -261,7 +261,7 @@
     "marketing": {
       "demoMode": false,
       "deepLink": true,
-      "offerCode": false,
+      "offerCode": true,
       "invite": false,
       "installNudge": false,
       "shareApp": false,
@@ -284,12 +284,12 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 24,
-      "testFiles": 7
+      "accessibilityLabels": 34,
+      "testFiles": 10
     },
     "data": {
       "storeOpenSafe": true,
-      "keepsOriginal": true,
+      "keepsOriginal": false,
       "deviceBackup": true,
       "autoBackup": true,
       "migration": "na"
@@ -303,30 +303,30 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/StampCamera/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
-    "tryIt": false,
+    "tryIt": true,
     "scenario": false,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/StampCamera/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

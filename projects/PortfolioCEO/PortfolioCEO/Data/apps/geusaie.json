@@ -7,7 +7,7 @@
     "라이프스타일",
     "음식 및 음료"
   ],
-  "currentVersion": "1.0.2",
+  "currentVersion": "1.1.1",
   "folderId": "geusaie",
   "githubRepo": "https://github.com/M1zz/geusaie",
   "localProjectPath": "",
@@ -65,7 +65,7 @@
     },
     "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -84,13 +84,13 @@
     "label": "pre-mvp",
     "ratingCount": 0,
     "daysSinceUpdate": 1,
-    "polishDays": 22,
+    "polishDays": 49,
     "releasedAt": "2026-10-02",
-    "updatedAt": "2026-10-24",
-    "evaluatedAt": "2026-10-25",
+    "updatedAt": "2026-11-20",
+    "evaluatedAt": "2026-11-21",
     "tier": null,
     "manual": true,
-    "basis": "출시 후 다듬은 기간 22일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.2 · 최종 업데이트 1일 경과"
+    "basis": "출시 후 다듬은 기간 49일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.1.1 · 최종 업데이트 1일 경과"
   },
   "globalReach": {
     "level": 3,
@@ -124,7 +124,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -145,12 +145,12 @@
       "privacyManifest": true
     },
     "ux": {
-      "widgets": false,
+      "widgets": true,
       "shortcuts": true,
       "cloudSync": false,
       "tips": true,
       "onboarding": true,
-      "backup": false
+      "backup": true
     },
     "a11y": {
       "voiceOver": true,
@@ -168,7 +168,7 @@
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
-      "keyboard": false,
+      "keyboard": true,
       "a11yAudit": false,
       "_video": false,
       "_forcedLight": false
@@ -181,22 +181,22 @@
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
-      "discount": false,
+      "freeGate": true,
+      "restore": true,
+      "discount": true,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
-      "trial": false,
-      "graduation": false,
+      "subscription": true,
+      "trial": true,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -232,7 +232,7 @@
     "marketing": {
       "demoMode": false,
       "deepLink": false,
-      "offerCode": false,
+      "offerCode": true,
       "invite": false,
       "installNudge": false,
       "shareApp": false,
@@ -250,20 +250,20 @@
       "iphone": true,
       "ipad": true,
       "mac": false,
-      "watch": false,
+      "watch": true,
       "vision": false,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 18,
+      "accessibilityLabels": 23,
       "testFiles": 1
     },
     "data": {
-      "storeOpenSafe": "na",
-      "keepsOriginal": "na",
-      "deviceBackup": "na",
-      "migration": "na",
-      "autoBackup": "na"
+      "storeOpenSafe": true,
+      "keepsOriginal": true,
+      "deviceBackup": true,
+      "autoBackup": true,
+      "migration": "na"
     },
     "support": {
       "registered": true,
@@ -274,14 +274,14 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/geusaie/",
@@ -290,14 +290,14 @@
     "intro": true,
     "screens": true,
     "video": false,
-    "tryIt": false,
-    "scenario": true,
+    "tryIt": true,
+    "scenario": false,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/geusaie/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

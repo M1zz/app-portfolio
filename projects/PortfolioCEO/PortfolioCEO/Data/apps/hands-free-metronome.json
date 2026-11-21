@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6781537149",
   "bundleId": "com.leeo.HandsFreeMetronome",
   "categories": [],
-  "currentVersion": "1.0.10",
+  "currentVersion": "1.0.12",
   "folderId": "hands-free-metronome",
   "githubRepo": "",
   "localProjectPath": "",
@@ -84,7 +84,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "high",
   "recentlyCompleted": [
@@ -104,14 +104,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 128일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 156일 · 외부 평점 0개 · 최종 업데이트 0일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 1,
+    "daysSinceUpdate": 0,
     "refineDays": 24,
-    "polishDays": 128,
+    "polishDays": 156,
     "releasedAt": "2026-06-18",
-    "updatedAt": "2026-10-24"
+    "updatedAt": "2026-11-21"
   },
   "globalReach": {
     "level": 3,
@@ -145,7 +145,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -166,7 +166,7 @@
       "privacyManifest": true
     },
     "ux": {
-      "widgets": false,
+      "widgets": true,
       "shortcuts": true,
       "cloudSync": false,
       "tips": true,
@@ -189,7 +189,7 @@
       "reduceTransparency": true,
       "boldText": false,
       "invertColors": false,
-      "keyboard": false,
+      "keyboard": true,
       "a11yAudit": true,
       "_video": false,
       "_forcedLight": false
@@ -252,7 +252,7 @@
     },
     "marketing": {
       "demoMode": false,
-      "deepLink": false,
+      "deepLink": true,
       "offerCode": true,
       "invite": false,
       "installNudge": false,
@@ -269,19 +269,19 @@
     },
     "devices": {
       "iphone": true,
-      "ipad": false,
+      "ipad": true,
       "mac": false,
-      "watch": false,
+      "watch": true,
       "vision": false,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 55,
+      "accessibilityLabels": 65,
       "testFiles": 2
     },
     "data": {
       "storeOpenSafe": true,
-      "keepsOriginal": true,
+      "keepsOriginal": false,
       "deviceBackup": true,
       "autoBackup": true,
       "migration": "na"
@@ -295,7 +295,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -308,12 +308,28 @@
         "price": "$9.99"
       },
       {
+        "name": "Pro Gift",
+        "price": "$9.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
+      },
+      {
         "name": "yearly",
         "price": "$2.99"
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "marketing": {
     "reddit": {
@@ -329,16 +345,16 @@
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
     "tryIt": false,
     "scenario": false,
-    "steps": true,
+    "steps": false,
     "proof": false,
     "storeLink": true,
-    "ogImage": false,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/HandsFreeMetronome/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

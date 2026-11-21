@@ -13,7 +13,7 @@
   "priority": "medium",
   "notes": "[2026-07-05 스토어 동기화] v1.0.3 (2025-11-24 출시), 평점 5(6개)",
   "name": "오늘의 주접",
-  "currentVersion": "1.0.3",
+  "currentVersion": "1.0.4",
   "stats": {
     "done": 2,
     "inProgress": 0,
@@ -384,7 +384,7 @@
     },
     "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "supportUrl": "https://m1zz.github.io/Jujob/",
   "lifecycle": {
@@ -392,26 +392,47 @@
     "label": "problem-solution-fit",
     "tier": "C",
     "basis": "수동 판정(사용자 확인) — 외부 평점 6개가 있으나 반응 기반 개선 단계로 보기엔 이르다고 판단해 2단계로 둔다. 최종 업데이트 278일 경과",
-    "evaluatedAt": "2026-10-25",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 6,
-    "daysSinceUpdate": 335,
+    "daysSinceUpdate": 17,
     "manual": true,
-    "polishDays": 874,
+    "polishDays": 1219,
     "releasedAt": "2023-07-04",
-    "updatedAt": "2025-11-24"
+    "updatedAt": "2026-11-04"
   },
   "globalReach": {
-    "level": 0,
-    "label": "korea-first",
+    "level": 3,
+    "label": "multilingual",
     "languages": [
-      "EN"
+      "CS",
+      "DA",
+      "DE",
+      "EL",
+      "EN",
+      "ES",
+      "FI",
+      "FR",
+      "ID",
+      "IT",
+      "JA",
+      "KO",
+      "NB",
+      "NL",
+      "PL",
+      "PT",
+      "RU",
+      "SV",
+      "TH",
+      "TR",
+      "VI",
+      "ZH"
     ],
-    "languageCount": 1,
-    "englishPage": false,
+    "languageCount": 22,
+    "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 EN · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -468,22 +489,22 @@
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": false,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
+      "freeGate": true,
+      "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
+      "subscription": true,
       "trial": false,
-      "graduation": false,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -542,7 +563,7 @@
       "_macViaDesignedForIPad": true
     },
     "counts": {
-      "accessibilityLabels": 19,
+      "accessibilityLabels": 32,
       "testFiles": 0
     },
     "data": {
@@ -561,7 +582,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -570,22 +591,23 @@
     "ratingCount": 1,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
-    "url": null,
-    "set": false,
-    "reachable": null,
-    "intro": false,
-    "screens": false,
+    "url": "https://m1zz.github.io/Jujob/ko/index.html",
+    "set": true,
+    "reachable": true,
+    "intro": true,
+    "screens": true,
     "video": false,
     "tryIt": false,
-    "scenario": false,
+    "scenario": true,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
-    "english": false,
-    "evaluatedAt": "2026-10-25"
+    "storeLink": true,
+    "ogImage": true,
+    "english": true,
+    "urlEn": "https://m1zz.github.io/Jujob/en-GB/index.html",
+    "evaluatedAt": "2026-11-21"
   }
 }

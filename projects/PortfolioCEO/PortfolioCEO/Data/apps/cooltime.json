@@ -388,17 +388,17 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "supportUrl": "https://m1zz.github.io/CoolTime/",
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 325일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 325일 · 외부 평점 0개 · 최종 업데이트 29일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
+    "daysSinceUpdate": 29,
     "polishDays": 325,
     "releasedAt": "2025-12-02",
     "updatedAt": "2026-10-23"
@@ -435,7 +435,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -458,7 +458,7 @@
     "ux": {
       "widgets": true,
       "shortcuts": true,
-      "cloudSync": false,
+      "cloudSync": true,
       "tips": false,
       "onboarding": true,
       "backup": true
@@ -492,23 +492,23 @@
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": false,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
-      "tiers": false,
-      "freeGate": false,
-      "restore": false,
-      "discount": false,
+      "paywall": true,
+      "tiers": true,
+      "freeGate": true,
+      "restore": true,
+      "discount": true,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
+      "subscription": true,
       "trial": false,
-      "graduation": false,
-      "foreverPass": false
+      "graduation": true,
+      "foreverPass": true
     },
     "comms": {
       "whatsNew": false,
@@ -524,7 +524,7 @@
     },
     "more": {
       "schemaMigration": false,
-      "emptyStates": false,
+      "emptyStates": true,
       "biometricLock": false,
       "notifications": true,
       "performance": false,
@@ -542,8 +542,8 @@
     },
     "marketing": {
       "demoMode": true,
-      "deepLink": false,
-      "offerCode": false,
+      "deepLink": true,
+      "offerCode": true,
       "invite": false,
       "installNudge": false,
       "shareApp": false,
@@ -561,12 +561,12 @@
       "iphone": true,
       "ipad": true,
       "mac": false,
-      "watch": false,
-      "vision": false,
+      "watch": true,
+      "vision": true,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 32,
+      "accessibilityLabels": 39,
       "testFiles": 0
     },
     "data": {
@@ -585,7 +585,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -597,23 +597,23 @@
       }
     ],
     "iapEnglish": false,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/CoolTime/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
-    "tryIt": false,
-    "scenario": false,
-    "steps": true,
+    "tryIt": true,
+    "scenario": true,
+    "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/CoolTime/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

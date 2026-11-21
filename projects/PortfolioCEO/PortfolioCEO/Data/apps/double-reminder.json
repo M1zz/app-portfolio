@@ -273,7 +273,7 @@
     "최근관심",
     "다국어지원"
   ],
-  "currentVersion": "2.3.3",
+  "currentVersion": "2.3.10",
   "folderId": "double-reminder",
   "githubRepo": "https://github.com/M1zz/toki",
   "localProjectPath": "../toki",
@@ -294,7 +294,7 @@
     "iapItems": [
       {
         "name": "두번알림 pro",
-        "price": "￦17,000"
+        "price": "￦27,000"
       },
       {
         "name": "두번알림 기억 선물",
@@ -330,7 +330,7 @@
       },
       {
         "name": "두번알림 Pro 선물",
-        "price": "￦17,000"
+        "price": "￦27,000"
       }
     ],
     "code": {
@@ -380,7 +380,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "high",
   "recentlyCompleted": [
@@ -455,13 +455,13 @@
     "label": "scaling",
     "tier": null,
     "basis": "수동 판정(사용자 확인, 2026-10-18) — PMF 탐색에서 넓히는 단계로. 4단계 관문 중 외부 평점 10개만 남았던 앱(클립키보드는 관문 모두 통과) — 평점은 넓혀 가며 쌓는다. 외부 평점 1개",
-    "evaluatedAt": "2026-10-25",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 1,
-    "daysSinceUpdate": 8,
+    "daysSinceUpdate": 3,
     "manual": true,
-    "polishDays": 390,
+    "polishDays": 422,
     "releasedAt": "2025-09-22",
-    "updatedAt": "2026-10-17"
+    "updatedAt": "2026-11-18"
   },
   "globalReach": {
     "level": 3,
@@ -495,7 +495,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -539,7 +539,7 @@
       "reduceTransparency": true,
       "boldText": false,
       "invertColors": false,
-      "keyboard": false,
+      "keyboard": true,
       "a11yAudit": true,
       "_video": false,
       "_forcedLight": false
@@ -564,7 +564,7 @@
       "discount": true,
       "tipJar": true,
       "tipAsk": true,
-      "gift": false,
+      "gift": true,
       "subscription": true,
       "trial": false,
       "graduation": true,
@@ -622,16 +622,16 @@
       "ipad": true,
       "mac": true,
       "watch": true,
-      "vision": false,
+      "vision": true,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 126,
-      "testFiles": 47
+      "accessibilityLabels": 136,
+      "testFiles": 50
     },
     "data": {
       "storeOpenSafe": true,
-      "keepsOriginal": true,
+      "keepsOriginal": false,
       "deviceBackup": true,
       "autoBackup": true,
       "migration": false
@@ -645,7 +645,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -655,15 +655,47 @@
     "iap": [
       {
         "name": "두번알림 pro",
-        "price": "$9.99"
+        "price": "$17.99"
       },
       {
-        "name": "upgrade",
-        "price": "$6.99"
+        "name": "Gift Rereminder Remember",
+        "price": "$8.99"
+      },
+      {
+        "name": "Forever Pass for Subscribers",
+        "price": "$64.99"
+      },
+      {
+        "name": "Forever Pass for Pro Owners",
+        "price": "$79.99"
+      },
+      {
+        "name": "Forever Pass",
+        "price": "$99.99"
+      },
+      {
+        "name": "Pro Lifetime for Subscribers",
+        "price": "$12.99"
+      },
+      {
+        "name": "Pro Yearly",
+        "price": "$5.99"
+      },
+      {
+        "name": "Plus Yearly",
+        "price": "$2.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$2.99"
+      },
+      {
+        "name": "Gift Rereminder Pro",
+        "price": "$17.99"
       }
     ],
     "iapEnglish": false,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "marketing": {
     "reddit": {
@@ -685,16 +717,16 @@
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
-    "video": false,
-    "tryIt": true,
-    "scenario": true,
-    "steps": true,
+    "screens": true,
+    "video": true,
+    "tryIt": false,
+    "scenario": false,
+    "steps": false,
     "proof": false,
     "storeLink": true,
     "ogImage": true,
-    "english": true,
+    "english": false,
     "urlEn": "https://m1zz.github.io/Rereminder/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

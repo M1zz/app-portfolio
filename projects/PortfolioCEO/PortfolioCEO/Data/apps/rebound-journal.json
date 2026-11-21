@@ -252,7 +252,7 @@
     "개발자 연락 창구 추가 (이메일 leeo@kakao.com · 인스타그램 @lee25_ios DM)",
     "1.0.10 배포"
   ],
-  "currentVersion": "2.1.0",
+  "currentVersion": "2.1.6",
   "appStoreUrl": "https://apps.apple.com/kr/app/id6450388408",
   "sharedModules": [],
   "stats": {
@@ -321,6 +321,14 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
+        "name": "징검돌 프로 (평생)",
+        "price": "￦17,000"
+      },
+      {
+        "name": "Pro 선물하기",
+        "price": "￦17,000"
+      },
+      {
         "name": "작은 응원",
         "price": "￦1,100"
       },
@@ -331,10 +339,6 @@
       {
         "name": "든든한 응원",
         "price": "￦4,400"
-      },
-      {
-        "name": "징검돌 프로 (평생)",
-        "price": "￦17,000"
       }
     ],
     "code": {
@@ -362,24 +366,34 @@
         {
           "id": "com.leeo.ReboundJournal.tip.large",
           "type": "consumable"
+        },
+        {
+          "id": "com.leeo.ReboundJournal.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.leeo.ReboundJournal.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "supportUrl": "https://m1zz.github.io/Rebound-Journal/",
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 1201일 · 외부 평점 1개 · 최종 업데이트 23일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 1244일 · 외부 평점 1개 · 최종 업데이트 7일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 1,
-    "daysSinceUpdate": 23,
-    "polishDays": 1201,
+    "daysSinceUpdate": 7,
+    "polishDays": 1244,
     "releasedAt": "2023-06-19",
-    "updatedAt": "2026-10-02"
+    "updatedAt": "2026-11-14"
   },
   "globalReach": {
     "level": 3,
@@ -413,7 +427,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-26"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -457,7 +471,7 @@
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
-      "keyboard": false,
+      "keyboard": true,
       "a11yAudit": false,
       "_video": false,
       "_forcedLight": false
@@ -471,7 +485,7 @@
       "inputFlow": true,
       "textCopy": false,
       "purchaseTest": true,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -483,7 +497,7 @@
       "tipJar": true,
       "tipAsk": true,
       "gift": true,
-      "subscription": false,
+      "subscription": true,
       "trial": false,
       "graduation": false,
       "foreverPass": false
@@ -528,23 +542,23 @@
       "shareImage": false,
       "shareVideo": false,
       "storeCopy": true,
-      "screenshotCapture": false,
+      "screenshotCapture": true,
       "marketingScreens": true,
       "videoAsset": false,
-      "promoKit": false,
+      "promoKit": true,
       "localizedScreens": true,
       "videoTool": false
     },
     "devices": {
       "iphone": true,
       "ipad": true,
-      "mac": false,
+      "mac": true,
       "watch": false,
       "vision": false,
-      "_macViaDesignedForIPad": true
+      "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 33,
+      "accessibilityLabels": 37,
       "testFiles": 0
     },
     "data": {
@@ -563,7 +577,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -571,26 +585,43 @@
     "iap": [
       {
         "name": "ZinggumDol Pro (Lifetime)",
-        "price": "$4.99"
+        "price": "$9.99"
+      },
+      {
+        "name": "Gift Pro",
+        "price": "$9.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
-    "url": null,
-    "set": false,
-    "reachable": null,
-    "intro": false,
-    "screens": false,
+    "url": "https://m1zz.github.io/Rebound-Journal/",
+    "set": true,
+    "reachable": true,
+    "intro": true,
+    "screens": true,
     "video": false,
-    "tryIt": false,
-    "scenario": false,
+    "tryIt": true,
+    "scenario": true,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
-    "english": false,
-    "evaluatedAt": "2026-10-25"
+    "storeLink": true,
+    "ogImage": true,
+    "english": true,
+    "urlEn": "https://m1zz.github.io/Rebound-Journal/en/",
+    "evaluatedAt": "2026-11-21"
   }
 }

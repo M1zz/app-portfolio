@@ -6,7 +6,7 @@
   "categories": [
     "라이프스타일"
   ],
-  "currentVersion": "1.0.8",
+  "currentVersion": "1.0.10",
   "folderId": "footprint-diary",
   "githubRepo": "",
   "localProjectPath": "",
@@ -128,7 +128,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -146,14 +146,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 100일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 121일 · 외부 평점 0개 · 최종 업데이트 8일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
+    "daysSinceUpdate": 8,
     "refineDays": 42,
-    "polishDays": 100,
+    "polishDays": 121,
     "releasedAt": "2026-07-15",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-11-13"
   },
   "globalReach": {
     "level": 3,
@@ -187,7 +187,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -227,7 +227,7 @@
       "structure": true,
       "actions": true,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -244,22 +244,22 @@
       "textOverflow": false,
       "inputFlow": true,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
-      "tiers": false,
-      "freeGate": false,
-      "restore": false,
-      "discount": false,
+      "paywall": true,
+      "tiers": true,
+      "freeGate": true,
+      "restore": true,
+      "discount": true,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
+      "subscription": true,
       "trial": false,
-      "graduation": false,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -294,8 +294,8 @@
     },
     "marketing": {
       "demoMode": true,
-      "deepLink": false,
-      "offerCode": false,
+      "deepLink": true,
+      "offerCode": true,
       "invite": false,
       "installNudge": false,
       "shareApp": false,
@@ -318,7 +318,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 54,
+      "accessibilityLabels": 50,
       "testFiles": 0
     },
     "data": {
@@ -337,30 +337,71 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "Buktu Buktu Plus (Weekly)",
+        "price": "$0.99"
+      },
+      {
+        "name": "Buktu Buktu Plus (Monthly)",
+        "price": "$2.49"
+      },
+      {
+        "name": "Buktu Buktu Plus (Yearly)",
+        "price": "$7.99"
+      },
+      {
+        "name": "Buktu Buktu Pro (Weekly)",
+        "price": "$1.49"
+      },
+      {
+        "name": "Buktu Buktu Pro (Monthly)",
+        "price": "$3.99"
+      },
+      {
+        "name": "Buktu Buktu Pro (Yearly)",
+        "price": "$11.99"
+      },
+      {
+        "name": "Plus to Pro Lifetime",
+        "price": "$11.99"
+      },
+      {
+        "name": "Buktu Buktu Pro Lifetime for S",
+        "price": "$23.99"
+      },
+      {
+        "name": "Buktu Buktu Pro Lifetime",
+        "price": "$35.99"
+      },
+      {
+        "name": "Buktu Buktu Plus Lifetime",
+        "price": "$23.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/FootprintDiary/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
-    "tryIt": false,
+    "tryIt": true,
     "scenario": false,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/FootprintDiary/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

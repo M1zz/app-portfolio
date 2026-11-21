@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6764088776",
   "bundleId": "com.devkoan.IndonesianSmallTalk",
   "categories": [],
-  "currentVersion": "1.0.4",
+  "currentVersion": "1.0.7",
   "folderId": "sanoramyeon",
   "githubRepo": "",
   "localProjectPath": "",
@@ -27,12 +27,44 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "malmun pro lifetime",
-        "price": "￦66,000"
+        "name": "말문 Plus 주간",
+        "price": "￦2,200"
       },
       {
-        "name": "malmun pro yearly",
-        "price": "￦33,000"
+        "name": "말문 Plus 월간",
+        "price": "￦5,500"
+      },
+      {
+        "name": "말문 Plus 연간",
+        "price": "￦14,000"
+      },
+      {
+        "name": "말문 Pro 주간",
+        "price": "￦3,300"
+      },
+      {
+        "name": "말문 Pro 월간",
+        "price": "￦7,700"
+      },
+      {
+        "name": "말문 Pro 평생 (구독 졸업)",
+        "price": "￦43,000"
+      },
+      {
+        "name": "Plus 평생에서 Pro 평생으로",
+        "price": "￦22,000"
+      },
+      {
+        "name": "말문 Plus 평생",
+        "price": "￦43,000"
+      },
+      {
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "든든한 응원",
+        "price": "￦4,400"
       }
     ],
     "code": {
@@ -106,7 +138,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "low",
   "recentlyCompleted": [
@@ -126,14 +158,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 176일 · 외부 평점 0개 · 최종 업데이트 3일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 205일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 3,
+    "daysSinceUpdate": 1,
     "refineDays": 12,
-    "polishDays": 176,
+    "polishDays": 205,
     "releasedAt": "2026-04-29",
-    "updatedAt": "2026-10-22"
+    "updatedAt": "2026-11-20"
   },
   "globalReach": {
     "level": 3,
@@ -163,11 +195,11 @@
       "ZH"
     ],
     "languageCount": 22,
-    "englishPage": false,
+    "englishPage": true,
     "storefronts": 18,
     "storefrontsChecked": 18,
-    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 한국어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -230,17 +262,17 @@
     },
     "money": {
       "paywall": true,
-      "tiers": false,
+      "tiers": true,
       "freeGate": true,
       "restore": true,
-      "discount": false,
+      "discount": true,
       "tipJar": true,
       "tipAsk": true,
       "gift": true,
       "subscription": true,
       "trial": false,
-      "graduation": false,
-      "foreverPass": false
+      "graduation": true,
+      "foreverPass": true
     },
     "comms": {
       "whatsNew": false,
@@ -275,7 +307,7 @@
     "marketing": {
       "demoMode": false,
       "deepLink": false,
-      "offerCode": false,
+      "offerCode": true,
       "invite": false,
       "installNudge": false,
       "shareApp": false,
@@ -298,7 +330,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 83,
+      "accessibilityLabels": 86,
       "testFiles": 0
     },
     "data": {
@@ -317,39 +349,71 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 7.99,
     "iap": [
       {
-        "name": "malmun pro lifetime",
-        "price": "$39.99"
+        "name": "Malmun Plus Weekly",
+        "price": "$1.49"
       },
       {
-        "name": "malmun pro yearly",
-        "price": "$19.99"
+        "name": "Malmun Plus Monthly",
+        "price": "$3.49"
+      },
+      {
+        "name": "Malmun Plus Yearly",
+        "price": "$9.99"
+      },
+      {
+        "name": "Malmun Pro Weekly",
+        "price": "$1.99"
+      },
+      {
+        "name": "Malmun Pro Monthly",
+        "price": "$4.99"
+      },
+      {
+        "name": "Malmun Pro Lifetime (Graduate)",
+        "price": "$29.99"
+      },
+      {
+        "name": "Plus to Pro Lifetime",
+        "price": "$14.99"
+      },
+      {
+        "name": "Malmun Plus Lifetime",
+        "price": "$29.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/IndonesianSmallTalk/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
     "tryIt": false,
     "scenario": true,
-    "steps": false,
+    "steps": true,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/IndonesianSmallTalk/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

@@ -6,7 +6,7 @@
   "categories": [
     "라이프스타일"
   ],
-  "currentVersion": "1.0.8",
+  "currentVersion": "1.0.13",
   "folderId": "slide-snap",
   "githubRepo": "",
   "localProjectPath": "",
@@ -21,12 +21,12 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "Plus (평생)",
-        "price": "￦25,000"
-      },
-      {
         "name": "Pro (평생)",
         "price": "￦44,000"
+      },
+      {
+        "name": "Plus (평생)",
+        "price": "￦25,000"
       },
       {
         "name": "장표스냅 Plus 선물",
@@ -70,7 +70,7 @@
     },
     "gap": "스토어에 인앱결제가 있지만 소스에서 결제 코드를 찾지 못함",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -88,14 +88,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 101일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 127일 · 외부 평점 0개 · 최종 업데이트 3일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
+    "daysSinceUpdate": 3,
     "refineDays": 10,
-    "polishDays": 101,
+    "polishDays": 127,
     "releasedAt": "2026-07-14",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-11-18"
   },
   "globalReach": {
     "level": 3,
@@ -129,7 +129,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -253,10 +253,10 @@
     },
     "devices": {
       "iphone": true,
-      "ipad": false,
-      "mac": false,
+      "ipad": true,
+      "mac": true,
       "watch": false,
-      "vision": false,
+      "vision": true,
       "_macViaDesignedForIPad": false
     },
     "counts": {
@@ -279,30 +279,71 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
-    "price": 2.99,
-    "iap": [],
+    "price": 0.0,
+    "iap": [
+      {
+        "name": "Pro (Lifetime)",
+        "price": "$24.99"
+      },
+      {
+        "name": "Plus (Lifetime)",
+        "price": "$14.99"
+      },
+      {
+        "name": "Gift CatchSlide Plus",
+        "price": "$14.99"
+      },
+      {
+        "name": "Gift CatchSlide Pro",
+        "price": "$24.99"
+      },
+      {
+        "name": "Plus (Weekly)",
+        "price": "$0.99"
+      },
+      {
+        "name": "Plus (Monthly)",
+        "price": "$2.49"
+      },
+      {
+        "name": "Plus (Yearly)",
+        "price": "$7.99"
+      },
+      {
+        "name": "Pro (Weekly)",
+        "price": "$1.49"
+      },
+      {
+        "name": "Pro (Monthly)",
+        "price": "$3.99"
+      },
+      {
+        "name": "Pro (Yearly)",
+        "price": "$11.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/SlideSnap/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
-    "tryIt": false,
+    "tryIt": true,
     "scenario": false,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/SlideSnap/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

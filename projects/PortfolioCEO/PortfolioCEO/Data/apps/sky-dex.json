@@ -7,7 +7,7 @@
     "라이프스타일",
     "날씨"
   ],
-  "currentVersion": "1.0.2",
+  "currentVersion": "1.0.4",
   "folderId": "sky-dex",
   "githubRepo": "https://github.com/M1zz/SkyDex",
   "localProjectPath": "",
@@ -18,8 +18,50 @@
   "notes": "[2026-08-29 스토어 동기화로 추가] 매일 하늘을 촬영해 그날의 하늘색을 수집·도감화하는 앱 (스토어명: 하늘색, 2026-08-23 출시)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "하늘색 Plus (연간)",
+        "price": "￦8,800"
+      },
+      {
+        "name": "하늘색 Plus (월간)",
+        "price": "￦3,300"
+      },
+      {
+        "name": "하늘색 Plus (주간)",
+        "price": "￦1,100"
+      },
+      {
+        "name": "하늘색 Pro (연간)",
+        "price": "￦13,000"
+      },
+      {
+        "name": "하늘색 Pro (월간)",
+        "price": "￦4,400"
+      },
+      {
+        "name": "하늘색 Pro (평생)",
+        "price": "￦26,000"
+      },
+      {
+        "name": "하늘색 Pro (주간)",
+        "price": "￦2,200"
+      },
+      {
+        "name": "하늘색 Pro (평생 올리기)",
+        "price": "￦13,000"
+      },
+      {
+        "name": "하늘색 Pro (평생)",
+        "price": "￦39,000"
+      },
+      {
+        "name": "하늘색 Plus (평생)",
+        "price": "￦26,000"
+      }
+    ],
     "code": {
       "storeKit": true,
       "subscriptionUI": false,
@@ -86,9 +128,8 @@
         }
       ]
     },
-    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -106,15 +147,15 @@
     "stage": 1,
     "label": "pre-mvp",
     "tier": null,
-    "basis": "출시 후 다듬은 기간 62일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.2 · 최종 업데이트 1일 경과",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 88일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.4 · 최종 업데이트 2일 경과",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 1,
+    "daysSinceUpdate": 2,
     "manual": true,
     "refineDays": 1,
-    "polishDays": 62,
+    "polishDays": 88,
     "releasedAt": "2026-08-23",
-    "updatedAt": "2026-10-24"
+    "updatedAt": "2026-11-19"
   },
   "globalReach": {
     "level": 3,
@@ -148,7 +189,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -179,7 +220,7 @@
     "a11y": {
       "voiceOver": true,
       "voiceControl": false,
-      "dynamicType": false,
+      "dynamicType": true,
       "darkMode": true,
       "differentiate": false,
       "contrast": false,
@@ -188,7 +229,7 @@
       "structure": true,
       "actions": true,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -205,22 +246,22 @@
       "textOverflow": false,
       "inputFlow": true,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
-      "discount": false,
+      "freeGate": true,
+      "restore": true,
+      "discount": true,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
-      "trial": false,
-      "graduation": false,
+      "subscription": true,
+      "trial": true,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -255,8 +296,8 @@
     },
     "marketing": {
       "demoMode": false,
-      "deepLink": false,
-      "offerCode": false,
+      "deepLink": true,
+      "offerCode": true,
       "invite": false,
       "installNudge": false,
       "shareApp": false,
@@ -279,7 +320,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 26,
+      "accessibilityLabels": 32,
       "testFiles": 0
     },
     "data": {
@@ -298,30 +339,71 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "SkyDex Plus (Yearly)",
+        "price": "$5.99"
+      },
+      {
+        "name": "SkyDex Plus (Monthly)",
+        "price": "$1.99"
+      },
+      {
+        "name": "SkyDex Plus (Weekly)",
+        "price": "$0.99"
+      },
+      {
+        "name": "SkyDex Pro (Yearly)",
+        "price": "$8.99"
+      },
+      {
+        "name": "SkyDex Pro (Monthly)",
+        "price": "$2.99"
+      },
+      {
+        "name": "SkyDex Pro (Lifetime)",
+        "price": "$17.99"
+      },
+      {
+        "name": "SkyDex Pro (Weekly)",
+        "price": "$1.49"
+      },
+      {
+        "name": "SkyDex Pro (Lifetime Upgrade)",
+        "price": "$8.99"
+      },
+      {
+        "name": "SkyDex Pro (Lifetime)",
+        "price": "$26.99"
+      },
+      {
+        "name": "SkyDex Plus (Lifetime)",
+        "price": "$17.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/SkyDex/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
-    "tryIt": false,
+    "tryIt": true,
     "scenario": true,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/SkyDex/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

@@ -14,7 +14,7 @@
   "sharedModules": [],
   "priority": "high",
   "status": "active",
-  "currentVersion": "1.2.1",
+  "currentVersion": "1.2.5",
   "nameEn": "Sekki",
   "minimumOS": "16.0",
   "appStoreId": "6755164924",
@@ -356,20 +356,20 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "supportUrl": "https://m1zz.github.io/RoutineCamera/",
   "lifecycle": {
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 342일 · 외부 평점 1개 · 최종 업데이트 3일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
-    "ratingCount": 1,
-    "daysSinceUpdate": 3,
-    "polishDays": 342,
+    "basis": "출시 후 다듬은 기간 371일 · 외부 평점 2개 · 최종 업데이트 1일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
+    "ratingCount": 2,
+    "daysSinceUpdate": 1,
+    "polishDays": 371,
     "releasedAt": "2025-11-14",
-    "updatedAt": "2026-10-22"
+    "updatedAt": "2026-11-20"
   },
   "globalReach": {
     "level": 3,
@@ -403,7 +403,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -455,7 +455,7 @@
     "craft": {
       "moments": false,
       "sheets": true,
-      "liveNumbers": false,
+      "liveNumbers": true,
       "localeFormat": true,
       "textOverflow": false,
       "inputFlow": true,
@@ -468,7 +468,7 @@
       "paywall": false,
       "tiers": false,
       "freeGate": true,
-      "restore": false,
+      "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
@@ -492,14 +492,14 @@
     },
     "more": {
       "schemaMigration": false,
-      "emptyStates": false,
+      "emptyStates": true,
       "biometricLock": true,
       "notifications": true,
       "performance": false,
-      "logging": false,
+      "logging": true,
       "funnel": false,
       "abTesting": false,
-      "haptics": false,
+      "haptics": true,
       "preflight": false,
       "appSpec": true,
       "family": false,
@@ -534,8 +534,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 130,
-      "testFiles": 10
+      "accessibilityLabels": 162,
+      "testFiles": 18
     },
     "data": {
       "storeOpenSafe": true,
@@ -553,15 +553,45 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
+    "rating": 5.0,
+    "ratingCount": 2,
     "iap": [
       {
         "name": "Sekki Pro Lifetime",
         "price": "$39.99"
+      },
+      {
+        "name": "Sekki Plus Lifetime",
+        "price": "$19.99"
+      },
+      {
+        "name": "Sekki Plus Monthly",
+        "price": "$0.99"
+      },
+      {
+        "name": "Sekki Plus Yearly",
+        "price": "$7.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$4.99"
+      },
+      {
+        "name": "Gift Sekki Pro",
+        "price": "$39.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$1.99"
       },
       {
         "name": "Sekki Pro Yearly",
@@ -573,23 +603,23 @@
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/RoutineCamera/",
     "set": true,
     "reachable": true,
-    "intro": false,
-    "screens": false,
+    "intro": true,
+    "screens": true,
     "video": false,
-    "tryIt": false,
-    "scenario": false,
+    "tryIt": true,
+    "scenario": true,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/RoutineCamera/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

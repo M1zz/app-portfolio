@@ -7,7 +7,7 @@
     "교육",
     "라이프스타일"
   ],
-  "currentVersion": "1.0.1",
+  "currentVersion": "1.0.4",
   "folderId": "lecture-q",
   "githubRepo": "https://github.com/M1zz/LectureQ",
   "localProjectPath": "",
@@ -18,8 +18,50 @@
   "notes": "[2026-10-13 스토어 동기화로 추가] 강의 중 떠오른 질문을 그 시점 메모 옆에 남기고, 꼬리질문·AI 프롬프트로 답을 찾아 배운 점으로 정리하는 Mac 학습 노트 (스토어명: 질문노트, 2026-09-14 출시)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "질문 노트 Plus 주 구독",
+        "price": "￦1,100"
+      },
+      {
+        "name": "질문 노트 Plus 월 구독",
+        "price": "￦3,300"
+      },
+      {
+        "name": "질문 노트 Plus 연 구독",
+        "price": "￦8,800"
+      },
+      {
+        "name": "질문 노트 Pro 주 구독",
+        "price": "￦2,200"
+      },
+      {
+        "name": "질문 노트 Pro 월 구독",
+        "price": "￦4,400"
+      },
+      {
+        "name": "질문 노트 Pro 평생 (구독자)",
+        "price": "￦26,000"
+      },
+      {
+        "name": "질문 노트 Pro 연 구독",
+        "price": "￦13,000"
+      },
+      {
+        "name": "질문 노트 Pro로 올리기",
+        "price": "￦13,000"
+      },
+      {
+        "name": "질문 노트 Pro (평생)",
+        "price": "￦39,000"
+      },
+      {
+        "name": "질문 노트 Plus (평생)",
+        "price": "￦26,000"
+      }
+    ],
     "code": {
       "storeKit": true,
       "subscriptionUI": false,
@@ -86,9 +128,8 @@
         }
       ]
     },
-    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -106,14 +147,14 @@
     "stage": 1,
     "label": "pre-mvp",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
-    "polishDays": 39,
+    "daysSinceUpdate": 1,
+    "polishDays": 67,
     "releasedAt": "2026-09-14",
-    "updatedAt": "2026-10-23",
-    "evaluatedAt": "2026-10-25",
+    "updatedAt": "2026-11-20",
+    "evaluatedAt": "2026-11-21",
     "tier": null,
     "manual": true,
-    "basis": "출시 후 다듬은 기간 39일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 2일 경과"
+    "basis": "출시 후 다듬은 기간 67일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.4 · 최종 업데이트 1일 경과"
   },
   "globalReach": {
     "level": 3,
@@ -147,7 +188,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -170,7 +211,7 @@
     "ux": {
       "widgets": false,
       "shortcuts": true,
-      "cloudSync": false,
+      "cloudSync": true,
       "tips": true,
       "onboarding": true,
       "backup": true
@@ -179,7 +220,7 @@
       "voiceOver": true,
       "voiceControl": false,
       "dynamicType": false,
-      "darkMode": false,
+      "darkMode": true,
       "differentiate": true,
       "contrast": false,
       "reduceMotion": false,
@@ -187,7 +228,7 @@
       "structure": true,
       "actions": true,
       "announcements": false,
-      "largeLayout": false,
+      "largeLayout": true,
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
@@ -204,22 +245,22 @@
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": true,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
+      "freeGate": true,
+      "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
-      "trial": false,
-      "graduation": false,
+      "subscription": true,
+      "trial": true,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -270,16 +311,16 @@
       "videoTool": false
     },
     "devices": {
-      "iphone": false,
-      "ipad": false,
+      "iphone": true,
+      "ipad": true,
       "mac": true,
       "watch": false,
-      "vision": false,
+      "vision": true,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 28,
-      "testFiles": 3
+      "accessibilityLabels": 32,
+      "testFiles": 5
     },
     "data": {
       "storeOpenSafe": true,
@@ -297,30 +338,71 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "LectureQ Plus Weekly",
+        "price": "$0.99"
+      },
+      {
+        "name": "LectureQ Plus Monthly",
+        "price": "$1.99"
+      },
+      {
+        "name": "LectureQ Plus Yearly",
+        "price": "$5.99"
+      },
+      {
+        "name": "LectureQ Pro Weekly",
+        "price": "$1.49"
+      },
+      {
+        "name": "LectureQ Pro Monthly",
+        "price": "$2.99"
+      },
+      {
+        "name": "LectureQ Pro Lifetime (Subscri",
+        "price": "$17.99"
+      },
+      {
+        "name": "LectureQ Pro Yearly",
+        "price": "$8.99"
+      },
+      {
+        "name": "Upgrade to LectureQ Pro",
+        "price": "$8.99"
+      },
+      {
+        "name": "LectureQ Pro (Lifetime)",
+        "price": "$26.99"
+      },
+      {
+        "name": "LectureQ Plus (Lifetime)",
+        "price": "$17.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/LectureQ/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
-    "tryIt": false,
+    "tryIt": true,
     "scenario": false,
-    "steps": true,
+    "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/LectureQ/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

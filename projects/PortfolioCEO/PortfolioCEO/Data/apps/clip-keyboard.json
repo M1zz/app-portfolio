@@ -266,7 +266,7 @@
     "다국어지원",
     "최근관심"
   ],
-  "currentVersion": "5.1.13",
+  "currentVersion": "5.1.25",
   "folderId": "clip-keyboard",
   "githubRepo": "https://github.com/Code-Ward/Token-memo",
   "localProjectPath": "../Token-memo",
@@ -282,11 +282,11 @@
     "iapItems": [
       {
         "name": "클립키보드 Pro",
-        "price": "￦17,000"
+        "price": "￦39,000"
       },
       {
         "name": "Plus 선물",
-        "price": "￦9,900"
+        "price": "￦20,000"
       },
       {
         "name": "Pro 월 구독",
@@ -318,7 +318,7 @@
       },
       {
         "name": "gift",
-        "price": "￦17,000"
+        "price": "￦39,000"
       }
     ],
     "code": {
@@ -328,11 +328,15 @@
       "ads": false,
       "products": [
         {
-          "id": "com.Ysoup.TokenMemo.slots5",
+          "id": "com.Ysoup.TokenMemo.pro",
           "type": "nonconsumable"
         },
         {
-          "id": "com.Ysoup.TokenMemo.pro",
+          "id": "com.Ysoup.TokenMemo.pro.halfoff",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.slots5",
           "type": "nonconsumable"
         },
         {
@@ -341,6 +345,18 @@
         },
         {
           "id": "com.Ysoup.TokenMemo.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.slots5.pack",
+          "type": "consumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.gift.pro",
+          "type": "consumable"
+        },
+        {
+          "id": "com.Ysoup.TokenMemo.twodevice",
           "type": "nonconsumable"
         },
         {
@@ -361,24 +377,14 @@
           "period": "P1Y"
         },
         {
-          "id": "com.Ysoup.TokenMemo.pro.monthly",
-          "type": "subscription",
-          "period": "P1M"
-        },
-        {
           "id": "com.Ysoup.TokenMemo.plus.yearly",
           "type": "subscription",
           "period": "P1Y"
-        },
-        {
-          "id": "com.Ysoup.TokenMemo.plus.monthly",
-          "type": "subscription",
-          "period": "P1M"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "low",
   "recentlyCompleted": [
@@ -458,13 +464,13 @@
     "label": "scaling",
     "tier": null,
     "basis": "수동 판정(사용자 확인, 2026-10-18) — PMF 탐색에서 넓히는 단계로. 4단계 관문 중 외부 평점 10개만 남았던 앱(클립키보드는 관문 모두 통과) — 평점은 넓혀 가며 쌓는다. 외부 평점 17개",
-    "evaluatedAt": "2026-10-25",
-    "ratingCount": 17,
-    "daysSinceUpdate": 4,
+    "evaluatedAt": "2026-11-21",
+    "ratingCount": 19,
+    "daysSinceUpdate": 1,
     "manual": true,
-    "polishDays": 2142,
+    "polishDays": 2172,
     "releasedAt": "2020-12-09",
-    "updatedAt": "2026-10-21"
+    "updatedAt": "2026-11-20"
   },
   "globalReach": {
     "level": 3,
@@ -498,7 +504,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -648,57 +654,57 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "rating": 4.8,
-    "ratingCount": 11,
+    "rating": 4.5,
+    "ratingCount": 13,
     "iap": [
       {
         "name": "클립키보드 Pro",
-        "price": "$9.99"
+        "price": "$26.99"
       },
       {
-        "name": "gift",
-        "price": "$9.99"
+        "name": "Plus Gift",
+        "price": "$14.99"
       },
       {
-        "name": "large tip",
-        "price": "$9.99"
+        "name": "Pro Monthly",
+        "price": "$1.99"
       },
       {
-        "name": "medium tip",
-        "price": "$2.99"
-      },
-      {
-        "name": "small tip",
+        "name": "Plus Monthly",
         "price": "$0.99"
       },
       {
-        "name": "Clipkeyboard pro yearly",
+        "name": "Forever Pass Yearly",
+        "price": "$34.99"
+      },
+      {
+        "name": "Forever Pass for Pro Owners",
+        "price": "$79.99"
+      },
+      {
+        "name": "ClipKeyboard Pro Lifetime",
+        "price": "$18.99"
+      },
+      {
+        "name": "Forever Pass",
+        "price": "$99.99"
+      },
+      {
+        "name": "Plus Yearly",
         "price": "$4.99"
       },
       {
-        "name": "twodevice",
-        "price": "$6.99"
-      },
-      {
-        "name": "com.Ysoup.TokenMemo.pro.upgrade",
-        "price": "$7.99"
-      },
-      {
-        "name": "slots 5pack",
-        "price": "$2.99"
-      },
-      {
-        "name": "Add Slot 5",
-        "price": "$5.99"
+        "name": "gift",
+        "price": "$26.99"
       }
     ],
     "iapEnglish": false,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "marketing": {
     "reddit": {
@@ -720,16 +726,16 @@
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": true,
-    "tryIt": true,
+    "tryIt": false,
     "scenario": true,
     "steps": true,
     "proof": false,
     "storeLink": true,
     "ogImage": true,
-    "english": true,
+    "english": false,
     "urlEn": "https://m1zz.github.io/ClipKeyboard/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

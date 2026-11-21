@@ -204,7 +204,7 @@
   ],
   "localProjectPath": "../BucketClimb",
   "appStoreId": "6755934506",
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.1",
   "status": "active",
   "nameEn": "Bucket Climb",
   "priority": "high",
@@ -316,22 +316,21 @@
     },
     "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "supportUrl": "https://m1zz.github.io/BucketClimb/",
   "lifecycle": {
-    "stage": 1,
-    "label": "pre-mvp",
-    "tier": null,
-    "basis": "출시 후 다듬은 기간 1일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 327일 경과",
-    "evaluatedAt": "2026-10-25",
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "출시 후 다듬은 기간 331일 · 외부 평점 0개 · 최종 업데이트 24일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 327,
-    "manual": true,
+    "daysSinceUpdate": 24,
     "refineDays": 1,
-    "polishDays": 1,
+    "polishDays": 331,
     "releasedAt": "2025-12-01",
-    "updatedAt": "2025-12-02"
+    "updatedAt": "2026-10-28"
   },
   "globalReach": {
     "level": 3,
@@ -365,7 +364,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-11-01"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -422,22 +421,22 @@
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
-      "purchaseTest": false,
-      "releaseTags": false,
+      "purchaseTest": true,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
+      "freeGate": true,
+      "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
+      "subscription": true,
       "trial": false,
-      "graduation": false,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -496,7 +495,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 29,
+      "accessibilityLabels": 33,
       "testFiles": 0
     },
     "data": {
@@ -515,29 +514,30 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 2.99,
     "iap": [],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
-    "url": null,
-    "set": false,
-    "reachable": null,
-    "intro": false,
-    "screens": false,
+    "url": "https://m1zz.github.io/BucketClimb/ko/index.html",
+    "set": true,
+    "reachable": true,
+    "intro": true,
+    "screens": true,
     "video": false,
     "tryIt": false,
     "scenario": false,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": false,
-    "evaluatedAt": "2026-10-25"
+    "urlEn": "https://m1zz.github.io/BucketClimb/en/index.html",
+    "evaluatedAt": "2026-11-21"
   }
 }

@@ -7,7 +7,7 @@
     "개발자 도구",
     "macOS"
   ],
-  "currentVersion": "1.0.1",
+  "currentVersion": "1.0.3",
   "folderId": "tetra-tint",
   "githubRepo": "",
   "localProjectPath": "",
@@ -18,8 +18,50 @@
   "notes": "[2026-07-15 스토어 동기화로 추가] 개발을 하는데 필요한 대비 색상을 손쉽게 보여주는 앱 (스토어명: TetraTint, 개발자 도구/macOS)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "TetraTint Pro 연 구독",
+        "price": "￦17,000"
+      },
+      {
+        "name": "TetraTint Pro 월 구독",
+        "price": "￦5,500"
+      },
+      {
+        "name": "TetraTint Pro 주 구독",
+        "price": "￦2,200"
+      },
+      {
+        "name": "TetraTint Plus 연 구독",
+        "price": "￦12,000"
+      },
+      {
+        "name": "TetraTint Plus 월 구독",
+        "price": "￦3,300"
+      },
+      {
+        "name": "TetraTint Plus 주 구독",
+        "price": "￦1,100"
+      },
+      {
+        "name": "TetraTint Pro로 올리기",
+        "price": "￦17,000"
+      },
+      {
+        "name": "TetraTint Pro 평생 (구독자)",
+        "price": "￦35,000"
+      },
+      {
+        "name": "TetraTint Pro (평생)",
+        "price": "￦52,000"
+      },
+      {
+        "name": "TetraTint Plus (평생)",
+        "price": "￦35,000"
+      }
+    ],
     "code": {
       "storeKit": true,
       "subscriptionUI": false,
@@ -86,9 +128,8 @@
         }
       ]
     },
-    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -106,14 +147,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 106일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 132일 · 외부 평점 0개 · 최종 업데이트 3일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 2,
+    "daysSinceUpdate": 3,
     "refineDays": 1,
-    "polishDays": 106,
+    "polishDays": 132,
     "releasedAt": "2026-07-09",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-11-18"
   },
   "globalReach": {
     "level": 3,
@@ -147,7 +188,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -204,22 +245,22 @@
       "textOverflow": true,
       "inputFlow": false,
       "textCopy": true,
-      "purchaseTest": false,
-      "releaseTags": false,
+      "purchaseTest": true,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
+      "freeGate": true,
+      "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
-      "trial": false,
-      "graduation": false,
+      "subscription": true,
+      "trial": true,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -278,8 +319,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 25,
-      "testFiles": 1
+      "accessibilityLabels": 31,
+      "testFiles": 2
     },
     "data": {
       "storeOpenSafe": true,
@@ -297,30 +338,71 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "TetraTint Pro Yearly",
+        "price": "$11.99"
+      },
+      {
+        "name": "TetraTint Pro Monthly",
+        "price": "$3.99"
+      },
+      {
+        "name": "TetraTint Pro Weekly",
+        "price": "$1.49"
+      },
+      {
+        "name": "TetraTint Plus Yearly",
+        "price": "$7.99"
+      },
+      {
+        "name": "TetraTint Plus Monthly",
+        "price": "$2.49"
+      },
+      {
+        "name": "TetraTint Plus Weekly",
+        "price": "$0.99"
+      },
+      {
+        "name": "Upgrade to TetraTint Pro",
+        "price": "$11.99"
+      },
+      {
+        "name": "TetraTint Pro Lifetime (Subscr",
+        "price": "$23.99"
+      },
+      {
+        "name": "TetraTint Pro (Lifetime)",
+        "price": "$35.99"
+      },
+      {
+        "name": "TetraTint Plus (Lifetime)",
+        "price": "$23.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/tetratint/ko/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
     "tryIt": false,
     "scenario": false,
-    "steps": false,
+    "steps": true,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
-    "english": true,
+    "storeLink": true,
+    "ogImage": true,
+    "english": false,
     "urlEn": "https://m1zz.github.io/tetratint/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

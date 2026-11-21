@@ -6,7 +6,7 @@
   "categories": [
     "라이프스타일"
   ],
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.4",
   "folderId": "junior-mistakes",
   "githubRepo": "",
   "localProjectPath": "",
@@ -68,6 +68,10 @@
           "type": "consumable"
         },
         {
+          "id": "com.leeo.JuniorDevMistakes.gift.pro",
+          "type": "consumable"
+        },
+        {
           "id": "com.leeo.JuniorDevMistakes.pro.1monthly",
           "type": "subscription",
           "period": null
@@ -80,7 +84,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -95,18 +99,17 @@
   "status": "active",
   "supportUrl": "https://m1zz.github.io/JuniorDevMistakes/",
   "lifecycle": {
-    "stage": 1,
-    "label": "pre-mvp",
-    "tier": null,
-    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 112일 경과",
-    "evaluatedAt": "2026-10-25",
+    "stage": 2,
+    "label": "problem-solution-fit",
+    "tier": "A",
+    "basis": "출시 후 다듬은 기간 137일 · 외부 평점 1개 · 최종 업데이트 2일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 1,
-    "daysSinceUpdate": 112,
-    "manual": true,
+    "daysSinceUpdate": 2,
     "refineDays": 0,
-    "polishDays": 0,
+    "polishDays": 137,
     "releasedAt": "2026-07-05",
-    "updatedAt": "2026-07-05"
+    "updatedAt": "2026-11-19"
   },
   "globalReach": {
     "level": 3,
@@ -140,12 +143,12 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-11-01"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
     "feedback": {
-      "inAppFeedback": false,
+      "inAppFeedback": true,
       "mailContact": false,
       "instagram": false,
       "reviewPrompt": true,
@@ -198,7 +201,7 @@
       "inputFlow": true,
       "textCopy": false,
       "purchaseTest": true,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
@@ -209,7 +212,7 @@
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
-      "gift": false,
+      "gift": true,
       "subscription": false,
       "trial": false,
       "graduation": false,
@@ -229,14 +232,14 @@
     },
     "more": {
       "schemaMigration": false,
-      "emptyStates": false,
+      "emptyStates": true,
       "biometricLock": false,
       "notifications": false,
       "performance": false,
       "logging": false,
       "funnel": false,
       "abTesting": false,
-      "haptics": false,
+      "haptics": true,
       "preflight": false,
       "appSpec": true,
       "family": false,
@@ -271,7 +274,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 11,
+      "accessibilityLabels": 12,
       "testFiles": 0
     },
     "data": {
@@ -290,12 +293,24 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
     "iap": [
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
+      },
       {
         "name": "평생 구매",
         "price": "$19.99"
@@ -310,22 +325,23 @@
       }
     ],
     "iapEnglish": false,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
-    "url": "https://m1zz.github.io/JuniorDevMistakes",
+    "url": "https://m1zz.github.io/JuniorDevMistakes/ko/index.html",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
     "tryIt": false,
     "scenario": false,
     "steps": false,
-    "proof": false,
-    "storeLink": false,
-    "ogImage": false,
-    "english": false,
-    "evaluatedAt": "2026-10-25"
+    "proof": true,
+    "storeLink": true,
+    "ogImage": true,
+    "english": true,
+    "urlEn": "https://m1zz.github.io/JuniorDevMistakes/en/index.html",
+    "evaluatedAt": "2026-11-21"
   }
 }

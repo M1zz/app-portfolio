@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6779262832",
   "bundleId": "com.devkoan.StaffSinger",
   "categories": [],
-  "currentVersion": "1.0.4",
+  "currentVersion": "1.0.6",
   "folderId": "sight-singer",
   "githubRepo": "",
   "localProjectPath": "",
@@ -22,8 +22,42 @@
   "notes": "[2026-07-05 스토어 동기화로 자동 등록] 악보에 내가 원하는 음표를 간단하게 찍고 들어볼 수 있게 해주는 앱 (스토어명: 초견, 2026-06-19 최신 버전 출시)",
   "price": {
     "isFree": true,
-    "pricingModel": "free",
-    "hasInAppPurchases": false,
+    "pricingModel": "freemium-subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "초견 Pro (주)",
+        "price": "￦1,100"
+      },
+      {
+        "name": "초견 Pro (월)",
+        "price": "￦3,300"
+      },
+      {
+        "name": "초견 Pro (연)",
+        "price": "￦8,800"
+      },
+      {
+        "name": "초견 Pro (평생, 구독자용)",
+        "price": "￦17,000"
+      },
+      {
+        "name": "초견 Pro (평생)",
+        "price": "￦26,000"
+      },
+      {
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "든든한 응원",
+        "price": "￦4,400"
+      },
+      {
+        "name": "큰 응원",
+        "price": "￦17,000"
+      }
+    ],
     "code": {
       "storeKit": true,
       "subscriptionUI": false,
@@ -67,9 +101,8 @@
         }
       ]
     },
-    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [
@@ -89,14 +122,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 133일 · 외부 평점 0개 · 최종 업데이트 1일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 159일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 1,
+    "daysSinceUpdate": 2,
     "refineDays": 6,
-    "polishDays": 133,
+    "polishDays": 159,
     "releasedAt": "2026-06-13",
-    "updatedAt": "2026-10-24"
+    "updatedAt": "2026-11-19"
   },
   "globalReach": {
     "level": 3,
@@ -130,7 +163,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -174,7 +207,7 @@
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
-      "keyboard": false,
+      "keyboard": true,
       "a11yAudit": false,
       "_video": false,
       "_forcedLight": false
@@ -187,22 +220,22 @@
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": false,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
-      "freeGate": false,
-      "restore": false,
+      "freeGate": true,
+      "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
+      "subscription": true,
       "trial": false,
-      "graduation": false,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -245,7 +278,7 @@
       "shareImage": false,
       "shareVideo": false,
       "storeCopy": true,
-      "screenshotCapture": false,
+      "screenshotCapture": true,
       "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
@@ -261,8 +294,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 64,
-      "testFiles": 2
+      "accessibilityLabels": 72,
+      "testFiles": 5
     },
     "data": {
       "storeOpenSafe": "na",
@@ -280,30 +313,63 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "StaffSinger Pro (Weekly)",
+        "price": "$0.99"
+      },
+      {
+        "name": "StaffSinger Pro (Monthly)",
+        "price": "$1.99"
+      },
+      {
+        "name": "StaffSinger Pro (Yearly)",
+        "price": "$5.99"
+      },
+      {
+        "name": "StaffSinger Pro (Lifetime, for",
+        "price": "$11.99"
+      },
+      {
+        "name": "StaffSinger Pro (Lifetime)",
+        "price": "$17.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/StaffSinger/",
     "set": true,
     "reachable": true,
-    "intro": false,
-    "screens": false,
+    "intro": true,
+    "screens": true,
     "video": false,
-    "tryIt": false,
+    "tryIt": true,
     "scenario": false,
-    "steps": true,
+    "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/StaffSinger/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

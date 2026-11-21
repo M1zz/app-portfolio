@@ -267,15 +267,15 @@
     "iapItems": [
       {
         "name": "휴가플래너 pro",
-        "price": "￦77,000"
+        "price": "￦99,000"
       },
       {
         "name": "Plus 선물하기",
-        "price": "￦33,000"
+        "price": "￦52,000"
       },
       {
         "name": "Pro 선물하기",
-        "price": "￦77,000"
+        "price": "￦99,000"
       },
       {
         "name": "Goldweek 프로 주간",
@@ -303,7 +303,7 @@
       },
       {
         "name": "Goldweek 플러스 (평생)",
-        "price": "￦33,000"
+        "price": "￦52,000"
       }
     ],
     "code": {
@@ -377,12 +377,12 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "notes": "[2026-07-05 스토어 동기화] v2.0.7 (2026-06-20 출시). '휴가 플래너'에서 '골드위크 - 황금연휴 플래너'로 리브랜딩 (연차 관리/황금연휴 조합 특화)",
   "bundleId": "com.Ysoup.LeaveWise",
   "status": "active",
-  "currentVersion": "2.4.0",
+  "currentVersion": "2.4.8",
   "stats": {
     "done": 3,
     "inProgress": 0,
@@ -414,12 +414,12 @@
     "label": "pmf-search",
     "tier": null,
     "basis": "수동 판정(사용자 확인, 2026-10-06) — 반응을 받아 반복 개선 중. 외부 평점 0개 · 출시 후 다듬은 기간 306일 · 최종 업데이트 2일 경과",
-    "evaluatedAt": "2026-10-25",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 8,
-    "polishDays": 319,
+    "daysSinceUpdate": 1,
+    "polishDays": 353,
     "releasedAt": "2025-12-02",
-    "updatedAt": "2026-10-17",
+    "updatedAt": "2026-11-20",
     "manual": true
   },
   "globalReach": {
@@ -454,7 +454,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -581,7 +581,7 @@
       "ipad": true,
       "mac": true,
       "watch": false,
-      "vision": false,
+      "vision": true,
       "_macViaDesignedForIPad": false
     },
     "counts": {
@@ -604,7 +604,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -614,23 +614,47 @@
     "iap": [
       {
         "name": "휴가플래너 pro",
-        "price": "$49.99"
+        "price": "$59.99"
       },
       {
-        "name": "yearly family",
+        "name": "Gift Plus",
         "price": "$29.99"
       },
       {
-        "name": "yearly pro",
-        "price": "$19.99"
+        "name": "Gift Pro",
+        "price": "$59.99"
       },
       {
-        "name": "annual plus",
-        "price": "$9.99"
+        "name": "Goldweek Pro Weekly",
+        "price": "$2.49"
+      },
+      {
+        "name": "Goldweek Pro Monthly",
+        "price": "$6.49"
+      },
+      {
+        "name": "Goldweek Plus Weekly",
+        "price": "$1.49"
+      },
+      {
+        "name": "Goldweek Plus Monthly",
+        "price": "$3.49"
+      },
+      {
+        "name": "Goldweek Pro Upgrade",
+        "price": "$29.99"
+      },
+      {
+        "name": "Goldweek Pro for Subscribers",
+        "price": "$41.99"
+      },
+      {
+        "name": "Goldweek Plus (Lifetime)",
+        "price": "$29.99"
       }
     ],
     "iapEnglish": false,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "marketing": {
     "reddit": {
@@ -649,13 +673,13 @@
     "screens": true,
     "video": false,
     "tryIt": false,
-    "scenario": false,
+    "scenario": true,
     "steps": false,
     "proof": false,
     "storeLink": true,
     "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/Goldweek/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

@@ -84,7 +84,7 @@
     "evaluatedAt": "2026-11-01"
   },
   "serviceMaturity": {
-    "source": true,
+    "source": false,
     "feedback": {
       "inAppFeedback": true,
       "mailContact": true,
@@ -211,16 +211,16 @@
       "vision": false,
       "_macViaDesignedForIPad": false
     },
-    "counts": {
-      "accessibilityLabels": 12,
-      "testFiles": 2
-    },
     "data": {
       "storeOpenSafe": true,
       "keepsOriginal": true,
       "deviceBackup": true,
       "autoBackup": true,
       "migration": "na"
+    },
+    "counts": {
+      "accessibilityLabels": 12,
+      "testFiles": 2
     },
     "support": {
       "registered": true,
@@ -231,29 +231,26 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
-    "available": true,
-    "price": 0.0,
-    "iap": [],
-    "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "available": false,
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
-    "url": "https://developeracademy-postech.github.io/StickyPresenter/remote.html",
-    "set": true,
-    "reachable": false,
-    "intro": null,
-    "screens": null,
-    "video": null,
-    "tryIt": null,
-    "scenario": null,
-    "steps": null,
-    "proof": null,
-    "storeLink": null,
-    "ogImage": null,
-    "english": null,
-    "evaluatedAt": "2026-10-25"
+    "url": null,
+    "set": false,
+    "reachable": null,
+    "intro": false,
+    "screens": false,
+    "video": false,
+    "tryIt": false,
+    "scenario": false,
+    "steps": false,
+    "proof": false,
+    "storeLink": false,
+    "ogImage": false,
+    "english": false,
+    "evaluatedAt": "2026-11-21"
   }
 }

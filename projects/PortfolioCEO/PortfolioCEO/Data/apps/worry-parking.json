@@ -7,7 +7,7 @@
     "라이프스타일",
     "유틸리티"
   ],
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.2",
   "folderId": "worry-parking",
   "githubRepo": "https://github.com/M1zz/WorryParking",
   "localProjectPath": "",
@@ -78,7 +78,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -96,14 +96,14 @@
     "stage": 1,
     "label": "pre-mvp",
     "ratingCount": 0,
-    "daysSinceUpdate": 24,
-    "polishDays": 0,
+    "daysSinceUpdate": 14,
+    "polishDays": 37,
     "releasedAt": "2026-10-01",
-    "updatedAt": "2026-10-01",
-    "evaluatedAt": "2026-10-25",
+    "updatedAt": "2026-11-07",
+    "evaluatedAt": "2026-11-21",
     "tier": null,
     "manual": true,
-    "basis": "출시 후 다듬은 기간 0일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0 · 최종 업데이트 24일 경과"
+    "basis": "출시 후 다듬은 기간 37일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.2 · 최종 업데이트 14일 경과"
   },
   "globalReach": {
     "level": 3,
@@ -137,7 +137,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-11-01"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -158,9 +158,9 @@
       "privacyManifest": false
     },
     "ux": {
-      "widgets": false,
+      "widgets": true,
       "shortcuts": true,
-      "cloudSync": false,
+      "cloudSync": true,
       "tips": false,
       "onboarding": true,
       "backup": true
@@ -195,13 +195,13 @@
       "inputFlow": true,
       "textCopy": false,
       "purchaseTest": true,
-      "releaseTags": false,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
       "paywall": true,
       "tiers": false,
-      "freeGate": false,
+      "freeGate": true,
       "restore": true,
       "discount": false,
       "tipJar": true,
@@ -209,7 +209,7 @@
       "gift": false,
       "subscription": true,
       "trial": false,
-      "graduation": false,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -263,12 +263,12 @@
       "iphone": true,
       "ipad": false,
       "mac": false,
-      "watch": false,
-      "vision": false,
+      "watch": true,
+      "vision": true,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 21,
+      "accessibilityLabels": 22,
       "testFiles": 0
     },
     "data": {
@@ -287,30 +287,43 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
-    "url": "https://m1zz.github.io/WorryParking/ko/support.html",
+    "url": "https://m1zz.github.io/WorryParking/ko/index.html",
     "set": true,
     "reachable": true,
-    "intro": false,
-    "screens": false,
+    "intro": true,
+    "screens": true,
     "video": false,
     "tryIt": false,
     "scenario": true,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
-    "urlEn": "https://m1zz.github.io/WorryParking/en/support.html",
-    "evaluatedAt": "2026-10-25"
+    "urlEn": "https://m1zz.github.io/WorryParking/en/index.html",
+    "evaluatedAt": "2026-11-21"
   }
 }

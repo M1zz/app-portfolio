@@ -169,7 +169,7 @@
   "categories": [
     "다국어지원예정"
   ],
-  "currentVersion": "1.1.14",
+  "currentVersion": "1.2.0",
   "githubRepo": "https://github.com/M1zz/ScheduleDensity",
   "localProjectPath": "../ScheduleDensity",
   "minimumOS": "16.0",
@@ -310,11 +310,15 @@
           "id": "com.example.ScheduleDensityApp.plus.annual",
           "type": "subscription",
           "period": "P1Y"
+        },
+        {
+          "id": "com.example.ScheduleDensityApp.gift.plus",
+          "type": "consumable"
         }
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "supportUrl": "https://m1zz.github.io/ScheduleDensity/",
   "lifecycle": {
@@ -322,13 +326,13 @@
     "label": "scaling",
     "tier": null,
     "basis": "수동 판정(사용자 확인, 2026-10-18) — PMF 탐색에서 넓히는 단계로. 4단계 관문 중 외부 평점 10개만 남았던 앱(클립키보드는 관문 모두 통과) — 평점은 넓혀 가며 쌓는다. 외부 평점 1개",
-    "evaluatedAt": "2026-10-25",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 1,
-    "daysSinceUpdate": 3,
+    "daysSinceUpdate": 2,
     "manual": true,
-    "polishDays": 342,
+    "polishDays": 370,
     "releasedAt": "2025-11-14",
-    "updatedAt": "2026-10-22"
+    "updatedAt": "2026-11-19"
   },
   "globalReach": {
     "level": 3,
@@ -362,7 +366,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -433,7 +437,7 @@
       "tipAsk": true,
       "gift": true,
       "subscription": true,
-      "trial": false,
+      "trial": true,
       "graduation": true,
       "foreverPass": true
     },
@@ -457,7 +461,7 @@
       "performance": true,
       "logging": true,
       "funnel": true,
-      "abTesting": false,
+      "abTesting": true,
       "haptics": true,
       "preflight": true,
       "appSpec": true,
@@ -477,28 +481,28 @@
       "shareImage": false,
       "shareVideo": false,
       "storeCopy": true,
-      "screenshotCapture": false,
+      "screenshotCapture": true,
       "marketingScreens": true,
       "videoAsset": false,
-      "promoKit": false,
+      "promoKit": true,
       "localizedScreens": true,
-      "videoTool": false
+      "videoTool": true
     },
     "devices": {
       "iphone": true,
-      "ipad": false,
-      "mac": false,
+      "ipad": true,
+      "mac": true,
       "watch": false,
       "vision": false,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 84,
-      "testFiles": 5
+      "accessibilityLabels": 167,
+      "testFiles": 9
     },
     "data": {
       "storeOpenSafe": true,
-      "keepsOriginal": true,
+      "keepsOriginal": false,
       "deviceBackup": true,
       "autoBackup": true,
       "migration": false
@@ -512,7 +516,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -523,16 +527,44 @@
         "price": "$39.99"
       },
       {
-        "name": "Rainbow pro annual",
-        "price": "$14.99"
+        "name": "Pro for Life Gift",
+        "price": "$39.99"
       },
       {
-        "name": "Rainbow pro monthly",
+        "name": "Plus for Life Gift",
+        "price": "$8.99"
+      },
+      {
+        "name": "Medium Tip",
         "price": "$2.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Pro Lifetime for Subscribers",
+        "price": "$11.99"
+      },
+      {
+        "name": "Plus to Pro Lifetime",
+        "price": "$7.99"
+      },
+      {
+        "name": "Rainbow Plus Yearly",
+        "price": "$2.99"
+      },
+      {
+        "name": "Rainbow Plus Lifetime",
+        "price": "$8.99"
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "marketing": {
     "reddit": {
@@ -554,16 +586,16 @@
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
-    "tryIt": false,
+    "tryIt": true,
     "scenario": true,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/ScheduleDensity/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

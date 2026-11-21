@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6777737322",
   "bundleId": "com.devkoan.ScheduleDensityApp",
   "categories": [],
-  "currentVersion": "1.1.14",
+  "currentVersion": "1.1.16",
   "folderId": "rainbow-workshop",
   "githubRepo": "",
   "localProjectPath": "",
@@ -54,8 +54,59 @@
         "price": "￦25,000"
       }
     ],
+    "code": {
+      "storeKit": true,
+      "subscriptionUI": false,
+      "storeUI": false,
+      "ads": false,
+      "products": [
+        {
+          "id": "com.devkoan.ScheduleDensityApp.plus",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.sync",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.pro.upgrade",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.pro.graduate",
+          "type": "nonconsumable"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.tip.small",
+          "type": "consumable"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.tip.medium",
+          "type": "consumable"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.tip.large",
+          "type": "consumable"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.pro.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.pro.monthly",
+          "type": "subscription",
+          "period": "P1M"
+        },
+        {
+          "id": "com.devkoan.ScheduleDensityApp.plus.yearly",
+          "type": "subscription",
+          "period": "P1Y"
+        }
+      ]
+    },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [
@@ -76,14 +127,14 @@
     "label": "scaling",
     "tier": null,
     "basis": "수동 판정(사용자 확인, 2026-10-18) — PMF 탐색에서 넓히는 단계로. 4단계 관문 중 외부 평점 10개만 남았던 앱(클립키보드는 관문 모두 통과) — 평점은 넓혀 가며 쌓는다. 외부 평점 0개",
-    "evaluatedAt": "2026-10-25",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 3,
+    "daysSinceUpdate": 1,
     "manual": true,
     "refineDays": 72,
-    "polishDays": 131,
+    "polishDays": 160,
     "releasedAt": "2026-06-13",
-    "updatedAt": "2026-10-22"
+    "updatedAt": "2026-11-20"
   },
   "globalReach": {
     "level": 3,
@@ -117,7 +168,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -234,7 +285,7 @@
       "storeCopy": true,
       "screenshotCapture": false,
       "marketingScreens": true,
-      "videoAsset": false,
+      "videoAsset": true,
       "promoKit": true,
       "localizedScreens": true,
       "videoTool": false
@@ -267,7 +318,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -276,6 +327,22 @@
       {
         "name": "Pro",
         "price": "$9.99"
+      },
+      {
+        "name": "Rainbow Craft Plus Yearly",
+        "price": "$2.99"
+      },
+      {
+        "name": "Upgrade to Rainbow Craft Pro",
+        "price": "$8.99"
+      },
+      {
+        "name": "Rainbow Craft Plus (Lifetime)",
+        "price": "$8.99"
+      },
+      {
+        "name": "Rainbow Craft Pro for Members",
+        "price": "$12.99"
       },
       {
         "name": "rainbow monthly",
@@ -287,7 +354,7 @@
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "marketing": {
     "reddit": {
@@ -309,16 +376,16 @@
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
     "tryIt": false,
     "scenario": true,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/WeekBlocks/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

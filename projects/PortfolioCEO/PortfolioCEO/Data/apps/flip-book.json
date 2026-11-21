@@ -6,7 +6,7 @@
   "categories": [
     "라이프스타일"
   ],
-  "currentVersion": "1.0.3",
+  "currentVersion": "1.0.6",
   "folderId": "flip-book",
   "githubRepo": "",
   "localProjectPath": "",
@@ -70,7 +70,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -88,14 +88,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 102일 · 외부 평점 0개 · 최종 업데이트 3일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 122일 · 외부 평점 0개 · 최종 업데이트 10일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 3,
+    "daysSinceUpdate": 10,
     "refineDays": 8,
-    "polishDays": 102,
+    "polishDays": 122,
     "releasedAt": "2026-07-12",
-    "updatedAt": "2026-10-22"
+    "updatedAt": "2026-11-11"
   },
   "globalReach": {
     "level": 3,
@@ -129,7 +129,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -218,7 +218,7 @@
     },
     "more": {
       "schemaMigration": false,
-      "emptyStates": false,
+      "emptyStates": true,
       "biometricLock": false,
       "notifications": false,
       "performance": false,
@@ -252,7 +252,7 @@
       "videoTool": false
     },
     "devices": {
-      "iphone": false,
+      "iphone": true,
       "ipad": true,
       "mac": false,
       "watch": false,
@@ -260,8 +260,8 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 33,
-      "testFiles": 2
+      "accessibilityLabels": 39,
+      "testFiles": 3
     },
     "data": {
       "storeOpenSafe": true,
@@ -279,7 +279,7 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
@@ -288,10 +288,26 @@
       {
         "name": "Palang Book Lifetime Pass",
         "price": "$9.99"
+      },
+      {
+        "name": "Gift a Lifetime Pass",
+        "price": "$9.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
       }
     ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "marketing": {
     "reddit": {
@@ -307,16 +323,16 @@
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": true,
     "tryIt": false,
     "scenario": false,
-    "steps": true,
+    "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
     "urlEn": "https://m1zz.github.io/RotoscopeIPad/en/",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

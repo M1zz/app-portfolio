@@ -7,7 +7,7 @@
     "라이프스타일",
     "그래픽 및 디자인"
   ],
-  "currentVersion": "1.0.1",
+  "currentVersion": "1.0.4",
   "folderId": "yeoul",
   "githubRepo": "https://github.com/M1zz/Gyeol",
   "localProjectPath": "",
@@ -22,27 +22,27 @@
     "hasInAppPurchases": true,
     "iapItems": [
       {
-        "name": "여울 Plus (주)",
+        "name": "작은 응원",
         "price": "￦1,100"
       },
       {
-        "name": "여울 Plus (월)",
-        "price": "￦3,300"
+        "name": "큰 응원",
+        "price": "￦17,000"
       },
       {
-        "name": "여울 Plus (연)",
-        "price": "￦12,000"
+        "name": "든든한 응원",
+        "price": "￦4,400"
       },
       {
-        "name": "여울 Pro (월)",
-        "price": "￦5,500"
+        "name": "여울 Plus 평생",
+        "price": "￦35,000"
       },
       {
-        "name": "여울 Pro (주)",
-        "price": "￦2,200"
+        "name": "여울 Pro 평생",
+        "price": "￦52,000"
       },
       {
-        "name": "여울 Pro (연)",
+        "name": "Plus 평생에서 Pro 평생으로",
         "price": "￦17,000"
       },
       {
@@ -50,16 +50,16 @@
         "price": "￦35,000"
       },
       {
-        "name": "Plus 평생에서 Pro 평생으로",
+        "name": "여울 Pro (연)",
         "price": "￦17,000"
       },
       {
-        "name": "여울 Pro 평생",
-        "price": "￦52,000"
+        "name": "여울 Pro (주)",
+        "price": "￦2,200"
       },
       {
-        "name": "여울 Plus 평생",
-        "price": "￦35,000"
+        "name": "여울 Pro (월)",
+        "price": "￦5,500"
       }
     ],
     "code": {
@@ -129,7 +129,7 @@
       ]
     },
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [],
@@ -146,15 +146,15 @@
   "lifecycle": {
     "stage": 1,
     "label": "pre-mvp",
-    "ratingCount": 0,
-    "daysSinceUpdate": 2,
-    "polishDays": 40,
+    "ratingCount": 1,
+    "daysSinceUpdate": 6,
+    "polishDays": 63,
     "releasedAt": "2026-09-13",
-    "updatedAt": "2026-10-23",
-    "evaluatedAt": "2026-10-25",
+    "updatedAt": "2026-11-15",
+    "evaluatedAt": "2026-11-21",
     "tier": null,
     "manual": true,
-    "basis": "출시 후 다듬은 기간 40일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.1 · 최종 업데이트 2일 경과"
+    "basis": "출시 후 다듬은 기간 63일 — 출시만으로는 MVP 완성으로 보지 않는다는 기준(90일 이하 → 1단계, 사용자 확인)에 따라 Pre-MVP. v1.0.4 · 최종 업데이트 6일 경과"
   },
   "globalReach": {
     "level": 3,
@@ -188,7 +188,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -232,35 +232,35 @@
       "reduceTransparency": false,
       "boldText": false,
       "invertColors": false,
-      "keyboard": false,
+      "keyboard": true,
       "a11yAudit": false,
       "_video": false,
       "_forcedLight": false
     },
     "craft": {
       "moments": true,
-      "sheets": false,
+      "sheets": true,
       "liveNumbers": false,
       "localeFormat": false,
       "textOverflow": false,
       "inputFlow": true,
       "textCopy": false,
-      "purchaseTest": false,
-      "releaseTags": false,
+      "purchaseTest": true,
+      "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
-      "tiers": false,
-      "freeGate": false,
-      "restore": false,
-      "discount": false,
+      "paywall": true,
+      "tiers": true,
+      "freeGate": true,
+      "restore": true,
+      "discount": true,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
+      "subscription": true,
       "trial": false,
-      "graduation": false,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -296,7 +296,7 @@
     "marketing": {
       "demoMode": false,
       "deepLink": false,
-      "offerCode": false,
+      "offerCode": true,
       "invite": false,
       "installNudge": false,
       "shareApp": false,
@@ -315,12 +315,12 @@
       "ipad": true,
       "mac": true,
       "watch": false,
-      "vision": false,
+      "vision": true,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 17,
-      "testFiles": 1
+      "accessibilityLabels": 23,
+      "testFiles": 2
     },
     "data": {
       "storeOpenSafe": true,
@@ -338,30 +338,71 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 0.0,
-    "iap": [],
+    "iap": [
+      {
+        "name": "Yeoul Plus (Weekly)",
+        "price": "$0.99"
+      },
+      {
+        "name": "Yeoul Plus (Monthly)",
+        "price": "$2.49"
+      },
+      {
+        "name": "Yeoul Plus (Yearly)",
+        "price": "$7.99"
+      },
+      {
+        "name": "Yeoul Pro (Monthly)",
+        "price": "$3.99"
+      },
+      {
+        "name": "Yeoul Pro (Weekly)",
+        "price": "$1.49"
+      },
+      {
+        "name": "Yeoul Pro (Yearly)",
+        "price": "$11.99"
+      },
+      {
+        "name": "Yeoul Pro Lifetime for Subscri",
+        "price": "$23.99"
+      },
+      {
+        "name": "Plus to Pro Lifetime",
+        "price": "$11.99"
+      },
+      {
+        "name": "Yeoul Pro Lifetime",
+        "price": "$35.99"
+      },
+      {
+        "name": "Yeoul Plus Lifetime",
+        "price": "$23.99"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/Gyeol/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
     "tryIt": false,
     "scenario": false,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
-    "english": true,
+    "storeLink": true,
+    "ogImage": true,
+    "english": false,
     "urlEn": "https://m1zz.github.io/Gyeol/index-en.html",
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   }
 }

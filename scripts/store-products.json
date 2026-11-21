@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-15",
+ "checkedAt": "2026-11-21",
  "note": "App Store Connect 상품 상태. 다시 받으려면 ASC API 로 inAppPurchasesV2 · subscriptionGroups 를 읽어 [productId, state] 로 적는다.",
  "apps": {
   "club.strollerway.app": [],
@@ -331,61 +331,61 @@
   "com.devkoan.CalendarSnap": [
    [
     "com.devkoan.CalendarSnap.plus",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.plus.monthly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.plus.weekly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.plus.yearly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.pro",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.pro.graduate",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.pro.monthly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.pro.upgrade",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.pro.weekly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.pro.yearly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.tip.large",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.tip.medium",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.devkoan.CalendarSnap.tip.small",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ]
   ],
   "com.devkoan.FireTracker": [
    [
     "com.devkoan.FireTracker.plus",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.FireTracker.plus.monthly",
@@ -401,11 +401,11 @@
    ],
    [
     "com.devkoan.FireTracker.pro",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.FireTracker.pro.graduate",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.FireTracker.pro.monthly",
@@ -413,7 +413,7 @@
    ],
    [
     "com.devkoan.FireTracker.pro.upgrade",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.FireTracker.pro.weekly",
@@ -425,37 +425,37 @@
    ],
    [
     "com.devkoan.FireTracker.tip.large",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.FireTracker.tip.medium",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.FireTracker.tip.small",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ]
   ],
   "com.devkoan.IndonesianSmallTalk": [
    [
     "com.devkoan.IndonesianSmallTalk.plus.lifetime",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.plus.monthly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.plus.weekly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.plus.yearly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.pro.graduate",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.pro.lifetime",
@@ -463,15 +463,15 @@
    ],
    [
     "com.devkoan.IndonesianSmallTalk.pro.monthly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.pro.upgrade",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.pro.weekly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.pro.yearly",
@@ -479,15 +479,15 @@
    ],
    [
     "com.devkoan.IndonesianSmallTalk.tip.large",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.tip.medium",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.devkoan.IndonesianSmallTalk.tip.small",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ]
   ],
   "com.devkoan.PairCompass": [],
@@ -536,35 +536,35 @@
   "com.devkoan.StaffSinger": [
    [
     "com.devkoan.StaffSinger.pro.graduate",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.devkoan.StaffSinger.pro.lifetime",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.devkoan.StaffSinger.pro.monthly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.devkoan.StaffSinger.pro.weekly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.devkoan.StaffSinger.pro.yearly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.devkoan.StaffSinger.tip.large",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.devkoan.StaffSinger.tip.medium",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.devkoan.StaffSinger.tip.small",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ]
   ],
   "com.devkoan.StampCamera": [
@@ -849,6 +849,10 @@
   "com.hyunholee.TrackpadServer": [],
   "com.kora.leeo": [
    [
+    "com.kora.leeo.gift.pro",
+    "WAITING_FOR_REVIEW"
+   ],
+   [
     "com.kora.leeo.pro",
     "APPROVED"
    ],
@@ -868,55 +872,55 @@
   "com.lectureq.LectureQ": [
    [
     "com.lectureq.LectureQ.plus",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.plus.monthly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.plus.weekly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.plus.yearly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.pro",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.pro.graduate",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.pro.monthly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.pro.upgrade",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.pro.weekly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.pro.yearly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.tip.large",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.tip.medium",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.lectureq.LectureQ.tip.small",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ]
   ],
   "com.leeo.BartenderPractice": [],
@@ -1218,8 +1222,20 @@
   ],
   "com.leeo.ReboundJournal": [
    [
+    "com.leeo.ReboundJournal.gift.pro",
+    "APPROVED"
+   ],
+   [
     "com.leeo.ReboundJournal.pro",
     "APPROVED"
+   ],
+   [
+    "com.leeo.ReboundJournal.pro.monthly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.ReboundJournal.pro.yearly",
+    "READY_TO_SUBMIT"
    ],
    [
     "com.leeo.ReboundJournal.tip.large",
@@ -1259,55 +1275,55 @@
   "com.leeo.SkyDex": [
    [
     "com.leeo.SkyDex.plus.lifetime",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.plus.monthly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.plus.weekly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.plus.yearly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.pro.graduate",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.pro.lifetime",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.pro.monthly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.pro.upgrade",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.pro.weekly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.pro.yearly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.tip.large",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.tip.medium",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.SkyDex.tip.small",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ]
   ],
   "com.leeo.SoundLab": [],
@@ -1403,55 +1419,55 @@
   "com.leeo.TetraTint": [
    [
     "com.leeo.TetraTint.plus",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.plus.monthly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.plus.weekly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.plus.yearly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.pro",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.pro.graduate",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.pro.monthly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.pro.upgrade",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.pro.weekly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.pro.yearly",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.tip.large",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.tip.medium",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ],
    [
     "com.leeo.TetraTint.tip.small",
-    "WAITING_FOR_REVIEW"
+    "APPROVED"
    ]
   ],
   "com.leeo.TrackpadRemote": [],
@@ -1652,123 +1668,123 @@
   "com.leeo.sunflower": [
    [
     "com.leeo.sunflower.pro.graduate",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.sunflower.pro.lifetime",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.sunflower.pro.monthly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.sunflower.pro.weekly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.sunflower.pro.yearly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.sunflower.tip.large",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.sunflower.tip.medium",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.sunflower.tip.small",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ]
   ],
   "com.leeo.thinkflow": [
    [
     "com.leeo.thinkflow.pro",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.thinkflow.pro.graduate",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.thinkflow.pro.monthly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.thinkflow.pro.weekly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.thinkflow.pro.yearly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.thinkflow.tip.large",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.thinkflow.tip.medium",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.leeo.thinkflow.tip.small",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ]
   ],
   "com.leeo.wifisnap": [
    [
     "com.leeo.wifisnap.plus",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.plus.monthly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.plus.weekly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.plus.yearly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.pro",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.pro.graduate",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.pro.monthly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.pro.upgrade",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.pro.weekly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.pro.yearly",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.tip.large",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.tip.medium",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ],
    [
     "com.leeo.wifisnap.tip.small",
-    "READY_TO_SUBMIT"
+    "WAITING_FOR_REVIEW"
    ]
   ],
   "com.leeo.yeoul": [

@@ -140,26 +140,26 @@
       "moments": true,
       "sheets": false,
       "liveNumbers": false,
-      "localeFormat": false,
+      "localeFormat": true,
       "textOverflow": false,
       "inputFlow": false,
       "textCopy": true,
-      "purchaseTest": false,
+      "purchaseTest": true,
       "releaseTags": true,
       "steadyUpdates": true
     },
     "money": {
-      "paywall": false,
+      "paywall": true,
       "tiers": false,
       "freeGate": false,
-      "restore": false,
+      "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
       "gift": false,
-      "subscription": false,
-      "trial": false,
-      "graduation": false,
+      "subscription": true,
+      "trial": true,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -204,7 +204,7 @@
       "storeCopy": true,
       "screenshotCapture": false,
       "marketingScreens": true,
-      "videoAsset": false,
+      "videoAsset": true,
       "promoKit": true,
       "localizedScreens": true,
       "videoTool": false
@@ -218,7 +218,7 @@
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 46,
+      "accessibilityLabels": 50,
       "testFiles": 0
     },
     "data": {
@@ -237,30 +237,26 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
-    "available": true,
-    "price": 9.99,
-    "iap": [],
-    "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "available": false,
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
-    "url": "https://m1zz.github.io/ClipKeyboard/ko/",
-    "set": true,
-    "reachable": true,
-    "intro": true,
+    "url": null,
+    "set": false,
+    "reachable": null,
+    "intro": false,
     "screens": false,
-    "video": true,
-    "tryIt": true,
-    "scenario": true,
-    "steps": true,
+    "video": false,
+    "tryIt": false,
+    "scenario": false,
+    "steps": false,
     "proof": false,
-    "storeLink": true,
-    "ogImage": true,
-    "english": true,
-    "urlEn": "https://m1zz.github.io/ClipKeyboard/en/",
-    "evaluatedAt": "2026-10-25"
+    "storeLink": false,
+    "ogImage": false,
+    "english": false,
+    "evaluatedAt": "2026-11-21"
   }
 }

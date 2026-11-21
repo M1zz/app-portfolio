@@ -11,7 +11,7 @@
   "appStoreUrl": "https://apps.apple.com/kr/app/id6779654854",
   "bundleId": "com.devkoan.FireTracker",
   "categories": [],
-  "currentVersion": "1.2.0",
+  "currentVersion": "1.2.5",
   "folderId": "fire-tracker",
   "githubRepo": "",
   "localProjectPath": "",
@@ -23,8 +23,38 @@
   "price": {
     "isFree": false,
     "priceKRW": 229000,
-    "pricingModel": "paid",
-    "hasInAppPurchases": false,
+    "pricingModel": "paid+subscription",
+    "hasInAppPurchases": true,
+    "iapItems": [
+      {
+        "name": "퇴사각 Pro 평생 (구독 졸업)",
+        "price": "￦43,000"
+      },
+      {
+        "name": "퇴사각 Pro 평생으로 올리기",
+        "price": "￦22,000"
+      },
+      {
+        "name": "퇴사각 Plus 평생",
+        "price": "￦43,000"
+      },
+      {
+        "name": "작은 응원",
+        "price": "￦1,100"
+      },
+      {
+        "name": "든든한 응원",
+        "price": "￦4,400"
+      },
+      {
+        "name": "큰 응원",
+        "price": "￦17,000"
+      },
+      {
+        "name": "Fire tracker pro",
+        "price": "￦229,000"
+      }
+    ],
     "code": {
       "storeKit": true,
       "subscriptionUI": false,
@@ -95,9 +125,8 @@
         }
       ]
     },
-    "gap": "코드에 결제가 있지만 스토어에 인앱결제 상품이 없음",
     "store": "kr",
-    "evaluatedAt": "2026-11-15"
+    "evaluatedAt": "2026-11-21"
   },
   "priority": "medium",
   "recentlyCompleted": [
@@ -117,14 +146,14 @@
     "stage": 2,
     "label": "problem-solution-fit",
     "tier": "A",
-    "basis": "출시 후 다듬은 기간 128일 · 외부 평점 0개 · 최종 업데이트 5일 경과 → 개선 중",
-    "evaluatedAt": "2026-10-25",
+    "basis": "출시 후 다듬은 기간 158일 · 외부 평점 0개 · 최종 업데이트 2일 경과 → 개선 중",
+    "evaluatedAt": "2026-11-21",
     "ratingCount": 0,
-    "daysSinceUpdate": 5,
+    "daysSinceUpdate": 2,
     "refineDays": 35,
-    "polishDays": 128,
+    "polishDays": 158,
     "releasedAt": "2026-06-14",
-    "updatedAt": "2026-10-20"
+    "updatedAt": "2026-11-19"
   },
   "globalReach": {
     "level": 3,
@@ -158,7 +187,7 @@
     "storefronts": 18,
     "storefrontsChecked": 18,
     "basis": "앱 언어 CS, DA, DE, EL, EN, ES, FI, FR, ID, IT, JA, KO, NB, NL, PL, PT, RU, SV, TH, TR, VI, ZH · 미국 스토어 소개 영어 · 주요 18개국 중 18곳 판매",
-    "evaluatedAt": "2026-10-26"
+    "evaluatedAt": "2026-11-21"
   },
   "serviceMaturity": {
     "source": true,
@@ -221,16 +250,16 @@
     },
     "money": {
       "paywall": true,
-      "tiers": false,
+      "tiers": true,
       "freeGate": true,
       "restore": true,
       "discount": false,
       "tipJar": true,
       "tipAsk": true,
       "gift": true,
-      "subscription": false,
-      "trial": false,
-      "graduation": false,
+      "subscription": true,
+      "trial": true,
+      "graduation": true,
       "foreverPass": false
     },
     "comms": {
@@ -254,7 +283,7 @@
       "logging": false,
       "funnel": false,
       "abTesting": false,
-      "haptics": true,
+      "haptics": false,
       "preflight": false,
       "appSpec": true,
       "family": false,
@@ -265,7 +294,7 @@
     },
     "marketing": {
       "demoMode": true,
-      "deepLink": false,
+      "deepLink": true,
       "offerCode": false,
       "invite": false,
       "installNudge": false,
@@ -273,7 +302,7 @@
       "shareImage": false,
       "shareVideo": false,
       "storeCopy": true,
-      "screenshotCapture": false,
+      "screenshotCapture": true,
       "marketingScreens": true,
       "videoAsset": false,
       "promoKit": false,
@@ -282,14 +311,14 @@
     },
     "devices": {
       "iphone": true,
-      "ipad": false,
+      "ipad": true,
       "mac": false,
       "watch": false,
-      "vision": false,
+      "vision": true,
       "_macViaDesignedForIPad": false
     },
     "counts": {
-      "accessibilityLabels": 40,
+      "accessibilityLabels": 50,
       "testFiles": 0
     },
     "data": {
@@ -308,29 +337,59 @@
       "host": "m1zz.github.io",
       "status": 200
     },
-    "evaluatedAt": "2026-11-04"
+    "evaluatedAt": "2026-11-21"
   },
   "usStore": {
     "available": true,
     "price": 149.99,
-    "iap": [],
+    "iap": [
+      {
+        "name": "Pro Lifetime for Subscribers",
+        "price": "$29.99"
+      },
+      {
+        "name": "Upgrade to Pro Lifetime",
+        "price": "$14.99"
+      },
+      {
+        "name": "FireTracker Plus Lifetime",
+        "price": "$29.99"
+      },
+      {
+        "name": "Small Tip",
+        "price": "$0.99"
+      },
+      {
+        "name": "Medium Tip",
+        "price": "$2.99"
+      },
+      {
+        "name": "Large Tip",
+        "price": "$9.99"
+      },
+      {
+        "name": "Fire tracker pro",
+        "price": "$150.00"
+      }
+    ],
     "iapEnglish": true,
-    "evaluatedAt": "2026-10-25"
+    "evaluatedAt": "2026-11-21"
   },
   "introPage": {
     "url": "https://m1zz.github.io/FireTracker/",
     "set": true,
     "reachable": true,
     "intro": true,
-    "screens": false,
+    "screens": true,
     "video": false,
     "tryIt": false,
-    "scenario": false,
+    "scenario": true,
     "steps": false,
     "proof": false,
-    "storeLink": false,
-    "ogImage": false,
+    "storeLink": true,
+    "ogImage": true,
     "english": true,
-    "evaluatedAt": "2026-10-25"
+    "urlEn": "https://m1zz.github.io/FireTracker/en/",
+    "evaluatedAt": "2026-11-21"
   }
 }
