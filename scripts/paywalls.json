@@ -2693,8 +2693,8 @@
       ],
       "trial": "무료 체험 없음 — 연 구독 첫 해 반값(.storekit payUpFront $4.99 / $7.49)이 있지만 연 구독이 심사 전이라 아직 안 보임",
       "restore": true,
-      "currentPublic": "유료 다운로드 ₩229,000 (무료 전환 전) · 안에서 Plus 평생 ₩43,000 · Pro 평생 ₩229,000 · Plus→Pro 올리기 ₩22,000 · 팁 — 주 · 월 · 연 구독은 심사 전 · 앱을 산 분은 Pro 평생",
-      "notes": "2026-11-21 소스 · App Store Connect 로 다시 정리: 1.2.5(빌드 15 · 16)에서 유료 다운로드 → 무료 다운로드 + 무료 · Plus · Pro 로 바꿈(2f1b97d, 빌드 16 안에 있음). 예전의 paywallEnabled = false 는 없어졌고 DEBUG(Xcode 설치본)만 늘 Pro — 출시 빌드는 잠김. 페이월은 자체 ProPaywallView(세 칸 + 비교표), 결제는 LeeoStore. store-products.json: plus · pro · pro.upgrade · pro.graduate · 팁 3개 APPROVED, 주 · 월 · 연 구독 6개는 READY_TO_SUBMIT, gift.pro 는 없음 → 지금 페이월엔 평생 두 칸과 올리기만 선다(구독 졸업은 연 구독자가 없어 안 보임). 빌드 12(1.2.4) 이하에서 받은 사람은 앱값을 낸 사람이라 Pro 평생. 원화는 paywall-plans.json, 달러는 .storekit. 확인 못 함: Pro 평생 ₩229,000 / $150 이 의도한 값인지(설계안 · .storekit 모두 그 값이지만 다른 칸과 동떨어짐 — 유료 시절 프로 상품 가격이 남은 것일 수 있음) · 스토어 다운로드 가격을 실제로 무료로 내렸는지. 2026-11-21 스토어 확인: 다운로드 가격은 아직 유료 — 무료 전환은 사람이 App Store Connect 에서 할 일(출시 날 할 일 목록)."
+      "currentPublic": "유료 다운로드 ₩229,000 · 안에서 Plus 평생 ₩43,000 · Pro 평생 ₩229,000 · Plus→Pro 올리기 ₩22,000 · 팁 — 주 · 월 · 연 구독은 심사 전 · 앱을 산 분은 Pro 평생",
+      "notes": "2026-11-21 소스 · App Store Connect 로 다시 정리: 1.2.5(빌드 15 · 16)에서 유료 다운로드 → 무료 다운로드 + 무료 · Plus · Pro 로 바꿈(2f1b97d, 빌드 16 안에 있음). 예전의 paywallEnabled = false 는 없어졌고 DEBUG(Xcode 설치본)만 늘 Pro — 출시 빌드는 잠김. 페이월은 자체 ProPaywallView(세 칸 + 비교표), 결제는 LeeoStore. store-products.json: plus · pro · pro.upgrade · pro.graduate · 팁 3개 APPROVED, 주 · 월 · 연 구독 6개는 READY_TO_SUBMIT, gift.pro 는 없음 → 지금 페이월엔 평생 두 칸과 올리기만 선다(구독 졸업은 연 구독자가 없어 안 보임). 빌드 12(1.2.4) 이하에서 받은 사람은 앱값을 낸 사람이라 Pro 평생. 원화는 paywall-plans.json, 달러는 .storekit. 확인 못 함: Pro 평생 ₩229,000 / $150 이 의도한 값인지(설계안 · .storekit 모두 그 값이지만 다른 칸과 동떨어짐 — 유료 시절 프로 상품 가격이 남은 것일 수 있음) · 스토어 다운로드 가격을 실제로 무료로 내렸는지. 유료 다운로드 ₩229,000 과 안의 상품 가격은 바꾸지 않는다(2026-11-21 사용자 결정)."
     },
     "footprint-diary": {
       "slug": "footprint-diary",
