@@ -1,0 +1,897 @@
+[
+ {
+  "app": "불타는 내인생",
+  "appId": "6758995390",
+  "sub": "6832140529",
+  "pid": "com.burningparchment.app.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-11-07",
+    null,
+    175
+   ]
+  ]
+ },
+ {
+  "app": "불타는 내인생",
+  "appId": "6758995390",
+  "sub": "6832140231",
+  "pid": "com.burningparchment.app.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-11-07",
+    null,
+    175
+   ]
+  ]
+ },
+ {
+  "app": "클립키보드",
+  "appId": "1543660502",
+  "sub": "6827632513",
+  "pid": "com.Ysoup.TokenMemo.forever.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "클립키보드",
+  "appId": "1543660502",
+  "sub": "6817599329",
+  "pid": "com.Ysoup.TokenMemo.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-10-27",
+    null,
+    89
+   ],
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-10-29",
+    null,
+    86
+   ]
+  ]
+ },
+ {
+  "app": "클립키보드",
+  "appId": "1543660502",
+  "sub": "6831592018",
+  "pid": "com.Ysoup.TokenMemo.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "클립키보드",
+  "appId": "1543660502",
+  "sub": "6827526572",
+  "pid": "com.Ysoup.TokenMemo.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-10-27",
+    null,
+    175
+   ]
+  ]
+ },
+ {
+  "app": "클립키보드",
+  "appId": "1543660502",
+  "sub": "6831592182",
+  "pid": "com.Ysoup.TokenMemo.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "두번알림",
+  "appId": "6752551268",
+  "sub": "6827518875",
+  "pid": "com.xa.toki.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-10-27",
+    null,
+    175
+   ]
+  ]
+ },
+ {
+  "app": "두번알림",
+  "appId": "6752551268",
+  "sub": "6827521693",
+  "pid": "com.xa.toki.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-10-27",
+    null,
+    175
+   ]
+  ]
+ },
+ {
+  "app": "벅터벅터",
+  "appId": "6789952970",
+  "sub": "6831691569",
+  "pid": "com.leeo.FootprintDiary.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "벅터벅터",
+  "appId": "6789952970",
+  "sub": "6831693655",
+  "pid": "com.leeo.FootprintDiary.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "벅터벅터",
+  "appId": "6789952970",
+  "sub": "6831689797",
+  "pid": "com.leeo.FootprintDiary.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "벅터벅터",
+  "appId": "6789952970",
+  "sub": "6831686483",
+  "pid": "com.leeo.FootprintDiary.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "벅터벅터",
+  "appId": "6789952970",
+  "sub": "6831687798",
+  "pid": "com.leeo.FootprintDiary.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "벅터벅터",
+  "appId": "6789952970",
+  "sub": "6831681495",
+  "pid": "com.leeo.FootprintDiary.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "낫마템포",
+  "appId": "6781537149",
+  "sub": "6789040931",
+  "pid": "com.leeo.HandsFreeMetronome.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "앱 디자인 실습",
+  "appId": "6808132576",
+  "sub": "6824953445",
+  "pid": "com.leeo.higgym.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "앱 디자인 실습",
+  "appId": "6808132576",
+  "sub": "6824953101",
+  "pid": "com.leeo.higgym.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "실수 100",
+  "appId": "6759643878",
+  "sub": "6784719619",
+  "pid": "com.leeo.JuniorDevMistakes.pro.1monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "실수 100",
+  "appId": "6759643878",
+  "sub": "6784721247",
+  "pid": "com.leeo.JuniorDevMistakes.pro.1yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "질문노트",
+  "appId": "6794597095",
+  "sub": "6831697937",
+  "pid": "com.lectureq.LectureQ.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "질문노트",
+  "appId": "6794597095",
+  "sub": "6831700523",
+  "pid": "com.lectureq.LectureQ.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "질문노트",
+  "appId": "6794597095",
+  "sub": "6831697169",
+  "pid": "com.lectureq.LectureQ.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "질문노트",
+  "appId": "6794597095",
+  "sub": "6831693806",
+  "pid": "com.lectureq.LectureQ.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "질문노트",
+  "appId": "6794597095",
+  "sub": "6831695193",
+  "pid": "com.lectureq.LectureQ.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "질문노트",
+  "appId": "6794597095",
+  "sub": "6831682024",
+  "pid": "com.lectureq.LectureQ.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "한땀",
+  "appId": "6449769987",
+  "sub": "6824232818",
+  "pid": "com.hantam.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "한땀",
+  "appId": "6449769987",
+  "sub": "6824233133",
+  "pid": "com.hantam.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "한땀",
+  "appId": "6449769987",
+  "sub": "6831763844",
+  "pid": "com.leeo.PixelMe.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "한땀",
+  "appId": "6449769987",
+  "sub": "6831763140",
+  "pid": "com.leeo.PixelMe.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "한땀",
+  "appId": "6449769987",
+  "sub": "6831765164",
+  "pid": "com.leeo.PixelMe.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "한땀",
+  "appId": "6449769987",
+  "sub": "6831762161",
+  "pid": "com.leeo.PixelMe.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "욕망의 무지개",
+  "appId": "6755280882",
+  "sub": "6817656463",
+  "pid": "com.example.ScheduleDensityApp.pro.annual",
+  "period": "ONE_YEAR",
+  "offers": 44,
+  "kinds": [
+   [
+    "PAY_AS_YOU_GO",
+    "ONE_YEAR",
+    "2026-11-07",
+    null,
+    44
+   ]
+  ]
+ },
+ {
+  "app": "욕망의 무지개",
+  "appId": "6755280882",
+  "sub": "6817654791",
+  "pid": "com.example.ScheduleDensityApp.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "욕망의 무지개",
+  "appId": "6755280882",
+  "sub": "6828189021",
+  "pid": "com.example.ScheduleDensityApp.plus.annual",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_AS_YOU_GO",
+    "ONE_YEAR",
+    "2026-11-07",
+    null,
+    175
+   ]
+  ]
+ },
+ {
+  "app": "무지개 공방",
+  "appId": "6777737322",
+  "sub": "6822331206",
+  "pid": "com.devkoan.ScheduleDensityApp.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "무지개 공방",
+  "appId": "6777737322",
+  "sub": "6822331110",
+  "pid": "com.devkoan.ScheduleDensityApp.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "무지개 공방",
+  "appId": "6777737322",
+  "sub": "6830698410",
+  "pid": "com.devkoan.ScheduleDensityApp.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "달빛",
+  "appId": "1626715109",
+  "sub": "6758327574",
+  "pid": "month",
+  "period": "ONE_MONTH",
+  "offers": 1,
+  "kinds": [
+   [
+    "PAY_AS_YOU_GO",
+    "ONE_MONTH",
+    "2026-11-27",
+    "2026-12-04",
+    1
+   ]
+  ]
+ },
+ {
+  "app": "말문",
+  "appId": "6764088776",
+  "sub": "6824534672",
+  "pid": "com.devkoan.IndonesianSmallTalk.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "말문",
+  "appId": "6764088776",
+  "sub": "6831701744",
+  "pid": "com.devkoan.IndonesianSmallTalk.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "말문",
+  "appId": "6764088776",
+  "sub": "6831702894",
+  "pid": "com.devkoan.IndonesianSmallTalk.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "말문",
+  "appId": "6764088776",
+  "sub": "6831700246",
+  "pid": "com.devkoan.IndonesianSmallTalk.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "말문",
+  "appId": "6764088776",
+  "sub": "6831696197",
+  "pid": "com.devkoan.IndonesianSmallTalk.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "말문",
+  "appId": "6764088776",
+  "sub": "6831698247",
+  "pid": "com.devkoan.IndonesianSmallTalk.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "골드위크",
+  "appId": "6755983135",
+  "sub": "6823693789",
+  "pid": "com.Ysoup.LeaveWise.plus.annual",
+  "period": "ONE_YEAR",
+  "offers": 16,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-10-27",
+    null,
+    16
+   ]
+  ]
+ },
+ {
+  "app": "골드위크",
+  "appId": "6755983135",
+  "sub": "6823694096",
+  "pid": "com.Ysoup.LeaveWise.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "골드위크",
+  "appId": "6755983135",
+  "sub": "6830695710",
+  "pid": "com.Ysoup.LeaveWise.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "골드위크",
+  "appId": "6755983135",
+  "sub": "6830695892",
+  "pid": "com.Ysoup.LeaveWise.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "골드위크",
+  "appId": "6755983135",
+  "sub": "6830697079",
+  "pid": "com.Ysoup.LeaveWise.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "골드위크",
+  "appId": "6755983135",
+  "sub": "6830697125",
+  "pid": "com.Ysoup.LeaveWise.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "초견",
+  "appId": "6779262832",
+  "sub": "6831701754",
+  "pid": "com.devkoan.StaffSinger.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "초견",
+  "appId": "6779262832",
+  "sub": "6831703417",
+  "pid": "com.devkoan.StaffSinger.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "초견",
+  "appId": "6779262832",
+  "sub": "6831682270",
+  "pid": "com.devkoan.StaffSinger.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "하늘색",
+  "appId": "6802295390",
+  "sub": "6831705974",
+  "pid": "com.leeo.SkyDex.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "하늘색",
+  "appId": "6802295390",
+  "sub": "6831704835",
+  "pid": "com.leeo.SkyDex.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "하늘색",
+  "appId": "6802295390",
+  "sub": "6831706929",
+  "pid": "com.leeo.SkyDex.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "하늘색",
+  "appId": "6802295390",
+  "sub": "6831702483",
+  "pid": "com.leeo.SkyDex.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "하늘색",
+  "appId": "6802295390",
+  "sub": "6831682620",
+  "pid": "com.leeo.SkyDex.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "하늘색",
+  "appId": "6802295390",
+  "sub": "6831703883",
+  "pid": "com.leeo.SkyDex.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "장표스냅",
+  "appId": "6790835318",
+  "sub": "6831707275",
+  "pid": "com.leeo.slidesnap.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "장표스냅",
+  "appId": "6790835318",
+  "sub": "6831708176",
+  "pid": "com.leeo.slidesnap.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "장표스냅",
+  "appId": "6790835318",
+  "sub": "6831706294",
+  "pid": "com.leeo.slidesnap.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-11-07",
+    null,
+    175
+   ]
+  ]
+ },
+ {
+  "app": "장표스냅",
+  "appId": "6790835318",
+  "sub": "6831704439",
+  "pid": "com.leeo.slidesnap.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "장표스냅",
+  "appId": "6790835318",
+  "sub": "6831705270",
+  "pid": "com.leeo.slidesnap.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "장표스냅",
+  "appId": "6790835318",
+  "sub": "6831703152",
+  "pid": "com.leeo.slidesnap.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 175,
+  "kinds": [
+   [
+    "PAY_UP_FRONT",
+    "ONE_YEAR",
+    "2026-11-07",
+    null,
+    175
+   ]
+  ]
+ },
+ {
+  "app": "햇빛바라기",
+  "appId": "6758931631",
+  "sub": "6831708189",
+  "pid": "com.leeo.sunflower.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "햇빛바라기",
+  "appId": "6758931631",
+  "sub": "6831709222",
+  "pid": "com.leeo.sunflower.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "햇빛바라기",
+  "appId": "6758931631",
+  "sub": "6831683023",
+  "pid": "com.leeo.sunflower.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "TetraTint",
+  "appId": "6789206198",
+  "sub": "6831708556",
+  "pid": "com.leeo.TetraTint.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "TetraTint",
+  "appId": "6789206198",
+  "sub": "6831683213",
+  "pid": "com.leeo.TetraTint.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "TetraTint",
+  "appId": "6789206198",
+  "sub": "6831709974",
+  "pid": "com.leeo.TetraTint.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "TetraTint",
+  "appId": "6789206198",
+  "sub": "6831712529",
+  "pid": "com.leeo.TetraTint.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "TetraTint",
+  "appId": "6789206198",
+  "sub": "6831711182",
+  "pid": "com.leeo.TetraTint.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "TetraTint",
+  "appId": "6789206198",
+  "sub": "6831713913",
+  "pid": "com.leeo.TetraTint.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "이어생각",
+  "appId": "6779270691",
+  "sub": "6831709436",
+  "pid": "com.leeo.thinkflow.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "이어생각",
+  "appId": "6779270691",
+  "sub": "6831710941",
+  "pid": "com.leeo.thinkflow.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "이어생각",
+  "appId": "6779270691",
+  "sub": "6831683104",
+  "pid": "com.leeo.thinkflow.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "세끼",
+  "appId": "6755164924",
+  "sub": "6831641596",
+  "pid": "com.ysoup.routinecamera.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "세끼",
+  "appId": "6755164924",
+  "sub": "6831639865",
+  "pid": "com.ysoup.routinecamera.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "세끼",
+  "appId": "6755164924",
+  "sub": "6824538243",
+  "pid": "com.ysoup.routinecamera.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "세끼",
+  "appId": "6755164924",
+  "sub": "6824549703",
+  "pid": "com.ysoup.routinecamera.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "여울",
+  "appId": "6808471728",
+  "sub": "6831726645",
+  "pid": "com.leeo.yeoul.plus.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "여울",
+  "appId": "6808471728",
+  "sub": "6831728105",
+  "pid": "com.leeo.yeoul.plus.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "여울",
+  "appId": "6808471728",
+  "sub": "6831725815",
+  "pid": "com.leeo.yeoul.plus.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "여울",
+  "appId": "6808471728",
+  "sub": "6831724147",
+  "pid": "com.leeo.yeoul.pro.monthly",
+  "period": "ONE_MONTH",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "여울",
+  "appId": "6808471728",
+  "sub": "6831721898",
+  "pid": "com.leeo.yeoul.pro.weekly",
+  "period": "ONE_WEEK",
+  "offers": 0,
+  "kinds": []
+ },
+ {
+  "app": "여울",
+  "appId": "6808471728",
+  "sub": "6831715696",
+  "pid": "com.leeo.yeoul.pro.yearly",
+  "period": "ONE_YEAR",
+  "offers": 0,
+  "kinds": []
+ }
+]
