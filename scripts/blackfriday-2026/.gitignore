@@ -1,0 +1,4 @@
+deploy-*.txt
+deploy-logs/
+*.log
+promo-originals.json
