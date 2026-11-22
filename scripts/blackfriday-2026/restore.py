@@ -2,7 +2,7 @@
 이미 건 나라는 건너뛴다. 끝나면 launchd 예약을 스스로 지운다."""
 import importlib.util, os, sys, json, time, subprocess
 HERE=os.path.dirname(os.path.abspath(__file__))
-root="/Users/hyunholee/Documents/workspace/웹페이지/app-portfolio"
+root=os.path.dirname(os.path.dirname(HERE))  # launchd 는 문서 폴더를 못 읽어 ~/.leeo-blackfriday 사본에서 돈다
 spec=importlib.util.spec_from_file_location("ascp", os.path.join(root,"scripts/asc-products.py")); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 asc=m.ASC(); E="2026-12-04"
 restore=json.load(open(os.path.join(HERE,"restore.json")))

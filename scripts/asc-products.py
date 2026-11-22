@@ -17,7 +17,8 @@ import base64, glob, json, os, re, subprocess, sys, time, urllib.error, urllib.r
 
 API = "https://api.appstoreconnect.apple.com"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SHARED = os.path.expanduser("~/Documents/workspace/fastlane-shared")
+# launchd 로 도는 예약 작업은 문서 폴더를 못 읽는다(macOS 개인정보 보호) — 그때는 ASC_SHARED 로 다른 곳을 준다.
+SHARED = os.environ.get("ASC_SHARED") or os.path.expanduser("~/Documents/workspace/fastlane-shared")
 PERIOD = {"P1W": "ONE_WEEK", "P1M": "ONE_MONTH", "P1Y": "ONE_YEAR"}
 SKIP = ("tip.", "gift.", "forever")
 NAME_MAX, DESC_MAX = 30, 45
