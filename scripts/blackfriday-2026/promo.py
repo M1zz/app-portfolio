@@ -45,6 +45,8 @@ def main():
     apps = {}
     for t in json.load(open(os.path.join(HERE, "targets.json"), encoding="utf-8")):
         apps.setdefault(t["app"], t["appId"])
+    # 무지개 공방은 곧 App Store 에서 내려간다(SunsetNotice) — 새 구독을 부르지 않는다.
+    apps.pop("무지개 공방", None)
     orig = json.load(open(ORIG, encoding="utf-8")) if os.path.exists(ORIG) else {}
     sale_values = set(SALE.values())
     changed = skipped = 0
