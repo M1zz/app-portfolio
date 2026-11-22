@@ -8,7 +8,7 @@ cd "$(dirname $0)"; touch deploy-queue.txt deploy-done.txt deploy-wait.txt
 now=$(date +%s); next=""
 for l in "${(@f)$(grep -vxFf deploy-done.txt deploy-queue.txt)}"; do
   [ -z "$l" ] && continue
-  t=$(grep -F "$l|@" deploy-wait.txt | tail -1 | awk -F'|@' '{print $2}')
+  w=$(grep -F "$l|@" deploy-wait.txt | tail -1); t=${w##*|@}
   if [ -z "$t" ] || [ $((now - t)) -gt 1800 ]; then next=$l; break; fi
 done
 if [ -z "$(grep -vxFf deploy-done.txt deploy-queue.txt)" ]; then
@@ -21,4 +21,6 @@ app=${next%%|*}; args=${next#*|}; [ "$args" = "$next" ] && args=""
 echo "── $(date '+%m/%d %H:%M') 배포 시작 $app $args"
 $D --deploy "$app" ${=args} --quiet > "deploy-logs/$app.log" 2>&1; code=$?
 echo "── $(date '+%m/%d %H:%M') $app 끝 코드 $code · $(tail -1 "deploy-logs/$app.log")"
-if [ $code = 3 ]; then echo "$next|@$(date +%s)" >> deploy-wait.txt; else echo "$next" >> deploy-done.txt; fi
+if [ $code = 3 ]; then echo "$next|@$(date +%s)" >> deploy-wait.txt
+elif [ $code = 1 ]; then echo "── 실패라 대기열을 멈춘다 (사람이 원인을 본 뒤 launchctl load)"; launchctl unload ~/Library/LaunchAgents/com.leeo.blackfriday-deploy.plist
+else echo "$next" >> deploy-done.txt; fi
