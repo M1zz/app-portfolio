@@ -1,0 +1,9 @@
+{
+  "name": "purchase-notify",
+  "private": true,
+  "description": "App Store Server Notifications V2 → FeedbackHub CloudKit → 아이폰 · 맥 푸시",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@apple/app-store-server-library": "^1.5.0"
+  }
+}

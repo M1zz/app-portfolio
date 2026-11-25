@@ -1,0 +1,278 @@
+{
+ "club.strollerway.app": {
+  "id": "6808477756",
+  "name": "유모차길"
+ },
+ "com.Ysoup.CoolTime": {
+  "id": "6755988507",
+  "name": "쿨타임"
+ },
+ "com.Ysoup.LeaveWise": {
+  "id": "6755983135",
+  "name": "Goldweek - PTO and Vacation"
+ },
+ "com.Ysoup.TokenMemo": {
+  "id": "1543660502",
+  "name": "Clip Keyboard: Paste Snippets"
+ },
+ "com.Ysoup.restaurantmap": {
+  "id": "6755934548",
+  "name": "인생 맛집"
+ },
+ "com.burningparchment.app": {
+  "id": "6758995390",
+  "name": "불타는 내인생: 취침 카운트다운"
+ },
+ "com.devkoan.AccessibilityNeeds": {
+  "id": "6771453838",
+  "name": "AccessibilityNeeds"
+ },
+ "com.devkoan.CalendarSnap": {
+  "id": "6789881830",
+  "name": "아이일정: 어린이집 일정 정리"
+ },
+ "com.devkoan.FireTracker": {
+  "id": "6779654854",
+  "name": "퇴사각"
+ },
+ "com.devkoan.IndonesianSmallTalk": {
+  "id": "6764088776",
+  "name": "말문: 6개 국어 회화 연습"
+ },
+ "com.devkoan.PairCompass": {
+  "id": "6808478977",
+  "name": "PairCompass"
+ },
+ "com.devkoan.ScheduleDensityApp": {
+  "id": "6777737322",
+  "name": "Rainbow Craft: Week Planner"
+ },
+ "com.devkoan.StaffSinger": {
+  "id": "6779262832",
+  "name": "초견"
+ },
+ "com.devkoan.StampCamera": {
+  "id": "6779659029",
+  "name": "펀칭: 움직이는 스티커 카메라"
+ },
+ "com.devkoan.TimeExchange": {
+  "id": "6808449878",
+  "name": "환전소"
+ },
+ "com.devkoan.externalize": {
+  "id": "6813393019",
+  "name": "Externalize: Brain Dump"
+ },
+ "com.devkoan.jamband": {
+  "id": "6813357646",
+  "name": "JamBand"
+ },
+ "com.devkoan.shutterlink": {
+  "id": "6813405002",
+  "name": "ShutterLink: Banner Group Shot"
+ },
+ "com.devkoan.worryparking": {
+  "id": "6813391278",
+  "name": "Worry Parking"
+ },
+ "com.example.MoonlitOrder": {
+  "id": "6790137862",
+  "name": "달빛 오락실: 오프라인 파티게임"
+ },
+ "com.example.PohangExplorer": {
+  "id": "6758270043",
+  "name": "포항 탐험"
+ },
+ "com.example.ScheduleDensityApp": {
+  "id": "6755280882",
+  "name": "Rainbow of Desire"
+ },
+ "com.family.FamilyBank": {
+  "id": "6790130891",
+  "name": "쑥쑥용돈: 우리집 경제 교육"
+ },
+ "com.family.familycourt": {
+  "id": "6790131247",
+  "name": "억울해요"
+ },
+ "com.gaebaljari.JLPTN3Resources": {
+  "id": "6808469833",
+  "name": "JLPTN3Resources"
+ },
+ "com.hyunholee.TrackpadServer": {
+  "id": "6811346941",
+  "name": "나의패드"
+ },
+ "com.kora.leeo": {
+  "id": "6775176578",
+  "name": "Korea Navi: Subway Routes"
+ },
+ "com.lectureq.LectureQ": {
+  "id": "6794597095",
+  "name": "질문노트"
+ },
+ "com.leeo.BartenderPractice": {
+  "id": "6827375122",
+  "name": "조주 연습: 조주기능사 실기"
+ },
+ "com.leeo.DDayCounter": {
+  "id": "6819750108",
+  "name": "음력 계산기: 음력 생일 디데이"
+ },
+ "com.leeo.DontGoMart": {
+  "id": "6450387984",
+  "name": "DontGoMart: Store Closed Days"
+ },
+ "com.leeo.FindMe": {
+  "id": "6758373947",
+  "name": "링롱"
+ },
+ "com.leeo.FootprintDiary": {
+  "id": "6789952970",
+  "name": "벅뚜벅뚜: 걸어서 그리는 지도"
+ },
+ "com.leeo.HandsFreeLab": {
+  "id": "6813406414",
+  "name": "HandsFreeLab"
+ },
+ "com.leeo.HandsFreeMetronome": {
+  "id": "6781537149",
+  "name": "Not My Tempo: Voice Metronome"
+ },
+ "com.leeo.JuJob": {
+  "id": "6450839961",
+  "name": "오늘의 주접"
+ },
+ "com.leeo.JuniorDevMistakes": {
+  "id": "6759643878",
+  "name": "시니어 개발자로"
+ },
+ "com.leeo.KACCoachingLog": {
+  "id": "6822541501",
+  "name": "코칭일지: 코치 자격 실습 기록"
+ },
+ "com.leeo.LeeoCon": {
+  "id": "1627216318",
+  "name": "LeeoCon"
+ },
+ "com.leeo.LullabyRecipe": {
+  "id": "1626715109",
+  "name": "Dalbit: Sleep Sounds & Noise"
+ },
+ "com.leeo.PixelMe": {
+  "id": "6449769987",
+  "name": "Hantam: Bead & Cross Stitch"
+ },
+ "com.leeo.ReboundJournal": {
+  "id": "6450388408",
+  "name": "Mochimo"
+ },
+ "com.leeo.RotoscopeiPad": {
+  "id": "6789852144",
+  "name": "팔랑북: 키즈 애니메이션 그리기"
+ },
+ "com.leeo.SkyDex": {
+  "id": "6802295390",
+  "name": "하늘색: 오늘의 하늘 수집"
+ },
+ "com.leeo.SoundLab": {
+  "id": "6813400113",
+  "name": "SoundLab"
+ },
+ "com.leeo.StickyPresenter": {
+  "id": "6778457299",
+  "name": "StickyPresenter"
+ },
+ "com.leeo.StickyPresenter.Remote": {
+  "id": "6803358945",
+  "name": "StickyPresenterRemote"
+ },
+ "com.leeo.StoryMood": {
+  "id": "6808447063",
+  "name": "옛날 옛날에"
+ },
+ "com.leeo.TetraTint": {
+  "id": "6789206198",
+  "name": "TetraTint"
+ },
+ "com.leeo.TrackpadRemote": {
+  "id": "6806889669",
+  "name": "내패드"
+ },
+ "com.leeo.balancedmenu": {
+  "id": "6789897700",
+  "name": "우리집 식단"
+ },
+ "com.leeo.bookmarkshot": {
+  "id": "6792787106",
+  "name": "밑줄: 책 속 문장 스크랩"
+ },
+ "com.leeo.comfortcoach": {
+  "id": "6813394015",
+  "name": "ComfortCoach"
+ },
+ "com.leeo.geusaie": {
+  "id": "6793473149",
+  "name": "그사이에: 파스타 요리 타이머"
+ },
+ "com.leeo.higgym": {
+  "id": "6808132576",
+  "name": "앱 디자인 실습: UI/UX 공부"
+ },
+ "com.leeo.japantransit": {
+  "id": "6827173470",
+  "name": "일본길찾기: 일본 지하철 안내"
+ },
+ "com.leeo.manmulpouch": {
+  "id": "6793477722",
+  "name": "만물 주머니"
+ },
+ "com.leeo.moa": {
+  "id": "6815054026",
+  "name": "보태줘"
+ },
+ "com.leeo.slidesnap": {
+  "id": "6790835318",
+  "name": "CatchSlide: Lecture Slide Scan"
+ },
+ "com.leeo.sunflower": {
+  "id": "6758931631",
+  "name": "햇빛바라기: 햇빛 산책 기록"
+ },
+ "com.leeo.thinkflow": {
+  "id": "6779270691",
+  "name": "이어생각"
+ },
+ "com.leeo.wifisnap": {
+  "id": "6793472383",
+  "name": "마이파이: 와이파이 QR"
+ },
+ "com.leeo.yeoul": {
+  "id": "6808471728",
+  "name": "Yeoul: Timeline of Real Time"
+ },
+ "com.lottochecker.app": {
+  "id": "6755651803",
+  "name": "확률계산기"
+ },
+ "com.querio.app": {
+  "id": "6808478583",
+  "name": "Querio"
+ },
+ "com.xa.toki": {
+  "id": "6752551268",
+  "name": "Rereminder: Presentation Timer"
+ },
+ "com.ysoup.RapportMap": {
+  "id": "6754888089",
+  "name": "라포맵"
+ },
+ "com.ysoup.RoutineCamera": {
+  "id": "6755164924",
+  "name": "Sekki: Photo Food Diary"
+ },
+ "com.ysoup.TokenMemo-tap": {
+  "id": "6756433372",
+  "name": "ClipKeyboard: Quick Paste"
+ }
+}
