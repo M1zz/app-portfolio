@@ -1,125 +1,1150 @@
 {
- "checkedAt": "2026-11-21",
+ "checkedAt": "2026-11-25",
  "note": "App Store Connect 상품 상태. 다시 받으려면 ASC API 로 inAppPurchasesV2 · subscriptionGroups 를 읽어 [productId, state] 로 적는다.",
  "apps": {
-  "club.strollerway.app": [],
   "com.Ysoup.CoolTime": [
    [
     "com.Ysoup.CoolTime.plus.lifetime",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.plus.monthly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.plus.weekly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.plus.yearly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.pro.graduate",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.pro.monthly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.pro.upgrade",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.pro.weekly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.pro.yearly",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.tip.large",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.tip.medium",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.Ysoup.CoolTime.tip.small",
-    "READY_TO_SUBMIT"
+    "APPROVED"
    ],
    [
     "com.cooltime.pro.lifetime",
     "APPROVED"
    ]
   ],
-  "com.Ysoup.LeaveWise": [
+  "com.leeo.ReboundJournal": [
    [
-    "com.Ysoup.LeaveWise.family.yearly",
+    "com.leeo.ReboundJournal.gift.pro",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.gift.plus",
+    "com.leeo.ReboundJournal.pro",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.gift.pro",
+    "com.leeo.ReboundJournal.pro.monthly",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.plus",
+    "com.leeo.ReboundJournal.pro.yearly",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.plus.annual",
+    "com.leeo.ReboundJournal.tip.large",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.plus.monthly",
+    "com.leeo.ReboundJournal.tip.medium",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.plus.weekly",
+    "com.leeo.ReboundJournal.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.Ysoup.restaurantmap": [
+   [
+    "com.Ysoup.restaurantmap.plus.lifetime",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.pro",
+    "com.Ysoup.restaurantmap.plus.monthly",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.pro.graduate",
+    "com.Ysoup.restaurantmap.plus.weekly",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.pro.monthly",
+    "com.Ysoup.restaurantmap.plus.yearly",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.pro.upgrade",
+    "com.Ysoup.restaurantmap.pro.graduate",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.pro.weekly",
+    "com.Ysoup.restaurantmap.pro.lifetime",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.pro.yearly",
+    "com.Ysoup.restaurantmap.pro.monthly",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.tip.large",
+    "com.Ysoup.restaurantmap.pro.upgrade",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.tip.medium",
+    "com.Ysoup.restaurantmap.pro.weekly",
     "APPROVED"
    ],
    [
-    "com.Ysoup.LeaveWise.tip.small",
+    "com.Ysoup.restaurantmap.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.restaurantmap.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.restaurantmap.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.restaurantmap.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.family.familycourt": [
+   [
+    "com.family.familycourt.pro",
+    "APPROVED"
+   ],
+   [
+    "com.family.familycourt.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.family.familycourt.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.family.familycourt.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.family.familycourt.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.family.familycourt.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.family.familycourt.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.family.familycourt.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.JuJob": [
+   [
+    "com.leeo.JuJob.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.JuJob.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.JuJob.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.JuJob.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.JuJob.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.JuJob.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.JuJob.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.JuJob.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.devkoan.CalendarSnap": [
+   [
+    "com.devkoan.CalendarSnap.plus",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.pro",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.CalendarSnap.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.family.FamilyBank": [
+   [
+    "com.family.FamilyBank.plus",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.pro",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.family.FamilyBank.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.StickyPresenter": [
+   [
+    "com.leeo.StickyPresenter.mac.plus.lifetime",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.plus.monthly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.plus.weekly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.plus.yearly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.pro.graduate",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.pro.lifetime",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.pro.monthly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.pro.upgrade",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.pro.weekly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.mac.pro.yearly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.tip.large",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.tip.medium",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.tip.small",
+    "READY_TO_SUBMIT"
+   ]
+  ],
+  "com.example.ScheduleDensityApp": [
+   [
+    "com.example.ScheduleDensityApp.gift.plus",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.gift.pro",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.plus",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.plus.annual",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.pro",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.pro.annual",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.example.ScheduleDensityApp.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.bookmarkshot": [
+   [
+    "com.leeo.bookmarkshot.plus.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.bookmarkshot.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.wifisnap": [
+   [
+    "com.leeo.wifisnap.plus",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.pro",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.wifisnap.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.example.MoonlitOrder": [
+   [
+    "com.example.MoonlitOrder.pro",
+    "APPROVED"
+   ],
+   [
+    "com.example.MoonlitOrder.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.example.MoonlitOrder.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.example.MoonlitOrder.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.example.MoonlitOrder.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.example.MoonlitOrder.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.example.MoonlitOrder.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.example.MoonlitOrder.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.devkoan.ScheduleDensityApp": [
+   [
+    "com.devkoan.ScheduleDensityApp.plus",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.sync",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.tip.large",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.tip.medium",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.ScheduleDensityApp.tip.small",
+    "READY_TO_SUBMIT"
+   ]
+  ],
+  "com.devkoan.StaffSinger": [
+   [
+    "com.devkoan.StaffSinger.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StaffSinger.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StaffSinger.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StaffSinger.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StaffSinger.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StaffSinger.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StaffSinger.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StaffSinger.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.yeoul": [
+   [
+    "com.leeo.yeoul.plus",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.pro",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.yeoul.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.lectureq.LectureQ": [
+   [
+    "com.lectureq.LectureQ.plus",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.pro",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.lectureq.LectureQ.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.xa.toki": [
+   [
+    "com.xa.toki.forever",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.forever.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.forever.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.forever.yearly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.xa.toki.gift.plus",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.gift.pro",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.pro",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.remember",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.xa.toki.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.SkyDex": [
+   [
+    "com.leeo.SkyDex.plus.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.SkyDex.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.HandsFreeMetronome": [
+   [
+    "com.leeo.HandsFreeMetronome.gift.pro",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.HandsFreeMetronome.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.HandsFreeMetronome.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.HandsFreeMetronome.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.HandsFreeMetronome.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.HandsFreeMetronome.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.burningparchment.app": [
+   [
+    "com.burningparchment.app.gift.plus",
+    "APPROVED"
+   ],
+   [
+    "com.burningparchment.app.gift.pro",
+    "APPROVED"
+   ],
+   [
+    "com.burningparchment.app.plus",
+    "APPROVED"
+   ],
+   [
+    "com.burningparchment.app.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.burningparchment.app.pro",
+    "APPROVED"
+   ],
+   [
+    "com.burningparchment.app.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.burningparchment.app.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.burningparchment.app.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.burningparchment.app.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.PixelMe": [
+   [
+    "com.hantam.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.hantam.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.PixelMe.plus.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.PixelMe.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.PixelMe.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.PixelMe.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.PixelMe.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.PixelMe.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.PixelMe.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.pixelme.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.pixelme.pro.monthly",
+    "DEVELOPER_REMOVED_FROM_SALE"
+   ],
+   [
+    "com.pixelme.pro.weekly",
+    "DEVELOPER_REMOVED_FROM_SALE"
+   ],
+   [
+    "com.pixelme.pro.yearly",
+    "DEVELOPER_REMOVED_FROM_SALE"
+   ],
+   [
+    "com.pixelme.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.pixelme.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.pixelme.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.sunflower": [
+   [
+    "com.leeo.sunflower.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.sunflower.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.sunflower.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.sunflower.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.sunflower.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.sunflower.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.sunflower.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.sunflower.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.devkoan.worryparking": [
+   [
+    "com.devkoan.worryparking.pro.graduate",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.worryparking.pro.lifetime",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.worryparking.pro.monthly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.worryparking.pro.weekly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.worryparking.pro.yearly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.worryparking.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.worryparking.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.worryparking.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.slidesnap": [
+   [
+    "com.leeo.slidesnap.gift.plus",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.gift.pro",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.plus",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.pro",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.slidesnap.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.LullabyRecipe": [
+   [
+    "com.leeo.LullabyRecipe.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.LullabyRecipe.pro.yearly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.LullabyRecipe.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.LullabyRecipe.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.LullabyRecipe.tip.small",
+    "APPROVED"
+   ],
+   [
+    "month",
     "APPROVED"
    ]
   ],
@@ -201,238 +1226,197 @@
     "APPROVED"
    ]
   ],
-  "com.Ysoup.restaurantmap": [
+  "com.Ysoup.LeaveWise": [
    [
-    "com.Ysoup.restaurantmap.plus.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.plus.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.plus.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.plus.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.pro.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.pro.upgrade",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.Ysoup.restaurantmap.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.bucketclimb.app": [
-   [
-    "com.bucketclimb.app.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.bucketclimb.app.pro.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.bucketclimb.app.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.bucketclimb.app.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.bucketclimb.app.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.bucketclimb.app.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.bucketclimb.app.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.bucketclimb.app.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.burningparchment.app": [
-   [
-    "com.burningparchment.app.gift.plus",
+    "com.Ysoup.LeaveWise.family.yearly",
     "APPROVED"
    ],
    [
-    "com.burningparchment.app.gift.pro",
+    "com.Ysoup.LeaveWise.gift.plus",
     "APPROVED"
    ],
    [
-    "com.burningparchment.app.plus",
+    "com.Ysoup.LeaveWise.gift.pro",
     "APPROVED"
    ],
    [
-    "com.burningparchment.app.plus.yearly",
+    "com.Ysoup.LeaveWise.plus",
     "APPROVED"
    ],
    [
-    "com.burningparchment.app.pro",
+    "com.Ysoup.LeaveWise.plus.annual",
     "APPROVED"
    ],
    [
-    "com.burningparchment.app.pro.yearly",
+    "com.Ysoup.LeaveWise.plus.monthly",
     "APPROVED"
    ],
    [
-    "com.burningparchment.app.tip.large",
+    "com.Ysoup.LeaveWise.plus.weekly",
     "APPROVED"
    ],
    [
-    "com.burningparchment.app.tip.medium",
+    "com.Ysoup.LeaveWise.pro",
     "APPROVED"
    ],
    [
-    "com.burningparchment.app.tip.small",
+    "com.Ysoup.LeaveWise.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.LeaveWise.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.LeaveWise.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.LeaveWise.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.LeaveWise.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.LeaveWise.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.LeaveWise.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.Ysoup.LeaveWise.tip.small",
     "APPROVED"
    ]
   ],
-  "com.devkoan.AccessibilityNeeds": [],
-  "com.devkoan.CalendarSnap": [
+  "com.ysoup.RoutineCamera": [
    [
-    "com.devkoan.CalendarSnap.plus",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.gift.pro",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.plus.monthly",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.plus.lifetime",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.plus.weekly",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.plus.monthly",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.plus.yearly",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.plus.yearly",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.pro",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.pro.lifetime",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.pro.graduate",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.pro.monthly",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.pro.monthly",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.pro.yearly",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.pro.upgrade",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.tip.large",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.pro.weekly",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.tip.medium",
+    "APPROVED"
    ],
    [
-    "com.devkoan.CalendarSnap.pro.yearly",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.devkoan.CalendarSnap.tip.large",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.devkoan.CalendarSnap.tip.medium",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.devkoan.CalendarSnap.tip.small",
-    "WAITING_FOR_REVIEW"
+    "com.ysoup.routinecamera.tip.small",
+    "APPROVED"
    ]
   ],
-  "com.devkoan.FireTracker": [
+  "com.leeo.JuniorDevMistakes": [
    [
-    "com.devkoan.FireTracker.plus",
+    "com.leeo.JuniorDevMistakes.pro.1lifetime",
     "APPROVED"
    ],
    [
-    "com.devkoan.FireTracker.plus.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.FireTracker.plus.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.FireTracker.plus.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.FireTracker.pro",
+    "com.leeo.JuniorDevMistakes.pro.1monthly",
     "APPROVED"
    ],
    [
-    "com.devkoan.FireTracker.pro.graduate",
+    "com.leeo.JuniorDevMistakes.pro.1yearly",
     "APPROVED"
    ],
    [
-    "com.devkoan.FireTracker.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.FireTracker.pro.upgrade",
+    "com.leeo.JuniorDevMistakes.tip.large",
     "APPROVED"
    ],
    [
-    "com.devkoan.FireTracker.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.FireTracker.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.FireTracker.tip.large",
+    "com.leeo.JuniorDevMistakes.tip.medium",
     "APPROVED"
    ],
    [
-    "com.devkoan.FireTracker.tip.medium",
+    "com.leeo.JuniorDevMistakes.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.higgym": [
+   [
+    "com.leeo.higgym.pro",
     "APPROVED"
    ],
    [
-    "com.devkoan.FireTracker.tip.small",
+    "com.leeo.higgym.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.higgym.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.higgym.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.higgym.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.higgym.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.thinkflow": [
+   [
+    "com.leeo.thinkflow.pro",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.thinkflow.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.thinkflow.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.thinkflow.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.thinkflow.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.thinkflow.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.thinkflow.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.thinkflow.tip.small",
     "APPROVED"
    ]
   ],
@@ -490,932 +1474,6 @@
     "APPROVED"
    ]
   ],
-  "com.devkoan.PairCompass": [],
-  "com.devkoan.ScheduleDensityApp": [
-   [
-    "com.devkoan.ScheduleDensityApp.plus",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.sync",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.ScheduleDensityApp.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.devkoan.StaffSinger": [
-   [
-    "com.devkoan.StaffSinger.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.StaffSinger.pro.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.StaffSinger.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.StaffSinger.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.StaffSinger.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.StaffSinger.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.StaffSinger.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.StaffSinger.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.devkoan.StampCamera": [
-   [
-    "com.devkoan.StampCamera.plus.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.plus.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.plus.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.plus.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.pro.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.pro.upgrade",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.StampCamera.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.devkoan.TimeExchange": [],
-  "com.devkoan.externalize": [],
-  "com.devkoan.jamband": [],
-  "com.devkoan.shutterlink": [
-   [
-    "com.devkoan.shutterlink.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.shutterlink.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.shutterlink.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.devkoan.worryparking": [
-   [
-    "com.devkoan.worryparking.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.worryparking.pro.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.worryparking.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.worryparking.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.worryparking.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.devkoan.worryparking.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.worryparking.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.devkoan.worryparking.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.example.MoonlitOrder": [
-   [
-    "com.example.MoonlitOrder.pro",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.example.MoonlitOrder.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.example.MoonlitOrder.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.example.MoonlitOrder.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.example.MoonlitOrder.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.example.MoonlitOrder.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.example.MoonlitOrder.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.example.MoonlitOrder.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.example.PohangExplorer": [],
-  "com.example.ScheduleDensityApp": [
-   [
-    "com.example.ScheduleDensityApp.gift.plus",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.gift.pro",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.plus",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.plus.annual",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.pro",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.pro.annual",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.example.ScheduleDensityApp.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.family.FamilyBank": [
-   [
-    "com.family.FamilyBank.plus",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.plus.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.plus.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.plus.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.pro",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.pro.upgrade",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.FamilyBank.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.family.familycourt": [
-   [
-    "com.family.familycourt.pro",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.familycourt.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.familycourt.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.familycourt.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.familycourt.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.familycourt.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.familycourt.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.family.familycourt.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.gaebaljari.JLPTN3Resources": [],
-  "com.hyunholee.TrackpadServer": [],
-  "com.kora.leeo": [
-   [
-    "com.kora.leeo.gift.pro",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.kora.leeo.pro",
-    "APPROVED"
-   ],
-   [
-    "com.kora.leeo.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.kora.leeo.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.kora.leeo.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.lectureq.LectureQ": [
-   [
-    "com.lectureq.LectureQ.plus",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.plus.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.plus.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.pro",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.lectureq.LectureQ.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.BartenderPractice": [],
-  "com.leeo.DDayCounter": [],
-  "com.leeo.DontGoMart": [
-   [
-    "com.dontgomart.Coffee",
-    "APPROVED"
-   ],
-   [
-    "com.dontgomart.tip.cake",
-    "APPROVED"
-   ],
-   [
-    "com.dontgomart.tip.coffee",
-    "APPROVED"
-   ],
-   [
-    "com.dontgomart.tip.meal",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.DontGoMart.plus.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.DontGoMart.plus.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.DontGoMart.plus.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.DontGoMart.plus.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.DontGoMart.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.DontGoMart.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.DontGoMart.pro.upgrade",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.DontGoMart.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.DontGoMart.pro.yearly",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.leeo.FindMe": [],
-  "com.leeo.FootprintDiary": [
-   [
-    "com.leeo.FootprintDiary.plus",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.plus.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.plus.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.FootprintDiary.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.HandsFreeLab": [],
-  "com.leeo.HandsFreeMetronome": [
-   [
-    "com.leeo.HandsFreeMetronome.gift.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.HandsFreeMetronome.pro.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.HandsFreeMetronome.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.HandsFreeMetronome.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.HandsFreeMetronome.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.HandsFreeMetronome.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.JuJob": [
-   [
-    "com.leeo.JuJob.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.JuJob.pro.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.JuJob.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.JuJob.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.JuJob.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.JuJob.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.JuJob.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.JuJob.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.leeo.JuniorDevMistakes": [
-   [
-    "com.leeo.JuniorDevMistakes.pro.1lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.JuniorDevMistakes.pro.1monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.JuniorDevMistakes.pro.1yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.JuniorDevMistakes.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.JuniorDevMistakes.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.JuniorDevMistakes.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.KACCoachingLog": [
-   [
-    "com.leeo.KACCoachingLog.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.KACCoachingLog.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.KACCoachingLog.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.leeo.LeeoCon": [],
-  "com.leeo.LullabyRecipe": [
-   [
-    "com.leeo.LullabyRecipe.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.LullabyRecipe.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.LullabyRecipe.tip.small",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "month",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.PixelMe": [
-   [
-    "com.hantam.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.hantam.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.PixelMe.plus.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.PixelMe.plus.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.PixelMe.plus.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.PixelMe.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.PixelMe.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.PixelMe.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.PixelMe.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.pixelme.pro.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.pixelme.pro.monthly",
-    "DEVELOPER_REMOVED_FROM_SALE"
-   ],
-   [
-    "com.pixelme.pro.weekly",
-    "DEVELOPER_REMOVED_FROM_SALE"
-   ],
-   [
-    "com.pixelme.pro.yearly",
-    "DEVELOPER_REMOVED_FROM_SALE"
-   ],
-   [
-    "com.pixelme.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.pixelme.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.pixelme.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.ReboundJournal": [
-   [
-    "com.leeo.ReboundJournal.gift.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.ReboundJournal.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.ReboundJournal.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.ReboundJournal.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.ReboundJournal.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.ReboundJournal.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.ReboundJournal.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.RotoscopeiPad": [
-   [
-    "com.leeo.RotoscopeiPad.gift.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.RotoscopeiPad.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.RotoscopeiPad.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.RotoscopeiPad.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.RotoscopeiPad.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.SkyDex": [
-   [
-    "com.leeo.SkyDex.plus.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.plus.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.plus.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.pro.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.SkyDex.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.SoundLab": [],
-  "com.leeo.StickyPresenter": [
-   [
-    "com.leeo.StickyPresenter.mac.plus.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.plus.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.plus.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.plus.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.pro.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.pro.upgrade",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.mac.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.leeo.StickyPresenter.Remote": [
-   [
-    "com.leeo.StickyPresenter.Remote.pro.graduate",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.Remote.pro.lifetime",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.Remote.pro.monthly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.Remote.pro.weekly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.Remote.pro.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.Remote.tip.large",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.Remote.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.StickyPresenter.Remote.tip.small",
-    "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.leeo.StoryMood": [],
   "com.leeo.TetraTint": [
    [
     "com.leeo.TetraTint.plus",
@@ -1470,63 +1528,248 @@
     "APPROVED"
    ]
   ],
-  "com.leeo.TrackpadRemote": [],
-  "com.leeo.balancedmenu": [],
-  "com.leeo.bookmarkshot": [
+  "com.leeo.FootprintDiary": [
    [
-    "com.leeo.bookmarkshot.plus.lifetime",
+    "com.leeo.FootprintDiary.plus",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.pro",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.FootprintDiary.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.devkoan.FireTracker": [
+   [
+    "com.devkoan.FireTracker.gift.pro",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.FireTracker.plus",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.FireTracker.plus.monthly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.plus.monthly",
+    "com.devkoan.FireTracker.plus.weekly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.plus.weekly",
+    "com.devkoan.FireTracker.plus.yearly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.plus.yearly",
+    "com.devkoan.FireTracker.pro",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.FireTracker.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.FireTracker.pro.monthly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.pro.graduate",
+    "com.devkoan.FireTracker.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.FireTracker.pro.weekly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.pro.lifetime",
+    "com.devkoan.FireTracker.pro.yearly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.pro.monthly",
+    "com.devkoan.FireTracker.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.FireTracker.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.FireTracker.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.devkoan.StampCamera": [
+   [
+    "com.devkoan.StampCamera.plus.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.plus.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.plus.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.plus.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.pro.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.pro.monthly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.pro.weekly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.pro.yearly",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.devkoan.StampCamera.tip.small",
+    "APPROVED"
+   ]
+  ],
+  "com.leeo.DontGoMart": [
+   [
+    "com.dontgomart.Coffee",
+    "APPROVED"
+   ],
+   [
+    "com.dontgomart.tip.cake",
+    "APPROVED"
+   ],
+   [
+    "com.dontgomart.tip.coffee",
+    "APPROVED"
+   ],
+   [
+    "com.dontgomart.tip.meal",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.DontGoMart.plus.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.DontGoMart.plus.monthly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.pro.upgrade",
+    "com.leeo.DontGoMart.plus.weekly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.pro.weekly",
+    "com.leeo.DontGoMart.plus.yearly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.pro.yearly",
+    "com.leeo.DontGoMart.pro.graduate",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.DontGoMart.pro.monthly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.tip.large",
+    "com.leeo.DontGoMart.pro.upgrade",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.DontGoMart.pro.weekly",
     "READY_TO_SUBMIT"
    ],
    [
-    "com.leeo.bookmarkshot.tip.medium",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.leeo.bookmarkshot.tip.small",
+    "com.leeo.DontGoMart.pro.yearly",
     "READY_TO_SUBMIT"
    ]
   ],
-  "com.leeo.comfortcoach": [],
+  "com.leeo.RotoscopeiPad": [
+   [
+    "com.leeo.RotoscopeiPad.gift.pro",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.RotoscopeiPad.lifetime",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.RotoscopeiPad.tip.large",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.RotoscopeiPad.tip.medium",
+    "APPROVED"
+   ],
+   [
+    "com.leeo.RotoscopeiPad.tip.small",
+    "APPROVED"
+   ]
+  ],
   "com.leeo.geusaie": [
    [
     "com.leeo.geusaie.pro.graduate",
@@ -1561,34 +1804,57 @@
     "READY_TO_SUBMIT"
    ]
   ],
-  "com.leeo.higgym": [
+  "com.leeo.japantransit": [],
+  "com.kora.leeo": [
    [
-    "com.leeo.higgym.pro",
+    "com.kora.leeo.gift.pro",
     "APPROVED"
    ],
    [
-    "com.leeo.higgym.pro.monthly",
+    "com.kora.leeo.pro",
     "APPROVED"
    ],
    [
-    "com.leeo.higgym.pro.weekly",
+    "com.kora.leeo.tip.large",
     "APPROVED"
    ],
    [
-    "com.leeo.higgym.tip.large",
+    "com.kora.leeo.tip.medium",
     "APPROVED"
    ],
    [
-    "com.leeo.higgym.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.higgym.tip.small",
+    "com.kora.leeo.tip.small",
     "APPROVED"
    ]
   ],
-  "com.leeo.japantransit": [],
-  "com.leeo.manmulpouch": [],
+  "com.leeo.KACCoachingLog": [
+   [
+    "com.leeo.KACCoachingLog.tip.large",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.KACCoachingLog.tip.medium",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.KACCoachingLog.tip.small",
+    "READY_TO_SUBMIT"
+   ]
+  ],
+  "com.devkoan.shutterlink": [
+   [
+    "com.devkoan.shutterlink.tip.large",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.shutterlink.tip.medium",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.devkoan.shutterlink.tip.small",
+    "READY_TO_SUBMIT"
+   ]
+  ],
   "com.leeo.moa": [
    [
     "com.leeo.moa.tip.large",
@@ -1601,351 +1867,6 @@
    [
     "com.leeo.moa.tip.small",
     "READY_TO_SUBMIT"
-   ]
-  ],
-  "com.leeo.slidesnap": [
-   [
-    "com.leeo.slidesnap.gift.plus",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.gift.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.plus",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.plus.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.plus.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.slidesnap.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.sunflower": [
-   [
-    "com.leeo.sunflower.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.sunflower.pro.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.sunflower.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.sunflower.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.sunflower.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.sunflower.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.sunflower.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.sunflower.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.thinkflow": [
-   [
-    "com.leeo.thinkflow.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.thinkflow.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.thinkflow.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.thinkflow.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.thinkflow.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.thinkflow.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.thinkflow.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.thinkflow.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.leeo.wifisnap": [
-   [
-    "com.leeo.wifisnap.plus",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.plus.monthly",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.plus.weekly",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.plus.yearly",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.pro",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.pro.graduate",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.pro.monthly",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.pro.upgrade",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.pro.weekly",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.pro.yearly",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.tip.large",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.tip.medium",
-    "WAITING_FOR_REVIEW"
-   ],
-   [
-    "com.leeo.wifisnap.tip.small",
-    "WAITING_FOR_REVIEW"
-   ]
-  ],
-  "com.leeo.yeoul": [
-   [
-    "com.leeo.yeoul.plus",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.plus.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.plus.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.pro",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.pro.weekly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.leeo.yeoul.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.lottochecker.app": [],
-  "com.querio.app": [],
-  "com.xa.toki": [
-   [
-    "com.xa.toki.forever",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.forever.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.forever.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.forever.yearly",
-    "READY_TO_SUBMIT"
-   ],
-   [
-    "com.xa.toki.gift.plus",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.gift.pro",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.pro",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.pro.graduate",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.pro.upgrade",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.remember",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.xa.toki.tip.small",
-    "APPROVED"
-   ]
-  ],
-  "com.ysoup.RapportMap": [],
-  "com.ysoup.RoutineCamera": [
-   [
-    "com.ysoup.routinecamera.gift.pro",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.plus.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.plus.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.plus.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.pro.lifetime",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.pro.monthly",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.pro.yearly",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.tip.large",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.tip.medium",
-    "APPROVED"
-   ],
-   [
-    "com.ysoup.routinecamera.tip.small",
-    "APPROVED"
    ]
   ],
   "com.ysoup.TokenMemo-tap": [
@@ -2001,6 +1922,63 @@
     "com.ysoup.TokenMemo.tap.tip.small",
     "READY_TO_SUBMIT"
    ]
-  ]
+  ],
+  "com.leeo.StickyPresenter.Remote": [
+   [
+    "com.leeo.StickyPresenter.Remote.pro.graduate",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.Remote.pro.lifetime",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.Remote.pro.monthly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.Remote.pro.weekly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.Remote.pro.yearly",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.Remote.tip.large",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.Remote.tip.medium",
+    "READY_TO_SUBMIT"
+   ],
+   [
+    "com.leeo.StickyPresenter.Remote.tip.small",
+    "READY_TO_SUBMIT"
+   ]
+  ],
+  "com.devkoan.externalize": [],
+  "com.leeo.BartenderPractice": [],
+  "com.leeo.SoundLab": [],
+  "com.leeo.DDayCounter": [],
+  "com.leeo.HandsFreeLab": [],
+  "com.devkoan.jamband": [],
+  "com.leeo.comfortcoach": [],
+  "com.leeo.TrackpadRemote": [],
+  "com.hyunholee.TrackpadServer": [],
+  "com.devkoan.PairCompass": [],
+  "com.leeo.LeeoCon": [],
+  "com.ysoup.RapportMap": [],
+  "com.lottochecker.app": [],
+  "com.example.PohangExplorer": [],
+  "com.leeo.FindMe": [],
+  "com.querio.app": [],
+  "club.strollerway.app": [],
+  "com.gaebaljari.JLPTN3Resources": [],
+  "com.devkoan.TimeExchange": [],
+  "com.leeo.StoryMood": [],
+  "com.leeo.manmulpouch": [],
+  "com.leeo.balancedmenu": [],
+  "com.devkoan.AccessibilityNeeds": []
  }
 }

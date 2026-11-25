@@ -1,5 +1,5 @@
 {
-  "_comment": "앱별 페이월 — 앱 소스(작업 트리)를 다시 읽어 정리 (2026-11-06, 클립키보드 2026-11-07, Plus · Pro 를 새로 붙인 12개 앱 2026-11-21). business.html 이 읽는다. productId·paywallFiles·notes 는 내부용이라 공개 페이지에 내보내지 않는다. hidden=true 는 출시 빌드에서 결제 화면이 꺼져 있다는 뜻. tier.live 는 store-products.json 에서 APPROVED 이고 출시 빌드 페이월에 보인다는 뜻.",
+  "_comment": "앱별 페이월 — 앱 소스(작업 트리)를 다시 읽어 정리 (2026-11-06, 클립키보드 2026-11-07, Plus · Pro 를 새로 붙인 12개 앱 2026-11-21, 2026-11-25 판매 상품과 다시 맞춘 17개 앱). business.html 이 읽는다. productId·paywallFiles·notes 는 내부용이라 공개 페이지에 내보내지 않는다. hidden=true 는 출시 빌드에서 결제 화면이 꺼져 있다는 뜻. tier.live 는 store-products.json 에서 APPROVED 이고 출시 빌드 페이월에 보인다는 뜻.",
   "apps": {
     "burning-my-life": {
       "slug": "burning-my-life",
@@ -129,49 +129,54 @@
         "ClipKeyboard/Screens/PaywallPlans.swift",
         "ClipKeyboard/Screens/FreeUsePaywallView.swift",
         "ClipKeyboard/Screens/FreeUseScreens.swift",
-        "ClipKeyboard/Screens/ProBenefitsView.swift",
-        "ClipKeyboard/Screens/SettingView.swift",
-        "ClipKeyboard/Service/ClipKeyboardSpec.swift",
-        "ClipKeyboard/Service/AccessTier.swift",
-        "ClipKeyboard/Service/StoreManager.swift",
-        "ClipKeyboard/Service/ProFeatureManager.swift",
         "ClipKeyboard/Service/FreeUse.swift",
+        "ClipKeyboard/Service/ClipKeyboardSpec.swift",
+        "ClipKeyboard/Service/StoreManager.swift",
+        "ClipKeyboard/Service/AccessTier.swift",
+        "ClipKeyboard/Service/ProFeatureManager.swift",
+        "ClipKeyboard/Service/ProUpgrade.swift",
+        "ClipKeyboard/Service/SlotPack.swift",
+        "ClipKeyboard/Service/TwoDevicePack.swift",
+        "ClipKeyboard/Screens/SettingView.swift",
+        "ClipKeyboard/Screens/List/ListTopBanners.swift",
+        "ClipKeyboard/Screens/List/RecentClipsPage.swift",
+        "ClipKeyboard/Screens/Memo/MemoAdd.swift",
+        "ClipKeyboard/Screens/Memo/BulkImportView.swift",
+        "ClipKeyboard/Screens/CloudBackupView.swift",
+        "ClipKeyboard/Screens/MyDataSettingsView.swift",
+        "ClipKeyboard/Screens/ProBenefitsView.swift",
         "ClipKeyboard/App/ClipKeyboardApp.swift",
+        "ClipKeyboardExtension/KeyboardView.swift",
         "Config/Products.storekit"
       ],
       "kind": "mixed",
       "hidden": false,
       "headline": "자주 쓰는 글, 마음껏 담고 지키세요",
-      "subheadline": "7일 무료 체험 · 월 · 연 구독이나 평생 중에 골라요 (체험을 이미 쓴 사람에게는 '월 · 연 구독이나 평생 중에 골라요')",
-      "cta": "Plus 시작하기 / Pro 시작하기 (Plus 평생을 산 사람은 'Pro 로 올리기') — 아래 고정 단추 하나",
+      "subheadline": "만든 단축어는 결제하지 않아도 계속 써요",
+      "cta": "Plus | Pro 고르기(Pro 추천) → 월 구독 · 연 구독(먼저 골라짐, 절약 배지) · 평생, 아래 고정 단추 'Plus 시작하기' / 'Pro 시작하기'",
       "trimLabels": [
         "무료",
         "Plus",
         "Pro"
       ],
       "benefits": [
-        "Plus · 마음껏 쌓기: 단축어 · 템플릿 무제한",
-        "Plus: 스택 · 이미지 단축어 무제한, 클립보드 기록 100개",
-        "Pro · 쌓은 것을 지키기: Plus 의 모든 것",
-        "Pro: iCloud 백업 · 생체인증 잠금",
-        "Pro: 기기 간 동기화 (베타)",
-        "Plus | Pro 를 고르고 월 · 연 · 평생 중 하나 — 줄마다 전체 가격, 연에는 'N% 절약', 비교표는 접어 둠"
+        "Plus · 단축어 · 템플릿 무제한",
+        "Plus · 스택 · 이미지 단축어 무제한",
+        "Plus · 클립보드 기록 100개",
+        "Pro · iCloud 백업 · 생체인증 잠금",
+        "Pro · 기기 간 동기화 (베타)",
+        "Pro · Plus 기능 전부"
       ],
       "free": [
-        "단축어를 100번 넣기 전까지는 모든 기능 무료 (문턱은 원격 값으로 20~1000 사이에서 바뀔 수 있음)",
-        "문턱을 넘어도 이미 만든 것은 전부 그대로 사용",
-        "문턱 뒤 새로 만들기: 단축어 10개 · 템플릿 3개 · 스택 3개 · 이미지 단축어 5개",
+        "단축어를 100번 넣을 때까지 모든 기능",
+        "그 뒤 단축어 10 · 템플릿 3 · 스택 3 · 이미지 단축어 5 새로 만들기",
         "클립보드 기록 50개",
-        "키보드에서 단축어 넣기",
-        "7일 무료 체험 1회 (앱 안 체험, 모든 기능)"
+        "만든 단축어는 전부 키보드에서 계속",
+        "키보드 · 테마"
       ],
       "locked": [
-        "Plus: 단축어 · 템플릿 · 스택 · 이미지 단축어 무제한",
-        "Plus: 클립보드 기록 100개",
-        "Pro: Plus 의 모든 것",
-        "Pro: iCloud 백업",
-        "Pro: 생체인증 잠금 (보안 단축어)",
-        "Pro: 기기 간 동기화 (베타)"
+        "Plus: 단축어 · 템플릿 · 스택 · 이미지 무제한, 클립보드 기록 100개",
+        "Pro: iCloud 백업 · 생체인증 잠금 · 기기 간 동기화"
       ],
       "tiers": [
         {
@@ -194,11 +199,11 @@
         },
         {
           "productId": "com.Ysoup.TokenMemo.slots5",
-          "label": "Plus 평생 (11월 17일부터 ₩20,000 · $14.99)",
+          "label": "Plus 평생 (예전 칸 추가 상품을 이어 씀)",
           "trim": "Plus",
           "period": "평생",
-          "price": "₩9,900",
-          "priceUS": "$5.99",
+          "price": "₩20,000",
+          "priceUS": "$14.99",
           "live": true
         },
         {
@@ -221,25 +226,25 @@
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro",
-          "label": "Pro 평생 (11월 17일부터 ₩39,000 · $26.99)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
-          "price": "₩17,000",
-          "priceUS": "$9.99",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
           "live": true
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro.upgrade",
-          "label": "Plus → Pro 올리기 (Plus 평생을 산 사람에게만) (11월 17일부터 ₩19,000 · $12.99)",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
-          "price": "₩13,000",
-          "priceUS": "$7.99",
+          "price": "₩19,000",
+          "priceUS": "$12.99",
           "live": true
         },
         {
           "productId": "com.Ysoup.TokenMemo.pro.graduate",
-          "label": "구독 졸업 — 연 구독 중인 사람이 사는 Pro 평생 (6개월째 · 갱신 7일 전, 설정 '평생으로 바꾸기')",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩27,000",
@@ -248,176 +253,177 @@
         },
         {
           "productId": "com.Ysoup.TokenMemo.gift.plus",
-          "label": "Plus 선물하기 (11월 17일부터 ₩20,000 · $14.99)",
+          "label": "Plus 평생 선물 (설정 ▸ 선물하기)",
           "trim": "Plus",
-          "period": "1회",
+          "period": "평생",
+          "price": "₩20,000",
+          "priceUS": "$14.99",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.TokenMemo.gift.pro",
+          "label": "Pro 평생 선물 (설정 ▸ 선물하기)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": true
+        }
+      ],
+      "tips": [
+        "tip.small",
+        "tip.medium",
+        "tip.large"
+      ],
+      "triggers": [
+        "단축어 · 템플릿 · 이미지 단축어를 한도 넘게 저장할 때",
+        "보안 단축어(Face ID) · 기기 간 동기화를 켤 때",
+        "한 번에 가져오기에서 칸이 모자랄 때",
+        "복사 기록 목록 끝 무료 한도 줄",
+        "iCloud 백업 화면",
+        "목록 위 배너 (한도 임박 · 가치 순간 넛지)",
+        "키보드의 Pro 업그레이드 띠",
+        "단축어 100번째 문턱 화면 (앱을 열 때 한 번)",
+        "설정 ▸ 요금제와 응원 · 무료로 쓰는 방법",
+        "App Store 이벤트 링크 · 할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안"
+      ],
+      "trial": "7일 무료 체험 (앱이 직접 여는 1회, 산 적 없는 사람) · 연 구독 첫 해 할인 (받을 수 있는 사람에게 연 줄에 표시)",
+      "restore": true,
+      "currentPublic": "단축어 100번까지 무료 · Plus 월 / 연 / 평생 · Pro 월 / 연 / 평생 (7일 체험) · 선물 · 팁 — v4.0 전에 앱을 산 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 자체 StoreManager · AccessTier. 일반 페이월에는 머리 글이 없고 (한도에 걸리면 까닭 한 줄), headline · subheadline 은 100번 문턱 화면(FreeUsePaywallView)의 횟수 0일 때 글. 문턱은 원격 값으로 20~1000. v4.0(2026-02-22) 전 최초 다운로드는 Pro 평생. 무료 기간 · 체험 중에는 전부 열림. 선물(gift.plus · gift.pro)은 sellsGifts true, 페이월이 아니라 설정 ▸ 선물하기. twodevice 는 불러오지만 팔지 않음(산 사람에게 동기화만), pro.halfoff 는 판매 중지(DEVELOPER_REMOVED_FROM_SALE), 언제나 평생 패스(forever*)는 sellsForeverPass false 로 판매 줄을 감춤 — 셋 다 tiers 에서 뺐다. slots5.pack 은 코드가 팔지 않음. 스택 한도 3은 canAddStack 호출처가 없어 실제로 막는지 불확실."
+    },
+    "cooltime": {
+      "slug": "cooltime",
+      "paywallFiles": [
+        "CoolTime/Views/PaywallView.swift",
+        "CoolTime/Models/ProPlan.swift",
+        "CoolTime/Models/PurchaseManager.swift",
+        "CoolTime/CoolTimeSpec.swift",
+        "CoolTime/Views/HomeView.swift",
+        "CoolTime/Views/AddItemView.swift",
+        "CoolTime/Views/TemplatesView.swift",
+        "CoolTime/Views/StatsView.swift",
+        "CoolTime/CoolTime.storekit"
+      ],
+      "kind": "mixed",
+      "hidden": false,
+      "headline": "쿨타임 Plus · Pro",
+      "subheadline": "참은 만큼 더 잘 보이게. 연 구독이나 평생 중에 고르세요.",
+      "cta": "비교표 → Plus | Pro 카드마다 연 구독 · 평생 (주 · 월 구독으로 보기를 펼치면 주 · 월)",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
+      ],
+      "benefits": [
+        "Plus · 쿨타임 아이템 무제한, 절반 응원 알림",
+        "Pro · 홈 · 잠금화면 위젯",
+        "Pro · 아이템별 · 카테고리별 준수율, 최근 활동 흐름",
+        "Pro · Plus 기능 전부"
+      ],
+      "free": [
+        "쿨타임 아이템 5개",
+        "추천 템플릿",
+        "깨기 전 경고 · 메모 · 비용 기록",
+        "끝 알림",
+        "전체 준수율 · 아낀 금액 · 사용 기록",
+        "기록 CSV 내보내기"
+      ],
+      "locked": [
+        "Plus: 6번째 아이템부터 · 절반 응원 알림",
+        "Pro: 위젯 · 아이템별 · 카테고리별 준수율 · 최근 활동 흐름"
+      ],
+      "tiers": [
+        {
+          "productId": "com.Ysoup.CoolTime.plus.weekly",
+          "label": "Plus 주 구독",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.plus.monthly",
+          "label": "Plus 월 구독",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.plus.yearly",
+          "label": "Plus 연 구독",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.plus.lifetime",
+          "label": "Plus 평생",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.pro.weekly",
+          "label": "Pro 주 구독",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.pro.monthly",
+          "label": "Pro 월 구독",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": true
+        },
+        {
+          "productId": "com.Ysoup.CoolTime.pro.yearly",
+          "label": "Pro 연 구독",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": true
+        },
+        {
+          "productId": "com.cooltime.pro.lifetime",
+          "label": "Pro 평생 (예전 '평생구매' 상품을 이어 씀)",
+          "trim": "Pro",
+          "period": "평생",
           "price": "₩9,900",
           "priceUS": "$5.99",
           "live": true
         },
         {
-          "productId": "com.Ysoup.TokenMemo.gift.pro",
-          "label": "Pro 선물하기 (오퍼 코드 링크로 받는 사람에게 Pro 평생) (11월 17일부터 ₩39,000 · $26.99)",
+          "productId": "com.Ysoup.CoolTime.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
-          "period": "1회",
-          "price": "₩17,000",
-          "priceUS": "$9.99",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
           "live": true
         },
         {
-          "productId": "com.Ysoup.TokenMemo.forever",
-          "label": "언제나 평생 패스 (리이오 모든 앱, 판매 줄 감춤)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩149,000",
-          "priceUS": "$99.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.TokenMemo.pro.halfoff",
-          "label": "반값 평생 Pro (판매 중지, 산 사람 권한만 유지)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩7,700",
-          "priceUS": "$4.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.TokenMemo.forever.yearly",
-          "label": "언제나 연 패스 (리이오 모든 앱) (이 앱 결제 화면에는 없음)",
-          "trim": "Pro",
-          "period": "연",
-          "price": "₩49,000",
-          "priceUS": "$34.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.TokenMemo.forever.upgrade",
-          "label": "언제나 평생 패스로 올리기 (이 앱 결제 화면에는 없음)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩119,000",
-          "priceUS": "$79.99",
-          "live": false
-        }
-      ],
-      "tips": [
-        "tip.small",
-        "tip.medium",
-        "tip.large"
-      ],
-      "triggers": [
-        "단축어를 100번째 넣은 뒤 앱을 열 때 한 번 — 머리말 '지난 N일 동안 / 단축어를 N번 넣었어요 · 약 N분 아꼈어요', 아래는 같은 템플릿",
-        "문턱 뒤 단축어 · 템플릿 · 스택 · 이미지 단축어를 한도 넘게 만들 때 (목록 · 추가 화면 · 한꺼번에 가져오기 · 키보드에서 넘어올 때)",
-        "보안 단축어에 생체인증 잠금 · iCloud 백업 · 기기 간 동기화를 켤 때",
-        "설정 ▸ Pro 업그레이드 (Plus 사용자는 Pro 하나만, 체험 중이면 '체험 활성: N일 남음')",
-        "연 구독 중인 사람에게 구독 졸업 시트 (6개월째 · 갱신 7일 전)",
-        "이미 Pro 를 다 가진 사람에게 드물게 '혼자 만드는 앱이에요' 창, 그 안에서 바로 팁 (아낀 시간 · 꺼낸 횟수 고비마다, 60일에 한 번)"
-      ],
-      "trial": "앱 안 7일 무료 체험 1회('7일 무료 체험 시작', 단추 아래 한 줄). 연 구독은 처음 구독하는 사람에게 첫 해 할인(.storekit 기준 반값)",
-      "restore": true,
-      "currentPublic": "무료(100번 넣을 때까지 전부, 그 뒤 단축어 10개) · Plus 연 ₩6,600 / 평생 ₩9,900 · Pro 연 ₩13,000 / 평생 ₩17,000 · Plus→Pro 올리기 ₩13,000 · 구독 졸업 ₩27,000 · Pro 선물 · 팁 · 다음 빌드에 월 구독(Plus ₩1,100 · Pro ₩2,200) · 11월 17일 평생가 인상(Plus ₩20,000 · Pro ₩39,000)",
-      "notes": "2026-11-07 다시 읽음 (클립키보드 main 43698562). 스토어 출시본은 5.1.18, 5.1.19(빌드 47, bcce27fb)는 그 뒤 배포 단계. 8f1498f7 페이월 개편: 두 결제 화면(PaywallView · FreeUsePaywallView)을 PaywallTemplate 하나로 — 머리말 · Plus|Pro 전환(Pro 추천, 처음 골라짐) · 혜택 세 줄 · 월/연/평생 세로 목록 · 아래 고정 구매 단추 하나 · 갱신 조건 · 체험/복원/약관 한 줄, 비교표 접힘. 무료 카드 · 칸 카드 세 장은 빠짐. 왕관 그림 뺌. 2af93ed5 월 구독(plus.monthly ₩1,100 · pro.monthly ₩2,200)을 연 구독 그룹에 더함 — ASC READY_TO_SUBMIT, 출시 빌드에 아직 없음. 처음 골라 두는 길은 연(올리기는 평생). 43698562 Plus 선물(gift.plus, ASC READY_TO_SUBMIT). 284075d9 팁 요청은 Pro 를 다 가진 사람에게만 뜨는 창으로. be03d4af StoreManager.sellsForeverPass = false 로 언제나 평생 패스 줄을 감춤(5.1.19 에는 아직 안 들어감). 칸 팩(slots5.pack ₩4,400) · 두 대째(twodevice ₩11,000)는 APPROVED 지만 구매를 부르는 화면이 없다. 가격은 2026-11-07 ASC 가격표(KOR · USA). 11-17 예약 인상: slots5 · gift.plus ₩20,000 $14.99, pro · gift.pro ₩39,000 $26.99, pro.upgrade ₩19,000 $12.99. pro.yearly 는 10-29 에 ₩7,700→₩13,000. forever.upgrade ₩119,000 · forever.yearly ₩49,000 APPROVED."
-    },
-    "cooltime": {
-      "slug": "cooltime",
-      "paywallFiles": [
-        "CoolTime/CoolTimeSpec.swift",
-        "CoolTime/CoolTimeApp.swift",
-        "CoolTime/Views/HomeView.swift"
-      ],
-      "kind": "tip-jar",
-      "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "모든 기능 무료"
-      ],
-      "locked": [],
-      "tiers": [
-        {
-          "productId": "com.Ysoup.CoolTime.plus.weekly",
-          "label": "Plus 주 구독 (심사 전)",
-          "trim": "Plus",
-          "period": "주",
-          "price": "₩1,100",
-          "priceUS": "$0.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.CoolTime.plus.monthly",
-          "label": "Plus 월 구독 (심사 전)",
-          "trim": "Plus",
-          "period": "월",
-          "price": "₩3,300",
-          "priceUS": "$1.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.CoolTime.plus.yearly",
-          "label": "Plus 연 구독 (심사 전)",
-          "trim": "Plus",
-          "period": "연",
-          "price": "₩8,800",
-          "priceUS": "$5.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.CoolTime.plus.lifetime",
-          "label": "Plus 평생 (심사 전)",
-          "trim": "Plus",
-          "period": "평생",
-          "price": "₩26,000",
-          "priceUS": "$17.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.CoolTime.pro.weekly",
-          "label": "Pro 주 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "주",
-          "price": "₩2,200",
-          "priceUS": "$1.49",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.CoolTime.pro.monthly",
-          "label": "Pro 월 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "월",
-          "price": "₩4,400",
-          "priceUS": "$2.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.CoolTime.pro.yearly",
-          "label": "Pro 연 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "연",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
-          "live": false
-        },
-        {
-          "productId": "com.Ysoup.CoolTime.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
-          "live": false
-        },
-        {
           "productId": "com.Ysoup.CoolTime.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -426,39 +432,64 @@
         "tip.large"
       ],
       "triggers": [
-        "홈: 쿨타임을 깨지 않고 기다렸다 쓴 횟수가 10 · 30 · 100번에 닿으면 응원 부탁 카드('지금까지 쿨타임을 N번 지켜 냈어요')",
-        "설정 ▸ 응원하기(LeeoTipJarLink)"
+        "6번째 아이템을 추가할 때 (직접 · 템플릿)",
+        "아이템 추가 화면의 절반 응원 알림 줄",
+        "통계의 잠긴 덮개 (Pro)",
+        "잠긴 위젯을 누를 때",
+        "설정 ▸ 쿨타임 Plus · Pro",
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": null,
-      "restore": null,
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 상품 심사 중)",
-      "notes": "CoolTimeSpec.monetization = .free, 주석 '앱 안에 StoreKit·페이월 코드가 존재하지 않는다'. 팁 엔진(LeeoTipJar standalone)만 있음. 팁 상품 셋은 store-products.json 에서 READY_TO_SUBMIT 이라 아직 판매 전 — 로드되지 않으면 팁 화면에 상품이 안 보일 수 있음. 스토어에 APPROVED 인 com.cooltime.pro.lifetime(예전 '평생구매 ₩9,900')은 코드 어디에도 없는 고아 상품."
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
+      "restore": true,
+      "currentPublic": "무료 · Plus 주 / 월 / 연 / 평생 · Pro 주 / 월 / 연 / 평생 · 팁 — 페이월 전 빌드(4 이하)를 받은 분과 예전 평생구매를 산 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 상품 모두 APPROVED. Pro 평생은 com.cooltime.pro.lifetime(예전 평생구매, 산 사람은 자동 Pro 평생). 최초 빌드 4 이하는 Pro. 한도를 넘겨 가진 아이템은 그대로, 막는 것은 새로 거는 일 하나. isSelling 장치. 페이월에 오퍼 코드 단추. 선물 없음. 팁 부탁 카드는 홈, Pro 사용자, 쿨타임 10 · 30 · 100번 지켰을 때."
     },
     "donkko-mart": {
       "slug": "donkko-mart",
       "paywallFiles": [
-        "DontGoMart/DontGoMartSpec.swift",
+        "DontGoMart/Screen/PaywallView.swift",
+        "DontGoMart/Model/Plan.swift",
+        "DontGoMart/Manager/PlanManager.swift",
         "DontGoMart/Manager/StoreKitManager.swift",
+        "DontGoMart/DontGoMartSpec.swift",
         "DontGoMart/Screen/SettingsView.swift",
         "DontGoMart/Screen/ClosedDaysView.swift",
-        "DontGoMart/Screen/TipCelebrationView.swift",
+        "DontGoMart/Screen/RestaurantViews.swift",
+        "DontGoMart/Screen/ShareCardView.swift",
+        "DontGoMart/Screen/CustomMartEditView.swift",
+        "DontGoMartWidget/Widget/ProLockedWidget.swift",
         "DontGoMart/CoffeeConfiguration.storekit"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": "오늘 헛걸음을 막아드렸어요",
-      "subheadline": "모든 기능은 계속 무료예요. 후원은 순수한 응원이며, 몇 번이든 보낼 수 있어요.",
-      "cta": null,
-      "trimLabels": [],
+      "headline": "돈꼬마트 Plus · Pro",
+      "subheadline": "헛걸음 없는 장보기, 우리 동네 가게까지. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Plus | Pro 카드마다 연 구독 · 평생 (주 · 월 구독을 펼치면 주 · 월), 들어온 기능의 칸이 먼저",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
+      ],
       "benefits": [
-        "후원자 배지와 응원 단계(응원자 · 단골 · 후견인), 리이오의 다른 앱과 같은 팁 화면",
-        "구매 후 감사 연출(TipCelebrationView)",
-        "후원자에게 휴무일에 가끔(최소 120일 간격) 감사 인사 + '한 번 더 응원하기'"
+        "Plus · 나만의 마트 무제한, 단골 식당 무제한 (7일 휴무 카드)",
+        "Plus · 공유 카드를 스토리 규격 · 동영상으로 공유",
+        "Pro · 추가 홈 위젯 3종, 잠금화면 위젯",
+        "Pro · 식당 휴무 자동 가져오기 (네이버지도 링크 · 스크린샷)",
+        "Pro · Plus 기능 전부"
       ],
       "free": [
-        "모든 기능 무료 — 잠긴 기능 없음"
+        "마트 의무휴업일 · 오늘 영업 여부",
+        "달력 · 휴무 알림 · 배너",
+        "나만의 마트 2곳",
+        "단골 식당 3곳",
+        "공유 카드 (게시물)",
+        "가까운 휴무일 위젯"
       ],
-      "locked": [],
+      "locked": [
+        "Plus: 마트 3곳째 · 식당 4곳째부터 · 스토리 규격 · 동영상 공유",
+        "Pro: 추가 홈 위젯 3종 · 잠금화면 위젯 · 식당 휴무 자동 가져오기"
+      ],
       "tiers": [
         {
           "productId": "com.leeo.DontGoMart.plus.weekly",
@@ -489,12 +520,12 @@
         },
         {
           "productId": "com.leeo.DontGoMart.plus.lifetime",
-          "label": "Plus 평생 (심사 전)",
+          "label": "Plus 평생",
           "trim": "Plus",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.DontGoMart.pro.weekly",
@@ -524,22 +555,31 @@
           "live": false
         },
         {
+          "productId": "com.dontgomart.Coffee",
+          "label": "Pro 평생 (옛 커피 상품을 이어 씀)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": true
+        },
+        {
           "productId": "com.leeo.DontGoMart.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.DontGoMart.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -548,64 +588,73 @@
         "tip.meal"
       ],
       "triggers": [
-        "휴무인 마트가 있는 날, 앱을 5번 이상 열고 의미 있는 행동 3번 이상인 사람에게 응원 부탁 카드('오늘 헛걸음을 막아드렸어요'). 빈도는 LeeoKit 규칙(물은 뒤 60일 · 낸 뒤 180일 · '다음에' 세 번이면 끝)",
-        "설정 ▸ 응원하기",
-        "후원자 감사 리마인더(휴무일, 120일마다)의 '한 번 더 응원하기'"
+        "나만의 마트 · 단골 식당을 한도 넘게 저장할 때",
+        "식당 편집의 붙여넣기 · 스크린샷 (Pro)",
+        "공유 카드에서 스토리 규격 · 동영상을 고를 때",
+        "잠긴 위젯을 누를 때",
+        "설정 ▸ 요금제 보기 · 평생으로 바꾸기",
+        "메인 화면 Plus 권유 카드 (무료, 휴무일, 다음에 누르면 30일 쉼)",
+        "연 구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": null,
-      "restore": null,
-      "currentPublic": "모든 기능 무료 · 팁만 (커피 ₩1,100 · 케이크 ₩6,600 · 한 끼 ₩12,000)",
-      "notes": "DontGoMartSpec.monetization = .free, 페이월 없음. 팁은 LeeoKit LeeoTipJar 로 옮겨 감(예전 자체 CoffeeTipStore 대신). 팁 셋 모두 APPROVED, storekit 가격 $0.99 / $3.99 / $7.99, 원화는 예전 스토어 값(apps.json). com.dontgomart.Coffee(옛 비소모성 커피, APPROVED)는 신규 판매 없이 옛 후원자 배지 복원용으로만 조회. apps.json 의 '클로즈드 Pro ₩4,400' 은 코드에 대응 상품이 없음. 주석: 지금 후원한 사람은 나중에 페이월이 생기면 Pro 로 모실 계획."
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
+      "restore": true,
+      "currentPublic": "무료 · Plus 평생 · Pro 평생 (주 · 월 · 연 구독은 심사 전) · 팁 — 모든 기능이 무료일 때부터 쓴 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 페이월은 Plus · Pro 주 · 월 · 연 · 평생 사다리지만 구독 6종이 READY_TO_SUBMIT(심사 전) → 구독 live false, 판매 중인 것은 Plus 평생 · Pro 평생(com.dontgomart.Coffee) · 올리기 · 졸업. Pro 인정: 무료 빌드 8 이하로 처음 받은 사람 · 무료 시절 팁을 보낸 사람 · 2026-11-07 이전 Coffee 구매자. isSelling 장치, 이미 넣은 마트 · 식당은 잠그지 않는다. 팁(com.dontgomart.tip.coffee · cake · meal)은 페이월 밖 — 설정 응원하기와 메인 부탁 카드(Pro 사용자, 휴무일). 선물 없음."
     },
     "double-reminder": {
       "slug": "double-reminder",
       "paywallFiles": [
         "Rereminder/Views/PaywallView.swift",
-        "Rereminder/Modules/RereminderSpec.swift",
         "Shared/Modules/StoreManager.swift",
         "Shared/Modules/ProGate.swift",
         "Shared/Modules/FreeUse.swift",
-        "Shared/Modules/TrialCounter.swift",
+        "Rereminder/Modules/RereminderSpec.swift",
         "Rereminder/Modules/SubscriptionGraduation.swift",
-        "Config/RereminderProducts.storekit",
-        "docs/OPERATIONS_CHECKLIST.md"
+        "Rereminder/Views/Components/GiftAndTipSection.swift",
+        "Rereminder/Views/Components/TipAskLine.swift",
+        "Rereminder/ViewModels/NoticeSettingView.swift",
+        "Rereminder/Views/TimerUnifiedView.swift",
+        "Rereminder/Views/TimerHistoryView.swift",
+        "Rereminder/Views/TimerTemplateView.swift",
+        "Rereminder/Views/Components/RememberRecallLine.swift",
+        "Rereminder/Views/ProBenefitsView.swift",
+        "Rereminder/RereminderApp.swift",
+        "Rereminder/Localizable.xcstrings",
+        "Config/RereminderProducts.storekit"
       ],
       "kind": "mixed",
       "hidden": false,
-      "headline": "두번알림 Pro",
-      "subheadline": "앱이 당신의 설정을 기억합니다",
-      "cta": "기억 구매하기 / Pro로 업그레이드",
+      "headline": null,
+      "subheadline": null,
+      "cta": "기억 | Pro 전환 → 그림 장 → 연 구독 · 평생, 늘 떠 있는 단추 '기억 구매하기' / 'Pro로 업그레이드' (주 · 월 없음)",
       "trimLabels": [
         "무료",
         "기억",
         "Pro"
       ],
       "benefits": [
-        "연 구독도, 평생도 고를 수 있어요",
-        "기억: 저장한 설정 무제한과 전체 기록",
-        "Pro: 기억의 모든 것에 세션 모드와 대본까지",
-        "타이머 기록 무제한(무료는 최근 30일)",
-        "기억을 이미 갖고 계셔서 차액만 내시면 됩니다(기억 평생 보유자의 Pro 평생)",
-        "언제나 평생 패스 한 줄(다른 앱까지)"
+        "기억 · 저장한 설정 무제한",
+        "기억 · 타이머 기록을 기간 제한 없이",
+        "Pro · 세션 모드 (구간마다 시간 나눠 진행)",
+        "Pro · 구간 대본",
+        "Pro · 기억 기능 전부"
       ],
       "free": [
-        "타이머, 예비 알림 무제한, 실시간 현황(Live Activity), Apple Watch와 위젯",
-        "커스텀 메시지·소리/진동·테마, 오버타임 추적, 마지막 설정 기억",
-        "무료 기간: 서로 다른 14일 완주 또는 세션 모드 5회 완주까지는 모든 기능이 열림",
-        "문턱 뒤: 저장한 설정 3개, 타이머 기록 최근 30일",
-        "문턱 뒤 세션 모드·전체 기록은 5회 체험 + '5회 더 사용해보기'로 최대 10회"
+        "타이머 · 예비 알림 무제한",
+        "마지막 타이머 기억 · 초과 시간 기록 · 실시간 현황",
+        "워치 · 위젯 · 알림 문구 직접 쓰기",
+        "무료 기간(완주한 날 14일 또는 세션 5회)까지 모든 기능",
+        "그 뒤 저장한 설정 3개 · 최근 30일 기록 · 세션 모드 5 + 5회 체험"
       ],
       "locked": [
-        "기억: 저장한 설정 무제한(무료 3개)",
-        "기억: 타이머 기록 전체(무료 최근 30일)",
-        "Pro: 세션 모드(구간 이름)",
-        "Pro: 구간 대본"
+        "기억: 설정 4개째부터 저장 · 30일 지난 기록",
+        "Pro: 세션 모드 (체험 소진 뒤) · 구간 대본"
       ],
       "tiers": [
         {
           "productId": "com.xa.toki.plus.yearly",
           "label": "기억 연 구독",
-          "trim": "기억",
+          "trim": "Plus",
           "period": "연",
           "price": "₩4,400",
           "priceUS": "$2.99",
@@ -614,7 +663,7 @@
         {
           "productId": "com.xa.toki.remember",
           "label": "기억 평생",
-          "trim": "기억",
+          "trim": "Plus",
           "period": "평생",
           "price": "₩14,000",
           "priceUS": "$8.99",
@@ -631,25 +680,25 @@
         },
         {
           "productId": "com.xa.toki.pro",
-          "label": "Pro 평생 (11월 17일부터 ₩27,000 · $17.99)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
-          "price": "₩17,000",
-          "priceUS": "$9.99",
+          "price": "₩27,000",
+          "priceUS": "$17.99",
           "live": true
         },
         {
           "productId": "com.xa.toki.pro.upgrade",
-          "label": "기억 평생 → Pro 평생 올리기(차액) (11월 17일부터 ₩13,000 · $8.99)",
+          "label": "기억 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
-          "price": "₩11,000",
-          "priceUS": "$6.99",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
           "live": true
         },
         {
           "productId": "com.xa.toki.pro.graduate",
-          "label": "구독 졸업가 Pro 평생(연 구독 중인 사람에게만, 졸업 시트·설정 '평생으로 바꾸기')",
+          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩19,000",
@@ -658,56 +707,47 @@
         },
         {
           "productId": "com.xa.toki.gift.plus",
-          "label": "Plus 선물하기 (받는 사람에게 Plus 평생)",
+          "label": "기억 평생 선물 (설정 ▸ 선물하기)",
           "trim": "Plus",
-          "period": "1회",
+          "period": "평생",
           "price": "₩14,000",
           "priceUS": "$8.99",
           "live": true
         },
         {
           "productId": "com.xa.toki.gift.pro",
-          "label": "Pro 선물하기 (받는 사람에게 Pro 평생)",
+          "label": "Pro 평생 선물 (설정 ▸ 선물하기)",
           "trim": "Pro",
-          "period": "1회",
-          "price": "₩17,000",
-          "priceUS": "$9.99",
+          "period": "평생",
+          "price": "₩27,000",
+          "priceUS": "$17.99",
           "live": true
         },
         {
-          "productId": "com.xa.toki.forever.yearly",
-          "label": "언제나 연 패스 (리이오 모든 앱) (심사 전)",
-          "trim": "Pro",
-          "period": "연",
-          "price": "₩49,000",
-          "priceUS": "$34.99",
-          "live": false
-        },
-        {
           "productId": "com.xa.toki.forever",
-          "label": "언제나 평생 패스 (리이오 모든 앱) (이 앱 결제 화면에는 없음)",
+          "label": "언제나 평생 패스 (페이월 아래 '앱 N개 평생으로 열기')",
           "trim": "Pro",
           "period": "평생",
           "price": "₩149,000",
           "priceUS": "$99.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.xa.toki.forever.upgrade",
-          "label": "언제나 평생 패스로 올리기 (이 앱 결제 화면에는 없음)",
+          "label": "Pro 평생 → 언제나 평생 패스 올리기",
           "trim": "Pro",
           "period": "평생",
           "price": "₩119,000",
           "priceUS": "$79.99",
-          "live": false
+          "live": true
         },
         {
-          "productId": "com.xa.toki.forever.graduate",
-          "label": "언제나 평생 패스 졸업가 (이 앱 결제 화면에는 없음)",
+          "productId": "com.xa.toki.forever.yearly",
+          "label": "언제나 평생 패스 연 구독 (심사 전)",
           "trim": "Pro",
-          "period": "평생",
-          "price": "₩99,000",
-          "priceUS": "$64.99",
+          "period": "연",
+          "price": "₩49,000",
+          "priceUS": "$34.99",
           "live": false
         }
       ],
@@ -717,17 +757,19 @@
         "tip.large"
       ],
       "triggers": [
-        "세션 모드에 들어갈 때 체험 소진(5회 / 10회)",
-        "타이머 기록을 열 때 체험 소진",
-        "저장한 설정이 3개를 넘을 때 / 잠긴 템플릿 칩을 누를 때(기억 칸이 앞에 섬)",
-        "반복 감지·다시 연 순간의 한 줄·전날 안내('기억하려면')",
-        "설정 ▸ Pro 줄 · 내 혜택 ▸ 업그레이드",
-        "연 구독 중: 6개월째 · 갱신 7일 전 졸업 제안 시트"
+        "세션 모드를 열 때 체험 소진 (1차에 '5회 더 사용해보기')",
+        "타이머 기록 화면을 열 때 체험 소진",
+        "저장한 설정 한도 · '앱이 설정을 기억하게 하기'",
+        "반복 사용 감지 알림 'Pro로 기억해 두기'",
+        "무료 기간 문턱 도달 안내",
+        "설정 요금제 줄 · Pro 혜택 화면",
+        "App Store 이벤트 링크 · 할인 배너",
+        "연 구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": "연 구독 첫 해 반값(선불 1년, 신규 구독자): 기억 $1.49, Pro $2.99",
+      "trial": "무료 기간 — 완주한 날 14일 또는 세션 5회까지 모든 기능 · 세션 모드 5 + 5회 체험 · 연 구독 첫 해 할인",
       "restore": true,
-      "currentPublic": "무료 · 기억 평생 ₩14,000 · Pro 평생 ₩17,000 (기억 보유자 올리기 ₩11,000) · 연 구독 · 구독 졸업은 판매 전",
-      "notes": "원화 가격은 docs/OPERATIONS_CHECKLIST.md 9절(계획값, 체크 안 됨)에서만 확인됨. Pro 평생 ₩27,000/$17.99 는 2026-11-17 가격 일정으로 올리는 값이고, 그 전까지 스토어 실제 가격은 예전 ₩17,000($9.99)일 수 있음. 올리기도 예전 스토어 값은 ₩11,000. 판매 중(APPROVED)은 pro · remember · pro.upgrade 뿐 — plus.yearly · pro.yearly · pro.graduate 는 READY_TO_SUBMIT 이라 페이월의 연 구독 버튼은 상품이 로드되지 않아 눌리지 않음(코드가 비활성 처리). 언제나 평생 패스(forever·forever.yearly·forever.upgrade·forever.graduate)와 gift.pro 는 READY_TO_SUBMIT. 선물은 2.3.5 에서 뺐음(지침 3.1.1). 기존 사용자 그랜드파더링·창단 후원자는 Pro 전체. 머리말 '두번알림 Pro'는 app_name_pro 키(영문 기본값 Rereminder Pro)로, 한국어 값은 확인 안 함. 팁은 이미 다 가진 사람에게 TipAskLine·설정에서. [2026-11-06 App Store 페이지 실가격으로 가격 · 판매 여부를 바로잡음]"
+      "currentPublic": "무료(무료 기간 뒤 한도) · 기억 연 / 평생 · Pro 연 / 평생 · 언제나 평생 패스 · 선물 · 팁 — 먼저 쓰던 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: LeeoShowcasePaywall 틀이라 머리 글이 없다(headline · subheadline null, 그림 장 제목만). 화면 이름은 '기억'(코드는 Plus). 주 · 월 상품 없음. 언제나 평생 패스 연 구독(forever.yearly)은 READY_TO_SUBMIT → live false. forever.graduate 는 APPROVED 이지만 화면 어디에도 단추가 없어 tiers 에서 뺐다. 선물은 페이월이 아니라 설정 ▸ 선물하기, 받는 사람에게 오퍼 코드. Pro 인정: 도입 업데이트 첫 실행 때 쓰던 흔적이 있던 사용자 · 창단 후원자 · 예전 선물 코드(Keychain 에 남음). TestFlight · 샌드박스 영수증과 macOS 빌드는 자동 Pro. .storekit 에 gift · forever 4종이 없다. 팁 부탁은 Pro 사용자, 타이머를 마친 뒤."
     },
     "flip-book": {
       "slug": "flip-book",
@@ -975,9 +1017,9 @@
     "korea-navi": {
       "slug": "korea-navi",
       "paywallFiles": [
-        "KoreaNavi/KoreaNaviSpec.swift",
-        "KoreaNavi/Sources/Common/Services/KoreaNaviPro.swift",
         "KoreaNavi/Sources/Features/Subway/KoreaNaviPaywallView.swift",
+        "KoreaNavi/Sources/Common/Services/KoreaNaviPro.swift",
+        "KoreaNavi/KoreaNaviSpec.swift",
         "KoreaNavi/Sources/Features/Subway/SubwayNavigatorView.swift",
         "KoreaNavi/Sources/Features/Subway/SubwayNavigatorCatalog.swift",
         "KoreaNavi.storekit"
@@ -986,47 +1028,45 @@
       "hidden": false,
       "headline": "내릴 역, 이제 놓치지 마세요",
       "subheadline": "한국길찾기 Pro가 탑승 내내 위치를 따라가며 내릴 때를 알려 드려요.",
-      "cta": "{가격}에 잠금 해제",
+      "cta": "'{가격}에 잠금 해제' 단추 하나 — Apple 계정으로 한 번만 결제",
       "trimLabels": [
         "무료",
-        "한국길찾기 Pro"
+        "Pro"
       ],
       "benefits": [
         "Pro · 잠금 화면과 Dynamic Island에서 진행 상황 확인",
         "Pro · 차내 안내방송으로 현재 역과 내리는 문 방향 확인",
         "Pro · 내릴 역이 가까워질 때와 내릴 때 진동 알림",
-        "Pro · 서울 지하철 1~8호선 역의 출구 번호와 가까운 장소",
-        "Pro · 1~9호선 막차 시간과 떠나기 전 미리 알림",
-        "Pro · 짐이 많을 때 엘리베이터와 가까운 칸 (1~8호선)",
-        "Pro · 한 번 결제하면 다음 여행에도 계속, 구독 아님"
+        "Pro · 서울 지하철 1~8호선 출구 번호와 가까운 장소",
+        "Pro · 1~9호선 막차 시간과 미리 알림",
+        "Pro · 1~8호선 짐 많을 때 엘리베이터 가까운 칸",
+        "Pro · 한 번 결제하면 다음 여행에도 계속, 구독이 아님"
       ],
       "free": [
-        "길찾기 · 타는 방향 · 실시간 도착 · 카메라 방향 확인은 늘 무료",
-        "안내 탑승(잠금 화면 · 안내방송 인식 · 하차 진동) 여정 3회",
-        "무료 안내 탑승이 남아 있는 동안 출구 안내 · 막차 알림 · 캐리어 모드도 열림",
-        "한도를 넘어도 탑승은 막지 않고 화면 안 진행 표시는 그대로"
+        "길찾기 · 타는 방향 · 실시간 도착 · 카메라 방향 확인",
+        "안내 탑승 3회 (그동안 출구 안내 · 막차 · 캐리어 모드도 열림)"
       ],
       "locked": [
-        "Pro: 4번째 여정부터 안내 탑승(잠금 화면 · 안내방송 인식 · 하차 진동)",
-        "Pro: 무료 3회를 다 쓴 뒤 출구 안내 · 막차 알림 · 캐리어 모드"
+        "Pro: 4회째부터 안내 탑승 (잠금 화면 · 안내방송 인식 · 하차 진동)",
+        "Pro: 출구 안내 · 막차 알림 · 캐리어 모드"
       ],
       "tiers": [
         {
           "productId": "com.kora.leeo.pro",
-          "label": "한국길찾기 Pro 평생 이용권 (가족 공유)",
-          "trim": "한국길찾기 Pro",
+          "label": "Pro 평생 (한 번 결제)",
+          "trim": "Pro",
           "period": "평생",
           "price": "₩17,000",
-          "priceUS": "$6.99",
+          "priceUS": "$9.99",
           "live": true
         },
         {
           "productId": "com.kora.leeo.gift.pro",
-          "label": "Pro 선물하기 (받는 사람에게 Pro 평생) (심사 중)",
-          "trim": "한국길찾기 Pro",
-          "period": "1회",
+          "label": "Pro 평생 선물 (판매 꺼짐 — 선물 기록 있는 사람에게만 보내기 줄)",
+          "trim": "Pro",
+          "period": "평생",
           "price": "₩17,000",
-          "priceUS": "$6.99",
+          "priceUS": "$9.99",
           "live": false
         }
       ],
@@ -1036,17 +1076,16 @@
         "tip.large"
       ],
       "triggers": [
-        "마지막 무료 안내 탑승으로 도착한 직후 한 번 자동으로",
-        "도착 화면 'Pro 알아보기' (무료 1회 남았을 때 · 다 썼을 때)",
-        "기본 모드 탑승 중 'Pro 알아보기'",
-        "잠긴 출구 안내 버튼",
-        "여정 확인 화면의 잠긴 막차 카드 · 캐리어 모드",
-        "언어 선택 시트의 Pro 줄"
+        "마지막 무료 안내 탑승으로 도착한 순간 한 번",
+        "도착 화면 '한국길찾기 Pro 알아보기' (무료 1회 이하 남음)",
+        "무료를 다 쓴 뒤 탑승 중 배너 단추",
+        "출구 안내 · 막차 카드 · 캐리어 모드",
+        "언어 선택 시트 ▸ Pro 줄"
       ],
-      "trial": "안내 탑승 여정 3회 무료",
+      "trial": null,
       "restore": true,
-      "currentPublic": "무료 (안내 탑승 3회) · 한국길찾기 Pro 평생 ₩17,000 한 칸 · 팁 — 구독 없음",
-      "notes": "2026-11-21 소스 · App Store Connect 로 다시 정리: 레포에서 KORA 이름을 걷어내 파일이 KoreaNavi/ 아래로 옮겨졌고(KORASpec → KoreaNaviSpec 등) 앱 안 이름도 '한국길찾기 Pro'. 수익 구조는 그대로 LeeoMonetization.freemium 평생 이용권 하나, 구독 없음(paywall-plans 의 Plus · Pro 설계안은 아직 반영 안 됨). 빌드 8 이하로 처음 설치한 사람은 자동 평생 Pro(lastFreeBuild = 8). 원화 ₩17,000 은 기존 항목 값, 달러는 KoreaNavi.storekit(USA) 표시가 $6.99 라 그것을 따름 — 기존 항목 $9.99 와 다르니 App Store Connect 값과 한 번 대조할 것(확인 못 함: 실제 스토어 달러 가격). 선물 com.kora.leeo.gift.pro 가 새로 생겼지만 WAITING_FOR_REVIEW 이고, LeeoGiftConfig 에 sellsGifts 를 주지 않아(LeeoKit 3.46.2 기본 닫힘) 승인 뒤에도 '보내기'는 숨는다. '받기'(App Store 오퍼 코드)는 Pro 가 아닌 사람에게 언어 시트에서 보인다. 팁 3종은 이제 APPROVED — 언어 시트의 '개발자 응원하기' 줄이 서고(LeeoTipJar.isAvailable), Pro 사용자에게는 도착 화면 부탁 카드도 뜬다. 팁 달러 값은 storekit $1.99 / $4.99 / $9.99. 결제 화면 문구는 앱 안 언어(NavLoc)를 따른다."
+      "currentPublic": "무료(안내 탑승 3회) · Pro 평생 한 번 결제 · 팁 — 결제 도입 전에 받은 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 비구독 평생 하나(com.kora.leeo.pro, APPROVED). 빌드 8 이하로 처음 설치한 사람은 평생 Pro. 페이월 글은 앱 안에서 고른 언어를 따른다. 선물(gift.pro)은 APPROVED 이지만 sellsGifts 를 넘기지 않아 보내기는 꺼짐, 받기(오퍼 코드) 줄은 Pro 가 아닌 사람에게 늘. isSelling 장치 없음. 팁 부탁 카드는 Pro 사용자, 도착 7 · 20 · 50회."
     },
     "pixel-mimi": {
       "slug": "pixel-mimi",
@@ -1474,18 +1513,21 @@
     "rebound-journal": {
       "slug": "rebound-journal",
       "paywallFiles": [
-        "Mochimo/Features/Pro/ProFeature.swift",
         "Mochimo/App/MochimoSpec.swift",
-        "Mochimo/Features/Settings/SettingsView.swift",
+        "Mochimo/App/MochimoApp.swift",
+        "Mochimo/Features/Pro/ProFeature.swift",
         "Mochimo/Features/Home/AddGoalView.swift",
+        "Mochimo/Features/Home/TodayView.swift",
+        "Mochimo/Features/Settings/SettingsView.swift",
         "Mochimo/Features/Companion/PebbleSkin.swift",
+        "Mochimo/Features/Conversation/ConversationView.swift",
         "Products.storekit"
       ],
       "kind": "mixed",
       "hidden": false,
-      "headline": "모찌모 프로 (기능 자리에서 열면 그 기능 이름: '목표를 원하는 만큼' · '친구 색 고르기' · '기록 내보내기')",
+      "headline": "모찌모 프로",
       "subheadline": "무료로 쓰던 건 그대로, 몇 가지가 더 열려요.",
-      "cta": "구매하기 — 평생 이용권이 먼저 골라져 있고, 연 · 월 구독도 같은 프로",
+      "cta": "LeeoKit 페이월 상품 줄 — 평생(먼저 골라짐) · 연 · 월, 단추 '구매하기' / '구독 시작하기'",
       "trimLabels": [
         "무료",
         "모찌모 프로"
@@ -1493,54 +1535,53 @@
       "benefits": [
         "프로 · 목표를 개수 제한 없이 적어 둬요",
         "프로 · 친구의 색을 여섯 가지 중에서 골라요",
-        "프로 · 지나온 기록을 글 파일로 내보내요",
+        "프로 · 지나온 기록을 파일로 내보내요",
         "프로 · 한 번 사서 계속 쓰거나, 구독으로 가볍게 시작해요"
       ],
       "free": [
-        "모찌 친구와의 대화 · 음성 입력 · 기록",
-        "지나온 길 · 모든 기록 보기와 고치기",
-        "비밀번호 잠금 · 매일 알림 · 위젯",
-        "새 목표 3개까지 (대화 중 스스로 쪼갠 목표는 막지 않음)",
+        "모찌 친구와의 대화 · 기록 · 지나온 길",
+        "비밀번호 잠금 · 알림",
+        "새 목표 3개까지",
         "기본 친구 색 1가지"
       ],
       "locked": [
         "프로: 네 번째부터 새 목표",
-        "프로: 친구 색 5가지 더 (구름 · 말차 · 노을 · 우유 · 먹)",
-        "프로: 기록 내보내기 (글 파일)"
+        "프로: 친구 색 5가지 (구름 · 말차 · 노을 · 우유 · 먹)",
+        "프로: 기록 내보내기"
       ],
       "tiers": [
         {
+          "productId": "com.leeo.ReboundJournal.pro.monthly",
+          "label": "프로 월 구독",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩1,500",
+          "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.ReboundJournal.pro.yearly",
+          "label": "프로 연 구독",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩9,900",
+          "priceUS": "$5.99",
+          "live": true
+        },
+        {
           "productId": "com.leeo.ReboundJournal.pro",
-          "label": "모찌모 프로 평생",
-          "trim": "모찌모 프로",
+          "label": "프로 평생",
+          "trim": "Pro",
           "period": "평생",
           "price": "₩17,000",
           "priceUS": "$9.99",
           "live": true
         },
         {
-          "productId": "com.leeo.ReboundJournal.pro.yearly",
-          "label": "모찌모 프로 연 구독 (심사 전)",
-          "trim": "모찌모 프로",
-          "period": "연",
-          "price": "₩9,900",
-          "priceUS": null,
-          "live": false
-        },
-        {
-          "productId": "com.leeo.ReboundJournal.pro.monthly",
-          "label": "모찌모 프로 월 구독 (심사 전)",
-          "trim": "모찌모 프로",
-          "period": "월",
-          "price": "₩1,500",
-          "priceUS": null,
-          "live": false
-        },
-        {
           "productId": "com.leeo.ReboundJournal.gift.pro",
-          "label": "프로 선물하기 (받는 사람에게 프로 평생) (출시 빌드에서 판매 닫힘)",
-          "trim": "모찌모 프로",
-          "period": "1회",
+          "label": "프로 평생 선물 (판매 꺼짐 — 기록 있는 사람에게만 설정 줄)",
+          "trim": "Pro",
+          "period": "평생",
           "price": "₩17,000",
           "priceUS": "$9.99",
           "live": false
@@ -1552,57 +1593,77 @@
         "tip.large"
       ],
       "triggers": [
-        "새 목표를 네 번째로 적으려 할 때 (세 번째에 미리 안내)",
+        "네 번째 목표를 적을 때",
         "설정에서 잠긴 친구 색을 고를 때",
-        "설정에서 기록 내보내기를 누를 때",
-        "설정의 '모찌모 프로' 카드 '알아보기'",
-        "대화 중 · 앱을 열 때 · 기록 직후 · 위젯에서는 띄우지 않음"
+        "설정 ▸ 기록 내보내기",
+        "설정 '모찌모 프로' 카드 ▸ 알아보기",
+        "할인 배너"
       ],
       "trial": null,
       "restore": true,
-      "currentPublic": "무료 · 모찌모 프로 평생 ₩17,000 한 칸 · 팁 (연 · 월 구독은 심사 전)",
-      "notes": "2026-11-21 소스 · App Store Connect 로 다시 정리: 앱 이름이 징검돌 → 모찌모로 바뀌어 레포가 Auto/모찌모(Mochimo/ 폴더). Spec 이 LeeoMonetization.freemiumSubscription 으로 평생 이용권 + 연 · 월 구독이 같은 프로를 연다(구독 전용 기능 없음, 평생을 앞세움) — 그래서 kind 를 one-time-unlock 에서 mixed 로. 구독 값 ₩9,900 · ₩1,500 은 Products.storekit(KOR 스토어프론트) · docs/BUSINESS.md(2026-11-18) 값이고 paywall-plans 설계안(연 ₩8,800 · 월 ₩3,300)과 다르다 — 레포 값을 따름. 확인 못 함: 구독 두 상품의 달러 값(storekit 이 원화라 코드 · 문서에 없음). 평생 $9.99 · ₩17,000 은 BUSINESS.md(기준 국가 미국). 구독 두 상품은 store-products.json 에서 READY_TO_SUBMIT 이라 아직 안 팖. 선물 gift.pro 는 이제 APPROVED 지만 LeeoGiftConfig 에 sellsGifts 를 주지 않아(LeeoKit 3.46.2 기본 닫힘) 출시 빌드에서 '선물 보내기'가 숨는다 — 그래서 live false, '받기'(오퍼 코드)만 프로가 아닌 사람에게 보인다. 선물 값은 storekit 의 ₩17,000. 팁 3종은 이제 APPROVED 라 설정에 '개발자 응원하기'(LeeoTipJar.isAvailable)가 보인다(storekit ₩1,100 / ₩4,400 / ₩17,000). 설계안이 말한 '내보내기 무료로 풀기'는 아직 반영 안 됨 — export 는 여전히 proOnly. TodayView 의 페이월은 #if DEBUG 전용."
+      "currentPublic": "무료 · 모찌모 프로 월 / 연 / 평생 · 팁",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: LeeoKit LeeoPaywallView, 기능 자리에서 열면 머리 글이 그 기능 이름으로 바뀐다. 선물(gift.pro)은 APPROVED 이지만 sellsGifts 를 넘기지 않아 판매가 꺼져 있고, 보내기 · 받기 줄은 선물 기록이 있는 사람에게만. 처음부터 쓰던 사람을 평생으로 인정하는 장치 · isSelling 장치 없음. 팁 부탁 카드는 프로 사용자, 대화 10 · 30 · 100번째 요약 뒤."
     },
     "relax-on": {
       "slug": "relax-on",
       "paywallFiles": [
         "Dalbit/App/Bootstrap/DalbitSpec.swift",
+        "Dalbit/App/Bootstrap/DalbitApp.swift",
         "Dalbit/App/Features/Subscription/SubscriptionManager.swift",
         "Dalbit/App/Features/Subscription/SubscriptionView.swift",
         "Dalbit/App/Features/Player/SavedSoundsListView.swift",
         "Dalbit/App/Features/Settings/SettingsView.swift",
         "Dalbit/App/Features/Settings/ListeningRecapView.swift",
         "Dalbit/App/Resources/Localizable.xcstrings",
+        "Dalbit/App/Resources/Localization/LocalizationKeys.swift",
         "Products.storekit"
       ],
-      "kind": "subscription",
+      "kind": "mixed",
       "hidden": false,
       "headline": "달빛 프리미엄",
       "subheadline": "모든 사운드와 카테고리를 잠금 해제하고 완벽한 백색소음 경험을 만들어보세요",
-      "cta": "지금 구독하기",
+      "cta": "월 구독 · 연 구독(먼저 골라짐) · 평생 세 줄, 단추 '지금 구독하기' / '평생 이용권 구매하기'",
       "trimLabels": [
         "무료",
         "프리미엄"
       ],
       "benefits": [
-        "커스텀 사운드 무제한",
-        "모든 사운드 카테고리"
+        "프리미엄 · 커스텀 사운드 무제한",
+        "프리미엄 · 모든 사운드 카테고리"
       ],
       "free": [
-        "커스텀 사운드(내 소리) 3개 (gatePolicy freeLimits customSound: 3)",
-        "기본 소리 · 재생 전부"
+        "기본 소리 · 재생 전부",
+        "내 소리(커스텀 사운드) 3개"
       ],
       "locked": [
-        "프리미엄: 커스텀 사운드 4개째부터 무제한"
+        "프리미엄: 내 소리 4개째부터"
       ],
       "tiers": [
         {
           "productId": "month",
           "label": "프리미엄 월 구독",
-          "trim": "프리미엄",
+          "trim": "Pro",
           "period": "월",
           "price": "₩1,100",
           "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.leeo.LullabyRecipe.pro.yearly",
+          "label": "프리미엄 연 구독 (심사 전)",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": false
+        },
+        {
+          "productId": "com.leeo.LullabyRecipe.pro.lifetime",
+          "label": "프리미엄 평생",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
           "live": true
         }
       ],
@@ -1612,13 +1673,15 @@
         "tip.large"
       ],
       "triggers": [
-        "내 사운드 목록 위 '프리미엄으로 업그레이드' 배지 (무료 사용자에게 늘)",
-        "내 소리 3개를 채운 뒤 새 소리 만들기"
+        "내 사운드 목록 위 '프리미엄으로 업그레이드' 배지",
+        "내 소리 3개를 채운 뒤 '+'",
+        "App Store 이벤트 링크 (<번들>://paywall)",
+        "할인 배너"
       ],
-      "trial": "코드의 문구는 '1주 무료 체험' — 상품의 첫 구독 혜택이 1주일 때만 보인다. .storekit 은 1개월 무료(P1M)라 로컬 설정과 어긋남",
+      "trial": "월 구독 1주 무료 체험 — 월 상품 첫 구독 혜택이 1주일 때만 표시 (.storekit 은 1개월이라 로컬에선 안 뜸)",
       "restore": true,
-      "currentPublic": "무료(내 소리 3개) · 프리미엄 월 ₩1,100 한 칸 · 무료 사용 코드 · 팁(심사 전)",
-      "notes": "실제로 잠기는 것은 커스텀 사운드 3개 한도 하나뿐(Spec 주석도 '페이월이 뜨는 유일한 문턱'). 페이월 표는 무료 칸에 '기본 카테고리 2개', 프리미엄에 '모든 사운드 카테고리'를 적지만, 코드의 freeCategories 는 6개 중 5개(ASMR만 빠짐)이고 isCategoryLocked 를 부르는 곳이 없어 카테고리는 실제로 잠기지 않는다 — 문구와 동작이 어긋남. 무료 사용 코드 DALBIT-MOON(1개월 프리미엄, 코드에 고정) 입력칸과 App Store 오퍼 코드 버튼이 페이월에 있다. 원화 ₩1,100 은 apps.json appPrice 기준. 팁 3개는 READY_TO_SUBMIT 이라 설정 '개발자 응원하기'와 감상 기록의 팁 부탁(프리미엄 사용자에게만)이 지금은 안 보인다. DEBUG 빌드는 unlockOverride 로 프리미엄 — 출시 빌드는 정상 과금."
+      "currentPublic": "무료(내 소리 3개) · 프리미엄 월 / 연 / 평생 · 팁",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 월 구독 한 칸에서 월 · 연 · 평생(2026-11-21)으로. 연 구독(com.leeo.LullabyRecipe.pro.yearly)은 READY_TO_SUBMIT 이라 아직 안 팔린다 → live false. 월 구독 상품 ID 가 'month'. 페이월 문구는 '기본 카테고리 2개 / 모든 사운드 카테고리' 라고 적지만 실제로 카테고리는 잠기지 않는다(isCategoryLocked 호출처 없음). 페이월에 오퍼 코드 단추와 코드에 고정된 무료 사용 코드 입력칸(1개월). 처음 쓰던 사람 인정 · isSelling 장치 없음. 팁 부탁 카드는 프리미엄 사용자에게만."
     },
     "shared-day-designer": {
       "slug": "shared-day-designer",
@@ -2035,116 +2098,135 @@
     "bookmark-shot": {
       "slug": "bookmark-shot",
       "paywallFiles": [
+        "BookmarkShot/Views/Paywall/PaywallView.swift",
+        "BookmarkShot/Services/BookmarkShotEntitlement.swift",
+        "BookmarkShot/Services/Purchases.swift",
         "BookmarkShot/App/BookmarkShotSpec.swift",
         "BookmarkShot/App/BookmarkShotSupportView.swift",
+        "BookmarkShot/App/ContentView.swift",
+        "BookmarkShot/Views/Library/AddBookView.swift",
+        "BookmarkShot/Views/Capture/ScanPageView.swift",
+        "BookmarkShot/Views/Library/BookDetailView.swift",
         "BookmarkShot/Support/BookmarkShotTipMoments.swift",
-        "BookmarkShot/Views/Library/BookDetailView.swift"
+        "BookmarkShot/Products.storekit"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": "밑줄 개발을 응원해 주세요",
-      "subheadline": "이미 모든 기능을 쓰고 계신다면, 여기서 조금 더 응원할 수 있어요. 혼자 만드는 앱이라 한 번 한 번이 다음 업데이트를 만드는 힘이 돼요.",
-      "cta": "응원하기",
-      "trimLabels": [],
+      "headline": "밑줄 Plus · Pro",
+      "subheadline": "읽는 만큼 모으고, 모은 문장은 곁에 두세요. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Plus | Pro 카드마다 연 구독 · 평생 (주 · 월 구독도 보기를 펼치면 주 · 월), 들어온 자리의 칸이 먼저",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
+      ],
       "benefits": [
-        "후원자 배지 · 고마운 사람들에 이름",
-        "후원자 전용 앱 아이콘 · 다음 기능 미리 보고 한 표 (단골)",
-        "새 버전 베타(TestFlight) 초대 (후견인)"
+        "Plus · 책 무제한, 문장 무제한",
+        "Pro · iCloud로 기기 간 서재 · 문장 동기화",
+        "Pro · Plus 기능 전부"
       ],
       "free": [
-        "모든 기능 무료 — 인앱 결제로 여는 기능이 없다"
+        "책 10권 · 문장 100개",
+        "표지 인식 · 형광펜 스캔 · 페이지 인식",
+        "검색 · 즐겨찾기 · 오늘의 문장",
+        "카드 이미지 · 텍스트 공유",
+        "문장 전체 내보내기 (텍스트 · CSV · 마크다운)",
+        "홈 화면 · 잠금화면 위젯"
       ],
-      "locked": [],
+      "locked": [
+        "Plus: 책 11권째 · 문장 101개째부터",
+        "Pro: iCloud 동기화"
+      ],
       "tiers": [
         {
           "productId": "com.leeo.bookmarkshot.plus.weekly",
-          "label": "Plus 주 구독 (심사 전)",
+          "label": "Plus 주 구독",
           "trim": "Plus",
           "period": "주",
           "price": "₩1,100",
           "priceUS": "$0.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.plus.monthly",
-          "label": "Plus 월 구독 (심사 전)",
+          "label": "Plus 월 구독",
           "trim": "Plus",
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.plus.yearly",
-          "label": "Plus 연 구독 (심사 전)",
+          "label": "Plus 연 구독",
           "trim": "Plus",
           "period": "연",
           "price": "₩8,800",
           "priceUS": "$5.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.plus.lifetime",
-          "label": "Plus 평생 (심사 전)",
+          "label": "Plus 평생",
           "trim": "Plus",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.pro.weekly",
-          "label": "Pro 주 구독 (심사 전)",
+          "label": "Pro 주 구독",
           "trim": "Pro",
           "period": "주",
           "price": "₩2,200",
           "priceUS": "$1.49",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.pro.monthly",
-          "label": "Pro 월 구독 (심사 전)",
+          "label": "Pro 월 구독",
           "trim": "Pro",
           "period": "월",
           "price": "₩4,400",
           "priceUS": "$2.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.pro.yearly",
-          "label": "Pro 연 구독 (심사 전)",
+          "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.pro.lifetime",
-          "label": "Pro 평생 (심사 전)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
           "price": "₩39,000",
           "priceUS": "$26.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.bookmarkshot.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -2153,13 +2235,17 @@
         "tip.large"
       ],
       "triggers": [
-        "설정 ▸ 지원 ▸ 개발자 응원하기 (판매 중인 팁이 있을 때만 보임)",
-        "책 상세 화면의 부탁 카드 — 담은 문장이 20·50·100·200·500개를 넘었을 때, 드물게(물은 뒤 60일 · 낸 뒤 180일 쉼)"
+        "책 11권째를 저장할 때",
+        "문장 101개째를 저장할 때",
+        "설정 ▸ iCloud 동기화를 켤 때 (Pro)",
+        "설정 ▸ 밑줄 Plus · Pro",
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": null,
-      "restore": false,
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 3종 심사 전이라 아직 안 보임)",
-      "notes": "monetization = .free, LeeoTipJar 를 startStandalone 으로 혼자 돌린다. 팁 화면·문구는 LeeoKit(LeeoTipJarView/LeeoTipAsk) 공통 문구. 팁 3종이 store-products.json 에서 READY_TO_SUBMIT 이라 상품을 못 받아 오고, 응원하기 줄과 부탁 카드는 isAvailable 일 때만 서므로 출시 빌드에서 지금은 아무 결제 화면도 보이지 않는다. 가격은 레포에 .storekit 이 없어 확인 못 함."
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
+      "restore": true,
+      "currentPublic": "무료 · Plus 주 / 월 / 연 / 평생 · Pro 주 / 월 / 연 / 평생 · 팁 — 페이월 전 빌드(5 이하)를 받은 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 상품 모두 APPROVED. 최초 빌드 5 이하(production 영수증)는 Pro. 이미 모은 책 · 문장은 보기 · 지우기 · 내보내기 그대로. isSelling — 유료 상품을 못 불러온 기기는 막지 않는다. 페이월에 오퍼 코드 단추. 선물 없음. 팁 부탁 카드는 Pro 사용자, 문장 20 · 50 · 100 · 200 · 500개."
     },
     "bucket-climb": {
       "slug": "bucket-climb",
@@ -2247,67 +2333,86 @@
     "daily-compliment": {
       "slug": "daily-compliment",
       "paywallFiles": [
+        "Jujob/AppContentViews/ProPaywallView.swift",
+        "Jujob/AppDelegate/JujobPro.swift",
         "Jujob/AppDelegate/JujobTipJar.swift",
-        "Jujob/AppDelegate/JujobApp.swift",
+        "Jujob/AppContentViews/MainContentView.swift",
+        "Jujob/AppContentViews/FontsListView.swift",
         "Jujob/AppContentViews/AchievementsView.swift",
-        "Jujob/AppContentViews/MainContentView.swift"
+        "Jujob/Products.storekit"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "유료 앱 — 한 번 사면 모든 기능(앱 안에서 잠긴 기능 없음)"
+      "headline": "오늘의 주접 Pro",
+      "subheadline": "내 홈 화면에 어울리는 주접 위젯으로. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Pro 한 칸 — 연 구독 · 평생 (주 · 월 구독 보기를 펼치면 주 · 월), 단추 하나",
+      "trimLabels": [
+        "무료",
+        "Pro"
       ],
-      "locked": [],
+      "benefits": [
+        "Pro · 글꼴 13종",
+        "Pro · 배경 이미지",
+        "Pro · 배경 색 · 글자 색 직접 고르기",
+        "Pro · 행간 조절"
+      ],
+      "free": [
+        "주접 위젯",
+        "주접 281개 · 기분 선택",
+        "이름 넣기",
+        "즐겨찾기 · 히스토리",
+        "연속 기록 · 업적",
+        "정렬 · 새로고침 주기",
+        "글꼴 3종 · 기본 색"
+      ],
+      "locked": [
+        "Pro: 글꼴 10종 더 · 배경 이미지 · 배경 색 · 글자 색 · 그라데이션 색 · 행간"
+      ],
       "tiers": [
         {
           "productId": "com.leeo.JuJob.pro.weekly",
-          "label": "Pro 주 구독 (심사 전)",
+          "label": "Pro 주 구독",
           "trim": "Pro",
           "period": "주",
           "price": "₩1,100",
           "priceUS": "$0.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.JuJob.pro.monthly",
-          "label": "Pro 월 구독 (심사 전)",
+          "label": "Pro 월 구독",
           "trim": "Pro",
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.JuJob.pro.yearly",
-          "label": "Pro 연 구독 (심사 전)",
+          "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
           "price": "₩8,800",
           "priceUS": "$5.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.JuJob.pro.lifetime",
-          "label": "Pro 평생 (심사 전)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.JuJob.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩17,000",
           "priceUS": "$11.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -2316,266 +2421,318 @@
         "tip.large"
       ],
       "triggers": [
-        "업적 화면: 주접을 받은 날이 7 · 30 · 100일에 닿으면 응원 부탁 카드('지금까지 N일 동안 주접을 받았어요')",
-        "메인 ▸ 개발자에게 문의 묶음의 응원하기 줄(판매 중인 팁이 있을 때만 보임)"
+        "잠긴 글꼴을 누를 때",
+        "배경 이미지 · 그라데이션 색 · 글자 색 · 행간 줄",
+        "7일 연속 업적이 열린 날 업적 화면 카드 (그날 하루만)",
+        "위젯 꾸미기 아래 '오늘의 주접 Pro' 줄",
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": null,
-      "restore": null,
-      "currentPublic": "유료 앱 ₩3,300 · 앱 안 결제 없음 · 팁만 (팁 상품 심사 중)",
-      "notes": "JujobSpec.monetization = .paidUpfront(선불 유료 앱). StoreKit 페이월·기능 잠금 없음, .storekit 파일도 없음. 팁 셋은 READY_TO_SUBMIT 이라 판매 전 — JujobTipJarRow 는 tipJar.isAvailable 일 때만 서므로 지금은 응원하기 줄이 안 보일 것. 앱 가격 ₩3,300 은 apps.json(예전 스토어 값)에서 옴, 코드로는 확인 불가."
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
+      "restore": true,
+      "currentPublic": "무료 · Pro 주 / 월 / 연 / 평생 · 팁 — 유료 다운로드 시절(1.0.5 빌드 5까지) 받은 분은 Pro 평생",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 상품 모두 APPROVED. 유료 다운로드(₩3,300) 시절 구매자는 Pro 평생(최초 빌드 5 이하). sellsPro — Pro 상품을 못 불러온 기기는 꾸밈을 막지 않는다(위젯에도 비춤). 막혀서 들어오면 머리 위에 까닭 한 줄. 올리기 · 선물 없음. 팁은 계약 밖의 따로 선 LeeoTipJar — 응원하기 줄과 업적 화면 부탁 카드(Pro 사용자, 주접 받은 날 7 · 30 · 100일)."
     },
     "family-bank": {
       "slug": "family-bank",
       "paywallFiles": [
+        "FamilyBank/Store/PaywallView.swift",
+        "FamilyBank/Store/ProEntitlement.swift",
+        "FamilyBank/Store/PurchaseManager.swift",
         "FamilyBank/FamilyBankSpec.swift",
-        "FamilyBank/FamilyBankApp.swift",
-        "FamilyBank/Views/ParentModeView.swift"
-      ],
-      "kind": "tip-jar",
-      "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "모든 기능 무료"
-      ],
-      "locked": [],
-      "tiers": [
-        {
-          "productId": "com.family.FamilyBank.plus.weekly",
-          "label": "Plus 주 구독 (심사 전)",
-          "trim": "Plus",
-          "period": "주",
-          "price": "₩1,100",
-          "priceUS": "$0.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.plus.monthly",
-          "label": "Plus 월 구독 (심사 전)",
-          "trim": "Plus",
-          "period": "월",
-          "price": "₩3,300",
-          "priceUS": "$1.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.plus.yearly",
-          "label": "Plus 연 구독 (심사 전)",
-          "trim": "Plus",
-          "period": "연",
-          "price": "₩8,800",
-          "priceUS": "$5.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.plus",
-          "label": "Plus 평생 (심사 전)",
-          "trim": "Plus",
-          "period": "평생",
-          "price": "₩26,000",
-          "priceUS": "$17.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.pro.weekly",
-          "label": "Pro 주 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "주",
-          "price": "₩2,200",
-          "priceUS": "$1.49",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.pro.monthly",
-          "label": "Pro 월 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "월",
-          "price": "₩4,400",
-          "priceUS": "$2.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.pro.yearly",
-          "label": "Pro 연 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "연",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.pro",
-          "label": "Pro 평생 (심사 전)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩39,000",
-          "priceUS": "$26.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩13,000",
-          "priceUS": "$8.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.FamilyBank.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩26,000",
-          "priceUS": "$17.99",
-          "live": false
-        }
-      ],
-      "tips": [
-        "tip.small",
-        "tip.medium",
-        "tip.large"
-      ],
-      "triggers": [
-        "부모 대시보드: 용돈을 20 · 50 · 100번 건네면 응원 부탁 카드('지금까지 용돈을 N번 건넸어요')",
-        "부모 대시보드 ▸ 지원 ▸ 응원하기(LeeoTipJarLink)"
-      ],
-      "trial": null,
-      "restore": null,
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 상품 심사 중)",
-      "notes": "FamilyBankSpec.monetization = .free('인앱 결제가 없는 완전 무료 앱'). 페이월·기능 잠금·.storekit 없음. 팁 셋(LeeoTipJar standalone)은 READY_TO_SUBMIT 이라 아직 판매 전."
-    },
-    "family-court": {
-      "slug": "family-court",
-      "paywallFiles": [
-        "FamilyCourt/FamilyCourtSpec.swift",
-        "FamilyCourt/FamilyCourtApp.swift",
-        "FamilyCourt/CaseDetailView.swift",
-        "FamilyCourt/SupportViews.swift"
-      ],
-      "kind": "tip-jar",
-      "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "모든 기능 무료"
-      ],
-      "locked": [],
-      "tiers": [
-        {
-          "productId": "com.family.familycourt.pro.weekly",
-          "label": "Pro 주 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "주",
-          "price": "₩1,100",
-          "priceUS": "$0.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.familycourt.pro.monthly",
-          "label": "Pro 월 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "월",
-          "price": "₩3,300",
-          "priceUS": "$1.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.familycourt.pro.yearly",
-          "label": "Pro 연 구독 (심사 전)",
-          "trim": "Pro",
-          "period": "연",
-          "price": "₩8,800",
-          "priceUS": "$5.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.familycourt.pro",
-          "label": "Pro 평생 (심사 전)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩26,000",
-          "priceUS": "$17.99",
-          "live": false
-        },
-        {
-          "productId": "com.family.familycourt.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
-          "trim": "Pro",
-          "period": "평생",
-          "price": "₩17,000",
-          "priceUS": "$11.99",
-          "live": false
-        }
-      ],
-      "tips": [
-        "tip.small",
-        "tip.medium",
-        "tip.large"
-      ],
-      "triggers": [
-        "사건 상세: 판결로 끝낸 다툼이 5 · 10 · 30건에 닿으면 응원 부탁 카드('지금까지 우리 집 다툼 N건을 판결로 풀었어요')",
-        "설정 ▸ 지원 ▸ 응원하기(LeeoTipJarLink)"
-      ],
-      "trial": null,
-      "restore": null,
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 상품 심사 중)",
-      "notes": "FamilyCourtSpec.monetization = .free('기능을 여는 인앱 결제 없음'). 페이월·.storekit 없음. 코드의 TipKit(TipView) 은 사용법 안내이지 결제가 아님. 팁 셋(LeeoTipJar standalone)은 READY_TO_SUBMIT 이라 아직 판매 전."
-    },
-    "fire-tracker": {
-      "slug": "fire-tracker",
-      "paywallFiles": [
-        "FireTracker/FireTrackerSpec.swift",
-        "FireTracker/ProAccess.swift",
-        "FireTracker/ProPaywallView.swift",
-        "FireTracker/SettingsView.swift",
-        "FireTracker/AssetsView.swift",
-        "FireTracker/SavedCalcsView.swift",
-        "FireTracker/SimulatorView.swift",
-        "FireTracker/QuarterlyReport.swift",
-        "FireTracker/RootView.swift",
-        "FireTracker/TipMoments.swift",
-        "FireTracker.storekit"
+        "FamilyBank/Views/ParentModeView.swift",
+        "FamilyBank/Views/ParentActionsView.swift",
+        "FamilyBank.storekit"
       ],
       "kind": "mixed",
       "hidden": false,
-      "headline": "퇴사각 Plus · Pro",
-      "subheadline": "내 퇴사 날짜는 무료로. 더 깊이 파고들 도구를 연 구독이나 평생으로 고르세요.",
-      "cta": "칸마다 '퇴사각 Plus 열기' · '퇴사각 Pro 열기' — 연 구독 · 평생('주 · 월 구독도 보기' 로 펼침)",
+      "headline": "쑥쑥용돈 Plus · Pro",
+      "subheadline": "우리집 은행을 더 크게, 더 진짜처럼. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Plus | Pro 카드마다 연 구독 · 평생 (주간 · 월간으로 보기를 펼치면 주 · 월), 가족 공유로 가족 모두 열림",
       "trimLabels": [
         "무료",
         "Plus",
         "Pro"
       ],
       "benefits": [
-        "Plus · 투자 예측 · 빚 갚기 vs 투자하기",
-        "Plus · 월급 구매력 · 돈과 시간 · 여러 잣대로 자산 재기",
-        "Plus · 계산 무제한 저장 · 매매 원장",
-        "Pro · Plus 전부",
-        "Pro · 퇴사 그날 미리보기 · 분기 퇴사각 리포트",
-        "Pro · iCloud 동기화 · 홈 화면과 잠금화면 위젯 · 보유 종목 한 번에 가져오기"
+        "Plus · 자녀 수 제한 없음, 우리집 가게 물품 무제한",
+        "Plus · 투자 상품 직접 만들기",
+        "Pro · 바코드 결제",
+        "Pro · 물가 상승 체험",
+        "Pro · iCloud 기기 간 동기화",
+        "Pro · Plus 기능 전부"
       ],
       "free": [
-        "자산 · 부채 기록 개수 제한 없음",
-        "대시보드 · 퇴사 달성률 · 예상 달성 시점",
-        "여정 그래프와 자동 기록",
-        "생애주기 · 대출 · 예적금 계산기",
-        "계산 저장 3개",
-        "시세 갱신 · 백업 · 복원 · 앱 잠금"
+        "우리집 화폐 · 용돈 지급 · 차감",
+        "저축 이자 · 이자율 정하기",
+        "거래 기록 · 경제 배우기",
+        "부모 모드 PIN · 자녀 폰 모드 · 초대장",
+        "자녀 2명 · 가게 물품 10개 · 투자 상품 기본 3종"
       ],
       "locked": [
-        "Plus: 투자 예측 · 빚 vs 투자 · 월급 구매력 · 돈과 시간 · 여러 잣대로 재기",
-        "Plus: 4번째 계산 저장부터",
-        "Plus: 매매 원장",
-        "Pro: 퇴사 그날 미리보기 · 분기 리포트",
-        "Pro: iCloud 동기화 · 위젯",
-        "Pro: 보유 종목 한 번에 가져오기"
+        "Plus: 자녀 3명째 · 물품 11개째부터 · 투자 상품 직접 만들기",
+        "Pro: 바코드 결제 · 물가 상승 체험 · iCloud 동기화"
+      ],
+      "tiers": [
+        {
+          "productId": "com.family.FamilyBank.plus.weekly",
+          "label": "Plus 주 구독",
+          "trim": "Plus",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.plus.monthly",
+          "label": "Plus 월 구독",
+          "trim": "Plus",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.plus.yearly",
+          "label": "Plus 연 구독",
+          "trim": "Plus",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.plus",
+          "label": "Plus 평생",
+          "trim": "Plus",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.weekly",
+          "label": "Pro 주 구독",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩2,200",
+          "priceUS": "$1.49",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.monthly",
+          "label": "Pro 월 구독",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩4,400",
+          "priceUS": "$2.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.yearly",
+          "label": "Pro 연 구독",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.pro",
+          "label": "Pro 평생",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩39,000",
+          "priceUS": "$26.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.upgrade",
+          "label": "Plus 평생 → Pro 평생 올리기",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩13,000",
+          "priceUS": "$8.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.FamilyBank.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": true
+        }
+      ],
+      "tips": [
+        "tip.small",
+        "tip.medium",
+        "tip.large"
+      ],
+      "triggers": [
+        "자녀 · 가게 물품을 한도 넘게 추가할 때",
+        "투자 상품 만들기",
+        "바코드 결제 (평생이 먼저 골라짐)",
+        "물가 상승률 줄 · iCloud 동기화 줄 (Pro)",
+        "요금제 칸 ▸ 요금제 보기 · 평생으로 바꾸기",
+        "첫 이자가 붙은 주에 무료 가족에게 한 번",
+        "할인 배너",
+        "연 구독 6개월째 · 갱신 7일 전 졸업 제안"
+      ],
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
+      "restore": true,
+      "currentPublic": "무료 · Plus 주 / 월 / 연 / 평생 · Pro 주 / 월 / 연 / 평생 · 팁 — 페이월 전부터 쓰던 가족은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 상품 모두 APPROVED. 페이월은 부모 모드(PIN) 안에서만 뜬다. Pro 평생 인정: 페이월 버전 첫 실행 때 가족 장부가 있었거나 무료 빌드 6 이하로 처음 받은 사람(production 만). 아이의 잔액 · 기록은 어떤 칸에서도 잠그지 않는다. isSelling 장치. 페이월에 오퍼 코드 단추. 선물 없음. 팁 부탁은 Pro 사용자."
+    },
+    "family-court": {
+      "slug": "family-court",
+      "paywallFiles": [
+        "FamilyCourt/UnlockSheet.swift",
+        "FamilyCourt/Pro.swift",
+        "FamilyCourt/FamilyCourtSpec.swift",
+        "FamilyCourt/ContentView.swift",
+        "FamilyCourt/HomeView.swift",
+        "FamilyCourt/SupportViews.swift",
+        "FamilyCourt/CaseDetailView.swift",
+        "FamilyCourt/FamilyCourt.storekit"
+      ],
+      "kind": "mixed",
+      "hidden": false,
+      "headline": "억울해요 Pro",
+      "subheadline": "재판은 언제나 무료예요. 식구가 많고 법이 많은 집을 위한 Pro를 연 구독이나 평생으로 고르세요.",
+      "cta": "Pro 한 칸 — 연 구독 · 평생 (다른 기간 보기를 펼치면 월 · 주), 단추 'Pro 열기', 어른 확인 뒤",
+      "trimLabels": [
+        "무료",
+        "Pro"
+      ],
+      "benefits": [
+        "Pro · 가족 구성원 무제한",
+        "Pro · 법전 조문 무제한",
+        "Pro · Siri · 단축어로 바로 접수",
+        "Pro · 법원 이름 정하기"
+      ],
+      "free": [
+        "재판 열기 (민사 · 형사) 무제한",
+        "역할 · 대본 · 타이머",
+        "판결 · 벌칙 추천 · 약속 체크",
+        "어휘 난이도",
+        "지난 사건 · 백업",
+        "가족 구성원 6명 · 법전 12조"
+      ],
+      "locked": [
+        "Pro: 구성원 7명째 · 법전 13조째부터 · Siri · 단축어 · 법원 이름 정하기"
+      ],
+      "tiers": [
+        {
+          "productId": "com.family.familycourt.pro.weekly",
+          "label": "Pro 주 구독",
+          "trim": "Pro",
+          "period": "주",
+          "price": "₩1,100",
+          "priceUS": "$0.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.familycourt.pro.monthly",
+          "label": "Pro 월 구독",
+          "trim": "Pro",
+          "period": "월",
+          "price": "₩3,300",
+          "priceUS": "$1.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.familycourt.pro.yearly",
+          "label": "Pro 연 구독",
+          "trim": "Pro",
+          "period": "연",
+          "price": "₩8,800",
+          "priceUS": "$5.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.familycourt.pro",
+          "label": "Pro 평생",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩26,000",
+          "priceUS": "$17.99",
+          "live": true
+        },
+        {
+          "productId": "com.family.familycourt.pro.graduate",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
+          "trim": "Pro",
+          "period": "평생",
+          "price": "₩17,000",
+          "priceUS": "$11.99",
+          "live": true
+        }
+      ],
+      "tips": [
+        "tip.small",
+        "tip.medium",
+        "tip.large"
+      ],
+      "triggers": [
+        "가족 구성원 · 법전 조문을 한도 넘게 추가할 때",
+        "법원 이름 바꾸기",
+        "Siri · 단축어 두 번째부터",
+        "설정 ▸ 억울해요 Pro 알아보기",
+        "세 번째 판결 뒤 사건 화면 안내 (한 번)",
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안"
+      ],
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
+      "restore": true,
+      "currentPublic": "무료 · Pro 주 / 월 / 연 / 평생 · 팁 — 먼저 써 주신 가족은 Pro 평생",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 상품 모두 APPROVED. 화면의 앱 이름은 '억울해요'. 페이월은 늘 어른 확인(곱셈) 뒤. 무료 빌드 6 이하로 처음 받은 가족은 Pro 평생(production 만, 오프라인이면 첫 실행 기록). isSelling 장치(LeeoStore.limits). 올리기 · 선물 없음. 팁 부탁은 판결 난 사건 화면, Pro 가족에게만."
+    },
+    "fire-tracker": {
+      "slug": "fire-tracker",
+      "paywallFiles": [
+        "FireTracker/ProPaywallView.swift",
+        "FireTracker/ProAccess.swift",
+        "FireTracker/FireTrackerSpec.swift",
+        "FireTracker/TipMoments.swift",
+        "FireTracker/SettingsView.swift",
+        "FireTracker/SimulatorView.swift",
+        "FireTracker/SavedCalcsView.swift",
+        "FireTracker/AssetsView.swift",
+        "FireTracker/QuarterlyReport.swift",
+        "FireTracker/DashboardView.swift",
+        "FireTracker/RootView.swift",
+        "FireTracker.storekit"
+      ],
+      "kind": "mixed",
+      "hidden": false,
+      "headline": "퇴사각 Plus · Pro",
+      "subheadline": "내 퇴사 날짜는 무료로. 더 깊이 파고들 도구를 연 구독이나 평생으로 고르세요.",
+      "cta": "무료 · Plus · Pro 칸을 고르고 연 구독 · 평생 (주 · 월 구독도 보기를 펼치면 주 · 월), 구매 단추 하나",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
+      ],
+      "benefits": [
+        "Plus · 날짜를 본 다음, 어떻게 당길지 계산하기",
+        "Plus · 투자 예측, 빚 갚기 vs 투자하기",
+        "Plus · 월급 구매력, 돈과 시간, 여러 잣대로 자산 재기",
+        "Plus · 계산 무제한 저장, 매매 원장",
+        "Pro · 그날의 나 미리보기(건보료 · 연금 · 세금), 분기 퇴사각 리포트",
+        "Pro · iCloud 동기화, 보유 종목 한 번에 가져오기, 홈 화면 · 잠금화면 위젯"
+      ],
+      "free": [
+        "자산 기록 무제한",
+        "대시보드 · 여정 · 달성 시점",
+        "생애주기 · 대출 · 예적금 계산기",
+        "백업 · 복원 · 앱 잠금",
+        "계산 저장 3개"
+      ],
+      "locked": [
+        "Plus: 투자 예측 · 빚 vs 투자 · 월급 구매력 · 돈과 시간 · 자산 잣대 · 계산 무제한 저장 · 매매 원장",
+        "Pro: 그날의 나 미리보기 · 분기 리포트 · iCloud 동기화 · 가져오기 · 위젯"
       ],
       "tiers": [
         {
@@ -2643,16 +2800,16 @@
         },
         {
           "productId": "com.devkoan.FireTracker.pro",
-          "label": "Pro 평생 (유료 다운로드 시절의 프로 상품 그대로)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
           "price": "₩229,000",
-          "priceUS": "$150.00",
+          "priceUS": "$150.0",
           "live": true
         },
         {
           "productId": "com.devkoan.FireTracker.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (Plus 평생 가진 사람에게만)",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
           "price": "₩22,000",
@@ -2661,20 +2818,20 @@
         },
         {
           "productId": "com.devkoan.FireTracker.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만 — 연 구독이 아직 안 팔려 대상 없음)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩43,000",
           "priceUS": "$29.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.FireTracker.gift.pro",
-          "label": "Pro 선물하기 (받는 사람에게 Pro 평생) — App Store Connect 에 상품 없음 (심사 전)",
+          "label": "Pro 평생 선물 (판매 꺼짐 — 선물 기록 있는 사람에게만 설정 줄)",
           "trim": "Pro",
-          "period": "1회",
-          "price": null,
-          "priceUS": "$44.99",
+          "period": "평생",
+          "price": "₩229,000",
+          "priceUS": "$150.0",
           "live": false
         }
       ],
@@ -2684,17 +2841,18 @@
         "tip.large"
       ],
       "triggers": [
-        "계산 탭에서 잠긴 계산기(투자 예측 · 빚 vs 투자 · 월급 구매력 · 돈과 시간 · 여러 잣대)를 열 때",
+        "계산 탭에서 잠긴 계산기를 고를 때",
         "계산을 4번째로 저장할 때",
-        "자산 탭의 매매 원장 · 보유 종목 한 번에 가져오기",
-        "퇴사 그날 미리보기 · 분기 리포트 · 위젯을 열 때",
-        "설정 ▸ 퇴사각 Plus · Pro 줄",
-        "팁: 첫 기록부터 6 · 12 · 24개월째 응원 카드 · 설정 ▸ 응원하기"
+        "매매 원장에 새 거래를 적을 때 (Plus)",
+        "그날의 나 미리보기 · 분기 리포트 · 가져오기 · 동기화 켜기 (Pro)",
+        "잠긴 위젯을 누를 때",
+        "설정 ▸ 퇴사각 Plus · Pro · Pro로 올리기 · 평생으로 바꾸기",
+        "연 구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": "무료 체험 없음 — 연 구독 첫 해 반값(.storekit payUpFront $4.99 / $7.49)이 있지만 연 구독이 심사 전이라 아직 안 보임",
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
       "restore": true,
-      "currentPublic": "유료 다운로드 ₩229,000 · 안에서 Plus 평생 ₩43,000 · Pro 평생 ₩229,000 · Plus→Pro 올리기 ₩22,000 · 팁 — 주 · 월 · 연 구독은 심사 전 · 앱을 산 분은 Pro 평생",
-      "notes": "2026-11-21 소스 · App Store Connect 로 다시 정리: 1.2.5(빌드 15 · 16)에서 유료 다운로드 → 무료 다운로드 + 무료 · Plus · Pro 로 바꿈(2f1b97d, 빌드 16 안에 있음). 예전의 paywallEnabled = false 는 없어졌고 DEBUG(Xcode 설치본)만 늘 Pro — 출시 빌드는 잠김. 페이월은 자체 ProPaywallView(세 칸 + 비교표), 결제는 LeeoStore. store-products.json: plus · pro · pro.upgrade · pro.graduate · 팁 3개 APPROVED, 주 · 월 · 연 구독 6개는 READY_TO_SUBMIT, gift.pro 는 없음 → 지금 페이월엔 평생 두 칸과 올리기만 선다(구독 졸업은 연 구독자가 없어 안 보임). 빌드 12(1.2.4) 이하에서 받은 사람은 앱값을 낸 사람이라 Pro 평생. 원화는 paywall-plans.json, 달러는 .storekit. 확인 못 함: Pro 평생 ₩229,000 / $150 이 의도한 값인지(설계안 · .storekit 모두 그 값이지만 다른 칸과 동떨어짐 — 유료 시절 프로 상품 가격이 남은 것일 수 있음) · 스토어 다운로드 가격을 실제로 무료로 내렸는지. 유료 다운로드 ₩229,000 과 안의 상품 가격은 바꾸지 않는다(2026-11-21 사용자 결정)."
+      "currentPublic": "무료 · Plus 평생 · Pro 평생 (주 · 월 · 연 구독은 심사 전) · 팁 — 앱을 산 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 페이월은 Plus · Pro 주 · 월 · 연 · 평생 사다리지만 구독 6종이 READY_TO_SUBMIT(심사 전)이라 판매 중인 것은 Plus 평생 · Pro 평생 · 올리기 · 졸업뿐 → 구독 live false. 유료 다운로드 시절(빌드 12 이하) 설치자는 Pro 평생(영수증, 못 읽으면 첫 실행 때 기록 유무). storeReady — 유료 상품을 못 불러온 기기는 다 연다. 선물(gift.pro)은 APPROVED 이지만 sellsGifts 를 넘기지 않아 판매 꺼짐. 팁 부탁 카드는 대시보드, Pro 사용자, 지켜본 지 6 · 12 · 24개월."
     },
     "footprint-diary": {
       "slug": "footprint-diary",
@@ -3021,137 +3179,134 @@
     "kid-calendar": {
       "slug": "kid-calendar",
       "paywallFiles": [
-        "CalendarSnap/CalendarSnapSpec.swift",
-        "CalendarSnap/PurchaseManager.swift",
         "CalendarSnap/PaywallView.swift",
+        "CalendarSnap/PurchaseManager.swift",
+        "CalendarSnap/CalendarSnapSpec.swift",
         "Shared/Plan.swift",
-        "CalendarSnap/SettingsView.swift",
         "CalendarSnap/ContentView.swift",
+        "CalendarSnap/SettingsView.swift",
+        "ScheduleWidget/ScheduleWidget.swift",
         "CalendarSnap/Products.storekit"
       ],
       "kind": "mixed",
       "hidden": false,
       "headline": "아이일정 Plus · Pro",
       "subheadline": "아이가 늘어도, 가족이 함께 봐도. 연 구독이나 평생 중에 고르세요.",
-      "cta": "Plus | Pro 를 고르고 연 구독 · 평생 중 하나 ('구독 시작' / 평생 구매), 아래에 매달 · 매주 짧은 줄",
+      "cta": "Plus | Pro 카드마다 연 구독 · 평생 (주 · 월 구독을 펼치면 주 · 월)",
       "trimLabels": [
         "무료",
         "Plus",
         "Pro"
       ],
       "benefits": [
-        "Plus · 아이 여러 명, 아이마다 달력과 반을 따로",
+        "Plus · 아이 여러 명 (아이마다 달력과 반을 따로)",
         "Plus · 아이 사진 프로필",
-        "Plus · 등원 직전 1시간 전 · 정각 알림",
-        "Pro · 배우자 · 조부모 · 돌봄 선생님을 초대해 같은 일정 보기 (초대받은 사람은 무료)",
+        "Plus · 1시간 전 · 정각 알림",
+        "Pro · 초대해서 함께 보기 (배우자 · 조부모 · 돌봄 선생님, 초대받은 사람은 무료)",
         "Pro · 홈 화면 위젯",
         "Pro · Plus 기능 전부"
       ],
       "free": [
         "알림장 사진으로 한 달 일정 넣기 (횟수 제한 없음)",
-        "아이 1명",
-        "애플 캘린더 등록",
-        "전날 저녁 · 당일 아침 준비물 알림",
-        "그날 일정 글로 공유 · 일정 파일 내보내기",
-        "초대받아 가족 일정 함께 보기"
+        "애플 캘린더 일괄 등록",
+        "전날 저녁 · 당일 아침 알림",
+        "그날 일정 텍스트 공유",
+        "아이 1명"
       ],
       "locked": [
-        "Plus: 두 번째 아이부터",
-        "Plus: 아이 사진 프로필",
-        "Plus: 1시간 전 · 정각 알림",
-        "Pro: 초대해서 함께 보기 (공유를 새로 만드는 사람만)",
-        "Pro: 홈 화면 위젯"
+        "Plus: 아이 여러 명 · 사진 프로필 · 1시간 전 · 정각 알림",
+        "Pro: 초대해서 함께 보기 · 홈 화면 위젯"
       ],
       "tiers": [
         {
           "productId": "com.devkoan.CalendarSnap.plus.weekly",
-          "label": "Plus 주 구독 (심사 중)",
+          "label": "Plus 주 구독",
           "trim": "Plus",
           "period": "주",
           "price": "₩1,100",
           "priceUS": "$0.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.plus.monthly",
-          "label": "Plus 월 구독 (심사 중)",
+          "label": "Plus 월 구독",
           "trim": "Plus",
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$2.49",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.plus.yearly",
-          "label": "Plus 연 구독 (심사 중)",
+          "label": "Plus 연 구독",
           "trim": "Plus",
           "period": "연",
           "price": "₩12,000",
           "priceUS": "$7.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.plus",
-          "label": "Plus 평생 (심사 중)",
+          "label": "Plus 평생",
           "trim": "Plus",
           "period": "평생",
           "price": "₩35,000",
           "priceUS": "$23.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.pro.weekly",
-          "label": "Pro 주 구독 (심사 중)",
+          "label": "Pro 주 구독",
           "trim": "Pro",
           "period": "주",
           "price": "₩2,200",
           "priceUS": "$1.49",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.pro.monthly",
-          "label": "Pro 월 구독 (심사 중)",
+          "label": "Pro 월 구독",
           "trim": "Pro",
           "period": "월",
           "price": "₩5,500",
           "priceUS": "$3.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.pro.yearly",
-          "label": "Pro 연 구독 (심사 중)",
+          "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
           "price": "₩17,000",
           "priceUS": "$11.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.pro",
-          "label": "Pro 평생 (심사 중)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
           "price": "₩52,000",
           "priceUS": "$35.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (심사 중)",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
           "price": "₩17,000",
           "priceUS": "$11.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.CalendarSnap.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 중)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩35,000",
           "priceUS": "$23.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -3160,19 +3315,20 @@
         "tip.large"
       ],
       "triggers": [
-        "설정에서 '아이 추가'로 두 번째 아이를 넣을 때",
-        "아이 프로필 동그라미를 눌러 사진을 고를 때",
-        "알림 시점에서 1시간 전 · 정각을 켤 때",
-        "설정 ▸ 가족과 함께 보기에서 초대를 시작할 때",
-        "잠긴 위젯을 눌렀을 때",
+        "둘째 아이를 추가할 때",
+        "아이 프로필 사진을 누를 때",
+        "1시간 전 · 정각 알림을 켤 때",
+        "가족 함께 보기를 시작할 때",
+        "잠긴 위젯을 누를 때",
         "두 번째 달 알림장을 저장한 직후 한 번 ('두 달째 일정을 넣었어요')",
         "설정 ▸ 요금제 보기",
-        "구독 중인 사람에게 '구독 졸업' 평생 제안 · 설정 '평생으로 바꾸기'"
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": null,
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
       "restore": true,
-      "currentPublic": "모든 기능 무료 (Plus · Pro 와 팁 상품은 심사 중)",
-      "notes": "2026-11-21 소스 · App Store Connect 로 다시 정리: 결제 화면이 생겼다 — Spec 이 LeeoMonetization.freemiumSubscription, 자체 PurchaseManager · PaywallView 로 무료 · Plus · Pro 세 칸, 칸마다 연 · 평생(+ 매달 · 매주 짧은 줄), Plus 평생 → Pro 올리기 · 구독 졸업 평생. 그래서 kind 를 tip-jar 에서 mixed 로. 1.0.7(빌드 7)이 첫 유료 빌드이고 빌드 6 이하로 처음 설치한 사람은 Pro(lastFreeBuild = 6, LeeoStore grandfather). 상품 13개(팁 포함) 모두 WAITING_FOR_REVIEW 라 live 0. 유료 칸 상품을 한 번도 못 불러온 기기는 아무것도 잠그지 않으므로(Plan.isSelling) 승인 전까지는 출시 빌드에서도 사실상 모두 무료이고, 승인되면 결제 화면이 저절로 선다 — 그래서 hidden false. 가격: 달러는 Products.storekit(USA)과 기존 값이 모두 같고, 원화는 기존 항목 · paywall-plans 설계안 값. 연 구독은 첫 해 할인(App Store 첫 구독 할인, storekit 에 Plus $3.99 · Pro $5.99). 팁(LeeoTipJar 단독, storekit $0.99 / $2.99 / $4.99)은 설정 ▸ 지원 '개발자 응원하기'와 일정 저장 뒤 부탁 카드 — 승인 전이라 아직 안 보인다. 확인 못 함: 1.0.7 빌드가 지금 심사 중인지(상품만 WAITING_FOR_REVIEW 로 확인)."
+      "currentPublic": "무료 · Plus 주 / 월 / 연 / 평생 · Pro 주 / 월 / 연 / 평생 · 팁 — 결제 도입 전에 받은 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 상품 모두 APPROVED. 1.0.7 빌드 6 이하로 처음 받은 사람은 Pro(출시 영수증만). isSelling — 유료 상품을 못 불러온 기기는 막지 않는다(위젯도). 초대받은 참여자는 여러 아이 · 사진 프로필 무료. 페이월에 오퍼 코드 단추. 선물 없음. 팁 부탁 카드는 Pro 사용자, 누적 일정 30 · 100 · 200개. 블랙프라이데이 할인 배너 대상."
     },
     "lecture-q": {
       "slug": "lecture-q",
@@ -3335,112 +3491,139 @@
     "life-restaurant": {
       "slug": "life-restaurant",
       "paywallFiles": [
+        "RestaurantMap/Views/PaywallView.swift",
+        "RestaurantMap/Services/Purchases.swift",
+        "RestaurantMap/Services/RestaurantPlan.swift",
         "RestaurantMap/RestaurantMapSpec.swift",
+        "RestaurantMap/ContentView.swift",
         "RestaurantMap/Views/SettingsView.swift",
+        "RestaurantMap/Views/AddRestaurantView.swift",
+        "RestaurantMap/Views/ReviewFeedView.swift",
+        "RestaurantMap/Views/GoogleImportView.swift",
+        "RestaurantMap/Views/TasteProfileView.swift",
+        "RestaurantMap/Views/CustomCategorySettingsView.swift",
         "RestaurantMap/Views/RestaurantDetailView.swift",
-        "RestaurantMap/RestaurantMapApp.swift"
+        "RestaurantMap/Products.storekit"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "앱 안의 모든 기능 무료 (앱 안 결제 없음)"
+      "headline": "인생 맛집 Plus · Pro",
+      "subheadline": "내 맛집 지도를 끝까지. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Plus | Pro 카드마다 연 구독 · 평생 (주 · 월 구독도 보기를 펼치면 주 · 월), 들어온 자리의 칸이 먼저",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
       ],
-      "locked": [],
+      "benefits": [
+        "Plus · 식당 무제한, 음식 종류 직접 추가",
+        "Plus · 기록이 말하는 취향, 미식 총평, 단골 카드",
+        "Pro · 다녀온 뒤 기록 알림",
+        "Pro · iCloud 백업 · 복구",
+        "Pro · Plus 기능 전부"
+      ],
+      "free": [
+        "식당 30곳 (가본 곳 · 가볼 곳 합쳐서)",
+        "방문 기록 · 사진 · 별점",
+        "음식별 맛 평가",
+        "단골 인정 · 나의 미슐랭",
+        "미식 기준 기록 · 단골 후기",
+        "지도 · 길찾기 · 전화"
+      ],
+      "locked": [
+        "Plus: 식당 무제한 · 음식 종류 직접 추가 · 기록이 말하는 취향 · 미식 총평 · 단골 카드",
+        "Pro: 다녀온 뒤 기록 알림 · iCloud 백업"
+      ],
       "tiers": [
         {
           "productId": "com.Ysoup.restaurantmap.plus.weekly",
-          "label": "Plus 주 구독 (심사 전)",
+          "label": "Plus 주 구독",
           "trim": "Plus",
           "period": "주",
           "price": "₩1,100",
           "priceUS": "$0.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.plus.monthly",
-          "label": "Plus 월 구독 (심사 전)",
+          "label": "Plus 월 구독",
           "trim": "Plus",
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.plus.yearly",
-          "label": "Plus 연 구독 (심사 전)",
+          "label": "Plus 연 구독",
           "trim": "Plus",
           "period": "연",
           "price": "₩8,800",
           "priceUS": "$5.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.plus.lifetime",
-          "label": "Plus 평생 (심사 전)",
+          "label": "Plus 평생",
           "trim": "Plus",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.pro.weekly",
-          "label": "Pro 주 구독 (심사 전)",
+          "label": "Pro 주 구독",
           "trim": "Pro",
           "period": "주",
           "price": "₩2,200",
           "priceUS": "$1.49",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.pro.monthly",
-          "label": "Pro 월 구독 (심사 전)",
+          "label": "Pro 월 구독",
           "trim": "Pro",
           "period": "월",
           "price": "₩4,400",
           "priceUS": "$2.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.pro.yearly",
-          "label": "Pro 연 구독 (심사 전)",
+          "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.pro.lifetime",
-          "label": "Pro 평생 (심사 전)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
           "price": "₩39,000",
           "priceUS": "$26.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.Ysoup.restaurantmap.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -3449,78 +3632,103 @@
         "tip.large"
       ],
       "triggers": [
-        "설정 ▸ 지원 ▸ 개발자 응원하기",
-        "식당 상세 화면 — 방문 기록이 20 · 50 · 200번을 넘었을 때 '지금까지 맛집 방문 N번을 기록했어요' 카드 (LeeoTipAskSlot — 물으면 60일 쉼, 낸 사람은 180일)"
+        "31번째 식당을 저장할 때",
+        "단골 후기에서 내 목록에 담다 한도에 걸릴 때",
+        "구글 가져오기 'Plus로 모두 가져오기'",
+        "음식 종류 직접 추가",
+        "기록이 말하는 취향 · 단골 카드 · 미식 총평",
+        "설정 ▸ 기록 알림 · 백업 (Pro)",
+        "설정 ▸ 인생 맛집 Plus · Pro",
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": null,
-      "restore": false,
-      "currentPublic": "앱 안 결제 없음 · 팁만 (팁 심사 전) — 다운로드 가격은 스토어 기준(전에 받은 값 ₩4,400 유료, 레포로는 확인 불가)",
-      "notes": "monetization = LeeoMonetization.free, StoreKit 페이월 없음. 팁 3종(small·medium·large)은 store-products.json 에서 READY_TO_SUBMIT — 판매 전이라 LeeoTipJar.isAvailable 이 false 여서 설정 줄과 부탁 카드가 출시 빌드에 서지 않는다. .storekit 파일이 없어 팁 가격은 레포에서 확인 불가. apps.json 의 appPrice 는 유료 다운로드 ₩4,400(paid)인데 레포에는 다운로드 가격 근거가 없다(코드 주석은 '무료 앱이라'). 다운로드 가격은 스토어에서 다시 확인 필요."
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (무료 체험은 없음)",
+      "restore": true,
+      "currentPublic": "무료(식당 30곳) · Plus 주 / 월 / 연 / 평생 · Pro 주 / 월 / 연 / 평생 · 팁 — 앱을 산 분은 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 상품 모두 APPROVED. 1.0.2 빌드 5 까지 유료 다운로드였고 그때 받은 사람은 Pro 평생. 이미 저장한 식당은 30곳이 넘어도 보기 · 고치기 · 지우기 가능. everSold — 유료 상품을 못 불러온 기기는 다 연다. 평생 상품 ID 가 .plus.lifetime / .pro.lifetime 꼴. 페이월에 오퍼 코드 단추. 선물 없음. 팁 부탁 카드는 Pro 사용자, 누적 방문 20 · 50 · 200회. 블랙프라이데이 할인 배너 대상."
     },
     "moonlit-arcade": {
       "slug": "moonlit-arcade",
       "paywallFiles": [
         "MoonlitOrder/MoonlitOrderSpec.swift",
-        "MoonlitOrder/Views/MoonlitOrderSupportView.swift",
+        "MoonlitOrder/Store/MoonlitPro.swift",
+        "MoonlitOrder/Views/ProPaywallView.swift",
         "MoonlitOrder/Views/TipAskMoments.swift",
-        "MoonlitOrder/MoonlitOrderApp.swift"
+        "MoonlitOrder/Views/HomeView.swift",
+        "MoonlitOrder/Views/MoonlitOrderSupportView.swift",
+        "MoonlitOrder/MoonlitOrderApp.swift",
+        "MoonlitOrder/ViewModels/GameViewModel.swift",
+        "MoonlitOrder/Products.storekit"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "모든 게임 무료"
+      "headline": "달빛 오락실 Pro",
+      "subheadline": "방장 한 명이면 모두가 함께 놀아요. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Pro 한 칸 — 연 구독 · 평생 (주 · 월 구독도 보기를 펼치면 월 · 주), 단추 'Pro 열기'",
+      "trimLabels": [
+        "무료",
+        "Pro"
       ],
-      "locked": [],
+      "benefits": [
+        "Pro · 정체 추리 게임 두 개(달빛 결사 · 달 없는 밤)를 방장으로 열기",
+        "Pro · 새로 더해지는 게임",
+        "Pro · 무료의 모든 것"
+      ],
+      "free": [
+        "라이어 게임 · 달빛 화실 방 만들기",
+        "남의 방 참가 (네 게임 모두)",
+        "봇과 연습",
+        "끊겨도 이어서 · 진행자 도구"
+      ],
+      "locked": [
+        "Pro: 달빛 결사 · 달 없는 밤 방 만들기 (참가는 무료)",
+        "Pro: 새로 더해지는 게임"
+      ],
       "tiers": [
         {
           "productId": "com.example.MoonlitOrder.pro.weekly",
-          "label": "Pro 주 구독 (심사 전)",
+          "label": "Pro 주 구독",
           "trim": "Pro",
           "period": "주",
           "price": "₩1,100",
           "priceUS": "$0.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.example.MoonlitOrder.pro.monthly",
-          "label": "Pro 월 구독 (심사 전)",
+          "label": "Pro 월 구독",
           "trim": "Pro",
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.example.MoonlitOrder.pro.yearly",
-          "label": "Pro 연 구독 (심사 전)",
+          "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
           "price": "₩8,800",
           "priceUS": "$5.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.example.MoonlitOrder.pro",
-          "label": "Pro 평생 (심사 전)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.example.MoonlitOrder.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩17,000",
           "priceUS": "$11.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -3529,123 +3737,148 @@
         "tip.large"
       ],
       "triggers": [
-        "지원 화면 ▸ 개발자 응원하기",
-        "게임 결과 화면 — 친구들과 끝까지 마친 판이 10 · 30 · 100판을 넘었을 때 '친구들과 N판을 끝까지 함께했어요' 카드(연습 판 제외) (LeeoTipAskSlot — 물으면 60일 쉼, 낸 사람은 180일)"
+        "게임 고르기에서 달빛 결사 · 달 없는 밤 '방 만들기'",
+        "단축어 · Siri 로 잠긴 게임 방을 열 때",
+        "두 게임 봇 연습을 마친 결과 화면 'Pro 알아보기'",
+        "무료 게임을 방장으로 3판 넘게 연 뒤 결과 화면",
+        "설정 ▸ 달빛 오락실 Pro · 평생으로 바꾸기",
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 시트"
       ],
-      "trial": null,
-      "restore": false,
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 상품 심사 전이라 지금은 앱에 안 보임)",
-      "notes": "monetization = LeeoMonetization.free, StoreKit 페이월 없음. 팁 3종(small·medium·large)은 store-products.json 에서 READY_TO_SUBMIT — 판매 전이라 LeeoTipJar.isAvailable 이 false 여서 설정 줄과 부탁 카드가 출시 빌드에 서지 않는다. .storekit 파일이 없어 팁 가격은 레포에서 확인 불가."
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시",
+      "restore": true,
+      "currentPublic": "무료 · Pro 주 / 월 / 연 / 평생 · 팁 — 처음부터 쓰던 사람은 평생 Pro",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 팁만 받던 앱에서 무료 · Pro(자체 ProPaywallView, 2026-11-06)로 바뀜. 빌드 5(1.0.3) 이하로 처음 받은 사람은 평생 Pro(production 영수증만). isSelling — Pro 상품을 못 불러온 기기는 잠그지 않는다. 상품 모두 APPROVED. 팁 3종은 설정 줄과 결과 화면 부탁 카드(Pro 사용자, 10 · 30 · 100판)."
     },
     "punching": {
       "slug": "punching",
       "paywallFiles": [
         "StampCamera/StampCameraSpec.swift",
+        "StampCamera/StampCameraPlans.swift",
+        "StampCamera/StampCameraPaywallView.swift",
         "StampCamera/StampCameraSupportView.swift",
         "StampCamera/ContentView.swift",
-        "StampCamera/StampCameraApp.swift"
+        "StampCamera/StampCameraApp.swift",
+        "StampCamera/Products.storekit"
       ],
-      "kind": "tip-jar",
+      "kind": "mixed",
       "hidden": false,
-      "headline": null,
-      "subheadline": null,
-      "cta": null,
-      "trimLabels": [],
-      "benefits": [],
-      "free": [
-        "모든 기능 무료"
+      "headline": "펀칭 Plus · Pro",
+      "subheadline": "내 취향대로 꾸미고, 진짜 스티커로 뽑아 붙이세요. 연 구독이나 평생 중에 고르세요.",
+      "cta": "Plus | Pro 칸마다 연 구독 · 평생 (주 · 월 구독 보기를 펼치면 주 · 월)",
+      "trimLabels": [
+        "무료",
+        "Plus",
+        "Pro"
       ],
-      "locked": [],
+      "benefits": [
+        "Plus · 수집함 무제한",
+        "Plus · 속지 · 색감 전부, 자유롭게 꾸미기(스티커 순서 바꾸기)",
+        "Pro · 인쇄용 스티커 시트 PDF",
+        "Pro · 수집함을 이미지 한 장으로 공유",
+        "Pro · Plus 기능 전부"
+      ],
+      "free": [
+        "스티커 뜯기 · 움직이는 스티커",
+        "메시지 · 키보드에서 쓰기",
+        "복사 · 보내기 (GIF · PNG)",
+        "수집함 5권",
+        "속지 3종 · 색감 3종"
+      ],
+      "locked": [
+        "Plus: 여섯 번째 수집함부터 · 나머지 속지 · 색감 · 자유롭게 꾸미기",
+        "Pro: 인쇄용 스티커 시트 PDF · 수집함 이미지 공유"
+      ],
       "tiers": [
         {
           "productId": "com.devkoan.StampCamera.plus.weekly",
-          "label": "Plus 주 구독 (심사 전)",
+          "label": "Plus 주 구독",
           "trim": "Plus",
           "period": "주",
           "price": "₩1,100",
           "priceUS": "$0.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.plus.monthly",
-          "label": "Plus 월 구독 (심사 전)",
+          "label": "Plus 월 구독",
           "trim": "Plus",
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.plus.yearly",
-          "label": "Plus 연 구독 (심사 전)",
+          "label": "Plus 연 구독",
           "trim": "Plus",
           "period": "연",
           "price": "₩8,800",
           "priceUS": "$5.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.plus.lifetime",
-          "label": "Plus 평생 (심사 전)",
+          "label": "Plus 평생",
           "trim": "Plus",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.pro.weekly",
-          "label": "Pro 주 구독 (심사 전)",
+          "label": "Pro 주 구독",
           "trim": "Pro",
           "period": "주",
           "price": "₩2,200",
           "priceUS": "$1.49",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.pro.monthly",
-          "label": "Pro 월 구독 (심사 전)",
+          "label": "Pro 월 구독",
           "trim": "Pro",
           "period": "월",
           "price": "₩4,400",
           "priceUS": "$2.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.pro.yearly",
-          "label": "Pro 연 구독 (심사 전)",
+          "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.pro.lifetime",
-          "label": "Pro 평생 (심사 전)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
           "price": "₩39,000",
           "priceUS": "$26.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (심사 전)",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.devkoan.StampCamera.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 전)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -3654,13 +3887,18 @@
         "tip.large"
       ],
       "triggers": [
-        "지원 화면 ▸ 개발자 응원하기",
-        "메인 화면 — 뜯어 모은 스티커가 10 · 30 · 100장을 넘었을 때 '지금까지 스티커 N장을 뜯어 모았어요' 카드 (LeeoTipAskSlot — 물으면 60일 쉼, 낸 사람은 180일)"
+        "여섯 번째 수집함을 만들 때",
+        "잠긴 속지 · 색감을 고를 때",
+        "자유롭게 꾸미기(순서 바꾸기)",
+        "인쇄용 스티커 시트 · 수집함 이미지 공유 (Pro)",
+        "설정 ▸ 요금제",
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안 (설정 '평생으로 바꾸기' 도)"
       ],
-      "trial": null,
-      "restore": false,
-      "currentPublic": "모든 기능 무료 · 팁만 (팁 상품 심사 전이라 지금은 앱에 안 보임)",
-      "notes": "monetization = LeeoMonetization.free, StoreKit 페이월 없음. 팁 3종(small·medium·large)은 store-products.json 에서 READY_TO_SUBMIT — 판매 전이라 LeeoTipJar.isAvailable 이 false 여서 설정 줄과 부탁 카드가 출시 빌드에 서지 않는다. .storekit 파일이 없어 팁 가격은 레포에서 확인 불가."
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시 (App Store 첫 구독 혜택이 있을 때)",
+      "restore": true,
+      "currentPublic": "무료 · Plus 주 / 월 / 연 / 평생 · Pro 주 / 월 / 연 / 평생 · 팁",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: LeeoMonetization.freemiumSubscription + 자체 PaywallView(비교표). 상품 모두 APPROVED. isSelling — 유료 상품을 한 번도 못 불러온 기기는 한도로 막지 않는다. 이미 만든 수집함 · 입힌 속지 · 색감은 뺏지 않는다. Plus 평생 보유자에게 Pro 평생 자리에 올리기 상품. 팁 3종은 설정 줄과 메인 부탁 카드(스티커 10 · 30 · 100장)로 따로."
     },
     "sanoramyeon": {
       "slug": "sanoramyeon",
@@ -4961,136 +5199,127 @@
         "WifiSnap/Views/PosterListSheet.swift",
         "WifiSnap/Views/WifiPosterSheet.swift",
         "WifiSnap/Views/Settings/SettingsSheet.swift",
+        "WifiSnap/Shared/SharedDefaults.swift",
+        "WifiSnapWidget/WifiSnapWidget.swift",
         "WifiSnap.storekit"
       ],
       "kind": "mixed",
       "hidden": false,
       "headline": "마이파이 Plus · Pro",
       "subheadline": "손님 안내판부터 잠금 화면 QR까지. 연 구독이나 평생 중에 고르세요.",
-      "cta": "Plus | Pro 를 고르고 연 구독(기본) · 평생, 펼치면 매달 · 매주",
+      "cta": "Plus | Pro 칸마다 연 구독 · 평생 (주 · 월 구독도 보기를 펼치면 월 · 주)",
       "trimLabels": [
         "무료",
         "Plus",
         "Pro"
       ],
       "benefits": [
-        "Plus · 저장한 와이파이 무제한",
-        "Plus · 손님 안내판 무제한 · 복제",
-        "Plus · 안내판 테마 7개 전부",
-        "Plus · 가게 이름 · 덧붙일 문구 · 라벨 바꾸기, A4 세로 포스터",
-        "Pro · 홈 · 잠금 화면 QR 위젯",
-        "Pro · 연결했던 곳 지도",
-        "Pro · 단축어 · Siri 로 QR 열기 · 사진 읽기",
-        "Pro · 설정 화면 캡처로 와이파이 목록 한꺼번에 가져오기"
+        "Plus · 저장한 와이파이 무제한, 손님 안내판 무제한 · 복제",
+        "Plus · 안내판 테마 7개, 가게 이름 · 문구 · 라벨, A4 포스터",
+        "Pro · QR 위젯, 연결했던 곳 지도",
+        "Pro · 단축어 · Siri, 캡처로 목록 가져오기"
       ],
       "free": [
-        "안내판 · 영수증 찍어서 연결",
-        "글자 조각 끌어다 고치기",
-        "지금 와이파이 · 핫스팟 QR 공유",
-        "저장한 와이파이 20개",
-        "손님 안내판 1장 (테마 2개)",
-        "이미지 저장 · 공유 · 인쇄",
-        "이미 저장한 와이파이 · 안내판은 한도와 관계없이 보고 고치고 지울 수 있음"
+        "찍어서 연결 · 글자 조각 고치기",
+        "QR 공유 · 핫스팟",
+        "와이파이 20개 저장",
+        "안내판 1장 (테마 2개)",
+        "이미지 저장 · 공유 · 인쇄"
       ],
       "locked": [
-        "Plus: 21번째 와이파이부터 저장",
-        "Plus: 두 번째 안내판 · 안내판 복제",
-        "Plus: 나머지 테마 5개 · 가게 이름 · 덧붙일 문구 · 라벨 · A4 포스터",
-        "Pro: QR 위젯",
-        "Pro: 연결했던 곳 지도",
-        "Pro: 단축어 · Siri",
-        "Pro: 캡처로 목록 가져오기"
+        "Plus: 21번째 저장 · 두 번째 안내판 · 복제 · 나머지 테마 · 가게 이름 · 문구 · 라벨 · A4",
+        "Pro: 위젯 · 지도 · 단축어 · Siri · 캡처로 가져오기"
       ],
       "tiers": [
         {
           "productId": "com.leeo.wifisnap.plus.weekly",
-          "label": "Plus 주 구독 (심사 중)",
+          "label": "Plus 주 구독",
           "trim": "Plus",
           "period": "주",
           "price": "₩1,100",
           "priceUS": "$0.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.plus.monthly",
-          "label": "Plus 월 구독 (심사 중)",
+          "label": "Plus 월 구독",
           "trim": "Plus",
           "period": "월",
           "price": "₩3,300",
           "priceUS": "$1.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.plus.yearly",
-          "label": "Plus 연 구독 (심사 중)",
+          "label": "Plus 연 구독",
           "trim": "Plus",
           "period": "연",
           "price": "₩8,800",
           "priceUS": "$5.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.plus",
-          "label": "Plus 평생 (심사 중)",
+          "label": "Plus 평생",
           "trim": "Plus",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.pro.weekly",
-          "label": "Pro 주 구독 (심사 중)",
+          "label": "Pro 주 구독",
           "trim": "Pro",
           "period": "주",
           "price": "₩2,200",
           "priceUS": "$1.49",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.pro.monthly",
-          "label": "Pro 월 구독 (심사 중)",
+          "label": "Pro 월 구독",
           "trim": "Pro",
           "period": "월",
           "price": "₩4,400",
           "priceUS": "$2.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.pro.yearly",
-          "label": "Pro 연 구독 (심사 중)",
+          "label": "Pro 연 구독",
           "trim": "Pro",
           "period": "연",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.pro",
-          "label": "Pro 평생 (심사 중)",
+          "label": "Pro 평생",
           "trim": "Pro",
           "period": "평생",
           "price": "₩39,000",
           "priceUS": "$26.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.pro.upgrade",
-          "label": "Plus 평생 → Pro 평생 올리기 (심사 중)",
+          "label": "Plus 평생 → Pro 평생 올리기",
           "trim": "Pro",
           "period": "평생",
           "price": "₩13,000",
           "priceUS": "$8.99",
-          "live": false
+          "live": true
         },
         {
           "productId": "com.leeo.wifisnap.pro.graduate",
-          "label": "구독 졸업 Pro 평생 (연 구독 중인 사람에게만) (심사 중)",
+          "label": "구독 졸업 Pro 평생 (구독 중인 사람에게만)",
           "trim": "Pro",
           "period": "평생",
           "price": "₩26,000",
           "priceUS": "$17.99",
-          "live": false
+          "live": true
         }
       ],
       "tips": [
@@ -5101,16 +5330,17 @@
       "triggers": [
         "21번째 와이파이를 저장할 때",
         "두 번째 안내판을 만들거나 복제할 때",
-        "잠긴 테마 · 가게 이름 · 덧붙일 문구 · 라벨 · A4 를 고를 때",
-        "지도 · 캡처로 목록 가져오기를 열 때",
-        "단축어를 썼는데 Pro 가 아닐 때 · 잠긴 위젯을 눌렀을 때",
+        "잠긴 테마 · A4 · 가게 이름 · 문구를 고를 때",
+        "지도 · 캡처로 가져오기 (Pro)",
+        "단축어 · Siri 요청 · 잠긴 위젯을 누를 때",
         "설정 ▸ 요금제 보기",
-        "구독 중인 사람에게 '구독 졸업' 평생 제안 · 설정 '평생으로 바꾸기'"
+        "할인 배너",
+        "구독 6개월째 · 갱신 7일 전 졸업 제안"
       ],
-      "trial": null,
+      "trial": "연 구독 첫 해 할인 — 처음 구독하는 사람에게 연 줄에 표시",
       "restore": true,
-      "currentPublic": "모든 기능 무료 (Plus · Pro 와 팁 상품은 심사 중)",
-      "notes": "2026-11-21 소스 · App Store Connect 로 다시 정리: 결제 화면이 생겼다 — Spec 이 LeeoMonetization.freemiumSubscription, 자체 PurchaseManager · PaywallView 로 무료 · Plus · Pro 세 칸, 칸마다 연(기본) · 평생 · 월 · 주, Plus 평생 → Pro 올리기 · 구독 졸업 평생. 그래서 kind 를 tip-jar 에서 mixed 로. 무엇이 잠기는지는 Store/Plan.swift 한 곳. 1.0.4 빌드 9 가 첫 유료 빌드이고 빌드 8 이하로 처음 설치한 사람은 Pro 평생(EarlyUser.lastBuildBeforePaywall = 8). 상품 13개(팁 포함) 모두 WAITING_FOR_REVIEW 라 live 0. 유료 칸 상품을 한 번도 못 불러온 기기는 잠그지 않으므로(PurchaseManager.sellsPaid) 승인 전까지 출시 빌드도 사실상 모두 무료이고, 승인되면 결제 화면이 저절로 선다 — 그래서 hidden false. 가격: 달러는 WifiSnap.storekit(USA)과 기존 값이 모두 같고, 원화는 기존 항목 · paywall-plans 설계안 값. 연 구독은 첫 해 반값(storekit 첫 구독 할인 Plus $2.99 · Pro $4.49). 팁(storekit $0.99 / $2.99 / $4.99)은 설정 '개발자 응원하기'와 목록의 부탁 카드 — 승인 전이라 아직 안 보인다. 최근 커밋이 심사 메모에 구매해야만 보이는 올리기 · 졸업 상품 찾는 길을 적은 것(2.1(b) 재발 방지)으로 보아 한 번 반려 뒤 다시 낸 것으로 보임. 확인 못 함: 빌드 9 의 현재 심사 상태."
+      "currentPublic": "무료 · Plus 주 / 월 / 연 / 평생 · Pro 주 / 월 / 연 / 평생 · 팁 — 빌드 8 이하로 처음 받은 사람은 Pro 평생",
+      "notes": "2026-11-25 소스 · App Store Connect 로 다시 정리: 상품 모두 APPROVED. 빌드 8 이하로 처음 받은 사람은 Pro(production 영수증만). sellsPaid — 유료 상품을 못 불러온 기기는 다 열어 둔다. 이미 저장한 것은 한도와 관계없이 보고 고치고 지울 수 있다. 올리기 상품은 Plus 평생 보유자에게 Pro 평생 자리에. 팁 부탁 카드는 Pro 사용자, 저장 5 · 15 · 30개."
     },
     "yeoul": {
       "slug": "yeoul",
