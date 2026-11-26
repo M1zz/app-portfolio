@@ -5,7 +5,7 @@
 ```
 Apple (App Store Server Notifications V2)
   → POST /api/notify       서명을 Apple 루트 인증서까지 확인
-  → CloudKit Purchase      iCloud.com.Ysoup.FeedbackHub 공개 DB (서버 키)
+  → CloudKit Purchase      iCloud.com.Ysoup.HubPurchases 공개 DB (서버 키, 허브만 쓰는 컨테이너)
   → 허브 앱의 구독          아이폰 · 맥 푸시
 ```
 

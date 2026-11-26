@@ -2,7 +2,9 @@
 // 서명: base64(ECDSA-SHA256("날짜:base64(sha256(본문)):하위경로"))
 const crypto = require('crypto');
 
-const CONTAINER = 'iCloud.com.Ysoup.FeedbackHub';
+// 결제 전용 컨테이너 — 허브만 쓴다. FeedbackHub 컨테이너는 LeeoKit 앱들도 써서 거기 건 푸시가
+// 그 앱들에도 떴다(2026-11-26). CK_CONTAINER 로 바꿀 수 있다.
+const CONTAINER = process.env.CK_CONTAINER || 'iCloud.com.Ysoup.HubPurchases';
 
 async function ck(env, op, body) {
   const keyId = process.env.CK_KEY_ID;
