@@ -43,31 +43,52 @@ function event(type, subtype) {
 
 function describe(notification, transaction, app) {
   const type = notification.notificationType;
+  const sandbox = notification.data.environment === 'Sandbox';
+
+  // 허브 설정의 "시험 결제 알림 보내기" → Apple 의 TEST. 결제는 없지만 길 전체가 열렸는지 보인다.
+  if (type === 'TEST') {
+    return record(notification, {
+      title: `🔔 ${appName(app.name)} · 결제 알림 시험`,
+      message: 'Apple → 서버 → 허브 연결이 됩니다. 실제 결제는 아닙니다.',
+      kind: type,
+    });
+  }
+
   const label = event(type, notification.subtype);
   if (!label || !transaction) return null;
 
-  const sandbox = notification.data.environment === 'Sandbox';
   const price = money(transaction.price, transaction.currency);
   const country = COUNTRY[transaction.storefront] || transaction.storefront || '';
   const icon = type === 'REFUND' ? '↩️' : '💰';
   const title = `${icon} ${appName(app.name)} · ${label}${sandbox ? ' (테스트)' : ''}`;
   const message = [productLabel(transaction.productId), price, country].filter(Boolean).join(' · ');
 
+  return record(notification, {
+    title, message, kind: type,
+    productID: transaction.productId,
+    priceMilli: transaction.price ?? 0,
+    currency: transaction.currency || '',
+    storefront: transaction.storefront || '',
+    transactionID: transaction.transactionId || '',
+  });
+}
+
+function record(notification, f) {
   return {
     recordType: 'Purchase',
     recordName: notification.notificationUUID,
     fields: {
-      title: { value: title },
-      message: { value: message },
+      title: { value: f.title },
+      message: { value: f.message },
       bundleID: { value: notification.data.bundleId },
-      productID: { value: transaction.productId },
-      kind: { value: type },
+      productID: { value: f.productID || '' },
+      kind: { value: f.kind },
       subtype: { value: notification.subtype || '' },
-      priceMilli: { value: transaction.price ?? 0 },
-      currency: { value: transaction.currency || '' },
-      storefront: { value: transaction.storefront || '' },
-      sandbox: { value: sandbox ? 1 : 0 },
-      transactionID: { value: transaction.transactionId || '' },
+      priceMilli: { value: f.priceMilli || 0 },
+      currency: { value: f.currency || '' },
+      storefront: { value: f.storefront || '' },
+      sandbox: { value: notification.data.environment === 'Sandbox' ? 1 : 0 },
+      transactionID: { value: f.transactionID || '' },
       occurredAt: { value: notification.signedDate || Date.now() },
     },
   };
