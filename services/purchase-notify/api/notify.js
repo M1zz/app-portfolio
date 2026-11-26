@@ -43,6 +43,8 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'unverified' });
   }
   const { notification, transaction, app } = verified;
+  // 샌드박스(시험 결제 · 연결 시험)는 남기지 않는다. 시험 구독은 몇 분마다 갱신돼 알림이 쏟아졌다(2026-11-26).
+  if (notification.data?.environment === 'Sandbox') return res.status(200).json({ skipped: 'sandbox' });
   const record = describe(notification, transaction, app);
   if (!record) return res.status(200).json({ skipped: notification.notificationType });
 
