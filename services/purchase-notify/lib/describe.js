@@ -56,6 +56,9 @@ function describe(notification, transaction, app) {
 
   const label = event(type, notification.subtype);
   if (!label || !transaction) return null;
+  // 0원(오퍼 코드로 받은 평생 이용권 등)은 결제가 아니다 — 알리지 않는다. 판매 리포트에 "코드" 로 남는다.
+  // 하루에 수십 건이 몰려 진짜 결제 알림을 덮는다(2026-11-26 인생 맛집 코드 20여 건).
+  if (type !== 'REFUND' && !(transaction.price > 0)) return null;
 
   const price = money(transaction.price, transaction.currency);
   const country = COUNTRY[transaction.storefront] || transaction.storefront || '';
