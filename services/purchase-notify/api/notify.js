@@ -38,6 +38,12 @@ module.exports = async (req, res) => {
   try {
     verified = await verify(req.body?.signedPayload || '');
   } catch (e) {
+    // apps.json 에 아직 없는 앱이면 500 — Apple 이 사흘 동안 다시 보내니, 그 안에 앱을 더하면 결제가 남는다.
+    // 400 으로 돌려보내면 그 결제는 영영 기록되지 않는다.
+    if (e.message.startsWith('모르는 앱')) {
+      console.error('❌', e.message, '— lib/apps.json 에 더하세요');
+      return res.status(500).json({ error: 'unknown app' });
+    }
     console.error('❌ 서명 확인 실패', e.message);
     // 4xx 면 Apple 이 다시 보내지 않는다. 가짜나 모르는 앱은 다시 받을 이유가 없다.
     return res.status(400).json({ error: 'unverified' });
